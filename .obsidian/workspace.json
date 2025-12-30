@@ -189,6 +189,7 @@
   },
   "active": "7119536e5b33a70b",
   "lastOpenFiles": [
+    "fix_icon.py",
     "refine_dropdown.py",
     "posts/fpga-packet-processor.html",
     "posts/neural-network-optimizer.html",
@@ -203,7 +204,6 @@
     "clean_revert_nav.py",
     "revert_nav.py",
     "safe_vertical_nav.py",
-    "final_nav_fix.py",
     "content/projects/cybersecurity/cloud-pipeline.md",
     "content/projects/cybersecurity/risk-management.md",
     "content/projects/cybersecurity/forensics-investigation.md",
