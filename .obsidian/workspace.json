@@ -150,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/writeups/tryhackme/Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Untitled"
+              "title": "Outline"
             }
           },
           {
@@ -190,17 +189,24 @@
   },
   "active": "7119536e5b33a70b",
   "lastOpenFiles": [
+    "posts/isms-framework-alignment.html",
+    "posts/soc-threat-monitoring.html",
+    "posts/digital-forensics-investigation.html",
+    "posts/offensive-security-assessment.html",
+    "posts/secure-cloud-ci-cd-pipeline.html",
+    "posts/web-application-security-audit.html",
+    "posts/enterprise-network-hardening.html",
+    "content/projects/cybersecurity/cloud-pipeline.md",
+    "content/projects/cybersecurity/risk-management.md",
+    "content/projects/cybersecurity/forensics-investigation.md",
+    "content/projects/cybersecurity/soc-monitoring.md",
+    "content/projects/cybersecurity/offensive-assessment.md",
+    "content/projects/cybersecurity/web-audit.md",
+    "content/projects/cybersecurity/network-hardening.md",
     "projects/hardware-systems.html",
     "projects/software-engineering.html",
     "projects/networking-infrastructure.html",
     "projects/ai-machine-learning.html",
-    "sedV34wtn",
-    "sedQ3YeDg",
-    "sedm6dFQy",
-    "sedpE5Jht",
-    "sedO42oos",
-    "sedNh9Ovs",
-    "sedevqdkD",
     "content/writeups/tryhackme/Untitled.md",
     "content/writeups/tryhackme/Untitled 1.md",
     "content/projects/cybersecurity/Untitled.md",
@@ -219,13 +225,6 @@
     "content/writeups/tryhackme/mustacchio.md",
     "content/writeups/tryhackme/wordpress---cve-2021-29447.md",
     "content/writeups/tryhackme/rabit-hole.md",
-    "content/writeups/tryhackme/simple-ctf.md",
-    "content/writeups/tryhackme/crack-the-hash.md",
-    "content/writeups/tryhackme/techsupp0rt1.md",
-    "content/writeups/tryhackme/c4ptur3-th3-fl4g.md",
-    "content/writeups/tryhackme/team.md",
-    "content/writeups/tryhackme/ultratech.md",
-    "content/writeups/tryhackme/u.a.-high-school.md",
     "images/world-map-bg.png",
     "images/logo.png",
     "images/badge_placeholder.png"
