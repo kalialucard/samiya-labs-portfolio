@@ -239,36 +239,50 @@
             </a>
         </div>
 
-        <!-- Featured Intelligence (Full Width) -->
+        <!-- Latest Intelligence (Grid) -->
         <div class="mb-16 reveal">
-            <h2 class="text-2xl font-mono font-bold text-white mb-8 border-l-4 border-accent-cyan pl-4">Featured Report
-            </h2>
-            <a href="writeups.html" class="group relative block w-full rounded-2xl overflow-hidden min-h-[400px]">
-                <div class="absolute inset-0 bg-slate-900 z-0"></div>
-                <img src="images/posts/cherry-blossom.jpg" alt="Featured Writeup"
-                    class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700">
-                <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent z-10">
-                </div>
+            <h2 class="text-2xl font-mono font-bold text-white mb-8 border-l-4 border-accent-cyan pl-4">Latest
+                Intelligence</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AUTO_CARDS_START:recent -->
 
-                <div class="absolute inset-0 flex flex-col justify-center p-8 md:p-16 z-20 max-w-3xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <span
-                            class="px-3 py-1 rounded bg-red-500/20 text-red-400 text-[10px] font-mono uppercase tracking-widest border border-red-500/20">Critical_Analysis</span>
-                        <span class="text-slate-500 text-xs font-mono">ID: RPT-2025-001</span>
+            <a href="posts/cherry-blossom.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block" data-category="tryhackme" data-tags="tryhackme">
+                <div class="h-2 bg-red-500"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
+                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
                     </div>
-                    <h3
-                        class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight group-hover:text-accent-cyan transition-colors">
-                        Cherry Blossom: Advanced Persistent Threat Analysis
-                    </h3>
-                    <p class="text-slate-300 text-lg leading-relaxed mb-8">
-                        A comprehensive technical breakdown of the Cherry Blossom exploit chain, examining payload
-                        delivery vectors, persistence mechanisms, and network exfiltration patterns.
-                    </p>
-                    <div class="flex items-center gap-2 text-white font-bold group-hover:gap-4 transition-all">
-                        Read Full Analysis <i class="fa-solid fa-arrow-right text-accent-cyan"></i>
-                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Cherry Blossom</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">Technical documentation and research.</p>
                 </div>
             </a>
+
+            <a href="posts/testing-the-new-cms.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-400/10 transition-all duration-300 block" data-category="blogs" data-tags="automation, python, web-dev">
+                <div class="h-2 bg-amber-400"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 rounded text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 uppercase">blogs</span>
+                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Testing the New CMS</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">A quick test to ensure the Unified Content Management system is working correctly across all pages.</p>
+                </div>
+            </a>
+
+            <a href="posts/adversarial-ml-defense-system.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-rose-400/50 hover:shadow-xl hover:shadow-rose-400/10 transition-all duration-300 block" data-category="ai" data-tags="ai, system">
+                <div class="h-2 bg-rose-400"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 rounded text-xs font-bold bg-rose-400/10 text-rose-400 border border-rose-400/20 uppercase">ai</span>
+                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-rose-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-rose-400 transition-colors">Adversarial ML Defense System</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">Research project focusing on detecting and mitigating adversarial examples in real-time computer vision systems, improving model robustness against FGSM and PGD attacks.</p>
+                </div>
+            </a>
+<!-- AUTO_CARDS_END:recent -->
+            </div>
         </div>
 
         <!-- Domain Expertise (2x2 Grid) -->
@@ -334,55 +348,7 @@
 
     </main>
 
-    <!-- Home Content: Blogs/Writeups Section -->
-    <main class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16 reveal">
-            <h2 class="font-mono text-4xl font-bold mb-4 uppercase tracking-tighter glitch-hover">Recent <span
-                    class="text-accent-cyan">Intelligence</span></h2>
-            <p class="text-slate-400 font-light text-lg">Latest security writeups and technical investigations.</p>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- AUTO_CARDS_START:recent -->
-
-            <a href="posts/cherry-blossom.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block" data-category="tryhackme" data-tags="tryhackme">
-                <div class="h-2 bg-red-500"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Cherry Blossom</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">Technical documentation and research.</p>
-                </div>
-            </a>
-
-            <a href="posts/testing-the-new-cms.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-400/10 transition-all duration-300 block" data-category="blogs" data-tags="automation, python, web-dev">
-                <div class="h-2 bg-amber-400"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 uppercase">blogs</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-amber-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Testing the New CMS</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">A quick test to ensure the Unified Content Management system is working correctly across all pages.</p>
-                </div>
-            </a>
-
-            <a href="posts/adversarial-ml-defense-system.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-rose-400/50 hover:shadow-xl hover:shadow-rose-400/10 transition-all duration-300 block" data-category="ai" data-tags="ai, system">
-                <div class="h-2 bg-rose-400"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-rose-400/10 text-rose-400 border border-rose-400/20 uppercase">ai</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-rose-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-rose-400 transition-colors">Adversarial ML Defense System</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">Research project focusing on detecting and mitigating adversarial examples in real-time computer vision systems, improving model robustness against FGSM and PGD attacks.</p>
-                </div>
-            </a>
-<!-- AUTO_CARDS_END:recent -->
-        </div>
-    </main>
 
     <!-- Footer -->
     <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-auto relative overflow-hidden">

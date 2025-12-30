@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "57f86622de0256e5",
+        "id": "defd6685d542cdd9",
         "type": "tabs",
         "children": [
           {
-            "id": "f98c5b1a9b05595c",
+            "id": "5675fb59b9fef21b",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -173,7 +173,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,8 +187,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7119536e5b33a70b",
+  "active": "5675fb59b9fef21b",
   "lastOpenFiles": [
+    "content/projects/ethical-hacking-vulnerability-testing/offensive-assessment.md",
+    "content/blogs/testing-cms.md",
     "content/projects/cybersecurity/red-team-financial.md",
     "fix_nav_links.py",
     "fix_project_pages.py",
@@ -223,7 +225,6 @@
     "content/projects/cybersecurity/network-hardening.md",
     "content/writeups/tryhackme/Untitled.md",
     "content/writeups/tryhackme/Untitled 1.md",
-    "content/projects/cybersecurity/Untitled.md",
     "images/world-map-bg.png",
     "images/logo.png",
     "images/badge_placeholder.png"
