@@ -11,10 +11,14 @@
             "id": "18e00c71ced11aa4",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "content/projects/cybersecurity/red-team-financial.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "red-team-financial"
             }
           }
         ]
@@ -150,12 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "content/projects/cybersecurity/red-team-financial.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of red-team-financial"
             }
           },
           {
@@ -189,6 +194,10 @@
   },
   "active": "7119536e5b33a70b",
   "lastOpenFiles": [
+    "fix_project_pages.py",
+    "verify_markers.py",
+    "content/projects/cybersecurity/risk-management.md",
+    "content/projects/cybersecurity/api-security-gateway.md",
     "fix_markers.py",
     "posts/iot-firmware-security-analysis.html",
     "posts/iso-27001-compliance-roadmap.html",
@@ -198,8 +207,6 @@
     "posts/zero-trust-network-implementation.html",
     "posts/advanced-memory-forensics-tool.html",
     "posts/ransomware-defense-playbook.html",
-    "posts/adversarial-ml-defense-system.html",
-    "posts/rust-linux-kernel-module.html",
     "content/projects/hardware/iot-firmware-analysis.md",
     "content/projects/programming/rust-kernel-module.md",
     "content/projects/networking/5g-slice-security.md",
@@ -209,14 +216,12 @@
     "content/projects/cybersecurity/memory-forensics-tool.md",
     "content/projects/cybersecurity/ransomware-playbook.md",
     "content/projects/cybersecurity/red-team-financial.md",
-    "content/projects/cybersecurity/api-security-gateway.md",
     "content/projects/cybersecurity/zero-trust-impl.md",
     "content/projects/hardware/packet-processor.md",
     "content/projects/programming/task-queue.md",
     "content/projects/networking/sdn-controller.md",
     "content/projects/ai/nn-optimizer.md",
     "content/projects/cybersecurity/cloud-pipeline.md",
-    "content/projects/cybersecurity/risk-management.md",
     "content/projects/cybersecurity/forensics-investigation.md",
     "content/projects/cybersecurity/soc-monitoring.md",
     "content/projects/cybersecurity/offensive-assessment.md",
