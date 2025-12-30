@@ -1,4 +1,10 @@
 ---
+summary: "Red-team operation simulating sophisticated actor TTPs."
+skills: "Vulnerability Research, Exploit Dev, Lateral Movement"
+tools: "Metasploit, Burp Suite, Cobalt Strike, Nmap"
+github: "#"
+report: "#"
+demo: "#"
 title: "Offensive Security Assessment"
 date: "2025-12-30"
 category: "ethical-hacking"

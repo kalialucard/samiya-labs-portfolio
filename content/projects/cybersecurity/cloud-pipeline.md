@@ -1,4 +1,10 @@
 ---
+summary: "Automated security orchestration for multi-cloud deployments."
+skills: "CI/CD Security, Cloud Hardening, Infrastructure as Code"
+tools: "Terraform, AWS Security Hub, GitHub Actions, Snyk"
+github: "#"
+report: "#"
+demo: "#"
 title: "Secure Cloud CI/CD Pipeline"
 date: "2025-12-30"
 category: "devsecops"

@@ -1,4 +1,10 @@
 ---
+summary: "Real-time blue-team operations and incident lifecyle management."
+skills: "Log Analysis, SIEM Engineering, Incident Triage"
+tools: "Splunk, ELK Stack, TheHive, Cortex XSOAR"
+github: "#"
+report: "#"
+demo: "#"
 title: "SOC Threat Monitoring"
 date: "2025-12-30"
 category: "incident-response"

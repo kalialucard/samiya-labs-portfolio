@@ -1,4 +1,10 @@
 ---
+summary: "Post-compromise digital forensics and root cause analysis."
+skills: "Memory Forensics, Disk Imaging, Malware Triage"
+tools: "Volatility, Autopsy, FTK Imager, Wireshark"
+github: "#"
+report: "#"
+demo: "#"
 title: "Digital Forensics Investigation"
 date: "2025-12-30"
 category: "investigation"

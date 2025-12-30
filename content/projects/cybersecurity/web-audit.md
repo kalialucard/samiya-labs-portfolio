@@ -1,4 +1,10 @@
 ---
+summary: "Deep-dive technical assessment of modern web application stacks."
+skills: "OWASP Top 10, API Security, Logic Flaw Hunting"
+tools: "Burp Suite Professional, OWASP ZAP, Postman, SQLMap"
+github: "#"
+report: "#"
+demo: "#"
 title: "Web Application Security Audit"
 date: "2025-12-30"
 category: "web-security"

@@ -1,4 +1,10 @@
 ---
+summary: "Hardening enterprise infrastructure against perimeter breaches."
+skills: "Network Segmentation, IDS/IPS Tuning, Firewall Orchestration"
+tools: "pfsense, Snort, Suricata, Cisco ASA"
+github: "#"
+report: "#"
+demo: "#"
 title: "Enterprise Network Hardening"
 date: "2025-12-30"
 category: "network-protection"

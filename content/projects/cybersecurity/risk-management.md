@@ -1,4 +1,10 @@
 ---
+summary: "Alignment of security operations with global compliance standards."
+skills: "ISO 27001 Audit, NIST Framework, Risk Assessment"
+tools: "Grisp, ServiceNow GRC, Microsoft Compliance Manager"
+github: "#"
+report: "#"
+demo: "#"
 title: "ISMS Framework Alignment"
 date: "2025-12-30"
 category: "risk-management"

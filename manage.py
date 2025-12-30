@@ -384,26 +384,62 @@ class ContentManager:
         }
         color = color_map.get(post['category'], "accent-cyan")
         
-        tags_list = post['tags'].split(',')
-        tag_spans = "".join([f'<span class="border border-{color}/30 px-2 py-1 rounded uppercase mr-2">{t.strip()}</span>' for t in tags_list])
+        # New fields from metadata
+        one_line_summary = post.get('summary', post.get('description', '')[:100])
+        skills = post.get('skills', post.get('tags', ''))
+        tools = post.get('tools', 'Not specified')
+        
+        skills_html = "".join([f'<span class="px-2 py-0.5 rounded bg-{color}/5 text-{color}/80 border border-{color}/10 text-[9px] uppercase tracking-tighter">{s.strip()}</span>' for s in skills.split(',')])
+        tools_html = "".join([f'<span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 text-[9px] uppercase tracking-tighter">{t.strip()}</span>' for t in tools.split(',')])
+
+        links_html = ""
+        if post.get('github'):
+            links_html += f'<a href="{post["github"]}" target="_blank" class="text-xs font-mono text-slate-400 hover:text-white transition-colors flex items-center gap-1"><i class="fa-brands fa-github"></i> GITHUB</a>'
+        if post.get('report'):
+            links_html += f'<a href="{post["report"]}" target="_blank" class="text-xs font-mono text-slate-400 hover:text-white transition-colors flex items-center gap-1"><i class="fa-solid fa-file-lines"></i> REPORT</a>'
+        if post.get('demo'):
+            links_html += f'<a href="{post["demo"]}" target="_blank" class="text-xs font-mono text-slate-400 hover:text-white transition-colors flex items-center gap-1"><i class="fa-solid fa-flask"></i> DEMO</a>'
+        
+        if not links_html:
+            links_html = f'<a href="{post["url"]}" class="text-xs font-mono text-{color} hover:underline">VIEW_FULL_INTELLIGENCE_REPORT</a>'
 
         img_html = ""
         if post.get('image'):
-            img_html = f'<div class="md:w-1/4 h-48 rounded overflow-hidden shadow-2xl border border-slate-700"><img src="{post["image"]}" alt="{post["title"]}" class="w-full h-full object-cover"></div>'
+            img_html = f'<div class="md:w-1/3 h-56 rounded-lg overflow-hidden border border-slate-800 group-hover:border-{color}/30 transition-colors"><img src="{post["image"]}" alt="{post["title"]}" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"></div>'
 
         return f"""
-        <article class="mb-12 bg-slate-800/20 border border-slate-700 p-8 rounded hover:border-{color} transition-all reveal">
+        <article class="group bg-slate-900/50 border border-slate-800/80 p-8 rounded-xl hover:bg-slate-900 hover:border-{color}/40 transition-all duration-500 reveal mb-8">
             <div class="flex flex-col md:flex-row gap-8">
                 {img_html}
-                <div class="{"md:w-3/4" if post.get('image') else "w-full"}">
-                    <h3 class="text-2xl font-bold text-white mb-2">{post['title']}</h3>
-                    <div class="flex gap-2 mb-4 text-xs font-mono text-{color}">
-                        {tag_spans}
+                <div class="flex-grow">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold text-white group-hover:text-{color} transition-colors">{post['title']}</h3>
+                        <span class="text-[9px] font-mono text-slate-600 uppercase tracking-widest bg-slate-950 px-2 py-1 rounded border border-slate-800">PROJECT_ID: {hash(post['title']) % 100000}</span>
                     </div>
-                    <p class="text-slate-400 mb-4 leading-relaxed">
+                    <p class="text-{color} font-mono text-[11px] mb-4 uppercase tracking-tighter italic">{one_line_summary}</p>
+                    
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-4">
                         {post['description']}
                     </p>
-                    <a href="{post['url']}" class="text-xs font-mono text-{color} hover:underline">VIEW_FULL_INTELLIGENCE_REPORT</a>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <span class="block text-[8px] font-mono text-slate-500 uppercase tracking-widest mb-2">Skills_Used</span>
+                            <div class="flex flex-wrap gap-2">
+                                {skills_html}
+                            </div>
+                        </div>
+                        <div>
+                            <span class="block text-[8px] font-mono text-slate-500 uppercase tracking-widest mb-2">Tools_Used</span>
+                            <div class="flex flex-wrap gap-2">
+                                {tools_html}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 pt-4 border-t border-slate-800/50">
+                        {links_html}
+                    </div>
                 </div>
             </div>
         </article>"""
