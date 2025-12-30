@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "1c81cb8c9e61dde4",
+        "id": "f45450a4ffc74c14",
         "type": "tabs",
         "children": [
           {
-            "id": "6edde34ee647d1f2",
+            "id": "0f7bedd0210c8873",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cherry Blossom.md",
+                "file": "content/writeups/tryhackme/Cherry Blossom.md",
                 "mode": "source",
                 "source": false
               },
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cherry Blossom.md",
+                "file": "content/writeups/tryhackme/Cherry Blossom.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cherry Blossom.md",
+                "file": "content/writeups/tryhackme/Cherry Blossom.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cherry Blossom.md",
+                "file": "content/writeups/tryhackme/Cherry Blossom.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -194,15 +194,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6edde34ee647d1f2",
+  "active": "0f7bedd0210c8873",
   "lastOpenFiles": [
+    "content/writeups/tryhackme/Untitled.md",
+    "content/writeups/tryhackme/hack-smarter-security.md",
+    "content/writeups/tryhackme/ghostcat.md",
+    "content/writeups/tryhackme/cyberlens.md",
+    "content/writeups/tryhackme/cyberheroes.md",
+    "content/writeups/tryhackme/Cherry Blossom.md",
     "Cherry Blossom.md",
     "images/posts",
     "content/assets",
     "README.md",
     "RELEASES.md",
     "content/writeups/tryhackme/anonforce.md",
-    "content/writeups/tryhackme/cyberheroes.md",
     "content/writeups/tryhackme/mustacchio.md",
     "content/writeups/tryhackme/wordpress---cve-2021-29447.md",
     "content/writeups/tryhackme/rabit-hole.md",
@@ -213,17 +218,12 @@
     "content/writeups/tryhackme/team.md",
     "content/writeups/tryhackme/ultratech.md",
     "content/writeups/tryhackme/u.a.-high-school.md",
-    "content/writeups/tryhackme/cyberlens.md",
     "content/writeups/tryhackme/ignite.md",
     "content/writeups/tryhackme/spring.md",
     "content/writeups/tryhackme/mindgames.md",
     "content/writeups/tryhackme/anonymous.md",
     "content/writeups/tryhackme/library.md",
     "content/writeups/tryhackme/unstable-twin.md",
-    "content/writeups/tryhackme/walkin.md",
-    "content/writeups/tryhackme/agent-sudo.md",
-    "content/writeups/tryhackme/wekor.md",
-    "content/writeups/tryhackme/archangel.md",
     "content/writeups/hackthebox",
     "content/writeups/tryhackme",
     "content/tools",
