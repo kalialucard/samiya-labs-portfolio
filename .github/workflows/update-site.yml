@@ -39,6 +39,7 @@ jobs:
         run: |
           git config --global user.name "Intelligence-Bot"
           git config --global user.email "bot@technicalintelligence.labs"
-          git add posts/*.html index.html writeups.html devhub.html
+          git add *.html posts/*.html
+          git add images/posts/*
           # Only commit if there are changes
           git diff --quiet && git diff --staged --quiet || (git commit -m "auto: deploy intelligence update [skip ci]" && git push)

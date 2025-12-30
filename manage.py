@@ -145,14 +145,21 @@ class ContentManager:
         for file_path in all_md_files:
             metadata, body = self.parse_file(file_path)
             
-            # Check for AI Enrichment flag
-            if metadata.get('enrich', False) == True:
-                body, metadata = self.ai_enrichment(body, metadata)
-
+            # --- MAGIC AUTO-METADATA ---
             dir_category = os.path.basename(os.path.dirname(file_path))
+            # If it's nested like writeups/tryhackme, get the parent too
             category = metadata.get('category', dir_category)
             
+            # Default to ENRICH: True if it's in a writeups or projects folder
+            is_auto_field = any(x in file_path for x in ["writeups", "projects", "blogs"])
+            should_enrich = metadata.get('enrich', is_auto_field)
+
+            if should_enrich:
+                body, metadata = self.ai_enrichment(body, metadata)
+
             title = metadata.get('title', os.path.splitext(os.path.basename(file_path))[0])
+            # Re-check category after enrichment in case AI updated it
+            category = metadata.get('category', category)
             slug = metadata.get('slug', title.lower().replace(' ', '-').replace('_', '-').replace('/', '-'))
             slug = re.sub(r'[^a-z0-9\-]', '', slug) # Final sweep for weird characters
             date = metadata.get('date', datetime.now().strftime("%Y-%m-%d"))
@@ -329,7 +336,14 @@ class ContentManager:
             "networking": "accent-cyan",
             "programming": "amber-400",
             "hardware": "purple-500",
-            "ai": "rose-400"
+            "ai": "rose-400",
+            "network-protection": "accent-green",
+            "web-security": "accent-green",
+            "ethical-hacking": "accent-green",
+            "incident-response": "accent-green",
+            "investigation": "accent-green",
+            "risk-management": "accent-green",
+            "devsecops": "accent-green"
         }
         color = color_map.get(post['category'], "accent-cyan")
         
@@ -359,7 +373,14 @@ class ContentManager:
             "networking": "accent-cyan",
             "programming": "amber-400",
             "hardware": "purple-500",
-            "ai": "rose-400"
+            "ai": "rose-400",
+            "network-protection": "accent-green",
+            "web-security": "accent-green",
+            "ethical-hacking": "accent-green",
+            "incident-response": "accent-green",
+            "investigation": "accent-green",
+            "risk-management": "accent-green",
+            "devsecops": "accent-green"
         }
         color = color_map.get(post['category'], "accent-cyan")
         

