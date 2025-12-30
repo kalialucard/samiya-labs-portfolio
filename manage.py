@@ -201,7 +201,12 @@ class ContentManager:
             "projects": "accent-cyan",
             "docs": "white",
             "testing": "purple-500",
-            "cheatsheet": "accent-green"
+            "cheatsheet": "accent-green",
+            "cybersecurity": "accent-green",
+            "networking": "accent-cyan",
+            "programming": "amber-400",
+            "hardware": "purple-500",
+            "ai": "rose-400"
         }
         color = color_map.get(post['category'], "accent-cyan")
         
@@ -218,8 +223,38 @@ class ContentManager:
                 </div>
             </a>"""
 
+    def create_project_card(self, post):
+        color_map = {
+            "cybersecurity": "accent-green",
+            "networking": "accent-cyan",
+            "programming": "amber-400",
+            "hardware": "purple-500",
+            "ai": "rose-400"
+        }
+        color = color_map.get(post['category'], "accent-cyan")
+        
+        tags_list = post['tags'].split(',')
+        tag_spans = "".join([f'<span class="border border-{color}/30 px-2 py-1 rounded uppercase mr-2">{t.strip()}</span>' for t in tags_list])
+
+        return f"""
+        <article class="mb-12 bg-slate-800/20 border border-slate-700 p-8 rounded hover:border-{color} transition-all reveal">
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-3/4">
+                    <h3 class="text-2xl font-bold text-white mb-2">{post['title']}</h3>
+                    <div class="flex gap-2 mb-4 text-xs font-mono text-{color}">
+                        {tag_spans}
+                    </div>
+                    <p class="text-slate-400 mb-4 leading-relaxed">
+                        {post['description']}
+                    </p>
+                    <a href="{post['url']}" class="text-xs font-mono text-{color} hover:underline">VIEW_FULL_INTELLIGENCE_REPORT</a>
+                </div>
+            </div>
+        </article>"""
+
     def update_site_grids(self):
-        target_files = ["index.html", "devhub.html", "writeups.html"]
+        target_files = ["index.html", "devhub.html", "writeups.html", "cybersecurity.html", "networking.html", "programming.html", "hardware.html", "ai.html"]
+        project_pages = ["cybersecurity.html", "networking.html", "programming.html", "hardware.html", "ai.html"]
         
         # Categorize posts
         sections = {}
@@ -234,12 +269,18 @@ class ContentManager:
             with open(filename, 'r', encoding='utf-8') as f:
                 content = f.read()
 
+            is_project_page = filename in project_pages
+
             for cat, posts in sections.items():
                 start_marker = f"<!-- AUTO_CARDS_START:{cat} -->"
                 end_marker = f"<!-- AUTO_CARDS_END:{cat} -->"
                 
                 if start_marker in content and end_marker in content:
-                    cards_html = "\n".join([self.create_card(p) for p in posts])
+                    if is_project_page:
+                        cards_html = "\n".join([self.create_project_card(p) for p in posts])
+                    else:
+                        cards_html = "\n".join([self.create_card(p) for p in posts])
+                        
                     pattern = f"{start_marker}.*?{end_marker}"
                     content = re.sub(pattern, f"{start_marker}\n{cards_html}\n{end_marker}", content, flags=re.DOTALL)
             
