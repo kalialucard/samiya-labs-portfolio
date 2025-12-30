@@ -164,156 +164,185 @@
 
     <!-- Hero Area -->
     <header
-        class="py-32 px-6 border-b border-white/5 relative overflow-hidden flex items-center justify-center min-h-[75vh] crt">
-        <!-- Simulated Live Feed - Moved higher with buffer -->
+        class="py-24 px-6 border-b border-white/5 relative overflow-hidden flex items-center justify-center min-h-[50vh] crt">
         <div id="live-feed"
             class="absolute top-4 left-0 right-0 h-24 overflow-hidden font-mono text-[9px] pointer-events-none opacity-40 mask-fade">
         </div>
 
-        <div class="max-w-7xl mx-auto relative z-10 text-center">
-            <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-green/10 border border-accent-green/20 text-[10px] font-mono text-accent-green uppercase tracking-[0.2em] mb-8 reveal">
-                Professional Technical Showcase
-            </div>
-            <h1
-                class="font-mono text-5xl md:text-7xl font-bold mb-8 uppercase tracking-tighter text-white reveal glitch-hover">
-                Technical <span class="text-accent-cyan">Intelligence.</span><br>Deep Research.
-            </h1>
-            <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-light mb-12 max-w-3xl mx-auto reveal">
-                A professional archive focused on offensive security, infrastructure hardening, and high-performance
-                engineering.
-            </p>
-
-            <!-- Quick Navigation Buttons -->
-            <!-- Project Domain Highlights (Vertical Cards) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 reveal">
-                <!-- Network & System Security -->
-                <a href="projects/network-system-protection.html"
-                    class="group relative h-96 rounded-xl overflow-hidden border border-white/10 bg-slate-900/50 backdrop-blur-md hover:-translate-y-2 transition-all duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950/90 z-10"></div>
-                    <img src="images/posts/network-shield.jpg" alt="Network Security"
-                        class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-accent-green/20 backdrop-blur-md flex items-center justify-center mb-4 border border-accent-green/30 text-accent-green shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                            <i class="fa-solid fa-shield-halved text-xl"></i>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-white mb-2 leading-tight group-hover:text-accent-green transition-colors">
-                            Network & System Security</h3>
-                        <p class="text-xs text-slate-400 font-mono uppercase tracking-widest">Hardened_Infrastructure
+        <div class="max-w-7xl mx-auto relative z-10 w-full">
+            <div class="flex flex-col lg:flex-row items-end justify-between gap-12">
+                <div class="flex-grow">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-green/10 border border-accent-green/20 text-[10px] font-mono text-accent-green uppercase tracking-[0.2em] mb-8 reveal">
+                        System_Initialization_Complete
+                    </div>
+                    <h1
+                        class="font-mono text-6xl md:text-8xl font-bold mb-6 uppercase tracking-tighter text-white reveal glitch-hover leading-none">
+                        Kali<span class="text-accent-cyan">Alucard</span>
+                    </h1>
+                    <div class="flex items-center gap-4 reveal">
+                        <span class="text-accent-green text-xl">➜</span>
+                        <p class="font-mono text-xl md:text-2xl text-slate-400 typewriter">
+                            Technical Intelligence & Offensive Operations_
                         </p>
                     </div>
-                </a>
-
-                <!-- Web & Application Security -->
-                <a href="projects/application-web-security.html"
-                    class="group relative h-96 rounded-xl overflow-hidden border border-white/10 bg-slate-900/50 backdrop-blur-md hover:-translate-y-2 transition-all duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950/90 z-10"></div>
-                    <img src="images/posts/web-audit.jpg" alt="Web Security"
-                        class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-accent-green/20 backdrop-blur-md flex items-center justify-center mb-4 border border-accent-green/30 text-accent-green shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                            <i class="fa-solid fa-globe text-xl"></i>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-white mb-2 leading-tight group-hover:text-accent-green transition-colors">
-                            Web & App Security</h3>
-                        <p class="text-xs text-slate-400 font-mono uppercase tracking-widest">Full_Stack_Audits</p>
-                    </div>
-                </a>
-
-                <!-- Ethical Hacking -->
-                <a href="projects/ethical-hacking-vulnerability-testing.html"
-                    class="group relative h-96 rounded-xl overflow-hidden border border-white/10 bg-slate-900/50 backdrop-blur-md hover:-translate-y-2 transition-all duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950/90 z-10"></div>
-                    <img src="images/posts/red-team.jpg" alt="Ethical Hacking"
-                        class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-accent-green/20 backdrop-blur-md flex items-center justify-center mb-4 border border-accent-green/30 text-accent-green shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                            <i class="fa-solid fa-mask text-xl"></i>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-white mb-2 leading-tight group-hover:text-accent-green transition-colors">
-                            Ethical Hacking</h3>
-                        <p class="text-xs text-slate-400 font-mono uppercase tracking-widest">Offensive_Operations</p>
-                    </div>
-                </a>
-
-                <!-- Cloud & DevSecOps -->
-                <a href="projects/cloud-secure-development-operations.html"
-                    class="group relative h-96 rounded-xl overflow-hidden border border-white/10 bg-slate-900/50 backdrop-blur-md hover:-translate-y-2 transition-all duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950/90 z-10"></div>
-                    <img src="images/posts/cloud-security.jpg" alt="Cloud Security"
-                        class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-accent-green/20 backdrop-blur-md flex items-center justify-center mb-4 border border-accent-green/30 text-accent-green shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                            <i class="fa-solid fa-cloud text-xl"></i>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-white mb-2 leading-tight group-hover:text-accent-green transition-colors">
-                            Cloud & DevSecOps</h3>
-                        <p class="text-xs text-slate-400 font-mono uppercase tracking-widest">Secure_Pipelines</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- DevHub Resources (Horizontal Bars) -->
-            <div class="space-y-4 max-w-4xl mx-auto reveal">
-                <!-- Tool Testing -->
-                <a href="devhub.html#tool-testing"
-                    class="group flex items-center p-4 rounded-lg bg-white text-slate-950 hover:bg-accent-cyan hover:text-white transition-all duration-300 shadow-lg transform hover:-translate-y-1">
-                    <div
-                        class="w-12 h-12 rounded bg-slate-200 flex items-center justify-center text-slate-800 group-hover:bg-white/20 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-microscope text-xl"></i>
-                    </div>
-                    <div class="ml-6 text-left flex-grow">
-                        <h3 class="font-bold text-lg uppercase tracking-tight">Tool Testing</h3>
-                        <p class="text-xs opacity-70 font-mono">Hands-on evaluation of new security tools</p>
-                    </div>
-                    <i
-                        class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300"></i>
-                </a>
-
-                <!-- Technical Blogs -->
-                <a href="devhub.html#technical-blogs"
-                    class="group flex items-center p-4 rounded-lg border border-white/10 bg-slate-900/80 backdrop-blur-md hover:bg-slate-800 transition-all duration-300 transform hover:-translate-y-1">
-                    <div
-                        class="w-12 h-12 rounded bg-slate-800 flex items-center justify-center text-white group-hover:bg-accent-cyan group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-pen-nib text-xl"></i>
-                    </div>
-                    <div class="ml-6 text-left flex-grow">
-                        <h3
-                            class="font-bold text-lg text-white uppercase tracking-tight group-hover:text-accent-cyan transition-colors">
-                            Technical Blogs</h3>
-                        <p class="text-xs text-slate-400 font-mono">In-depth analysis and technical guides</p>
-                    </div>
-                    <i
-                        class="fa-solid fa-arrow-right text-slate-600 group-hover:text-accent-cyan opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0 duration-300"></i>
-                </a>
-
-                <!-- Documentations -->
-                <a href="devhub.html#docs-library"
-                    class="group flex items-center p-4 rounded-lg border border-white/10 bg-slate-900/80 backdrop-blur-md hover:bg-slate-800 transition-all duration-300 transform hover:-translate-y-1">
-                    <div
-                        class="w-12 h-12 rounded bg-slate-800 flex items-center justify-center text-white group-hover:bg-accent-green group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-book text-xl"></i>
-                    </div>
-                    <div class="ml-6 text-left flex-grow">
-                        <h3
-                            class="font-bold text-lg text-white uppercase tracking-tight group-hover:text-accent-green transition-colors">
-                            Documentations</h3>
-                        <p class="text-xs text-slate-400 font-mono">Comprehensive resource library</p>
-                    </div>
-                    <i
-                        class="fa-solid fa-arrow-right text-slate-600 group-hover:text-accent-green opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0 duration-300"></i>
-                </a>
+                </div>
             </div>
         </div>
     </header>
+
+    <!-- Mission Control Bento Grid -->
+    <main class="py-12 px-6 max-w-[1600px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 min-h-[800px]">
+
+            <!-- [1x1] Identity Card -->
+            <a href="about.html"
+                class="group flex flex-col justify-between p-6 rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal">
+                <div class="flex justify-between items-start">
+                    <div class="w-16 h-16 rounded-full border-2 border-accent-cyan/30 p-1">
+                        <img src="https://ui-avatars.com/api/?name=Kali+Alucard&background=0ea5e9&color=fff&size=128"
+                            alt="Profile"
+                            class="rounded-full w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <div class="bg-accent-cyan/10 px-2 py-1 rounded border border-accent-cyan/20">
+                        <span class="text-[9px] font-mono text-accent-cyan uppercase tracking-widest">Operator</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-accent-cyan transition-colors">
+                        KaliAlucard</h3>
+                    <p class="text-xs text-slate-400 font-mono mb-4">Cybersecurity Specialist</p>
+                    <div class="flex gap-2">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-[10px] text-slate-500 font-mono uppercase">System_Online</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- [1x1] Clearance Card -->
+            <a href="certificates.html"
+                class="group flex flex-col justify-between p-6 rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal"
+                style="transition-delay: 100ms;">
+                <div class="flex justify-between items-start">
+                    <i
+                        class="fa-solid fa-id-card text-4xl text-slate-600 group-hover:text-accent-green transition-colors"></i>
+                    <i class="fa-solid fa-wifi text-slate-700"></i>
+                </div>
+                <div>
+                    <div class="text-[10px] text-slate-500 font-mono uppercase mb-2">Security_Clearance</div>
+                    <h3 class="text-3xl font-bold text-white mb-1 tracking-tighter">OMNI_LEVEL</h3>
+                    <div class="h-1 w-full bg-slate-800 rounded-full mt-4 overflow-hidden">
+                        <div class="h-full bg-accent-green w-3/4 group-hover:w-full transition-all duration-700"></div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- [2x2] Featured Intelligence -->
+            <a href="writeups.html"
+                class="md:col-span-2 md:row-span-2 group relative rounded-2xl overflow-hidden holographic-border bento-card-hover min-h-[300px] reveal"
+                style="transition-delay: 200ms;">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent z-10">
+                </div>
+                <img src="images/posts/cherry-blossom.jpg" alt="Featured Writeup"
+                    class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700">
+
+                <div class="absolute bottom-0 left-0 right-0 p-8 z-20">
+                    <div
+                        class="bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-full text-[10px] font-mono inline-block mb-4 uppercase tracking-widest backdrop-blur-md">
+                        Latest_Intelligence_Drop
+                    </div>
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-white mb-4 leading-none tracking-tighter group-hover:text-red-400 transition-colors">
+                        Cherry Blossom
+                    </h2>
+                    <p class="text-slate-300 max-w-lg text-lg line-clamp-2">
+                        Comprehensive analysis of the Cherry Blossom exploit chain, dissecting payload delivery and
+                        persistence mechanisms.
+                    </p>
+                </div>
+            </a>
+
+            <!-- [1x2] Vertical Domain Strips -->
+            <a href="projects/network-system-protection.html"
+                class="group relative overflow-hidden rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal"
+                style="transition-delay: 300ms;">
+                <img src="images/posts/network-shield.jpg"
+                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity">
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
+                    <i
+                        class="fa-solid fa-shield-halved text-3xl text-slate-500 group-hover:text-accent-green mb-4 transition-all group-hover:-translate-y-2"></i>
+                    <span
+                        class="font-mono text-xs text-white uppercase tracking-widest vertical-rl group-hover:text-accent-green transition-colors">Network_Sec</span>
+                </div>
+            </a>
+
+            <a href="projects/application-web-security.html"
+                class="group relative overflow-hidden rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal"
+                style="transition-delay: 400ms;">
+                <img src="images/posts/web-audit.jpg"
+                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity">
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
+                    <i
+                        class="fa-solid fa-globe text-3xl text-slate-500 group-hover:text-accent-green mb-4 transition-all group-hover:-translate-y-2"></i>
+                    <span
+                        class="font-mono text-xs text-white uppercase tracking-widest vertical-rl group-hover:text-accent-green transition-colors">Web_Audit</span>
+                </div>
+            </a>
+
+            <a href="projects/ethical-hacking-vulnerability-testing.html"
+                class="group relative overflow-hidden rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal"
+                style="transition-delay: 500ms;">
+                <img src="images/posts/red-team.jpg"
+                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity">
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
+                    <i
+                        class="fa-solid fa-mask text-3xl text-slate-500 group-hover:text-accent-green mb-4 transition-all group-hover:-translate-y-2"></i>
+                    <span
+                        class="font-mono text-xs text-white uppercase tracking-widest vertical-rl group-hover:text-accent-green transition-colors">Red_Team</span>
+                </div>
+            </a>
+
+            <a href="projects/cloud-secure-development-operations.html"
+                class="group relative overflow-hidden rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal"
+                style="transition-delay: 600ms;">
+                <img src="images/posts/cloud-security.jpg"
+                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity">
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
+                    <i
+                        class="fa-solid fa-cloud text-3xl text-slate-500 group-hover:text-accent-green mb-4 transition-all group-hover:-translate-y-2"></i>
+                    <span
+                        class="font-mono text-xs text-white uppercase tracking-widest vertical-rl group-hover:text-accent-green transition-colors">Cloud_Ops</span>
+                </div>
+            </a>
+
+            <!-- [2x1] DevHub Console -->
+            <div class="md:col-span-2 rounded-2xl bg-slate-900/50 holographic-border p-6 flex flex-col justify-center reveal"
+                style="transition-delay: 700ms;">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-2 h-2 bg-accent-cyan rounded-full animate-ping"></span>
+                    <h3 class="font-mono text-sm text-slate-400 uppercase tracking-widest">DevHub_Console</h3>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                    <a href="devhub.html#tool-testing"
+                        class="group flex flex-col items-center p-4 rounded bg-slate-950/50 hover:bg-accent-cyan/10 border border-transparent hover:border-accent-cyan/30 transition-all">
+                        <i class="fa-solid fa-microscope text-2xl text-slate-400 group-hover:text-accent-cyan mb-2"></i>
+                        <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white">Tools</span>
+                    </a>
+                    <a href="devhub.html#technical-blogs"
+                        class="group flex flex-col items-center p-4 rounded bg-slate-950/50 hover:bg-accent-cyan/10 border border-transparent hover:border-accent-cyan/30 transition-all">
+                        <i class="fa-solid fa-pen-nib text-2xl text-slate-400 group-hover:text-accent-cyan mb-2"></i>
+                        <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white">Blogs</span>
+                    </a>
+                    <a href="devhub.html#docs-library"
+                        class="group flex flex-col items-center p-4 rounded bg-slate-950/50 hover:bg-accent-cyan/10 border border-transparent hover:border-accent-cyan/30 transition-all">
+                        <i class="fa-solid fa-book text-2xl text-slate-400 group-hover:text-accent-cyan mb-2"></i>
+                        <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white">Docs</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
 
     <!-- Home Content: Blogs/Writeups Section -->
     <main class="py-24 px-6 max-w-7xl mx-auto">
