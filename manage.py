@@ -350,7 +350,7 @@ class ContentManager:
         img_html = ""
         if post.get('image'):
             # Adjusted path for index vs subfolders handled in loop
-            img_html = f'<div class="h-48 overflow-hidden"><img src="{post["image"]}" alt="{post["title"]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>'
+            img_html = f'<div class="h-24 overflow-hidden"><img src="{post["image"]}" alt="{post["title"]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>'
         else:
             img_html = f'<div class="h-2 bg-{color}"></div>'
 
