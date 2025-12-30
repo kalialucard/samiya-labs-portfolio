@@ -189,6 +189,7 @@
   },
   "active": "7119536e5b33a70b",
   "lastOpenFiles": [
+    "clean_nav.py",
     "posts/isms-framework-alignment.html",
     "posts/soc-threat-monitoring.html",
     "posts/digital-forensics-investigation.html",
@@ -206,7 +207,6 @@
     "projects/hardware-systems.html",
     "projects/software-engineering.html",
     "projects/networking-infrastructure.html",
-    "projects/ai-machine-learning.html",
     "content/writeups/tryhackme/Untitled.md",
     "content/writeups/tryhackme/Untitled 1.md",
     "content/projects/cybersecurity/Untitled.md",
