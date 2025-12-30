@@ -1,0 +1,42 @@
+name: Auto-Build Intelligence Hub
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/**'
+      - 'manage.py'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 🛰️ Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: 📦 Install Lab Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🚀 Run Intelligence Builder
+        run: python manage.py build
+
+      - name: 💾 Commit & Deploy Changes
+        run: |
+          git config --global user.name "Intelligence-Bot"
+          git config --global user.email "bot@technicalintelligence.labs"
+          git add posts/*.html index.html writeups.html devhub.html
+          # Only commit if there are changes
+          git diff --quiet && git diff --staged --quiet || (git commit -m "auto: deploy intelligence update [skip ci]" && git push)
