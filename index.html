@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        slate: { 900: '#0f172a', 800: '#1e293b' },
+                        accent: { green: '#22c55e', cyan: '#0ea5e9' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(14, 165, 233, 0.05) 0%, transparent 70%);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body
+    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-slate-900 text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="logo-container group flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo"
+                    class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="index.html" class="text-white hover:text-accent-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+
+                <div class="relative group">
+                    <button class="text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
+                        Projects <i class="fa-solid fa-chevron-down text-xs opacity-50"></i>
+                    </button>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-64 bg-slate-900 border border-slate-700 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2">
+                        <a href="cybersecurity.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-xs">
+                            <i class="fa-solid fa-shield-halved w-6"></i> Cybersecurity
+                        </a>
+                        <a href="networking.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-cyan text-xs">
+                            <i class="fa-solid fa-network-wired w-6"></i> Networking
+                        </a>
+                        <a href="programming.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-amber-400 text-xs">
+                            <i class="fa-solid fa-code w-6"></i> Programming
+                        </a>
+                        <a href="hardware.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-purple-400 text-xs">
+                            <i class="fa-solid fa-microchip w-6"></i> Hardware
+                        </a>
+                        <a href="ai.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-rose-400 text-xs">
+                            <i class="fa-solid fa-brain w-6"></i> AI / Automation
+                        </a>
+                    </div>
+                </div>
+
+                <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2 text-2xl"><i
+                    class="fa-solid fa-bars"></i></button>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-700 shadow-2xl">
+            <div class="flex flex-col p-4 space-y-1">
+                <a href="index.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-white font-mono border-l-2 border-accent-cyan">Home</a>
+                <a href="about.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">About</a>
+                <a href="devhub.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">DevHub</a>
+                <div class="py-2 px-4 text-xs font-bold text-slate-600 uppercase tracking-widest mt-2">Projects</div>
+                <a href="cybersecurity.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-sm"><i
+                        class="fa-solid fa-shield-halved w-6"></i> Cybersecurity</a>
+                <a href="networking.html" class="block px-4 py-2 text-slate-400 hover:text-accent-cyan pl-6 text-sm"><i
+                        class="fa-solid fa-network-wired w-6"></i> Networking</a>
+                <a href="programming.html" class="block px-4 py-2 text-slate-400 hover:text-amber-400 pl-6 text-sm"><i
+                        class="fa-solid fa-code w-6"></i> Programming</a>
+                <a href="hardware.html" class="block px-4 py-2 text-slate-400 hover:text-purple-400 pl-6 text-sm"><i
+                        class="fa-solid fa-microchip w-6"></i> Hardware</a>
+                <a href="ai.html" class="block px-4 py-2 text-slate-400 hover:text-rose-400 pl-6 text-sm"><i
+                        class="fa-solid fa-brain w-6"></i> AI / Automation</a>
+                <div class="h-px bg-slate-800 my-2"></div>
+                <a href="writeups.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Write-ups</a>
+                <a href="certificates.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Certs</a>
+                <a href="contact.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Area -->
+    <header
+        class="py-32 px-6 border-b border-white/5 relative overflow-hidden flex items-center justify-center min-h-[75vh] crt">
+        <!-- Simulated Live Feed - Moved higher with buffer -->
+        <div id="live-feed"
+            class="absolute top-4 left-0 right-0 h-24 overflow-hidden font-mono text-[9px] pointer-events-none opacity-40 mask-fade">
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-green/10 border border-accent-green/20 text-[10px] font-mono text-accent-green uppercase tracking-[0.2em] mb-8 reveal">
+                Professional Technical Showcase
+            </div>
+            <h1
+                class="font-mono text-5xl md:text-7xl font-bold mb-8 uppercase tracking-tighter text-white reveal glitch-hover">
+                Technical <span class="text-accent-cyan">Intelligence.</span><br>Deep Research.
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-light mb-12 max-w-3xl mx-auto reveal">
+                A professional archive focused on offensive security, infrastructure hardening, and high-performance
+                engineering.
+            </p>
+
+            <!-- Quick Navigation Buttons -->
+            <div class="flex flex-wrap justify-center gap-6 reveal">
+                <a href="devhub.html#tool-testing"
+                    class="px-8 py-4 bg-white text-slate-950 font-bold rounded-lg hover:bg-accent-cyan hover:text-white transition-all transform hover:-translate-y-1 flex items-center gap-3">
+                    <i class="fa-solid fa-microscope text-lg"></i> Tool Testing
+                </a>
+                <a href="devhub.html#technical-blogs"
+                    class="px-8 py-4 glass text-white font-bold rounded-lg hover:bg-white/10 transition-all transform hover:-translate-y-1 flex items-center gap-3">
+                    <i class="fa-solid fa-pen-nib text-lg"></i> Technical Blogs
+                </a>
+                <a href="devhub.html#docs-library"
+                    class="px-8 py-4 glass text-white font-bold rounded-lg hover:bg-white/10 transition-all transform hover:-translate-y-1 flex items-center gap-3">
+                    <i class="fa-solid fa-book text-lg"></i> Documentations
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Content: Blogs/Writeups Section -->
+    <main class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <h2 class="font-mono text-4xl font-bold mb-4 uppercase tracking-tighter glitch-hover">Recent <span
+                    class="text-accent-cyan">Intelligence</span></h2>
+            <p class="text-slate-400 font-light text-lg">Latest security writeups and technical investigations.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- AUTO_CARDS_START:recent -->
+
+            <a href="posts/testing-the-new-cms.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-400/10 transition-all duration-300 block" data-category="blogs" data-tags="automation, python, web-dev">
+                <div class="h-2 bg-amber-400"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 rounded text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 uppercase">blogs</span>
+                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Testing the New CMS</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">A quick test to ensure the Unified Content Management system is working correctly across all pages.</p>
+                </div>
+            </a>
+
+            <a href="posts/0day.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block" data-category="tryhackme" data-tags="tryhackme, ctf">
+                <div class="h-2 bg-red-500"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
+                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">0day</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">Detailed technical walkthrough and security analysis for the 0day machine on TryHackMe.</p>
+                </div>
+            </a>
+
+            <a href="posts/plotted-tms.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block" data-category="tryhackme" data-tags="tryhackme, ctf">
+                <div class="h-2 bg-red-500"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
+                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Plotted Tms</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">Detailed technical walkthrough and security analysis for the Plotted Tms machine on TryHackMe.</p>
+                </div>
+            </a>
+<!-- AUTO_CARDS_END:recent -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-auto relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors text-2xl"
+                aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

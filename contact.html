@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { slate: { 900: '#0f172a', 950: '#020617' }, accent: { green: '#22c55e', cyan: '#0ea5e9' } }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-transparent text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-transparent/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="logo-container group flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo"
+                    class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+
+                <div class="relative group">
+                    <button class="text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
+                        Projects <i class="fa-solid fa-chevron-down text-xs opacity-50"></i>
+                    </button>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-64 bg-transparent border border-slate-700 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2">
+                        <a href="cybersecurity.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-xs">
+                            <i class="fa-solid fa-shield-halved w-6"></i> Cybersecurity
+                        </a>
+                        <a href="networking.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-cyan text-xs">
+                            <i class="fa-solid fa-network-wired w-6"></i> Networking
+                        </a>
+                        <a href="programming.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-amber-400 text-xs">
+                            <i class="fa-solid fa-code w-6"></i> Programming
+                        </a>
+                        <a href="hardware.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-purple-400 text-xs">
+                            <i class="fa-solid fa-microchip w-6"></i> Hardware
+                        </a>
+                        <a href="ai.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-rose-400 text-xs">
+                            <i class="fa-solid fa-brain w-6"></i> AI / Automation
+                        </a>
+                    </div>
+                </div>
+
+                <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="contact.html" class="text-white hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2"><i
+                    class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-transparent border-b border-slate-700 shadow-2xl">
+            <div class="flex flex-col p-4 space-y-1">
+                <a href="index.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Home</a>
+                <a href="about.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">About</a>
+                <div class="py-2 px-4 text-xs font-bold text-slate-600 uppercase tracking-widest mt-2">Projects</div>
+                <a href="cybersecurity.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-sm"><i
+                        class="fa-solid fa-shield-halved w-6"></i> Cybersecurity</a>
+                <a href="networking.html" class="block px-4 py-2 text-slate-400 hover:text-accent-cyan pl-6 text-sm"><i
+                        class="fa-solid fa-network-wired w-6"></i> Networking</a>
+                <a href="programming.html" class="block px-4 py-2 text-slate-400 hover:text-amber-400 pl-6 text-sm"><i
+                        class="fa-solid fa-code w-6"></i> Programming</a>
+                <a href="hardware.html" class="block px-4 py-2 text-slate-400 hover:text-purple-400 pl-6 text-sm"><i
+                        class="fa-solid fa-microchip w-6"></i> Hardware</a>
+                <a href="ai.html" class="block px-4 py-2 text-slate-400 hover:text-rose-400 pl-6 text-sm"><i
+                        class="fa-solid fa-brain w-6"></i> AI / Automation</a>
+                <div class="h-px bg-slate-800 my-2"></div>
+                <a href="writeups.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Write-ups</a>
+                <a href="certificates.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Certs</a>
+                <a href="contact.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-white font-mono border-l-2 border-accent-cyan">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section / Signal Map Background -->
+    <div class="fixed inset-0 pointer-events-none opacity-10">
+        <div
+            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20">
+        </div>
+        <!-- Simple World Map Pattern placeholder - could be actual SVG or CSS pattern -->
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-[800px] h-[800px] border border-accent-cyan/10 rounded-full animate-pulse"></div>
+            <div class="absolute w-[600px] h-[600px] border border-accent-cyan/5 rounded-full"></div>
+            <div class="absolute w-[400px] h-[400px] border border-accent-cyan/5 rounded-full"></div>
+        </div>
+    </div>
+
+    <section class="flex-grow flex items-center justify-center py-20 px-6 relative z-10 crt">
+        <div class="max-w-6xl w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+                <!-- Column 1: Signal Info -->
+                <div class="lg:col-span-4 space-y-8">
+                    <div class="reveal">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-green/10 border border-accent-green/20 text-[10px] font-mono text-accent-green uppercase tracking-[0.2em] mb-4">
+                            Status: Online
+                        </div>
+                        <h1
+                            class="text-4xl font-mono font-bold text-white uppercase tracking-tighter mb-4 glitch-hover">
+                            Contact_<span class="text-accent-cyan">Hub</span>
+                        </h1>
+                        <p class="text-slate-400 font-light leading-relaxed">
+                            Establishing a secure handshake for collaborations, consultations, or technical inquiries.
+                        </p>
+                    </div>
+
+                    <!-- Signal Monitor Visual -->
+                    <div class="bg-slate-900/40 backdrop-blur-sm border border-slate-800 p-6 rounded-lg reveal"
+                        style="transition-delay: 100ms">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-mono text-[10px] text-slate-500 uppercase">Signal_Monitor</span>
+                            <div class="flex gap-1">
+                                <div class="w-1 h-3 bg-accent-green/50 animate-[bounce_1.2s_infinite]"></div>
+                                <div class="w-1 h-3 bg-accent-green animate-[bounce_1s_infinite]"></div>
+                                <div class="w-1 h-3 bg-accent-green/50 animate-[bounce_1.4s_infinite]"></div>
+                            </div>
+                        </div>
+                        <div class="h-24 flex items-center justify-center border-y border-slate-800/50">
+                            <!-- SVG Waveform -->
+                            <svg class="w-full h-12 text-accent-cyan opacity-50" viewBox="0 0 200 40">
+                                <path fill="none" stroke="currentColor" stroke-width="1.5"
+                                    d="M0,20 Q25,5 50,20 T100,20 T150,20 T200,20" class="animate-[pulse_2s_infinite]">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="mt-4 font-mono text-[9px] text-slate-500 flex justify-between">
+                            <span>LAT: 40.7128 N</span>
+                            <span>LNG: 74.0060 W</span>
+                        </div>
+                    </div>
+
+                    <!-- Port Grid (Socials) -->
+                    <div class="grid grid-cols-1 gap-3 reveal" style="transition-delay: 200ms">
+                        <span class="font-mono text-[10px] text-slate-600 uppercase mb-2 block">Available_Ports</span>
+
+                        <a href="https://github.com/kalialucard" target="_blank"
+                            class="group flex items-center justify-between bg-slate-800/20 border border-slate-700/50 p-3 rounded hover:border-white transition-all">
+                            <span class="font-mono text-xs text-slate-400">PORT: 80 (GITHUB)</span>
+                            <i class="fa-brands fa-github text-slate-500 group-hover:text-white transition-colors"></i>
+                        </a>
+
+                        <a href="#" target="_blank"
+                            class="group flex items-center justify-between bg-slate-800/20 border border-slate-700/50 p-3 rounded hover:border-blue-500 transition-all">
+                            <span class="font-mono text-xs text-slate-400">PORT: 443 (LINKEDIN)</span>
+                            <i
+                                class="fa-brands fa-linkedin-in text-slate-500 group-hover:text-blue-500 transition-colors"></i>
+                        </a>
+
+                        <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                            class="group flex items-center justify-between bg-slate-800/20 border border-slate-700/50 p-3 rounded hover:border-red-500 transition-all">
+                            <span class="font-mono text-xs text-slate-400">PORT: 22 (TRYHACKME)</span>
+                            <i class="fa-solid fa-fire text-slate-500 group-hover:text-red-500 transition-colors"></i>
+                        </a>
+
+                        <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                            class="group flex items-center justify-between bg-slate-800/20 border border-slate-700/50 p-3 rounded hover:border-green-400 transition-all">
+                            <span class="font-mono text-xs text-slate-400">PORT: 21 (HACKTHEBOX)</span>
+                            <i class="fa-solid fa-cube text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: The Console (Form) -->
+                <div class="lg:col-span-8 reveal" style="transition-delay: 300ms">
+                    <div
+                        class="bg-[#0b1120]/80 backdrop-blur-xl border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
+                        <!-- Console Header -->
+                        <div
+                            class="bg-slate-900/80 border-b border-white/5 px-6 py-4 flex items-center justify-between">
+                            <div class="flex gap-2">
+                                <div class="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/40"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-amber-500/20 border border-amber-500/40"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500/40"></div>
+                            </div>
+                            <span
+                                class="font-mono text-[9px] text-slate-500 uppercase tracking-widest">Secure_Uplink_v2.0</span>
+                            <div class="w-12"></div>
+                        </div>
+
+                        <!-- Console Body -->
+                        <div class="p-8 md:p-12">
+                            <form id="contact-form" action="https://formspree.io/f/xjgvjnyl" method="POST"
+                                class="space-y-8">
+
+                                <div class="grid md:grid-cols-2 gap-8">
+                                    <div class="space-y-2 group">
+                                        <label
+                                            class="block font-mono text-[10px] text-slate-500 uppercase tracking-widest group-focus-within:text-accent-cyan transition-colors">Identity_Key</label>
+                                        <input type="text" name="name" placeholder="Full Name" required
+                                            class="w-full bg-transparent border-b border-slate-800 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-accent-cyan transition-all">
+                                    </div>
+                                    <div class="space-y-2 group">
+                                        <label
+                                            class="block font-mono text-[10px] text-slate-500 uppercase tracking-widest group-focus-within:text-accent-cyan transition-colors">Return_Vector</label>
+                                        <input type="email" name="email" placeholder="email@address.com" required
+                                            class="w-full bg-transparent border-b border-slate-800 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-accent-cyan transition-all">
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2 group">
+                                    <label
+                                        class="block font-mono text-[10px] text-slate-500 uppercase tracking-widest group-focus-within:text-accent-cyan transition-colors">Payload_Subject</label>
+                                    <input type="text" name="subject" placeholder="What's this about?"
+                                        class="w-full bg-transparent border-b border-slate-800 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-accent-cyan transition-all">
+                                </div>
+
+                                <div class="space-y-2 group">
+                                    <label
+                                        class="block font-mono text-[10px] text-slate-500 uppercase tracking-widest group-focus-within:text-accent-cyan transition-colors">Data_Packet</label>
+                                    <textarea name="message" rows="4" placeholder="Enter your transmission here..."
+                                        required
+                                        class="w-full bg-transparent border-b border-slate-800 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-accent-cyan transition-all resize-none"></textarea>
+                                </div>
+
+                                <div class="pt-6 flex flex-col md:flex-row items-center gap-6">
+                                    <button type="submit" id="submit-btn"
+                                        class="w-full md:w-auto px-10 py-4 bg-accent-cyan text-slate-950 font-mono font-bold text-sm uppercase tracking-widest hover:bg-white hover:scale-102 transition-all active:scale-95 shadow-lg shadow-accent-cyan/10">
+                                        Distribute_Packet
+                                    </button>
+                                    <div id="form-status" class="font-mono text-[10px] uppercase tracking-widest"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-auto relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors text-2xl"
+                aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const form = document.getElementById("contact-form");
+        const status = document.getElementById("form-status");
+        const btn = document.getElementById("submit-btn");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            status.classList.remove("hidden", "text-red-500", "text-accent-green");
+            status.textContent = "INITIALIZING_TRANSMISSION...";
+            status.classList.add("block", "text-accent-cyan");
+            btn.disabled = true;
+            btn.classList.add("opacity-50", "cursor-not-allowed");
+
+            const data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = "success.html";
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.textContent = "ERROR: " + data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.textContent = "ERROR: TRANSMISSION_FAILED";
+                        }
+                        status.classList.replace("text-accent-cyan", "text-red-500");
+                        btn.disabled = false;
+                        btn.classList.remove("opacity-50", "cursor-not-allowed");
+                    })
+                }
+            }).catch(error => {
+                status.textContent = "ERROR: CONNECTION_INTERRUPTED";
+                status.classList.replace("text-accent-cyan", "text-red-500");
+                btn.disabled = false;
+                btn.classList.remove("opacity-50", "cursor-not-allowed");
+            });
+        }
+        form.addEventListener("submit", handleSubmit);
+    </script>
+</body>
+
+</html>

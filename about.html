@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { slate: { 900: '#0f172a', 950: '#020617' }, accent: { green: '#22c55e', cyan: '#0ea5e9' } }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-transparent text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-transparent/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="logo-container group flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo"
+                    class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-white hover:text-accent-cyan transition-colors">About</a>
+                <a href="devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+
+                <div class="relative group">
+                    <button class="text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
+                        Projects <i class="fa-solid fa-chevron-down text-xs opacity-50"></i>
+                    </button>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-64 bg-transparent border border-slate-700 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2">
+                        <a href="cybersecurity.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-xs">
+                            <i class="fa-solid fa-shield-halved w-6"></i> Cybersecurity
+                        </a>
+                        <a href="networking.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-cyan text-xs">
+                            <i class="fa-solid fa-network-wired w-6"></i> Networking
+                        </a>
+                        <a href="programming.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-amber-400 text-xs">
+                            <i class="fa-solid fa-code w-6"></i> Programming
+                        </a>
+                        <a href="hardware.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-purple-400 text-xs">
+                            <i class="fa-solid fa-microchip w-6"></i> Hardware
+                        </a>
+                        <a href="ai.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-rose-400 text-xs">
+                            <i class="fa-solid fa-brain w-6"></i> AI / Automation
+                        </a>
+                    </div>
+                </div>
+
+                <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2"><i
+                    class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-transparent border-b border-slate-700 shadow-2xl">
+            <div class="flex flex-col p-4 space-y-1">
+                <a href="index.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Home</a>
+                <a href="about.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-white font-mono border-l-2 border-accent-cyan">About</a>
+                <a href="devhub.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">DevHub</a>
+                <div class="py-2 px-4 text-xs font-bold text-slate-600 uppercase tracking-widest mt-2">Projects</div>
+                <a href="cybersecurity.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-sm"><i
+                        class="fa-solid fa-shield-halved w-6"></i> Cybersecurity</a>
+                <a href="networking.html" class="block px-4 py-2 text-slate-400 hover:text-accent-cyan pl-6 text-sm"><i
+                        class="fa-solid fa-network-wired w-6"></i> Networking</a>
+                <a href="programming.html" class="block px-4 py-2 text-slate-400 hover:text-amber-400 pl-6 text-sm"><i
+                        class="fa-solid fa-code w-6"></i> Programming</a>
+                <a href="hardware.html" class="block px-4 py-2 text-slate-400 hover:text-purple-400 pl-6 text-sm"><i
+                        class="fa-solid fa-microchip w-6"></i> Hardware</a>
+                <a href="ai.html" class="block px-4 py-2 text-slate-400 hover:text-rose-400 pl-6 text-sm"><i
+                        class="fa-solid fa-brain w-6"></i> AI / Automation</a>
+                <div class="h-px bg-slate-800 my-2"></div>
+                <a href="writeups.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Write-ups</a>
+                <a href="certificates.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Certs</a>
+                <a href="contact.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="py-24 px-6 max-w-7xl mx-auto flex-grow relative crt">
+        <!-- Background Decoration -->
+        <div class="absolute -top-10 -left-10 w-64 h-64 bg-accent-cyan/10 rounded-full blur-3xl -z-10 animate-pulse">
+        </div>
+        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-accent-green/10 rounded-full blur-3xl -z-10 animate-pulse"
+            style="animation-delay: 1s"></div>
+
+        <div class="flex flex-col items-center mb-16 reveal">
+            <div class="relative group mb-8">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-accent-cyan to-accent-green rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                </div>
+                <img src="images/logo.png" alt="Logo" class="relative h-32 w-auto drop-shadow-2xl">
+            </div>
+            <h2
+                class="font-mono text-4xl md:text-5xl text-white font-bold text-center uppercase tracking-tighter glitch-hover">
+                About <span class="text-accent-cyan">Me</span>
+                <span class="block mt-4 h-1 w-24 bg-accent-cyan mx-auto rounded-full"></span>
+            </h2>
+        </div>
+
+        <div class="space-y-12 reveal" style="transition-delay: 100ms">
+            <div
+                class="bg-slate-800/40 p-8 md:p-12 rounded-2xl border border-slate-700/50 backdrop-blur-md shadow-2xl relative overflow-hidden group">
+                <!-- Inner Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+
+                <p
+                    class="text-xl leading-relaxed text-slate-300 mb-8 font-light italic border-l-4 border-accent-cyan pl-6">
+                    "Bridging the gap between secure infrastructure and deep security research."
+                </p>
+
+                <div class="space-y-6 text-lg leading-relaxed text-slate-400">
+                    <p>
+                        Focused on Networking, Ethical Hacking, OSINT, Digital Forensics, and Malware Analysis. Highly
+                        skilled in IT Support and technical Troubleshooting.
+                    </p>
+                </div>
+
+                <!-- Platform Badges -->
+                <div class="mt-10 flex flex-wrap gap-6 justify-center md:justify-start">
+                    <!-- TryHackMe Badge -->
+                    <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                        class="glass p-2 rounded-xl border border-slate-700/50 inline-block overflow-hidden hover:border-accent-cyan/50 transition-all group/thm">
+                        <img src="https://tryhackme-badges.s3.amazonaws.com/kalialucard.png" alt="TryHackMe Badge"
+                            class="h-[80px] w-auto">
+                    </a>
+                    <!-- HackTheBox Badge -->
+                    <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                        class="glass p-2 rounded-xl border border-slate-700/50 inline-block overflow-hidden hover:border-accent-green/50 transition-all group/htb">
+                        <img src="https://www.hackthebox.com/badge/image/2503089" alt="Hack The Box Badge"
+                            class="h-[80px] w-auto">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Focus Areas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                    class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl hover:border-accent-cyan/50 transition-all group">
+                    <i
+                        class="fa-solid fa-shield-halved text-2xl text-accent-cyan mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-white font-bold mb-2">Ethical Hacking</h4>
+                    <p class="text-sm text-slate-500">Security testing and vulnerability research to identify and
+                        mitigate critical weaknesses.</p>
+                </div>
+                <div
+                    class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl hover:border-accent-green/50 transition-all group">
+                    <i
+                        class="fa-solid fa-network-wired text-2xl text-accent-green mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-white font-bold mb-2">Networking</h4>
+                    <p class="text-sm text-slate-500">Designing secure infrastructure and troubleshooting complex
+                        network configurations.</p>
+                </div>
+                <div
+                    class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl hover:border-amber-400/50 transition-all group">
+                    <i
+                        class="fa-solid fa-magnifying-glass text-2xl text-amber-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-white font-bold mb-2">OSINT & Forensics</h4>
+                    <p class="text-sm text-slate-500">Open-source intelligence gathering and digital forensic
+                        investigations.</p>
+                </div>
+                <div
+                    class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl hover:border-red-500/50 transition-all group">
+                    <i
+                        class="fa-solid fa-bug text-2xl text-red-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-white font-bold mb-2">Malware Analysis</h4>
+                    <p class="text-sm text-slate-500">Deconstructing malicious code to understand and prevent automated
+                        attacks.</p>
+                </div>
+                <div
+                    class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl hover:border-blue-400/50 transition-all group">
+                    <i
+                        class="fa-solid fa-screwdriver-wrench text-2xl text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-white font-bold mb-2">IT Support</h4>
+                    <p class="text-sm text-slate-500">Professional technical troubleshooting and end-to-end system
+                        maintenance.</p>
+                </div>
+            </div>
+
+            <!-- expertise section -->
+            <div>
+                <h3 class="font-mono text-2xl text-white mb-8 flex items-center">
+                    CORE_SKILLS
+                    <span class="ml-4 h-px bg-slate-800 flex-grow"></span>
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-4 bg-transparent border border-slate-800 rounded-lg hover:border-accent-cyan/30">
+                        <span
+                            class="text-accent-cyan font-mono text-xs mb-1 uppercase tracking-widest">Networking</span>
+                    </div>
+                    <div class="p-4 bg-transparent border border-slate-800 rounded-lg hover:border-accent-green/30">
+                        <span class="text-accent-green font-mono text-xs mb-1 uppercase tracking-widest">Ethical
+                            Hacking</span>
+                    </div>
+                    <div class="p-4 bg-transparent border border-slate-800 rounded-lg hover:border-amber-400/30">
+                        <span class="text-amber-400 font-mono text-xs mb-1 uppercase tracking-widest">OSINT</span>
+                    </div>
+                    <div class="p-4 bg-transparent border border-slate-800 rounded-lg hover:border-red-500/30">
+                        <span class="text-red-400 font-mono text-xs mb-1 uppercase tracking-widest">Forensics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-auto relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors text-2xl"
+                aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

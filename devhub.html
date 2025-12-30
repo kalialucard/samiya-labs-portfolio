@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevHub | Technical Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { slate: { 900: '#0f172a', 950: '#020617' }, accent: { green: '#22c55e', cyan: '#0ea5e9' } }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-slate-950 text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-transparent/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="logo-container group flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo"
+                    class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="devhub.html" class="text-white hover:text-accent-cyan transition-colors">DevHub</a>
+
+                <div class="relative group">
+                    <button class="text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
+                        Projects <i class="fa-solid fa-chevron-down text-xs opacity-50"></i>
+                    </button>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-64 bg-transparent border border-slate-700 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2">
+                        <a href="cybersecurity.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-xs">
+                            <i class="fa-solid fa-shield-halved w-6"></i> Cybersecurity
+                        </a>
+                        <a href="networking.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-cyan text-xs">
+                            <i class="fa-solid fa-network-wired w-6"></i> Networking
+                        </a>
+                        <a href="programming.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-amber-400 text-xs">
+                            <i class="fa-solid fa-code w-6"></i> Programming
+                        </a>
+                        <a href="hardware.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-purple-400 text-xs">
+                            <i class="fa-solid fa-microchip w-6"></i> Hardware
+                        </a>
+                        <a href="ai.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-rose-400 text-xs">
+                            <i class="fa-solid fa-brain w-6"></i> AI / Automation
+                        </a>
+                    </div>
+                </div>
+
+                <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2 text-2xl"><i
+                    class="fa-solid fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- DevHub Hero -->
+    <header class="relative py-24 bg-transparent border-b border-slate-800 overflow-hidden crt">
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoOTQsIDE2MywgMjIxLCAwLjA1KSIvPjwvc3ZnPg==')] [mask-image:linear-gradient(to_bottom,white,transparent)]">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-[10px] font-mono text-accent-cyan uppercase tracking-[0.2em] mb-8">
+                Knowledge Repository
+            </div>
+            <h1
+                class="text-4xl md:text-6xl font-mono font-bold text-white mb-6 uppercase tracking-tighter glitch-hover">
+                Technical <span class="text-accent-cyan">DevHub</span>
+            </h1>
+            <p class="text-slate-400 max-w-2xl mx-auto text-lg mb-10 leading-relaxed">
+                Knowledge base for technical research, tool validation logs, and essential command references.
+            </p>
+
+            <!-- Search & Filter Controls -->
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- Search -->
+                <div class="relative">
+                    <i class="fa-solid fa-search absolute left-4 top-3.5 text-slate-500"></i>
+                    <input type="text" id="devhub-search"
+                        placeholder="Search knowledge base by tool, platform, or keyword..."
+                        class="w-full bg-slate-800/80 backdrop-blur border border-slate-700 rounded-full py-3 pl-12 pr-6 text-slate-200 focus:border-accent-cyan focus:outline-none focus:ring-1 focus:ring-accent-cyan transition-all shadow-lg">
+                </div>
+
+                <!-- Filter Chips -->
+                <div class="flex flex-wrap justify-center gap-3" id="devhub-filters">
+                    <button
+                        class="filter-btn active px-4 py-1.5 rounded-full text-sm font-mono border border-accent-cyan bg-accent-cyan/10 text-accent-cyan transition-all"
+                        data-filter="all">All</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="tools">Tools</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="docs">Docs</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="blogs">Blogs</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="commands">Commands</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="testing">Testing</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="cheatsheet">Cheatsheet</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hub Content Grid -->
+    <main class="max-w-7xl mx-auto px-6 py-16 flex-grow">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="devhub-grid">
+
+            <!-- AUTO_CARDS_START:tools -->
+            <!-- Tools Documentation -->
+            <a href="tool-testing.html"
+                class="devhub-card group bg-transparent border border-slate-800 rounded-xl overflow-hidden hover:border-accent-cyan/50 hover:shadow-xl hover:shadow-accent-cyan/10 transition-all duration-300 block"
+                data-category="tools" data-tags="validation, benchmarks, comparisons, testing, security-tools">
+                <div class="h-2 bg-accent-cyan"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 uppercase">Tools</span>
+                        <i
+                            class="fa-solid fa-screwdriver-wrench text-accent-cyan group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Tools
+                        Documentation</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">In-depth guides, configuration blueprints, and
+                        benchmarks for essential security instrumentation.</p>
+                </div>
+            </a>
+            <!-- AUTO_CARDS_END:tools -->
+
+            <!-- AUTO_CARDS_START:blogs -->
+
+            <a href="posts/testing-the-new-cms.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-400/10 transition-all duration-300 block" data-category="blogs" data-tags="automation, python, web-dev">
+                <div class="h-2 bg-amber-400"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 rounded text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 uppercase">blogs</span>
+                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Testing the New CMS</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">A quick test to ensure the Unified Content Management system is working correctly across all pages.</p>
+                </div>
+            </a>
+<!-- AUTO_CARDS_END:blogs -->
+
+            <!-- AUTO_CARDS_START:commands -->
+            <!-- Useful Commands -->
+            <a href="commands.html"
+                class="devhub-card group bg-transparent border border-slate-800 rounded-xl overflow-hidden hover:border-accent-green/50 hover:shadow-xl hover:shadow-accent-green/10 transition-all duration-300 block"
+                data-category="commands" data-tags="terminal, shell, cheatsheets, shortcuts, linux, network">
+                <div class="h-2 bg-accent-green"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-accent-green/10 text-accent-green border border-accent-green/20 uppercase">Commands</span>
+                        <i
+                            class="fa-solid fa-terminal text-accent-green group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-green transition-colors">Useful
+                        Commands</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">Searchable repository of mission-critical security
+                        commands and terminal shortcuts.</p>
+                </div>
+            </a>
+            <!-- AUTO_CARDS_END:commands -->
+
+            <!-- AUTO_CARDS_START:cheatsheet -->
+            <!-- Expert Cheatsheets -->
+            <div class="devhub-card group cursor-pointer bg-transparent border border-slate-800 rounded-xl overflow-hidden hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300"
+                data-category="cheatsheet" data-tags="tips, bypass, efficiency, cheatsheets, hacks">
+                <div class="h-2 bg-purple-500"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-purple-500/10 text-purple-500 border border-purple-500/20 uppercase">Cheatsheet</span>
+                        <i
+                            class="fa-solid fa-wand-magic-sparkles text-purple-500 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-500 transition-colors">Tips &
+                        Cheatsheets</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">Advanced techniques and efficient workflows for
+                        technical problem-solving and security tasks.</p>
+                </div>
+            </div>
+            <!-- AUTO_CARDS_END:cheatsheet -->
+
+            <!-- AUTO_CARDS_START:testing -->
+            <!-- Testing Logs -->
+            <div class="devhub-card group cursor-pointer bg-transparent border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300"
+                data-category="testing" data-tags="logs, validation, experimental, results, audit">
+                <div class="h-2 bg-red-500"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">Testing</span>
+                        <i class="fa-solid fa-flask text-red-500 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Testing
+                        Logs</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">Raw validation reports and experimental results from
+                        recent security tool assessments.</p>
+                </div>
+            </div>
+            <!-- AUTO_CARDS_END:testing -->
+
+            <!-- AUTO_CARDS_START:docs -->
+            <!-- Documentation Library -->
+            <a href="documentation.html"
+                class="devhub-card group bg-transparent border border-slate-800 rounded-xl overflow-hidden hover:border-white/50 hover:shadow-xl hover:shadow-white/10 transition-all duration-300 block"
+                data-category="docs" data-tags="guides, blueprints, repository, info, network">
+                <div class="h-2 bg-white"></div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-white/10 text-white border border-white/20 uppercase">Docs</span>
+                        <i class="fa-solid fa-book text-white group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-white transition-colors">Docs Library
+                    </h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">Extensive collection of technical blueprints, network
+                        guides, and information repositories.</p>
+                </div>
+            </a>
+            <!-- AUTO_CARDS_END:docs -->
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-auto relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('devhub-search');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.devhub-card');
+
+            // --- FILTERING ---
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Reset active state for all buttons
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-accent-cyan/10', 'text-accent-cyan', 'border-accent-cyan');
+                        b.classList.add('text-slate-400', 'border-slate-700');
+                    });
+                    // Set active state for clicked button
+                    btn.classList.add('active', 'bg-accent-cyan/10', 'text-accent-cyan', 'border-accent-cyan');
+                    btn.classList.remove('text-slate-400', 'border-slate-700');
+
+                    const filter = btn.dataset.filter;
+
+                    cards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // --- SEARCH ---
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                cards.forEach(card => {
+                    const title = card.querySelector('h3').innerText.toLowerCase();
+                    const tags = card.dataset.tags ? card.dataset.tags.toLowerCase() : '';
+                    if (title.includes(term) || tags.includes(term)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

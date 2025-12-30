@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { slate: { 900: '#0f172a', 950: '#020617' }, accent: { green: '#22c55e', cyan: '#0ea5e9' } }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-transparent text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-transparent/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="logo-container group flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo"
+                    class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+
+                <div class="relative group">
+                    <button class="text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
+                        Projects <i class="fa-solid fa-chevron-down text-xs opacity-50"></i>
+                    </button>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-64 bg-transparent border border-slate-700 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2">
+                        <a href="cybersecurity.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-xs">
+                            <i class="fa-solid fa-shield-halved w-6"></i> Cybersecurity
+                        </a>
+                        <a href="networking.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-cyan text-xs">
+                            <i class="fa-solid fa-network-wired w-6"></i> Networking
+                        </a>
+                        <a href="programming.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-amber-400 text-xs">
+                            <i class="fa-solid fa-code w-6"></i> Programming
+                        </a>
+                        <a href="hardware.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-purple-400 text-xs">
+                            <i class="fa-solid fa-microchip w-6"></i> Hardware
+                        </a>
+                        <a href="ai.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-rose-400 text-xs">
+                            <i class="fa-solid fa-brain w-6"></i> AI / Automation
+                        </a>
+                    </div>
+                </div>
+
+                <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="certificates.html" class="text-white hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2"><i
+                    class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-transparent border-b border-slate-700 shadow-2xl">
+            <div class="flex flex-col p-4 space-y-1">
+                <a href="index.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Home</a>
+                <a href="about.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">About</a>
+                <div class="py-2 px-4 text-xs font-bold text-slate-600 uppercase tracking-widest mt-2">Projects</div>
+                <a href="cybersecurity.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-sm"><i
+                        class="fa-solid fa-shield-halved w-6"></i> Cybersecurity</a>
+                <a href="networking.html" class="block px-4 py-2 text-slate-400 hover:text-accent-cyan pl-6 text-sm"><i
+                        class="fa-solid fa-network-wired w-6"></i> Networking</a>
+                <a href="programming.html" class="block px-4 py-2 text-slate-400 hover:text-amber-400 pl-6 text-sm"><i
+                        class="fa-solid fa-code w-6"></i> Programming</a>
+                <a href="hardware.html" class="block px-4 py-2 text-slate-400 hover:text-purple-400 pl-6 text-sm"><i
+                        class="fa-solid fa-microchip w-6"></i> Hardware</a>
+                <a href="ai.html" class="block px-4 py-2 text-slate-400 hover:text-rose-400 pl-6 text-sm"><i
+                        class="fa-solid fa-brain w-6"></i> AI / Automation</a>
+                <div class="h-px bg-slate-800 my-2"></div>
+                <a href="writeups.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Write-ups</a>
+                <a href="certificates.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-white font-mono border-l-2 border-accent-cyan">Certs</a>
+                <a href="contact.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Certificates Section -->
+    <section class="py-20 px-6 max-w-6xl mx-auto flex-grow">
+
+        <h2 class="font-mono text-3xl text-accent-cyan mb-12 flex items-center reveal">
+            Professional_Certifications
+            <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Cert 1: Google IT Support -->
+            <a href="https://coursera.org/share/b10e2589550e1570dbad49eb220b36e7" target="_blank" class="block group">
+                <div
+                    class="bg-slate-800/30 border border-slate-700 p-6 rounded-lg text-center hover:bg-slate-800 hover:border-blue-400 transition-all h-full flex flex-col items-center justify-center reveal">
+                    <div
+                        class="w-32 h-32 mx-auto mb-6 bg-transparent rounded-full flex items-center justify-center border-2 border-slate-700 group-hover:border-blue-400 relative overflow-hidden p-4">
+                        <i
+                            class="fab fa-google text-5xl text-slate-600 group-hover:text-blue-400 transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg mb-1 group-hover:text-blue-400 transition-colors">IT Support
+                        Professional</h3>
+                    <p
+                        class="text-slate-400 text-xs uppercase tracking-wide mb-4 flex items-center justify-center gap-2">
+                        <i class="fab fa-google text-slate-400 group-hover:text-blue-400 transition-colors"></i>
+                        Google / Coursera
+                    </p>
+                    <div class="inline-block px-3 py-1 bg-blue-400/10 text-blue-400 text-xs font-mono rounded">Verified
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+
+        <!-- Cisco Credentials (Credly Embeds) -->
+        <h2 class="font-mono text-2xl text-accent-cyan mt-16 mb-8 flex items-center reveal">
+            Cisco_Credentials
+            <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+        </h2>
+
+        <div class="flex flex-wrap gap-6 justify-center reveal">
+            <!-- Cisco Badge 1 -->
+            <div data-iframe-width="150" data-iframe-height="270"
+                data-share-badge-id="efc9b5bf-d030-4933-8f0f-1879c67547a1"
+                data-share-badge-host="https://www.credly.com"></div>
+            <!-- Cisco Badge 2 -->
+            <div data-iframe-width="150" data-iframe-height="270"
+                data-share-badge-id="f2effa0d-af42-4747-a3e4-b7bd970a6067"
+                data-share-badge-host="https://www.credly.com"></div>
+            <!-- Cisco Badge 3 -->
+            <div data-iframe-width="150" data-iframe-height="270"
+                data-share-badge-id="f986b6e7-26af-4988-9233-b905cd225237"
+                data-share-badge-host="https://www.credly.com"></div>
+            <!-- Cisco Badge 4 -->
+            <div data-iframe-width="150" data-iframe-height="270"
+                data-share-badge-id="992ebeca-0bf1-4724-84b8-31027d769049"
+                data-share-badge-host="https://www.credly.com"></div>
+            <!-- Cisco Badge 5 -->
+            <div data-iframe-width="150" data-iframe-height="270"
+                data-share-badge-id="0ecec055-2b5e-428b-9bef-e24071717618"
+                data-share-badge-host="https://www.credly.com"></div>
+            <!-- Cisco Badge 6 -->
+            <div data-iframe-width="150" data-iframe-height="270"
+                data-share-badge-id="7182777f-8d34-42bf-b84e-c5815dc148e1"
+                data-share-badge-host="https://www.credly.com"></div>
+            <!-- Cisco Badge 7 -->
+            <div data-iframe-width="150" data-iframe-height="270"
+                data-share-badge-id="dbb3fc3b-8b4e-4e48-babd-c902d3d42fd8"
+                data-share-badge-host="https://www.credly.com"></div>
+            <!-- Cisco Badge 8 -->
+            <div data-iframe-width="150" data-iframe-height="270"
+                data-share-badge-id="19801ee8-0fd5-4011-8471-e929f7ca210b"
+                data-share-badge-host="https://www.credly.com">
+            </div>
+            <!-- Cisco Badge 9 -->
+            <div data-iframe-width="150" data-iframe-height="270"
+                data-share-badge-id="63534d16-2964-449b-adca-dbaa22953082"
+                data-share-badge-host="https://www.credly.com">
+            </div>
+        </div>
+
+        <!-- ISC2 Credentials (Credly Embeds) -->
+        <h2 class="font-mono text-2xl text-accent-cyan mt-16 mb-8 flex items-center reveal">
+            ISC2_Credentials
+            <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+        </h2>
+
+        <div class="flex flex-wrap gap-6 justify-center reveal">
+            <!-- ISC2 Badge 1 -->
+            <div data-iframe-width="150" data-iframe-height="270"
+                data-share-badge-id="b1157d42-ae48-4c72-be65-bd00ede97bff"
+                data-share-badge-host="https://www.credly.com"></div>
+        </div>
+
+
+
+
+        <!-- Credly Embed Script (Loaded once for all badges) -->
+        <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
+    </section>
+
+    <footer class="py-12 text-center border-t border-slate-800 bg-transparent">
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank"
+                class="text-slate-400 hover:text-blue-400 transition-colors text-2xl" aria-label="LinkedIn"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

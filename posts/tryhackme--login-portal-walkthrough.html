@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TryHackMe — Login Portal Walkthrough | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 75ch; margin: 0 auto; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; }
+        body { background-color: #0f172a; color: #cbd5e1; }
+    </style>
+</head>
+<body class="p-8 md:p-16">
+    <nav class="mb-12"><a href="../index.html" class="text-accent-cyan hover:underline">&larr; Back to Portfolio</a></nav>
+    <article class="max-w-4xl mx-auto">
+        <header class="mb-12">
+            <div class="text-accent-green font-mono text-sm mb-2 uppercase">tryhackme</div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">TryHackMe — Login Portal Walkthrough</h1>
+            <div class="text-slate-500 text-sm">2024-12-30 • tryhackme, ctf</div>
+        </header>
+        <div class="markdown-content">
+            <p><strong>Target:</strong> <code>10.201.62.16</code></p>
+<p><strong>Summary:</strong> Found a login page (<code>login.html</code>). Inspecting the page revealed client-side JavaScript that checks credentials by reversing a hard-coded string. The username and password can be derived from the script and used to either submit the form or request the flag file directly.</p>
+<hr />
+<h2>Discovery</h2>
+<ul>
+<li>Found <code>login.html</code> on the webroot.</li>
+<li>Open the page in your browser (<a href="http://10.201.62.16/login.html">http://10.201.62.16/login.html</a>) and use the browser inspector to view the JS.</li>
+</ul>
+<h2>Relevant JavaScript (as found in the page)</h2>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">authenticate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;uname&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;pass&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">RevereString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">[...</span><span class="nx">str</span><span class="p">].</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">value</span><span class="o">==</span><span class="s2">&quot;h3ck3rBoi&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">value</span><span class="o">==</span><span class="nx">RevereString</span><span class="p">(</span><span class="s2">&quot;54321@terceSrepuS&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">xhttp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">xhttp</span><span class="p">.</span><span class="nx">onreadystatechange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">200</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;flag&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="w"> </span><span class="p">;</span>
+<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;todel&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;rm&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">()</span><span class="w"> </span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="nx">xhttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_&quot;</span><span class="o">+</span><span class="nx">a</span><span class="p">.</span><span class="nx">value</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="nx">b</span><span class="p">.</span><span class="nx">value</span><span class="o">+</span><span class="s2">&quot;.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">xhttp</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Incorrect Password, try again.. you got this hacker !&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2>What the script does (plain English)</h2>
+<ul>
+<li>The script expects <code>uname</code> to be <code>h3ck3rBoi</code>.</li>
+<li>The script uses a helper <code>RevereString</code> (which reverses a string) on the literal <code>"54321@terceSrepuS"</code> and compares that to the password field.</li>
+<li>So the actual password is the <strong>reverse</strong> of <code>54321@terceSrepuS</code>.</li>
+<li>When both username and password match, the page requests a flag file named:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_&lt;username&gt;_&lt;password&gt;.txt
+</code></pre></div>
+
+<p>(constructed by concatenating the string with <code>a.value</code> and <code>b.value</code>).</p>
+<h2>Derived credentials</h2>
+<ul>
+<li><strong>Username:</strong> <code>h3ck3rBoi</code></li>
+<li><strong>Password:</strong> reverse of <code>54321@terceSrepuS</code> -&gt; <code>SuperSecret@12345</code></li>
+</ul>
+<blockquote>
+<p>Note: the code uses a single <code>&amp;</code> where you'd normally expect <code>&amp;&amp;</code>. In this context it still evaluates the conditional as intended, but it is sloppy JavaScript.</p>
+</blockquote>
+<h2>Fetch the flag directly (recommended)</h2>
+<p>Because the server fetches a predictable filename, you can request the file directly. Remember to URL-encode special characters (the <code>@</code> becomes <code>%40</code>).</p>
+<ul>
+<li><strong>Raw filename (with special char):</strong></li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="n">RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret</span><span class="mf">@12345.</span><span class="n">txt</span>
+</code></pre></div>
+
+<ul>
+<li><strong>URL-encoded filename:</strong></li>
+</ul>
+<div class="codehilite"><pre><span></span><code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt
+</code></pre></div>
+
+<ul>
+<li><strong>curl command (HTTP):</strong></li>
+</ul>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt&quot;</span>
+</code></pre></div>
+
+<ul>
+<li><strong>Browser:</strong> open the URL in the address bar (same encoded path) while connected to the lab network:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt
+</code></pre></div>
+
+<p>If the file exists and is accessible, the server will return the flag contents.</p>
+<h2>Alternate: use the login form</h2>
+<ol>
+<li>Open <code>http://10.201.62.16/login.html</code> in your browser.</li>
+<li>Enter <code>h3ck3rBoi</code> as username and <code>SuperSecret@12345</code> as password.</li>
+<li>Submit — the page will run the JS and, on success, display the flag inside the page element with id <code>flag</code> (or it will remove some DOM elements as the script indicates).</li>
+</ol>
+<h2>Quick commands to reproduce locally</h2>
+<ul>
+<li>Reverse string with <code>rev</code>:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;54321@terceSrepuS&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>rev
+<span class="c1"># -&gt; SuperSecret@12345</span>
+</code></pre></div>
+
+<ul>
+<li>Reverse with Python:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;print(&#39;54321@terceSrepuS&#39;[::-1])&quot;</span>
+<span class="c1"># -&gt; SuperSecret@12345</span>
+</code></pre></div>
+
+<ul>
+<li>Fetch the file (curl):</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt&quot;</span>
+</code></pre></div>
+
+<hr />
+<h2>Notes &amp; tips</h2>
+<ul>
+<li>If the server returns 404 or 403, try fetching the directory listing (if allowed) or re-check the exact filename/punctuation. Pay attention to case-sensitivity.</li>
+<li>If the lab requires the request to come from the same origin (CORS or auth), attempting to fetch directly via curl may still work since it is a simple HTTP GET; if not, use the browser form.</li>
+<li>Save this walk-through entry to your <code>walkin.md</code> collection so you can reference it later.</li>
+</ul>
+<h2></h2>
+<ul>
+<li><strong>Username:</strong> <code>h3ck3rBoi</code></li>
+<li><strong>Password:</strong> <code>SuperSecret@12345</code></li>
+<li><strong>Direct file (encoded):</strong> <code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt</code></li>
+<li>Use curl or your browser to retrieve the flag.</li>
+</ul>
+        </div>
+    </article>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Blogs | Technical Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { slate: { 900: '#0f172a', 950: '#020617' }, accent: { green: '#22c55e', cyan: '#0ea5e9', purple: '#a855f7' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .blog-card:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+
+<body
+    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-transparent text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-transparent/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="logo-container group flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo"
+                    class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="devhub.html" class="text-white hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2 text-2xl"><i
+                    class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="py-16 px-6 bg-slate-950 border-b border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <nav class="flex items-center gap-2 text-xs font-mono text-slate-500 mb-8 uppercase tracking-widest">
+                <a href="devhub.html" class="hover:text-accent-cyan">DevHub</a>
+                <i class="fa-solid fa-chevron-right text-[10px] opacity-30"></i>
+                <span class="text-slate-300">Technical Blogs</span>
+            </nav>
+            <h1 class="text-4xl font-bold mb-4 tracking-tight">Technical <span class="text-accent-purple">Blogs</span>
+            </h1>
+            <p class="text-slate-400 max-w-2xl font-light leading-relaxed">
+                In-depth technical analysis, tool performance benchmarks, and security research findings.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-16 px-6 max-w-7xl mx-auto flex-grow">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Blog Item 1 -->
+            <article
+                class="glass rounded-2xl overflow-hidden border border-white/5 blog-card transition-all duration-500">
+                <div class="aspect-video bg-slate-800 flex items-center justify-center relative group">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef0109111fb1?auto=format&fit=crop&q=80&w=800"
+                        alt="Server clusters"
+                        class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                    <i class="fa-solid fa-microscope text-4xl text-white/10 relative z-10"></i>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span
+                            class="text-[10px] font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">RESEARCH</span>
+                        <span class="text-[10px] font-mono text-slate-500">DEC 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-accent-cyan transition-colors">Optimization of
+                        Node Segregation</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">Analyzing the impact of sub-node segregation
+                        on network latency in enterprise Zero-Trust environments.</p>
+                    <a href="#"
+                        class="inline-flex items-center gap-2 text-xs font-mono text-accent-cyan hover:underline uppercase tracking-widest">Read
+                        Analysis &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Blog Item 2 -->
+            <article
+                class="glass rounded-2xl overflow-hidden border border-white/5 blog-card transition-all duration-500">
+                <div class="aspect-video bg-slate-800 flex items-center justify-center relative group">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
+                        alt="Cybersecurity"
+                        class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                    <i class="fa-solid fa-shield-halved text-4xl text-white/10 relative z-10"></i>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span
+                            class="text-[10px] font-mono text-accent-green bg-accent-green/10 px-2 py-1 rounded">RED_TEAM</span>
+                        <span class="text-[10px] font-mono text-slate-500">DEC 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-accent-green transition-colors">Automated
+                        Discovery Benchmarks</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">Efficiency comparison of modern discovery
+                        tools against hardened IDS/IPS systems.</p>
+                    <a href="#"
+                        class="inline-flex items-center gap-2 text-xs font-mono text-accent-green hover:underline uppercase tracking-widest">Read
+                        Analysis &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center border-t border-slate-800 bg-transparent">
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

