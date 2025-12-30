@@ -3,12 +3,27 @@ import glob
 import markdown
 import yaml
 import re
+import shutil
+import google.generativeai as genai
 from datetime import datetime
 
 # Configuration
 CONTENT_DIR = "content"
+ASSETS_DIR = os.path.join(CONTENT_DIR, "assets")
 OUTPUT_DIR = "posts"
+PUBLIC_IMG_DIR = os.path.join("images", "posts")
+
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(PUBLIC_IMG_DIR, exist_ok=True)
+os.makedirs(ASSETS_DIR, exist_ok=True)
+
+# AI Integration
+GEN_API_KEY = os.environ.get("GOOGLE_API_KEY")
+if GEN_API_KEY:
+    genai.configure(api_key=GEN_API_KEY)
+    MODEL = genai.GenerativeModel('gemini-1.5-pro')
+else:
+    MODEL = None
 
 # Post Template (Standard GitBook-like style)
 PAGE_TEMPLATE_PATH = "posts/template_base.html" # We'll create this if it doesn't exist
@@ -30,6 +45,98 @@ class ContentManager:
                 return {}, content
         return {}, content
 
+    def handle_assets(self, md_body, metadata):
+        # Sync the primary thumbnail image
+        thumbnail = metadata.get('image', None)
+        if thumbnail:
+            self.sync_image(thumbnail)
+        
+        # Regex to find all internal images like ![[image.png]] or ![alt](image.png)
+        # 1. Obsidian style: ![[image.png]]
+        obsidian_imgs = re.findall(r'!\[\[(.*?)\]\]', md_body)
+        for img in obsidian_imgs:
+            # Obsidian sometimes adds pipe for width: ![[image.png|100]]
+            img_name = img.split('|')[0]
+            self.sync_image(img_name)
+        
+        # 2. Standard Markdown style: ![alt](image.png)
+        standard_imgs = re.findall(r'!\[.*?\]\((.*?)\)', md_body)
+        for img in standard_imgs:
+            if not img.startswith('http'):
+                self.sync_image(img)
+
+    def sync_image(self, img_name):
+        # Look for the image in content/assets or same dir as post
+        source_path = os.path.join(ASSETS_DIR, img_name)
+        if not os.path.exists(source_path):
+            # Fallback search in all content subdirs
+            search = glob.glob(os.path.join(CONTENT_DIR, "**", img_name), recursive=True)
+            if search:
+                source_path = search[0]
+            else:
+                return # Image not found
+
+        target_path = os.path.join(PUBLIC_IMG_DIR, os.path.basename(img_name))
+        try:
+            shutil.copy2(source_path, target_path)
+            # print(f"📸 Synced image: {img_name}")
+        except Exception as e:
+            print(f"❌ Error syncing image {img_name}: {e}")
+
+    def ai_enrichment(self, raw_content, metadata):
+        if not MODEL:
+            print("⚠️ Missing GOOGLE_API_KEY. Skipping AI enrichment.")
+            return raw_content, metadata
+
+        print(f"🤖 AI is analyzing: {metadata.get('title', 'Unknown Post')}...")
+        
+        prompt = f"""
+        You are an elite Senior Penetration Tester and Cyber Intelligence Analyst. 
+        Your task is to transform raw technical notes/logs into a professional, high-end cybersecurity research report.
+
+        RAW DATA:
+        {raw_content}
+
+        INSTRUCTIONS:
+        1. Maintain all technical accuracy (IPs, ports, commands).
+        2. Format the report into professional phases:
+           - **Phase I: Tactical Reconnaissance & Enumeration**
+           - **Phase II: Surface Analysis & Vulnerability Mapping**
+           - **Phase III: Tactical Exploitation**
+           - **Phase IV: Privilege Escalation & Persistence**
+        3. Use a sophisticated, technical tone (e.g., instead of "found", use "identified" or "uncovered").
+        4. Add an 'Executive Summary' at the beginning.
+        5. Generate a refined 'description' (max 150 chars) and relevant 'tags' (comma separated).
+        6. Return the output in this EXACT format:
+           ---
+           description: [AI Generated Description]
+           tags: [AI Generated Tags]
+           ---
+           [Professional Markdown Report Body]
+        """
+        
+        try:
+            response = MODEL.generate_content(prompt)
+            result = response.text
+            
+            # Parse the AI response to separate metadata and body
+            if '---' in result:
+                parts = result.split('---')
+                if len(parts) >= 3:
+                    ai_metadata = yaml.safe_load(parts[1])
+                    ai_body = "---".join(parts[2:]).strip()
+                    
+                    # Update metadata if AI provided suggestions
+                    if ai_metadata:
+                        metadata['description'] = ai_metadata.get('description', metadata.get('description'))
+                        metadata['tags'] = ai_metadata.get('tags', metadata.get('tags'))
+                    
+                    return ai_body, metadata
+            return result, metadata
+        except Exception as e:
+            print(f"❌ AI Enrichment Failed: {e}")
+            return raw_content, metadata
+
     def build(self):
         print("🚀 Starting Build Process...")
         all_md_files = glob.glob(os.path.join(CONTENT_DIR, "**", "*.md"), recursive=True)
@@ -37,6 +144,11 @@ class ContentManager:
         processed_posts = []
         for file_path in all_md_files:
             metadata, body = self.parse_file(file_path)
+            
+            # Check for AI Enrichment flag
+            if metadata.get('enrich', False) == True:
+                body, metadata = self.ai_enrichment(body, metadata)
+
             dir_category = os.path.basename(os.path.dirname(file_path))
             category = metadata.get('category', dir_category)
             
@@ -46,7 +158,17 @@ class ContentManager:
             date = metadata.get('date', datetime.now().strftime("%Y-%m-%d"))
             tags = metadata.get('tags', category)
             description = metadata.get('description', "Technical documentation and research.")
+            image = metadata.get('image', None)
             
+            # Handle asset syncing
+            self.handle_assets(body, metadata)
+            
+            # Fix image paths in body for the web
+            # Convert ![[img.png]] to <img src="../images/posts/img.png">
+            body = re.sub(r'!\[\[(.*?)\]\]', r'![image](../images/posts/\1)', body)
+            # Standard markdown images
+            body = re.sub(r'!\[(.*?)\]\((.*?)\)', r'![\1](../images/posts/\2)', body)
+
             html_body = markdown.markdown(body, extensions=['extra', 'codehilite', 'nl2br'])
             
             post_data = {
@@ -56,6 +178,7 @@ class ContentManager:
                 "category": category,
                 "tags": tags,
                 "description": description,
+                "image": f"images/posts/{os.path.basename(image)}" if image else None,
                 "url": f"posts/{slug}.html",
                 "html": html_body
             }
@@ -210,9 +333,16 @@ class ContentManager:
         }
         color = color_map.get(post['category'], "accent-cyan")
         
+        img_html = ""
+        if post.get('image'):
+            # Adjusted path for index vs subfolders handled in loop
+            img_html = f'<div class="h-48 overflow-hidden"><img src="{post["image"]}" alt="{post["title"]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>'
+        else:
+            img_html = f'<div class="h-2 bg-{color}"></div>'
+
         return f"""
             <a href="{post['url']}" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-{color}/50 hover:shadow-xl hover:shadow-{color}/10 transition-all duration-300 block" data-category="{post['category']}" data-tags="{post['tags']}">
-                <div class="h-2 bg-{color}"></div>
+                {img_html}
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
                         <span class="px-2 py-1 rounded text-xs font-bold bg-{color}/10 text-{color} border border-{color}/20 uppercase">{post['category']}</span>
@@ -236,10 +366,15 @@ class ContentManager:
         tags_list = post['tags'].split(',')
         tag_spans = "".join([f'<span class="border border-{color}/30 px-2 py-1 rounded uppercase mr-2">{t.strip()}</span>' for t in tags_list])
 
+        img_html = ""
+        if post.get('image'):
+            img_html = f'<div class="md:w-1/4 h-48 rounded overflow-hidden shadow-2xl border border-slate-700"><img src="{post["image"]}" alt="{post["title"]}" class="w-full h-full object-cover"></div>'
+
         return f"""
         <article class="mb-12 bg-slate-800/20 border border-slate-700 p-8 rounded hover:border-{color} transition-all reveal">
             <div class="flex flex-col md:flex-row gap-8">
-                <div class="md:w-3/4">
+                {img_html}
+                <div class="{"md:w-3/4" if post.get('image') else "w-full"}">
                     <h3 class="text-2xl font-bold text-white mb-2">{post['title']}</h3>
                     <div class="flex gap-2 mb-4 text-xs font-mono text-{color}">
                         {tag_spans}
@@ -276,10 +411,21 @@ class ContentManager:
                 end_marker = f"<!-- AUTO_CARDS_END:{cat} -->"
                 
                 if start_marker in content and end_marker in content:
+                    # Update image paths if we are in a subfolder
+                    modified_posts = []
+                    for p in posts:
+                        p_copy = p.copy()
+                        if p_copy.get('image'):
+                            # Root pages like index.html need 'images/posts/...'
+                            # Pages like posts/slug.html would need '../images/posts/...'
+                            # Since this is for top-level pages (devhub.html, etc), 'images/posts' is correct.
+                            pass 
+                        modified_posts.append(p_copy)
+
                     if is_project_page:
-                        cards_html = "\n".join([self.create_project_card(p) for p in posts])
+                        cards_html = "\n".join([self.create_project_card(p) for p in modified_posts])
                     else:
-                        cards_html = "\n".join([self.create_card(p) for p in posts])
+                        cards_html = "\n".join([self.create_card(p) for p in modified_posts])
                         
                     pattern = f"{start_marker}.*?{end_marker}"
                     content = re.sub(pattern, f"{start_marker}\n{cards_html}\n{end_marker}", content, flags=re.DOTALL)
@@ -306,6 +452,8 @@ class ContentManager:
 title: "{title}"
 date: "{datetime.now().strftime('%Y-%m-%d')}"
 category: "{category}"
+enrich: true
+image: "your-screenshot.png"
 tags: "technical, research"
 description: "Brief summary of this technical research."
 ---

@@ -31,6 +31,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: 🚀 Run Intelligence Builder
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: python manage.py build
 
       - name: 💾 Commit & Deploy Changes

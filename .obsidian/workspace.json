@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "aeaef192f39850e0",
+        "id": "1c81cb8c9e61dde4",
         "type": "tabs",
         "children": [
           {
-            "id": "098d7724bc7910b4",
+            "id": "6edde34ee647d1f2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Cherry Blossom.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Cherry Blossom"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 243.5
   },
   "right": {
     "id": "29d86d49affc3958",
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Cherry Blossom.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Cherry Blossom"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Cherry Blossom.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Cherry Blossom"
             }
           },
           {
@@ -150,20 +156,31 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Cherry Blossom.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Cherry Blossom"
+            }
+          },
+          {
+            "id": "1ef2d0532d06b79b",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -173,22 +190,50 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7119536e5b33a70b",
+  "active": "6edde34ee647d1f2",
   "lastOpenFiles": [
+    "Cherry Blossom.md",
+    "images/posts",
+    "content/assets",
+    "README.md",
+    "RELEASES.md",
+    "content/writeups/tryhackme/anonforce.md",
+    "content/writeups/tryhackme/cyberheroes.md",
+    "content/writeups/tryhackme/mustacchio.md",
+    "content/writeups/tryhackme/wordpress---cve-2021-29447.md",
+    "content/writeups/tryhackme/rabit-hole.md",
+    "content/writeups/tryhackme/simple-ctf.md",
+    "content/writeups/tryhackme/crack-the-hash.md",
+    "content/writeups/tryhackme/techsupp0rt1.md",
+    "content/writeups/tryhackme/c4ptur3-th3-fl4g.md",
+    "content/writeups/tryhackme/team.md",
+    "content/writeups/tryhackme/ultratech.md",
+    "content/writeups/tryhackme/u.a.-high-school.md",
+    "content/writeups/tryhackme/cyberlens.md",
+    "content/writeups/tryhackme/ignite.md",
+    "content/writeups/tryhackme/spring.md",
+    "content/writeups/tryhackme/mindgames.md",
+    "content/writeups/tryhackme/anonymous.md",
+    "content/writeups/tryhackme/library.md",
+    "content/writeups/tryhackme/unstable-twin.md",
+    "content/writeups/tryhackme/walkin.md",
+    "content/writeups/tryhackme/agent-sudo.md",
+    "content/writeups/tryhackme/wekor.md",
+    "content/writeups/tryhackme/archangel.md",
+    "content/writeups/hackthebox",
+    "content/writeups/tryhackme",
+    "content/tools",
+    "content/commands",
     "posts/ghost-protocol-network-anonymization.html",
-    "content/projects/cybersecurity/ghost-protocol.md",
     "content/projects/ai",
     "content/projects/hardware",
     "content/projects/programming",
-    "content/projects/networking",
-    "content/projects/cybersecurity",
     "images/world-map-bg.png",
     "images/logo.png",
-    "images/badge_placeholder.png",
-    "content/blogs/testing-cms.md",
-    "README.md"
+    "images/badge_placeholder.png"
   ]
 }
