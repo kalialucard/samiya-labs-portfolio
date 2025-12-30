@@ -42,34 +42,7 @@
                 <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
                 <a href="devhub.html" class="text-white hover:text-accent-cyan transition-colors">DevHub</a>
 
-                <div class="relative group">
-                    <button class="text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
-                        Projects <i class="fa-solid fa-chevron-down text-xs opacity-50"></i>
-                    </button>
-                    <div
-                        class="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-64 bg-transparent border border-slate-700 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2">
-                        <a href="cybersecurity.html"
-                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-xs">
-                            <i class="fa-solid fa-shield-halved w-6"></i> Cybersecurity
-                        </a>
-                        <a href="networking.html"
-                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-cyan text-xs">
-                            <i class="fa-solid fa-network-wired w-6"></i> Networking
-                        </a>
-                        <a href="programming.html"
-                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-amber-400 text-xs">
-                            <i class="fa-solid fa-code w-6"></i> Programming
-                        </a>
-                        <a href="hardware.html"
-                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-purple-400 text-xs">
-                            <i class="fa-solid fa-microchip w-6"></i> Hardware
-                        </a>
-                        <a href="ai.html"
-                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-rose-400 text-xs">
-                            <i class="fa-solid fa-brain w-6"></i> AI / Automation
-                        </a>
-                    </div>
-                </div>
+                <a href="projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
 
                 <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
                 <a href="certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
@@ -137,6 +110,27 @@
                         data-filter="cybersecurity">Cybersecurity</button>
                     <button
                         class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="network-protection">Network Protection</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="web-security">Web Security</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="ethical-hacking">Ethical Hacking</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="incident-response">Incident Response</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="investigation">Investigation</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="risk-management">Risk Management</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
+                        data-filter="devsecops">DevSecOps</button>
+                    <button
+                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
                         data-filter="networking">Networking</button>
                     <button
                         class="filter-btn px-4 py-1.5 rounded-full text-sm font-mono border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all"
@@ -180,18 +174,24 @@
 
             <!-- AUTO_CARDS_START:blogs -->
 
-            <a href="posts/testing-the-new-cms.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-400/10 transition-all duration-300 block" data-category="blogs" data-tags="automation, python, web-dev">
+            <a href="posts/testing-the-new-cms.html"
+                class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-400/10 transition-all duration-300 block"
+                data-category="blogs" data-tags="automation, python, web-dev">
                 <div class="h-2 bg-amber-400"></div>
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 uppercase">blogs</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 uppercase">blogs</span>
+                        <i
+                            class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-amber-400 transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Testing the New CMS</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">A quick test to ensure the Unified Content Management system is working correctly across all pages.</p>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Testing
+                        the New CMS</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">A quick test to ensure the Unified Content Management
+                        system is working correctly across all pages.</p>
                 </div>
             </a>
-<!-- AUTO_CARDS_END:blogs -->
+            <!-- AUTO_CARDS_END:blogs -->
 
             <!-- AUTO_CARDS_START:commands -->
             <!-- Useful Commands -->
@@ -274,6 +274,13 @@
             <!-- AUTO_CARDS_END:docs -->
 
             <!-- AUTO_CARDS_START:cybersecurity --><!-- AUTO_CARDS_END:cybersecurity -->
+            <!-- AUTO_CARDS_START:network-protection --><!-- AUTO_CARDS_END:network-protection -->
+            <!-- AUTO_CARDS_START:web-security --><!-- AUTO_CARDS_END:web-security -->
+            <!-- AUTO_CARDS_START:ethical-hacking --><!-- AUTO_CARDS_END:ethical-hacking -->
+            <!-- AUTO_CARDS_START:incident-response --><!-- AUTO_CARDS_END:incident-response -->
+            <!-- AUTO_CARDS_START:investigation --><!-- AUTO_CARDS_END:investigation -->
+            <!-- AUTO_CARDS_START:risk-management --><!-- AUTO_CARDS_END:risk-management -->
+            <!-- AUTO_CARDS_START:devsecops --><!-- AUTO_CARDS_END:devsecops -->
             <!-- AUTO_CARDS_START:networking --><!-- AUTO_CARDS_END:networking -->
             <!-- AUTO_CARDS_START:programming --><!-- AUTO_CARDS_END:programming -->
             <!-- AUTO_CARDS_START:hardware --><!-- AUTO_CARDS_END:hardware -->

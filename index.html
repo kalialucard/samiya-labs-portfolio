@@ -72,11 +72,17 @@
                 <a href="devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
 
                 <div class="relative group">
-                    <button class="text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
+                    <a href="projects.html"
+                        class="text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
                         Projects <i class="fa-solid fa-chevron-down text-xs opacity-50"></i>
-                    </button>
+                    </a>
                     <div
                         class="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-64 bg-slate-900 border border-slate-700 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2">
+                        <a href="projects.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-cyan text-xs">
+                            <i class="fa-solid fa-layer-group w-6"></i> All Projects Archive
+                        </a>
+                        <div class="h-px bg-slate-800 my-1"></div>
                         <a href="cybersecurity.html"
                             class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-xs">
                             <i class="fa-solid fa-shield-halved w-6"></i> Cybersecurity
@@ -117,6 +123,8 @@
                 <a href="devhub.html"
                     class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">DevHub</a>
                 <div class="py-2 px-4 text-xs font-bold text-slate-600 uppercase tracking-widest mt-2">Projects</div>
+                <a href="projects.html" class="block px-4 py-2 text-slate-400 hover:text-accent-cyan pl-6 text-sm"><i
+                        class="fa-solid fa-layer-group w-6"></i> All Projects Archive</a>
                 <a href="cybersecurity.html"
                     class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-sm"><i
                         class="fa-solid fa-shield-halved w-6"></i> Cybersecurity</a>
@@ -190,66 +198,92 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- AUTO_CARDS_START:recent -->
 
-            <a href="posts/cherry-blossom.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block" data-category="tryhackme" data-tags="tryhackme">
+            <a href="posts/cherry-blossom.html"
+                class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block"
+                data-category="tryhackme" data-tags="tryhackme">
                 <div class="h-2 bg-red-500"></div>
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
+                        <i
+                            class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Cherry Blossom</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Cherry
+                        Blossom</h3>
                     <p class="text-slate-400 text-sm line-clamp-2">Technical documentation and research.</p>
                 </div>
             </a>
 
-            <a href="posts/untitled.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block" data-category="tryhackme" data-tags="tryhackme">
+            <a href="posts/untitled.html"
+                class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block"
+                data-category="tryhackme" data-tags="tryhackme">
                 <div class="h-2 bg-red-500"></div>
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
+                        <i
+                            class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Untitled</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Untitled
+                    </h3>
                     <p class="text-slate-400 text-sm line-clamp-2">Technical documentation and research.</p>
                 </div>
             </a>
 
-            <a href="posts/testing-the-new-cms.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-400/10 transition-all duration-300 block" data-category="blogs" data-tags="automation, python, web-dev">
+            <a href="posts/testing-the-new-cms.html"
+                class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-400/10 transition-all duration-300 block"
+                data-category="blogs" data-tags="automation, python, web-dev">
                 <div class="h-2 bg-amber-400"></div>
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 uppercase">blogs</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 uppercase">blogs</span>
+                        <i
+                            class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-amber-400 transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Testing the New CMS</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">A quick test to ensure the Unified Content Management system is working correctly across all pages.</p>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Testing
+                        the New CMS</h3>
+                    <p class="text-slate-400 text-sm line-clamp-2">A quick test to ensure the Unified Content Management
+                        system is working correctly across all pages.</p>
                 </div>
             </a>
 
-            <a href="posts/cherry-blossom.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block" data-category="tryhackme" data-tags="tryhackme">
+            <a href="posts/cherry-blossom.html"
+                class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block"
+                data-category="tryhackme" data-tags="tryhackme">
                 <div class="h-2 bg-red-500"></div>
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
+                        <i
+                            class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Cherry Blossom</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Cherry
+                        Blossom</h3>
                     <p class="text-slate-400 text-sm line-clamp-2">Technical documentation and research.</p>
                 </div>
             </a>
 
-            <a href="posts/untitled.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block" data-category="tryhackme" data-tags="tryhackme">
+            <a href="posts/untitled.html"
+                class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 block"
+                data-category="tryhackme" data-tags="tryhackme">
                 <div class="h-2 bg-red-500"></div>
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase">tryhackme</span>
+                        <i
+                            class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-red-500 transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Untitled</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Untitled
+                    </h3>
                     <p class="text-slate-400 text-sm line-clamp-2">Technical documentation and research.</p>
                 </div>
             </a>
-<!-- AUTO_CARDS_END:recent -->
+            <!-- AUTO_CARDS_END:recent -->
         </div>
     </main>
 

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Technical Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { slate: { 900: '#0f172a', 950: '#020617' }, accent: { green: '#22c55e', cyan: '#0ea5e9' } }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-transparent text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="logo-container group flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo"
+                    class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="projects.html" class="text-white hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2 text-2xl"><i
+                    class="fa-solid fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section class="py-20 px-6 max-w-6xl mx-auto flex-grow">
+        <header class="text-center mb-20 reveal">
+            <h1 class="text-4xl md:text-5xl font-mono font-bold text-white mb-6 uppercase tracking-tighter">
+                Project <span class="text-accent-cyan">Archive</span>
+            </h1>
+            <p class="text-slate-400 max-w-2xl mx-auto">Categorized research and development projects across all core
+                technical domains.</p>
+        </header>
+
+        <!-- Network & System Protection -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
+                <i class="fa-solid fa-shield mr-4"></i> Network & System Protection
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:network-protection -->
+                <!-- AUTO_CARDS_END:network-protection -->
+            </div>
+        </div>
+
+        <!-- Application & Web Security -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
+                <i class="fa-solid fa-code-lock mr-4"></i> Application & Web Security
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:web-security -->
+                <!-- AUTO_CARDS_END:web-security -->
+            </div>
+        </div>
+
+        <!-- Ethical Hacking & Vulnerability Testing -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
+                <i class="fa-solid fa-user-secret mr-4"></i> Ethical Hacking & Vulnerability Testing
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:ethical-hacking -->
+                <!-- AUTO_CARDS_END:ethical-hacking -->
+            </div>
+        </div>
+
+        <!-- Threat Monitoring & Incident Response -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
+                <i class="fa-solid fa-satellite-dish mr-4"></i> Threat Monitoring & Incident Response
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:incident-response -->
+                <!-- AUTO_CARDS_END:incident-response -->
+            </div>
+        </div>
+
+        <!-- Cybersecurity Investigation & Analysis -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
+                <i class="fa-solid fa-magnifying-glass-chart mr-4"></i> Cybersecurity Investigation & Analysis
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:investigation -->
+                <!-- AUTO_CARDS_END:investigation -->
+            </div>
+        </div>
+
+        <!-- Security Policies & Risk Management -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
+                <i class="fa-solid fa-file-contract mr-4"></i> Security Policies & Risk Management
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:risk-management -->
+                <!-- AUTO_CARDS_END:risk-management -->
+            </div>
+        </div>
+
+        <!-- Cloud & Secure Development Operations -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
+                <i class="fa-solid fa-cloud-lock mr-4"></i> Cloud & Secure Development Operations
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:devsecops -->
+                <!-- AUTO_CARDS_END:devsecops -->
+            </div>
+        </div>
+
+        <!-- Networking marker -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-accent-cyan mb-8 flex items-center reveal">
+                <i class="fa-solid fa-network-wired mr-4"></i> Networking & Infrastructure
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:networking -->
+                <!-- AUTO_CARDS_END:networking -->
+            </div>
+        </div>
+
+        <!-- Programming marker -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-amber-400 mb-8 flex items-center reveal">
+                <i class="fa-solid fa-code mr-4"></i> Software Engineering
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:programming -->
+                <!-- AUTO_CARDS_END:programming -->
+            </div>
+        </div>
+
+        <!-- Hardware marker -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-purple-500 mb-8 flex items-center reveal">
+                <i class="fa-solid fa-microchip mr-4"></i> Hardware & Embedded Systems
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:hardware -->
+                <!-- AUTO_CARDS_END:hardware -->
+            </div>
+        </div>
+
+        <!-- AI marker -->
+        <div class="mb-24">
+            <h2 class="font-mono text-xl text-rose-400 mb-8 flex items-center reveal">
+                <i class="fa-solid fa-brain mr-4"></i> AI & Automation
+                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
+            </h2>
+            <div class="space-y-8">
+                <!-- AUTO_CARDS_START:ai -->
+                <!-- AUTO_CARDS_END:ai -->
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl"><i
+                    class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl"><i
+                    class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

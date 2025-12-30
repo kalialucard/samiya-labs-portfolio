@@ -409,8 +409,8 @@ class ContentManager:
         </article>"""
 
     def update_site_grids(self):
-        target_files = ["index.html", "devhub.html", "writeups.html", "cybersecurity.html", "networking.html", "programming.html", "hardware.html", "ai.html"]
-        project_pages = ["cybersecurity.html", "networking.html", "programming.html", "hardware.html", "ai.html"]
+        target_files = ["index.html", "devhub.html", "writeups.html", "projects.html", "cybersecurity.html", "networking.html", "programming.html", "hardware.html", "ai.html"]
+        project_pages = ["projects.html", "cybersecurity.html", "networking.html", "programming.html", "hardware.html", "ai.html"]
         
         # Categorize posts
         sections = {}
