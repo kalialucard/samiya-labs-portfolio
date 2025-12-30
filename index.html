@@ -164,184 +164,175 @@
 
     <!-- Hero Area -->
     <header
-        class="py-24 px-6 border-b border-white/5 relative overflow-hidden flex items-center justify-center min-h-[50vh] crt">
+        class="py-32 px-6 border-b border-white/5 relative overflow-hidden flex items-center justify-center min-h-[50vh] crt">
         <div id="live-feed"
             class="absolute top-4 left-0 right-0 h-24 overflow-hidden font-mono text-[9px] pointer-events-none opacity-40 mask-fade">
         </div>
 
-        <div class="max-w-7xl mx-auto relative z-10 w-full">
-            <div class="flex flex-col lg:flex-row items-end justify-between gap-12">
-                <div class="flex-grow">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-green/10 border border-accent-green/20 text-[10px] font-mono text-accent-green uppercase tracking-[0.2em] mb-8 reveal">
-                        System_Initialization_Complete
-                    </div>
-                    <h1
-                        class="font-mono text-6xl md:text-8xl font-bold mb-6 uppercase tracking-tighter text-white reveal glitch-hover leading-none">
-                        Kali<span class="text-accent-cyan">Alucard</span>
-                    </h1>
-                    <div class="flex items-center gap-4 reveal">
-                        <span class="text-accent-green text-xl">➜</span>
-                        <p class="font-mono text-xl md:text-2xl text-slate-400 typewriter">
-                            Technical Intelligence & Offensive Operations_
-                        </p>
-                    </div>
-                </div>
+        <div class="max-w-7xl mx-auto relative z-10 w-full text-center">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-[10px] font-mono text-slate-300 uppercase tracking-[0.2em] mb-8 reveal">
+                Technical Research Archive
             </div>
+            <h1 class="font-mono text-5xl md:text-7xl font-bold mb-6 text-white reveal tracking-tight">
+                Cybersecurity <span class="text-accent-cyan">Research</span> &<br>Engineering
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 leading-relaxed font-light mb-12 max-w-3xl mx-auto reveal">
+                Comprehensive documentation of offensive security operations, infrastructure hardening, and secure
+                architecture.
+            </p>
         </div>
     </header>
 
-    <!-- Mission Control Bento Grid -->
-    <main class="py-12 px-6 max-w-[1600px] mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 min-h-[800px]">
-
-            <!-- [1x1] Identity Card -->
-            <a href="about.html"
-                class="group flex flex-col justify-between p-6 rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal">
-                <div class="flex justify-between items-start">
-                    <div class="w-16 h-16 rounded-full border-2 border-accent-cyan/30 p-1">
-                        <img src="https://ui-avatars.com/api/?name=Kali+Alucard&background=0ea5e9&color=fff&size=128"
-                            alt="Profile"
-                            class="rounded-full w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
-                    </div>
-                    <div class="bg-accent-cyan/10 px-2 py-1 rounded border border-accent-cyan/20">
-                        <span class="text-[9px] font-mono text-accent-cyan uppercase tracking-widest">Operator</span>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-accent-cyan transition-colors">
-                        KaliAlucard</h3>
-                    <p class="text-xs text-slate-400 font-mono mb-4">Cybersecurity Specialist</p>
-                    <div class="flex gap-2">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        <span class="text-[10px] text-slate-500 font-mono uppercase">System_Online</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- [1x1] Clearance Card -->
-            <a href="certificates.html"
-                class="group flex flex-col justify-between p-6 rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal"
-                style="transition-delay: 100ms;">
-                <div class="flex justify-between items-start">
+    <!-- Strategic Resource Grid -->
+    <main class="py-16 px-6 max-w-7xl mx-auto">
+        <!-- Core Resources (1x3) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 reveal">
+            <!-- Documentation Library -->
+            <a href="devhub.html#docs-library"
+                class="group p-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-accent-green/50 transition-all duration-300 hover:-translate-y-1">
+                <div
+                    class="w-14 h-14 rounded-lg bg-slate-800 flex items-center justify-center mb-6 group-hover:bg-accent-green/10 transition-colors">
                     <i
-                        class="fa-solid fa-id-card text-4xl text-slate-600 group-hover:text-accent-green transition-colors"></i>
-                    <i class="fa-solid fa-wifi text-slate-700"></i>
+                        class="fa-solid fa-book-atlas text-2xl text-slate-400 group-hover:text-accent-green transition-colors"></i>
                 </div>
-                <div>
-                    <div class="text-[10px] text-slate-500 font-mono uppercase mb-2">Security_Clearance</div>
-                    <h3 class="text-3xl font-bold text-white mb-1 tracking-tighter">OMNI_LEVEL</h3>
-                    <div class="h-1 w-full bg-slate-800 rounded-full mt-4 overflow-hidden">
-                        <div class="h-full bg-accent-green w-3/4 group-hover:w-full transition-all duration-700"></div>
-                    </div>
+                <h3 class="text-xl font-bold text-white mb-3">Documentation Library</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">Standard Operating Procedures, technical manuals,
+                    and reference guides for security operations.</p>
+                <div class="flex items-center text-accent-green text-xs font-mono font-bold uppercase tracking-wider">
+                    Access Library <i
+                        class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </div>
             </a>
 
-            <!-- [2x2] Featured Intelligence -->
+            <!-- Research & Writeups -->
             <a href="writeups.html"
-                class="md:col-span-2 md:row-span-2 group relative rounded-2xl overflow-hidden holographic-border bento-card-hover min-h-[300px] reveal"
-                style="transition-delay: 200ms;">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent z-10">
-                </div>
-                <img src="images/posts/cherry-blossom.jpg" alt="Featured Writeup"
-                    class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700">
-
-                <div class="absolute bottom-0 left-0 right-0 p-8 z-20">
-                    <div
-                        class="bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-full text-[10px] font-mono inline-block mb-4 uppercase tracking-widest backdrop-blur-md">
-                        Latest_Intelligence_Drop
-                    </div>
-                    <h2
-                        class="text-4xl md:text-5xl font-bold text-white mb-4 leading-none tracking-tighter group-hover:text-red-400 transition-colors">
-                        Cherry Blossom
-                    </h2>
-                    <p class="text-slate-300 max-w-lg text-lg line-clamp-2">
-                        Comprehensive analysis of the Cherry Blossom exploit chain, dissecting payload delivery and
-                        persistence mechanisms.
-                    </p>
-                </div>
-            </a>
-
-            <!-- [1x2] Vertical Domain Strips -->
-            <a href="projects/network-system-protection.html"
-                class="group relative overflow-hidden rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal"
-                style="transition-delay: 300ms;">
-                <img src="images/posts/network-shield.jpg"
-                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity">
-                <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
+                class="group p-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-accent-cyan/50 transition-all duration-300 hover:-translate-y-1">
+                <div
+                    class="w-14 h-14 rounded-lg bg-slate-800 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 transition-colors">
                     <i
-                        class="fa-solid fa-shield-halved text-3xl text-slate-500 group-hover:text-accent-green mb-4 transition-all group-hover:-translate-y-2"></i>
-                    <span
-                        class="font-mono text-xs text-white uppercase tracking-widest vertical-rl group-hover:text-accent-green transition-colors">Network_Sec</span>
+                        class="fa-solid fa-flask text-2xl text-slate-400 group-hover:text-accent-cyan transition-colors"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Research & Analysis</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">In-depth analysis of vulnerabilities, exploit
+                    chains, and forensic investigations.</p>
+                <div class="flex items-center text-accent-cyan text-xs font-mono font-bold uppercase tracking-wider">
+                    View Reports <i
+                        class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </div>
             </a>
 
-            <a href="projects/application-web-security.html"
-                class="group relative overflow-hidden rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal"
-                style="transition-delay: 400ms;">
-                <img src="images/posts/web-audit.jpg"
-                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity">
-                <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
+            <!-- Project Portfolio -->
+            <a href="projects.html"
+                class="group p-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-1">
+                <div
+                    class="w-14 h-14 rounded-lg bg-slate-800 flex items-center justify-center mb-6 group-hover:bg-purple-500/10 transition-colors">
                     <i
-                        class="fa-solid fa-globe text-3xl text-slate-500 group-hover:text-accent-green mb-4 transition-all group-hover:-translate-y-2"></i>
-                    <span
-                        class="font-mono text-xs text-white uppercase tracking-widest vertical-rl group-hover:text-accent-green transition-colors">Web_Audit</span>
+                        class="fa-solid fa-layer-group text-2xl text-slate-400 group-hover:text-purple-400 transition-colors"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Project Portfolio</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">Architecture diagrams, security audits, and
+                    engineering implementations.</p>
+                <div class="flex items-center text-purple-400 text-xs font-mono font-bold uppercase tracking-wider">
+                    Explore Projects <i
+                        class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </div>
             </a>
-
-            <a href="projects/ethical-hacking-vulnerability-testing.html"
-                class="group relative overflow-hidden rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal"
-                style="transition-delay: 500ms;">
-                <img src="images/posts/red-team.jpg"
-                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity">
-                <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
-                    <i
-                        class="fa-solid fa-mask text-3xl text-slate-500 group-hover:text-accent-green mb-4 transition-all group-hover:-translate-y-2"></i>
-                    <span
-                        class="font-mono text-xs text-white uppercase tracking-widest vertical-rl group-hover:text-accent-green transition-colors">Red_Team</span>
-                </div>
-            </a>
-
-            <a href="projects/cloud-secure-development-operations.html"
-                class="group relative overflow-hidden rounded-2xl bg-slate-900/50 holographic-border bento-card-hover min-h-[300px] reveal"
-                style="transition-delay: 600ms;">
-                <img src="images/posts/cloud-security.jpg"
-                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity">
-                <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
-                    <i
-                        class="fa-solid fa-cloud text-3xl text-slate-500 group-hover:text-accent-green mb-4 transition-all group-hover:-translate-y-2"></i>
-                    <span
-                        class="font-mono text-xs text-white uppercase tracking-widest vertical-rl group-hover:text-accent-green transition-colors">Cloud_Ops</span>
-                </div>
-            </a>
-
-            <!-- [2x1] DevHub Console -->
-            <div class="md:col-span-2 rounded-2xl bg-slate-900/50 holographic-border p-6 flex flex-col justify-center reveal"
-                style="transition-delay: 700ms;">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="w-2 h-2 bg-accent-cyan rounded-full animate-ping"></span>
-                    <h3 class="font-mono text-sm text-slate-400 uppercase tracking-widest">DevHub_Console</h3>
-                </div>
-                <div class="grid grid-cols-3 gap-4">
-                    <a href="devhub.html#tool-testing"
-                        class="group flex flex-col items-center p-4 rounded bg-slate-950/50 hover:bg-accent-cyan/10 border border-transparent hover:border-accent-cyan/30 transition-all">
-                        <i class="fa-solid fa-microscope text-2xl text-slate-400 group-hover:text-accent-cyan mb-2"></i>
-                        <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white">Tools</span>
-                    </a>
-                    <a href="devhub.html#technical-blogs"
-                        class="group flex flex-col items-center p-4 rounded bg-slate-950/50 hover:bg-accent-cyan/10 border border-transparent hover:border-accent-cyan/30 transition-all">
-                        <i class="fa-solid fa-pen-nib text-2xl text-slate-400 group-hover:text-accent-cyan mb-2"></i>
-                        <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white">Blogs</span>
-                    </a>
-                    <a href="devhub.html#docs-library"
-                        class="group flex flex-col items-center p-4 rounded bg-slate-950/50 hover:bg-accent-cyan/10 border border-transparent hover:border-accent-cyan/30 transition-all">
-                        <i class="fa-solid fa-book text-2xl text-slate-400 group-hover:text-accent-cyan mb-2"></i>
-                        <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white">Docs</span>
-                    </a>
-                </div>
-            </div>
-
         </div>
+
+        <!-- Featured Intelligence (Full Width) -->
+        <div class="mb-16 reveal">
+            <h2 class="text-2xl font-mono font-bold text-white mb-8 border-l-4 border-accent-cyan pl-4">Featured Report
+            </h2>
+            <a href="writeups.html" class="group relative block w-full rounded-2xl overflow-hidden min-h-[400px]">
+                <div class="absolute inset-0 bg-slate-900 z-0"></div>
+                <img src="images/posts/cherry-blossom.jpg" alt="Featured Writeup"
+                    class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent z-10">
+                </div>
+
+                <div class="absolute inset-0 flex flex-col justify-center p-8 md:p-16 z-20 max-w-3xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span
+                            class="px-3 py-1 rounded bg-red-500/20 text-red-400 text-[10px] font-mono uppercase tracking-widest border border-red-500/20">Critical_Analysis</span>
+                        <span class="text-slate-500 text-xs font-mono">ID: RPT-2025-001</span>
+                    </div>
+                    <h3
+                        class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight group-hover:text-accent-cyan transition-colors">
+                        Cherry Blossom: Advanced Persistent Threat Analysis
+                    </h3>
+                    <p class="text-slate-300 text-lg leading-relaxed mb-8">
+                        A comprehensive technical breakdown of the Cherry Blossom exploit chain, examining payload
+                        delivery vectors, persistence mechanisms, and network exfiltration patterns.
+                    </p>
+                    <div class="flex items-center gap-2 text-white font-bold group-hover:gap-4 transition-all">
+                        Read Full Analysis <i class="fa-solid fa-arrow-right text-accent-cyan"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Domain Expertise (2x2 Grid) -->
+        <div class="reveal">
+            <h2 class="text-2xl font-mono font-bold text-white mb-8 border-l-4 border-accent-green pl-4">Research
+                Domains</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <a href="projects/network-system-protection.html"
+                    class="flex items-start p-6 rounded-lg bg-slate-900 border border-slate-800 hover:bg-slate-800 transition-colors group">
+                    <div class="mt-1 mr-4">
+                        <i
+                            class="fa-solid fa-shield-halved text-2xl text-slate-500 group-hover:text-accent-green transition-colors"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-accent-green transition-colors">
+                            Network Security</h4>
+                        <p class="text-sm text-slate-400">Infrastructure hardening and perimeter defense.</p>
+                    </div>
+                </a>
+
+                <a href="projects/application-web-security.html"
+                    class="flex items-start p-6 rounded-lg bg-slate-900 border border-slate-800 hover:bg-slate-800 transition-colors group">
+                    <div class="mt-1 mr-4">
+                        <i
+                            class="fa-solid fa-globe text-2xl text-slate-500 group-hover:text-accent-green transition-colors"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-accent-green transition-colors">
+                            Web Security</h4>
+                        <p class="text-sm text-slate-400">Full-stack audits and vulnerability assessment.</p>
+                    </div>
+                </a>
+
+                <a href="projects/ethical-hacking-vulnerability-testing.html"
+                    class="flex items-start p-6 rounded-lg bg-slate-900 border border-slate-800 hover:bg-slate-800 transition-colors group">
+                    <div class="mt-1 mr-4">
+                        <i
+                            class="fa-solid fa-mask text-2xl text-slate-500 group-hover:text-accent-green transition-colors"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-accent-green transition-colors">
+                            Offensive Ops</h4>
+                        <p class="text-sm text-slate-400">Red Teaming, penetration testing, and exploit dev.</p>
+                    </div>
+                </a>
+
+                <a href="projects/cloud-secure-development-operations.html"
+                    class="flex items-start p-6 rounded-lg bg-slate-900 border border-slate-800 hover:bg-slate-800 transition-colors group">
+                    <div class="mt-1 mr-4">
+                        <i
+                            class="fa-solid fa-cloud text-2xl text-slate-500 group-hover:text-accent-green transition-colors"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-accent-green transition-colors">
+                            Cloud Security</h4>
+                        <p class="text-sm text-slate-400">DevSecOps pipelines and cloud architecture.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
     </main>
 
     <!-- Home Content: Blogs/Writeups Section -->
