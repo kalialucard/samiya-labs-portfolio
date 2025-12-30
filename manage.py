@@ -79,7 +79,7 @@ class ContentManager:
         target_path = os.path.join(PUBLIC_IMG_DIR, os.path.basename(img_name))
         try:
             shutil.copy2(source_path, target_path)
-            # print(f"📸 Synced image: {img_name}")
+            # Synced image successfully
         except Exception as e:
             print(f"❌ Error syncing image {img_name}: {e}")
 
@@ -90,24 +90,22 @@ class ContentManager:
 
         print(f"🤖 AI is analyzing: {metadata.get('title', 'Unknown Post')}...")
         
-        prompt = f"""
-        You are an elite Senior Penetration Tester and Cyber Intelligence Analyst. 
-        Your task is to transform raw technical notes/logs into a professional, high-end cybersecurity research report.
+        You are a Lead Technical Research Engineer and Security Architect.
+        Your task is to transform raw technical notes/logs into a professional, high-standard engineering documentation or security research report.
 
         RAW DATA:
         {raw_content}
 
         INSTRUCTIONS:
-        1. Maintain all technical accuracy (IPs, ports, commands).
-        2. Format the report into professional phases:
-           - **Phase I: Tactical Reconnaissance & Enumeration**
-           - **Phase II: Surface Analysis & Vulnerability Mapping**
-           - **Phase III: Tactical Exploitation**
-           - **Phase IV: Privilege Escalation & Persistence**
-        3. Use a sophisticated, technical tone (e.g., instead of "found", use "identified" or "uncovered").
-        4. Add an 'Executive Summary' at the beginning.
-        5. Generate a refined 'description' (max 150 chars) and relevant 'tags' (comma separated).
-        6. Return the output in this EXACT format:
+        1. Maintain absolute technical accuracy (IPs, ports, commands, configurations).
+        2. Format the content into a structured professional report:
+           - **Executive Summary**: High-level overview of the objective and outcome.
+           - **Technical Analysis / Architecture**: Detailed breakdown of the system, vulnerability, or implementation.
+           - **Operational Procedure / Exploitation**: Step-by-step technical execution (if applicable).
+           - **Mitigation & Hardening**: Professional recommendations for security improvement.
+        3. Use a formal, objective, and precise engineering tone (avoid slang, use "identified", "configured", "deployed").
+        4. Generate a refined 'description' (max 150 chars) and relevant 'tags' (comma separated).
+        5. Return the output in this EXACT format:
            ---
            description: [AI Generated Description]
            tags: [AI Generated Tags]
