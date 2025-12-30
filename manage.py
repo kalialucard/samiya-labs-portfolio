@@ -409,8 +409,26 @@ class ContentManager:
         </article>"""
 
     def update_site_grids(self):
-        target_files = ["index.html", "devhub.html", "writeups.html", "projects.html", "cybersecurity.html", "networking.html", "programming.html", "hardware.html", "ai.html"]
-        project_pages = ["projects.html", "cybersecurity.html", "networking.html", "programming.html", "hardware.html", "ai.html"]
+        target_files = [
+            "index.html", "devhub.html", "writeups.html", "projects.html",
+            "projects/network-system-protection.html",
+            "projects/application-web-security.html",
+            "projects/ethical-hacking-vulnerability-testing.html",
+            "projects/threat-monitoring-incident-response.html",
+            "projects/cybersecurity-investigation-analysis.html",
+            "projects/security-policies-risk-management.html",
+            "projects/cloud-secure-development-operations.html"
+        ]
+        project_pages = [
+            "projects.html",
+            "projects/network-system-protection.html",
+            "projects/application-web-security.html",
+            "projects/ethical-hacking-vulnerability-testing.html",
+            "projects/threat-monitoring-incident-response.html",
+            "projects/cybersecurity-investigation-analysis.html",
+            "projects/security-policies-risk-management.html",
+            "projects/cloud-secure-development-operations.html"
+        ]
         
         # Categorize posts
         sections = {}
@@ -432,15 +450,19 @@ class ContentManager:
                 end_marker = f"<!-- AUTO_CARDS_END:{cat} -->"
                 
                 if start_marker in content and end_marker in content:
-                    # Update image paths if we are in a subfolder
+                    # Update image paths and links if we are in a subfolder
                     modified_posts = []
+                    is_nested = "/" in filename
+                    prefix = "../" if is_nested else ""
+                    
                     for p in posts:
                         p_copy = p.copy()
-                        if p_copy.get('image'):
-                            # Root pages like index.html need 'images/posts/...'
-                            # Pages like posts/slug.html would need '../images/posts/...'
-                            # Since this is for top-level pages (devhub.html, etc), 'images/posts' is correct.
-                            pass 
+                        if p_copy.get('image') and not p_copy['image'].startswith('http'):
+                            p_copy['image'] = prefix + p_copy['image']
+                        if p_copy.get('url') and not p_copy['url'].startswith('http'):
+                            # The url is usually 'posts/slug.html'
+                            # If we are in 'projects/page.html', we need '../posts/slug.html'
+                            p_copy['url'] = prefix + p_copy['url']
                         modified_posts.append(p_copy)
 
                     if is_project_page:

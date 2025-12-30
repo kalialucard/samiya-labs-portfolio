@@ -27,7 +27,7 @@
 </head>
 
 <body
-    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-transparent text-slate-200">
+    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-slate-950 text-slate-200">
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
@@ -40,160 +40,244 @@
             <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
                 <a href="index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
                 <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
-                <a href="projects.html" class="text-white hover:text-accent-cyan transition-colors">Projects</a>
                 <a href="devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+
+                <div class="relative group">
+                    <a href="projects.html"
+                        class="text-white flex items-center gap-1 transition-colors underline decoration-accent-green underline-offset-8">
+                        Projects <i class="fa-solid fa-chevron-down text-xs opacity-50"></i>
+                    </a>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-72 bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+                        <a href="projects.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-cyan text-xs">
+                            <i class="fa-solid fa-layer-group w-6"></i> All Projects Archive
+                        </a>
+                        <div class="h-px bg-slate-800/50 my-1"></div>
+                        <a href="projects/network-system-protection.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-[10px] uppercase tracking-wider font-mono">
+                            <i class="fa-solid fa-shield-halved w-6 text-accent-green"></i> Network & System Protection
+                        </a>
+                        <a href="projects/application-web-security.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-[10px] uppercase tracking-wider font-mono">
+                            <i class="fa-solid fa-globe w-6 text-accent-green"></i> Application & Web Security
+                        </a>
+                        <a href="projects/ethical-hacking-vulnerability-testing.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-[10px] uppercase tracking-wider font-mono">
+                            <i class="fa-solid fa-mask w-6 text-accent-green"></i> Ethical Hacking & Vulnerability
+                            Testing
+                        </a>
+                        <a href="projects/threat-monitoring-incident-response.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-[10px] uppercase tracking-wider font-mono">
+                            <i class="fa-solid fa-clock-rotate-left w-6 text-accent-green"></i> Threat Monitoring &
+                            Incident Response
+                        </a>
+                        <a href="projects/cybersecurity-investigation-analysis.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-[10px] uppercase tracking-wider font-mono">
+                            <i class="fa-solid fa-magnifying-glass w-6 text-accent-green"></i> Cybersecurity
+                            Investigation & Analysis
+                        </a>
+                        <a href="projects/security-policies-risk-management.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-[10px] uppercase tracking-wider font-mono">
+                            <i class="fa-solid fa-file-contract w-6 text-accent-green"></i> Security Policies & Risk
+                            Management
+                        </a>
+                        <a href="projects/cloud-secure-development-operations.html"
+                            class="block px-4 py-2 rounded text-slate-400 hover:bg-slate-800 hover:text-accent-green text-[10px] uppercase tracking-wider font-mono">
+                            <i class="fa-solid fa-cloud-shield w-6 text-accent-green"></i> Cloud & Secure Development
+                            Operations
+                        </a>
+                    </div>
+                </div>
+
                 <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
                 <a href="contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
             </div>
 
             <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2 text-2xl"><i
                     class="fa-solid fa-bars"></i></button>
         </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-700 shadow-2xl">
+            <div class="flex flex-col p-4 space-y-1">
+                <a href="index.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Home</a>
+                <a href="about.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">About</a>
+                <a href="devhub.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">DevHub</a>
+                <div
+                    class="py-2 px-4 text-xs font-bold text-slate-600 uppercase tracking-widest mt-2 border-l-2 border-slate-800">
+                    Projects</div>
+                <a href="projects.html"
+                    class="block px-4 py-2 text-white pl-6 text-[10px] font-mono uppercase tracking-wider border-l-2 border-accent-cyan"><i
+                        class="fa-solid fa-layer-group w-6"></i> All Projects Archive</a>
+                <a href="projects/network-system-protection.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-[10px] font-mono uppercase tracking-wider"><i
+                        class="fa-solid fa-shield-halved w-6"></i> Network & System Protection</a>
+                <a href="projects/application-web-security.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-[10px] font-mono uppercase tracking-wider"><i
+                        class="fa-solid fa-globe w-6"></i> Application & Web Security</a>
+                <a href="projects/ethical-hacking-vulnerability-testing.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-[10px] font-mono uppercase tracking-wider"><i
+                        class="fa-solid fa-mask w-6"></i> Ethical Hacking & Vulnerability Testing</a>
+                <a href="projects/threat-monitoring-incident-response.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-[10px] font-mono uppercase tracking-wider"><i
+                        class="fa-solid fa-clock-rotate-left w-6"></i> Threat Monitoring & Incident Response</a>
+                <a href="projects/cybersecurity-investigation-analysis.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-[10px] font-mono uppercase tracking-wider"><i
+                        class="fa-solid fa-magnifying-glass w-6"></i> Cybersecurity Investigation & Analysis</a>
+                <a href="projects/security-policies-risk-management.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-[10px] font-mono uppercase tracking-wider"><i
+                        class="fa-solid fa-file-contract w-6 text-accent-green"></i> Security Policies & Risk
+                    Management</a>
+                <a href="projects/cloud-secure-development-operations.html"
+                    class="block px-4 py-2 text-slate-400 hover:text-accent-green pl-6 text-[10px] font-mono uppercase tracking-wider"><i
+                        class="fa-solid fa-cloud-shield w-6 text-accent-green"></i> Cloud & Secure Development
+                    Operations</a>
+                <div class="h-px bg-slate-800 my-2"></div>
+                <a href="writeups.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Write-ups</a>
+                <a href="certificates.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Certs</a>
+                <a href="contact.html"
+                    class="block px-4 py-3 rounded hover:bg-slate-800 text-slate-400 font-mono border-l-2 border-transparent">Contact</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Content -->
-    <section class="py-20 px-6 max-w-6xl mx-auto flex-grow">
+    <main class="py-20 px-6 max-w-6xl mx-auto flex-grow crt">
         <header class="text-center mb-20 reveal">
             <h1 class="text-4xl md:text-5xl font-mono font-bold text-white mb-6 uppercase tracking-tighter">
-                Project <span class="text-accent-cyan">Archive</span>
+                Technical <span class="text-accent-green">Domains</span>
             </h1>
-            <p class="text-slate-400 max-w-2xl mx-auto">Categorized research and development projects across all core
-                technical domains.</p>
+            <p class="text-slate-400 max-w-2xl mx-auto">Select a specialized research area to explore dedicated
+                technical
+                intelligence reports and research projects.</p>
         </header>
 
-        <!-- Network & System Protection -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
-                <i class="fa-solid fa-shield mr-4"></i> Network & System Protection
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:network-protection -->
-                <!-- AUTO_CARDS_END:network-protection -->
-            </div>
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+            <!-- Domain: Network & System Protection -->
+            <a href="projects/network-system-protection.html"
+                class="group p-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-accent-green/50 hover:shadow-2xl hover:shadow-accent-green/10 transition-all duration-500 reveal">
+                <div
+                    class="w-12 h-12 rounded-lg bg-accent-green/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-shield-halved text-2xl text-accent-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-accent-green transition-colors">Network &
+                    System Protection</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Hardened infrastructure, perimeter defense, and
+                    secure system architectures.</p>
+                <div class="flex items-center text-xs font-mono text-accent-green uppercase tracking-widest">
+                    Explore Research <i
+                        class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </a>
 
-        <!-- Application & Web Security -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
-                <i class="fa-solid fa-code-lock mr-4"></i> Application & Web Security
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:web-security -->
-                <!-- AUTO_CARDS_END:web-security -->
-            </div>
-        </div>
+            <!-- Domain: Application & Web Security -->
+            <a href="projects/application-web-security.html"
+                class="group p-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-accent-green/50 hover:shadow-2xl hover:shadow-accent-green/10 transition-all duration-500 reveal">
+                <div
+                    class="w-12 h-12 rounded-lg bg-accent-green/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-globe text-2xl text-accent-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-accent-green transition-colors">
+                    Application & Web Security</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Secure software development, web vulnerability
+                    exploitation, and mitigation.</p>
+                <div class="flex items-center text-xs font-mono text-accent-green uppercase tracking-widest">
+                    Explore Research <i
+                        class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </a>
 
-        <!-- Ethical Hacking & Vulnerability Testing -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
-                <i class="fa-solid fa-user-secret mr-4"></i> Ethical Hacking & Vulnerability Testing
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:ethical-hacking -->
-                <!-- AUTO_CARDS_END:ethical-hacking -->
-            </div>
-        </div>
+            <!-- Domain: Ethical Hacking & Vulnerability Testing -->
+            <a href="projects/ethical-hacking-vulnerability-testing.html"
+                class="group p-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-accent-green/50 hover:shadow-2xl hover:shadow-accent-green/10 transition-all duration-500 reveal">
+                <div
+                    class="w-12 h-12 rounded-lg bg-accent-green/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-mask text-2xl text-accent-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-accent-green transition-colors">Ethical
+                    Hacking & Vulnerability Testing</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Offensive security methodology, penetration
+                    testing, and exploit development.</p>
+                <div class="flex items-center text-xs font-mono text-accent-green uppercase tracking-widest">
+                    Explore Research <i
+                        class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </a>
 
-        <!-- Threat Monitoring & Incident Response -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
-                <i class="fa-solid fa-satellite-dish mr-4"></i> Threat Monitoring & Incident Response
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:incident-response -->
-                <!-- AUTO_CARDS_END:incident-response -->
-            </div>
-        </div>
+            <!-- Domain: Threat Monitoring & Incident Response -->
+            <a href="projects/threat-monitoring-incident-response.html"
+                class="group p-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-accent-green/50 hover:shadow-2xl hover:shadow-accent-green/10 transition-all duration-500 reveal">
+                <div
+                    class="w-12 h-12 rounded-lg bg-accent-green/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-clock-rotate-left text-2xl text-accent-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-accent-green transition-colors">Threat
+                    Monitoring & Incident Response</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Real-time detection, SIEM implementation, and
+                    coordinated breach response.</p>
+                <div class="flex items-center text-xs font-mono text-accent-green uppercase tracking-widest">
+                    Explore Research <i
+                        class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </a>
 
-        <!-- Cybersecurity Investigation & Analysis -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
-                <i class="fa-solid fa-magnifying-glass-chart mr-4"></i> Cybersecurity Investigation & Analysis
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:investigation -->
-                <!-- AUTO_CARDS_END:investigation -->
-            </div>
-        </div>
+            <!-- Domain: Cybersecurity Investigation & Analysis -->
+            <a href="projects/cybersecurity-investigation-analysis.html"
+                class="group p-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-accent-green/50 hover:shadow-2xl hover:shadow-accent-green/10 transition-all duration-500 reveal">
+                <div
+                    class="w-12 h-12 rounded-lg bg-accent-green/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-magnifying-glass text-2xl text-accent-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-accent-green transition-colors">
+                    Cybersecurity Investigation & Analysis</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Digital forensics, compromised host analysis, and
+                    technical investigations.</p>
+                <div class="flex items-center text-xs font-mono text-accent-green uppercase tracking-widest">
+                    Explore Research <i
+                        class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </a>
 
-        <!-- Security Policies & Risk Management -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
-                <i class="fa-solid fa-file-contract mr-4"></i> Security Policies & Risk Management
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:risk-management -->
-                <!-- AUTO_CARDS_END:risk-management -->
-            </div>
-        </div>
+            <!-- Domain: Security Policies & Risk Management -->
+            <a href="projects/security-policies-risk-management.html"
+                class="group p-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-accent-green/50 hover:shadow-2xl hover:shadow-accent-green/10 transition-all duration-500 reveal">
+                <div
+                    class="w-12 h-12 rounded-lg bg-accent-green/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-file-contract text-2xl text-accent-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-accent-green transition-colors">Security
+                    Policies & Risk Management</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Governance frameworks, risk assessment, and
+                    compliance implementations.</p>
+                <div class="flex items-center text-xs font-mono text-accent-green uppercase tracking-widest">
+                    Explore Research <i
+                        class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </a>
 
-        <!-- Cloud & Secure Development Operations -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-accent-green mb-8 flex items-center reveal">
-                <i class="fa-solid fa-cloud-lock mr-4"></i> Cloud & Secure Development Operations
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:devsecops -->
-                <!-- AUTO_CARDS_END:devsecops -->
-            </div>
+            <!-- Domain: Cloud & Secure Development Operations -->
+            <a href="projects/cloud-secure-development-operations.html"
+                class="group p-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-accent-green/50 hover:shadow-2xl hover:shadow-accent-green/10 transition-all duration-500 reveal">
+                <div
+                    class="w-12 h-12 rounded-lg bg-accent-green/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-cloud-shield text-2xl text-accent-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-accent-green transition-colors">Cloud &
+                    Secure Development Operations</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Secure CI/CD, cloud hardening, and automated
+                    security orchestration.</p>
+                <div class="flex items-center text-xs font-mono text-accent-green uppercase tracking-widest">
+                    Explore Research <i
+                        class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </a>
         </div>
-
-        <!-- Networking marker -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-accent-cyan mb-8 flex items-center reveal">
-                <i class="fa-solid fa-network-wired mr-4"></i> Networking & Infrastructure
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:networking -->
-                <!-- AUTO_CARDS_END:networking -->
-            </div>
-        </div>
-
-        <!-- Programming marker -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-amber-400 mb-8 flex items-center reveal">
-                <i class="fa-solid fa-code mr-4"></i> Software Engineering
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:programming -->
-                <!-- AUTO_CARDS_END:programming -->
-            </div>
-        </div>
-
-        <!-- Hardware marker -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-purple-500 mb-8 flex items-center reveal">
-                <i class="fa-solid fa-microchip mr-4"></i> Hardware & Embedded Systems
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:hardware -->
-                <!-- AUTO_CARDS_END:hardware -->
-            </div>
-        </div>
-
-        <!-- AI marker -->
-        <div class="mb-24">
-            <h2 class="font-mono text-xl text-rose-400 mb-8 flex items-center reveal">
-                <i class="fa-solid fa-brain mr-4"></i> AI & Automation
-                <span class="ml-4 h-px bg-slate-700 flex-grow"></span>
-            </h2>
-            <div class="space-y-8">
-                <!-- AUTO_CARDS_START:ai -->
-                <!-- AUTO_CARDS_END:ai -->
-            </div>
-        </div>
-
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24">
