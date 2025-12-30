@@ -27,44 +27,93 @@
             content: "TECHNICAL_INTELLIGENCE";
             position: absolute;
             top: -9px;
-            left: 12px;
-            background: #0f172a;
-            padding: 0 10px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 9px;
-            color: #22c55e;
-            letter-spacing: 2px;
-            border: 1px solid rgba(34, 197, 94, 0.4);
-            font-weight: 700;
-            z-index: 10;
         }
-        .nav-index { color: #22c55e; opacity: 0.5; margin-right: 0.5rem; font-weight: bold; }
-        .diag-card { background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); padding: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #64748b; border-radius: 4px; }
-        .diag-label { color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; display: block; font-size: 8px; letter-spacing: 1px; }
-        .diag-value { color: #22c55e; }
-        .diag-blink { animation: blink 1s step-end infinite; }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
         @keyframes blink { 50% { opacity: 0; } }
-        body { 
-            background-image: 
-                linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)),
-                url('../images/world-map-bg.png');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            color: #cbd5e1; 
-        }
     </style>
 </head>
-<body class="p-8 md:p-16 bg-transparent selection:bg-accent-green selection:text-slate-900">
-    <nav class="mb-12 font-mono text-sm">
-        <a href="../index.html" class="text-accent-cyan hover:underline hover:text-white transition-colors">Return_to_Portfolio</a>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
     </nav>
-    <article class="max-w-7xl mx-auto">
-        <header class="mb-12">
-            <div class="text-accent-green font-mono text-sm mb-2 uppercase">risk-management</div>
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">ISMS Framework Alignment</h1>
-            <div class="text-slate-500 text-sm">2025-12-30 • iso27001, compliance, gdpr</div>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">risk-management</span>
+                <span>// 2025-12-30</span>
+                <span>// ID: REF-ISMS Framework Alignment</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">ISMS Framework Alignment</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- iso27001, compliance, gdpr -->
+            </div>
         </header>
+
+        <!-- Markdown Body -->
         <div class="markdown-content">
             <h1>ISMS Framework Alignment</h1>
 <p>Developing a structured approach to risk management and organizational compliance.</p>
@@ -75,7 +124,7 @@
 <li><strong>Compliance Audit</strong>: Verified alignment with ISO/IEC 27001:2022 controls.</li>
 </ul>
         </div>
-    </article>
+    </main>
 
     <!-- Footer -->
     <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">

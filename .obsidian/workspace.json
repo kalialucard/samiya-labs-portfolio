@@ -74,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 243.5
+    "width": 361.5
   },
   "right": {
     "id": "29d86d49affc3958",
@@ -187,7 +187,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1c867c212d5650d8",
+  "active": "7119536e5b33a70b",
   "lastOpenFiles": [
     "content/projects/cybersecurity/red-team-financial.md",
     "fix_nav_links.py",
