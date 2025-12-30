@@ -347,12 +347,7 @@ class ContentManager:
         }
         color = color_map.get(post['category'], "accent-cyan")
         
-        img_html = ""
-        if post.get('image'):
-            # Adjusted path for index vs subfolders handled in loop
-            img_html = f'<div class="h-24 overflow-hidden"><img src="{post["image"]}" alt="{post["title"]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>'
-        else:
-            img_html = f'<div class="h-2 bg-{color}"></div>'
+        img_html = f'<div class="h-2 bg-{color}"></div>'
 
         return f"""
             <a href="{post['url']}" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-{color}/50 hover:shadow-xl hover:shadow-{color}/10 transition-all duration-300 block" data-category="{post['category']}" data-tags="{post['tags']}">
