@@ -194,6 +194,7 @@
   },
   "active": "7119536e5b33a70b",
   "lastOpenFiles": [
+    "fix_nav_links.py",
     "fix_project_pages.py",
     "verify_markers.py",
     "content/projects/cybersecurity/risk-management.md",
@@ -206,7 +207,6 @@
     "posts/fintech-red-team-engagement.html",
     "posts/zero-trust-network-implementation.html",
     "posts/advanced-memory-forensics-tool.html",
-    "posts/ransomware-defense-playbook.html",
     "content/projects/hardware/iot-firmware-analysis.md",
     "content/projects/programming/rust-kernel-module.md",
     "content/projects/networking/5g-slice-security.md",
