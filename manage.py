@@ -417,7 +417,11 @@ class ContentManager:
             "projects/threat-monitoring-incident-response.html",
             "projects/cybersecurity-investigation-analysis.html",
             "projects/security-policies-risk-management.html",
-            "projects/cloud-secure-development-operations.html"
+            "projects/cloud-secure-development-operations.html",
+            "projects/ai-machine-learning.html",
+            "projects/networking-infrastructure.html",
+            "projects/software-engineering.html",
+            "projects/hardware-systems.html"
         ]
         project_pages = [
             "projects.html",
@@ -427,7 +431,11 @@ class ContentManager:
             "projects/threat-monitoring-incident-response.html",
             "projects/cybersecurity-investigation-analysis.html",
             "projects/security-policies-risk-management.html",
-            "projects/cloud-secure-development-operations.html"
+            "projects/cloud-secure-development-operations.html",
+            "projects/ai-machine-learning.html",
+            "projects/networking-infrastructure.html",
+            "projects/software-engineering.html",
+            "projects/hardware-systems.html"
         ]
         
         # Categorize posts
