@@ -11,14 +11,15 @@
             "id": "b955c30f249bcd65",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "content/writeups/tryhackme/test.md",
-                "mode": "source",
-                "source": false
+                "aFile": "content/writeups/tryhackme/test.md",
+                "bFile": "content/writeups/tryhackme/test.md",
+                "aRef": "HEAD",
+                "bRef": ""
               },
-              "icon": "lucide-file",
-              "title": "test"
+              "icon": "diff",
+              "title": "Diff: test"
             }
           }
         ]
@@ -154,13 +155,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/writeups/tryhackme/test.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of test"
+              "title": "Outline"
             }
           },
           {
@@ -178,7 +178,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 420.5
+    "width": 258.5
   },
   "left-ribbon": {
     "hiddenItems": {
