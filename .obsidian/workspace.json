@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/writeups/tryhackme/test1.md",
+                "file": "Smag Grotto.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "test1"
+              "title": "Smag Grotto"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 361.5,
-    "collapsed": true
+    "width": 361.5
   },
   "right": {
     "id": "29d86d49affc3958",
@@ -155,13 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/writeups/tryhackme/test1.md",
+                "file": "Smag Grotto.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of test1"
+              "title": "Outline of Smag Grotto"
             }
           },
           {
@@ -193,11 +192,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1ef2d0532d06b79b",
+  "active": "e75c9e548806cd44",
   "lastOpenFiles": [
+    "Smag Grotto.md",
+    "content/writeups/tryhackme/test1.md",
     "posts/test1.html",
     "posts/test.html",
-    "content/writeups/tryhackme/test1.md",
     "content/blogs/testing-cms.md",
     "content/writeups/test-log.md",
     "posts/test-raw-log.html",
@@ -215,7 +215,6 @@
     "verify_markers.py",
     "content/projects/cybersecurity/risk-management.md",
     "content/projects/cybersecurity/api-security-gateway.md",
-    "fix_markers.py",
     "content/projects/hardware/iot-firmware-analysis.md",
     "content/projects/programming/rust-kernel-module.md",
     "content/projects/networking/5g-slice-security.md",

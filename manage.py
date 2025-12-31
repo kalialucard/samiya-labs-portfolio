@@ -91,11 +91,15 @@ class ContentManager:
             print(f"❌ Error syncing image {img_name}: {e}")
 
     def ai_enrichment(self, raw_content, metadata):
-        if not MODEL:
+        if not GEN_API_KEY:
             print("⚠️ Missing GOOGLE_API_KEY. Skipping AI enrichment.")
             return raw_content, metadata
 
         print(f"🤖 AI is analyzing: {metadata.get('title', 'Unknown Post')}...")
+        
+        # Robust Logic: Try a list of models with timeout
+        # Prioritize 2.5, fallback to 1.5, then 8b (cheapest/fastest)
+        models_to_try = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-1.5-flash-8b']
         
         prompt = f"""
         prioritizing educational value and beginner-friendly explanations.
@@ -134,27 +138,39 @@ class ContentManager:
            [Professional Markdown Report Body]
         """
         
-        try:
-            response = MODEL.generate_content(prompt)
-            result = response.text
-            
-            # Parse the AI response to separate metadata and body
-            if '---' in result:
-                parts = result.split('---')
-                if len(parts) >= 3:
-                    ai_metadata = yaml.safe_load(parts[1])
-                    ai_body = "---".join(parts[2:]).strip()
-                    
-                    # Update metadata if AI provided suggestions
-                    if ai_metadata:
-                        metadata['description'] = ai_metadata.get('description', metadata.get('description'))
-                        metadata['tags'] = ai_metadata.get('tags', metadata.get('tags'))
-                    
-                    return ai_body, metadata
-            return result, metadata
-        except Exception as e:
-            print(f"❌ AI Enrichment Failed: {e}")
-            return raw_content, metadata
+        for model_name in models_to_try:
+            try:
+                print(f"   Trying model: {model_name}...")
+                model = genai.GenerativeModel(model_name)
+                # Timeout is CRITICAL to prevent build hangs
+                response = model.generate_content(prompt, request_options={'timeout': 30})
+                result = response.text
+                
+                # Parse the AI response to separate metadata and body
+                if '---' in result:
+                    parts = result.split('---')
+                    if len(parts) >= 3:
+                        ai_metadata = yaml.safe_load(parts[1])
+                        ai_body = "---".join(parts[2:]).strip()
+                        
+                        # Update metadata if AI provided suggestions
+                        if ai_metadata:
+                            metadata['description'] = ai_metadata.get('description', metadata.get('description'))
+                            metadata['tags'] = ai_metadata.get('tags', metadata.get('tags'))
+                        
+                        print(f"✅ Success with {model_name}!")
+                        return ai_body, metadata
+                
+                # If we got a result but formatted normally not needing special parsing (unlikely given prompt)
+                print(f"✅ Success with {model_name} (No metadata update)!")
+                return result, metadata
+
+            except Exception as e:
+                print(f"❌ Failed with {model_name}: {str(e)}")
+                continue # Try next model
+        
+        print("❌ All AI models failed. Returning raw content.")
+        return raw_content, metadata
 
     def build(self):
         print("🚀 Starting Build Process...")
