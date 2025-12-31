@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "3e3e2d54027c7585",
+        "id": "85a245d9b1c94d63",
         "type": "tabs",
         "children": [
           {
-            "id": "e75c9e548806cd44",
+            "id": "3ce0277c9de52d96",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Smag Grotto.md",
+                "file": "content/writeups/tryhackme/Smag Grotto.md",
                 "mode": "source",
                 "source": false
               },
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 361.5
+    "width": 271.5
   },
   "right": {
     "id": "29d86d49affc3958",
@@ -154,7 +154,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Smag Grotto.md",
+                "file": "content/writeups/tryhackme/Smag Grotto.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -178,7 +178,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 258.5
+    "width": 360.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,14 +192,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e75c9e548806cd44",
+  "active": "7119536e5b33a70b",
   "lastOpenFiles": [
-    "Smag Grotto.md",
+    "content/writeups/tryhackme/simple-ctf.md",
+    "content/writeups/test-log.md",
+    "content/writeups/tryhackme/Smag Grotto.md",
     "content/writeups/tryhackme/test1.md",
     "posts/test1.html",
     "posts/test.html",
     "content/blogs/testing-cms.md",
-    "content/writeups/test-log.md",
     "posts/test-raw-log.html",
     "posts/log-title.html",
     "posts/writeup-title.html",
@@ -229,7 +230,6 @@
     "content/projects/networking/sdn-controller.md",
     "content/projects/ai/nn-optimizer.md",
     "content/projects/cybersecurity/cloud-pipeline.md",
-    "content/projects/cybersecurity/forensics-investigation.md",
     "images/world-map-bg.png",
     "images/logo.png",
     "images/badge_placeholder.png"

@@ -40,7 +40,7 @@ PORT      STATE    SERVICE        REASON      VERSION
 
 ## Web Enum
 
-[](https://github.com/no0g/WriteUps/blob/master/Smag%20GrottoTHM/Smag%20Grotto.md#web-enum)
+
 
 - Gobuster By running gobuster we will find `/mail` directory
     
@@ -67,7 +67,6 @@ Going to `/mail` will give us access to a conversation that includes a `.pcap` f
 
 ## Wireshark
 
-[](https://github.com/no0g/WriteUps/blob/master/Smag%20GrottoTHM/Smag%20Grotto.md#wireshark)
 
 Taking a good look at the traffic, we can find an HTTP Post request to development.smag.thm/login.php. In the packet, we can see the username and pass in clear text.  
   
@@ -75,7 +74,7 @@ with the credential, we can go to `development.smag.thm` and try to get access t
 
 ## Getting In
 
-[](https://github.com/no0g/WriteUps/blob/master/Smag%20GrottoTHM/Smag%20Grotto.md#getting-in)
+
 
 Add development.smag.thm to your `/etc/hosts` and access it through browser.
 
@@ -102,7 +101,7 @@ Add development.smag.thm to your `/etc/hosts` and access it through browser.
 
 ## Getting Access to Jake
 
-[](https://github.com/no0g/WriteUps/blob/master/Smag%20GrottoTHM/Smag%20Grotto.md#getting-access-to-jake)
+
 
 - Enum I tried to use [linpeas](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) to find Priv Esc vector and found that there is an interesting cronjob.
     
