@@ -1,5 +1,5 @@
 ---
-title: test
+title: test1
 date: 2025-01-01
 category: tryhackme
 enrich: true
