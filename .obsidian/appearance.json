@@ -1,4 +1,9 @@
 {
   "theme": "obsidian",
-  "cssTheme": "Hackthebox"
+  "cssTheme": "Hackthebox",
+  "enabledCssSnippets": [
+    "folder-colors"
+  ],
+  "interfaceFontFamily": "Times New Roman",
+  "textFontFamily": "Times New Roman"
 }

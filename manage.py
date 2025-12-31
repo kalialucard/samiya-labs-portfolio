@@ -153,12 +153,15 @@ class ContentManager:
                 response = model.generate_content(prompt, request_options={'timeout': 30})
                 result = response.text
                 
-                # FORCE CLEANUP: Regex to remove "Raw Dump Area" if the AI missed it
-                # Matches "# Raw Dump Area" ... up to the first horizontal rule or header
-                result = re.sub(r'# Raw Dump Area.*?(?=\n#|\n---)', '', result, flags=re.DOTALL | re.IGNORECASE).strip()
-                # Also clean specific Platform/Target lines if they persist
-                result = re.sub(r'\*\*Target IP\*\*.*?\n', '', result)
-                result = re.sub(r'\*\*Platform\*\*.*?\n', '', result)
+                # FORCE CLEANUP: Regex to remove any "Raw" headers if the AI keeps them
+                # Matches "# Raw..." or "# Raw Data" up to the first horizontal rule or header
+                result = re.sub(r'# Raw.*?(?=\n#|\n---)', '', result, flags=re.DOTALL | re.IGNORECASE).strip()
+                
+                # Also clean specific Platform/Target lines if they persist (case insensitive)
+                result = re.sub(r'\*\*Target.*?\*\*.*?\n', '', result, flags=re.IGNORECASE)
+                result = re.sub(r'\*\*Platform\*\*.*?\n', '', result, flags=re.IGNORECASE)
+                result = re.sub(r'- \[.\].*?\n', '', result) # Remove checkboxes
+
 
                 # Parse the AI response to separate metadata and body
                 if '---' in result:

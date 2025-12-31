@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "67250ed2ff267520",
+        "id": "4bf59d8429709d69",
         "type": "tabs",
         "children": [
           {
-            "id": "f6264e219231cafb",
+            "id": "65287e106d7a8c8e",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -74,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 271.5
+    "width": 272.5
   },
   "right": {
     "id": "29d86d49affc3958",
@@ -173,7 +173,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 719.5
+    "width": 241.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,11 +187,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7119536e5b33a70b",
+  "active": "65287e106d7a8c8e",
   "lastOpenFiles": [
+    "content/projects/application-web-security/api-security-gateway.md",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "content/projects/cloud-secure-development-operations/cloud-pipeline.md",
+    "content/writeups/tryhackme/0day.md",
     "content/writeups/tryhackme/Smag Grotto.md",
+    "Untitled 1.md",
+    "Smag Grotto.md",
+    "Untitled.md",
+    "content/writeups/Untitled.canvas",
     "posts/smag-grotto.html",
-    "content/writeups/tryhackme/Untitled.md",
     "content/writeups/tryhackme/simple-ctf.md",
     "content/writeups/test-log.md",
     "content/writeups/tryhackme/test1.md",
@@ -220,10 +228,6 @@
     "content/projects/cybersecurity/iso27001-compliance.md",
     "content/projects/cybersecurity/memory-forensics-tool.md",
     "content/projects/cybersecurity/ransomware-playbook.md",
-    "content/projects/cybersecurity/zero-trust-impl.md",
-    "content/projects/hardware/packet-processor.md",
-    "content/projects/programming/task-queue.md",
-    "content/projects/networking/sdn-controller.md",
     "images/world-map-bg.png",
     "images/logo.png",
     "images/badge_placeholder.png"

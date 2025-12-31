@@ -1,0 +1,81 @@
+/* =========================================
+   CLEAN & BOLD FOLDER STYLES
+   ========================================= */
+
+/* GLOBAL: Make all root folders slightly bolder */
+.nav-folder-title {
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+/* 🟢 CONTENT (SOURCE) */
+.nav-folder-title[data-path="content"] {
+    color: #a3e635 !important;
+    /* Bright Green */
+    font-weight: 800 !important;
+    /* Extra Bold */
+    text-transform: uppercase;
+    /* CAPITALIZE */
+    font-size: 1.1em;
+    /* Larger */
+    border-bottom: 1px solid rgba(163, 230, 53, 0.2);
+    /* Subtle underline */
+    padding-bottom: 4px;
+}
+
+.nav-folder-title[data-path="content"]::before {
+    content: "📂 ";
+}
+
+/* ✍️ WRITEUPS (WORK AREA) */
+.nav-folder-title[data-path="content/writeups"] {
+    color: #22d3ee !important;
+    /* Cyan */
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.nav-folder-title[data-path="content/writeups"]::before {
+    content: "⚡ ";
+    /* Lightning/Action icon */
+}
+
+/* 📋 TEMPLATES (RESOURCES) */
+.nav-folder-title[data-path="content/templates"] {
+    color: #fb923c !important;
+    /* Orange */
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.nav-folder-title[data-path="content/templates"]::before {
+    content: "🧩 ";
+    /* Puzzle piece */
+}
+
+/* ⚙️ POSTS (BUILD OUTPUT - DO NOT TOUCH) */
+.nav-folder-title[data-path="posts"] {
+    color: #6b7280 !important;
+    /* Gray */
+    opacity: 0.5;
+    font-size: 0.9em;
+    font-style: italic;
+    text-decoration: line-through;
+    /* visual cue to ignore */
+}
+
+.nav-folder-title[data-path="posts"]::after {
+    content: " (NO TOUCH)";
+    font-size: 0.7em;
+    opacity: 0.5;
+}
+
+/* 🖼️ IMAGES */
+.nav-folder-title[data-path="images"] {
+    color: #f472b6 !important;
+    /* Pink */
+}
+
+.nav-folder-title[data-path="images"]::before {
+    content: "🎨 ";
+}
