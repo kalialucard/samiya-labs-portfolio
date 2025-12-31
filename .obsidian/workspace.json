@@ -150,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/writeups/tryhackme/Smag Grotto.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Smag Grotto"
+              "title": "Outline"
             }
           },
           {
@@ -188,7 +187,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7119536e5b33a70b",
+  "active": "1ef2d0532d06b79b",
   "lastOpenFiles": [
     "content/writeups/tryhackme/Smag Grotto.md",
     "content/writeups/tryhackme/simple-ctf.md",
