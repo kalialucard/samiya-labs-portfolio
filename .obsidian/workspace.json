@@ -194,6 +194,7 @@
   },
   "active": "3ce0277c9de52d96",
   "lastOpenFiles": [
+    "content/writeups/tryhackme/Untitled.md",
     "content/writeups/tryhackme/simple-ctf.md",
     "content/writeups/tryhackme/Smag Grotto.md",
     "posts/smag-grotto.html",
@@ -229,7 +230,6 @@
     "content/projects/hardware/packet-processor.md",
     "content/projects/programming/task-queue.md",
     "content/projects/networking/sdn-controller.md",
-    "content/projects/ai/nn-optimizer.md",
     "images/world-map-bg.png",
     "images/logo.png",
     "images/badge_placeholder.png"
