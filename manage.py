@@ -153,6 +153,13 @@ class ContentManager:
                 response = model.generate_content(prompt, request_options={'timeout': 30})
                 result = response.text
                 
+                # FORCE CLEANUP: Regex to remove "Raw Dump Area" if the AI missed it
+                # Matches "# Raw Dump Area" ... up to the first horizontal rule or header
+                result = re.sub(r'# Raw Dump Area.*?(?=\n#|\n---)', '', result, flags=re.DOTALL | re.IGNORECASE).strip()
+                # Also clean specific Platform/Target lines if they persist
+                result = re.sub(r'\*\*Target IP\*\*.*?\n', '', result)
+                result = re.sub(r'\*\*Platform\*\*.*?\n', '', result)
+
                 # Parse the AI response to separate metadata and body
                 if '---' in result:
                     parts = result.split('---')
@@ -181,10 +188,21 @@ class ContentManager:
 
     def build(self):
         print("🚀 Starting Build Process...")
+        
+        # CLEANUP: Remove old posts to handle deletions
+        if os.path.exists(OUTPUT_DIR):
+            shutil.rmtree(OUTPUT_DIR)
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        
         all_md_files = glob.glob(os.path.join(CONTENT_DIR, "**", "*.md"), recursive=True)
         
         processed_posts = []
         for file_path in all_md_files:
+            # EXCLUDE TEMPLATES
+            if "templates" in file_path:
+                print(f"⏩ Skipping template: {file_path}")
+                continue
+                
             metadata, body = self.parse_file(file_path)
             
             # --- MAGIC AUTO-METADATA ---
