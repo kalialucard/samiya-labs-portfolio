@@ -1,7 +1,7 @@
 ---
 title: Smag Grotto
 date: YYYY-MM-DD
-category: tryhackme
+category: false
 enrich: true
 image: assets/screenshot.png
 tags: ctf, pentest, linux
