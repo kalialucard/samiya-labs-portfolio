@@ -11,14 +11,10 @@
             "id": "f6264e219231cafb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/writeups/tryhackme/Smag Grotto.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Smag Grotto"
+              "title": "New tab"
             }
           }
         ]
@@ -154,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/writeups/tryhackme/Smag Grotto.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Smag Grotto"
+              "title": "Outline"
             }
           },
           {
@@ -192,11 +187,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f6264e219231cafb",
+  "active": "1ef2d0532d06b79b",
   "lastOpenFiles": [
+    "content/writeups/tryhackme/Smag Grotto.md",
     "posts/smag-grotto.html",
     "content/writeups/tryhackme/Untitled.md",
-    "content/writeups/tryhackme/Smag Grotto.md",
     "content/writeups/tryhackme/simple-ctf.md",
     "content/writeups/test-log.md",
     "content/writeups/tryhackme/test1.md",
