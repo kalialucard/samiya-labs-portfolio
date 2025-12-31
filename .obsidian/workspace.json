@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/writeups/tryhackme/simple-ctf.md",
+                "file": "content/writeups/tryhackme/Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "simple-ctf"
+              "title": "Untitled"
             }
           }
         ]
@@ -154,13 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/writeups/tryhackme/simple-ctf.md",
+                "file": "content/writeups/tryhackme/Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of simple-ctf"
+              "title": "Outline of Untitled"
             }
           },
           {
@@ -178,7 +178,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 360.5
+    "width": 238.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,8 +194,10 @@
   },
   "active": "1ef2d0532d06b79b",
   "lastOpenFiles": [
-    "content/writeups/tryhackme/Smag Grotto.md",
     "content/writeups/tryhackme/simple-ctf.md",
+    "content/writeups/tryhackme/Untitled.md",
+    "posts/smag-grotto.html",
+    "content/writeups/tryhackme/Smag Grotto.md",
     "content/writeups/test-log.md",
     "content/writeups/tryhackme/test1.md",
     "posts/test1.html",
@@ -213,7 +215,6 @@
     "content/projects/cybersecurity/red-team-financial.md",
     "fix_nav_links.py",
     "fix_project_pages.py",
-    "verify_markers.py",
     "content/projects/cybersecurity/risk-management.md",
     "content/projects/cybersecurity/api-security-gateway.md",
     "content/projects/hardware/iot-firmware-analysis.md",
@@ -229,7 +230,6 @@
     "content/projects/programming/task-queue.md",
     "content/projects/networking/sdn-controller.md",
     "content/projects/ai/nn-optimizer.md",
-    "content/projects/cybersecurity/cloud-pipeline.md",
     "images/world-map-bg.png",
     "images/logo.png",
     "images/badge_placeholder.png"
