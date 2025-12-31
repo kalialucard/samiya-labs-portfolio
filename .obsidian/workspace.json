@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "defd6685d542cdd9",
+        "id": "caa1aa98391b526e",
         "type": "tabs",
         "children": [
           {
-            "id": "5675fb59b9fef21b",
+            "id": "b955c30f249bcd65",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "content/writeups/tryhackme/test.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "test"
             }
           }
         ]
@@ -150,12 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "content/writeups/tryhackme/test.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of test"
             }
           },
           {
@@ -164,16 +169,16 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "git-view"
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 420.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,10 +192,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5675fb59b9fef21b",
+  "active": "b955c30f249bcd65",
   "lastOpenFiles": [
-    "content/projects/ethical-hacking-vulnerability-testing/offensive-assessment.md",
+    "content/writeups/tryhackme/test.md",
     "content/blogs/testing-cms.md",
+    "content/writeups/test-log.md",
+    "posts/test-raw-log.html",
+    "posts/log-title.html",
+    "posts/writeup-title.html",
+    "posts/project-name.html",
+    "content/templates/03-DevHub-Log-Template.md",
+    "content/templates/02-Project-Archive-Template.md",
+    "content/templates/01-Writeup-Template.md",
+    "content/templates",
+    "content/projects/ethical-hacking-vulnerability-testing/offensive-assessment.md",
     "content/projects/cybersecurity/red-team-financial.md",
     "fix_nav_links.py",
     "fix_project_pages.py",
@@ -199,11 +214,6 @@
     "content/projects/cybersecurity/api-security-gateway.md",
     "fix_markers.py",
     "posts/iot-firmware-security-analysis.html",
-    "posts/iso-27001-compliance-roadmap.html",
-    "posts/serverless-security-framework.html",
-    "posts/api-security-gateway-analysis.html",
-    "posts/fintech-red-team-engagement.html",
-    "posts/zero-trust-network-implementation.html",
     "content/projects/hardware/iot-firmware-analysis.md",
     "content/projects/programming/rust-kernel-module.md",
     "content/projects/networking/5g-slice-security.md",
@@ -220,11 +230,6 @@
     "content/projects/cybersecurity/cloud-pipeline.md",
     "content/projects/cybersecurity/forensics-investigation.md",
     "content/projects/cybersecurity/soc-monitoring.md",
-    "content/projects/cybersecurity/offensive-assessment.md",
-    "content/projects/cybersecurity/web-audit.md",
-    "content/projects/cybersecurity/network-hardening.md",
-    "content/writeups/tryhackme/Untitled.md",
-    "content/writeups/tryhackme/Untitled 1.md",
     "images/world-map-bg.png",
     "images/logo.png",
     "images/badge_placeholder.png"

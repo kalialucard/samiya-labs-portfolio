@@ -1,0 +1,40 @@
+{
+  "settings": {
+    "migrated": 6,
+    "iconPacksPath": ".obsidian/icons",
+    "fontSize": 16,
+    "emojiStyle": "native",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "LiBook"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": false,
+    "iconInTitleEnabled": false,
+    "iconInTitlePosition": "above",
+    "iconInFrontmatterEnabled": false,
+    "iconInFrontmatterFieldName": "icon",
+    "iconColorInFrontmatterFieldName": "iconColor",
+    "iconsBackgroundCheckEnabled": false,
+    "iconsInNotesEnabled": true,
+    "iconsInLinksEnabled": true,
+    "iconIdentifier": ":",
+    "lucideIconPackType": "native",
+    "debugMode": false,
+    "useInternalPlugins": false
+  },
+  "content/projects/application-web-security": "LiBook",
+  "content/projects/cloud-secure-development-operations": "LiBook",
+  "content/projects/cybersecurity-investigation-analysis": "LiBook",
+  "content/projects/ethical-hacking-vulnerability-testing": "LiBook",
+  "content/projects/network-system-protection": "LiBook",
+  "content/projects/security-policies-risk-management": "LiBook",
+  "content/projects/threat-monitoring-incident-response": "LiBook"
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Cloud CI/CD Pipeline | Technical Intelligence Labs</title>
+    <title>Test Raw Log | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,29 +106,36 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">devsecops</span>
-                <span>// 2025-12-30</span>
-                <span>// ID: REF-Secure Cloud CI/CD Pipeline</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">writeups</span>
+                <span>// 2025-01-01</span>
+                <span>// ID: REF-Test Raw Log</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Secure Cloud CI/CD Pipeline</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Test Raw Log</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- kubernetes, terraform, aws -->
+                <!-- writeups -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
-            <h1>Secure Cloud CI/CD Pipeline</h1>
-<p>Implementing automated security gates within a DevOps workflow.</p>
-<h2>Features:</h2>
-<ul>
-<li><strong>SAST/DAST</strong>: Integrated static and dynamic analysis into the build process.</li>
-<li><strong>Infrastructure as Code</strong>: Hardened AWS environments via audited Terraform modules.</li>
-<li><strong>Container Security</strong>: Automated scanning of Docker images for known CVEs.</li>
-</ul>
+            <p>Nmap scan report for 10.10.10.27<br />
+Host is up (0.14s latency).<br />
+PORT    STATE SERVICE      VERSION<br />
+22/tcp  open  ssh          OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)<br />
+139/tcp open  netbios-ssn  Samba smbd 4.6.2<br />
+445/tcp open  microsoft-ds Samba smbd 4.6.2<br />
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</p>
+<p>Ran smbclient:<br />
+$ smbclient -L //10.10.10.27<br />
+Sharename       Type      Comment<br />
+---------       ----      -------<br />
+print$          Disk      Printer Drivers<br />
+backups         Disk      System Backups<br />
+IPC$            IPC       IPC Service (Samba 4.6.2)<br />
+Anonymous login successful</p>
         </div>
     </main>
 

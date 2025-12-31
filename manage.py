@@ -91,22 +91,35 @@ class ContentManager:
         print(f"🤖 AI is analyzing: {metadata.get('title', 'Unknown Post')}...")
         
         prompt = f"""
-        You are a Lead Technical Research Engineer and Security Architect.
+        prioritizing educational value and beginner-friendly explanations.
         Your task is to transform raw technical notes/logs into a professional, high-standard engineering documentation or security research report.
 
         RAW DATA:
         {raw_content}
 
         INSTRUCTIONS:
-        1. Maintain absolute technical accuracy (IPs, ports, commands, configurations).
-        2. Format the content into a structured professional report:
-           - **Executive Summary**: High-level overview of the objective and outcome.
-           - **Technical Analysis / Architecture**: Detailed breakdown of the system, vulnerability, or implementation.
-           - **Operational Procedure / Exploitation**: Step-by-step technical execution (if applicable).
-           - **Mitigation & Hardening**: Professional recommendations for security improvement.
-        3. Use a formal, objective, and precise engineering tone (avoid slang, use "identified", "configured", "deployed").
-        4. Generate a refined 'description' (max 150 chars) and relevant 'tags' (comma separated).
-        5. Return the output in this EXACT format:
+        1. **Restructure & Organize**: 
+           - The input is a "Raw Dump" of logs and notes. 
+           - YOU must organize it into a chronological narrative: **Reconnaissance** -> **Enumeration** -> **Exploitation** -> **Privilege Escalation**.
+           - Create H2 headers (##) for these sections to create the "Timeline" nodes.
+
+        2. **Analyze Tool Outputs**: 
+           - Identify raw tool output (Nmap, Gobuster, etc.).
+           - PRESERVE the raw output in a code block.
+           - IMMEDIATELY after, add a "🔍 Analysis" bullet list explaining the findings (e.g., "Anonymous FTP access allowed").
+
+        3. **Bridge the Gaps (Context)**:
+           - Use the user's brief notes (e.g., "got reverse shell") to write professional explanations.
+           - Explain *HOW* the user moved from step A to B.
+           - Example: User says "put shell in ftp", You write: "We identified that the FTP directory was web-accessible. We uploaded a PHP reverse shell..."
+
+        4. **Professional Tone**:
+           - Convert informal notes ("i find root running sh") into engineering language ("Identified a root-owned script `print.sh` executing via cron").
+
+        5. **Strict Metadata**:
+           - Generate a refined 'description'.
+           - Generate relevant 'tags'.
+           - Return the output in this EXACT format:
            ---
            description: [AI Generated Description]
            tags: [AI Generated Tags]
@@ -186,7 +199,8 @@ class ContentManager:
                 "description": description,
                 "image": f"images/posts/{os.path.basename(image)}" if image else None,
                 "url": f"posts/{slug}.html",
-                "html": html_body
+                "html": html_body,
+                "filename": os.path.basename(file_path)
             }
             
             # Generate the HTML file for the post
@@ -210,10 +224,16 @@ class ContentManager:
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .markdown-content {{ font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; }}
-        .markdown-content h1 {{ font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; }}
+        .markdown-content {{ font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }}
+        .markdown-content h1 {{ font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }}
+        .markdown-content h1::before {{ content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }}
+        .markdown-content h2 {{ font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }}
+        .markdown-content h2::before {{ content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }}
+        .markdown-content h3 {{ font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }}
+        .markdown-content h3::before {{ content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }}
         .markdown-content code {{ background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }}
-        .markdown-content pre {{ background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; }}
+        .markdown-content pre {{ background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }}
+        .markdown-content pre::before {{ content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }}
         .markdown-content blockquote {{ 
             position: relative;
             border-left: 2px solid #22c55e; 
@@ -570,12 +590,26 @@ class ContentManager:
                     pattern = f"{start_marker}.*?{end_marker}"
                     content = re.sub(pattern, f"{start_marker}\n{cards_html}\n{end_marker}", content, flags=re.DOTALL)
             
-            # Special case for "Recent Intelligence" on index.html
+            # Special case for "Latest Reports" on index.html (Mixed Content)
             if filename == "index.html":
                 start_marker = "<!-- AUTO_CARDS_START:recent -->"
                 end_marker = "<!-- AUTO_CARDS_END:recent -->"
                 if start_marker in content and end_marker in content:
-                    recent_cards = "\n".join([self.create_card(p) for p in self.posts[:3]])
+                    mixed_posts = []
+                    
+                    # 1. Latest Writeup (from 'writeups' or subfolders like 'hackthebox', 'tryhackme')
+                    latest_writeup = next((p for p in self.posts if 'writeups' in p['filename'] or p['category'] in ['writeups', 'hackthebox', 'tryhackme']), None)
+                    if latest_writeup: mixed_posts.append(latest_writeup)
+
+                    # 2. Latest DevHub (from 'blogs' or 'tools')
+                    latest_devhub = next((p for p in self.posts if p['category'] in ['blogs', 'tools', 'testing', 'cheatsheet']), None)
+                    if latest_devhub: mixed_posts.append(latest_devhub)
+
+                    # 3. Latest Project (from 'projects')
+                    latest_project = next((p for p in self.posts if 'projects' in p['filename'] or 'projects' in p.get('url', '')), None)
+                    if latest_project: mixed_posts.append(latest_project)
+
+                    recent_cards = "\n".join([self.create_card(p) for p in mixed_posts])
                     pattern = f"{start_marker}.*?{end_marker}"
                     content = re.sub(pattern, f"{start_marker}\n{recent_cards}\n{end_marker}", content, flags=re.DOTALL)
 

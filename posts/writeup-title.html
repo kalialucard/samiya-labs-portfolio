@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Cloud CI/CD Pipeline | Technical Intelligence Labs</title>
+    <title>Writeup Title | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,29 +106,69 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">devsecops</span>
-                <span>// 2025-12-30</span>
-                <span>// ID: REF-Secure Cloud CI/CD Pipeline</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">writeups</span>
+                <span>// YYYY-MM-DD</span>
+                <span>// ID: REF-Writeup Title</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Secure Cloud CI/CD Pipeline</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Writeup Title</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- kubernetes, terraform, aws -->
+                <!-- ctf, pentest, linux, windows -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
-            <h1>Secure Cloud CI/CD Pipeline</h1>
-<p>Implementing automated security gates within a DevOps workflow.</p>
-<h2>Features:</h2>
-<ul>
-<li><strong>SAST/DAST</strong>: Integrated static and dynamic analysis into the build process.</li>
-<li><strong>Infrastructure as Code</strong>: Hardened AWS environments via audited Terraform modules.</li>
-<li><strong>Container Security</strong>: Automated scanning of Docker images for known CVEs.</li>
-</ul>
+            <h1>Target Name</h1>
+<blockquote>
+<p><strong>Difficulty</strong>: Medium<br />
+<strong>Platform</strong>: HackTheBox / TryHackMe<br />
+<strong>IP</strong>: 10.10.10.x</p>
+</blockquote>
+<h2>Executive Summary</h2>
+<p>Brief high-level overview of the engagement. Mention the entry point (e.g., SQL injection), the pivot method (e.g., SSH tunneling), and the root cause (e.g., Kernel exploit).</p>
+<h2>1. Reconnaissance</h2>
+<h3>Nmap Scan</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-sC<span class="w"> </span>-sV<span class="w"> </span>-oA<span class="w"> </span>nmap/initial<span class="w"> </span><span class="m">10</span>.10.10.x
+</code></pre></div>
+
+<p><strong>Findings:</strong><br />
+*   <strong>Port 22</strong>: SSH (OpenSSH 8.2p1)<br />
+*   <strong>Port 80</strong>: HTTP (Apache 2.4.41)</p>
+<h3>Web Enumeration</h3>
+<p>Detected <code>CMS v1.2</code> running on port 80. <code>gobuster</code> revealed a hidden <code>/admin</code> endpoint.</p>
+<h2>2. Exploitation</h2>
+<h3>Vulnerability Analysis</h3>
+<p>The CMS version is vulnerable to <strong>CVE-202X-XXXX</strong> (Unauthenticated RCE).</p>
+<p><strong>Exploit Proof-of-Concept:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Exploit snippet here</span>
+</code></pre></div>
+
+<h3>Initial Foothold</h3>
+<p>Executed the exploit and caught a reverse shell as <code>www-data</code>.<br />
+<img alt="Shell Access" src="../images/posts/assets/shell.png" /></p>
+<h2>3. Privilege Escalation</h2>
+<h3>User Pivot</h3>
+<p>Found hardcoded credentials in <code>/var/www/html/config.php</code>.<br />
+*   <strong>User</strong>: <code>alice</code><br />
+*   <strong>Pass</strong>: <code>SuperSecret123!</code></p>
+<h3>Root Escalation</h3>
+<p>Sudo rights revealed <code>alice</code> can run <code>/usr/bin/python3 /opt/script.py</code> as root. The script imports a library we can hijack.</p>
+<p><strong>Hijacking <code>shutil.py</code>:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;/bin/bash&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>4. Post-Exploitation</h2>
+<p><strong>Flags:</strong><br />
+*   User: <code>user{...}</code><br />
+*   Root: <code>root{...}</code></p>
+<p><strong>Mitigation:</strong><br />
+*   Patch CMS to latest version.<br />
+*   Remove hardcoded credentials.<br />
+*   Restrict sudo permissions.</p>
         </div>
     </main>
 
