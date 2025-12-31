@@ -45,7 +45,7 @@ PORT   STATE SERVICE VERSION
 80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
 |_http-server-header: Apache/2.4.18 (Ubuntu)
 |_http-title: Maintenance
-Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel.
 
 ```
 
