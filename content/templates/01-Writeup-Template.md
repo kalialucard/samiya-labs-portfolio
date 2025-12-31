@@ -11,7 +11,9 @@ description: "Brief summary."
 # Raw Dump Area
 
 **Target IP**: 10.10.10.x
-**Platform**: HackTheBox / TryHackMe
+**Platform**:
+- [ ] TryHackMe
+- [ ] HackTheBox
 
 ---
 <!-- PASTE YOUR RAW LOGS AND NOTES BELOW THIS LINE -->

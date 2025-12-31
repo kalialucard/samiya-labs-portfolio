@@ -109,33 +109,40 @@ class ContentManager:
         {raw_content}
 
         INSTRUCTIONS:
-        1. **Restructure & Organize**: 
+        1. **Clean & Parse Output**:
+           - **CRITICAL**: The input starts with a "Raw Dump Area" header and metadata (Target IP, Platform).
+           - **REMOVE** these lines completely from your output. DO NOT print "Raw Dump Area" or the IP/Platform in the body.
+           - IF you see `[x] TryHackMe`, strictly set `category: tryhackme` in the YAML.
+           - IF you see `[x] HackTheBox`, strictly set `category: hackthebox` in the YAML.
+
+        2. **Restructure & Organize**: 
            - The input is a "Raw Dump" of logs and notes. 
            - YOU must organize it into a chronological narrative: **Reconnaissance** -> **Enumeration** -> **Exploitation** -> **Privilege Escalation**.
            - Create H2 headers (##) for these sections to create the "Timeline" nodes.
 
-        2. **Analyze Tool Outputs**: 
+        3. **Analyze Tool Outputs**: 
            - Identify raw tool output (Nmap, Gobuster, etc.).
            - PRESERVE the raw output in a code block.
            - IMMEDIATELY after, add a "🔍 Analysis" bullet list explaining the findings (e.g., "Anonymous FTP access allowed").
 
-        3. **Bridge the Gaps (Context)**:
+        4. **Bridge the Gaps (Context)**:
            - Use the user's brief notes (e.g., "got reverse shell") to write professional explanations.
            - Explain *HOW* the user moved from step A to B.
            - Example: User says "put shell in ftp", You write: "We identified that the FTP directory was web-accessible. We uploaded a PHP reverse shell..."
 
-        4. **Professional Tone**:
+        5. **Professional Tone**:
            - Convert informal notes ("i find root running sh") into engineering language ("Identified a root-owned script `print.sh` executing via cron").
 
-        5. **Strict Metadata**:
+        6. **Strict Metadata**:
            - Generate a refined 'description'.
            - Generate relevant 'tags'.
            - Return the output in this EXACT format:
            ---
            description: [AI Generated Description]
            tags: [AI Generated Tags]
+           category: [tryhackme OR hackthebox based on check]
            ---
-           [Professional Markdown Report Body]
+           [Professional Markdown Report Body - START DIRECTLY WITH INTRODUCTION, NO RAW HEADERS]
         """
         
         for model_name in models_to_try:
