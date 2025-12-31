@@ -244,6 +244,12 @@ class ContentManager:
             # Standard markdown images
             body = re.sub(r'!\[(.*?)\]\((.*?)\)', r'![\1](../images/posts/\2)', body)
 
+            # ENFORCE VISUAL SEPARATOR
+            # The user wants a horizontal line before the main content starts to be consistent
+            clean_body = body.strip()
+            if not clean_body.startswith('---') and not clean_body.startswith('<hr'):
+                 body = f"\n\n---\n\n{body}"
+
             html_body = markdown.markdown(body, extensions=['extra', 'codehilite', 'nl2br'])
             
             post_data = {
