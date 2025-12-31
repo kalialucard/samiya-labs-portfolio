@@ -1,11 +1,11 @@
 ---
-title: "Writeup Title"
-date: "YYYY-MM-DD"
-category: "tryhackme" 
+title: Smag Grotto
+date: YYYY-MM-DD
+category: tryhackme
 enrich: true
-image: "assets/screenshot.png"
-tags: "ctf, pentest, linux"
-description: "Brief summary."
+image: assets/screenshot.png
+tags: ctf, pentest, linux
+description: Brief summary.
 ---
 
 # Raw Dump Area
