@@ -11,14 +11,10 @@
             "id": "f6264e219231cafb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/writeups/tryhackme/Untitled.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "New tab"
             }
           }
         ]
@@ -154,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/writeups/tryhackme/Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Untitled"
+              "title": "Outline"
             }
           },
           {
@@ -195,10 +190,9 @@
   "active": "f6264e219231cafb",
   "lastOpenFiles": [
     "content/writeups/tryhackme/Untitled.md",
+    "content/writeups/tryhackme/Smag Grotto.md",
     "posts/smag-grotto.html",
-    "content/writeups/tryhackme/Smag Grotto.md",
     "content/writeups/tryhackme/simple-ctf.md",
-    "content/writeups/tryhackme/Smag Grotto.md",
     "content/writeups/test-log.md",
     "content/writeups/tryhackme/test1.md",
     "posts/test1.html",
