@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4bf59d8429709d69",
+        "id": "fa72340b766b8a09",
         "type": "tabs",
         "children": [
           {
-            "id": "65287e106d7a8c8e",
+            "id": "2fd954e402368176",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Dashboard.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Dashboard"
             }
           }
         ]
@@ -173,7 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 241.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,8 +191,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "65287e106d7a8c8e",
+  "active": "2fd954e402368176",
   "lastOpenFiles": [
+    "Dashboard.md",
+    "RELEASES.md",
+    "README.md",
+    "2025-12-31.md",
     "content/projects/application-web-security/api-security-gateway.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
@@ -224,10 +232,6 @@
     "content/projects/programming/rust-kernel-module.md",
     "content/projects/networking/5g-slice-security.md",
     "content/projects/ai/adversarial-ml-defense.md",
-    "content/projects/cybersecurity/serverless-security.md",
-    "content/projects/cybersecurity/iso27001-compliance.md",
-    "content/projects/cybersecurity/memory-forensics-tool.md",
-    "content/projects/cybersecurity/ransomware-playbook.md",
     "images/world-map-bg.png",
     "images/logo.png",
     "images/badge_placeholder.png"
