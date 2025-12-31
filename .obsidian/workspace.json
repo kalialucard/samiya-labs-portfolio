@@ -195,6 +195,7 @@
   },
   "active": "1ef2d0532d06b79b",
   "lastOpenFiles": [
+    "posts/test1.html",
     "posts/test.html",
     "content/writeups/tryhackme/test1.md",
     "content/blogs/testing-cms.md",
@@ -215,7 +216,6 @@
     "content/projects/cybersecurity/risk-management.md",
     "content/projects/cybersecurity/api-security-gateway.md",
     "fix_markers.py",
-    "posts/iot-firmware-security-analysis.html",
     "content/projects/hardware/iot-firmware-analysis.md",
     "content/projects/programming/rust-kernel-module.md",
     "content/projects/networking/5g-slice-security.md",
