@@ -20,7 +20,7 @@ description: Brief summary.
 
 # Smag Grotto  
   
-TryHackMe Easy [Room](https://tryhackme.com/room/smaggrotto)
+TryHackMe Easy
 
 ## Nmap Scan
 We will discover port 22 and 80 are open.   
@@ -44,7 +44,7 @@ PORT      STATE    SERVICE        REASON      VERSION
 ## Web Enum
 - Gobuster 
 By running gobuster we will find `/mail` directory
-    ```bash
+    ```
     =====================================================
     Gobuster v2.0.1              OJ Reeves (@TheColonial)
     =====================================================
@@ -56,8 +56,7 @@ By running gobuster we will find `/mail` directory
     [+] Timeout      : 10s
     =====================================================
     2020/07/30 10:18:48 Starting gobuster
-    =====================================================
-    /mail (Status: 301)
+    ====================================================
     ```
 Going to `/mail` will give us access to a conversation that includes a `.pcap` file.   
 - The page
