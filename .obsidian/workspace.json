@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/writeups/tryhackme/test.md",
+                "file": "content/writeups/tryhackme/test1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "test"
+              "title": "test1"
             }
           }
         ]
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/writeups/tryhackme/test.md",
+                "file": "content/writeups/tryhackme/test1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of test"
+              "title": "Outline of test1"
             }
           },
           {
@@ -196,7 +196,7 @@
   "active": "1ef2d0532d06b79b",
   "lastOpenFiles": [
     "posts/test.html",
-    "content/writeups/tryhackme/test.md",
+    "content/writeups/tryhackme/test1.md",
     "content/blogs/testing-cms.md",
     "content/writeups/test-log.md",
     "posts/test-raw-log.html",
