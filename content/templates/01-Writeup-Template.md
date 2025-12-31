@@ -1,7 +1,7 @@
 ---
 title: "Writeup Title"
 date: "YYYY-MM-DD"
-category: "writeups" 
+category: "tryhackme" 
 enrich: true
 image: "assets/screenshot.png"
 tags: "ctf, pentest, linux"

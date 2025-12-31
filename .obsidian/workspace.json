@@ -4,22 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "caa1aa98391b526e",
+        "id": "3e3e2d54027c7585",
         "type": "tabs",
         "children": [
           {
-            "id": "b955c30f249bcd65",
+            "id": "e75c9e548806cd44",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "content/writeups/tryhackme/test.md",
-                "bFile": "content/writeups/tryhackme/test.md",
-                "aRef": "HEAD",
-                "bRef": ""
+                "file": "content/writeups/tryhackme/test.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: test"
+              "icon": "lucide-file",
+              "title": "test"
             }
           }
         ]
@@ -155,12 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "content/writeups/tryhackme/test.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of test"
             }
           },
           {
@@ -192,8 +192,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b955c30f249bcd65",
+  "active": "1ef2d0532d06b79b",
   "lastOpenFiles": [
+    "posts/test.html",
     "content/writeups/tryhackme/test.md",
     "content/blogs/testing-cms.md",
     "content/writeups/test-log.md",
@@ -229,7 +230,6 @@
     "content/projects/ai/nn-optimizer.md",
     "content/projects/cybersecurity/cloud-pipeline.md",
     "content/projects/cybersecurity/forensics-investigation.md",
-    "content/projects/cybersecurity/soc-monitoring.md",
     "images/world-map-bg.png",
     "images/logo.png",
     "images/badge_placeholder.png"
