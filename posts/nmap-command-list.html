@@ -123,19 +123,68 @@
         <div class="markdown-content">
             <hr />
 <h1>Nmap Command Guide</h1>
-<p>Please generate a detailed educational guide for the <strong>Nmap</strong> tool.<br />
-Follow this structure exactly:</p>
-<ol>
-<li><strong>Brief Explanation</strong>: Explain what Nmap is and why it's used in cybersecurity.</li>
-<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
-<li>For EACH command, provide the exact syntax in a code block.</li>
-<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
-<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
-</ul>
-</li>
-<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
-</ol>
-<p><strong>Tone</strong>: Educational, for a beginner student.</p>
+<p><strong>Nmap (Network Mapper)</strong> is the industry standard for network discovery and security auditing. It uses raw IP packets to determine what hosts are available on the network, what services (application name and version) those hosts are offering, what operating systems they are running, and what packet filters/firewalls are in use.</p>
+<h2>Top 10 Useful Commands</h2>
+<h3>1. Basic Scan</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Explanation:</strong> The default scan. Scans the top 1000 most common ports. Useful for a quick overview of a target.</p>
+<h3>2. Service Version Detection</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Probes open ports to determine the service/version info. Crucial for identifying vulnerable software versions.</p>
+<h3>3. Aggressive Scan (The "All-in-One")</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-A<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Enables OS detection, version detection, script scanning, and traceroute. It's loud but provides the most information in a single command.</p>
+<h3>4. Scan All Ports</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-p-<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Scans all 65535 ports (1-65535). Taking significantly longer but ensures no services running on non-standard ports are missed.</p>
+<h3>5. OS Detection</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-O<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Attempts to determine the operating system of the target by analyzing IP packet responses.</p>
+<h3>6. Vulnerability Scan (NSE)</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>--script<span class="w"> </span>vuln<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Uses the Nmap Scripting Engine (NSE) to run a set of scripts specifically designed to check for known vulnerabilities.</p>
+<h3>7. Fast Scan</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-F<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Scans the 100 most common ports instead of the top 1000. Useful for very quick reconnaissance.</p>
+<h3>8. UDP Scan</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-sU<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Scans for open UDP ports. UDP scanning is slower and more difficult than TCP but essential for finding services like DNS, SNMP, and DHCP.</p>
+<h3>9. Output to File</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-oN<span class="w"> </span>output.txt<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Saves the scan results to a normal text file. You can also use <code>-oX</code> for XML or <code>-oA</code> for all formats.</p>
+<h3>10. Stealth Scan (SYN Scan)</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-sS<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Explanation:</strong> The default scan if run as root. It performs a "half-open" scan, which is faster and harder for firewalls to log than a full connect scan.</p>
+<h2>The Most Powerful Command</h2>
+<p>The most powerful command for a situational awareness assessment is combining aggressive options with a full port scan:</p>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-p-<span class="w"> </span>-A<span class="w"> </span>-T4<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
+
+<p><strong>Why it's powerful:</strong><br />
+*   <code>-p-</code>: Scans <strong>every single port</strong>, ensuring nothing is hidden.<br />
+*   <code>-A</code>: Runs <strong>OS detection</strong>, <strong>Version detection</strong>, <strong>Traceroute</strong>, and <strong>Scripts</strong>.<br />
+*   <code>-T4</code>: Increases the speed (Timing Template 4) to make this heavy scan finish in a reasonable time.</p>
+<p>This single command provides a complete map of the target's attack surface.</p>
         </div>
     </main>
 
