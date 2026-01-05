@@ -113,7 +113,8 @@ class ContentManager:
             'gemini-2.5-flash-lite', 
             'gemini-1.5-flash',
             'gemini-2.0-flash-exp',
-            'gemini-1.5-pro'
+            'gemini-1.5-pro-latest',
+            'gemini-1.5-pro-001'
         ]
         
         prompt = f"""
@@ -236,7 +237,27 @@ class ContentManager:
             should_enrich = metadata.get('enrich', is_auto_field)
 
             if should_enrich:
-                body, metadata = self.ai_enrichment(body, metadata)
+                enriched_body, enriched_metadata = self.ai_enrichment(body, metadata)
+                
+                # WRITE-BACK LOGIC: If content changed (AI succeeded), save it!
+                if enriched_body != body:
+                    print(f"💾 Saving enriched content to {os.path.basename(file_path)}...")
+                    enriched_metadata['enrich'] = False
+                    enriched_metadata['last_enriched'] = datetime.now().strftime("%Y-%m-%d")
+                    
+                    # Reconstruct file content
+                    new_frontmatter = yaml.dump(enriched_metadata, sort_keys=False, default_flow_style=False)
+                    new_file_content = f"---\n{new_frontmatter}---\n\n{enriched_body}\n"
+                    
+                    try:
+                        with open(file_path, 'w', encoding='utf-8') as f:
+                            f.write(new_file_content)
+                    except Exception as e:
+                        print(f"⚠️ Failed to save back to file: {e}")
+
+                    # Update local vars for this build iteration
+                    body = enriched_body
+                    metadata = enriched_metadata
 
             title = metadata.get('title', os.path.splitext(os.path.basename(file_path))[0])
             # Re-check category after enrichment in case AI updated it
