@@ -128,8 +128,8 @@
 <h2>Web Enumeration with DirBuster</h2>
 <h3>1. The Basic Directory Brute-Force Scan</h3>
 <p>Our journey begins with the simplest form of a DirBuster scan. This command initiates the process of checking for common directories and files on a specified target using a provided wordlist.</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/wordlist.txt
+</code></pre>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <ul>
@@ -142,8 +142,8 @@
 </ul>
 <h3>2. Speeding Up Scans with Multithreading</h3>
 <p>Directory brute-forcing can be a time-consuming process, especially with large wordlists. DirBuster allows us to accelerate this process using multithreading.</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt<span class="w"> </span>-t<span class="w"> </span><span class="m">50</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/wordlist.txt -t 50
+</code></pre>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <ul>
@@ -164,8 +164,8 @@
 </ul>
 <h3>3. Saving Your Findings to an Output File</h3>
 <p>As you conduct scans, you'll want to record your findings for later analysis. DirBuster provides an option to save all discovered paths directly to a file.</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt<span class="w"> </span>-o<span class="w"> </span>output.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/wordlist.txt -o output.txt
+</code></pre>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <ul>
@@ -177,8 +177,8 @@
 </ul>
 <h3>4. Filtering Results by File Extension</h3>
 <p>Sometimes you're looking for specific types of files, like web pages, scripts, or configuration files. DirBuster allows you to filter the reported results to only show entries with certain file extensions.</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt<span class="w"> </span>-x<span class="w"> </span>.php,.html,.js
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/wordlist.txt -x .php,.html,.js
+</code></pre>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <ul>
@@ -191,8 +191,8 @@
 </ul>
 <h3>5. Specifying Which HTTP Status Codes to Report</h3>
 <p>When DirBuster makes a request, the web server responds with an HTTP status code. These codes indicate the outcome of the request (e.g., success, redirection, error). By default, DirBuster might report various codes, but we can refine this to focus on codes that are most interesting to us.</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt<span class="w"> </span>-s<span class="w"> </span><span class="m">200</span>,201,301,302,403
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/wordlist.txt -s 200,201,301,302,403
+</code></pre>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <ul>
@@ -215,8 +215,8 @@
 </ul>
 <h3>6. Excluding Specific File Extensions</h3>
 <p>Just as you might want to include certain extensions, you might also want to exclude others. This is useful for ignoring common, often uninteresting file types from your scan results.</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt<span class="w"> </span>-e<span class="w"> </span>.bak,.old
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/wordlist.txt -e .bak,.old
+</code></pre>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <ul>
@@ -229,8 +229,8 @@
 </ul>
 <h3>7. Enabling Recursive Scanning</h3>
 <p>Web applications often have deeply nested directory structures. Discovering only top-level directories might miss critical information. Recursive scanning allows DirBuster to explore deeper into the application's structure.</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt<span class="w"> </span>-r
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/wordlist.txt -r
+</code></pre>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <ul>
@@ -243,8 +243,8 @@
 </ul>
 <h3>8. Routing Traffic Through a Proxy</h3>
 <p>In some scenarios, you might need to route your DirBuster traffic through a proxy server. This can be for anonymity, to bypass network restrictions, or to intercept and modify requests using tools like Burp Suite or OWASP ZAP.</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt<span class="w"> </span>-p<span class="w"> </span>http://proxy.example.com:8080
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/wordlist.txt -p http://proxy.example.com:8080
+</code></pre>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <ul>
@@ -268,8 +268,8 @@
 </ul>
 <h3>9. Setting a Custom User-Agent Header</h3>
 <p>The <code>User-Agent</code> HTTP header is a string that identifies the client (e.g., web browser, bot) making the request to the server. By default, DirBuster will use its own User-Agent, which might be easily identifiable as a scanning tool. Setting a custom, legitimate-looking User-Agent can help evade detection.</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;User-Agent: MyCustomAgent&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/wordlist.txt -a &quot;User-Agent: MyCustomAgent&quot;
+</code></pre>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <ul>
@@ -287,8 +287,8 @@
 </ul>
 <h3>10. Limiting Recursive Scan Depth</h3>
 <p>While recursive scanning is powerful, it can also lead to extremely long scan times and generate an overwhelming amount of data if not controlled. The maximum depth option helps manage this.</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt<span class="w"> </span>-d<span class="w"> </span><span class="m">5</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/wordlist.txt -d 5
+</code></pre>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <ul>
@@ -302,67 +302,67 @@
 <p><strong>Dirbuster</strong> is a multi-threaded java application designed to brute force directories and file names on web/application servers.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Graphical Launch</h3>
-<div class="codehilite"><pre><span></span><code>dirbuster
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster
+</code></pre>
 
 <p><strong>Explanation:</strong> Launches the GUI. This is the most common way to use Dirbuster as it is primarily a GUI tool.</p>
 <h3>2. Headless Mode (Command Line)</h3>
-<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">java -jar DirBuster.jar -H -u http://target.com
+</code></pre>
 
 <p><strong>Explanation:</strong> Runs in headless mode (<code>-H</code>) without the GUI. Essential for servers or scripting.</p>
 <h3>3. Specify Wordlist</h3>
-<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-l<span class="w"> </span>/path/to/wordlist.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">java -jar DirBuster.jar -H -u http://target.com -l /path/to/wordlist.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Uses a custom list (<code>-l</code>) to brute force directories.</p>
 <h3>4. Scan with Extensions</h3>
-<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-l<span class="w"> </span>wordlist.txt<span class="w"> </span>-e<span class="w"> </span>php,txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">java -jar DirBuster.jar -H -u http://target.com -l wordlist.txt -e php,txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Looks for specific file extensions (<code>-e</code>) to find hidden files like <code>config.php</code>.</p>
 <h3>5. Set Threads</h3>
-<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-t<span class="w"> </span><span class="m">100</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">java -jar DirBuster.jar -H -u http://target.com -t 100
+</code></pre>
 
 <p><strong>Explanation:</strong> Sets the number of concurrent threads (<code>-t</code>) to speed up the scan.</p>
 <h3>6. Recursive Scan</h3>
-<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-r
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">java -jar DirBuster.jar -H -u http://target.com -r
+</code></pre>
 
 <p><strong>Explanation:</strong> Enables recursive scanning (<code>-r</code>). If it finds a directory, it scans inside it.</p>
 <h3>7. Start Point</h3>
-<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-s<span class="w"> </span>/admin/
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">java -jar DirBuster.jar -H -u http://target.com -s /admin/
+</code></pre>
 
 <p><strong>Explanation:</strong> Starts the scan from a specific directory (<code>-s</code>), saving time if you already know the root path.</p>
 <h3>8. Ignore SSL</h3>
-<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>https://target.com<span class="w"> </span>-i
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">java -jar DirBuster.jar -H -u https://target.com -i
+</code></pre>
 
 <p><strong>Explanation:</strong> Ignores SSL certificate errors (<code>-i</code>).</p>
 <h3>9. Report to File</h3>
-<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-r<span class="w"> </span>report.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">java -jar DirBuster.jar -H -u http://target.com -r report.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Saves the results to a report file.</p>
 <h3>10. Blank Extension (Directories Only)</h3>
-<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot; &quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">java -jar DirBuster.jar -u http://target.com -e &quot; &quot;
+</code></pre>
 
 <p><strong>Explanation:</strong> Scans for directories only by providing a blank extension.</p>
 <h2>The Most Powerful Command</h2>
 <p>Headless Recursive Scan with Extensions:</p>
-<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-l<span class="w"> </span>directory-list-2.3-medium.txt<span class="w"> </span>-e<span class="w"> </span>php,html,txt<span class="w"> </span>-t<span class="w"> </span><span class="m">50</span><span class="w"> </span>-r<span class="w"> </span>-o<span class="w"> </span>scan_report.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">java -jar DirBuster.jar -H -u http://target.com -l directory-list-2.3-medium.txt -e php,html,txt -t 50 -r -o scan_report.txt
+</code></pre>
 
 <p><strong>Why it's powerful:</strong><br />
 *   <strong>Automated</strong>: No GUI needed.<br />
 *   <strong>Comprehensive</strong>: Checks files AND folders.<br />
 *   <strong>Recursive</strong>: Digs deep into the site structure.<br />
 veral options for a comprehensive, potentially aggressive, and stealth-conscious scan would look something like this:</p>
-<div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/large_wordlist.txt<span class="w"> </span>-t<span class="w"> </span><span class="m">100</span><span class="w"> </span>-r<span class="w"> </span>-s<span class="w"> </span><span class="m">200</span>,201,301,302,403,401<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="m">5</span><span class="w"> </span>-o<span class="w"> </span>comprehensive_scan_results.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">dirbuster -u http://example.com -w /path/to/large_wordlist.txt -t 100 -r -s 200,201,301,302,403,401 -a &quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot; -d 5 -o comprehensive_scan_results.txt
+</code></pre>
 
 <p>Let's break down why this combination is particularly effective for a thorough initial enumeration:</p>
 <ul>

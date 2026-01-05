@@ -126,58 +126,58 @@
 <p><strong>Findomain</strong> is known for being the fastest subdomain enumerator because it's written in Rust and uses parallelized data source querying.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Search</h3>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com
+</code></pre>
 
 <p><strong>Explanation:</strong> Searches for subdomains of the target (<code>-t</code>).</p>
 <h3>2. Save to Output</h3>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com<span class="w"> </span>-o
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com -o
+</code></pre>
 
 <p><strong>Explanation:</strong> Automatically saves to <code>example.com.txt</code>.</p>
 <h3>3. Quiet Mode</h3>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com<span class="w"> </span>-q
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com -q
+</code></pre>
 
 <p><strong>Explanation:</strong> Only prints subdomains (no banners).</p>
 <h3>4. IP resolution</h3>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com<span class="w"> </span>-i
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com -i
+</code></pre>
 
 <p><strong>Explanation:</strong> Resolves the IP address for found subdomains.</p>
 <h3>5. Screenshotting (Experimental)</h3>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com<span class="w"> </span>-s
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com -s
+</code></pre>
 
 <p><strong>Explanation:</strong> Attempts to screenshot valid domains.</p>
 <h3>6. Monitor Mode</h3>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com<span class="w"> </span>-m
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com -m
+</code></pre>
 
 <p><strong>Explanation:</strong> Monitors transparency logs for NEW subdomains and notifies.</p>
 <h3>7. Webhook Notification</h3>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com<span class="w"> </span>-m<span class="w"> </span>-w<span class="w"> </span>https://discord.com/api/webhooks...
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com -m -w https://discord.com/api/webhooks...
+</code></pre>
 
 <p><strong>Explanation:</strong> Sends new findings to Discord/Slack webhooks during monitoring.</p>
 <h3>8. Use Custom Resolvers</h3>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com<span class="w"> </span>-r<span class="w"> </span>resolvers.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com -r resolvers.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Uses custom DNS resolvers for verification.</p>
 <h3>9. Httprobe Integration</h3>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com<span class="w"> </span>-q<span class="w"> </span><span class="p">|</span><span class="w"> </span>httprobe
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com -q | httprobe
+</code></pre>
 
 <p><strong>Explanation:</strong> (Pipe) Check active domains immediately.</p>
 <h3>10. Valid Domains Only</h3>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com<span class="w"> </span>--http
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com --http
+</code></pre>
 
 <p><strong>Explanation:</strong> only check/show resolved domains with http ports open.</p>
 <h2>The Most Powerful Command</h2>
-<div class="codehilite"><pre><span></span><code>findomain<span class="w"> </span>-t<span class="w"> </span>example.com<span class="w"> </span>-i<span class="w"> </span>-o
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">findomain -t example.com -i -o
+</code></pre>
 
 <p><strong>Explanation:</strong> Blazing fast enumeration + IP resolution + File export.</p>
         </div>

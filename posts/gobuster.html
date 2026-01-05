@@ -132,59 +132,59 @@
 <p><strong>Gobuster</strong> is a high-speed tool used to brute-force URIs (directories and files) in web sites, DNS subdomains, and Virtual Host names on target web servers. It is written in Go and is known for its speed.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Directory/File Enum (Basic)</h3>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>http://&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u http://&lt;target&gt; -w /path/to/wordlist.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> The standard mode. Enumerates directories and files using a wordlist.</p>
 <h3>2. Extend/Add File Extensions</h3>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>http://&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-x<span class="w"> </span>php,txt,html
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u http://&lt;target&gt; -w wordlist.txt -x php,txt,html
+</code></pre>
 
 <p><strong>Explanation:</strong> Appends extensions to each word in the wordlist to find specific files (e.g., <code>index.php</code>, <code>robots.txt</code>).</p>
 <h3>3. DNS Subdomain Enum</h3>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dns<span class="w"> </span>-d<span class="w"> </span>&lt;domain.com&gt;<span class="w"> </span>-w<span class="w"> </span>/path/to/subdomains.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dns -d &lt;domain.com&gt; -w /path/to/subdomains.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Uses DNS brute-forcing to find subdomains (e.g., <code>admin.example.com</code>, <code>dev.example.com</code>).</p>
 <h3>4. VHOST Enumeration</h3>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>vhost<span class="w"> </span>-u<span class="w"> </span>http://&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>wordlist.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster vhost -u http://&lt;target&gt; -w wordlist.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Brute-forces virtual hosts. Essential when different sites are hosted on the same IP but served based on the <code>Host</code> header.</p>
 <h3>5. Disable SSL Verification</h3>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-k<span class="w"> </span>-u<span class="w"> </span>https://&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>wordlist.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -k -u https://&lt;target&gt; -w wordlist.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Skips SSL certificate verification (<code>-k</code>). Necessary for self-signed certs often found in CTFs or internal audits.</p>
 <h3>6. Set Thread Count</h3>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-t<span class="w"> </span><span class="m">50</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u &lt;target&gt; -w wordlist.txt -t 50
+</code></pre>
 
 <p><strong>Explanation:</strong> Increases threads to 50 (default is 10). Makes the scan faster but noisier.</p>
 <h3>7. Filter by Status Code</h3>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;200,204,301&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u &lt;target&gt; -w wordlist.txt -s &quot;200,204,301&quot;
+</code></pre>
 
 <p><strong>Explanation:</strong> Only shows results with specific HTTP status codes. Helps reduce noise.</p>
 <h3>8. Exclude Length (Hide False Positives)</h3>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>--exclude-length<span class="w"> </span><span class="m">1234</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u &lt;target&gt; -w wordlist.txt --exclude-length 1234
+</code></pre>
 
 <p><strong>Explanation:</strong> Hides responses of a specific size. Great for filtering out custom 404 pages that return "200 OK".</p>
 <h3>9. Use Proxy</h3>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>--proxy<span class="w"> </span>http://127.0.0.1:8080
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u &lt;target&gt; -w wordlist.txt --proxy http://127.0.0.1:8080
+</code></pre>
 
 <p><strong>Explanation:</strong> Routes traffic through a proxy (like Burp Suite) for analysis or WAF evasion.</p>
 <h3>10. Output to File</h3>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-o<span class="w"> </span>results.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u &lt;target&gt; -w wordlist.txt -o results.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Saves the findings to a file for reporting.</p>
 <h2>The Most Powerful Command</h2>
 <p>For a thorough web assessment on a tough target:</p>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>https://target.com<span class="w"> </span>-w<span class="w"> </span>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt<span class="w"> </span>-x<span class="w"> </span>php,html,txt,sh,bak<span class="w"> </span>-k<span class="w"> </span>-t<span class="w"> </span><span class="m">40</span><span class="w"> </span>--exclude-length<span class="w"> </span><span class="m">400</span><span class="w"> </span>-o<span class="w"> </span>gobuster_scan.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u https://target.com -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,txt,sh,bak -k -t 40 --exclude-length 400 -o gobuster_scan.txt
+</code></pre>
 
 <p><strong>Why it's powerful:</strong><br />
 *   Checks for <strong>5 common file extensions</strong> simultaneously.<br />
@@ -195,8 +195,8 @@
 <h3>Discovering Hidden Directories and Files with Gobuster</h3>
 <p>One of the most common tasks during enumeration is to find hidden directories and files on a web server. These can often lead to sensitive information or administrative interfaces. We'll use a powerful tool called Gobuster for this.</p>
 <p>Here's how we might use Gobuster to look for hidden content:</p>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>https://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u https://example.com -w /path/to/wordlist.txt
+</code></pre>
 
 <p>Let's break down this command:</p>
 <ul>
@@ -210,8 +210,8 @@
 <h3>Searching for Specific File Types with Gobuster</h3>
 <p>Sometimes, we have an idea of the types of files we're looking for. For example, we might suspect there are PHP scripts or configuration files (like <code>.txt</code> or <code>.html</code>) that could be interesting. We can tell Gobuster to specifically look for these by adding the <code>-x</code> flag.</p>
 <p>Here's an example:</p>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>&lt;list&gt;<span class="w"> </span>-x<span class="w"> </span>php,txt,html
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u &lt;target&gt; -w &lt;list&gt; -x php,txt,html
+</code></pre>
 
 <p>Let's explain the new part:</p>
 <ul>
@@ -222,8 +222,8 @@
 <h3>Enumerating Subdomains with Gobuster</h3>
 <p>Many websites have associated subdomains. For instance, a company might have <code>blog.example.com</code>, <code>api.example.com</code>, or <code>dev.example.com</code>. These subdomains can host entirely different applications or services, some of which might be less secure than the main website. Gobuster can help us discover these.</p>
 <p>Here's how we'd use Gobuster for subdomain enumeration:</p>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dns<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/subdomains.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dns -d example.com -w /path/to/subdomains.txt
+</code></pre>
 
 <p>Let's break this down:</p>
 <ul>
