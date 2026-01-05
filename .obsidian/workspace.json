@@ -191,8 +191,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "43c65ab506ff5e28",
+  "active": "7119536e5b33a70b",
   "lastOpenFiles": [
+    "inject_content.py",
+    "enrich_commands.py",
+    "create_command_files.py",
+    "check_models.py",
+    "build.log",
     "content/commands/Gobuster.md",
     "content/commands/Dirbuster.md",
     "content/commands/WordPress Command List.md",
@@ -223,12 +228,7 @@
     "AI_CONTEXT.md",
     "content/writeups/test-log.md",
     "content/writeups/tryhackme/Borderlands (done  not finish walkin).md",
-    "content/writeups/tryhackme/Brooklyn Nine Nine.md",
     "posts/zero-trust-network-implementation.html",
-    "posts/wordpress.html",
-    "posts/whiterose.html",
-    "posts/wekor.html",
-    "posts/web-application-security-audit.html",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "content/writeups/Untitled.canvas",

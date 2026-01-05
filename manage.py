@@ -1,4 +1,6 @@
 import os
+import subprocess
+
 import time
 import glob
 import markdown
@@ -277,6 +279,16 @@ class ContentManager:
             if user_enrich_flag is not None:
                 # User explicitly set flag
                 should_enrich = user_enrich_flag
+
+
+
+
+
+
+
+
+
+
             elif is_auto_field:
                 # Auto-mode: Only enrich if changed recently
                 if recent_changes is None:
@@ -287,6 +299,15 @@ class ContentManager:
                 else:
                     # Is auto-field, but NOT changed recently
                     should_enrich = False
+
+
+
+
+
+
+
+
+
                     # print(f"💤 Skipping stable content: {os.path.basename(file_path)}")
 
             if should_enrich:
