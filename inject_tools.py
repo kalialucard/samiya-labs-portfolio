@@ -171,7 +171,60 @@ TOOLS_DB = {
         "type": "CLI", "lang": "Python", "desc": "Web application vulnerability scanner.",
         "website": "https://wapiti.sourceforge.io/", "repo": "https://github.com/wapiti-scanner/wapiti",
         "install": "pip install wapiti3"
+    },
+    
+    # --- PHASE 3: INFRASTRUCTURE & DEV ---
+    "docker": {
+        "type": "CLI/Engine", "lang": "Go", "desc": "Platform for developing, shipping, and running applications in containers.",
+        "website": "https://www.docker.com/", "repo": "https://github.com/docker/docker-ce",
+        "install": "sudo apt install docker.io docker-compose"
+    },
+    "kubernetes": {
+        "type": "CLI (kubectl)", "lang": "Go", "desc": "Container orchestration system.",
+        "website": "https://kubernetes.io/", "repo": "https://github.com/kubernetes/kubernetes",
+        "install": "sudo apt install kubectl\n# OR (via snap)\nsudo snap install kubectl --classic"
+    },
+    "sniper": {
+        "type": "Framework", "lang": "Shell", "desc": "Automated scanner that can be used during a penetration test to enumerate and scan for vulnerabilities.",
+        "website": "https://github.com/1N3/Sn1per", "repo": "https://github.com/1N3/Sn1per",
+        "install": "git clone https://github.com/1N3/Sn1per.git\ncd Sn1per\nsudo bash install.sh"
+    },
+    "virtualbox": {
+        "type": "GUI", "lang": "C++", "desc": "Powerful x86 and AMD64/Intel64 virtualization product.",
+        "website": "https://www.virtualbox.org/", "repo": "https://www.virtualbox.org/wiki/Downloads",
+        "install": "sudo apt install virtualbox"
+    },
+    "wazuh": {
+        "type": "Platform", "lang": "C/Python", "desc": "The Open Source Security Platform (SIEM/XDR).",
+        "website": "https://wazuh.com/", "repo": "https://github.com/wazuh/wazuh",
+        "install": "curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a"
+    },
+    "gh": {
+        "type": "CLI", "lang": "Go", "desc": "GitHub’s official command line tool.",
+        "website": "https://cli.github.com/", "repo": "https://github.com/cli/cli",
+        "install": "sudo apt install gh"
+    },
+    "python-venv": {
+        "type": "Library", "lang": "Python", "desc": "Creation of lightweight 'virtual environments' for Python.",
+        "website": "https://docs.python.org/3/library/venv.html", "repo": "https://github.com/python/cpython",
+        "install": "sudo apt install python3-venv\n# Usage:\npython3 -m venv myenv"
+    },
+    "wireshark": {
+        "type": "GUI/CLI", "lang": "C", "desc": "The world's foremost network protocol analyzer.",
+        "website": "https://www.wireshark.org/", "repo": "https://gitlab.com/wireshark/wireshark",
+        "install": "sudo apt install wireshark"
+    },
+    "tmux": {
+        "type": "CLI", "lang": "C", "desc": "Terminal multiplexer.",
+        "website": "https://github.com/tmux/tmux", "repo": "https://github.com/tmux/tmux",
+        "install": "sudo apt install tmux"
+    },
+    "burpsuite": {
+        "type": "GUI", "lang": "Java", "desc": "Web vulnerability scanner and proxy.",
+        "website": "https://portswigger.net/burp", "repo": "https://portswigger.net/burp/releases",
+        "install": "sudo apt install burpsuite"
     }
+
 }
 
 DEST_DIR = "/home/alucard/website/portfolio/content/tools"

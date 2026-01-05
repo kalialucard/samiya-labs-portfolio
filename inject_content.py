@@ -1512,8 +1512,605 @@ PHASE_1 = [
 # and avoid overwriting existing good content with potential errors.
 # The logic will only touch the 20 new basenames.)
 
+
+# --- PHASE 3: INFRASTRUCTURE & DEVOPS ---
+CONTENT_MAP.update({
+    "docker": """
+# Docker Command Guide
+
+**Docker** is the standard for containerization.
+
+## Top 10 Useful Commands
+
+### 1. Run Container
+```bash
+docker run -it ubuntu /bin/bash
+```
+**Explanation:** Start a container interactively (`-it`).
+
+### 2. List Containers
+```bash
+docker ps -a
+```
+**Explanation:** Show all running and stopped containers (`-a`).
+
+### 3. Build Image
+```bash
+docker build -t myimage .
+```
+**Explanation:** Build an image from a Dockerfile in current dir.
+
+### 4. Pull Image
+```bash
+docker pull kalilinux/kali-rolling
+```
+**Explanation:** Download an image from Docker Hub.
+
+### 5. Remove Container
+```bash
+docker rm -f <container_id>
+```
+**Explanation:** Force delete a container.
+
+### 6. Remove Image
+```bash
+docker rmi <image_id>
+```
+**Explanation:** Delete an image.
+
+### 7. Exec into Container
+```bash
+docker exec -it <container_id> /bin/bash
+```
+**Explanation:** Jump into a running container's shell.
+
+### 8. Logs
+```bash
+docker logs -f <container_id>
+```
+**Explanation:** Follow (`-f`) the logs of a container.
+
+### 9. Networks
+```bash
+docker network ls
+```
+**Explanation:** List docker networks.
+
+### 10. Prune
+```bash
+docker system prune -a
+```
+**Explanation:** Clean up all unused images, containers, and networks.
+
+## The Most Powerful Command
+```bash
+docker run --rm -it --net=host -v $(pwd):/data kalilinux/kali-rolling bash
+```
+**Explanation:** instant ephemeral hacking machine with host network access and current folder mounted.
+""",
+
+    "kubernetes": """
+# Kubernetes (kubectl) Command Guide
+
+**Kubernetes** is the standard for orchestration.
+
+## Top 10 Useful Commands
+
+### 1. Get Pods
+```bash
+kubectl get pods -A
+```
+**Explanation:** List pods in all namespaces.
+
+### 2. Describe
+```bash
+kubectl describe pod <pod_name>
+```
+**Explanation:** Show detailed status/events for a pod.
+
+### 3. Logs
+```bash
+kubectl logs -f <pod_name>
+```
+**Explanation:** Follow logs.
+
+### 4. Exec
+```bash
+kubectl exec -it <pod_name> -- /bin/bash
+```
+**Explanation:** Shell access to a pod.
+
+### 5. Apply YAML
+```bash
+kubectl apply -f deployment.yaml
+```
+**Explanation:** Create/Update resources from file.
+
+### 6. Delete
+```bash
+kubectl delete pod <pod_name>
+```
+**Explanation:** Remove a pod (k8s usually restarts it).
+
+### 7. Get Services
+```bash
+kubectl get svc
+```
+**Explanation:** List networking services.
+
+### 8. Scale
+```bash
+kubectl scale deployment/myapp --replicas=3
+```
+**Explanation:** Manually scale instances.
+
+### 9. Port Forward
+```bash
+kubectl port-forward <pod_name> 8080:80
+```
+**Explanation:** Access internal pod port 80 via local 8080.
+
+### 10. Cluster Info
+```bash
+kubectl cluster-info
+```
+**Explanation:** Check master/dns status.
+
+## The Most Powerful Command
+```bash
+kubectl auth can-i --list
+```
+**Explanation:** Check your RBAC privileges to see if you can escalate rights or delete system components.
+""",
+
+    "gh": """
+# GitHub CLI Command Guide
+
+**gh** is GitHub on the command line.
+
+## Top 10 Useful Commands
+
+### 1. Login
+```bash
+gh auth login
+```
+**Explanation:** Authenticate via web or token.
+
+### 2. Clone
+```bash
+gh repo clone owner/repo
+```
+**Explanation:** Clone without needing full URL.
+
+### 3. Create Repo
+```bash
+gh repo create my-project --public
+```
+**Explanation:** Create a new repo on GitHub.
+
+### 4. Create Issue
+```bash
+gh issue create --title "Bug" --body "Details"
+```
+**Explanation:** File an issue.
+
+### 5. Create PR
+```bash
+gh pr create
+```
+**Explanation:** Create a Pull Request from current branch.
+
+### 6. Check PRs
+```bash
+gh pr list
+```
+**Explanation:** See open PRs.
+
+### 7. View Gist
+```bash
+gh gist view <id>
+```
+**Explanation:** Read a gist.
+
+### 8. Create Gist
+```bash
+gh gist create secret.txt
+```
+**Explanation:** Shared snippet.
+
+### 9. Repo View
+```bash
+gh repo view
+```
+**Explanation:** Open standard browser to repo.
+
+### 10. Check Status
+```bash
+gh status
+```
+**Explanation:** See notifications/PRs.
+
+## The Most Powerful Command
+```bash
+gh repo fork owner/repo --clone
+```
+**Explanation:** Fork a repo and clone it to your machine in one step.
+""",
+
+    "sniper": """
+# Sn1per Command Guide
+
+**Sn1per** is an automated scanner.
+
+## Top 10 Useful Commands
+
+### 1. Normal Scan
+```bash
+sniper -t target.com
+```
+**Explanation:** Standard scan.
+
+### 2. Stealth Scan
+```bash
+sniper -t target.com -m stealth
+```
+**Explanation:** Less noise.
+
+### 3. Flyover
+```bash
+sniper -t target.com -m flyover
+```
+**Explanation:** Fast scan (flyover).
+
+### 4. Airstrike
+```bash
+sniper -f targets.txt -m airstrike
+```
+**Explanation:** Scan a list of targets quickly.
+
+### 5. Nuke
+```bash
+sniper -t target.com -m nuke
+```
+**Explanation:** Full audit (very loud).
+
+### 6. Discover
+```bash
+sniper -t 192.168.1.0/24 -m discover
+```
+**Explanation:** Subnet discovery.
+
+### 7. Port Scan
+```bash
+sniper -t target.com -m port
+```
+**Explanation:** Only run port modules.
+
+### 8. Web Scan
+```bash
+sniper -t target.com -m web
+```
+**Explanation:** Only run web modules.
+
+### 9. Update
+```bash
+sniper -u
+```
+**Explanation:** Update tool.
+
+### 10. Report
+```bash
+sniper --report
+```
+**Explanation:** Generate HTML report manually.
+
+## The Most Powerful Command
+```bash
+sniper -t target.com -m nuke
+```
+**Explanation:** Unleashes every tool (Nmap, Nikto, Burp, etc.) against the target.
+""",
+
+    "wazuh": """
+# Wazuh Command Guide
+
+**Wazuh** is a SIEM/XDR platform. Steps generally involve the agent.
+
+## Top 10 Useful Commands
+
+### 1. Start Agent
+```bash
+systemctl start wazuh-agent
+```
+**Explanation:** Start the service.
+
+### 2. Status
+```bash
+systemctl status wazuh-agent
+```
+**Explanation:** Check if connected to manager.
+
+### 3. Log Test
+```bash
+/var/ossec/bin/wazuh-logtest
+```
+**Explanation:** Test how logs are parsed/decoded.
+
+### 4. Agent Control (Manager)
+```bash
+/var/ossec/bin/agent_control -l
+```
+**Explanation:** List connected agents (on Manager).
+
+### 5. Restart Helper
+```bash
+/var/ossec/bin/ossec-control restart
+```
+**Explanation:** Restart local processes.
+
+### 6. Edit Config
+```bash
+nano /var/ossec/etc/ossec.conf
+```
+**Explanation:** Main configuration file.
+
+### 7. Active Response Log
+```bash
+tail -f /var/ossec/logs/active-responses.log
+```
+**Explanation:** See if Wazuh blocked anything automatically.
+
+### 8. Keys
+```bash
+/var/ossec/bin/manage_agents
+```
+**Explanation:** Add/Remove agent keys.
+
+### 9. Upgrade Agent
+```bash
+/var/ossec/bin/agent_upgrade -a 001
+```
+**Explanation:** Upgrade remote agent.
+
+### 10. Verify Config
+```bash
+/var/ossec/bin/verify-agent-conf
+```
+**Explanation:** Check config syntax.
+
+## The Most Powerful Command
+```bash
+/var/ossec/bin/wazuh-logtest
+```
+**Explanation:** Interactively debug why your security rules aren't triggering on specific log lines.
+""",
+
+    "python-venv": """
+# Python Venv Command Guide
+
+**Venv** creates isolated Python environments.
+
+## Top 10 Useful Commands
+
+### 1. Create Env
+```bash
+python3 -m venv myenv
+```
+**Explanation:** Create 'myenv' folder.
+
+### 2. Activate (Linux)
+```bash
+source myenv/bin/activate
+```
+**Explanation:** Enter the environment.
+
+### 3. Activate (Windows)
+```bash
+myenv\\Scripts\\activate
+```
+**Explanation:** Enter on Windows.
+
+### 4. Install Package
+```bash
+pip install requests
+```
+**Explanation:** Install into isolated env only.
+
+### 5. Freeze
+```bash
+pip freeze > requirements.txt
+```
+**Explanation:** Save dependency list.
+
+### 6. Install from File
+```bash
+pip install -r requirements.txt
+```
+**Explanation:** Restore dependencies.
+
+### 7. Deactivate
+```bash
+deactivate
+```
+**Explanation:** Exit environment.
+
+### 8. Check Path
+```bash
+which python
+```
+**Explanation:** Verify you are using the venv python.
+
+### 9. Delete Env
+```bash
+rm -rf myenv/
+```
+**Explanation:** Delete the folder to remove env.
+
+### 10. Upgrade Pip
+```bash
+pip install --upgrade pip
+```
+**Explanation:** Update pip inside env.
+
+## The Most Powerful Command
+```bash
+python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
+```
+**Explanation:** The standard "bootstrapping" one-liner for any Python project.
+""",
+
+    "tmux": """
+# Tmux Command Guide
+
+**Tmux** is a terminal multiplexer.
+
+## Top 10 Useful Commands (Prefix usually Ctrl+B)
+
+### 1. New Session
+```bash
+tmux new -s hacking
+```
+**Explanation:** Create named session.
+
+### 2. Detach
+```bash
+(Ctrl+B then d)
+```
+**Explanation:** Leave session running in background.
+
+### 3. Attach
+```bash
+tmux a -t hacking
+```
+**Explanation:** Re-join session.
+
+### 4. List Sessions
+```bash
+tmux ls
+```
+**Explanation:** See active sessions.
+
+### 5. Split Vertical
+```bash
+(Ctrl+B then %)
+```
+**Explanation:** Split pane left/right.
+
+### 6. Split Horizontal
+```bash
+(Ctrl+B then ")
+```
+**Explanation:** Split pane top/bottom.
+
+### 7. New Window
+```bash
+(Ctrl+B then c)
+```
+**Explanation:** Create new tab/window.
+
+### 8. Navigate Panes
+```bash
+(Ctrl+B then Arrows)
+```
+**Explanation:** Move focus.
+
+### 9. Kill Pane
+```bash
+(Ctrl+B then x)
+```
+**Explanation:** Close current pane.
+
+### 10. Rename Window
+```bash
+(Ctrl+B then ,)
+```
+**Explanation:** Rename tab.
+
+## The Most Powerful Command
+```bash
+tmux a || tmux new -s main
+```
+**Explanation:** Attach to existing session or create a new one (shell alias).
+""",
+
+    "wireshark": """
+# Wireshark/TShark Command Guide
+
+**Wireshark** is for analysis. **TShark** is the CLI version.
+
+## Top 10 Useful Commands
+
+### 1. Start Capture (GUI)
+```bash
+wireshark &
+```
+**Explanation:** Launch GUI.
+
+### 2. TShark Capture
+```bash
+tshark -i eth0
+```
+**Explanation:** Capture on interface cli.
+
+### 3. Write to File
+```bash
+tshark -i eth0 -w capture.pcap
+```
+**Explanation:** Save packets.
+
+### 4. Read File
+```bash
+tshark -r capture.pcap
+```
+**Explanation:** Analyze offline file.
+
+### 5. Filter IP
+```bash
+ip.addr == 10.10.10.10
+```
+**Explanation:** (Display Filter) Show only this IP.
+
+### 6. Filter HTTP
+```bash
+http.request.method == "POST"
+```
+**Explanation:** Show POST requests.
+
+### 7. Follow Stream (CLI)
+```bash
+tshark -r file.pcap -z follow,tcp,ascii,0
+```
+**Explanation:** Reconstruct TCP stream 0.
+
+### 8. Stats
+```bash
+capinfos capture.pcap
+```
+**Explanation:** Show duration/bitrate stats.
+
+### 9. Extract Objects
+```bash
+tshark -r capture.pcap --export-objects http,destdir/
+```
+**Explanation:** Extract images/files from PCAP.
+
+### 10. Credentials (Ngrep style)
+```bash
+tshark -r file.pcap -Y "http contains password"
+```
+**Explanation:** Search payload for strings.
+
+## The Most Powerful Command
+```bash
+ip.addr == 192.168.1.5 && http
+```
+**Explanation:** Simple filter to isolate all web traffic for a specific target.
+""",
+})
+
 # Apply to file system
 COMMANDS_DIR = "/home/alucard/website/portfolio/content/commands"
+
 
 print(f"🚀 Injecting {len(CONTENT_MAP)} Phase 2 tools...")
 

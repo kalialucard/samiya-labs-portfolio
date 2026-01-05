@@ -293,6 +293,8 @@ class ContentManager:
 
 
 
+
+
             elif is_auto_field:
                 # Auto-mode: Only enrich if changed recently
                 if recent_changes is None:
@@ -303,6 +305,8 @@ class ContentManager:
                 else:
                     # Is auto-field, but NOT changed recently
                     should_enrich = False
+
+
 
 
 
