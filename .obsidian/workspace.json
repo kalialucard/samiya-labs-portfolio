@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4cf4e9e747392245",
+        "id": "4722bcf86b5333d6",
         "type": "tabs",
         "children": [
           {
-            "id": "0bf1e456efb7b5c1",
+            "id": "f45109d068be0ff6",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -187,8 +187,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0bf1e456efb7b5c1",
+  "active": "f45109d068be0ff6",
   "lastOpenFiles": [
+    "AI_CONTEXT.md",
+    "content/writeups/test-log.md",
     "content/writeups/tryhackme/Borderlands (done  not finish walkin).md",
     "content/writeups/tryhackme/Brooklyn Nine Nine.md",
     "content/writeups/tryhackme/CCT2019.md",
@@ -212,7 +214,6 @@
     "content/writeups/tryhackme/Untitled 1.md",
     "content/writeups/tryhackme/0day.md",
     "content/writeups/tryhackme/Untitled.md",
-    "AI_CONTEXT.md",
     "posts/zero-trust-network-implementation.html",
     "posts/wordpress.html",
     "posts/whiterose.html",
@@ -224,7 +225,6 @@
     "posts/unstable-twin.html",
     "posts/ultratech.html",
     "Dashboard.md",
-    "RELEASES.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "content/writeups/Untitled.canvas",
