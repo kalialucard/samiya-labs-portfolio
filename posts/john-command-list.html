@@ -126,60 +126,60 @@
 <p><strong>John the Ripper (JtR)</strong> is a fast password cracker. While Hashcat rules GPU, John is king of CPU support and huge variety of hash formats (jumbo).</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Crack</h3>
-<div class="codehilite"><pre><span></span><code>john<span class="w"> </span>hash.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">john hash.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Auto-detects hash type and cracks using default order (Single -&gt; Wordlist -&gt; Incremental).</p>
 <h3>2. Specify Format</h3>
-<div class="codehilite"><pre><span></span><code>john<span class="w"> </span>--format<span class="o">=</span>NT<span class="w"> </span>hash.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">john --format=NT hash.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Force specific format (e.g., Windows NT).</p>
 <h3>3. Wordlist Mode</h3>
-<div class="codehilite"><pre><span></span><code>john<span class="w"> </span>--wordlist<span class="o">=</span>/path/rockyou.txt<span class="w"> </span>hash.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">john --wordlist=/path/rockyou.txt hash.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Use a dictionary.</p>
 <h3>4. Show Passwords</h3>
-<div class="codehilite"><pre><span></span><code>john<span class="w"> </span>--show<span class="w"> </span>hash.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">john --show hash.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Display cracked credentials.</p>
 <h3>5. Zip/Rar Cracking</h3>
-<div class="codehilite"><pre><span></span><code>zip2john<span class="w"> </span>file.zip<span class="w"> </span>&gt;<span class="w"> </span>hash.txt
-john<span class="w"> </span>hash.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">zip2john file.zip &gt; hash.txt
+john hash.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Use a helper tool (<code>zip2john</code>) to extract the hash, then crack it.</p>
 <h3>6. SSH Key Cracking</h3>
-<div class="codehilite"><pre><span></span><code>ssh2john<span class="w"> </span>id_rsa<span class="w"> </span>&gt;<span class="w"> </span>hash.txt
-john<span class="w"> </span>hash.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">ssh2john id_rsa &gt; hash.txt
+john hash.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Crack a passphrase-protected SSH private key.</p>
 <h3>7. Rules</h3>
-<div class="codehilite"><pre><span></span><code>john<span class="w"> </span>--wordlist<span class="o">=</span>pass.txt<span class="w"> </span>--rules<span class="w"> </span>hash.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">john --wordlist=pass.txt --rules hash.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Enable wordlist mangling rules.</p>
 <h3>8. Incremental (Brute)</h3>
-<div class="codehilite"><pre><span></span><code>john<span class="w"> </span>--incremental<span class="w"> </span>hash.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">john --incremental hash.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Try all character combinations (slow but exhaustive).</p>
 <h3>9. List Formats</h3>
-<div class="codehilite"><pre><span></span><code>john<span class="w"> </span>--list<span class="o">=</span>formats
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">john --list=formats
+</code></pre>
 
 <p><strong>Explanation:</strong> Show supported hash types.</p>
 <h3>10. Restore Session</h3>
-<div class="codehilite"><pre><span></span><code>john<span class="w"> </span>--restore
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">john --restore
+</code></pre>
 
 <p><strong>Explanation:</strong> Continue an interrupted session.</p>
 <h2>The Most Powerful Command</h2>
-<div class="codehilite"><pre><span></span><code>john<span class="w"> </span>--wordlist<span class="o">=</span>rockyou.txt<span class="w"> </span>--rules<span class="w"> </span>--format<span class="o">=</span>crypt<span class="w"> </span>/etc/shadow
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">john --wordlist=rockyou.txt --rules --format=crypt /etc/shadow
+</code></pre>
 
 <p><strong>Explanation:</strong> Attempting to crack Linux shadow file using a wordlist with rules enabled.</p>
         </div>

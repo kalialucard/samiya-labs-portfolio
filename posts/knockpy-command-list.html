@@ -126,58 +126,58 @@
 <p><strong>Knockpy</strong> is a Python3 tool designed to enumerate subdomains on a target domain through a wordlist. It also checks for zone transfers.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Scan</h3>
-<div class="codehilite"><pre><span></span><code>knockpy<span class="w"> </span>domain.com
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">knockpy domain.com
+</code></pre>
 
 <p><strong>Explanation:</strong> Scans using standard internal wordlist.</p>
 <h3>2. Custom Wordlist</h3>
-<div class="codehilite"><pre><span></span><code>knockpy<span class="w"> </span>domain.com<span class="w"> </span>-w<span class="w"> </span>wordlist.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">knockpy domain.com -w wordlist.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Use your own list.</p>
 <h3>3. Zone Transfer Check</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># (Automatic)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash"># (Automatic)
+</code></pre>
 
 <p><strong>Explanation:</strong> Knockpy checks for Zone Transfers (AXFR) automatically at start.</p>
 <h3>4. Save JSON</h3>
-<div class="codehilite"><pre><span></span><code>knockpy<span class="w"> </span>domain.com<span class="w"> </span>--json
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">knockpy domain.com --json
+</code></pre>
 
 <p><strong>Explanation:</strong> Outputs detailed JSON.</p>
 <h3>5. Scan &amp; CSV</h3>
-<div class="codehilite"><pre><span></span><code>knockpy<span class="w"> </span>domain.com<span class="w"> </span>--save<span class="w"> </span>folder
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">knockpy domain.com --save folder
+</code></pre>
 
 <p><strong>Explanation:</strong> Saves report to a specific folder.</p>
 <h3>6. Timeout</h3>
-<div class="codehilite"><pre><span></span><code>knockpy<span class="w"> </span>domain.com<span class="w"> </span>-t<span class="w"> </span><span class="m">5</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">knockpy domain.com -t 5
+</code></pre>
 
 <p><strong>Explanation:</strong> Set timeout for responses.</p>
 <h3>7. Check Wildcard</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># (Automatic)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash"># (Automatic)
+</code></pre>
 
 <p><strong>Explanation:</strong> Checks for wildcard DNS responses to reduce false positives.</p>
 <h3>8. Resolve IP</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># (Default)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash"># (Default)
+</code></pre>
 
 <p><strong>Explanation:</strong> Always resolves IP and shows server type.</p>
 <h3>9. Ignore HTTP codes</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># (Depends on version args)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash"># (Depends on version args)
+</code></pre>
 
 <p><strong>Explanation:</strong> Often used to ignore 404s.</p>
 <h3>10. Virustotal</h3>
-<div class="codehilite"><pre><span></span><code>knockpy<span class="w"> </span>domain.com<span class="w"> </span>--apikey<span class="w"> </span>...
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">knockpy domain.com --apikey ...
+</code></pre>
 
 <p><strong>Explanation:</strong> (If supported by ver) Can query VT API.</p>
 <h2>The Most Powerful Command</h2>
-<div class="codehilite"><pre><span></span><code>knockpy<span class="w"> </span>domain.com<span class="w"> </span>-w<span class="w"> </span>subdomains_big.txt<span class="w"> </span>--save<span class="w"> </span>scan_report
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">knockpy domain.com -w subdomains_big.txt --save scan_report
+</code></pre>
 
 <p><strong>Explanation:</strong> Detailed enumeration using a massive wordlist with persistent reporting.</p>
         </div>

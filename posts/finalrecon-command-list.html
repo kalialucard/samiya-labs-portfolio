@@ -126,58 +126,58 @@
 <p><strong>FinalRecon</strong> is an all-in-one OSINT tool for web reconnaissance. It aggregates headers, SSL info, whois, and crawling.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Full Scan</h3>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>finalrecon.py<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--full
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 finalrecon.py --url http://example.com --full
+</code></pre>
 
 <p><strong>Explanation:</strong> Runs all available modules (Header, SSL, Whois, Crawl, DNS).</p>
 <h3>2. Headers Only</h3>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>finalrecon.py<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--headers
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 finalrecon.py --url http://example.com --headers
+</code></pre>
 
 <p><strong>Explanation:</strong> Checks HTTP security headers.</p>
 <h3>3. SSL Info</h3>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>finalrecon.py<span class="w"> </span>--url<span class="w"> </span>https://example.com<span class="w"> </span>--ssl
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 finalrecon.py --url https://example.com --ssl
+</code></pre>
 
 <p><strong>Explanation:</strong> Dumps SSL certificate details.</p>
 <h3>4. Whois</h3>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>finalrecon.py<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--whois
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 finalrecon.py --url http://example.com --whois
+</code></pre>
 
 <p><strong>Explanation:</strong> Gets domain registration info.</p>
 <h3>5. Crawl</h3>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>finalrecon.py<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--crawl
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 finalrecon.py --url http://example.com --crawl
+</code></pre>
 
 <p><strong>Explanation:</strong> Crawls the site to find internal links.</p>
 <h3>6. DNS Enum</h3>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>finalrecon.py<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--dns
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 finalrecon.py --url http://example.com --dns
+</code></pre>
 
 <p><strong>Explanation:</strong> Dumps DNS records (A, MX, NS, etc.).</p>
 <h3>7. Subdomain Enum</h3>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>finalrecon.py<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--sub
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 finalrecon.py --url http://example.com --sub
+</code></pre>
 
 <p><strong>Explanation:</strong> Searches for subdomains.</p>
 <h3>8. Directory Search</h3>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>finalrecon.py<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--dir
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 finalrecon.py --url http://example.com --dir
+</code></pre>
 
 <p><strong>Explanation:</strong> Checks for common directories.</p>
 <h3>9. Wayback Check</h3>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>finalrecon.py<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--wayback
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 finalrecon.py --url http://example.com --wayback
+</code></pre>
 
 <p><strong>Explanation:</strong> Checks Wayback machine for archived URLs.</p>
 <h3>10. Output</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># (Automatic)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash"># (Automatic)
+</code></pre>
 
 <p><strong>Explanation:</strong> FinalRecon automatically creates a timestamped folder with logs.</p>
 <h2>The Most Powerful Command</h2>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>finalrecon.py<span class="w"> </span>--url<span class="w"> </span>http://target.com<span class="w"> </span>--full
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 finalrecon.py --url http://target.com --full
+</code></pre>
 
 <p><strong>Explanation:</strong> The <code>--full</code> flag is the most powerful as it provides a complete dossier on the target in one go.</p>
         </div>

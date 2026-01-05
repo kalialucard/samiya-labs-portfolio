@@ -126,58 +126,58 @@
 <p><strong>Searchsploit</strong> is a command line search tool for Exploit-DB. It allows you to take a copy of the Exploit Database with you offline.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Search</h3>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>wordpress<span class="w"> </span><span class="m">5</span>.0
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit wordpress 5.0
+</code></pre>
 
 <p><strong>Explanation:</strong> Search for exploits related to terms.</p>
 <h3>2. Copy Exploit</h3>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>-m<span class="w"> </span><span class="m">12345</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit -m 12345
+</code></pre>
 
 <p><strong>Explanation:</strong> Mirror (<code>-m</code>) the exploit ID 12345 to the current directory.</p>
 <h3>3. Examine Code</h3>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>-x<span class="w"> </span><span class="m">12345</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit -x 12345
+</code></pre>
 
 <p><strong>Explanation:</strong> Read the exploit code/metadata.</p>
 <h3>4. Precise Match</h3>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;Apache 2.4&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit -t &quot;Apache 2.4&quot;
+</code></pre>
 
 <p><strong>Explanation:</strong> Search the Title (<code>-t</code>) specifically.</p>
 <h3>5. Nmap Integration</h3>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>--nmap<span class="w"> </span>scan.xml
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit --nmap scan.xml
+</code></pre>
 
 <p><strong>Explanation:</strong> Parses an Nmap XML output and searches exploits for detected service versions.</p>
 <h3>6. Exclude Terms</h3>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>apache<span class="w"> </span>--exclude<span class="o">=</span><span class="s2">&quot;DoS&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit apache --exclude=&quot;DoS&quot;
+</code></pre>
 
 <p><strong>Explanation:</strong> Search Apache but hide Denial of Service scripts.</p>
 <h3>7. Online Search</h3>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>-w<span class="w"> </span>wordpress
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit -w wordpress
+</code></pre>
 
 <p><strong>Explanation:</strong> Show the URL to Exploit-DB.com instead of local path.</p>
 <h3>8. Update DB</h3>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>-u
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit -u
+</code></pre>
 
 <p><strong>Explanation:</strong> Update the database.</p>
 <h3>9. Case Sensitive</h3>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;Apache&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit -c &quot;Apache&quot;
+</code></pre>
 
 <p><strong>Explanation:</strong> Perform case-sensitive search.</p>
 <h3>10. Exact Version</h3>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;Apache 2.4.49&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit -s &quot;Apache 2.4.49&quot;
+</code></pre>
 
 <p><strong>Explanation:</strong> Strict search only.</p>
 <h2>The Most Powerful Command</h2>
-<div class="codehilite"><pre><span></span><code>searchsploit<span class="w"> </span>--nmap<span class="w"> </span>results.xml<span class="w"> </span>--exclude<span class="o">=</span><span class="s2">&quot;DoS&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">searchsploit --nmap results.xml --exclude=&quot;DoS&quot;
+</code></pre>
 
 <p><strong>Explanation:</strong> Automate vulnerability checking by feeding directly from your nmap scan results, filtering out useless DoS scripts.</p>
         </div>
