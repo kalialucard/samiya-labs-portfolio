@@ -131,8 +131,8 @@
 <h3>Discovering Hidden Directories and Files with Gobuster</h3>
 <p>One of the most common tasks during enumeration is to find hidden directories and files on a web server. These can often lead to sensitive information or administrative interfaces. We'll use a powerful tool called Gobuster for this.</p>
 <p>Here's how we might use Gobuster to look for hidden content:</p>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>https://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u https://example.com -w /path/to/wordlist.txt
+</code></pre>
 
 <p>Let's break down this command:</p>
 <ul>
@@ -146,8 +146,8 @@
 <h3>Searching for Specific File Types with Gobuster</h3>
 <p>Sometimes, we have an idea of the types of files we're looking for. For example, we might suspect there are PHP scripts or configuration files (like <code>.txt</code> or <code>.html</code>) that could be interesting. We can tell Gobuster to specifically look for these by adding the <code>-x</code> flag.</p>
 <p>Here's an example:</p>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>&lt;list&gt;<span class="w"> </span>-x<span class="w"> </span>php,txt,html
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u &lt;target&gt; -w &lt;list&gt; -x php,txt,html
+</code></pre>
 
 <p>Let's explain the new part:</p>
 <ul>
@@ -158,8 +158,8 @@
 <h3>Enumerating Subdomains with Gobuster</h3>
 <p>Many websites have associated subdomains. For instance, a company might have <code>blog.example.com</code>, <code>api.example.com</code>, or <code>dev.example.com</code>. These subdomains can host entirely different applications or services, some of which might be less secure than the main website. Gobuster can help us discover these.</p>
 <p>Here's how we'd use Gobuster for subdomain enumeration:</p>
-<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dns<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/subdomains.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">gobuster dns -d example.com -w /path/to/subdomains.txt
+</code></pre>
 
 <p>Let's break this down:</p>
 <ul>
