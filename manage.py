@@ -106,12 +106,14 @@ class ContentManager:
         time.sleep(10) 
         
         # Robust Logic: Try multiple models in order of preference
-        # Prioritize 2.5-flash (best quality/speed balance), then lite, then 1.5 fallback
+        # Prioritize models with available quota (gemini-3-flash), then fallbacks
         models_to_try = [
+            'gemini-3-flash',
             'gemini-2.5-flash', 
             'gemini-2.5-flash-lite', 
             'gemini-1.5-flash',
-            'gemini-1.5-flash-8b'
+            'gemini-2.0-flash-exp',
+            'gemini-1.5-pro'
         ]
         
         prompt = f"""
