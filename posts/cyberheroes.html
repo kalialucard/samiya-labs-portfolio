@@ -131,27 +131,27 @@
 <li>Open the page in your browser (<a href="http://10.201.62.16/login.html">http://10.201.62.16/login.html</a>) and use the browser inspector to view the JS.</li>
 </ul>
 <h2>Relevant JavaScript (as found in the page)</h2>
-<div class="codehilite"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">authenticate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;uname&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;pass&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">RevereString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">[...</span><span class="nx">str</span><span class="p">].</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">value</span><span class="o">==</span><span class="s2">&quot;h3ck3rBoi&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">value</span><span class="o">==</span><span class="nx">RevereString</span><span class="p">(</span><span class="s2">&quot;54321@terceSrepuS&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">xhttp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">XMLHttpRequest</span><span class="p">();</span>
-<span class="w">    </span><span class="nx">xhttp</span><span class="p">.</span><span class="nx">onreadystatechange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">200</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;flag&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="w"> </span><span class="p">;</span>
-<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;todel&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;rm&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">()</span><span class="w"> </span><span class="p">;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">};</span>
-<span class="w">    </span><span class="nx">xhttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_&quot;</span><span class="o">+</span><span class="nx">a</span><span class="p">.</span><span class="nx">value</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="nx">b</span><span class="p">.</span><span class="nx">value</span><span class="o">+</span><span class="s2">&quot;.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">xhttp</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Incorrect Password, try again.. you got this hacker !&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-js">function authenticate() {
+  a = document.getElementById('uname')
+  b = document.getElementById('pass')
+  const RevereString = str =&gt; [...str].reverse().join('');
+  if (a.value==&quot;h3ck3rBoi&quot; &amp; b.value==RevereString(&quot;54321@terceSrepuS&quot;)) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 &amp;&amp; this.status == 200) {
+        document.getElementById(&quot;flag&quot;).innerHTML = this.responseText ;
+        document.getElementById(&quot;todel&quot;).innerHTML = &quot;&quot;;
+        document.getElementById(&quot;rm&quot;).remove() ;
+      }
+    };
+    xhttp.open(&quot;GET&quot;, &quot;RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_&quot;+a.value+&quot;_&quot;+b.value+&quot;.txt&quot;, true);
+    xhttp.send();
+  }
+  else {
+    alert(&quot;Incorrect Password, try again.. you got this hacker !&quot;)
+  }
+}
+</code></pre>
 
 <h2>What the script does (plain English)</h2>
 <ul>
@@ -160,8 +160,8 @@
 <li>So the actual password is the <strong>reverse</strong> of <code>54321@terceSrepuS</code>.</li>
 <li>When both username and password match, the page requests a flag file named:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_&lt;username&gt;_&lt;password&gt;.txt
-</code></pre></div>
+<pre class="codehilite"><code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_&lt;username&gt;_&lt;password&gt;.txt
+</code></pre>
 
 <p>(constructed by concatenating the string with <code>a.value</code> and <code>b.value</code>).</p>
 <h2>Derived credentials</h2>
@@ -177,26 +177,26 @@
 <ul>
 <li><strong>Raw filename (with special char):</strong></li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret</span><span class="mf">@12345.</span><span class="n">txt</span>
-</code></pre></div>
+<pre class="codehilite"><code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret@12345.txt
+</code></pre>
 
 <ul>
 <li><strong>URL-encoded filename:</strong></li>
 </ul>
-<div class="codehilite"><pre><span></span><code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt
-</code></pre></div>
+<pre class="codehilite"><code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt
+</code></pre>
 
 <ul>
 <li><strong>curl command (HTTP):</strong></li>
 </ul>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">curl -s &quot;http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt&quot;
+</code></pre>
 
 <ul>
 <li><strong>Browser:</strong> open the URL in the address bar (same encoded path) while connected to the lab network:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt
-</code></pre></div>
+<pre class="codehilite"><code>http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt
+</code></pre>
 
 <p>If the file exists and is accessible, the server will return the flag contents.</p>
 <h2>Alternate: use the login form</h2>
@@ -209,22 +209,22 @@
 <ul>
 <li>Reverse string with <code>rev</code>:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;54321@terceSrepuS&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>rev
-<span class="c1"># -&gt; SuperSecret@12345</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">echo &quot;54321@terceSrepuS&quot; | rev
+# -&gt; SuperSecret@12345
+</code></pre>
 
 <ul>
 <li>Reverse with Python:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;print(&#39;54321@terceSrepuS&#39;[::-1])&quot;</span>
-<span class="c1"># -&gt; SuperSecret@12345</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">python3 -c &quot;print('54321@terceSrepuS'[::-1])&quot;
+# -&gt; SuperSecret@12345
+</code></pre>
 
 <ul>
 <li>Fetch the file (curl):</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">curl -s &quot;http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt&quot;
+</code></pre>
 
 <hr />
 <h2>Notes &amp; tips</h2>

@@ -122,7 +122,7 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<div class="codehilite"><pre><span></span><code>PORT     STATE SERVICE  VERSION
+<pre class="codehilite"><code>PORT     STATE SERVICE  VERSION
 22/tcp   open  ssh      OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
 |   2048 cb:98:15:ed:13:41:b4:d5:53:72:53:54:c7:56:e6:6a (RSA)
@@ -142,7 +142,7 @@
 |     X-Runtime: 0.002623
 |     Strict-Transport-Security: max-age=31536000; includeSubDomains
 |     Content-Length: 89
-|     <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;&lt;</span><span class="nt">body</span><span class="p">&gt;</span>You are being <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://localhost/scans&quot;</span><span class="p">&gt;</span>redirected<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+|     &lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://localhost/scans&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;
 |   HTTPOptions: 
 |     HTTP/1.0 404 Not Found
 |     Content-Type: text/html; charset=UTF-8
@@ -150,13 +150,13 @@
 |     X-Runtime: 0.002201
 |     Strict-Transport-Security: max-age=31536000; includeSubDomains
 |     Content-Length: 1722
-|     <span class="cp">&lt;!DOCTYPE html&gt;</span>
-|     <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-|     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-|     <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>The page you were looking for doesn&#39;t exist (404)<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-|     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width,initial-scale=1&quot;</span><span class="p">&gt;</span>
-|     <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="o">|</span><span class="w">     </span><span class="p">.</span><span class="nc">rails-default-error-page</span><span class="w"> </span><span class="p">{</span>
+|     &lt;!DOCTYPE html&gt;
+|     &lt;html&gt;
+|     &lt;head&gt;
+|     &lt;title&gt;The page you were looking for doesn't exist (404)&lt;/title&gt;
+|     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+|     &lt;style&gt;
+|     .rails-default-error-page {
 |     background-color: #EFEFEF;
 |     color: #2E2F30;
 |     text-align: center;
@@ -183,16 +183,16 @@ SF:equest,16D,&quot;HTTP/1\.0\x20301\x20Moved\x20Permanently\r\nLocation:\x20ht
 SF:tps://localhost/scans\r\nContent-Type:\x20text/html\r\nCache-Control:\x
 SF:20no-cache\r\nX-Request-Id:\x207ec9a70c-cfe6-4fe4-93b6-bbcafe662c7c\r\n
 SF:X-Runtime:\x200\.002623\r\nStrict-Transport-Security:\x20max-age=315360
-SF:00;\x20includeSubDomains\r\nContent-Length:\x2089\r\n\r\n<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;&lt;</span><span class="nt">body</span><span class="p">&gt;</span>Yo
-SF:u\x20are\x20being\x20<span class="p">&lt;</span><span class="nt">a</span><span class="err">\</span><span class="na">x20href</span><span class="o">=</span><span class="s">\&quot;https://localhost/scans\&quot;</span><span class="p">&gt;</span>redirected<span class="p">&lt;</span>
-<span class="nt">SF:</span><span class="err">/</span><span class="na">a</span><span class="p">&gt;</span>\.<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>&quot;)%r(HTTPOptions,79B,&quot;HTTP/1\.0\x20404\x20Not\x20Fou
+SF:00;\x20includeSubDomains\r\nContent-Length:\x2089\r\n\r\n&lt;html&gt;&lt;body&gt;Yo
+SF:u\x20are\x20being\x20&lt;a\x20href=\&quot;https://localhost/scans\&quot;&gt;redirected&lt;
+SF:/a&gt;\.&lt;/body&gt;&lt;/html&gt;&quot;)%r(HTTPOptions,79B,&quot;HTTP/1\.0\x20404\x20Not\x20Fou
 SF:nd\r\nContent-Type:\x20text/html;\x20charset=UTF-8\r\nX-Request-Id:\x20
 SF:9fddd09f-c402-4c82-bd63-1e8272638e45\r\nX-Runtime:\x200\.002201\r\nStri
 SF:ct-Transport-Security:\x20max-age=31536000;\x20includeSubDomains\r\nCon
-SF:tent-Length:\x201722\r\n\r\n<span class="cp">&lt;!DOCTYPE\x20html&gt;</span>\n<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>\n<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>\n\x20\x2
-SF:0<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>The\x20page\x20you\x20were\x20looking\x20for\x20doesn&#39;t\x20exis
-SF:t\x20\(404\)<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>\n\x20\x20<span class="p">&lt;</span><span class="nt">meta</span><span class="err">\</span><span class="na">x20name</span><span class="o">=</span><span class="s">\&quot;viewport\&quot;\x20content=\&quot;w</span>
-<span class="na">SF:idth</span><span class="o">=</span><span class="s">device-width,initial-scale=1\&quot;</span><span class="p">&gt;</span>\n\x20\x20<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="err">\</span><span class="nt">n</span><span class="err">\</span><span class="nt">x20</span><span class="err">\</span><span class="nt">x20</span><span class="err">\</span><span class="p">.</span><span class="nc">rails-</span>
+SF:tent-Length:\x201722\r\n\r\n&lt;!DOCTYPE\x20html&gt;\n&lt;html&gt;\n&lt;head&gt;\n\x20\x2
+SF:0&lt;title&gt;The\x20page\x20you\x20were\x20looking\x20for\x20doesn't\x20exis
+SF:t\x20\(404\)&lt;/title&gt;\n\x20\x20&lt;meta\x20name=\&quot;viewport\&quot;\x20content=\&quot;w
+SF:idth=device-width,initial-scale=1\&quot;&gt;\n\x20\x20&lt;style&gt;\n\x20\x20\.rails-
 SF:default-error-page\x20{\n\x20\x20\x20\x20background-color:\x20#EFEFEF;\
 SF:n\x20\x20\x20\x20color:\x20#2E2F30;\n\x20\x20\x20\x20text-align:\x20cen
 SF:ter;\n\x20\x20\x20\x20font-family:\x20arial,\x20sans-serif;\n\x20\x20\x
@@ -213,50 +213,50 @@ OS CPE: cpe:/o:linux:linux_kernel:4.15
 OS details: Linux 4.15
 Network Distance: 3 hops
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre></div>
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code><span class="err">└─</span><span class="o">$</span><span class="w"> </span><span class="n">gobuster</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">-</span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="w"> </span><span class="o">-</span><span class="n">w</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">dirbuster</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">directory</span><span class="o">-</span><span class="n">list</span><span class="o">-</span><span class="mf">2.3</span><span class="o">-</span><span class="n">small</span><span class="o">.</span><span class="n">txt</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="nb nb-Type">null</span>
+<pre class="codehilite"><code>└─$ gobuster dir -k -u https://10.66.188.149:3000 -w /usr/share/dirbuster/wordlists/directory-list-2.3-small.txt 2&gt;/dev/null
 
-<span class="o">===============================================================</span>
-<span class="n">Gobuster</span><span class="w"> </span><span class="n">v3</span><span class="o">.</span><span class="mi">8</span>
-<span class="n">by</span><span class="w"> </span><span class="n">OJ</span><span class="w"> </span><span class="n">Reeves</span><span class="w"> </span><span class="p">(</span><span class="err">@</span><span class="n">TheColonial</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Christian</span><span class="w"> </span><span class="n">Mehlmauer</span><span class="w"> </span><span class="p">(</span><span class="err">@</span><span class="n">firefart</span><span class="p">)</span>
-<span class="o">===============================================================</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Url</span><span class="p">:</span><span class="w">                     </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Method</span><span class="p">:</span><span class="w">                  </span><span class="n">GET</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Threads</span><span class="p">:</span><span class="w">                 </span><span class="mi">10</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Wordlist</span><span class="p">:</span><span class="w">                </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">dirbuster</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">directory</span><span class="o">-</span><span class="n">list</span><span class="o">-</span><span class="mf">2.3</span><span class="o">-</span><span class="n">small</span><span class="o">.</span><span class="n">txt</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Negative</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">codes</span><span class="p">:</span><span class="w">   </span><span class="mi">404</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">Agent</span><span class="p">:</span><span class="w">              </span><span class="n">gobuster</span><span class="o">/</span><span class="mf">3.8</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Timeout</span><span class="p">:</span><span class="w">                 </span><span class="mi">10</span><span class="n">s</span>
-<span class="o">===============================================================</span>
-<span class="n">Starting</span><span class="w"> </span><span class="n">gobuster</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">enumeration</span><span class="w"> </span><span class="n">mode</span>
-<span class="o">===============================================================</span>
-<span class="o">/</span><span class="n">images</span><span class="w">               </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">302</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">106</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">--&gt;</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">sign_in</span><span class="p">]</span>
-<span class="o">/</span><span class="n">admin</span><span class="w">                </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">302</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">104</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">--&gt;</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="n">login</span><span class="p">]</span>
-<span class="o">/</span><span class="n">reports</span><span class="w">              </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">302</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">106</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">--&gt;</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">sign_in</span><span class="p">]</span>
-<span class="o">/</span><span class="n">issues</span><span class="w">               </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">302</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">106</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">--&gt;</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">sign_in</span><span class="p">]</span>
-<span class="o">/</span><span class="n">groups</span><span class="w">               </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">302</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">106</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">--&gt;</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">sign_in</span><span class="p">]</span>
-<span class="o">/</span><span class="n">clients</span><span class="w">              </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">302</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">106</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">--&gt;</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">sign_in</span><span class="p">]</span>
-<span class="o">/</span><span class="n">notes</span><span class="w">                </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">302</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">106</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">--&gt;</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">sign_in</span><span class="p">]</span>
-<span class="o">/</span><span class="mi">404</span><span class="w">                  </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">1722</span><span class="p">]</span>
-<span class="o">/</span><span class="mi">500</span><span class="w">                  </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">1635</span><span class="p">]</span>
-<span class="o">/</span><span class="mi">422</span><span class="w">                  </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">1705</span><span class="p">]</span>
-<span class="o">^</span><span class="n">C</span>
-</code></pre></div>
+===============================================================
+Gobuster v3.8
+by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     https://10.66.188.149:3000
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirbuster/wordlists/directory-list-2.3-small.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.8
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/images               (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
+/admin                (Status: 302) [Size: 104] [--&gt; https://10.66.188.149:3000/admin/login]
+/reports              (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
+/issues               (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
+/groups               (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
+/clients              (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
+/notes                (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
+/404                  (Status: 200) [Size: 1722]
+/500                  (Status: 200) [Size: 1635]
+/422                  (Status: 200) [Size: 1705]
+^C
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">notes</span><span class="o">/</span><span class="mi">1</span>
+<pre class="codehilite"><code>https://10.66.188.149:3000/notes/1
 
-<span class="o">!</span><span class="p">[](</span><span class="o">../</span><span class="n">images</span><span class="o">/</span><span class="n">posts</span><span class="o">/</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">assets</span><span class="o">/</span><span class="n">logo</span><span class="o">/</span><span class="n">envizon</span><span class="o">-</span><span class="n">wide</span><span class="o">-</span><span class="k">export</span><span class="o">-</span><span class="n">white</span><span class="o">-</span><span class="n">a650bc5b488e5de846dd2e4e58df9449bd7e3a4908f2511677d18a70581a9644</span><span class="o">.</span><span class="n">svg</span><span class="p">)</span>
+![](../images/posts/https://10.66.188.149:3000/assets/logo/envizon-wide-export-white-a650bc5b488e5de846dd2e4e58df9449bd7e3a4908f2511677d18a70581a9644.svg)
 
-<span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="p">)</span>
+](https://10.66.188.149:3000/)
 
-<span class="o">-</span><span class="w"> </span><span class="p">[</span><span class="n">_account_circle_Please</span><span class="w"> </span><span class="nb">sign</span><span class="w"> </span><span class="ow">in</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66</span><span class="o">.</span><span class="mf">188.149</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="p">)</span>
+- [_account_circle_Please sign in](https://10.66.188.149:3000/)
 
-<span class="o">**</span><span class="n">Text</span><span class="p">:</span><span class="o">**</span><span class="w"> </span><span class="n">Hi</span><span class="w"> </span><span class="n">Paul</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">reasons</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">hashids</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">notes</span><span class="o">.</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">envizon</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="mi">380</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">link</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">email</span><span class="o">.</span><span class="w"> </span><span class="n">We</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">layers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">gem</span><span class="w"> </span><span class="p">(</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dtaniwaki</span><span class="o">/</span><span class="n">acts_as_hashids</span><span class="p">)</span>
-</code></pre></div>
+**Text:** Hi Paul, for security reasons I added hashids with a length of 30 characters to notes. I stored the password for this envizon instance in the note with id 380 and sent you the link by email. We may should consider to add more security layers to this gem (https://github.com/dtaniwaki/acts_as_hashids)
+</code></pre>
 
-<div class="codehilite"><pre><span></span><code>
-</code></pre></div>
+<pre class="codehilite"><code>
+</code></pre>
         </div>
     </main>
 
