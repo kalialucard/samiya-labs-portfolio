@@ -102,7 +102,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
@@ -115,76 +115,21 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- cloud security, CI/CD, DevOps, SAST, DAST, Infrastructure as Code, IaC, Terraform, AWS, container security, Docker, CVEs, software security, pipeline security -->
+                <!-- kubernetes, terraform, aws -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>Securing Your Cloud CI/CD Pipeline: An Educational Walkthrough</h1>
-<p>Welcome, aspiring cybersecurity professionals! In today's fast-paced development world, integrating security directly into the software delivery process is not just an advantage—it's a necessity. This walkthrough will guide you through the fundamental features of building a secure Cloud CI/CD pipeline, focusing on automated security gates within a modern DevOps workflow.</p>
-<p><strong>CI/CD</strong> stands for <strong>Continuous Integration/Continuous Delivery</strong> (or Continuous Deployment). It's a method to deliver applications to customers frequently by introducing automation into the stages of application development. <strong>DevOps</strong> is a set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle and provide continuous delivery with high software quality.</p>
-<p>Our goal is to implement automated security gates, meaning we embed security checks at various stages of the development and deployment process. This proactive approach is often referred to as "shifting left," moving security considerations earlier in the development lifecycle to catch and fix vulnerabilities when they are easier and cheaper to address.</p>
-<p>Let's break down the key features of a secure cloud CI/CD pipeline.</p>
-<h2>1. SAST/DAST: Integrated Application Security Testing</h2>
-<p>A crucial aspect of securing any application is to test it for vulnerabilities throughout its development. We achieve this by integrating both <strong>Static Application Security Testing (SAST)</strong> and <strong>Dynamic Application Security Testing (DAST)</strong> directly into our build process.</p>
+<h1>Secure Cloud CI/CD Pipeline</h1>
+<p>Implementing automated security gates within a DevOps workflow.</p>
+<h2>Features:</h2>
 <ul>
-<li>
-<p><strong>SAST (Static Application Security Testing)</strong>:</p>
-<ul>
-<li><strong>What it is</strong>: SAST tools analyze an application's source code, bytecode, or binary code without actually executing the application. Think of it like a spell checker for your code, but for security flaws.</li>
-<li><strong>How it works in CI/CD</strong>: When a developer commits new code, the CI/CD pipeline automatically triggers a SAST scan. This scan looks for common coding errors that could lead to security vulnerabilities, such as SQL injection flaws, cross-site scripting (XSS), insecure direct object references, or buffer overflows.</li>
-<li><strong>Why it's important</strong>: SAST allows us to identify potential vulnerabilities very early in the development cycle, often before the application is even fully functional. This is a prime example of "shifting left," as it helps developers fix issues quickly and cost-effectively, right after they write the code.</li>
+<li><strong>SAST/DAST</strong>: Integrated static and dynamic analysis into the build process.</li>
+<li><strong>Infrastructure as Code</strong>: Hardened AWS environments via audited Terraform modules.</li>
+<li><strong>Container Security</strong>: Automated scanning of Docker images for known CVEs.</li>
 </ul>
-</li>
-<li>
-<p><strong>DAST (Dynamic Application Security Testing)</strong>:</p>
-<ul>
-<li><strong>What it is</strong>: DAST tools analyze an application while it is running. They simulate attacks from the outside by sending various inputs to the application and observing its responses.</li>
-<li><strong>How it works in CI/CD</strong>: Once the application is built and deployed to a test or staging environment (which happens automatically in a CI/CD pipeline), a DAST scan is initiated. This scan tests the deployed application through its web interfaces or APIs, looking for runtime vulnerabilities that might not be visible in the static code, such as authentication bypasses, misconfigurations, or server-side request forgery (SSRF).</li>
-<li><strong>Why it's important</strong>: DAST provides a black-box view of the application's security, similar to how an attacker would interact with it. It can uncover vulnerabilities that only manifest when the application is running, interacting with other services, or processing live data.</li>
-</ul>
-</li>
-</ul>
-<p>By combining SAST and DAST, we get a comprehensive view of our application's security, catching issues both at rest (in the code) and in motion (at runtime).</p>
-<h2>2. Infrastructure as Code (IaC): Hardening Cloud Environments</h2>
-<p>The foundation of any cloud application is its infrastructure. In a modern cloud environment, we define and manage infrastructure using code, a practice known as <strong>Infrastructure as Code (IaC)</strong>.</p>
-<ul>
-<li><strong>What it is</strong>: IaC means defining your infrastructure (servers, databases, networks, load balancers, etc.) in configuration files that can be versioned, reused, and audited like application code. Instead of manually clicking through a cloud provider's console, you write a script that provisions everything.</li>
-<li><strong>How it works in CI/CD</strong>: We use tools like <strong>Terraform</strong> to manage our cloud resources. Terraform is an open-source IaC tool that allows you to define both cloud and on-prem resources in human-readable configuration files and then provisions them. In our secure pipeline, we specifically use "audited Terraform modules."<ul>
-<li><strong>Terraform Modules</strong>: These are reusable, self-contained configurations for infrastructure components (e.g., a secure S3 bucket, a hardened EC2 instance, or a virtual private cloud).</li>
-<li><strong>Audited Modules</strong>: This is key for security. "Audited" means these modules have been reviewed by security experts to ensure they incorporate best practices for security (e.g., proper access controls, encryption enabled by default, minimal exposed ports).</li>
-<li>When infrastructure changes are proposed (e.g., a developer wants to add a new database), these changes are first defined in a Terraform file. The CI/CD pipeline then reviews this file (often with static analysis tools specifically for IaC) against security policies <em>before</em> applying the changes to the AWS environment.</li>
-</ul>
-</li>
-<li><strong>Why it's important</strong>:<ul>
-<li><strong>Consistency and Repeatability</strong>: Ensures all environments (development, staging, production) are configured identically, reducing human error.</li>
-<li><strong>Version Control</strong>: Infrastructure definitions are stored in version control systems (like Git), allowing us to track changes, revert to previous states, and collaborate effectively.</li>
-<li><strong>Security by Design</strong>: By using audited, secure Terraform modules, we bake security into the very foundation of our infrastructure from the start, preventing common misconfigurations that lead to vulnerabilities.</li>
-</ul>
-</li>
-</ul>
-<h2>3. Container Security: Automated Vulnerability Scanning</h2>
-<p>Containers, particularly Docker images, have revolutionized how applications are packaged and deployed. However, they also introduce new security considerations.</p>
-<ul>
-<li><strong>What it is</strong>: Containers package an application and all its dependencies (libraries, frameworks, configuration files) into a single, isolated unit. Docker is a popular platform for building and running containers. A "Docker image" is a template for creating containers.</li>
-<li><strong>How it works in CI/CD</strong>: Our secure pipeline includes "automated scanning of Docker images for known CVEs."<ul>
-<li><strong>CVEs (Common Vulnerabilities and Exposures)</strong>: This is a list of publicly disclosed cybersecurity vulnerabilities and exposures. Each CVE entry has a unique identifier (e.g., CVE-2023-12345).</li>
-<li>Whenever a new Docker image is built (e.g., when a new version of our application is ready for deployment), the CI/CD pipeline automatically sends this image to a container scanning tool.</li>
-<li>This tool analyzes the components within the Docker image (the operating system, libraries, application dependencies) and compares them against databases of known CVEs.</li>
-<li>If the scanner finds a component with a known, unpatched vulnerability, the CI/CD pipeline can be configured to fail the build, preventing the insecure image from being deployed to production. It can also provide recommendations for updating vulnerable components.</li>
-</ul>
-</li>
-<li><strong>Why it's important</strong>:<ul>
-<li><strong>Supply Chain Security</strong>: Applications often rely on numerous third-party libraries and base images. Automated scanning helps ensure that these components don't introduce known vulnerabilities into our software supply chain.</li>
-<li><strong>Preventing Exploitation</strong>: Many successful attacks exploit publicly known vulnerabilities. By scanning for CVEs, we dramatically reduce the attack surface.</li>
-<li><strong>Compliance</strong>: Many regulatory frameworks require organizations to identify and address known vulnerabilities in their software.</li>
-</ul>
-</li>
-</ul>
-<h2>Conclusion</h2>
-<p>By integrating SAST/DAST for application code, hardening infrastructure with audited Infrastructure as Code (Terraform), and implementing automated container security scanning for CVEs, we build a robust, secure Cloud CI/CD pipeline. This approach moves security from an afterthought to an integral part of the development and deployment process, enabling us to deliver secure applications faster and with greater confidence. Remember, in the world of cybersecurity, being proactive is always more effective than being reactive.</p>
         </div>
     </main>
 

