@@ -1,4 +1,5 @@
 import os
+import time
 import glob
 import markdown
 import yaml
@@ -101,41 +102,44 @@ class ContentManager:
 
         print(f"🤖 AI is analyzing: {metadata.get('title', 'Unknown Post')}...")
         
-        # Robust Logic: Try a list of models with timeout
-        # Prioritize 2.5, fallback to 1.5, then 8b (cheapest/fastest)
-        models_to_try = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-1.5-flash-8b']
+        # Rate Limit handling: Pause before request
+        time.sleep(10) 
+        
+        # Robust Logic: Use standard model
+        models_to_try = ['gemini-1.5-flash']
         
         prompt = f"""
         prioritizing educational value and beginner-friendly explanations.
-        Your task is to transform raw technical notes/logs into a professional, high-standard engineering documentation or security research report.
+        Your task is to transform raw technical notes/logs into a DETAILED EDUCATIONAL WALKTHROUGH usable by entry-level cybersecurity students.
 
         RAW DATA:
         {raw_content}
 
         INSTRUCTIONS:
         1. **Clean & Parse Output**:
-           - **CRITICAL**: The input starts with a "Raw Dump Area" header and metadata (Target IP, Platform).
-           - **REMOVE** these lines completely from your output. DO NOT print "Raw Dump Area" or the IP/Platform in the body.
+           - **CRITICAL**: The input starts with a "Raw Dump Area" header and metadata. REMOVE these lines completely.
            - IF you see `[x] TryHackMe`, strictly set `category: tryhackme` in the YAML.
            - IF you see `[x] HackTheBox`, strictly set `category: hackthebox` in the YAML.
 
         2. **Restructure & Organize**: 
-           - The input is a "Raw Dump" of logs and notes. 
-           - YOU must organize it into a chronological narrative: **Reconnaissance** -> **Enumeration** -> **Exploitation** -> **Privilege Escalation**.
-           - Create H2 headers (##) for these sections to create the "Timeline" nodes.
+           - Organize chronologically: **Reconnaissance** -> **Enumeration** -> **Exploitation** -> **Privilege Escalation**.
+           - Use H2 headers (##) for these sections.
 
-        3. **Analyze Tool Outputs**: 
-           - Identify raw tool output (Nmap, Gobuster, etc.).
-           - PRESERVE the raw output in a code block.
-           - IMMEDIATELY after, add a "🔍 Analysis" bullet list explaining the findings (e.g., "Anonymous FTP access allowed").
+        3. **Analyze Tool Outputs (EDUCATIONAL FOCUS)**: 
+           - Identify raw tool output (Nmap, Gobuster, etc.) and PRESERVE it in code blocks.
+           - **CRITICAL**: Immediately after every code block, add a "🧠 Beginner Analysis" section.
+           - **Explain the Command**: If a command is visible (e.g., `nmap -sC -sV`), explain what the flags do (e.g., "-sC runs default scripts, -sV enumerates versions").
+           - **Explain the Results**: Don't just list open ports. Explain *WHY* port 80 is interesting (e.g., "Port 80 indicates a web server, which often has vulnerabilities...").
 
-        4. **Bridge the Gaps (Context)**:
-           - Use the user's brief notes (e.g., "got reverse shell") to write professional explanations.
-           - Explain *HOW* the user moved from step A to B.
-           - Example: User says "put shell in ftp", You write: "We identified that the FTP directory was web-accessible. We uploaded a PHP reverse shell..."
+        4. **Bridge the Gaps (The "Why" and "How")**:
+           - Don't just say "We got a shell." Explain the steps.
+           - Example: "Since the FTP server allowed anonymous login, we uploaded a file..." -> Explain *why* anonymous FTP is bad and *how* the upload leads to execution.
+           - Define complex terms when they first appear (e.g., "SUID", "Reverse Shell", "SQL Injection").
 
-        5. **Professional Tone**:
-           - Convert informal notes ("i find root running sh") into engineering language ("Identified a root-owned script `print.sh` executing via cron").
+        5. **Tone**:
+           - Professional but **MENTOR-LIKE**.
+           - Use "We" to guide the reader.
+           - clear, simple English. Avoid overly dense jargon without explanation.
 
         6. **Strict Metadata**:
            - Generate a refined 'description'.
@@ -146,7 +150,7 @@ class ContentManager:
            tags: [AI Generated Tags]
            category: [tryhackme OR hackthebox based on check]
            ---
-           [Professional Markdown Report Body - START DIRECTLY WITH INTRODUCTION, NO RAW HEADERS]
+           [Educational Markdown Report Body - START DIRECTLY WITH INTRODUCTION, NO RAW HEADERS]
         """
         
         for model_name in models_to_try:
@@ -209,7 +213,7 @@ class ContentManager:
             if "templates" in file_path:
                 print(f"⏩ Skipping template: {file_path}")
                 continue
-                
+            
             metadata, body = self.parse_file(file_path)
             
             # --- MAGIC AUTO-METADATA ---
