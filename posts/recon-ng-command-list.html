@@ -126,59 +126,59 @@
 <p><strong>Recon-ng</strong> is a full-featured Web Reconnaissance framework written in Python. It looks and feels like Metasploit (modules, database, workspaces).</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Start Tool</h3>
-<div class="codehilite"><pre><span></span><code>recon-ng
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">recon-ng
+</code></pre>
 
 <p><strong>Explanation:</strong> Enters the interactive shell.</p>
 <h3>2. Create Workspace</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>recon-ng<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>workspaces<span class="w"> </span>create<span class="w"> </span>google
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">[recon-ng] &gt; workspaces create google
+</code></pre>
 
 <p><strong>Explanation:</strong> Isolates data into a project named "google".</p>
 <h3>3. Add Domain</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>recon-ng<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>db<span class="w"> </span>insert<span class="w"> </span>domains
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">[recon-ng] &gt; db insert domains
+</code></pre>
 
 <p><strong>Explanation:</strong> Manually add a target domain to the database.</p>
 <h3>4. Search Modules</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>recon-ng<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>modules<span class="w"> </span>search<span class="w"> </span>hackertarget
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">[recon-ng] &gt; modules search hackertarget
+</code></pre>
 
 <p><strong>Explanation:</strong> Finds modules related to "hackertarget".</p>
 <h3>5. Load Module</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>recon-ng<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>modules<span class="w"> </span>load<span class="w"> </span>recon/domains-hosts/hackertarget
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">[recon-ng] &gt; modules load recon/domains-hosts/hackertarget
+</code></pre>
 
 <p><strong>Explanation:</strong> Selects the module for use.</p>
 <h3>6. Run Module</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>hackertarget<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>run
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">[hackertarget] &gt; run
+</code></pre>
 
 <p><strong>Explanation:</strong> Executes the loaded module against DB targets.</p>
 <h3>7. Show Hosts</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>recon-ng<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>show<span class="w"> </span>hosts
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">[recon-ng] &gt; show hosts
+</code></pre>
 
 <p><strong>Explanation:</strong> Displays all collected host data (subdomains).</p>
 <h3>8. Add Keys</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>recon-ng<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>keys<span class="w"> </span>add<span class="w"> </span>shodan_api<span class="w"> </span>&lt;key&gt;
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">[recon-ng] &gt; keys add shodan_api &lt;key&gt;
+</code></pre>
 
 <p><strong>Explanation:</strong> Adds API keys for modules that require them.</p>
 <h3>9. Install Modules</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>recon-ng<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>marketplace<span class="w"> </span>install<span class="w"> </span>all
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">[recon-ng] &gt; marketplace install all
+</code></pre>
 
 <p><strong>Explanation:</strong> Installs all available community modules.</p>
 <h3>10. Generate Report</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>recon-ng<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>modules<span class="w"> </span>load<span class="w"> </span>reporting/html
-<span class="o">[</span>html<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>run
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">[recon-ng] &gt; modules load reporting/html
+[html] &gt; run
+</code></pre>
 
 <p><strong>Explanation:</strong> Generates an HTML report of findings.</p>
 <h2>The Most Powerful Command</h2>
-<div class="codehilite"><pre><span></span><code><span class="o">(</span>Inside<span class="w"> </span>Recon-ng<span class="o">)</span><span class="w"> </span>marketplace<span class="w"> </span>install<span class="w"> </span>all<span class="p">;</span><span class="w"> </span>workspaces<span class="w"> </span>create<span class="w"> </span>target<span class="p">;</span><span class="w"> </span>db<span class="w"> </span>insert<span class="w"> </span>domains<span class="w"> </span>target.com<span class="p">;</span><span class="w"> </span>modules<span class="w"> </span>load<span class="w"> </span>recon/domains-hosts/*<span class="p">;</span><span class="w"> </span>run
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">(Inside Recon-ng) marketplace install all; workspaces create target; db insert domains target.com; modules load recon/domains-hosts/*; run
+</code></pre>
 
 <p><strong>Explanation:</strong> In concept: Install everything, set target, and run ALL domain discovery modules to aggregate massive data.</p>
         </div>

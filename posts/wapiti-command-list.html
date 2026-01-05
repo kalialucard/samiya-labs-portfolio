@@ -126,58 +126,58 @@
 <p><strong>Wapiti</strong> is a web application vulnerability scanner. It performs "black-box" scans (it doesn't study the source code) of the web application by crawling the webpages of the deployed webapp, looking for scripts and forms where it can inject data.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Scan</h3>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>http://example.com
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u http://example.com
+</code></pre>
 
 <p><strong>Explanation:</strong> Standard scan.</p>
 <h3>2. Scope</h3>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-s<span class="w"> </span>folder
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u http://example.com -s folder
+</code></pre>
 
 <p><strong>Explanation:</strong> Limit scope to the URL folder.</p>
 <h3>3. Modules</h3>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-m<span class="w"> </span>xss,sql_blind
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u http://example.com -m xss,sql_blind
+</code></pre>
 
 <p><strong>Explanation:</strong> Only test for XSS and Blind SQLi.</p>
 <h3>4. Auth</h3>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-a<span class="w"> </span>user%password
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u http://example.com -a user%password
+</code></pre>
 
 <p><strong>Explanation:</strong> Basic authentication.</p>
 <h3>5. Cookie</h3>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-c<span class="w"> </span>cookie.json
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u http://example.com -c cookie.json
+</code></pre>
 
 <p><strong>Explanation:</strong> Load cookies from file.</p>
 <h3>6. Exclude URL</h3>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-x<span class="w"> </span>http://example.com/logout
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u http://example.com -x http://example.com/logout
+</code></pre>
 
 <p><strong>Explanation:</strong> Do not scan logout page.</p>
 <h3>7. Output Format</h3>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-f<span class="w"> </span>html<span class="w"> </span>-o<span class="w"> </span>report.html
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u http://example.com -f html -o report.html
+</code></pre>
 
 <p><strong>Explanation:</strong> Generate HTML report.</p>
 <h3>8. Timeout</h3>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>--timeout<span class="w"> </span><span class="m">10</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u http://example.com --timeout 10
+</code></pre>
 
 <p><strong>Explanation:</strong> Set request timeout.</p>
 <h3>9. Level (Depth)</h3>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-d<span class="w"> </span><span class="m">5</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u http://example.com -d 5
+</code></pre>
 
 <p><strong>Explanation:</strong> Crawling depth.</p>
 <h3>10. Verify SSL</h3>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>https://example.com<span class="w"> </span>--verify-ssl<span class="w"> </span><span class="m">0</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u https://example.com --verify-ssl 0
+</code></pre>
 
 <p><strong>Explanation:</strong> Disable SSL verification.</p>
 <h2>The Most Powerful Command</h2>
-<div class="codehilite"><pre><span></span><code>wapiti<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-m<span class="w"> </span>all<span class="w"> </span>-f<span class="w"> </span>html<span class="w"> </span>-o<span class="w"> </span>report.html<span class="w"> </span>--color
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">wapiti -u http://target.com -m all -f html -o report.html --color
+</code></pre>
 
 <p><strong>Explanation:</strong> Full module scan with a readable HTML report output.</p>
         </div>

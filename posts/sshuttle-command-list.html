@@ -126,56 +126,56 @@
 <p><strong>Sshuttle</strong> allows you to create a VPN connection from your machine to any remote server that you can connect to via ssh. No admin needed on the remote server.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Network Tunnel</h3>
-<div class="codehilite"><pre><span></span><code>sshuttle<span class="w"> </span>-r<span class="w"> </span>user@10.10.10.10<span class="w"> </span><span class="m">192</span>.168.1.0/24
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">sshuttle -r user@10.10.10.10 192.168.1.0/24
+</code></pre>
 
 <p><strong>Explanation:</strong> "Route all traffic for subnet 192.168.1.0/24 through the SSH server at 10.10.10.10".</p>
 <h3>2. Auto-Detect Subnets</h3>
-<div class="codehilite"><pre><span></span><code>sshuttle<span class="w"> </span>-r<span class="w"> </span>user@10.10.10.10<span class="w"> </span>-N
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">sshuttle -r user@10.10.10.10 -N
+</code></pre>
 
 <p><strong>Explanation:</strong> Automatically determine the networks the remote server is connected to and route them.</p>
 <h3>3. Tunnel All Traffic</h3>
-<div class="codehilite"><pre><span></span><code>sshuttle<span class="w"> </span>-r<span class="w"> </span>user@10.10.10.10<span class="w"> </span><span class="m">0</span>.0.0.0/0
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">sshuttle -r user@10.10.10.10 0.0.0.0/0
+</code></pre>
 
 <p><strong>Explanation:</strong> Forward EVERYTHING (like a full VPN).</p>
 <h3>4. SSH Key Auth</h3>
-<div class="codehilite"><pre><span></span><code>sshuttle<span class="w"> </span>-r<span class="w"> </span>user@10.10.10.10<span class="w"> </span>--ssh-cmd<span class="w"> </span><span class="s2">&quot;ssh -i key.pem&quot;</span><span class="w"> </span><span class="m">10</span>.0.0.0/8
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">sshuttle -r user@10.10.10.10 --ssh-cmd &quot;ssh -i key.pem&quot; 10.0.0.0/8
+</code></pre>
 
 <p><strong>Explanation:</strong> Use a key file.</p>
 <h3>5. DNS Forwarding</h3>
-<div class="codehilite"><pre><span></span><code>sshuttle<span class="w"> </span>--dns<span class="w"> </span>-r<span class="w"> </span>user@10.10.10.10<span class="w"> </span><span class="m">192</span>.168.1.0/24
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">sshuttle --dns -r user@10.10.10.10 192.168.1.0/24
+</code></pre>
 
 <p><strong>Explanation:</strong> Tunnel DNS queries too. Essential for Active Directory (resolving domain names).</p>
 <h3>6. Daemon Mode</h3>
-<div class="codehilite"><pre><span></span><code>sshuttle<span class="w"> </span>-D<span class="w"> </span>...
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">sshuttle -D ...
+</code></pre>
 
 <p><strong>Explanation:</strong> Run in background.</p>
 <h3>7. Verbose</h3>
-<div class="codehilite"><pre><span></span><code>sshuttle<span class="w"> </span>-v<span class="w"> </span>...
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">sshuttle -v ...
+</code></pre>
 
 <p><strong>Explanation:</strong> Show routed packet info.</p>
 <h3>8. Exclude Subnet</h3>
-<div class="codehilite"><pre><span></span><code>sshuttle<span class="w"> </span>-r<span class="w"> </span>...<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>-x<span class="w"> </span><span class="m">192</span>.168.1.5
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">sshuttle -r ... 192.168.1.0/24 -x 192.168.1.5
+</code></pre>
 
 <p><strong>Explanation:</strong> Route the subnet BUT exclude checking IP .5.</p>
 <h3>9. Use sudo</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># sshuttle itself requires sudo locally to modify iptables</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash"># sshuttle itself requires sudo locally to modify iptables
+</code></pre>
 
 <h3>10. Stop</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Ctrl+C clears iptables headers automatically</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash"># Ctrl+C clears iptables headers automatically
+</code></pre>
 
 <h2>The Most Powerful Command</h2>
-<div class="codehilite"><pre><span></span><code>sshuttle<span class="w"> </span>--dns<span class="w"> </span>-r<span class="w"> </span>user@10.10.10.10<span class="w"> </span><span class="m">172</span>.16.0.0/12
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">sshuttle --dns -r user@10.10.10.10 172.16.0.0/12
+</code></pre>
 
 <p><strong>Explanation:</strong> Instantly gives you access to the target's entire internal cloud network, allowing you to run tools (browser, nmap, etc) directly from your machine against internal IPs, with DNS working.</p>
         </div>

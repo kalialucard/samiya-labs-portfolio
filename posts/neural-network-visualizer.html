@@ -129,11 +129,11 @@
 <h2>Architecture: How the Magic Happens</h2>
 <p>The Neural-Network-Visualizer is built with a clever combination of technologies working together seamlessly. Let's break down its system design.</p>
 <p>The core idea is to connect the training process of a neural network with a visual representation that can be viewed in a web browser.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">graph</span><span class="w"> </span><span class="n">LR</span>
-<span class="w">    </span><span class="n">A</span><span class="p">[</span><span class="n">Training</span><span class="w"> </span><span class="n">Script</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;|</span><span class="n">Hooks</span><span class="o">|</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">Python</span><span class="w"> </span><span class="n">Agent</span><span class="p">]</span>
-<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;|</span><span class="n">WebSocket</span><span class="o">|</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">React</span><span class="w"> </span><span class="n">Frontend</span><span class="p">]</span>
-<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">--&gt;|</span><span class="n">Render</span><span class="o">|</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="n">Three</span><span class="p">.</span><span class="n">js</span><span class="w"> </span><span class="n">Canvas</span><span class="p">]</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-mermaid">graph LR
+    A[Training Script] --&gt;|Hooks| B[Python Agent]
+    B --&gt;|WebSocket| C[React Frontend]
+    C --&gt;|Render| D[Three.js Canvas]
+</code></pre>
 
 <p>Let's walk through this diagram step-by-step:</p>
 <ol>
@@ -160,17 +160,17 @@
 <h2>Usage: Integrating the Visualizer</h2>
 <p>Using the Neural-Network-Visualizer is designed to be straightforward, especially if you're already familiar with Python and machine learning frameworks.</p>
 <p>First, you'll need to install the tool using pip, Python's package installer:</p>
-<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>neural-viz
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">pip install neural-viz
+</code></pre>
 
 <p>Once installed, integrating it into your existing machine learning workflow is as simple as adding a callback to your model's training process. For example, if you are using a framework that supports callbacks (like Keras/TensorFlow):</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">neural_viz</span> <span class="kn">import</span> <span class="n">Visualizer</span>
-<span class="c1"># Assume &#39;model&#39; is your defined neural network</span>
-<span class="c1"># Assume &#39;X_train&#39; and &#39;y_train&#39; are your training data</span>
+<pre class="codehilite"><code class="language-python">from neural_viz import Visualizer
+# Assume 'model' is your defined neural network
+# Assume 'X_train' and 'y_train' are your training data
 
-<span class="c1"># When fitting your model, add Visualizer() to the callbacks list</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">Visualizer</span><span class="p">()])</span>
-</code></pre></div>
+# When fitting your model, add Visualizer() to the callbacks list
+model.fit(X_train, y_train, callbacks=[Visualizer()])
+</code></pre>
 
 <p><strong>🧠 Beginner Analysis</strong>:<br />
 This code snippet shows how a developer integrates the <code>Visualizer</code> tool into their machine learning training script.</p>
