@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevHub | Technical Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { slate: { 900: '#0f172a', 950: '#020617' }, accent: { green: '#22c55e', cyan: '#0ea5e9', purple: '#a855f7' } }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-transparent text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-transparent/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="logo-container group flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="devhub.html" class="text-white hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2 text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="py-16 px-6 bg-slate-950 border-b border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <nav class="flex items-center gap-2 text-xs font-mono text-slate-500 mb-8 uppercase tracking-widest">
+                <a href="index.html" class="hover:text-accent-cyan">Home</a>
+                <i class="fa-solid fa-chevron-right text-[10px] opacity-30"></i>
+                <span class="text-slate-300">DevHub</span>
+            </nav>
+            <h1 class="text-4xl font-bold mb-4 tracking-tight">Developer <span class="text-amber-400">Hub</span></h1>
+            <p class="text-slate-400 max-w-2xl font-light leading-relaxed">
+                A collection of technical blogs, tools, documentation, commands, and cheat sheets.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-16 px-6 max-w-7xl mx-auto flex-grow space-y-20">
+        
+        <!-- Blogs Section -->
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-2xl font-bold text-white">Latest <span class="text-amber-400">Blogs</span></h2>
+                <div class="h-px bg-slate-800 flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- AUTO_CARDS_START:blogs -->
+                <!-- AUTO_CARDS_END:blogs -->
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-2xl font-bold text-white">Security <span class="text-accent-cyan">Tools</span></h2>
+                <div class="h-px bg-slate-800 flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- AUTO_CARDS_START:tools -->
+                <!-- AUTO_CARDS_END:tools -->
+            </div>
+        </section>
+        
+        <!-- Commands Section -->
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-2xl font-bold text-white">Command <span class="text-accent-purple">Reference</span></h2>
+                <div class="h-px bg-slate-800 flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- AUTO_CARDS_START:commands -->
+                <!-- AUTO_CARDS_END:commands -->
+            </div>
+        </section>
+
+        <!-- Docs Section -->
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-2xl font-bold text-white">Project <span class="text-white">Docs</span></h2>
+                <div class="h-px bg-slate-800 flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- AUTO_CARDS_START:docs -->
+                <!-- AUTO_CARDS_END:docs -->
+            </div>
+        </section>
+
+        <!-- Testing Section -->
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-2xl font-bold text-white">Testing <span class="text-rose-400">Logs</span></h2>
+                <div class="h-px bg-slate-800 flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- AUTO_CARDS_START:testing -->
+                <!-- AUTO_CARDS_END:testing -->
+            </div>
+        </section>
+
+        <!-- Cheatsheet Section -->
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-2xl font-bold text-white">Cheat <span class="text-accent-green">Sheets</span></h2>
+                <div class="h-px bg-slate-800 flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- AUTO_CARDS_START:cheatsheet -->
+                <!-- AUTO_CARDS_END:cheatsheet -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center border-t border-slate-800 bg-transparent">
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
