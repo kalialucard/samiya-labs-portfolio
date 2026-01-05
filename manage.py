@@ -44,6 +44,33 @@ class ContentManager:
     def __init__(self):
         self.posts = []
 
+    def get_recent_changes(self):
+        """Returns a set of absolute file paths that have changed recently (git status)."""
+        changed_files = set()
+        try:
+            # git diff --name-only (Unstaged changes)
+            # git diff --name-only --cached (Staged changes)
+            # git diff --name-only HEAD~1 (Last commit)
+            # git ls-files --others --exclude-standard (Untracked files)
+            commands = [
+                ["git", "diff", "--name-only"],
+                ["git", "diff", "--name-only", "--cached"],
+                ["git", "diff", "--name-only", "HEAD~1"],
+                ["git", "ls-files", "--others", "--exclude-standard"]
+            ]
+            
+            for cmd in commands:
+                result = subprocess.run(cmd, capture_output=True, text=True)
+                if result.returncode == 0:
+                    for line in result.stdout.splitlines():
+                        full_path = os.path.abspath(line.strip())
+                        changed_files.add(full_path)
+        except Exception as e:
+            print(f"⚠️ Git check failed: {e}. Defaulting to full scan.")
+            return None # None means "we don't know, so scan everything"
+            
+        return changed_files
+
     def parse_file(self, file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -219,6 +246,10 @@ class ContentManager:
         all_md_files = glob.glob(os.path.join(CONTENT_DIR, "**", "*.md"), recursive=True)
         
         processed_posts = []
+        recent_changes = self.get_recent_changes()
+        if recent_changes:
+            print(f"🔍 Smart Build: Detected {len(recent_changes)} changed files.")
+
         for file_path in all_md_files:
             # EXCLUDE TEMPLATES
             if "templates" in file_path:
@@ -235,7 +266,28 @@ class ContentManager:
             # Default to ENRICH: True for all logical content folders
             auto_categories = ["writeups", "projects", "blogs", "tools", "commands", "docs", "testing", "cheatsheet"]
             is_auto_field = any(cat in file_path for cat in auto_categories)
-            should_enrich = metadata.get('enrich', is_auto_field)
+            
+            # LOGIC:
+            # 1. explicit 'enrich: true/false' -> Obey user.
+            # 2. explicit 'enrich' missing AND is_auto_field -> Check Git.
+            
+            user_enrich_flag = metadata.get('enrich', None)
+            should_enrich = False
+
+            if user_enrich_flag is not None:
+                # User explicitly set flag
+                should_enrich = user_enrich_flag
+            elif is_auto_field:
+                # Auto-mode: Only enrich if changed recently
+                if recent_changes is None:
+                    # Git failed, fall back to safe "enrich all"
+                    should_enrich = True
+                elif file_path in recent_changes:
+                    should_enrich = True
+                else:
+                    # Is auto-field, but NOT changed recently
+                    should_enrich = False
+                    # print(f"💤 Skipping stable content: {os.path.basename(file_path)}")
 
             if should_enrich:
                 enriched_body, enriched_metadata = self.ai_enrichment(body, metadata)
