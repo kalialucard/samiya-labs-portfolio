@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "933a13560f81f512",
+        "id": "8b9776ac74eca206",
         "type": "tabs",
         "children": [
           {
-            "id": "43c65ab506ff5e28",
+            "id": "fd936f1b8b9f65ad",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/commands/Dirbuster.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Dirbuster"
+              "title": "New tab"
             }
           }
         ]
@@ -191,15 +187,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7119536e5b33a70b",
+  "active": "fd936f1b8b9f65ad",
   "lastOpenFiles": [
+    "Dashboard.md",
+    "content/commands/Dirbuster.md",
     "inject_content.py",
     "enrich_commands.py",
     "create_command_files.py",
     "check_models.py",
     "build.log",
     "content/commands/Gobuster.md",
-    "content/commands/Dirbuster.md",
     "content/commands/WordPress Command List.md",
     "content/docs/sed3z3lLg",
     "content/tools/sedN4YabM",
@@ -228,7 +225,6 @@
     "AI_CONTEXT.md",
     "content/writeups/test-log.md",
     "content/writeups/tryhackme/Borderlands (done  not finish walkin).md",
-    "posts/zero-trust-network-implementation.html",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "content/writeups/Untitled.canvas",
