@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC Threat Monitoring | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">incident-response</span>
+                <span>// 2025-12-30</span>
+                <span>// ID: REF-SOC Threat Monitoring</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">SOC Threat Monitoring</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- SOC, Threat Monitoring, Log Aggregation, Incident Response, Ransomware, Cybersecurity Education, Beginner -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<p>Welcome, aspiring cybersecurity analysts! Today, we're diving into the fascinating world of <strong>Security Operations Center (SOC) Threat Monitoring</strong>. Imagine a digital fortress, and the SOC team are the vigilant guards, constantly watching for intruders and suspicious activity. Our goal is to build a robust system that can detect and respond to threats 24/7.</p>
+<p>In this walkthrough, we'll explore the key components of a high-fidelity monitoring pipeline.</p>
+<h2>SOC Threat Monitoring: Building a Vigilant Defense</h2>
+<h3>What is a SOC and Why is Monitoring Crucial?</h3>
+<p>A <strong>Security Operations Center (SOC)</strong> is a centralized unit that deals with the security issues on an organizational level. It's essentially the "eyes and ears" of an organization's cybersecurity posture. <strong>Threat monitoring</strong> is the continuous process of observing systems, networks, and applications for malicious activities or policy violations. It's like having a burglar alarm and surveillance cameras for your digital assets.</p>
+<p>A <strong>high-fidelity monitoring pipeline</strong> means our system is designed to be accurate, minimizing both false alarms (detecting something as a threat when it's not) and missed threats (failing to detect an actual attack).</p>
+<h3>Implementations for a 24/7 SOC</h3>
+<p>Let's break down the core implementations that make our SOC monitoring effective:</p>
+<ol>
+<li><strong>Log Aggregation</strong>: Think of this as gathering all the "diary entries" from every device in our network.</li>
+<li><strong>Custom Alerts</strong>: This is our intelligent notification system, designed to tell us when something unusual happens.</li>
+<li><strong>Incident Playbooks</strong>: These are pre-written "instruction manuals" that tell us exactly what to do when a specific type of threat is detected.</li>
+</ol>
+<hr />
+<h3>1. Log Aggregation: Gathering the Evidence</h3>
+<p>Our first major task is to collect logs from all corners of our network. Logs are records of events that happen on a system or network. They are incredibly valuable for understanding what happened, when it happened, and by whom.</p>
+<ul>
+<li><strong>Our Task</strong>: We integrated data from over 500 endpoints. Endpoints are devices connected to the network, like computers, servers, and even mobile phones.</li>
+<li><strong>The "Why"</strong>: Without a central place to store logs, investigating an incident would be like trying to find a needle in hundreds of haystacks. Log aggregation centralizes these records, making them searchable and auditable. Imagine a security guard trying to piece together an event by looking at security camera footage from 500 different cameras scattered around a building – it would be chaos!</li>
+</ul>
+<h3>2. Custom Alerts: Spotting the Anomalies</h3>
+<p>Once we have all our logs in one place, the next step is to find suspicious patterns. Manually sifting through millions of log entries is impossible. This is where custom alerts come in.</p>
+<ul>
+<li><strong>Our Task</strong>: We developed a dashboard for identifying anomalies in real-time. An <strong>anomaly</strong> is something that deviates from what is normal or expected.</li>
+<li><strong>The "Why"</strong>: A well-configured alert system can automatically flag potentially malicious activities. For example, an alert might trigger if:<ul>
+<li>A user logs in from an unusual geographic location.</li>
+<li>There's a sudden surge in failed login attempts.</li>
+<li>A critical system file is modified.</li>
+<li><strong>Real-time</strong> alerts are crucial because attackers often move quickly. Detecting an anomaly as it happens gives us the best chance to stop an attack before it causes significant damage.</li>
+</ul>
+</li>
+</ul>
+<h3>3. Incident Playbooks: Automating the Response</h3>
+<p>When an alert fires, we need a swift and consistent response. This is where <strong>incident playbooks</strong> shine.</p>
+<ul>
+<li><strong>Our Task</strong>: We automated response actions for common ransomware patterns. <strong>Ransomware</strong> is a type of malicious software that encrypts a victim's files and demands a ransom payment to decrypt them.</li>
+<li><strong>The "Why"</strong>: For well-understood threats like common ransomware variants, having automated playbooks saves precious time. Instead of a human analyst having to manually decide each step, the system can:<ul>
+<li><strong>Isolate the infected machine</strong>: This prevents the ransomware from spreading to other systems.</li>
+<li><strong>Block malicious IP addresses</strong>: If the ransomware is communicating with a command-and-control server, blocking its IP can disrupt the attack.</li>
+<li><strong>Initiate backups</strong>: If available, starting the recovery process from clean backups can be automated.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example of a Simple Playbook Step (Conceptual):</strong></p>
+<p><strong>Trigger:</strong> Alert - "High volume of file modification with .locked extension detected on Server-XYZ."</p>
+<p><strong>Playbook Action:</strong><br />
+1.  <strong>Network Isolation</strong>: Automatically apply a firewall rule to block all inbound and outbound traffic for Server-XYZ, except for management access from the SOC analyst's workstation.<br />
+2.  <strong>Alert SOC Analyst</strong>: Create a high-priority ticket for the SOC team to investigate the affected files and confirm the ransomware strain.<br />
+3.  <strong>Preserve Evidence</strong>: Take a snapshot of the infected server's disk for forensic analysis.</p>
+<p>By combining these three core implementations – <strong>log aggregation</strong>, <strong>custom alerts</strong>, and <strong>incident playbooks</strong> – a SOC can build a powerful defense against a wide range of cyber threats, including the devastating impact of ransomware. This proactive and reactive approach is fundamental to maintaining a secure digital environment.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

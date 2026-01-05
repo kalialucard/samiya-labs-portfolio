@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero-Trust Network Implementation | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">network-protection</span>
+                <span>// 2025-12-30</span>
+                <span>// ID: REF-Zero-Trust Network Implementation</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Zero-Trust Network Implementation</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- zero trust, network security, cybersecurity, Palo Alto Networks, micro-segmentation, identity-aware security, hybrid environment, network architecture, security implementation -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<h1>Zero-Trust Network Implementation: A Beginner's Guide</h1>
+<p>Welcome, aspiring cybersecurity professionals! This guide will walk you through a project focused on implementing a <strong>Zero-Trust</strong> network. Instead of the old way of thinking ("trust everything inside the network"), Zero-Trust operates on the principle of "never trust, always verify." This means every user and device is authenticated and authorized before being granted access to resources, no matter where they are.</p>
+<p>We'll be exploring how this is implemented in a hybrid enterprise environment, moving away from the traditional "castle-and-moat" security to something much more granular and secure. Our focus will be on <strong>network protection</strong> and understanding how advanced tools can help achieve this.</p>
+<h2>Project Overview</h2>
+<p>This project dives deep into modern <strong>network protection</strong> strategies by implementing core Zero-Trust functionalities. We aim to demonstrate how to secure a network by assuming no implicit trust, making it much harder for attackers to move laterally once they gain initial access.</p>
+<h2>Key Achievements</h2>
+<p>Throughout this project, we've successfully:</p>
+<ul>
+<li>Implemented core Zero-Trust functionalities using <strong>Palo Alto Networks</strong> firewalls.</li>
+<li>Demonstrated expertise in designing secure <strong>Network Architecture</strong> principles.</li>
+<li>Documented our findings and the implementation process in a detailed technical report (which this guide is based on!).</li>
+</ul>
+<p>Let's get started by looking at how we might discover potential entry points into a network, a crucial first step in any security assessment or implementation.</p>
+<hr />
+<h2>Reconnaissance</h2>
+<p>Reconnaissance is all about gathering information about a target system or network. For a beginner, think of it as casing a building to understand its layout, entrances, and any visible security measures. In cybersecurity, we use tools to scan networks and identify active devices, open ports, and running services.</p>
+<p><em>(Note: In a real-world scenario, you would always have explicit permission before performing reconnaissance on any network.)</em></p>
+<p>Imagine we're using a tool like Nmap to scan a network segment.</p>
+<pre class="codehilite"><code class="language-bash">nmap -sC -sV 192.168.1.0/24
+</code></pre>
+
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong><code>nmap</code></strong>: This is a powerful network scanning tool. It's like a digital detective for networks, helping us discover what's alive and running.</li>
+<li><strong><code>-sC</code></strong>: This flag tells Nmap to run the "default scripts." These scripts are pre-written sets of commands that can probe services for more information, like checking for common vulnerabilities or identifying specific application versions. It's like Nmap trying out common lock-picking techniques on discovered doors.</li>
+<li><strong><code>-sV</code></strong>: This flag is for "service version detection." Nmap will try to figure out not just that a port is open, but also <em>what</em> specific software and version is running on that port (e.g., Apache web server version 2.4.41). This is super important because older software versions often have known security flaws we can exploit.</li>
+<li><strong><code>192.168.1.0/24</code></strong>: This is the IP address range we're scanning. <code>192.168.1.0</code> is the network address, and <code>/24</code> is a CIDR (Classless Inter-Domain Routing) notation that specifies the subnet mask. In simpler terms, it tells Nmap to scan all IP addresses from <code>192.168.1.0</code> to <code>192.168.1.255</code>. This is our target area.</li>
+</ul>
+<h3>🧠 Beginner Analysis of Results</h3>
+<p>Let's say Nmap returns something like this for a specific IP address, <code>192.168.1.100</code>:</p>
+<pre class="codehilite"><code>PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+443/tcp open https Apache httpd 2.4.41 ((Ubuntu))
+</code></pre>
+
+<ul>
+<li><strong><code>PORT</code></strong>: This shows the port number that is open on the target machine.</li>
+<li><strong><code>STATE</code></strong>: <code>open</code> means that a service is actively listening for connections on this port.</li>
+<li><strong><code>SERVICE</code></strong>: This is what Nmap <em>thinks</em> is running on the port.</li>
+<li><strong><code>VERSION</code></strong>: This is the critical part! Here we see specific versions of SSH and Apache (a web server).<ul>
+<li><strong>Port 22 (SSH)</strong>: This is typically used for secure remote login. Knowing the version (<code>OpenSSH 8.2p1 Ubuntu</code>) is vital. If this version has known vulnerabilities, it could be a way in.</li>
+<li><strong>Port 80 (HTTP)</strong>: This indicates a web server is running. Web servers are common targets because they host websites, and websites can have many security flaws, like weak login pages or vulnerabilities that allow attackers to upload malicious files.</li>
+<li><strong>Port 443 (HTTPS)</strong>: This is the secure version of HTTP, used for encrypted web traffic. It also runs Apache in this case.</li>
+</ul>
+</li>
+</ul>
+<p>Knowing that a web server is running on ports 80 and 443 is a significant finding during reconnaissance. It's like finding a visible door or window on a building.</p>
+<hr />
+<h2>Enumeration</h2>
+<p>Once we've identified open ports and services, enumeration is the next step. This is like going up to the doors and windows we found during reconnaissance and trying to get more details. We try to find out usernames, specific software configurations, and even hidden files or directories on a web server.</p>
+<p>If we found a web server on port 80, a common enumeration technique is to use a tool like Gobuster to look for directories or files that might be hidden or not linked from the main website.</p>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u http://192.168.1.100 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+</code></pre>
+
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong><code>gobuster</code></strong>: This is a tool designed to brute-force directories and files on web servers. It's like trying every possible key (from a list of common ones) in the lock of a door.</li>
+<li><strong><code>dir</code></strong>: This tells Gobuster we're looking for directories (and files).</li>
+<li><strong><code>-u http://192.168.1.100</code></strong>: This is the target URL. We're telling Gobuster to attack the web server running at <code>192.168.1.100</code>.</li>
+<li><strong><code>-w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code></strong>: This specifies the "wordlist" Gobuster should use. A wordlist is simply a text file containing a list of potential directory or file names. The tool will try each name from this list to see if it exists on the server. <code>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code> is a common path for such lists on Linux systems, containing a medium-sized collection of common web directory names.</li>
+</ul>
+<h3>🧠 Beginner Analysis of Results</h3>
+<p>Suppose Gobuster finds a directory named <code>/admin</code>.</p>
+<pre class="codehilite"><code>/admin            (Status: 200)
+/backup           (Status: 403)
+/login            (Status: 200)
+</code></pre>
+
+<ul>
+<li><strong><code>/admin</code> (Status: 200)</strong>: A status code of <code>200</code> means "OK" or "Success." This indicates that the <code>/admin</code> directory exists and is accessible. This is a very interesting finding! Many websites have an administrative panel, and these often have less secure login mechanisms or can be vulnerable themselves.</li>
+<li><strong><code>/backup</code> (Status: 403)</strong>: A status code of <code>403</code> means "Forbidden." This means the directory exists, but the server is preventing us from accessing it. It's like seeing a door but being told you don't have permission to open it.</li>
+<li><strong><code>/login</code> (Status: 200)</strong>: This is also a successful find, indicating a login page.</li>
+</ul>
+<p>The discovery of an <code>/admin</code> directory is highly valuable. It suggests a potential target for credential stuffing, brute-forcing, or even exploiting a vulnerability within the admin panel itself.</p>
+<hr />
+<h2>Exploitation</h2>
+<p>Exploitation is where we try to use the information we've gathered to gain unauthorized access. This could involve exploiting a known vulnerability in a software version, guessing weak credentials, or tricking a service into doing something it shouldn't.</p>
+<p>Let's imagine that during our reconnaissance, we discovered the web server running Apache version <code>2.4.41</code> and later found an <code>/admin</code> login page. We might then research known vulnerabilities for Apache <code>2.4.41</code>.</p>
+<p>Suppose we find a vulnerability that allows us to upload a malicious file. If the admin panel has a feature to upload profile pictures, and it doesn't properly sanitize the uploaded file type, we might be able to upload a PHP script that, when accessed, gives us a <strong>reverse shell</strong>.</p>
+<h3>🧠 Bridging the Gaps: The "Why" and "How"</h3>
+<ul>
+<li><strong>Why is uploading files dangerous?</strong> If a web application allows users to upload files without checking the file type or content, an attacker can upload a script (like a PHP file). When that script is executed by the web server, it can run commands on the server.</li>
+<li><strong>What is a Reverse Shell?</strong> A reverse shell is a powerful tool for attackers. Normally, you connect <em>to</em> a server to run commands. With a reverse shell, you make the <em>server</em> connect <em>back to you</em>. This is useful because many firewalls are configured to block incoming connections but allow outgoing ones.<ul>
+<li>The malicious script we upload on the target server would contain code that instructs the server to open a connection back to our attacking machine.</li>
+<li>We would be listening on our machine for this incoming connection.</li>
+<li>Once the connection is established, we get a command prompt on the target server, allowing us to run commands as if we were logged in.</li>
+</ul>
+</li>
+</ul>
+<p>Let's say we successfully uploaded a reverse shell script and it connected back to our machine on port <code>4444</code>.</p>
+<pre class="codehilite"><code class="language-bash">nc -lvnp 4444
+</code></pre>
+
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong><code>nc</code></strong>: This is shorthand for <code>netcat</code>, often called the "Swiss army knife" of networking. It can read and write data across network connections using TCP or UDP.</li>
+<li><strong><code>-l</code></strong>: This tells <code>netcat</code> to "listen" for an incoming connection.</li>
+<li><strong><code>-v</code></strong>: This stands for "verbose," meaning <code>netcat</code> will provide more detailed output about what's happening, like connection attempts.</li>
+<li><strong><code>-n</code></strong>: This flag tells <code>netcat</code> not to do DNS lookups. It will use IP addresses directly, which can be faster.</li>
+<li><strong><code>-p 4444</code></strong>: This specifies the port number that <code>netcat</code> should listen on. In this scenario, we're waiting for the target server to connect back to us on port <code>4444</code>.</li>
+</ul>
+<p>If the reverse shell connection is successful, <code>netcat</code> will show something like:</p>
+<pre class="codehilite"><code>listening on [any] 4444 ...
+connect to [our_ip_address] from (UNKNOWN) [192.168.1.100] 54321
+</code></pre>
+
+<p>This means the target server (<code>192.168.1.100</code>) has connected back to our listening machine on port <code>4444</code>, and we now have a shell! We can type commands, and they will be executed on the target server.</p>
+<hr />
+<h2>Privilege Escalation</h2>
+<p>Gaining a shell is a great achievement, but often the user we are running as has limited permissions. <strong>Privilege escalation</strong> is the process of gaining higher-level access on a system. For example, if we initially got a shell as a regular user, we'd want to become the administrator (<code>root</code> on Linux, or <code>Administrator</code> on Windows) to have full control.</p>
+<p>There are many ways to escalate privileges, such as:</p>
+<ul>
+<li>Exploiting misconfigured services.</li>
+<li>Finding weak file permissions (like <strong>SUID</strong> bits on Linux).</li>
+<li>Leveraging kernel vulnerabilities.</li>
+<li>Finding stored credentials in configuration files.</li>
+</ul>
+<p>Let's consider a common Linux privilege escalation technique: checking for SUID binaries.</p>
+<pre class="codehilite"><code class="language-bash">find / -perm -u=s -type f 2&gt;/dev/null
+</code></pre>
+
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong><code>find</code></strong>: This is a powerful command-line utility that searches for files and directories within a specified location based on various criteria.</li>
+<li><strong><code>/</code></strong>: This tells <code>find</code> to start searching from the root directory of the file system.</li>
+<li><strong><code>-perm -u=s</code></strong>: This is the core of the command for finding SUID files.<ul>
+<li><code>-perm</code>: This flag specifies that we are searching based on file permissions.</li>
+<li><code>-u=s</code>: This checks for files that have the <strong>SUID (Set User ID)</strong> bit set.<ul>
+<li><strong>What is SUID?</strong> Normally, when you run a program, it runs with the permissions of the user who executed it. However, if a file has the SUID bit set, and it's owned by a specific user (like <code>root</code>), then when <em>any</em> user runs that program, it executes with the permissions of the file's owner (<code>root</code> in this case), not the user running it. This is a powerful feature but can be a security risk if exploited.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><code>-type f</code></strong>: This restricts the search to only files.</li>
+<li><strong><code>2&gt;/dev/null</code></strong>: This redirects any error messages (like "Permission denied" for directories we can't access) to <code>/dev/null</code>, which is like a black hole for data. This keeps our output clean and shows only the files we find.</li>
+</ul>
+<h3>🧠 Beginner Analysis of Results</h3>
+<p>If the output shows a binary like <code>/usr/bin/find</code> with SUID permissions and owned by root, and we can somehow use the <code>find</code> command itself to read arbitrary files or execute commands (which is a known potential vulnerability if used improperly), we might be able to escalate our privileges.</p>
+<p>For example, a common trick is to use <code>find</code> to execute another command with <code>root</code> privileges:</p>
+<pre class="codehilite"><code class="language-bash">/usr/bin/find . -exec /bin/sh \; -quit
+</code></pre>
+
+<p><em>(This specific example might be patched or not work on all systems, but it illustrates the concept.)</em></p>
+<p>If this command successfully gives us a new shell, it will likely be a <strong>root shell</strong>, meaning we now have full administrative control over the target system.</p>
+<hr />
+<h2>Conclusion</h2>
+<p>This walkthrough has touched upon the fundamental stages of understanding and interacting with a network from a security perspective: Reconnaissance, Enumeration, Exploitation, and Privilege Escalation. While this was a simplified example, the principles apply to real-world cybersecurity challenges.</p>
+<p>Implementing a <strong>Zero-Trust</strong> model, as explored in this project with <strong>Palo Alto Networks</strong>, shifts the focus from relying on network perimeters to verifying every access request, making it significantly harder for attackers to move freely once inside. By understanding these foundational concepts, you're on your way to building a strong understanding of modern network security. Keep learning and practicing!</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

