@@ -115,20 +115,64 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- siem, splunk, blue-teaming -->
+                <!-- ['SOC', 'Threat Monitoring', 'Security Operations', 'Log Aggregation', 'Anomaly Detection', 'Incident Response', 'Ransomware', 'Security Engineering', 'Defensive Security'] -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>SOC Threat Monitoring</h1>
-<p>Engineering a high-fidelity monitoring pipeline for a 24/7 Security Operations Center.</p>
-<h2>Implementations:</h2>
+<h1>High-Fidelity Threat Monitoring Pipeline Engineering</h1>
+<p>This report details the engineering initiatives undertaken to establish a robust, high-fidelity threat monitoring pipeline designed to support a 24/7 Security Operations Center (SOC). The objective was to build a scalable and effective system capable of real-time anomaly detection and automated incident response across a diverse enterprise environment.</p>
+<h2>Reconnaissance</h2>
+<p>The initial phase focused on understanding the vastness of the environment and establishing the foundational layer for data intake. This involved strategic planning for comprehensive visibility across the organization's digital footprint.</p>
 <ul>
-<li><strong>Log Aggregation</strong>: Integrated data from 500+ endpoints.</li>
-<li><strong>Custom Alerts</strong>: Developed dashboard for identifying anomalies in real-time.</li>
-<li><strong>Incident Playbooks</strong>: Automated response actions for common ransomware patterns.</li>
+<li><strong>Log Aggregation Implementation</strong>: A critical undertaking was the integration and centralization of log data from over 500 distinct endpoints. This process involved architecting a scalable log aggregation solution capable of ingesting high volumes of telemetry from various sources, including servers, workstations, network devices, and security tools. The objective was to create a unified data lake to provide a holistic view of system activities and potential security events. This foundational step ensures that subsequent detection and analysis capabilities operate on a rich and comprehensive dataset.</li>
+</ul>
+<h2>Enumeration</h2>
+<p>Following the establishment of the core log aggregation infrastructure, the enumeration phase concentrated on identifying specific threat vectors, defining critical security events, and detailing the data points essential for effective threat detection. This involved a systematic analysis of potential attack surfaces and the types of adversarial behaviors to monitor within the aggregated data.</p>
+<ul>
+<li>
+<p><strong>Threat Surface and Data Source Identification</strong>: With a centralized log repository, efforts shifted to defining the specific types of anomalies and attack patterns that require real-time monitoring. This involved enumerating common attack techniques, tactics, and procedures (TTPs) relevant to the organization's threat landscape and mapping them to available log sources. Analysis of the aggregated logs was performed to understand baseline behaviors, enabling the precise identification of deviations and potential attack indicators.</p>
+</li>
+<li>
+<p><strong>Detection Strategy Formulation</strong>: Based on the threat surface analysis, a detailed strategy for detection logic was formulated. This involved outlining the specific log fields, event types, and correlation rules necessary to identify suspicious activities effectively. This phase directly informed the development of custom alerting mechanisms, ensuring that the alerts would be high-fidelity, context-rich, and actionable for security analysts.</p>
+</li>
+</ul>
+<h2>Exploitation</h2>
+<p>In the context of defensive security, the "Exploitation" phase centers on the development and deployment of capabilities to <em>detect</em> and <em>respond</em> to active adversarial exploitation attempts. This project focused on real-time identification of malicious activities and the automation of protective measures.</p>
+<ul>
+<li>
+<p><strong>Custom Alerting Dashboard Development</strong>: To enable real-time identification of anomalies and active threats, a dedicated dashboard was engineered. This involved:</p>
+<ul>
+<li><strong>Rule Engineering</strong>: Developing a comprehensive set of custom detection rules leveraging the aggregated log data. These rules are designed to identify known malicious indicators, suspicious behavioral patterns, and deviations from established baselines that suggest an ongoing exploitation attempt.</li>
+<li><strong>Real-time Processing</strong>: Implementing real-time stream processing capabilities to analyze incoming log data against the defined rules with minimal latency.</li>
+<li><strong>Analyst Interface</strong>: Creating an intuitive and actionable dashboard interface for SOC analysts, providing immediate visibility into triggered alerts, contextual information, and triage capabilities. This system allows security personnel to swiftly identify and assess potential breaches or ongoing attacks.</li>
+</ul>
+</li>
+<li>
+<p><strong>Incident Playbook Automation for Ransomware</strong>: To counter prevalent and impactful threats, automated incident response playbooks were developed, specifically targeting common ransomware attack patterns.</p>
+<ul>
+<li><strong>Pattern Recognition</strong>: These playbooks are triggered upon the detection of specific TTPs associated with ransomware, which may include unusual file encryption activities, suspicious process creations, attempts to disable security services, or unauthorized data exfiltration attempts.</li>
+<li><strong>Automated Response Actions</strong>: The playbooks orchestrate predefined actions such as isolating affected endpoints, blocking malicious IP addresses, revoking compromised user credentials, or triggering data backups. The automation aims to significantly reduce dwell time and minimize the impact of ransomware incidents by initiating containment and eradication efforts immediately upon detection of an exploitation attempt.</li>
+</ul>
+</li>
+</ul>
+<h2>Privilege Escalation</h2>
+<p>While not explicitly detailed as a separate component in the raw notes, the detection and response capabilities for "common ransomware patterns" inherently encompass monitoring for and mitigating privilege escalation attempts, as these are often integral steps in a successful ransomware attack chain within an adversary's kill chain.</p>
+<ul>
+<li>
+<p><strong>Integrated Privilege Escalation Detection</strong>: Within the custom alerts and incident playbooks, specific detection logic is embedded to identify activities indicative of privilege escalation. This includes monitoring for:</p>
+<ul>
+<li><strong>Process Injection/Migration</strong>: Detection of processes attempting to inject into higher-privileged processes or migrate to system-level accounts.</li>
+<li><strong>Credential Theft/Use</strong>: Monitoring for suspicious access to credential stores, password spraying attempts, or the use of default/weak credentials.</li>
+<li><strong>Configuration Changes</strong>: Alerting on unauthorized modifications to system configurations, service registrations, or scheduled tasks that could grant persistent elevated access.</li>
+<li><strong>Exploitation of Vulnerabilities</strong>: Identifying attempts to leverage known vulnerabilities to gain higher privileges.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mitigation within Playbooks</strong>: The automated response actions for ransomware patterns are designed to disrupt the attacker's progression, including their attempts at privilege escalation. This ensures that even if an initial foothold is gained, the system can quickly detect and respond to prevent lateral movement and the attainment of administrative rights crucial for widespread impact. Further refinement of these capabilities continues to enhance the pipeline's ability to specifically counter advanced privilege escalation techniques.</p>
+</li>
 </ul>
         </div>
     </main>

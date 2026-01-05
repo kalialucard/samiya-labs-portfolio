@@ -115,23 +115,43 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- devsecops, framework -->
+                <!-- serverless, security, aws, lambda, devsecops, iam, runtime-protection, dependency-scanning, cloud-security -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>Serverless Security Framework</h1>
-<p>Designed a security framework for serverless architectures, implementing least-privilege IAM roles, automated dependency scanning, and runtime protection for Lambda functions.</p>
-<h2>Project Overview</h2>
-<p>This project explores advanced concepts in <strong>devsecops</strong>.</p>
-<h2>Key Achievements</h2>
+<h2>Serverless Security Framework: Design and Implementation</h2>
+<h3>Introduction</h3>
+<p>This document outlines the design, implementation, and core capabilities of a comprehensive security framework developed for modern serverless architectures. The project delves into advanced concepts within <strong>DevSecOps</strong>, aiming to embed security from the initial design phase through deployment and runtime operations. The primary goal was to create a resilient and secure operational environment for serverless applications, mitigating common attack vectors and ensuring compliance with security best practices.</p>
+<h3>Framework Design and Implementation</h3>
+<p>The framework was meticulously designed to address critical security concerns inherent in serverless environments, particularly those leveraging AWS Lambda. Key architectural components and implemented security measures include:</p>
 <ul>
-<li>Implemented core functionality using <strong>AWS Lambda</strong>.</li>
-<li>Demonstrated expertise in <strong>Serverless</strong>.</li>
-<li>Documented findings in a detailed technical report.</li>
+<li>
+<p><strong>Least-Privilege IAM Roles:</strong><br />
+    A foundational element of the framework involved the rigorous application of the principle of least privilege. Custom AWS Identity and Access Management (IAM) roles were crafted for each Lambda function and associated serverless component. These roles are scoped to grant <em>only</em> the permissions absolutely necessary for the function to perform its intended task, thereby minimizing the blast radius in the event of a compromise. This approach significantly reduces the potential for unauthorized access or lateral movement within the AWS environment.</p>
+</li>
+<li>
+<p><strong>Automated Dependency Scanning:</strong><br />
+    To proactively identify and remediate known vulnerabilities, the framework integrates automated dependency scanning into the CI/CD pipeline. This process regularly scans all third-party libraries and packages used by Lambda functions for security flaws (e.g., CVEs). By automating this step, potential vulnerabilities are caught early in the development lifecycle, preventing their deployment to production environments and reducing the overall attack surface.</p>
+</li>
+<li>
+<p><strong>Runtime Protection for Lambda Functions:</strong><br />
+    Recognizing that vulnerabilities can emerge or be exploited even after deployment, the framework incorporates advanced runtime protection mechanisms for AWS Lambda functions. This critical layer monitors function execution for anomalous behavior, unauthorized API calls, attempts to execute malicious code, or deviations from established baselines. By providing real-time threat detection and response capabilities, the runtime protection component acts as a vital last line of defense against sophisticated attacks and zero-day exploits.</p>
+</li>
 </ul>
+<h3>Project Overview</h3>
+<p>The development of this framework served as a deep dive into the practical application of DevSecOps principles within a serverless context. It emphasizes the importance of integrating security considerations at every stage of the software development lifecycle, from code commit to production deployment and ongoing operations. The project specifically leveraged AWS services, demonstrating practical expertise in configuring and securing cloud-native applications.</p>
+<h3>Key Achievements</h3>
+<p>Throughout the project, several significant milestones were reached, demonstrating a strong command of serverless technologies and security engineering principles:</p>
+<ul>
+<li><strong>Core Functionality Implementation using AWS Lambda:</strong> Successfully implemented and integrated the security controls and monitoring mechanisms directly within AWS Lambda functions, showcasing proficiency in serverless development and cloud-native security practices.</li>
+<li><strong>Demonstrated Expertise in Serverless Architectures:</strong> The design and deployment of the framework provided a robust demonstration of advanced knowledge and practical expertise in securing complex serverless environments.</li>
+<li><strong>Detailed Technical Reporting:</strong> Comprehensive documentation of the framework's architecture, implementation details, security controls, and operational guidelines was produced, ensuring maintainability, reproducibility, and knowledge transfer.</li>
+</ul>
+<h3>Conclusion</h3>
+<p>The Serverless Security Framework represents a significant effort in advancing the security posture of serverless applications. By integrating least-privilege IAM roles, automated dependency scanning, and robust runtime protection, it provides a multi-layered defense strategy designed to protect against evolving threats. This project underscored the critical importance of proactive security engineering and the strategic application of DevSecOps methodologies in the era of cloud-native development.</p>
         </div>
     </main>
 

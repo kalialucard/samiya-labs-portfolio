@@ -115,22 +115,23 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- tryhackme, ctf -->
+                <!-- web-exploitation, client-side-logic, javascript, hardcoded-credentials, directory-traversal, ctf, information-disclosure, credential-reversal -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<p><strong>Target:</strong> <code>10.201.62.16</code></p>
-<p><strong>Summary:</strong> Found a login page (<code>login.html</code>). Inspecting the page revealed client-side JavaScript that checks credentials by reversing a hard-coded string. The username and password can be derived from the script and used to either submit the form or request the flag file directly.</p>
-<hr />
-<h2>Discovery</h2>
+<p>This report documents the methodology employed to identify and exploit a vulnerability in a web application hosted at <code>10.201.62.16</code>. The core issue involved client-side credential verification with hardcoded, obfuscated credentials, leading to information disclosure and direct retrieval of a "flag" file.</p>
+<h2>Reconnaissance &amp; Enumeration</h2>
+<p>Initial reconnaissance identified a web server hosting a login page.</p>
 <ul>
-<li>Found <code>login.html</code> on the webroot.</li>
-<li>Open the page in your browser (<a href="http://10.201.62.16/login.html">http://10.201.62.16/login.html</a>) and use the browser inspector to view the JS.</li>
+<li><strong>Service Discovery</strong>: A web server was accessible on the target IP address.</li>
+<li><strong>Web Application Access</strong>: Browsing to <code>http://10.201.62.16/login.html</code> revealed a standard login form.</li>
 </ul>
-<h2>Relevant JavaScript (as found in the page)</h2>
+<p>Upon inspecting the <code>login.html</code> page using browser developer tools, client-side JavaScript responsible for authentication was identified. The relevant script, embedded directly within the HTML, contained the logic for credential validation.</p>
+<h3>Relevant JavaScript Code</h3>
+<p>The following JavaScript snippet was extracted from <code>login.html</code>:</p>
 <pre class="codehilite"><code class="language-js">function authenticate() {
   a = document.getElementById('uname')
   b = document.getElementById('pass')
@@ -153,92 +154,83 @@
 }
 </code></pre>
 
-<h2>What the script does (plain English)</h2>
+<h3>🔍 Analysis</h3>
+<p>The JavaScript code performs the following critical actions:</p>
 <ul>
-<li>The script expects <code>uname</code> to be <code>h3ck3rBoi</code>.</li>
-<li>The script uses a helper <code>RevereString</code> (which reverses a string) on the literal <code>"54321@terceSrepuS"</code> and compares that to the password field.</li>
-<li>So the actual password is the <strong>reverse</strong> of <code>54321@terceSrepuS</code>.</li>
-<li>When both username and password match, the page requests a flag file named:</li>
+<li><strong>Hardcoded Username</strong>: The script explicitly checks for the username <code>h3ck3rBoi</code>.</li>
+<li><strong>Obfuscated Password</strong>: The password comparison utilizes a helper function <code>RevereString</code> which reverses a string. The literal string <code>"54321@terceSrepuS"</code> is reversed and then compared against the user-supplied password.</li>
+<li><strong>Flag File Generation</strong>: Upon successful authentication, an <code>XMLHttpRequest</code> is initiated to fetch a file. The filename is dynamically constructed using a static prefix, the username (<code>a.value</code>), and the password (<code>b.value</code>). The full path follows the pattern: <code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_&lt;username&gt;_&lt;password&gt;.txt</code>.</li>
+<li><strong>Client-Side Verification</strong>: The entire authentication logic, including sensitive credentials, resides client-side, making it susceptible to direct inspection and bypass.</li>
+<li><strong>Operator Error</strong>: The script uses a single ampersand <code>&amp;</code> for a logical AND operation, which is typically <code>&amp;&amp;</code> in JavaScript. While it functions as intended in this context due to type coercion, it represents sloppy coding practice.</li>
 </ul>
-<pre class="codehilite"><code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_&lt;username&gt;_&lt;password&gt;.txt
-</code></pre>
-
-<p>(constructed by concatenating the string with <code>a.value</code> and <code>b.value</code>).</p>
-<h2>Derived credentials</h2>
+<h3>Derived Credentials</h3>
+<p>Based on the script analysis, the credentials required for successful authentication are:</p>
 <ul>
-<li><strong>Username:</strong> <code>h3ck3rBoi</code></li>
-<li><strong>Password:</strong> reverse of <code>54321@terceSrepuS</code> -&gt; <code>SuperSecret@12345</code></li>
+<li><strong>Username</strong>: <code>h3ck3rBoi</code></li>
+<li><strong>Password</strong>: The reverse of <code>54321@terceSrepuS</code> which is <code>SuperSecret@12345</code></li>
 </ul>
-<blockquote>
-<p>Note: the code uses a single <code>&amp;</code> where you'd normally expect <code>&amp;&amp;</code>. In this context it still evaluates the conditional as intended, but it is sloppy JavaScript.</p>
-</blockquote>
-<h2>Fetch the flag directly (recommended)</h2>
-<p>Because the server fetches a predictable filename, you can request the file directly. Remember to URL-encode special characters (the <code>@</code> becomes <code>%40</code>).</p>
-<ul>
-<li><strong>Raw filename (with special char):</strong></li>
-</ul>
-<pre class="codehilite"><code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret@12345.txt
-</code></pre>
-
-<ul>
-<li><strong>URL-encoded filename:</strong></li>
-</ul>
-<pre class="codehilite"><code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt
-</code></pre>
-
-<ul>
-<li><strong>curl command (HTTP):</strong></li>
-</ul>
+<h2>Exploitation</h2>
+<p>Two primary methods were identified to retrieve the flag: direct file access and form submission. Direct file access is recommended due to its simplicity and circumvention of client-side rendering.</p>
+<h3>Method 1: Direct File Retrieval (Recommended)</h3>
+<p>Given the predictable filename constructed after successful client-side authentication, the "flag" file can be requested directly from the web server. Special characters in the password (e.g., <code>@</code>) must be URL-encoded (<code>%40</code>).</p>
+<p><strong>Constructed Flag Filename (Raw):</strong><br />
+<code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret@12345.txt</code></p>
+<p><strong>URL-Encoded Flag Filename:</strong><br />
+<code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt</code></p>
+<p><strong>Retrieval using <code>curl</code>:</strong></p>
 <pre class="codehilite"><code class="language-bash">curl -s &quot;http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt&quot;
 </code></pre>
 
-<ul>
-<li><strong>Browser:</strong> open the URL in the address bar (same encoded path) while connected to the lab network:</li>
-</ul>
+<p><strong>Retrieval using a Web Browser:</strong><br />
+Open the following URL in a browser while connected to the target network:</p>
 <pre class="codehilite"><code>http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt
 </code></pre>
 
-<p>If the file exists and is accessible, the server will return the flag contents.</p>
-<h2>Alternate: use the login form</h2>
+<h3>🔍 Analysis</h3>
+<p>Executing the <code>curl</code> command or navigating to the URL directly will retrieve the contents of the flag file, assuming proper permissions and file existence on the web server. This method bypasses the client-side JavaScript entirely, relying only on the predictable path.</p>
+<h3>Method 2: Login Form Submission (Alternate)</h3>
+<p>The flag can also be obtained by interacting with the <code>login.html</code> form as intended by the developer.</p>
 <ol>
-<li>Open <code>http://10.201.62.16/login.html</code> in your browser.</li>
-<li>Enter <code>h3ck3rBoi</code> as username and <code>SuperSecret@12345</code> as password.</li>
-<li>Submit — the page will run the JS and, on success, display the flag inside the page element with id <code>flag</code> (or it will remove some DOM elements as the script indicates).</li>
+<li>Navigate to <code>http://10.201.62.16/login.html</code> in a web browser.</li>
+<li>Enter the derived credentials:<ul>
+<li><strong>Username</strong>: <code>h3ck3rBoi</code></li>
+<li><strong>Password</strong>: <code>SuperSecret@12345</code></li>
+</ul>
+</li>
+<li>Submit the form. The client-side JavaScript will execute, fetch the flag via <code>XMLHttpRequest</code>, and display its contents within the HTML element with <code>id="flag"</code>.</li>
 </ol>
-<h2>Quick commands to reproduce locally</h2>
-<ul>
-<li>Reverse string with <code>rev</code>:</li>
-</ul>
+<h2>Local Reproduction / Quick Commands</h2>
+<p>To assist in replicating the string reversal or direct file access:</p>
+<p><strong>String Reversal using <code>rev</code> (Linux/macOS):</strong></p>
 <pre class="codehilite"><code class="language-bash">echo &quot;54321@terceSrepuS&quot; | rev
-# -&gt; SuperSecret@12345
+# Expected Output: SuperSecret@12345
 </code></pre>
 
-<ul>
-<li>Reverse with Python:</li>
-</ul>
+<p><strong>String Reversal using Python:</strong></p>
 <pre class="codehilite"><code class="language-bash">python3 -c &quot;print('54321@terceSrepuS'[::-1])&quot;
-# -&gt; SuperSecret@12345
+# Expected Output: SuperSecret@12345
 </code></pre>
 
-<ul>
-<li>Fetch the file (curl):</li>
-</ul>
+<p><strong>Fetch the Flag File (Curl):</strong></p>
 <pre class="codehilite"><code class="language-bash">curl -s &quot;http://10.201.62.16/RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt&quot;
 </code></pre>
 
-<hr />
-<h2>Notes &amp; tips</h2>
+<h2>Conclusion &amp; Recommendations</h2>
+<p>The primary vulnerability identified is the reliance on client-side logic for authentication and the hardcoding of sensitive credentials within publicly accessible JavaScript. This allowed for trivial extraction of the username and password, and subsequently, direct access to the intended "flag" file through a predictable URL path.</p>
+<p><strong>Recommendations:</strong></p>
+<ol>
+<li><strong>Server-Side Authentication</strong>: Implement all authentication and authorization logic on the server-side.</li>
+<li><strong>Secure Credential Management</strong>: Never hardcode credentials in client-side code or embed them in a way that can be easily reversed or observed.</li>
+<li><strong>Dynamic File Naming</strong>: Avoid predictable naming conventions for sensitive files, especially when components like credentials are used in the filename.</li>
+<li><strong>Input Validation &amp; Encoding</strong>: Ensure proper URL encoding is handled consistently on both client and server sides for any dynamic paths.</li>
+<li><strong>Code Obfuscation (Limited Impact)</strong>: While code obfuscation can deter casual inspection, it is not a security control for determined attackers. The focus should be on server-side security.</li>
+</ol>
+<p><strong>Summary of Key Findings:</strong></p>
 <ul>
-<li>If the server returns 404 or 403, try fetching the directory listing (if allowed) or re-check the exact filename/punctuation. Pay attention to case-sensitivity.</li>
-<li>If the lab requires the request to come from the same origin (CORS or auth), attempting to fetch directly via curl may still work since it is a simple HTTP GET; if not, use the browser form.</li>
-<li>Save this walk-through entry to your <code>walkin.md</code> collection so you can reference it later.</li>
-</ul>
-<h2></h2>
-<ul>
-<li><strong>Username:</strong> <code>h3ck3rBoi</code></li>
-<li><strong>Password:</strong> <code>SuperSecret@12345</code></li>
-<li><strong>Direct file (encoded):</strong> <code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt</code></li>
-<li>Use curl or your browser to retrieve the flag.</li>
+<li><strong>Username</strong>: <code>h3ck3rBoi</code></li>
+<li><strong>Password</strong>: <code>SuperSecret@12345</code></li>
+<li><strong>Direct File Path (URL-encoded)</strong>: <code>RandomLo0o0o0o0o0o0o0o0o0o0gpath12345_Flag_h3ck3rBoi_SuperSecret%4012345.txt</code></li>
+<li><strong>Exploitation Method</strong>: Direct HTTP GET request using <code>curl</code> or browser.</li>
 </ul>
         </div>
     </main>

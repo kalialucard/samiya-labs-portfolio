@@ -115,7 +115,7 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- web-security, analysis -->
+                <!-- ['API Security', 'OAuth 2.0', 'Rate Limiting', 'Input Validation', 'BOLA', 'BFLA', 'Web Security', 'Financial APIs', 'Security Hardening', 'Burp Suite'] -->
             </div>
         </header>
 
@@ -123,14 +123,27 @@
         <div class="markdown-content">
             <hr />
 <h1>API Security Gateway Analysis</h1>
-<p>Security assessment and hardening of high-volume financial APIs, implementing strict OAuth 2.0 flows, rate limiting, and input validation to prevent BOLA/BFLA attacks.</p>
+<h2>Introduction</h2>
+<p>This report details a project undertaken for the security assessment and hardening of high-volume financial APIs. The primary objective was to implement a robust security framework, incorporating advanced controls such as strict OAuth 2.0 flows, comprehensive rate limiting, and meticulous input validation, specifically engineered to prevent prevalent API vulnerabilities including Broken Object Level Authorization (BOLA) and Broken Function Level Authorization (BFLA) attacks. This initiative underscores a commitment to fortifying critical financial infrastructure against sophisticated cyber threats.</p>
 <h2>Project Overview</h2>
-<p>This project explores advanced concepts in <strong>web-security</strong>.</p>
-<h2>Key Achievements</h2>
+<p>The scope of this project centered on exploring and applying advanced concepts within <strong>web security</strong>, with a particular emphasis on the unique security challenges inherent in API design and deployment. The goal was not only to identify potential weaknesses but also to implement proactive and reactive defenses that ensure the confidentiality, integrity, and availability of API-driven financial services.</p>
+<h2>Methodology</h2>
+<p>The methodology for this security assessment and hardening project involved a structured approach to analyzing, fortifying, and validating API security controls. Key aspects included:</p>
 <ul>
-<li>Implemented core functionality using <strong>Burp Suite</strong>.</li>
-<li>Demonstrated expertise in <strong>API Security</strong>.</li>
-<li>Documented findings in a detailed technical report.</li>
+<li><strong>Vulnerability Assessment</strong>: Conducted thorough analysis of API endpoints to identify potential architectural flaws or common vulnerabilities.</li>
+<li><strong>Security Control Design &amp; Implementation</strong>: Developed and integrated specific security mechanisms tailored for high-volume financial API environments.</li>
+<li><strong>Verification &amp; Testing</strong>: Performed rigorous testing to ensure the effectiveness of implemented controls against simulated attack scenarios.</li>
+</ul>
+<p>During the assessment phase, <strong>Burp Suite</strong> was extensively utilized. This powerful web security testing tool facilitated the interception, analysis, and modification of API requests and responses, enabling in-depth vulnerability identification and the development of core security functionalities. Its capabilities were instrumental in understanding the API's behavior and potential attack surfaces.</p>
+<h2>Key Achievements</h2>
+<p>This project successfully delivered significant enhancements to the API security posture, reflecting a high level of expertise in <strong>API Security</strong>. The core achievements include:</p>
+<ul>
+<li><strong>Implementation of Strict OAuth 2.0 Flows</strong>: Designed and deployed stringent OAuth 2.0 authorization protocols to manage access to protected API resources. This involved meticulous configuration of token issuance, validation, and refresh mechanisms, coupled with fine-grained scope enforcement to ensure least privilege access.</li>
+<li><strong>Deployment of Robust Rate Limiting Mechanisms</strong>: Integrated comprehensive rate limiting strategies across all critical API endpoints. These measures are designed to mitigate automated attacks such as brute-force login attempts, denial-of-service (DoS) attacks, and abusive data scraping by controlling the frequency of requests originating from specific clients or IP addresses.</li>
+<li><strong>Advanced Input Validation Controls</strong>: Implemented multi-layered and context-aware input validation routines at the API gateway and application logic levels. This proactive defense is crucial for preventing a wide array of injection vulnerabilities (e.g., SQL Injection, Cross-Site Scripting) and other forms of data manipulation by strictly enforcing data formats, types, and expected values.</li>
+<li><strong>Proactive BOLA/BFLA Prevention</strong>: Specifically engineered and validated authorization checks to prevent Broken Object Level Authorization (BOLA) and Broken Function Level Authorization (BFLA) attacks. This ensures that every API request includes granular verification of a user's permission to access or modify a specific resource or execute a particular function, thereby preventing unauthorized data exposure or manipulation.</li>
+<li><strong>Comprehensive Technical Reporting</strong>: All methodologies, implemented solutions, identified vulnerabilities, and verification results were meticulously documented in a detailed technical report. This comprehensive documentation serves as a vital reference for ongoing maintenance, future audits, and knowledge transfer within the engineering and security teams.<br />
+```</li>
 </ul>
         </div>
     </main>

@@ -115,20 +115,68 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- autopsy, ftk, forensics -->
+                <!-- digital forensics, post-mortem, incident response, cybersecurity, compromise analysis, evidence acquisition, timeline reconstruction, threat intelligence -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>Digital Forensics Investigation</h1>
-<p>Detailed post-mortem analysis of a multi-stage compromise.</p>
-<h2>Process:</h2>
+<h1>Digital Forensics Investigation Report: Multi-Stage Compromise</h1>
+<p>This document details the findings and methodology employed during a comprehensive post-mortem forensic analysis following a detected multi-stage compromise within the environment. The investigation aimed to ascertain the full scope of the breach, identify attacker techniques, and reconstruct a chronological timeline of events to inform remediation strategies and enhance future security posture.</p>
+<p>The investigation was structured into several critical phases, commencing with secure evidence acquisition and progressing through detailed analysis to reconstruct the attacker's actions, mapping them against the typical stages of a cyberattack lifecycle.</p>
+<h2>Evidence Acquisition</h2>
+<p>The initial and most critical phase involved the secure acquisition of all relevant digital evidence to ensure data integrity and chain of custody. This step forms the foundation for all subsequent analysis, allowing the forensic team to examine system states and artifacts without altering the original sources.</p>
 <ul>
-<li><strong>Evidence Acquisition</strong>: Created bit-for-bit hardware images of affected drives.</li>
-<li><strong>Timeline Reconstruction</strong>: Analyzed registry hives and event logs to trace lateral movement.</li>
-<li><strong>Reporting</strong>: Generated a technical intelligence report for executive review.</li>
+<li><strong>Bit-for-Bit Hardware Imaging</strong>: Forensic images were created for all affected drives using forensically sound methods and hardware write-blockers. This ensured that an exact, immutable copy of the digital media was preserved for analysis, preventing any alteration of the original evidence. The imaging process included verification hashes to confirm data integrity.</li>
+</ul>
+<h2>Reconnaissance (Forensic Perspective)</h2>
+<p>During the post-mortem analysis, the objective within this phase was to identify any digital artifacts that could indicate the attacker's initial reconnaissance efforts against the target environment. While the forensic process itself isn't active reconnaissance, the analysis of collected data aims to uncover evidence of external scanning, open-source intelligence gathering, or initial probing attempts made by the adversary prior to establishing a foothold.</p>
+<ul>
+<li>Analysis of firewall logs, intrusion detection system (IDS) alerts, and web server access logs (if applicable from acquired network devices or system images) was performed to identify unusual traffic patterns, port scans, or attempts to access non-existent resources that might precede the documented compromise. These activities often signify the attacker's initial information gathering.</li>
+</ul>
+<h2>Enumeration (Forensic Perspective)</h2>
+<p>This phase focuses on identifying evidence within the acquired data that reveals how the attacker mapped the internal network, identified vulnerabilities, and discovered accessible resources post-initial access. The timeline reconstruction heavily relies on artifacts from this stage.</p>
+<ul>
+<li><strong>Registry Hives Analysis</strong>: Detailed examination of registry hives (<code>SAM</code>, <code>SECURITY</code>, <code>SOFTWARE</code>, <code>NTUSER.DAT</code>) was conducted to uncover evidence of attacker enumeration activities. This included analysis for:<ul>
+<li>Installed software and services (e.g., enumeration of potential attack vectors).</li>
+<li>Network shares accessed or mounted (e.g., <code>HKCU\Network</code>).</li>
+<li>User accounts created or modified, including privileges.</li>
+<li>Recent file access and execution paths.</li>
+</ul>
+</li>
+<li><strong>Event Log Review</strong>: Comprehensive analysis of Windows Event Logs (Security, System, Application, PowerShell, etc.) was performed to trace attacker enumeration actions. Key indicators included:<ul>
+<li>Logon events (types 2, 7, 10) from unusual sources or with suspicious frequency.</li>
+<li>Process creation events (Event ID 4688) indicating execution of system tools (e.g., <code>net.exe</code>, <code>ipconfig.exe</code>, <code>whoami.exe</code>) or reconnaissance scripts.</li>
+<li>Service installation or modification attempts (Event ID 7045, 7040).</li>
+<li>Failed login attempts indicating brute-force or credential stuffing against network services.</li>
+</ul>
+</li>
+</ul>
+<h2>Exploitation (Forensic Perspective)</h2>
+<p>The investigation meticulously reviewed forensic artifacts to pinpoint the methods and tools used by the adversary to gain initial access, maintain persistence, and pivot within the compromised environment. The "multi-stage compromise" indicates that multiple exploitation techniques were likely employed throughout the attack chain.</p>
+<ul>
+<li><strong>Malware Analysis</strong>: Identification and analysis of malicious executables, scripts, or implants found on the compromised systems. This involved static and dynamic analysis to understand their capabilities, communication channels, and persistence mechanisms.</li>
+<li><strong>Vulnerability Exploitation Identification</strong>: Correlating event log entries, system crash dumps, and application logs with known vulnerabilities or exploit frameworks (e.g., Metasploit, Cobalt Strike) to determine the specific exploit vectors utilized for initial compromise and subsequent lateral movement.</li>
+<li><strong>Credential Theft and Reuse</strong>: Evidence of credential dumping (e.g., <code>lsass.exe</code> access, <code>mimikatz</code> execution via process events) and subsequent reuse of stolen credentials for authentication across systems, identified through successful logon events from compromised accounts on new hosts.</li>
+</ul>
+<h2>Privilege Escalation (Forensic Perspective)</h2>
+<p>Forensic analysis specifically targeted evidence indicating that the attacker successfully elevated their privileges on compromised systems. This is a critical step in most multi-stage compromises, allowing adversaries to achieve higher levels of control.</p>
+<ul>
+<li><strong>Process and Service Analysis</strong>: Scrutiny of process creation events and service configurations for suspicious activity indicating attempts to run code with elevated privileges. This included:<ul>
+<li>Execution of known privilege escalation exploits.</li>
+<li>Modification of system services to run as <code>SYSTEM</code> or other high-privilege accounts.</li>
+<li>Unauthorized changes to scheduled tasks (<code>schtasks</code>) or startup programs (<code>run</code> keys in registry) configured to execute with elevated permissions.</li>
+</ul>
+</li>
+<li><strong>Security Identifier (SID) History and Group Membership</strong>: Examination of Security event logs and <code>SAM</code> hive analysis to detect unauthorized additions of accounts to privileged groups (e.g., Administrators, Domain Admins) or modification of existing user privileges.</li>
+<li><strong>Kernel-Level Modifications</strong>: Advanced analysis for rootkits or kernel-level modifications that would grant persistent, stealthy, and highly privileged access.</li>
+</ul>
+<h2>Reporting</h2>
+<p>Upon completion of the detailed forensic analysis and timeline reconstruction, a comprehensive technical intelligence report was generated.</p>
+<ul>
+<li><strong>Technical Intelligence Report</strong>: A detailed report was compiled, encompassing all findings from the investigation. This report provided a chronological narrative of the compromise, identified attacker tactics, techniques, and procedures (TTPs), listed compromised assets, and detailed the specific artifacts supporting each conclusion. The report also included recommendations for immediate remediation and long-term security enhancements to prevent similar future incidents.</li>
+<li><strong>Executive Review</strong>: The technical intelligence report was prepared and presented for executive review, translating complex technical findings into actionable insights for strategic decision-making regarding incident response, security investments, and organizational policy updates.</li>
 </ul>
         </div>
     </main>

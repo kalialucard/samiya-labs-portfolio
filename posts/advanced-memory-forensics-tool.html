@@ -115,23 +115,25 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- investigation, tool -->
+                <!-- ['memory forensics', 'volatility3', 'rootkit detection', 'DKOM', 'windows security', 'kernel analysis', 'incident response', 'digital forensics', 'threat intelligence'] -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>Advanced Memory Forensics Tool</h1>
-<p>Created custom Volatility 3 plugins to detect modern DKOM (Direct Kernel Object Manipulation) techniques used by sophisticated rootkits in Windows memory dumps.</p>
-<h2>Project Overview</h2>
-<p>This project explores advanced concepts in <strong>investigation</strong>.</p>
-<h2>Key Achievements</h2>
-<ul>
-<li>Implemented core functionality using <strong>Volatility 3</strong>.</li>
-<li>Demonstrated expertise in <strong>Memory Forensics</strong>.</li>
-<li>Documented findings in a detailed technical report.</li>
-</ul>
+<h1>Advanced Memory Forensics for DKOM Detection</h1>
+<h2>Introduction</h2>
+<p>The landscape of modern cyber threats is continually evolving, with sophisticated adversaries frequently employing advanced techniques to maintain stealth and persistence. Among these, Direct Kernel Object Manipulation (DKOM) stands out as a powerful method used by rootkits to hide malicious processes, threads, modules, and modify system behavior at the kernel level. This project details the creation and implementation of custom Volatility 3 plugins specifically engineered to detect these modern DKOM techniques within Windows memory dumps, significantly enhancing capabilities in digital forensics and incident response. The initiative demonstrates advanced concepts in security investigation and memory forensics, providing a critical tool for identifying elusive kernel-level compromises.</p>
+<h2>Reconnaissance</h2>
+<p>Effective defense and detection mechanisms are predicated on a deep understanding of adversary tactics, techniques, and procedures (TTPs). The reconnaissance phase for this project involved extensive research into the current state-of-the-art DKOM techniques employed by sophisticated rootkits targeting Windows operating systems. This included analyzing various methods for unlinking processes from <code>EPROCESS</code> lists, manipulating <code>SSDT</code> (System Service Descriptor Table) hooks, altering <code>IRP</code> (I/O Request Packet) handlers, and other kernel-level stealth techniques. Understanding these complex manipulations was crucial for identifying the specific indicators of compromise (IoCs) that custom Volatility 3 plugins would need to target, thereby establishing the foundational knowledge required for robust detection logic.</p>
+<h2>Enumeration</h2>
+<p>The core functionality of this project revolves around advanced memory enumeration and analysis. Leveraging the powerful framework of Volatility 3, custom plugins were developed to systematically traverse and inspect critical kernel data structures within captured Windows memory dumps. This enumeration process meticulously examines objects such as <code>EPROCESS</code> structures, <code>_ETHREAD</code> objects, <code>_LDR_DATA_TABLE_ENTRY</code> structures (for loaded modules), and other essential kernel components. The plugins are designed to identify inconsistencies, unlinked entries, or manipulated pointers that deviate from expected kernel states, which are tell-tale signs of DKOM. By programmatically exploring these structures, the tool can enumerate potential anomalies that standard forensic tools might overlook due to sophisticated rootkit cloaking mechanisms. The successful implementation of this core functionality using Volatility 3 was a key achievement, demonstrating expertise in memory forensics.</p>
+<h2>Exploitation</h2>
+<p>While this tool is primarily focused on detection rather than execution, its capabilities directly address the post-exploitation phase where DKOM techniques are frequently deployed. Successful kernel-level exploitation often culminates in the manipulation of kernel objects to achieve persistence, evade detection, or escalate privileges. The custom Volatility 3 plugins are specifically designed to detect the <em>evidence</em> of such exploitation. For instance, detecting a process that has been unlinked from the active process list (<code>PsActiveProcessHead</code>) or a loaded module that is hidden from the <code>InLoadOrderLinks</code> list signifies that an adversary has successfully exploited a vulnerability and is now leveraging DKOM to maintain a stealthy presence. This section underscores the tool's ability to uncover the footprint left by sophisticated post-exploitation activities within a compromised system's memory.</p>
+<h2>Privilege Escalation</h2>
+<p>Direct Kernel Object Manipulation is a common and highly effective method for privilege escalation within the Windows kernel. Rootkits employing DKOM can modify security tokens, elevate process privileges, or inject code into trusted kernel modules to gain SYSTEM-level access and maintain control. The custom Volatility 3 plugins developed in this project play a vital role in identifying these specific privilege escalation attempts or successes. By detecting anomalous <code>EPROCESS</code> structures (e.g., modified security descriptors or token values), or identifying hidden kernel modules capable of arbitrary kernel read/write operations, the tool provides direct evidence of achieved or attempted privilege escalation through DKOM. This project demonstrates advanced expertise in Memory Forensics by enabling the meticulous analysis required to unmask these deeply embedded threats. The findings and methodologies employed have been thoroughly documented in a detailed technical report, ensuring reproducibility and further research opportunities in combating modern kernel-level threats.<br />
+```</p>
         </div>
     </main>
 

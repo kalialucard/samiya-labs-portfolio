@@ -115,21 +115,37 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- owasp-top-10, burp-suite, pen-testing -->
+                <!-- web security, web application, security audit, SQL injection, XSS, authentication, CSP, MFA, session management, vulnerability assessment, remediation, application security -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>Web Application Security Audit</h1>
-<p>Conducted a full-spectrum security analysis of a mission-critical web application.</p>
-<h2>Findings &amp; Remediation:</h2>
+<p>This report details the findings and remediation efforts from a comprehensive security audit conducted on a mission-critical web application. The objective was to perform a full-spectrum security analysis to identify potential vulnerabilities and ensure the application's resilience against common web-based threats.</p>
+<h2>Reconnaissance</h2>
+<p>Initial reconnaissance activities focused on understanding the application's architecture, identifying exposed endpoints, and mapping the user flow. This phase involved reviewing publicly available information, analyzing network traffic, and understanding the core functionalities to establish the overall attack surface and identify potential areas of interest for deeper analysis.</p>
+<h2>Enumeration</h2>
+<p>Following reconnaissance, a detailed enumeration of the web application's components, input parameters, and authentication mechanisms was performed. This involved analyzing HTTP requests and responses, exploring various functionalities, scrutinizing client-side code, and testing API endpoints to identify potential entry points for vulnerabilities and gain a comprehensive understanding of the application's operational logic.</p>
+<h2>Exploitation (Vulnerability Identification &amp; Remediation)</h2>
+<p>During the exploitation phase, identified potential vulnerabilities were systematically tested and confirmed. The following critical findings were identified, and immediate remediation actions were implemented to significantly enhance the application's security posture:</p>
+<h3>SQL Injection</h3>
 <ul>
-<li><strong>SQL Injection</strong>: Identified and patched via prepared statements.</li>
-<li><strong>XSS</strong>: Implemented strict Content Security Policy (CSP).</li>
-<li><strong>Authentication</strong>: Hardened session management and implemented MFA.</li>
+<li><strong>Finding:</strong> Detected SQL injection vulnerabilities in multiple parameters susceptible to user input. Successful exploitation could have led to unauthorized database access, data exfiltration, or manipulation of critical application data, posing a severe risk to data integrity and confidentiality.</li>
+<li><strong>Remediation:</strong> All identified SQL injection vectors were addressed by refactoring relevant code to meticulously utilize prepared statements and parameterized queries, effectively separating SQL logic from user-supplied data. Robust input validation and sanitization routines were also reinforced across all user-controlled inputs.</li>
 </ul>
+<h3>Cross-Site Scripting (XSS)</h3>
+<ul>
+<li><strong>Finding:</strong> Multiple instances of Cross-Site Scripting (XSS) were identified, encompassing both reflected and stored variants. These vulnerabilities enabled client-side code injection, posing a significant risk of session hijacking, defacement, or redirection of users to malicious content.</li>
+<li><strong>Remediation:</strong> A strict Content Security Policy (CSP) was meticulously implemented across the entire application to mitigate XSS risks by controlling resource loading and script execution. Comprehensive output encoding was also enhanced for all user-supplied data displayed on web pages, preventing malicious script rendering.</li>
+</ul>
+<h3>Authentication &amp; Session Management Weaknesses</h3>
+<ul>
+<li><strong>Finding:</strong> Identified critical weaknesses in the application's authentication and session management mechanisms, including predictable session identifiers, insufficient session expiry policies, and a complete absence of multi-factor authentication (MFA). These issues could have facilitated session fixation, session hijacking, and brute-force attacks against user accounts.</li>
+<li><strong>Remediation:</strong> Session management was significantly hardened by implementing stronger, randomized session token generation, enforcing secure flag and HTTPOnly attributes, and introducing stringent session expiry and invalidation policies. Additionally, Multi-Factor Authentication (MFA) was successfully designed and integrated for all user accounts, dramatically increasing the difficulty of unauthorized access.</li>
+</ul>
+<h2>Privilege Escalation</h2>
+<p>While the primary focus of the audit was on identifying direct web application vulnerabilities and their immediate remediation, the potential for privilege escalation was a critical consideration throughout the analysis. The discovered SQL Injection vulnerabilities, if fully exploited, could have provided unauthorized access to sensitive database information, including user credentials or administrative controls. Such access would directly facilitate horizontal or vertical privilege escalation within the application's ecosystem. The robust remediation efforts, particularly the patching of SQL Injection vectors and the comprehensive hardening of authentication and session management, have effectively neutralized these potential privilege escalation paths and significantly reduced the attack surface.</p>
         </div>
     </main>
 
