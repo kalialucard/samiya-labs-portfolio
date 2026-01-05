@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "netcat, cybersecurity, tool"
+tags: netcat, cybersecurity, tool, network
 description: "The TCP/IP Swiss Army Knife."
 ---
 

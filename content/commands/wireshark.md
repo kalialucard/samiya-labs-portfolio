@@ -3,7 +3,7 @@ title: Wireshark Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: wireshark, cybersecurity, command reference
+tags: wireshark, cybersecurity, command reference, network
 description: Top 10 essential commands for wireshark.
 ---
 

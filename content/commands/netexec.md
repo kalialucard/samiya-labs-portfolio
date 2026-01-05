@@ -3,7 +3,7 @@ title: Netexec Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: netexec, cybersecurity, command reference
+tags: netexec, cybersecurity, command reference, ad
 description: Top 10 essential commands for netexec.
 ---
 

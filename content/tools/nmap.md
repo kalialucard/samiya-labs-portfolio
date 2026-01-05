@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "nmap, cybersecurity, tool"
+tags: nmap, cybersecurity, tool, network
 description: "The most popular network scanner."
 ---
 

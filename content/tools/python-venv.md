@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "python-venv, cybersecurity, tool"
+tags: python-venv, cybersecurity, tool, infrastructure
 description: "Creation of lightweight 'virtual environments' for Python."
 ---
 

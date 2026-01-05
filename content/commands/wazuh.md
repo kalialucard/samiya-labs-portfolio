@@ -3,7 +3,7 @@ title: Wazuh Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: wazuh, cybersecurity, command reference
+tags: wazuh, cybersecurity, command reference, infrastructure
 description: Top 10 essential commands for wazuh.
 ---
 

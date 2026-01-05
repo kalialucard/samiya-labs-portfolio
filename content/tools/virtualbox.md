@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "virtualbox, cybersecurity, tool"
+tags: virtualbox, cybersecurity, tool, infrastructure
 description: "Powerful x86 and AMD64/Intel64 virtualization product."
 ---
 

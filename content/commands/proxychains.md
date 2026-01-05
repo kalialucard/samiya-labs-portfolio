@@ -3,7 +3,7 @@ title: Proxychains Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: proxychains, cybersecurity, command reference
+tags: proxychains, cybersecurity, command reference, network
 description: Top 10 essential commands for proxychains.
 ---
 

@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "commix, cybersecurity, tool"
+tags: commix, cybersecurity, tool, web
 description: "Automated All-in-One OS command injection exploitation tool."
 ---
 

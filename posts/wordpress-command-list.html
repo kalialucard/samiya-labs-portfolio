@@ -127,8 +127,8 @@
 <p>Reconnaissance is the crucial first step in any cybersecurity engagement. It's like being a detective; we gather as much information as possible about our target before making any moves. For web applications, this often involves understanding what services are running and what technologies are being used.</p>
 <h3>Using Nmap for Initial Discovery</h3>
 <p>Nmap (Network Mapper) is a versatile tool for network discovery and security auditing. We'll start by using it to get a general sense of what's running on our target website.</p>
-<pre class="codehilite"><code class="language-bash">nmap -sV --script http-wordpress-enum &lt;target-url&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>--script<span class="w"> </span>http-wordpress-enum<span class="w"> </span>&lt;target-url&gt;
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <p>Let's break down this command:</p>
@@ -141,8 +141,8 @@
 <p><strong>What this command tells us:</strong> We're launching Nmap, asking it to be thorough by checking service versions, and instructing it to use a script specifically designed to enumerate WordPress installations. This is a great way to quickly identify if a site is running WordPress and get an initial idea of its structure.</p>
 <hr />
 <p>Sometimes, we want to focus our Nmap scans on specific services. For web servers, port 80 is the standard port for HTTP traffic.</p>
-<pre class="codehilite"><code class="language-bash">nmap -p80 --script http-wordpress-users &lt;target-url&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-p80<span class="w"> </span>--script<span class="w"> </span>http-wordpress-users<span class="w"> </span>&lt;target-url&gt;
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -152,8 +152,8 @@
 <p><strong>What this command tells us:</strong> We're telling Nmap to focus its efforts on the standard web port (80) and to use a script that tries to discover the names of users who can log into this WordPress site. This is a targeted approach to gather specific information about user accounts.</p>
 <hr />
 <p>When we have a list of potential usernames, we might want to try and guess their passwords. Nmap can assist with this using brute-force techniques.</p>
-<pre class="codehilite"><code class="language-bash">nmap -p80 --script http-wordpress-brute --script-args 'userdb=users.txt,passdb=passwords.txt' &lt;target&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-p80<span class="w"> </span>--script<span class="w"> </span>http-wordpress-brute<span class="w"> </span>--script-args<span class="w"> </span><span class="s1">&#39;userdb=users.txt,passdb=passwords.txt&#39;</span><span class="w"> </span>&lt;target&gt;
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -167,8 +167,8 @@
 <p><strong>What this command tells us:</strong> We are instructing Nmap to try and guess passwords for users on the WordPress site using a brute-force approach. We are providing Nmap with our own lists of usernames and potential passwords to make this process more efficient. <strong>Important Note:</strong> Brute-forcing can be noisy and may trigger security alerts or get your IP address blocked. Always ensure you have explicit permission before performing such actions.</p>
 <hr />
 <p>Nmap has a powerful scripting engine (NSE) with many built-in scripts. You can tell Nmap to run all scripts related to a specific application.</p>
-<pre class="codehilite"><code class="language-bash">nmap -p80 --script &quot;http-wordpress-*&quot; &lt;target&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-p80<span class="w"> </span>--script<span class="w"> </span><span class="s2">&quot;http-wordpress-*&quot;</span><span class="w"> </span>&lt;target&gt;
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -177,8 +177,8 @@
 <p><strong>What this command tells us:</strong> This is a comprehensive command that tells Nmap to look for and run all available WordPress-related scripts. It's like saying, "Nmap, do everything you know about WordPress!" This can yield a lot of information but might also take longer and produce a lot of output.</p>
 <hr />
 <p>Some WordPress scripts focus on identifying specific vulnerabilities or misconfigurations.</p>
-<pre class="codehilite"><code class="language-bash">nmap -p80 --script http-wordpress-pingback &lt;target&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-p80<span class="w"> </span>--script<span class="w"> </span>http-wordpress-pingback<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -187,8 +187,8 @@
 <p><strong>What this command tells us:</strong> We're using Nmap to specifically investigate the Pingback feature of the WordPress site. Understanding if this feature is enabled and how it's configured can reveal potential avenues for exploitation.</p>
 <hr />
 <p>Beyond WordPress-specific enumeration, Nmap can also be used to find common sensitive files or directories that might have been left exposed.</p>
-<pre class="codehilite"><code class="language-bash">nmap -p80 --script http-enum --script-args http-enum.basepath=/ &lt;target&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-p80<span class="w"> </span>--script<span class="w"> </span>http-enum<span class="w"> </span>--script-args<span class="w"> </span>http-enum.basepath<span class="o">=</span>/<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -198,8 +198,8 @@
 <p><strong>What this command tells us:</strong> We're using Nmap's <code>http-enum</code> script to actively scan the website for potentially sensitive files or directories that might be accidentally exposed. By starting from the root directory (<code>/</code>), we're ensuring a thorough search of the website's structure.</p>
 <hr />
 <p>When using the broad <code>http-wordpress-*</code> script category, you might want to ensure you're getting the most comprehensive results possible.</p>
-<pre class="codehilite"><code class="language-bash">nmap -sV --script http-wordpress-enum --script-args search-limit=all &lt;target&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>--script<span class="w"> </span>http-wordpress-enum<span class="w"> </span>--script-args<span class="w"> </span>search-limit<span class="o">=</span>all<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -209,8 +209,8 @@
 <hr />
 <h2>Enumeration with WPScan</h2>
 <p>While Nmap is a general-purpose scanner, tools like WPScan are purpose-built for WordPress. They have a much deeper understanding of WordPress's unique structure and a more comprehensive database of vulnerabilities.</p>
-<pre class="codehilite"><code class="language-bash">wpscan --url &lt;target-url&gt; --enumerate vp,vt,u --api-token &lt;YOUR_TOKEN&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>&lt;target-url&gt;<span class="w"> </span>--enumerate<span class="w"> </span>vp,vt,u<span class="w"> </span>--api-token<span class="w"> </span>&lt;YOUR_TOKEN&gt;
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -227,8 +227,8 @@
 <p><strong>What this command tells us:</strong> We're using WPScan to perform a detailed enumeration of the WordPress site. We're specifically asking it to find vulnerabilities in plugins and themes, and to list out valid user accounts. The <code>--api-token</code> ensures WPScan is using the most current vulnerability intelligence available.</p>
 <hr />
 <p>When trying to discover plugins, sometimes they are not immediately obvious. WPScan has techniques to uncover them.</p>
-<pre class="codehilite"><code class="language-bash">wpscan --url &lt;target-url&gt; --plugins-detection mixed --stealthy
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>&lt;target-url&gt;<span class="w"> </span>--plugins-detection<span class="w"> </span>mixed<span class="w"> </span>--stealthy
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -238,8 +238,8 @@
 <p><strong>What this command tells us:</strong> We're instructing WPScan to be very thorough in its search for plugins, using multiple detection techniques. We're also telling it to be as discreet as possible to avoid alerting the website's security systems. This is a good approach when you suspect the target might have security measures in place.</p>
 <hr />
 <p>A common attack vector against web applications is brute-forcing login credentials. WPScan can be used for this.</p>
-<pre class="codehilite"><code class="language-bash">wpscan --url &lt;target-url&gt; -U admin -P /path/to/passwords.txt --throttle 1000
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>&lt;target-url&gt;<span class="w"> </span>-U<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>/path/to/passwords.txt<span class="w"> </span>--throttle<span class="w"> </span><span class="m">1000</span>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -250,8 +250,8 @@
 <p><strong>What this command tells us:</strong> We're using WPScan to attempt to log in to the WordPress site by trying a specific username (<code>admin</code>) and a list of common passwords. The <code>--throttle</code> option ensures we're not being overly aggressive and potentially triggering security measures or disrupting the target server. <strong>Again, always ensure you have explicit permission before attempting brute-force attacks.</strong></p>
 <hr />
 <p>WPScan can also help discover different types of content beyond just plugins and themes.</p>
-<pre class="codehilite"><code class="language-bash">wpscan --url &lt;target-url&gt; --enumerate cb,dbe
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>&lt;target-url&gt;<span class="w"> </span>--enumerate<span class="w"> </span>cb,dbe
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>

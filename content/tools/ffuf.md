@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "ffuf, cybersecurity, tool"
+tags: ffuf, cybersecurity, tool, web
 description: "Fast web fuzzer written in Go."
 ---
 

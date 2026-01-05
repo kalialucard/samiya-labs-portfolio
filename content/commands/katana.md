@@ -3,7 +3,7 @@ title: "Katana Command List"
 date: 2026-01-05
 category: commands
 enrich: false
-tags: katana, cybersecurity, command reference, beginner
+tags: katana, cybersecurity, command reference, beginner, web
 description: Top 10 essential commands and a master guide for using Katana in penetration testing.
 ---
 

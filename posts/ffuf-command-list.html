@@ -115,7 +115,7 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- ffuf, cybersecurity, command reference, beginner -->
+                <!-- ffuf, cybersecurity, command reference, beginner, web -->
             </div>
         </header>
 
@@ -126,58 +126,58 @@
 <p><strong>Ffuf (Fuzz Faster U Fool)</strong> is a heavily used, extremely fast web fuzzer written in Go. It is the modern standard for web fuzzing.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Directory Fuzzing</h3>
-<pre class="codehilite"><code class="language-bash">ffuf -u http://target.com/FUZZ -w wordlist.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/FUZZ<span class="w"> </span>-w<span class="w"> </span>wordlist.txt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> The keyword <code>FUZZ</code> is replaced by words from the list.</p>
 <h3>2. Extension Fuzzing</h3>
-<pre class="codehilite"><code class="language-bash">ffuf -u http://target.com/index.FUZZ -w extensions.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/index.FUZZ<span class="w"> </span>-w<span class="w"> </span>extensions.txt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Fuzzes the file extension.</p>
 <h3>3. VHost Discovery</h3>
-<pre class="codehilite"><code class="language-bash">ffuf -u http://target.com -H &quot;Host: FUZZ.target.com&quot; -w subdomains.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Host: FUZZ.target.com&quot;</span><span class="w"> </span>-w<span class="w"> </span>subdomains.txt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Fuzzes the Host header to find virtual hosts.</p>
 <h3>4. POST Data Fuzzing</h3>
-<pre class="codehilite"><code class="language-bash">ffuf -u http://target.com/login -X POST -d &quot;user=admin&amp;pass=FUZZ&quot; -w pass.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/login<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;user=admin&amp;pass=FUZZ&quot;</span><span class="w"> </span>-w<span class="w"> </span>pass.txt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Fuzzes POST body input.</p>
 <h3>5. Filter by Words</h3>
-<pre class="codehilite"><code class="language-bash">ffuf -u http://target.com/FUZZ -w wordlist.txt -fw 50
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/FUZZ<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-fw<span class="w"> </span><span class="m">50</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Filter Words (<code>-fw</code>): hides responses with 50 words.</p>
 <h3>6. Filter by Size</h3>
-<pre class="codehilite"><code class="language-bash">ffuf -u http://target.com/FUZZ -w wordlist.txt -fs 1024
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/FUZZ<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-fs<span class="w"> </span><span class="m">1024</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Filter Size (<code>-fs</code>): hides responses of 1024 bytes.</p>
 <h3>7. Match Codes</h3>
-<pre class="codehilite"><code class="language-bash">ffuf -u http://target.com/FUZZ -w wordlist.txt -mc 200,302
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/FUZZ<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-mc<span class="w"> </span><span class="m">200</span>,302
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Match Code (<code>-mc</code>): only show 200 and 302 statuses.</p>
 <h3>8. Recursion</h3>
-<pre class="codehilite"><code class="language-bash">ffuf -u http://target.com/FUZZ -w wordlist.txt -recursion
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/FUZZ<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-recursion
+</code></pre></div>
 
 <p><strong>Explanation:</strong> If a directory is found, it starts a new scan inside it.</p>
 <h3>9. Request File</h3>
-<pre class="codehilite"><code class="language-bash">ffuf -request req.txt -w wordlist.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-request<span class="w"> </span>req.txt<span class="w"> </span>-w<span class="w"> </span>wordlist.txt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Loads a raw HTTP request from a file and replaces <code>FUZZ</code>. Great for complex headers.</p>
 <h3>10. Output HTML</h3>
-<pre class="codehilite"><code class="language-bash">ffuf -u http://target.com/FUZZ -w wordlist.txt -o result.html -of html
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/FUZZ<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-o<span class="w"> </span>result.html<span class="w"> </span>-of<span class="w"> </span>html
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Saves a pretty HTML report.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">ffuf -u http://target.com/FUZZ -w wordlist.txt -recursion -recursion-depth 2 -e .php,.html -mc 200,302 -fs 4242 -c -t 100
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ffuf<span class="w"> </span>-u<span class="w"> </span>http://target.com/FUZZ<span class="w"> </span>-w<span class="w"> </span>wordlist.txt<span class="w"> </span>-recursion<span class="w"> </span>-recursion-depth<span class="w"> </span><span class="m">2</span><span class="w"> </span>-e<span class="w"> </span>.php,.html<span class="w"> </span>-mc<span class="w"> </span><span class="m">200</span>,302<span class="w"> </span>-fs<span class="w"> </span><span class="m">4242</span><span class="w"> </span>-c<span class="w"> </span>-t<span class="w"> </span><span class="m">100</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Recursive scan, checks extensions, matches good codes, filters bad sizes, color output, 100 threads.</p>
         </div>

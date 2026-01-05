@@ -3,7 +3,7 @@ title: Winpeas Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: winpeas, cybersecurity, command reference
+tags: winpeas, cybersecurity, command reference, ad
 description: Top 10 essential commands for winpeas.
 ---
 

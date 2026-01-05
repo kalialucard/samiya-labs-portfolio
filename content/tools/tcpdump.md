@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "tcpdump, cybersecurity, tool"
+tags: tcpdump, cybersecurity, tool, network
 description: "Packet analyzer."
 ---
 

@@ -3,7 +3,7 @@ title: Impacket Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: impacket, cybersecurity, command reference
+tags: impacket, cybersecurity, command reference, ad
 description: Top 10 essential commands for impacket.
 ---
 

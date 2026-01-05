@@ -3,7 +3,7 @@ title: Python-venv Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: python-venv, cybersecurity, command reference
+tags: python-venv, cybersecurity, command reference, infrastructure
 description: Top 10 essential commands for python-venv.
 ---
 

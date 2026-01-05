@@ -3,7 +3,7 @@ title: "Ffuf Command List"
 date: 2026-01-05
 category: commands
 enrich: false
-tags: ffuf, cybersecurity, command reference, beginner
+tags: ffuf, cybersecurity, command reference, beginner, web
 description: Top 10 essential commands and a master guide for using Ffuf in penetration testing.
 ---
 

@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "impacket, cybersecurity, tool"
+tags: impacket, cybersecurity, tool, ad
 description: "Collection of Python classes for working with network protocols."
 ---
 

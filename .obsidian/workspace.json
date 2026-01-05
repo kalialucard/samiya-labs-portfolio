@@ -187,8 +187,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "02a8abef6987da5d",
+  "active": "1ef2d0532d06b79b",
   "lastOpenFiles": [
+    "update_tags.py",
     "content/tools/wireshark.md",
     "content/tools/wazuh.md",
     "content/tools/virtualbox.md",
@@ -214,7 +215,6 @@
     "content/tools/wfuzz.md",
     "content/tools/winpeas.md",
     "content/tools/linpeas.md",
-    "content/tools/tcpdump.md",
     "inject_tools.py",
     "inject_content.py",
     "enrich_commands.py",

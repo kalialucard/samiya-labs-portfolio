@@ -3,7 +3,7 @@ title: Commix Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: commix, cybersecurity, command reference
+tags: commix, cybersecurity, command reference, web
 description: Top 10 essential commands for commix.
 ---
 

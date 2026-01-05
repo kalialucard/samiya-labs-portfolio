@@ -3,7 +3,7 @@ title: "Feroxbuster Command List"
 date: 2026-01-05
 category: commands
 enrich: false
-tags: feroxbuster, cybersecurity, command reference, beginner
+tags: feroxbuster, cybersecurity, command reference, beginner, web
 description: Top 10 essential commands and a master guide for using Feroxbuster in penetration testing.
 ---
 

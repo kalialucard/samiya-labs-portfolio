@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "winpeas, cybersecurity, tool"
+tags: winpeas, cybersecurity, tool, ad
 description: "Windows Privilege Escalation Awesome Scripts."
 ---
 

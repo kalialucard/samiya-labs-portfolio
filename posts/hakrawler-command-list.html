@@ -126,58 +126,58 @@
 <p><strong>Hakrawler</strong> is a simple, go-based web crawler designed to find endpoints and assets quickly by piping stdin.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Pipe</h3>
-<pre class="codehilite"><code class="language-bash">echo http://example.com | hakrawler
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>http://example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Basic usage. Pipe a URL in, get URLs out.</p>
 <h3>2. Depth</h3>
-<pre class="codehilite"><code class="language-bash">echo http://example.com | hakrawler -d 3
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>http://example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler<span class="w"> </span>-d<span class="w"> </span><span class="m">3</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Crawl 3 levels deep.</p>
 <h3>3. Plain Output</h3>
-<pre class="codehilite"><code class="language-bash">echo http://example.com | hakrawler -plain
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>http://example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler<span class="w"> </span>-plain
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Only output the URLs (no prefixes like [href]).</p>
 <h3>4. Show Source</h3>
-<pre class="codehilite"><code class="language-bash">echo http://example.com | hakrawler -s
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>http://example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler<span class="w"> </span>-s
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Show the source code of the found assets.</p>
 <h3>5. Header Usage</h3>
-<pre class="codehilite"><code class="language-bash">echo http://example.com | hakrawler -h &quot;Cookie: admin=1&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>http://example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler<span class="w"> </span>-h<span class="w"> </span><span class="s2">&quot;Cookie: admin=1&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Send custom header (auth).</p>
 <h3>6. Subdomains</h3>
-<pre class="codehilite"><code class="language-bash">echo http://example.com | hakrawler -subs
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>http://example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler<span class="w"> </span>-subs
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Specifically look for and output subdomains.</p>
 <h3>7. Unique Output</h3>
-<pre class="codehilite"><code class="language-bash">echo http://example.com | hakrawler -u
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>http://example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler<span class="w"> </span>-u
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Ensure output URLs are unique.</p>
 <h3>8. Input List</h3>
-<pre class="codehilite"><code class="language-bash">cat urls.txt | hakrawler
-</code></pre>
+<div class="codehilite"><pre><span></span><code>cat<span class="w"> </span>urls.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Crawl a massive list of domains.</p>
 <h3>9. Filter JS</h3>
-<pre class="codehilite"><code class="language-bash">echo http://example.com | hakrawler | grep &quot;.js&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>http://example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;.js&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Often used to find Javascript files.</p>
 <h3>10. Insecure SSL</h3>
-<pre class="codehilite"><code class="language-bash">echo https://example.com | hakrawler -insecure
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>https://example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler<span class="w"> </span>-insecure
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Ignore SSL errors.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">cat domains.txt | hakrawler -d 2 -plain -subs | grep &quot;admin&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>cat<span class="w"> </span>domains.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>hakrawler<span class="w"> </span>-d<span class="w"> </span><span class="m">2</span><span class="w"> </span>-plain<span class="w"> </span>-subs<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;admin&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Mass crawl a list of domains, go 2 levels deep, extract subdomains, and immediately grep for interesting "admin" endpoints.</p>
         </div>

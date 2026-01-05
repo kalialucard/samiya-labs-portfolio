@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "evil-winrm, cybersecurity, tool"
+tags: evil-winrm, cybersecurity, tool, ad
 description: "The ultimate WinRM shell for hacking/pentesting."
 ---
 

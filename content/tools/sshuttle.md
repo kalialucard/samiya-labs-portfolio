@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "sshuttle, cybersecurity, tool"
+tags: sshuttle, cybersecurity, tool, network
 description: "Transparent proxy server that works as a poor man's VPN."
 ---
 

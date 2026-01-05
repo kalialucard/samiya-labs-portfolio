@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "docker, cybersecurity, tool"
+tags: docker, cybersecurity, tool, infrastructure
 description: "Platform for developing, shipping, and running applications in containers."
 ---
 

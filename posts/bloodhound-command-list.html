@@ -115,7 +115,7 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- bloodhound, cybersecurity, command reference -->
+                <!-- bloodhound, cybersecurity, command reference, ad -->
             </div>
         </header>
 
@@ -126,51 +126,51 @@
 <p><strong>BloodHound</strong> uses graph theory to reveal the hidden and often unintended relationships within an Active Directory environment.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Run SharpHound (Ingestor)</h3>
-<pre class="codehilite"><code class="language-bash">C:\&gt; SharpHound.exe -c All
-</code></pre>
+<div class="codehilite"><pre><span></span><code>C:<span class="se">\&gt;</span><span class="w"> </span>SharpHound.exe<span class="w"> </span>-c<span class="w"> </span>All
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Collects ALL data (Sessions, Groups, ACLs, Trusts, LocalAdmins) from the Windows domain.</p>
 <h3>2. Run Python Ingestor</h3>
-<pre class="codehilite"><code class="language-bash">bloodhound-python -d domain.local -u user -p pass -c All -ns 10.10.10.10
-</code></pre>
+<div class="codehilite"><pre><span></span><code>bloodhound-python<span class="w"> </span>-d<span class="w"> </span>domain.local<span class="w"> </span>-u<span class="w"> </span>user<span class="w"> </span>-p<span class="w"> </span>pass<span class="w"> </span>-c<span class="w"> </span>All<span class="w"> </span>-ns<span class="w"> </span><span class="m">10</span>.10.10.10
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Collect data from Linux without dropping an exe file.</p>
 <h3>3. Loop Collection</h3>
-<pre class="codehilite"><code class="language-bash">SharpHound.exe -c Session --Loop
-</code></pre>
+<div class="codehilite"><pre><span></span><code>SharpHound.exe<span class="w"> </span>-c<span class="w"> </span>Session<span class="w"> </span>--Loop
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Continuously collect session usage to track where users log in over time.</p>
 <h3>4. Zip Data</h3>
-<pre class="codehilite"><code class="language-bash"># (Automatic)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (Automatic)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> SharpHound creates a zip file to upload to the GUI.</p>
 <h3>5. Stealth Mode</h3>
-<pre class="codehilite"><code class="language-bash">SharpHound.exe --Stealth
-</code></pre>
+<div class="codehilite"><pre><span></span><code>SharpHound.exe<span class="w"> </span>--Stealth
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Reduces noise, but collects less data.</p>
 <h3>6. Domain Trust Only</h3>
-<pre class="codehilite"><code class="language-bash">SharpHound.exe -c DCOnly
-</code></pre>
+<div class="codehilite"><pre><span></span><code>SharpHound.exe<span class="w"> </span>-c<span class="w"> </span>DCOnly
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Only talk to the Domain Controller (quieter).</p>
 <h3>7. Upload to Neo4j</h3>
-<pre class="codehilite"><code class="language-bash"># (Drag and drop zip into GUI)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (Drag and drop zip into GUI)</span>
+</code></pre></div>
 
 <h3>8. Query: Fastest Path</h3>
-<pre class="codehilite"><code class="language-bash"># Right Click User -&gt; &quot;Shortest Path to Domain Admin&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Right Click User -&gt; &quot;Shortest Path to Domain Admin&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> The killer feature. Shows exactly how to jump from User A to DA.</p>
 <h3>9. Query: Kerberoastable</h3>
-<pre class="codehilite"><code class="language-bash"># &quot;List all Kerberoastable Account&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># &quot;List all Kerberoastable Account&quot;</span>
+</code></pre></div>
 
 <h3>10. Mark Owned</h3>
-<pre class="codehilite"><code class="language-bash"># Right Click Node -&gt; &quot;Mark as Owned&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Right Click Node -&gt; &quot;Mark as Owned&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Updates graph to show new paths accessible from your compromised position.</p>
 <h2>The Most Powerful Command</h2>

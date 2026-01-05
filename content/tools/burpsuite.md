@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "burpsuite, cybersecurity, tool"
+tags: burpsuite, cybersecurity, tool, web
 description: "Web vulnerability scanner and proxy."
 ---
 

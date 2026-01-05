@@ -3,7 +3,7 @@ title: "Dirsearch Command List"
 date: 2026-01-05
 category: commands
 enrich: false
-tags: dirsearch, cybersecurity, command reference, beginner
+tags: dirsearch, cybersecurity, command reference, beginner, web
 description: Top 10 essential commands and a master guide for using Dirsearch in penetration testing.
 ---
 

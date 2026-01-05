@@ -115,7 +115,7 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- tcpdump, cybersecurity, command reference -->
+                <!-- tcpdump, cybersecurity, command reference, network -->
             </div>
         </header>
 
@@ -126,58 +126,58 @@
 <p><strong>Tcpdump</strong> is a powerful command-line packet analyzer.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Capture</h3>
-<pre class="codehilite"><code class="language-bash">tcpdump -i eth0
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Capture on interface <code>eth0</code>.</p>
 <h3>2. Write to File (Pcap)</h3>
-<pre class="codehilite"><code class="language-bash">tcpdump -i eth0 -w capture.pcap
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-w<span class="w"> </span>capture.pcap
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Save packets to load in Wireshark later.</p>
 <h3>3. Read File</h3>
-<pre class="codehilite"><code class="language-bash">tcpdump -r capture.pcap
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>-r<span class="w"> </span>capture.pcap
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Analyze a saved file.</p>
 <h3>4. Filter by IP</h3>
-<pre class="codehilite"><code class="language-bash">tcpdump host 10.10.10.10
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>host<span class="w"> </span><span class="m">10</span>.10.10.10
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Only show traffic to/from this IP.</p>
 <h3>5. Filter by Port</h3>
-<pre class="codehilite"><code class="language-bash">tcpdump port 80
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>port<span class="w"> </span><span class="m">80</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Only web traffic.</p>
 <h3>6. ASCII Output</h3>
-<pre class="codehilite"><code class="language-bash">tcpdump -A
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>-A
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Print packet contents in ASCII (good for seeing HTTP headers/passwords).</p>
 <h3>7. Protocol Filter</h3>
-<pre class="codehilite"><code class="language-bash">tcpdump icmp
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>icmp
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Only show Ping requests.</p>
 <h3>8. Combine Filters</h3>
-<pre class="codehilite"><code class="language-bash">tcpdump src 10.10.10.10 and port 22
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>src<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span>and<span class="w"> </span>port<span class="w"> </span><span class="m">22</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> SSH traffic FROM 10.10.10.10.</p>
 <h3>9. No Name Resolution</h3>
-<pre class="codehilite"><code class="language-bash">tcpdump -n
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>-n
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Don't resolve IP to Hostname (faster).</p>
 <h3>10. Specific Count</h3>
-<pre class="codehilite"><code class="language-bash">tcpdump -c 100
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>-c<span class="w"> </span><span class="m">100</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Capture 100 packets then exit.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">tcpdump -i eth0 -n -A port 80 or port 8080
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-n<span class="w"> </span>-A<span class="w"> </span>port<span class="w"> </span><span class="m">80</span><span class="w"> </span>or<span class="w"> </span>port<span class="w"> </span><span class="m">8080</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Watch web traffic in real time, formatted as text, to capture clear-text API keys, cookies, or passwords passing on the wire.</p>
         </div>

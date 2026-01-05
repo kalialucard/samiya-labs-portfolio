@@ -3,7 +3,7 @@ title: Netcat Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: netcat, cybersecurity, command reference
+tags: netcat, cybersecurity, command reference, network
 description: Top 10 essential commands for netcat.
 ---
 

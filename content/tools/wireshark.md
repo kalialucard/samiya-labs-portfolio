@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "wireshark, cybersecurity, tool"
+tags: wireshark, cybersecurity, tool, network
 description: "The world's foremost network protocol analyzer."
 ---
 

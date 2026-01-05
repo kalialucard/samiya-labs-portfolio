@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "nuclei, cybersecurity, tool"
+tags: nuclei, cybersecurity, tool, web
 description: "Template based vulnerability scanner."
 ---
 

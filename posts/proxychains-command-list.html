@@ -115,7 +115,7 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- proxychains, cybersecurity, command reference -->
+                <!-- proxychains, cybersecurity, command reference, network -->
             </div>
         </header>
 
@@ -126,59 +126,59 @@
 <p><strong>Proxychains</strong> forces any TCP connection made by a given application to follow through a proxy like TOR or any other SOCKS4, SOCKS5 or HTTP(S) proxy.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Usage</h3>
-<pre class="codehilite"><code class="language-bash">proxychains nmap -sT 10.10.10.10
-</code></pre>
+<div class="codehilite"><pre><span></span><code>proxychains<span class="w"> </span>nmap<span class="w"> </span>-sT<span class="w"> </span><span class="m">10</span>.10.10.10
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Run command through the proxy defined in <code>/etc/proxychains4.conf</code>.</p>
 <h3>2. Using Firefox</h3>
-<pre class="codehilite"><code class="language-bash">proxychains firefox
-</code></pre>
+<div class="codehilite"><pre><span></span><code>proxychains<span class="w"> </span>firefox
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Forces the browser through the proxy chain (e.g., to browse internal sites via SOCKS).</p>
 <h3>3. Quiet Mode</h3>
-<pre class="codehilite"><code class="language-bash">proxychains -q nmap ...
-</code></pre>
+<div class="codehilite"><pre><span></span><code>proxychains<span class="w"> </span>-q<span class="w"> </span>nmap<span class="w"> </span>...
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Don't print "S-chain... OK" logs to stdout.</p>
 <h3>4. Configuration</h3>
-<pre class="codehilite"><code class="language-bash">nano /etc/proxychains4.conf
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nano<span class="w"> </span>/etc/proxychains4.conf
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Edit this file to add your proxies (e.g., <code>socks5 127.0.0.1 1080</code>).</p>
 <h3>5. Dynamic Chain</h3>
-<pre class="codehilite"><code class="language-bash"># Set &quot;dynamic_chain&quot; in conf
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Set &quot;dynamic_chain&quot; in conf</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Skips dead proxies in the list.</p>
 <h3>6. Strict Chain</h3>
-<pre class="codehilite"><code class="language-bash"># Set &quot;strict_chain&quot; in conf
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Set &quot;strict_chain&quot; in conf</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Failing one proxy breaks the connection (good for strict anonymity paths).</p>
 <h3>7. Random Chain</h3>
-<pre class="codehilite"><code class="language-bash"># Set &quot;random_chain&quot; in conf
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Set &quot;random_chain&quot; in conf</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Use random proxies from list.</p>
 <h3>8. DNS Proxying</h3>
-<pre class="codehilite"><code class="language-bash"># &quot;proxy_dns&quot; in conf
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># &quot;proxy_dns&quot; in conf</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Resolves DNS through the proxy (prevents DNS leaks).</p>
 <h3>9. With SSH Tunnel</h3>
-<pre class="codehilite"><code class="language-bash">ssh -D 1080 user@pivot
-# Then run proxychains
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ssh<span class="w"> </span>-D<span class="w"> </span><span class="m">1080</span><span class="w"> </span>user@pivot
+<span class="c1"># Then run proxychains</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Use Dynamic Port Forwarding to pivot into a network.</p>
 <h3>10. With Metasploit</h3>
-<pre class="codehilite"><code class="language-bash">proxychains msfconsole
-</code></pre>
+<div class="codehilite"><pre><span></span><code>proxychains<span class="w"> </span>msfconsole
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Run the entire framework through a proxy.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">proxychains nmap -sT -Pn -n 192.168.1.10
-</code></pre>
+<div class="codehilite"><pre><span></span><code>proxychains<span class="w"> </span>nmap<span class="w"> </span>-sT<span class="w"> </span>-Pn<span class="w"> </span>-n<span class="w"> </span><span class="m">192</span>.168.1.10
+</code></pre></div>
 
 <p><strong>Explanation:</strong> A "Full Pivot" scan. You are scanning an internal IP address (192.168.1.10) that your machine cannot see, by tunneling the Nmap request through a compromised jump host.</p>
         </div>

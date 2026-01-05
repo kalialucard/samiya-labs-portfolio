@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "wpscan, cybersecurity, tool"
+tags: wpscan, cybersecurity, tool, web
 description: "WordPress vulnerability scanner."
 ---
 

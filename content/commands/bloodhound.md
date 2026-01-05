@@ -3,7 +3,7 @@ title: Bloodhound Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: bloodhound, cybersecurity, command reference
+tags: bloodhound, cybersecurity, command reference, ad
 description: Top 10 essential commands for bloodhound.
 ---
 

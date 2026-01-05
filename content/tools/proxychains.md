@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "proxychains, cybersecurity, tool"
+tags: proxychains, cybersecurity, tool, network
 description: "Redirect connections through proxy servers."
 ---
 

@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "netexec, cybersecurity, tool"
+tags: netexec, cybersecurity, tool, ad
 description: "The Swiss Army Knife of pentesting networks (formerly CrackMapExec)."
 ---
 

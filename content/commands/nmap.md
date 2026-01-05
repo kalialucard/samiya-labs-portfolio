@@ -4,7 +4,7 @@ date: 2026-01-05
 category: commands
 enrich: false
 
-tags: nmap, cybersecurity, command reference, beginner
+tags: nmap, cybersecurity, command reference, beginner, network
 description: Top 10 essential commands and a master guide for using Nmap in penetration testing.
 ---
 

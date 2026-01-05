@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "wazuh, cybersecurity, tool"
+tags: wazuh, cybersecurity, tool, infrastructure
 description: "The Open Source Security Platform (SIEM/XDR)."
 ---
 

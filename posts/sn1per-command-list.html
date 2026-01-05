@@ -126,58 +126,58 @@
 <p><strong>Sn1per</strong> is an automated scanner that can be used during a penetration test to enumerate and scan for vulnerabilities. It integrates many tools (Nmap, Nikto, etc.).</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Normal Scan</h3>
-<pre class="codehilite"><code class="language-bash">sniper -t &lt;target&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sniper<span class="w"> </span>-t<span class="w"> </span>&lt;target&gt;
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Runs basic recon and scan.</p>
 <h3>2. Stealth Scan</h3>
-<pre class="codehilite"><code class="language-bash">sniper -t &lt;target&gt; -m stealth
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sniper<span class="w"> </span>-t<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-m<span class="w"> </span>stealth
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Non-intrusive scan mode.</p>
 <h3>3. Flyover (Recon)</h3>
-<pre class="codehilite"><code class="language-bash">sniper -t &lt;target&gt; -m flyover
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sniper<span class="w"> </span>-t<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-m<span class="w"> </span>flyover
+</code></pre></div>
 
 <p><strong>Explanation:</strong> High-level overview, multi-threaded.</p>
 <h3>4. Airstrike (Multi-Target)</h3>
-<pre class="codehilite"><code class="language-bash">sniper -f targets.txt -m airstrike
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sniper<span class="w"> </span>-f<span class="w"> </span>targets.txt<span class="w"> </span>-m<span class="w"> </span>airstrike
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Mass scan a list of targets.</p>
 <h3>5. Nuke (Vulnerability)</h3>
-<pre class="codehilite"><code class="language-bash">sniper -t &lt;target&gt; -m nuke
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sniper<span class="w"> </span>-t<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-m<span class="w"> </span>nuke
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Weaponized audit (very loud, checks for major CVEs).</p>
 <h3>6. Discover</h3>
-<pre class="codehilite"><code class="language-bash">sniper -t &lt;target&gt; -m discover
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sniper<span class="w"> </span>-t<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-m<span class="w"> </span>discover
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Focuses on subnet discovery.</p>
 <h3>7. Port Scan Only</h3>
-<pre class="codehilite"><code class="language-bash">sniper -t &lt;target&gt; -m port
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sniper<span class="w"> </span>-t<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-m<span class="w"> </span>port
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Only runs port scanning.</p>
 <h3>8. Web Scan</h3>
-<pre class="codehilite"><code class="language-bash">sniper -t &lt;target&gt; -m web
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sniper<span class="w"> </span>-t<span class="w"> </span>&lt;target&gt;<span class="w"> </span>-m<span class="w"> </span>web
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Focuses on web app vectors (nikto, wpscan, etc).</p>
 <h3>9. Update</h3>
-<pre class="codehilite"><code class="language-bash">sniper -u
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sniper<span class="w"> </span>-u
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Updates Sn1per scripts.</p>
 <h3>10. Report</h3>
-<pre class="codehilite"><code class="language-bash"># (Automatic)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (Automatic)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Sn1per generates reports in <code>loot/</code> automatically.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">sniper -t target.com -m webscan -w
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sniper<span class="w"> </span>-t<span class="w"> </span>target.com<span class="w"> </span>-m<span class="w"> </span>webscan<span class="w"> </span>-w
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Runs a full web-focused vulnerability scan including crawling and exploit checking.</p>
         </div>

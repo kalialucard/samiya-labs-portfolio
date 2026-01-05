@@ -3,7 +3,7 @@ title: Tmux Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: tmux, cybersecurity, command reference
+tags: tmux, cybersecurity, command reference, infrastructure
 description: Top 10 essential commands for tmux.
 ---
 

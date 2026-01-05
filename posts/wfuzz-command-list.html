@@ -126,8 +126,8 @@
 <p><strong>Wfuzz</strong> is a tool designed for bruteforcing Web Applications, it can be used for finding resources not linked (directories, servlets, scripts, etc), bruteforce GET and POST parameters for checking different kinds of injections (SQL, XSS, LDAP,etc), bruteforce Forms parameters (User/Password), Fuzzing, etc.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Directory Fuzzing</h3>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z file,wordlist.txt --hc 404 http://target.com/FUZZ
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,wordlist.txt<span class="w"> </span>--hc<span class="w"> </span><span class="m">404</span><span class="w"> </span>http://target.com/FUZZ
+</code></pre></div>
 
 <p><strong>Explanation:</strong><br />
 *   <code>-c</code>: Color output.<br />
@@ -135,54 +135,54 @@
 *   <code>--hc 404</code>: Hides responses with code 404.<br />
 *   <code>FUZZ</code>: The keyword Wfuzz replaces with words from the list.</p>
 <h3>2. Fuzzing Extension</h3>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z file,wordlist.txt http://target.com/FUZZ.php
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,wordlist.txt<span class="w"> </span>http://target.com/FUZZ.php
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Finds files with a specific extension (e.g., <code>.php</code>) by appending it to the FUZZ keyword.</p>
 <h3>3. Fuzzing Parameters (GET)</h3>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z file,wordlist.txt http://target.com/index.php?FUZZ=test
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,wordlist.txt<span class="w"> </span>http://target.com/index.php?FUZZ<span class="o">=</span><span class="nb">test</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Fuzzes the <em>parameter name</em> to find hidden GET parameters.</p>
 <h3>4. Fuzzing Values (Post)</h3>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z file,passwords.txt -d &quot;user=admin&amp;pass=FUZZ&quot; http://target.com/login.php
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,passwords.txt<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;user=admin&amp;pass=FUZZ&quot;</span><span class="w"> </span>http://target.com/login.php
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Fuzzes POST data (<code>-d</code>). Replaces <code>FUZZ</code> in the body payload (brute-forcing password).</p>
 <h3>5. Multiple Fuzzers (User + Pass)</h3>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z file,users.txt -z file,pass.txt -d &quot;user=FUZZ&amp;pass=FUZ2Z&quot; http://target.com/login
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,users.txt<span class="w"> </span>-z<span class="w"> </span>file,pass.txt<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;user=FUZZ&amp;pass=FUZ2Z&quot;</span><span class="w"> </span>http://target.com/login
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Uses multiple payloads. <code>FUZZ</code> maps to the first list, <code>FUZ2Z</code> maps to the second.</p>
 <h3>6. Filter by Words (Hide Small Pages)</h3>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z file,wordlist.txt --hw 50 http://target.com/FUZZ
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,wordlist.txt<span class="w"> </span>--hw<span class="w"> </span><span class="m">50</span><span class="w"> </span>http://target.com/FUZZ
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Hides results with a specific word count (<code>--hw</code>). Useful if all error pages have exactly 50 words.</p>
 <h3>7. Filter by Lines</h3>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z file,wordlist.txt --hl 100 http://target.com/FUZZ
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,wordlist.txt<span class="w"> </span>--hl<span class="w"> </span><span class="m">100</span><span class="w"> </span>http://target.com/FUZZ
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Hides results with a specific line count (<code>--hl</code>).</p>
 <h3>8. Use Proxy</h3>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z file,wordlist.txt -p 127.0.0.1:8080 http://target.com/FUZZ
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,wordlist.txt<span class="w"> </span>-p<span class="w"> </span><span class="m">127</span>.0.0.1:8080<span class="w"> </span>http://target.com/FUZZ
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Routes traffic through a proxy (<code>-p</code>) like Burp Suite.</p>
 <h3>9. Scan for Subdomains</h3>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z file,subdomains.txt -H &quot;Host: FUZZ.target.com&quot; http://target.com
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,subdomains.txt<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Host: FUZZ.target.com&quot;</span><span class="w"> </span>http://target.com
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Fuzzes the <code>Host</code> header to find internal virtual hosts or subdomains.</p>
 <h3>10. Save Output</h3>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z file,wordlist.txt -f results.json,json http://target.com/FUZZ
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,wordlist.txt<span class="w"> </span>-f<span class="w"> </span>results.json,json<span class="w"> </span>http://target.com/FUZZ
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Saves the results to a file (<code>-f filename,format</code>).</p>
 <h2>The Most Powerful Command</h2>
 <p>Fuzzing for IDOR (Insecure Direct Object References) with immediate anomalies shown:</p>
-<pre class="codehilite"><code class="language-bash">wfuzz -c -z range,1-1000 --hh 250 http://target.com/profile.php?id=FUZZ
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>range,1-1000<span class="w"> </span>--hh<span class="w"> </span><span class="m">250</span><span class="w"> </span>http://target.com/profile.php?id<span class="o">=</span>FUZZ
+</code></pre></div>
 
 <p><strong>Why it's powerful:</strong><br />
 *   <code>-z range,1-1000</code>: Generates numbers 1 to 1000 automatically (no file needed).<br />

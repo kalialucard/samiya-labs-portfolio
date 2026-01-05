@@ -3,7 +3,7 @@ title: "Nuclei Command List"
 date: 2026-01-05
 category: commands
 enrich: false
-tags: nuclei, cybersecurity, command reference, beginner
+tags: nuclei, cybersecurity, command reference, beginner, web
 description: Top 10 essential commands and a master guide for using Nuclei in penetration testing.
 ---
 

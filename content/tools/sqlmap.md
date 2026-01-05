@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "exploitation, sql-injection, python, automation"
+tags: exploitation, sql-injection, python, automation, web
 description: "The primary tool for detecting and exploiting SQL injection flaws."
 ---
 

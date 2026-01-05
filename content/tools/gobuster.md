@@ -4,7 +4,7 @@ date: "2026-01-05"
 category: "tools"
 enrich: false
 image: "assets/tool-thumb.png"
-tags: "gobuster, cybersecurity, tool"
+tags: gobuster, cybersecurity, tool, web
 description: "Fast directory/file & DNS busting tool."
 ---
 

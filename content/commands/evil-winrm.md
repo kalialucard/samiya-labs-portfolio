@@ -3,7 +3,7 @@ title: Evil-winrm Command List
 date: 2026-01-05
 category: commands
 enrich: false
-tags: evil-winrm, cybersecurity, command reference
+tags: evil-winrm, cybersecurity, command reference, ad
 description: Top 10 essential commands for evil-winrm.
 ---
 
