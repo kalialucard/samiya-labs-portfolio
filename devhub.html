@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -27,22 +27,28 @@
 </head>
 
 <body
-    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-transparent text-slate-200">
+    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-slate-950 text-slate-200">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-transparent/90 backdrop-blur-md border-b border-slate-700">
+    <nav class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="logo-container group flex items-center gap-3">
-                <img src="images/logo.png" alt="Logo"
-                    class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+                <div class="relative">
+                    <div
+                        class="absolute -inset-2 bg-gradient-to-r from-accent-green to-accent-cyan rounded-full opacity-20 group-hover:opacity-40 blur-lg transition-opacity duration-300">
+                    </div>
+                    <img src="images/logo.png" alt="Logo" class="h-10 w-auto relative z-10">
+                </div>
+                <span
+                    class="font-mono text-lg font-bold tracking-tighter text-white group-hover:text-accent-green transition-colors">/root/devhub</span>
             </a>
-            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
-                <a href="index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
-                <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
-                <a href="devhub.html" class="text-white hover:text-accent-cyan transition-colors">DevHub</a>
-                <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
-                <a href="certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
-                <a href="contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            <div class="hidden lg:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-slate-400">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="devhub.html" class="text-accent-green">DevHub</a>
+                <a href="writeups.html" class="hover:text-white transition-colors">Write-ups</a>
+                <a href="certificates.html" class="hover:text-white transition-colors">Certs</a>
+                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
             </div>
             <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2 text-2xl"><i
                     class="fa-solid fa-bars-staggered"></i></button>
@@ -50,212 +56,165 @@
     </nav>
 
     <!-- Header -->
-    <header class="py-16 px-6 bg-slate-950 border-b border-white/5">
-        <div class="max-w-7xl mx-auto">
-            <nav class="flex items-center gap-2 text-xs font-mono text-slate-500 mb-8 uppercase tracking-widest">
-                <a href="index.html" class="hover:text-accent-cyan">Home</a>
-                <i class="fa-solid fa-chevron-right text-[10px] opacity-30"></i>
-                <span class="text-slate-300">DevHub</span>
-            </nav>
-            <h1 class="text-4xl font-bold mb-4 tracking-tight">Developer <span class="text-amber-400">Hub</span></h1>
-            <p class="text-slate-400 max-w-2xl font-light leading-relaxed">
-                A collection of technical blogs, tools, documentation, commands, and cheat sheets.
+    <header class="py-20 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-accent-green/5 blur-3xl rounded-full translate-x-1/2"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tighter text-white">Developer <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-accent-cyan">Hub</span>
+            </h1>
+            <p class="text-slate-400 max-w-2xl text-lg font-light leading-relaxed mb-8">
+                Central command for technical resources. Access tools, documentation, commands, testing logs, and cheat
+                sheets. Explore the digital arsenal.
             </p>
+
+            <!-- Search & Filter -->
+            <div class="flex flex-col md:flex-row gap-4 max-w-4xl">
+                <div class="relative flex-grow group">
+                    <div
+                        class="absolute -inset-0.5 bg-gradient-to-r from-accent-green to-accent-cyan rounded-lg opacity-30 group-focus-within:opacity-100 transition-opacity duration-300 blur-sm">
+                    </div>
+                    <input type="text" id="devhub-search"
+                        class="relative w-full bg-slate-900 text-white border border-slate-700 rounded-lg px-4 py-3 pl-12 focus:outline-none focus:border-transparent placeholder-slate-500 font-mono text-sm"
+                        placeholder="Search tools, commands, docs...">
+                    <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 z-10"></i>
+                </div>
+                <div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
+                    <button
+                        class="filter-btn active px-4 py-2 rounded-lg border border-accent-cyan bg-accent-cyan/10 text-accent-cyan font-mono text-xs uppercase hover:bg-accent-cyan/20 transition-all whitespace-nowrap"
+                        data-filter="all">All</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg border border-slate-700 text-slate-400 font-mono text-xs uppercase hover:border-accent-green hover:text-accent-green transition-all whitespace-nowrap"
+                        data-filter="blogs">Blogs</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg border border-slate-700 text-slate-400 font-mono text-xs uppercase hover:border-accent-cyan hover:text-accent-cyan transition-all whitespace-nowrap"
+                        data-filter="tools">Tools</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg border border-slate-700 text-slate-400 font-mono text-xs uppercase hover:border-accent-purple hover:text-accent-purple transition-all whitespace-nowrap"
+                        data-filter="commands">Cmds</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg border border-slate-700 text-slate-400 font-mono text-xs uppercase hover:border-white hover:text-white transition-all whitespace-nowrap"
+                        data-filter="docs">Docs</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg border border-slate-700 text-slate-400 font-mono text-xs uppercase hover:border-red-400 hover:text-red-400 transition-all whitespace-nowrap"
+                        data-filter="testing">Logs</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-lg border border-slate-700 text-slate-400 font-mono text-xs uppercase hover:border-accent-green hover:text-accent-green transition-all whitespace-nowrap"
+                        data-filter="cheatsheet">Sheets</button>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="py-16 px-6 max-w-7xl mx-auto flex-grow space-y-20">
+    <main class="py-12 px-6 max-w-7xl mx-auto flex-grow">
+        <div id="devhub-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Blogs Section -->
-        <section>
-            <div class="flex items-center gap-4 mb-8">
-                <h2 class="text-2xl font-bold text-white">Latest <span class="text-amber-400">Blogs</span></h2>
-                <div class="h-px bg-slate-800 flex-grow"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- AUTO_CARDS_START:blogs -->
+            <!-- AUTO_CARDS_START:blogs -->
+            <!-- AUTO_CARDS_END:blogs -->
 
-            <a href="posts/testing-the-new-cms.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-400/10 transition-all duration-300 block" data-category="blogs" data-tags="automation, python, web-dev">
-                <div class="h-2 bg-amber-400"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 uppercase">blogs</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-amber-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Testing the New CMS</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">A quick test to ensure the Unified Content Management system is working correctly across all pages.</p>
-                </div>
-            </a>
+            <!-- AUTO_CARDS_START:tools -->
+            <!-- AUTO_CARDS_END:tools -->
 
-            <a href="posts/the-death-of-traditional-passwords.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-400/10 transition-all duration-300 block" data-category="blogs" data-tags="security, opinion, authentication">
-                <div class="h-2 bg-amber-400"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 uppercase">blogs</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-amber-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">The Death of Traditional Passwords</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">Why passkeys are inevitable and why developers need to switch now.</p>
-                </div>
-            </a>
-<!-- AUTO_CARDS_END:blogs -->
-            </div>
-        </section>
+            <!-- AUTO_CARDS_START:commands -->
+            <!-- AUTO_CARDS_END:commands -->
 
-        <!-- Tools Section -->
-        <section>
-            <div class="flex items-center gap-4 mb-8">
-                <h2 class="text-2xl font-bold text-white">Security <span class="text-accent-cyan">Tools</span></h2>
-                <div class="h-px bg-slate-800 flex-grow"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- AUTO_CARDS_START:tools -->
+            <!-- AUTO_CARDS_START:docs -->
+            <!-- AUTO_CARDS_END:docs -->
 
-            <a href="posts/example-tool-netscanner.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-accent-cyan/50 hover:shadow-xl hover:shadow-accent-cyan/10 transition-all duration-300 block" data-category="tools" data-tags="network, python, utility">
-                <div class="h-2 bg-accent-cyan"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 uppercase">tools</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-accent-cyan transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Example Tool: NetScanner</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">A fast, asynchronous network scanner built in Python.</p>
-                </div>
-            </a>
-<!-- AUTO_CARDS_END:tools -->
-            </div>
-        </section>
+            <!-- AUTO_CARDS_START:testing -->
+            <!-- AUTO_CARDS_END:testing -->
 
-        <!-- Commands Section -->
-        <section>
-            <div class="flex items-center gap-4 mb-8">
-                <h2 class="text-2xl font-bold text-white">Command <span class="text-accent-purple">Reference</span></h2>
-                <div class="h-px bg-slate-800 flex-grow"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- AUTO_CARDS_START:commands -->
+            <!-- AUTO_CARDS_START:cheatsheet -->
+            <!-- AUTO_CARDS_END:cheatsheet -->
 
-            <a href="posts/example-command-tar.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-accent-cyan/50 hover:shadow-xl hover:shadow-accent-cyan/10 transition-all duration-300 block" data-category="commands" data-tags="linux, archive">
-                <div class="h-2 bg-accent-cyan"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 uppercase">commands</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-accent-cyan transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Example Command: Tar</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">Common usage patterns for the tar command.</p>
-                </div>
-            </a>
-
-            <a href="posts/gobuster.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-accent-cyan/50 hover:shadow-xl hover:shadow-accent-cyan/10 transition-all duration-300 block" data-category="commands" data-tags="cybersecurity, penetration testing, ethical hacking, reconnaissance, enumeration, gobuster, web security, beginner">
-                <div class="h-2 bg-accent-cyan"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 uppercase">commands</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-accent-cyan transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Gobuster</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">A detailed walkthrough of a simulated cybersecurity engagement, covering reconnaissance, enumeration, and exploitation using tools like Gobuster. Designed for entry-level students to understand practical hacking techniques.</p>
-                </div>
-            </a>
-
-            <a href="posts/wordpress-command-list.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-accent-cyan/50 hover:shadow-xl hover:shadow-accent-cyan/10 transition-all duration-300 block" data-category="commands" data-tags="cybersecurity, ethical hacking, nmap, wpscan, wordpress, enumeration, vulnerability analysis, beginner">
-                <div class="h-2 bg-accent-cyan"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 uppercase">commands</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-accent-cyan transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">WordPress Command List</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">A detailed, educational walkthrough for entry-level cybersecurity students on using Nmap and WPScan to enumerate and find vulnerabilities in WordPress websites. Covers reconnaissance, enumeration, and basic exploitation techniques.</p>
-                </div>
-            </a>
-<!-- AUTO_CARDS_END:commands -->
-            </div>
-        </section>
-
-        <!-- Docs Section -->
-        <section>
-            <div class="flex items-center gap-4 mb-8">
-                <h2 class="text-2xl font-bold text-white">Project <span class="text-white">Docs</span></h2>
-                <div class="h-px bg-slate-800 flex-grow"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- AUTO_CARDS_START:docs -->
-
-            <a href="posts/example-doc-api-v1.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-white/50 hover:shadow-xl hover:shadow-white/10 transition-all duration-300 block" data-category="docs" data-tags="api, documentation">
-                <div class="h-2 bg-white"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-white/10 text-white border border-white/20 uppercase">docs</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-white transition-colors">Example Doc: API V1</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">Reference documentation for API Version 1.</p>
-                </div>
-            </a>
-<!-- AUTO_CARDS_END:docs -->
-            </div>
-        </section>
-
-        <!-- Testing Section -->
-        <section>
-            <div class="flex items-center gap-4 mb-8">
-                <h2 class="text-2xl font-bold text-white">Testing <span class="text-rose-400">Logs</span></h2>
-                <div class="h-px bg-slate-800 flex-grow"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- AUTO_CARDS_START:testing -->
-
-            <a href="posts/example-test-login-flow.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 block" data-category="testing" data-tags="qa, security">
-                <div class="h-2 bg-purple-500"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-purple-500/10 text-purple-500 border border-purple-500/20 uppercase">testing</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-purple-500 transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-500 transition-colors">Example Test: Login Flow</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">Security assessment of the new login flow.</p>
-                </div>
-            </a>
-<!-- AUTO_CARDS_END:testing -->
-            </div>
-        </section>
-
-        <!-- Cheatsheet Section -->
-        <section>
-            <div class="flex items-center gap-4 mb-8">
-                <h2 class="text-2xl font-bold text-white">Cheat <span class="text-accent-green">Sheets</span></h2>
-                <div class="h-px bg-slate-800 flex-grow"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- AUTO_CARDS_START:cheatsheet -->
-
-            <a href="posts/example-cheatsheet-regex.html" class="devhub-card group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-accent-green/50 hover:shadow-xl hover:shadow-accent-green/10 transition-all duration-300 block" data-category="cheatsheet" data-tags="regex, reference">
-                <div class="h-2 bg-accent-green"></div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-1 rounded text-xs font-bold bg-accent-green/10 text-accent-green border border-accent-green/20 uppercase">cheatsheet</span>
-                        <i class="fa-solid fa-arrow-right -rotate-45 text-slate-600 group-hover:text-accent-green transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-green transition-colors">Example Cheatsheet: Regex</h3>
-                    <p class="text-slate-400 text-sm line-clamp-2">Common regular expressions for validation.</p>
-                </div>
-            </a>
-<!-- AUTO_CARDS_END:cheatsheet -->
-            </div>
-        </section>
-
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="py-12 text-center border-t border-slate-800 bg-transparent">
-        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard
-        </p>
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-auto relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('devhub-search');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            // Select all dynamically generated cards (once populated)
+            // Since cards are injected, we might need event delegation or to run this after injection?
+            // Actually, static site generation means they ARE there on load.
+
+            // --- FILTERING ---
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const cards = document.querySelectorAll('.devhub-card'); // Re-select here to be safe
+                    // Reset active state for all buttons
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-accent-cyan/10', 'text-accent-cyan', 'border-accent-cyan');
+                        b.classList.add('text-slate-400', 'border-slate-700');
+                    });
+                    // Set active state for clicked button
+                    btn.classList.add('active', 'bg-accent-cyan/10', 'text-accent-cyan', 'border-accent-cyan');
+                    btn.classList.remove('text-slate-400', 'border-slate-700');
+
+                    const filter = btn.dataset.filter;
+
+                    cards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // --- SEARCH ---
+            searchInput.addEventListener('input', (e) => {
+                const cards = document.querySelectorAll('.devhub-card'); // Re-select here
+                const term = e.target.value.toLowerCase();
+                cards.forEach(card => {
+                    const title = card.querySelector('h3') ? card.querySelector('h3').innerText.toLowerCase() : '';
+                    const tags = card.dataset.tags ? card.dataset.tags.toLowerCase() : '';
+                    if (title.includes(term) || tags.includes(term)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
