@@ -123,19 +123,63 @@
         <div class="markdown-content">
             <hr />
 <h1>Dirsearch Command Guide</h1>
-<p>Please generate a detailed educational guide for the <strong>Dirsearch</strong> tool.<br />
-Follow this structure exactly:</p>
-<ol>
-<li><strong>Brief Explanation</strong>: Explain what Dirsearch is and why it's used in cybersecurity.</li>
-<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
-<li>For EACH command, provide the exact syntax in a code block.</li>
-<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
-<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
-</ul>
-</li>
-<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
-</ol>
-<p><strong>Tone</strong>: Educational, for a beginner student.</p>
+<p><strong>Dirsearch</strong> is a mature, command-line web path scanner (brute-forcer) written in Python. It's known for its colorful output and smart heuristic detection.</p>
+<h2>Top 10 Useful Commands</h2>
+<h3>1. Basic Scan</h3>
+<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>dirsearch.py<span class="w"> </span>-u<span class="w"> </span>http://target.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Default scan using the built-in dictionary.</p>
+<h3>2. Custom Extensions</h3>
+<div class="codehilite"><pre><span></span><code>dirsearch<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-e<span class="w"> </span>php,html,js
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Scans for specific extensions (<code>-e</code>).</p>
+<h3>3. Specific Wordlist</h3>
+<div class="codehilite"><pre><span></span><code>dirsearch<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Uses a custom wordlist (<code>-w</code>).</p>
+<h3>4. Exclude Status Codes</h3>
+<div class="codehilite"><pre><span></span><code>dirsearch<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-x<span class="w"> </span><span class="m">403</span>,404,500
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Excludes specific HTTP status codes (<code>-x</code>) from the output.</p>
+<h3>5. Recursive Scan</h3>
+<div class="codehilite"><pre><span></span><code>dirsearch<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-r<span class="w"> </span>--deep-recursive
+</code></pre></div>
+
+<p><strong>Explanation:</strong> recursively scans found directories.</p>
+<h3>6. Threads</h3>
+<div class="codehilite"><pre><span></span><code>dirsearch<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-t<span class="w"> </span><span class="m">50</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Increases threads (<code>-t</code>) to 50 for speed.</p>
+<h3>7. Random User Agent</h3>
+<div class="codehilite"><pre><span></span><code>dirsearch<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>--random-agent
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Randomizes the User-Agent header to evade WAFs.</p>
+<h3>8. Cookie/Auth</h3>
+<div class="codehilite"><pre><span></span><code>dirsearch<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>--cookie<span class="w"> </span><span class="s2">&quot;SessionId=123&quot;</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Scans as an authenticated user.</p>
+<h3>9. Simple Report</h3>
+<div class="codehilite"><pre><span></span><code>dirsearch<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>--simple-report<span class="o">=</span>report.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Saves a simplified text report.</p>
+<h3>10. Subdirs</h3>
+<div class="codehilite"><pre><span></span><code>dirsearch<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>--subdirs<span class="w"> </span>admin/,backup/
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Forces scanning specific subdirectories.</p>
+<h2>The Most Powerful Command</h2>
+<div class="codehilite"><pre><span></span><code>dirsearch<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-e<span class="w"> </span>php,html,js<span class="w"> </span>-x<span class="w"> </span><span class="m">400</span>,403,404,500<span class="w"> </span>-t<span class="w"> </span><span class="m">50</span><span class="w"> </span>--random-agent<span class="w"> </span>-o<span class="w"> </span>report.json
+</code></pre></div>
+
+<p><strong>Explanation:</strong> A fast, evasive, and clean scan that ignores error pages and output JSON.</p>
         </div>
     </main>
 

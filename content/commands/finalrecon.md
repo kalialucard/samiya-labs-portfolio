@@ -2,22 +2,80 @@
 title: "Finalrecon Command List"
 date: 2026-01-05
 category: commands
-enrich: true
+enrich: false
 tags: finalrecon, cybersecurity, command reference, beginner
 description: Top 10 essential commands and a master guide for using Finalrecon in penetration testing.
 ---
 
-# Finalrecon Command Guide
+# FinalRecon Command Guide
 
-Please generate a detailed educational guide for the **Finalrecon** tool.
-Follow this structure exactly:
+**FinalRecon** is an all-in-one OSINT tool for web reconnaissance. It aggregates headers, SSL info, whois, and crawling.
 
-1.  **Brief Explanation**: Explain what Finalrecon is and why it's used in cybersecurity.
-2.  **Top 10 Useful Commands**: List the 10 most common/useful commands for this tool.
-    *   For EACH command, provide the exact syntax in a code block.
-    *   Explain what each flag does (`-x`, `-u`, etc.).
-    *   Explain the *output* and *why* you would use this specific command.
-3.  **The Most Powerful Command**: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.
+## Top 10 Useful Commands
 
-**Tone**: Educational, for a beginner student.
+### 1. Full Scan
+```bash
+python3 finalrecon.py --url http://example.com --full
+```
+**Explanation:** Runs all available modules (Header, SSL, Whois, Crawl, DNS).
+
+### 2. Headers Only
+```bash
+python3 finalrecon.py --url http://example.com --headers
+```
+**Explanation:** Checks HTTP security headers.
+
+### 3. SSL Info
+```bash
+python3 finalrecon.py --url https://example.com --ssl
+```
+**Explanation:** Dumps SSL certificate details.
+
+### 4. Whois
+```bash
+python3 finalrecon.py --url http://example.com --whois
+```
+**Explanation:** Gets domain registration info.
+
+### 5. Crawl
+```bash
+python3 finalrecon.py --url http://example.com --crawl
+```
+**Explanation:** Crawls the site to find internal links.
+
+### 6. DNS Enum
+```bash
+python3 finalrecon.py --url http://example.com --dns
+```
+**Explanation:** Dumps DNS records (A, MX, NS, etc.).
+
+### 7. Subdomain Enum
+```bash
+python3 finalrecon.py --url http://example.com --sub
+```
+**Explanation:** Searches for subdomains.
+
+### 8. Directory Search
+```bash
+python3 finalrecon.py --url http://example.com --dir
+```
+**Explanation:** Checks for common directories.
+
+### 9. Wayback Check
+```bash
+python3 finalrecon.py --url http://example.com --wayback
+```
+**Explanation:** Checks Wayback machine for archived URLs.
+
+### 10. Output
+```bash
+# (Automatic)
+```
+**Explanation:** FinalRecon automatically creates a timestamped folder with logs.
+
+## The Most Powerful Command
+```bash
+python3 finalrecon.py --url http://target.com --full
+```
+**Explanation:** The `--full` flag is the most powerful as it provides a complete dossier on the target in one go.
 

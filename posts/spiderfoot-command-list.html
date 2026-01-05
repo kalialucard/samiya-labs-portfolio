@@ -123,19 +123,61 @@
         <div class="markdown-content">
             <hr />
 <h1>Spiderfoot Command Guide</h1>
-<p>Please generate a detailed educational guide for the <strong>Spiderfoot</strong> tool.<br />
-Follow this structure exactly:</p>
-<ol>
-<li><strong>Brief Explanation</strong>: Explain what Spiderfoot is and why it's used in cybersecurity.</li>
-<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
-<li>For EACH command, provide the exact syntax in a code block.</li>
-<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
-<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
-</ul>
-</li>
-<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
-</ol>
-<p><strong>Tone</strong>: Educational, for a beginner student.</p>
+<p><strong>Spiderfoot</strong> is an open source intelligence (OSINT) automation tool. It integrates with hundreds of data sources to gather intelligence on IP addresses, domain names, e-mail addresses, names and more.</p>
+<h2>Top 10 Useful Commands</h2>
+<h3>1. Start Web UI</h3>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-l<span class="w"> </span><span class="m">127</span>.0.0.1:5001
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Starts the web interface. This is the primary way to use Spiderfoot.</p>
+<h3>2. CLI Scan</h3>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-s<span class="w"> </span>target.com<span class="w"> </span>-m<span class="w"> </span>all
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Runs a CLI scan using ALL modules.</p>
+<h3>3. List Modules</h3>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-M
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Lists available modules.</p>
+<h3>4. Specific Module</h3>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-s<span class="w"> </span>target.com<span class="w"> </span>-m<span class="w"> </span>s3bucket
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Run only S3 bucket enumeration.</p>
+<h3>5. Passive-Only</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (Configuration in UI)</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> In CLI, ensure you select modules that don't touch target.</p>
+<h3>6. Export to CSV</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (UI Feature)</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Export findings from UI.</p>
+<h3>7. Filter by Type</h3>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-s<span class="w"> </span>target.com<span class="w"> </span>-t<span class="w"> </span>IP_ADDRESS
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Treat target strictly as IP.</p>
+<h3>8. API Key Setup</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (UI &gt; Settings)</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Configure Shodan, VirusTotal keys.</p>
+<h3>9. Database Mode</h3>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-d<span class="w"> </span>results.db
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Specify database file.</p>
+<h3>10. Quiet Mode</h3>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-q
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Suppress logging.</p>
+<h2>The Most Powerful Command</h2>
+<p>(Via UI): <strong>"New Scan" -&gt; Target: domain.com -&gt; "All Modules" -&gt; "Run"</strong><br />
+<strong>Explanation:</strong> Spiderfoot is designed to correlate data. Running ALL modules allows it to link emails to domains, domains to IPs, and IPs to locations.</p>
         </div>
     </main>
 

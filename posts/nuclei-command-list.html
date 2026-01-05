@@ -123,19 +123,63 @@
         <div class="markdown-content">
             <hr />
 <h1>Nuclei Command Guide</h1>
-<p>Please generate a detailed educational guide for the <strong>Nuclei</strong> tool.<br />
-Follow this structure exactly:</p>
-<ol>
-<li><strong>Brief Explanation</strong>: Explain what Nuclei is and why it's used in cybersecurity.</li>
-<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
-<li>For EACH command, provide the exact syntax in a code block.</li>
-<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
-<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
-</ul>
-</li>
-<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
-</ol>
-<p><strong>Tone</strong>: Educational, for a beginner student.</p>
+<p><strong>Nuclei</strong> is a template-based vulnerability scanner. It allows you to define complex vulnerabilities with simple YAML templates. It is arguably the most important modern scanner.</p>
+<h2>Top 10 Useful Commands</h2>
+<h3>1. Basic Scan (Templates)</h3>
+<div class="codehilite"><pre><span></span><code>nuclei<span class="w"> </span>-u<span class="w"> </span>http://target.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Scans target with default template set (finding misconfigs, simple CVEs).</p>
+<h3>2. Specific Template Directory</h3>
+<div class="codehilite"><pre><span></span><code>nuclei<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-t<span class="w"> </span>cves/
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Scans using only templates in the <code>cves</code> folder.</p>
+<h3>3. Specific Template File</h3>
+<div class="codehilite"><pre><span></span><code>nuclei<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-t<span class="w"> </span>cves/2021/CVE-2021-xxxx.yaml
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Checks for ONE specific vulnerability.</p>
+<h3>4. Severity Filter</h3>
+<div class="codehilite"><pre><span></span><code>nuclei<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-s<span class="w"> </span>critical,high
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Only run templates tagged as Critical or High severity.</p>
+<h3>5. List Input</h3>
+<div class="codehilite"><pre><span></span><code>nuclei<span class="w"> </span>-l<span class="w"> </span>urls.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Scans a list of URLs (mass scanning).</p>
+<h3>6. Rate Limit</h3>
+<div class="codehilite"><pre><span></span><code>nuclei<span class="w"> </span>-l<span class="w"> </span>urls.txt<span class="w"> </span>-rl<span class="w"> </span><span class="m">100</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> 100 requests per second.</p>
+<h3>7. New Templates Only</h3>
+<div class="codehilite"><pre><span></span><code>nuclei<span class="w"> </span>-u<span class="w"> </span>target.com<span class="w"> </span>-nt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Only runs templates added in the latest update.</p>
+<h3>8. Automatic Update</h3>
+<div class="codehilite"><pre><span></span><code>nuclei<span class="w"> </span>-update
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Updates the engine. <code>nuclei -ut</code> updates templates.</p>
+<h3>9. Output File</h3>
+<div class="codehilite"><pre><span></span><code>nuclei<span class="w"> </span>-u<span class="w"> </span>target.com<span class="w"> </span>-o<span class="w"> </span>results.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Save findings.</p>
+<h3>10. Passive Scan</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (Technically nuclei is active, but can use passive templates)</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Some templates check passive leaks in responses.</p>
+<h2>The Most Powerful Command</h2>
+<div class="codehilite"><pre><span></span><code>nuclei<span class="w"> </span>-l<span class="w"> </span>alive_subs.txt<span class="w"> </span>-t<span class="w"> </span>cves/<span class="w"> </span>-t<span class="w"> </span>vulnerabilities/<span class="w"> </span>-s<span class="w"> </span>critical,high,medium<span class="w"> </span>-rl<span class="w"> </span><span class="m">150</span><span class="w"> </span>-o<span class="w"> </span>pwned.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Mass scan a list of valid hosts for ALL known CVEs and Vulnerabilities of Medium+ severity at high speed.</p>
         </div>
     </main>
 

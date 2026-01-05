@@ -123,19 +123,63 @@
         <div class="markdown-content">
             <hr />
 <h1>Amass Command Guide</h1>
-<p>Please generate a detailed educational guide for the <strong>Amass</strong> tool.<br />
-Follow this structure exactly:</p>
-<ol>
-<li><strong>Brief Explanation</strong>: Explain what Amass is and why it's used in cybersecurity.</li>
-<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
-<li>For EACH command, provide the exact syntax in a code block.</li>
-<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
-<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
-</ul>
-</li>
-<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
-</ol>
-<p><strong>Tone</strong>: Educational, for a beginner student.</p>
+<p><strong>Amass</strong> is the industry standard for subdomain enumeration and attack surface mapping. It uses active and passive techniques to discover DNS subdomains and map network infrastructures.</p>
+<h2>Top 10 Useful Commands</h2>
+<h3>1. Basic Enum</h3>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>enum<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Performs standard enumeration using active and passive data sources.</p>
+<h3>2. Passive Only (Fast)</h3>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>enum<span class="w"> </span>-passive<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Only queries passive data sources (WHOIS, ASN, Certificate Transparency). Very fast and stealthy (no direct traffic to target).</p>
+<h3>3. Active Mode</h3>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>enum<span class="w"> </span>-active<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Enables active scanning methods like attempting to resolve the found names against the target's nameservers.</p>
+<h3>4. IP Resolution</h3>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>enum<span class="w"> </span>-ip<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Shows the IP addresses associated with discovered subdomains (<code>-ip</code>).</p>
+<h3>5. Brute Force</h3>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>enum<span class="w"> </span>-brute<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Enables brute-forcing subdomains using a built-in wordlist.</p>
+<h3>6. Custom Wordlist</h3>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>enum<span class="w"> </span>-brute<span class="w"> </span>-w<span class="w"> </span>/path/to/wordlist.txt<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Uses a custom wordlist (<code>-w</code>) for brute-forcing.</p>
+<h3>7. Visualization (D3.js)</h3>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>viz<span class="w"> </span>-d3<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Generates an HTML visualization of the network graph.</p>
+<h3>8. Track Changes</h3>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>track<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Compares the current scan against previous scans to show what changed (new subdomains added/removed).</p>
+<h3>9. Whois Info</h3>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>intel<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-whois
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Performs reverse, whois, and other intelligence gathering operations.</p>
+<h3>10. Output to File</h3>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>enum<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-o<span class="w"> </span>results.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Saves the findings to a text file.</p>
+<h2>The Most Powerful Command</h2>
+<div class="codehilite"><pre><span></span><code>amass<span class="w"> </span>enum<span class="w"> </span>-active<span class="w"> </span>-brute<span class="w"> </span>-w<span class="w"> </span>/usr/share/wordlists/subdomains.txt<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-ip<span class="w"> </span>-src
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Combines <strong>active scanning</strong>, <strong>brute forcing</strong> with a custom list, <strong>IP resolution</strong>, and shows the <strong>data source</strong> (<code>-src</code>) for each finding.</p>
         </div>
     </main>
 

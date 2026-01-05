@@ -123,19 +123,63 @@
         <div class="markdown-content">
             <hr />
 <h1>Chaos Command Guide</h1>
-<p>Please generate a detailed educational guide for the <strong>Chaos</strong> tool.<br />
-Follow this structure exactly:</p>
-<ol>
-<li><strong>Brief Explanation</strong>: Explain what Chaos is and why it's used in cybersecurity.</li>
-<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
-<li>For EACH command, provide the exact syntax in a code block.</li>
-<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
-<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
-</ul>
-</li>
-<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
-</ol>
-<p><strong>Tone</strong>: Educational, for a beginner student.</p>
+<p><strong>Chaos</strong> is a project discovery tool that interacts with the Chaos API (by ProjectDiscovery) to retrieve subdomains. It allows for instant enumeration if you have an API key.</p>
+<h2>Top 10 Useful Commands</h2>
+<h3>1. Basic Fetch</h3>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Fetches subdomains for the target from the Chaos dataset.</p>
+<h3>2. Download Everything</h3>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-o<span class="w"> </span>output.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Saves the dataset to a file.</p>
+<h3>3. Filter by Bug Bounty Programs</h3>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-bbq
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Lists all domains currently in public bug bounty programs indexed by Chaos.</p>
+<h3>4. Count Subdomains</h3>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-count
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Returns only the count of subdomains found, not the list.</p>
+<h3>5. Check API Key</h3>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-key
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Checks if your PDCP_API_KEY is configured correctly.</p>
+<h3>6. JSON Output</h3>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-json
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Outputs data in JSON format for easy parsing by other tools.</p>
+<h3>7. Silent Mode</h3>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-silent
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Prints only the subdomains, no banners or metadata.</p>
+<h3>8. Fetch New Only</h3>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-new
+</code></pre></div>
+
+<p><strong>Explanation:</strong> (If supported by easier version) Filters to show only newly added subdomains since last check.</p>
+<h3>9. Filter with Grep</h3>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;dev&quot;</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> combine with standard linux tools to find interesting patterns like "dev" or "staging".</p>
+<h3>10. Piping to Httpx</h3>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>httpx
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Immediately check which of the chaos-found domains are alive.</p>
+<h2>The Most Powerful Command</h2>
+<div class="codehilite"><pre><span></span><code>chaos<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-silent<span class="w"> </span><span class="p">|</span><span class="w"> </span>httpx<span class="w"> </span>-title<span class="w"> </span>-tech-detect<span class="w"> </span>-status-code
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Instantly retrieves thousands of subdomains and fingerprints the technology and status of every single one.</p>
         </div>
     </main>
 

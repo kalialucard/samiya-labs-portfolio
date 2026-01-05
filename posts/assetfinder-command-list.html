@@ -123,19 +123,63 @@
         <div class="markdown-content">
             <hr />
 <h1>Assetfinder Command Guide</h1>
-<p>Please generate a detailed educational guide for the <strong>Assetfinder</strong> tool.<br />
-Follow this structure exactly:</p>
-<ol>
-<li><strong>Brief Explanation</strong>: Explain what Assetfinder is and why it's used in cybersecurity.</li>
-<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
-<li>For EACH command, provide the exact syntax in a code block.</li>
-<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
-<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
-</ul>
-</li>
-<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
-</ol>
-<p><strong>Tone</strong>: Educational, for a beginner student.</p>
+<p><strong>Assetfinder</strong> is a simple yet powerful Go tool by TomNomNom used to find domains and subdomains related to a given domain. It leverages sources like Facebook, builtwith, and crt.sh.</p>
+<h2>Top 10 Useful Commands</h2>
+<h3>1. Basic Usage</h3>
+<div class="codehilite"><pre><span></span><code>assetfinder<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Finds subdomains for <code>example.com</code> and prints them to stdout.</p>
+<h3>2. Only Subdomains</h3>
+<div class="codehilite"><pre><span></span><code>assetfinder<span class="w"> </span>--subs-only<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Filters out results that aren't strict subdomains (e.g., removes <code>example.com</code> itself if not desired, or unrelated domains).</p>
+<h3>3. Save to File</h3>
+<div class="codehilite"><pre><span></span><code>assetfinder<span class="w"> </span>example.com<span class="w"> </span>&gt;<span class="w"> </span>domains.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Redirects the output to a file for later use.</p>
+<h3>4. Combo with Httprobe</h3>
+<div class="codehilite"><pre><span></span><code>assetfinder<span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>httprobe
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Pipes found domains into <code>httprobe</code> to see which ones actually have running web servers.</p>
+<h3>5. Combo with Subjack</h3>
+<div class="codehilite"><pre><span></span><code>assetfinder<span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>subjack<span class="w"> </span>-w<span class="w"> </span>fingerprints.json<span class="w"> </span>-t<span class="w"> </span><span class="m">100</span><span class="w"> </span>-ssl
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Pipes domains to <code>subjack</code> to checking for subdomain takeover vulnerabilities.</p>
+<h3>6. Unique Sort</h3>
+<div class="codehilite"><pre><span></span><code>assetfinder<span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Ensures no duplicate domains are listed.</p>
+<h3>7. Recursive Hunting</h3>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>assetfinder<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>domains.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Echo a domain into it (scripting friendly) and append to a file.</p>
+<h3>8. Find Related Domains</h3>
+<div class="codehilite"><pre><span></span><code>assetfinder<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Sometimes finds related domains (not just subdomains) depending on the data source.</p>
+<h3>9. Silent Mode (Bash Scripting)</h3>
+<div class="codehilite"><pre><span></span><code>assetfinder<span class="w"> </span>example.com<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Assetfinder is silent by default (no banners), making it perfect for scripts.</p>
+<h3>10. API Keys (Environment)</h3>
+<div class="codehilite"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">VIRUSTOTAL_API_KEY</span><span class="o">=</span>xxx<span class="p">;</span><span class="w"> </span>assetfinder<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Assetfinder automatically picks up API keys from environment variables for deeper searches.</p>
+<h2>The Most Powerful Command</h2>
+<div class="codehilite"><pre><span></span><code>assetfinder<span class="w"> </span>--subs-only<span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>httprobe<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>alive_hosts.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> The "Recon Pipeline" starter: Finds unique subdomains, checks if they are alive (http/https), and saves the working list.</p>
         </div>
     </main>
 

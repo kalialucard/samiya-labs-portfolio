@@ -122,20 +122,63 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>Sublist3R Command Guide</h1>
-<p>Please generate a detailed educational guide for the <strong>Sublist3R</strong> tool.<br />
-Follow this structure exactly:</p>
-<ol>
-<li><strong>Brief Explanation</strong>: Explain what Sublist3R is and why it's used in cybersecurity.</li>
-<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
-<li>For EACH command, provide the exact syntax in a code block.</li>
-<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
-<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
-</ul>
-</li>
-<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
-</ol>
-<p><strong>Tone</strong>: Educational, for a beginner student.</p>
+<h1>Sublist3r Command Guide</h1>
+<p><strong>Sublist3r</strong> is a python tool designed to enumerate subdomains of websites using OSINT. It helps penetration testers collect and gather subdomains for the domain they are targeting.</p>
+<h2>Top 10 Useful Commands</h2>
+<h3>1. Basic Scan</h3>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>sublist3r.py<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Scans the domain using default engines.</p>
+<h3>2. Save Output</h3>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>sublist3r.py<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-o<span class="w"> </span>subdomains.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Save results to file.</p>
+<h3>3. Bruteforce</h3>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>sublist3r.py<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-b
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Enables brute-force module (Subbrute).</p>
+<h3>4. Ports Check</h3>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>sublist3r.py<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>,443
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Checks if discovered subdomains have open ports 80/443.</p>
+<h3>5. Verbose</h3>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>sublist3r.py<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-v
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Show real-time results.</p>
+<h3>6. Threads</h3>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>sublist3r.py<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-t<span class="w"> </span><span class="m">20</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Set threads count.</p>
+<h3>7. Engines</h3>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>sublist3r.py<span class="w"> </span>-e<span class="w"> </span>google,yahoo,virustotal<span class="w"> </span>-d<span class="w"> </span>example.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Use only specific search engines.</p>
+<h3>8. Reverse</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (Not native)</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Sublist3r is forward lookup mostly.</p>
+<h3>9. Wordlist for Brute</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (Requires editing config/library in some versions)</span>
+</code></pre></div>
+
+<h3>10. Help</h3>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>sublist3r.py<span class="w"> </span>-h
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Show help menu.</p>
+<h2>The Most Powerful Command</h2>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>sublist3r.py<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-o<span class="w"> </span>subs.txt<span class="w"> </span>-b<span class="w"> </span>-t<span class="w"> </span><span class="m">50</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>,443,8080
+</code></pre></div>
+
+<p><strong>Explanation:</strong> OSINT scan + Brute force + Port scan validation in one command.</p>
         </div>
     </main>
 
