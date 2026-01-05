@@ -2,7 +2,7 @@
 title: "The Death of Traditional Passwords"
 date: "2024-03-15"
 category: "blogs" 
-enrich: true
+enrich: false
 image: "assets/blog-cover.png"
 tags: "security, opinion, authentication"
 description: "Why passkeys are inevitable and why developers need to switch now."
