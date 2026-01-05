@@ -126,59 +126,59 @@
 <p><strong>Waybackurls</strong> (by TomNomNom) fetches all the URLs that the Wayback Machine knows about for a domain.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Usage</h3>
-<pre class="codehilite"><code class="language-bash">echo example.com | waybackurls
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Fetch everything for domain.</p>
 <h3>2. Include Subdomains</h3>
-<pre class="codehilite"><code class="language-bash">echo example.com | waybackurls -no-subs
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls<span class="w"> </span>-no-subs
+</code></pre></div>
 
 <p><strong>Explanation:</strong> (Confusion: default usually gets subs if wildcarded, tool is simple). Note: Default gets known URLs.</p>
 <h3>3. User Filter</h3>
-<pre class="codehilite"><code class="language-bash"># Pipe to grep
-echo example.com | waybackurls | grep &quot;admin&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Pipe to grep</span>
+<span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;admin&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Filter for admin paths.</p>
 <h3>4. Extensions</h3>
-<pre class="codehilite"><code class="language-bash">echo example.com | waybackurls | grep &quot;.js&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;.js&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Find JS files.</p>
 <h3>5. Parameters</h3>
-<pre class="codehilite"><code class="language-bash">echo example.com | waybackurls | grep &quot;=&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;=&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Find URLs with potential parameters (SQLi/XSS targets).</p>
 <h3>6. Unique</h3>
-<pre class="codehilite"><code class="language-bash">echo example.com | waybackurls | sort -u
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Remove duplicates.</p>
 <h3>7. Save</h3>
-<pre class="codehilite"><code class="language-bash">echo example.com | waybackurls &gt; urls.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls<span class="w"> </span>&gt;<span class="w"> </span>urls.txt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Save to file.</p>
 <h3>8. Check Alive</h3>
-<pre class="codehilite"><code class="language-bash">echo example.com | waybackurls | httprobe
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls<span class="w"> </span><span class="p">|</span><span class="w"> </span>httprobe
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Check which old URLs are still working.</p>
 <h3>9. Get Parameters Only (Unfurl)</h3>
-<pre class="codehilite"><code class="language-bash">echo example.com | waybackurls | unfurl keys
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls<span class="w"> </span><span class="p">|</span><span class="w"> </span>unfurl<span class="w"> </span>keys
+</code></pre></div>
 
 <p><strong>Explanation:</strong> (With Unfurl tool) Extract parameter names.</p>
 <h3>10. JSON (if supported)</h3>
-<pre class="codehilite"><code class="language-bash">echo example.com | waybackurls -json
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>example.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls<span class="w"> </span>-json
+</code></pre></div>
 
 <h1>(Older versions are text only)</h1>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">echo target.com | waybackurls | sort -u | grep &quot;=&quot; | qsreplace &quot;FUZZ&quot; | freq
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>target.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>waybackurls<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;=&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>qsreplace<span class="w"> </span><span class="s2">&quot;FUZZ&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>freq
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Get all URLs, filter for params, replace values with FUZZ (ready for testing), and check frequency.</p>
         </div>

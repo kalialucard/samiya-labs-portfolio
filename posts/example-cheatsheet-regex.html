@@ -115,24 +115,96 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- regex, reference -->
+                <!-- cybersecurity, nmap, recon, enumeration, beginner, educational, walkthrough, network scanning, vulnerability analysis -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>Regex Cheatsheet</h1>
-<blockquote>
-<p><strong>Topic</strong>: Regular Expressions</p>
-</blockquote>
-<h2>Email Validation</h2>
-<pre class="codehilite"><code class="language-regex">^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
-</code></pre>
+<p>Welcome, aspiring cybersecurity professionals! This walkthrough is designed to demystify the initial steps of a penetration test, focusing on how we gather information about a target system. We'll be using a powerful tool called Nmap to scan for open ports and services, and we'll explain <em>why</em> each piece of information is important from a security perspective.</p>
+<p>Think of this like being a detective. Before you can solve a crime, you need to gather clues. In cybersecurity, our initial clues come from scanning the target system to see what services it's running and what doors (ports) are open.</p>
+<h2>Reconnaissance</h2>
+<p>Reconnaissance is the first phase of a penetration test. It's all about gathering as much information as possible about the target without actively trying to break in. This helps us understand the "attack surface" – the parts of the system that an attacker could potentially interact with.</p>
+<h3>Network Scanning with Nmap</h3>
+<p>We'll start by using Nmap (Network Mapper), a versatile tool for network discovery and security auditing. Let's imagine we've identified an IP address for our target and we want to see what's running on it.</p>
+<p>A common initial scan is to look for all common TCP ports and try to identify the services running on them.</p>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-sC<span class="w"> </span>-sV<span class="w"> </span><span class="m">192</span>.168.1.100
+</code></pre></div>
 
-<h2>Phone Number</h2>
-<pre class="codehilite"><code class="language-regex">^\+?[1-9]\d{1,14}$
-</code></pre>
+<h4>🧠 Beginner Analysis</h4>
+<p>Let's break down this command:</p>
+<ul>
+<li><code>nmap</code>: This is the command to launch the Nmap tool.</li>
+<li><code>-sC</code>: This flag tells Nmap to run a set of default Nmap scripts. These scripts are incredibly useful because they can perform more advanced discovery and even detect common vulnerabilities. Think of them as automated helpers that do some of the initial "detective work" for us.</li>
+<li><code>-sV</code>: This flag is for "version detection." It tells Nmap to try and figure out the exact version of the software running on each open port (e.g., Apache 2.4.41, OpenSSH 8.2p1). Knowing the version is crucial because specific versions of software often have known vulnerabilities that we can exploit.</li>
+<li><code>192.168.1.100</code>: This is the target IP address we are scanning. In a real scenario, this would be the IP address of the machine we are testing.</li>
+</ul>
+<p>Now, let's imagine we get some output from this scan.</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">Starting</span><span class="w"> </span><span class="nx">Nmap</span><span class="w"> </span><span class="m m-Double">7.91</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nx">https</span><span class="p">:</span><span class="c1">//nmap.org ) at 2023-10-27 10:30 EDT</span>
+<span class="nx">Nmap</span><span class="w"> </span><span class="nx">scan</span><span class="w"> </span><span class="nx">report</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m m-Double">192.168.1.100</span>
+<span class="nx">Host</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">up</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">0.00020</span><span class="nx">s</span><span class="w"> </span><span class="nx">latency</span><span class="p">).</span>
+<span class="nx">Not</span><span class="w"> </span><span class="nx">shown</span><span class="p">:</span><span class="w"> </span><span class="mi">997</span><span class="w"> </span><span class="nx">closed</span><span class="w"> </span><span class="nx">ports</span>
+<span class="nx">PORT</span><span class="w">     </span><span class="nx">STATE</span><span class="w"> </span><span class="nx">SERVICE</span><span class="w"> </span><span class="nx">VERSION</span>
+<span class="mi">21</span><span class="o">/</span><span class="nx">tcp</span><span class="w">   </span><span class="nx">open</span><span class="w">  </span><span class="nx">ftp</span><span class="w">     </span><span class="nx">vsftpd</span><span class="w"> </span><span class="m m-Double">3.0.3</span>
+<span class="mi">22</span><span class="o">/</span><span class="nx">tcp</span><span class="w">   </span><span class="nx">open</span><span class="w">  </span><span class="nx">ssh</span><span class="w">     </span><span class="nx">OpenSSH</span><span class="w"> </span><span class="m m-Double">8.2</span><span class="nx">p1</span><span class="w"> </span><span class="nx">Ubuntu</span><span class="w"> </span><span class="mi">4</span><span class="nx">ubuntu0</span><span class="m m-Double">.1</span><span class="w"> </span><span class="p">(</span><span class="nx">Ubuntu</span><span class="w"> </span><span class="nx">Linux</span><span class="p">;</span><span class="w"> </span><span class="nx">protocol</span><span class="w"> </span><span class="m m-Double">2.0</span><span class="p">)</span>
+<span class="mi">80</span><span class="o">/</span><span class="nx">tcp</span><span class="w">   </span><span class="nx">open</span><span class="w">  </span><span class="nx">http</span><span class="w">    </span><span class="nx">Apache</span><span class="w"> </span><span class="nx">httpd</span><span class="w"> </span><span class="m m-Double">2.4.41</span><span class="w"> </span><span class="p">((</span><span class="nx">Ubuntu</span><span class="p">))</span>
+<span class="mi">139</span><span class="o">/</span><span class="nx">tcp</span><span class="w">  </span><span class="nx">open</span><span class="w">  </span><span class="nx">netbios</span><span class="w"> </span><span class="nx">Microsoft</span><span class="w"> </span><span class="nx">Windows</span><span class="w"> </span><span class="nx">netblabla</span><span class="w"> </span><span class="m m-Double">6.1.7601</span>
+<span class="mi">445</span><span class="o">/</span><span class="nx">tcp</span><span class="w">  </span><span class="nx">open</span><span class="w">  </span><span class="nx">microsoft</span><span class="o">-</span><span class="nx">ds</span><span class="w"> </span><span class="nx">Windows</span><span class="w"> </span><span class="nx">netblabla</span><span class="w"> </span><span class="m m-Double">6.1.7601</span>
+<span class="nx">Service</span><span class="w"> </span><span class="nx">detection</span><span class="w"> </span><span class="nx">performed</span><span class="p">.</span><span class="w"> </span><span class="nx">Please</span><span class="w"> </span><span class="nx">report</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="nx">incorrect</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="nx">https</span><span class="p">:</span><span class="c1">//nmap.org/submit/ .</span>
+<span class="nx">Nmap</span><span class="w"> </span><span class="nx">done</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">IP</span><span class="w"> </span><span class="nx">address</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="nx">host</span><span class="w"> </span><span class="nx">up</span><span class="p">)</span><span class="w"> </span><span class="nx">scanned</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m m-Double">12.34</span><span class="w"> </span><span class="nx">seconds</span>
+</code></pre></div>
+
+<h4>🧠 Beginner Analysis</h4>
+<p>This is where the magic happens! Let's dissect the output line by line:</p>
+<ul>
+<li><code>Host is up (0.00020s latency)</code>: This tells us that our target IP address is active and responding. The latency is very low, meaning it's a quick connection.</li>
+<li><code>Not shown: 997 closed ports</code>: Nmap, by default, scans the most common 1000 TCP ports. This line indicates that out of those 1000 ports, 997 are closed. Closed ports are like locked doors – they aren't offering any services we can directly interact with at the moment.</li>
+<li><code>PORT     STATE SERVICE VERSION</code>: These are the headers for the important information that follows.<ul>
+<li><code>PORT</code>: The port number and protocol (e.g., <code>21/tcp</code>). Ports are like numbered doors into a computer.</li>
+<li><code>STATE</code>: <code>open</code> means there's a service listening on this port. This is what we're looking for!</li>
+<li><code>SERVICE</code>: The common name of the service running on that port.</li>
+<li><code>VERSION</code>: The specific version of the service, as identified by <code>-sV</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Now, let's look at the open ports and understand <em>why</em> they are interesting:</p>
+<ul>
+<li>
+<p><code>21/tcp   open  ftp     vsftpd 3.0.3</code>:</p>
+<ul>
+<li><strong>Port 21 is for FTP (File Transfer Protocol).</strong> This is an older protocol used for transferring files between a client and a server.</li>
+<li><strong>Why is it interesting?</strong> FTP is often a target because it can sometimes be configured to allow anonymous logins, meaning you don't need a username or password. If anonymous login is enabled, we might be able to upload files to the server. Additionally, FTP can sometimes be used to download sensitive configuration files or even access user data.</li>
+<li><strong>Version:</strong> <code>vsftpd 3.0.3</code>. Knowing this specific version (<code>vsftpd</code>) is important because we can search for known vulnerabilities associated with <code>vsftpd 3.0.3</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)</code>:</p>
+<ul>
+<li><strong>Port 22 is for SSH (Secure Shell).</strong> This is a secure protocol used for remote command-line login and other secure network services between two networked computers. It's generally considered secure.</li>
+<li><strong>Why is it interesting?</strong> While SSH is designed to be secure, attackers still try to gain access. This can be done through brute-force attacks (guessing passwords) if weak passwords are used, or by exploiting vulnerabilities in the SSH server software itself. The fact that it's running on Ubuntu Linux is also useful information.</li>
+<li><strong>Version:</strong> <code>OpenSSH 8.2p1 Ubuntu 4ubuntu0.1</code>. Again, knowing the version allows us to research potential exploits.</li>
+</ul>
+</li>
+<li>
+<p><code>80/tcp   open  http    Apache httpd 2.4.41 ((Ubuntu))</code>:</p>
+<ul>
+<li><strong>Port 80 is for HTTP (Hypertext Transfer Protocol).</strong> This is the standard protocol used for delivering web pages over the internet. When you visit a website, your browser is using HTTP (or HTTPS on port 443).</li>
+<li><strong>Why is it interesting?</strong> This indicates that a web server is running. Web servers are one of the most common entry points for attackers because websites are designed to be accessible and often interact with users. We'll want to explore this web server further to see what websites or web applications are hosted on it, as these can contain numerous vulnerabilities (like SQL injection, cross-site scripting, or insecure file uploads).</li>
+<li><strong>Version:</strong> <code>Apache httpd 2.4.41</code>. Apache is a very popular web server. Knowing the specific version helps us find relevant exploits.</li>
+</ul>
+</li>
+<li>
+<p><code>139/tcp  open  netbios Microsoft Windows netblabla 6.1.7601</code>:</p>
+</li>
+<li><code>445/tcp  open  microsoft-ds Windows netblabla 6.1.7601</code>:<ul>
+<li><strong>Ports 139 and 445 are typically associated with SMB/CIFS (Server Message Block / Common Internet File System).</strong> These protocols are used for file sharing, printer sharing, and inter-process communication in Windows networks.</li>
+<li><strong>Why are they interesting?</strong> Historically, SMB has been a major source of vulnerabilities. For example, the infamous EternalBlue exploit (used in WannaCry ransomware) targeted a vulnerability in SMB. Even if there isn't a direct exploit available, misconfigured SMB shares can leak sensitive information or allow unauthorized access to files. The output suggests it's a Windows machine.</li>
+<li><strong>Version:</strong> <code>Windows netblabla 6.1.7601</code>. This points towards a Windows 7 or Windows Server 2008 R2 system. Older Windows versions are more likely to have unpatched vulnerabilities.</li>
+</ul>
+</li>
+</ul>
+<p>This initial Nmap scan has given us a wealth of information! We know which doors are open and what services are behind them. Our next steps would involve investigating each of these open ports in more detail to find potential weaknesses.</p>
         </div>
     </main>
 

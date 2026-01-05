@@ -126,53 +126,53 @@
 <p><strong>Spiderfoot</strong> is an open source intelligence (OSINT) automation tool. It integrates with hundreds of data sources to gather intelligence on IP addresses, domain names, e-mail addresses, names and more.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Start Web UI</h3>
-<pre class="codehilite"><code class="language-bash">sf.py -l 127.0.0.1:5001
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-l<span class="w"> </span><span class="m">127</span>.0.0.1:5001
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Starts the web interface. This is the primary way to use Spiderfoot.</p>
 <h3>2. CLI Scan</h3>
-<pre class="codehilite"><code class="language-bash">sf.py -s target.com -m all
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-s<span class="w"> </span>target.com<span class="w"> </span>-m<span class="w"> </span>all
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Runs a CLI scan using ALL modules.</p>
 <h3>3. List Modules</h3>
-<pre class="codehilite"><code class="language-bash">sf.py -M
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-M
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Lists available modules.</p>
 <h3>4. Specific Module</h3>
-<pre class="codehilite"><code class="language-bash">sf.py -s target.com -m s3bucket
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-s<span class="w"> </span>target.com<span class="w"> </span>-m<span class="w"> </span>s3bucket
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Run only S3 bucket enumeration.</p>
 <h3>5. Passive-Only</h3>
-<pre class="codehilite"><code class="language-bash"># (Configuration in UI)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (Configuration in UI)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> In CLI, ensure you select modules that don't touch target.</p>
 <h3>6. Export to CSV</h3>
-<pre class="codehilite"><code class="language-bash"># (UI Feature)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (UI Feature)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Export findings from UI.</p>
 <h3>7. Filter by Type</h3>
-<pre class="codehilite"><code class="language-bash">sf.py -s target.com -t IP_ADDRESS
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-s<span class="w"> </span>target.com<span class="w"> </span>-t<span class="w"> </span>IP_ADDRESS
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Treat target strictly as IP.</p>
 <h3>8. API Key Setup</h3>
-<pre class="codehilite"><code class="language-bash"># (UI &gt; Settings)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (UI &gt; Settings)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Configure Shodan, VirusTotal keys.</p>
 <h3>9. Database Mode</h3>
-<pre class="codehilite"><code class="language-bash">sf.py -d results.db
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-d<span class="w"> </span>results.db
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Specify database file.</p>
 <h3>10. Quiet Mode</h3>
-<pre class="codehilite"><code class="language-bash">sf.py -q
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sf.py<span class="w"> </span>-q
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Suppress logging.</p>
 <h2>The Most Powerful Command</h2>

