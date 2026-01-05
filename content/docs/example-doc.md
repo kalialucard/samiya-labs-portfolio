@@ -2,7 +2,7 @@
 title: "Example Doc: API V1"
 date: "2026-01-05"
 category: "docs"
-enrich: false
+enrich: true
 image: "assets/doc-thumb.png"
 tags: "api, documentation"
 description: "Reference documentation for API Version 1."

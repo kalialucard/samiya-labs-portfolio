@@ -2,7 +2,7 @@
 title: Neural-Network-Visualizer
 date: '2024-01-01'
 category: projects
-enrich: false
+enrich: true
 image: assets/project-thumb.png
 tags:
 - neural networks

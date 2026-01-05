@@ -2,7 +2,7 @@
 title: "Example Command: Tar"
 date: "2026-01-05"
 category: "commands"
-enrich: false
+enrich: true
 image: "assets/cmd-thumb.png"
 tags: "linux, archive"
 description: "Common usage patterns for the tar command."

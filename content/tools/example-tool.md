@@ -2,7 +2,7 @@
 title: "Example Tool: NetScanner"
 date: "2026-01-05"
 category: "tools"
-enrich: false
+enrich: true
 image: "assets/tool-thumb.png"
 tags: "network, python, utility"
 description: "A fast, asynchronous network scanner built in Python."

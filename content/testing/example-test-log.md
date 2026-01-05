@@ -2,7 +2,7 @@
 title: "Example Test: Login Flow"
 date: "2026-01-05"
 category: "testing"
-enrich: false
+enrich: true
 image: "assets/test-thumb.png"
 tags: "qa, security"
 description: "Security assessment of the new login flow."

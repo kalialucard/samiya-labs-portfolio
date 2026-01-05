@@ -232,8 +232,9 @@ class ContentManager:
             # If it's nested like writeups/tryhackme, get the parent too
             category = metadata.get('category', dir_category)
             
-            # Default to ENRICH: True ONLY if it's in a writeups folder
-            is_auto_field = "writeups" in file_path
+            # Default to ENRICH: True for all logical content folders
+            auto_categories = ["writeups", "projects", "blogs", "tools", "commands", "docs", "testing", "cheatsheet"]
+            is_auto_field = any(cat in file_path for cat in auto_categories)
             should_enrich = metadata.get('enrich', is_auto_field)
 
             if should_enrich:

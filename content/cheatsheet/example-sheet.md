@@ -2,7 +2,7 @@
 title: "Example Cheatsheet: Regex"
 date: "2026-01-05"
 category: "cheatsheet"
-enrich: false
+enrich: true
 image: "assets/sheet-thumb.png"
 tags: "regex, reference"
 description: "Common regular expressions for validation."

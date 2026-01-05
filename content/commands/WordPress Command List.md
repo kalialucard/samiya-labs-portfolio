@@ -2,7 +2,7 @@
 title: WordPress Command List
 date: YYYY-MM-DD
 category: commands
-enrich: false
+enrich: true
 image: assets/cmd-thumb.png
 tags: cybersecurity, ethical hacking, nmap, wpscan, wordpress, enumeration, vulnerability
   analysis, beginner
