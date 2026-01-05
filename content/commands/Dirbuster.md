@@ -194,11 +194,85 @@ dirbuster -u http://example.com -w /path/to/wordlist.txt -d 5
 *   **What this command does:** This command, used in conjunction with recursive scanning (`-r`), puts a limit on how many levels deep DirBuster will follow directories.
 *   **`-d 5`**:
     *   This flag sets the **maximum depth for recursive scanning** to 5. If a directory is found, DirBuster will only recurse into it up to 5 levels deep.
-    *   **Why this is useful**: Without a depth limit, a recursive scan could potentially go infinitely deep on certain misconfigured servers, or simply generate an impractical amount of data. Limiting the depth helps you control the scope and duration of your scan, focusing on the most likely areas to contain exploitable information without getting lost in excessively deep directory structures.
+    *   **Why this is useful**: Without a depth limit, a recursive scan could potentially go infinitely deep on certain misconfigured# Dirbuster Command Guide
 
-## Crafting the Most Powerful DirBuster Command
+**Dirbuster** is a multi-threaded java application designed to brute force directories and file names on web/application servers.
 
-The "most powerful" command is subjective and depends heavily on your target and objectives. However, a command that combines several options for a comprehensive, potentially aggressive, and stealth-conscious scan would look something like this:
+## Top 10 Useful Commands
+
+### 1. Basic Graphical Launch
+```bash
+dirbuster
+```
+**Explanation:** Launches the GUI. This is the most common way to use Dirbuster as it is primarily a GUI tool.
+
+### 2. Headless Mode (Command Line)
+```bash
+java -jar DirBuster.jar -H -u http://target.com
+```
+**Explanation:** Runs in headless mode (`-H`) without the GUI. Essential for servers or scripting.
+
+### 3. Specify Wordlist
+```bash
+java -jar DirBuster.jar -H -u http://target.com -l /path/to/wordlist.txt
+```
+**Explanation:** Uses a custom list (`-l`) to brute force directories.
+
+### 4. Scan with Extensions
+```bash
+java -jar DirBuster.jar -H -u http://target.com -l wordlist.txt -e php,txt
+```
+**Explanation:** Looks for specific file extensions (`-e`) to find hidden files like `config.php`.
+
+### 5. Set Threads
+```bash
+java -jar DirBuster.jar -H -u http://target.com -t 100
+```
+**Explanation:** Sets the number of concurrent threads (`-t`) to speed up the scan.
+
+### 6. Recursive Scan
+```bash
+java -jar DirBuster.jar -H -u http://target.com -r
+```
+**Explanation:** Enables recursive scanning (`-r`). If it finds a directory, it scans inside it.
+
+### 7. Start Point
+```bash
+java -jar DirBuster.jar -H -u http://target.com -s /admin/
+```
+**Explanation:** Starts the scan from a specific directory (`-s`), saving time if you already know the root path.
+
+### 8. Ignore SSL
+```bash
+java -jar DirBuster.jar -H -u https://target.com -i
+```
+**Explanation:** Ignores SSL certificate errors (`-i`).
+
+### 9. Report to File
+```bash
+java -jar DirBuster.jar -H -u http://target.com -r report.txt
+```
+**Explanation:** Saves the results to a report file.
+
+### 10. Blank Extension (Directories Only)
+```bash
+java -jar DirBuster.jar -u http://target.com -e " "
+```
+**Explanation:** Scans for directories only by providing a blank extension.
+
+## The Most Powerful Command
+
+Headless Recursive Scan with Extensions:
+
+```bash
+java -jar DirBuster.jar -H -u http://target.com -l directory-list-2.3-medium.txt -e php,html,txt -t 50 -r -o scan_report.txt
+```
+
+**Why it's powerful:**
+*   **Automated**: No GUI needed.
+*   **Comprehensive**: Checks files AND folders.
+*   **Recursive**: Digs deep into the site structure.
+veral options for a comprehensive, potentially aggressive, and stealth-conscious scan would look something like this:
 
 ```bash
 dirbuster -u http://example.com -w /path/to/large_wordlist.txt -t 100 -r -s 200,201,301,302,403,401 -a "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" -d 5 -o comprehensive_scan_results.txt

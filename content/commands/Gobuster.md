@@ -24,6 +24,87 @@ Reconnaissance is the first phase of any cybersecurity engagement. It's all abou
 
 Enumeration is where we start actively probing the target system to uncover more specific details, like open services and potential entry points. This is where we begin to find the "doors" and "windows" into the target.
 
+# Gobuster Command Guide
+
+**Gobuster** is a high-speed tool used to brute-force URIs (directories and files) in web sites, DNS subdomains, and Virtual Host names on target web servers. It is written in Go and is known for its speed.
+
+## Top 10 Useful Commands
+
+### 1. Directory/File Enum (Basic)
+```bash
+gobuster dir -u http://<target> -w /path/to/wordlist.txt
+```
+**Explanation:** The standard mode. Enumerates directories and files using a wordlist.
+
+### 2. Extend/Add File Extensions
+```bash
+gobuster dir -u http://<target> -w wordlist.txt -x php,txt,html
+```
+**Explanation:** Appends extensions to each word in the wordlist to find specific files (e.g., `index.php`, `robots.txt`).
+
+### 3. DNS Subdomain Enum
+```bash
+gobuster dns -d <domain.com> -w /path/to/subdomains.txt
+```
+**Explanation:** Uses DNS brute-forcing to find subdomains (e.g., `admin.example.com`, `dev.example.com`).
+
+### 4. VHOST Enumeration
+```bash
+gobuster vhost -u http://<target> -w wordlist.txt
+```
+**Explanation:** Brute-forces virtual hosts. Essential when different sites are hosted on the same IP but served based on the `Host` header.
+
+### 5. Disable SSL Verification
+```bash
+gobuster dir -k -u https://<target> -w wordlist.txt
+```
+**Explanation:** Skips SSL certificate verification (`-k`). Necessary for self-signed certs often found in CTFs or internal audits.
+
+### 6. Set Thread Count
+```bash
+gobuster dir -u <target> -w wordlist.txt -t 50
+```
+**Explanation:** Increases threads to 50 (default is 10). Makes the scan faster but noisier.
+
+### 7. Filter by Status Code
+```bash
+gobuster dir -u <target> -w wordlist.txt -s "200,204,301"
+```
+**Explanation:** Only shows results with specific HTTP status codes. Helps reduce noise.
+
+### 8. Exclude Length (Hide False Positives)
+```bash
+gobuster dir -u <target> -w wordlist.txt --exclude-length 1234
+```
+**Explanation:** Hides responses of a specific size. Great for filtering out custom 404 pages that return "200 OK".
+
+### 9. Use Proxy
+```bash
+gobuster dir -u <target> -w wordlist.txt --proxy http://127.0.0.1:8080
+```
+**Explanation:** Routes traffic through a proxy (like Burp Suite) for analysis or WAF evasion.
+
+### 10. Output to File
+```bash
+gobuster dir -u <target> -w wordlist.txt -o results.txt
+```
+**Explanation:** Saves the findings to a file for reporting.
+
+## The Most Powerful Command
+
+For a thorough web assessment on a tough target:
+
+```bash
+gobuster dir -u https://target.com -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,txt,sh,bak -k -t 40 --exclude-length 400 -o gobuster_scan.txt
+```
+
+**Why it's powerful:**
+*   Checks for **5 common file extensions** simultaneously.
+*   Ignores **SSL errors** (`-k`).
+*   Runs fast with **40 threads**.
+*   Filters out **false positives** (length 400).
+*   Saves everything to a file.
+
 ### Discovering Hidden Directories and Files with Gobuster
 
 One of the most common tasks during enumeration is to find hidden directories and files on a web server. These can often lead to sensitive information or administrative interfaces. We'll use a powerful tool called Gobuster for this.

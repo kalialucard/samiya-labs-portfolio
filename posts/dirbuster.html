@@ -295,12 +295,72 @@
 <li><strong>What this command does:</strong> This command, used in conjunction with recursive scanning (<code>-r</code>), puts a limit on how many levels deep DirBuster will follow directories.</li>
 <li><strong><code>-d 5</code></strong>:<ul>
 <li>This flag sets the <strong>maximum depth for recursive scanning</strong> to 5. If a directory is found, DirBuster will only recurse into it up to 5 levels deep.</li>
-<li><strong>Why this is useful</strong>: Without a depth limit, a recursive scan could potentially go infinitely deep on certain misconfigured servers, or simply generate an impractical amount of data. Limiting the depth helps you control the scope and duration of your scan, focusing on the most likely areas to contain exploitable information without getting lost in excessively deep directory structures.</li>
+<li><strong>Why this is useful</strong>: Without a depth limit, a recursive scan could potentially go infinitely deep on certain misconfigured# Dirbuster Command Guide</li>
 </ul>
 </li>
 </ul>
-<h2>Crafting the Most Powerful DirBuster Command</h2>
-<p>The "most powerful" command is subjective and depends heavily on your target and objectives. However, a command that combines several options for a comprehensive, potentially aggressive, and stealth-conscious scan would look something like this:</p>
+<p><strong>Dirbuster</strong> is a multi-threaded java application designed to brute force directories and file names on web/application servers.</p>
+<h2>Top 10 Useful Commands</h2>
+<h3>1. Basic Graphical Launch</h3>
+<div class="codehilite"><pre><span></span><code>dirbuster
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Launches the GUI. This is the most common way to use Dirbuster as it is primarily a GUI tool.</p>
+<h3>2. Headless Mode (Command Line)</h3>
+<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Runs in headless mode (<code>-H</code>) without the GUI. Essential for servers or scripting.</p>
+<h3>3. Specify Wordlist</h3>
+<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-l<span class="w"> </span>/path/to/wordlist.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Uses a custom list (<code>-l</code>) to brute force directories.</p>
+<h3>4. Scan with Extensions</h3>
+<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-l<span class="w"> </span>wordlist.txt<span class="w"> </span>-e<span class="w"> </span>php,txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Looks for specific file extensions (<code>-e</code>) to find hidden files like <code>config.php</code>.</p>
+<h3>5. Set Threads</h3>
+<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-t<span class="w"> </span><span class="m">100</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Sets the number of concurrent threads (<code>-t</code>) to speed up the scan.</p>
+<h3>6. Recursive Scan</h3>
+<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-r
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Enables recursive scanning (<code>-r</code>). If it finds a directory, it scans inside it.</p>
+<h3>7. Start Point</h3>
+<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-s<span class="w"> </span>/admin/
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Starts the scan from a specific directory (<code>-s</code>), saving time if you already know the root path.</p>
+<h3>8. Ignore SSL</h3>
+<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>https://target.com<span class="w"> </span>-i
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Ignores SSL certificate errors (<code>-i</code>).</p>
+<h3>9. Report to File</h3>
+<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-r<span class="w"> </span>report.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Saves the results to a report file.</p>
+<h3>10. Blank Extension (Directories Only)</h3>
+<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot; &quot;</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Scans for directories only by providing a blank extension.</p>
+<h2>The Most Powerful Command</h2>
+<p>Headless Recursive Scan with Extensions:</p>
+<div class="codehilite"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>DirBuster.jar<span class="w"> </span>-H<span class="w"> </span>-u<span class="w"> </span>http://target.com<span class="w"> </span>-l<span class="w"> </span>directory-list-2.3-medium.txt<span class="w"> </span>-e<span class="w"> </span>php,html,txt<span class="w"> </span>-t<span class="w"> </span><span class="m">50</span><span class="w"> </span>-r<span class="w"> </span>-o<span class="w"> </span>scan_report.txt
+</code></pre></div>
+
+<p><strong>Why it's powerful:</strong><br />
+*   <strong>Automated</strong>: No GUI needed.<br />
+*   <strong>Comprehensive</strong>: Checks files AND folders.<br />
+*   <strong>Recursive</strong>: Digs deep into the site structure.<br />
+veral options for a comprehensive, potentially aggressive, and stealth-conscious scan would look something like this:</p>
 <div class="codehilite"><pre><span></span><code>dirbuster<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>-w<span class="w"> </span>/path/to/large_wordlist.txt<span class="w"> </span>-t<span class="w"> </span><span class="m">100</span><span class="w"> </span>-r<span class="w"> </span>-s<span class="w"> </span><span class="m">200</span>,201,301,302,403,401<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="m">5</span><span class="w"> </span>-o<span class="w"> </span>comprehensive_scan_results.txt
 </code></pre></div>
 

