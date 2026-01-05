@@ -68,7 +68,7 @@ xfreerdp3 /v:10.64.179.107 /u:w... /p:pa.... /dynamic-resolution /clipboard:dire
 
 You’ll find a link to an exploit for [https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2017-0213](https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2017-0213)
 
-to get that into windows i use `curl` `wget` `nc` not work i use this
+to get that into windows i use `curl` `wget` `nc` not work i use this to get that into victim machine
 
 ```
 python3 -m http.server - victim machine
