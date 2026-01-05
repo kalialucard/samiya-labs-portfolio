@@ -105,8 +105,14 @@ class ContentManager:
         # Rate Limit handling: Pause before request
         time.sleep(10) 
         
-        # Robust Logic: Use standard model
-        models_to_try = ['gemini-1.5-flash']
+        # Robust Logic: Try multiple models in order of preference
+        # Prioritize 2.5-flash (best quality/speed balance), then lite, then 1.5 fallback
+        models_to_try = [
+            'gemini-2.5-flash', 
+            'gemini-2.5-flash-lite', 
+            'gemini-1.5-flash',
+            'gemini-1.5-flash-8b'
+        ]
         
         prompt = f"""
         prioritizing educational value and beginner-friendly explanations.
