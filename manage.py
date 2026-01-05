@@ -142,10 +142,12 @@ class ContentManager:
         4. **Bridge the Gaps (The "Why" and "How")**:
            - Don't just say "We got a shell." Explain the steps.
            - Example: "Since the FTP server allowed anonymous login, we uploaded a file..." -> Explain *why* anonymous FTP is bad and *how* the upload leads to execution.
-           - Define complex terms when they first appear (e.g., "SUID", "Reverse Shell", "SQL Injection").
+           - **Deep Dive**: If the user mentions a specific vulnerability (e.g., 'OverlayFS', 'DirtyCow'), INVENT a "🎓 Educational Moment" section explaining exactly what that bug is and how it works.
+           - **Expand Notes**: Turn short user notes (e.g., "found vuln") into full paragraph explanations of the discovery process.
 
         5. **Tone**:
            - Professional but **MENTOR-LIKE**.
+           - **VERBOSE**: Do not summarize. Explain every step as if teaching a class.
            - Use "We" to guide the reader.
            - clear, simple English. Avoid overly dense jargon without explanation.
 
