@@ -2,20 +2,15 @@
 title: Neural-Network-Visualizer
 date: '2024-01-01'
 category: projects
-enrich: true
+enrich: false
 image: assets/project-thumb.png
-tags:
-- neural networks
-- visualization
-- machine learning
-- cybersecurity education
-- TensorFlow
-- PyTorch
-- Three.js
-- React
-- Python
-description: A detailed walkthrough of using the Neural-Network-Visualizer tool, explaining
-  its architecture, technical implementation, and usage for cybersecurity students.
+tags: neural network, visualization, AI, machine learning, cybersecurity, educational,
+  beginner, architecture, Three.js, WebSockets, Python, debugging, gradients, VR,
+  transformers
+description: A detailed educational walkthrough of using the Neural-Network-Visualizer,
+  explaining its architecture, technical implementation, usage, and impact. This guide
+  is tailored for entry-level cybersecurity students, bridging concepts from AI/ML
+  visualization to fundamental cybersecurity principles.
 summary: Visualizing AI training in 3D.
 skills: python, three.js, tensorflow
 tools: vscode, docker, nvidia-cuda
