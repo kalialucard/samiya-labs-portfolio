@@ -635,7 +635,7 @@ class ContentManager:
 
     def update_site_grids(self):
         target_files = [
-            "index.html", "devhub.html", "writeups.html", "projects.html",
+            "index.html", "devhub.html", "writeups.html", "projects.html", "commands.html",
             "projects/network-system-protection.html",
             "projects/application-web-security.html",
             "projects/ethical-hacking-vulnerability-testing.html",

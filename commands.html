@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Command Vault | Technical Intelligence</title>
+    <title>Commands | Technical Intelligence</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -31,30 +31,31 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .cmd-card:hover {
+        .command-card:hover {
             border-color: rgba(14, 165, 233, 0.3);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.2);
         }
     </style>
 </head>
 
 <body
-    class="antialiased selection:bg-accent-green selection:text-slate-900 flex flex-col min-h-screen bg-transparent text-slate-200">
+    class="antialiased selection:bg-accent-cyan selection:text-slate-900 flex flex-col min-h-screen bg-slate-950 text-slate-200">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-transparent/90 backdrop-blur-md border-b border-slate-700">
+    <nav class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="logo-container group flex items-center gap-3">
                 <img src="images/logo.png" alt="Logo"
                     class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+                <span
+                    class="font-mono text-sm font-bold text-slate-300 group-hover:text-accent-cyan transition-colors">/commands</span>
             </a>
             <div class="hidden lg:flex items-center gap-8 font-mono text-sm">
                 <a href="index.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Home</a>
                 <a href="about.html" class="text-slate-400 hover:text-accent-cyan transition-colors">About</a>
                 <a href="devhub.html" class="text-white hover:text-accent-cyan transition-colors">DevHub</a>
                 <a href="writeups.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Write-ups</a>
-                <a href="certificates.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Certs</a>
-                <a href="contact.html" class="text-slate-400 hover:text-accent-cyan transition-colors">Contact</a>
             </div>
             <button id="mobile-menu-btn" class="lg:hidden text-slate-400 hover:text-white p-2 text-2xl"><i
                     class="fa-solid fa-bars-staggered"></i></button>
@@ -62,100 +63,37 @@
     </nav>
 
     <!-- Header -->
-    <header class="py-16 px-6 bg-slate-950 border-b border-white/5">
-        <div class="max-w-7xl mx-auto">
+    <header class="py-16 px-6 bg-slate-950 border-b border-white/5 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-accent-cyan/5 blur-3xl rounded-full translate-x-1/2"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
             <nav class="flex items-center gap-2 text-xs font-mono text-slate-500 mb-8 uppercase tracking-widest">
                 <a href="devhub.html" class="hover:text-accent-cyan">DevHub</a>
                 <i class="fa-solid fa-chevron-right text-[10px] opacity-30"></i>
-                <span class="text-slate-300">Command Vault</span>
+                <span class="text-slate-300">Commands</span>
             </nav>
-            <h1 class="text-4xl font-bold mb-4 tracking-tight">Command <span class="text-accent-green">Vault</span></h1>
-            <p class="text-slate-400 max-w-2xl font-light leading-relaxed">
-                Critical command references for offensive research and system engineering.
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-white">Command <span
+                    class="text-accent-cyan">Reference</span>
+            </h1>
+            <p class="text-slate-400 max-w-2xl font-light leading-relaxed mb-6">
+                Essential CLI commands, flags, and usage patterns.
             </p>
+
+            <!-- Search -->
+            <div class="relative max-w-lg group">
+                <input type="text" id="command-search"
+                    class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 pl-10 focus:outline-none focus:border-accent-cyan/50 placeholder-slate-600 font-mono text-sm transition-all"
+                    placeholder="Search commands...">
+                <i
+                    class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-600 group-focus-within:text-accent-cyan transition-colors"></i>
+            </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="py-16 px-6 max-w-7xl mx-auto flex-grow">
-        <!-- Search/Filter -->
-        <div class="mb-12 flex flex-col md:flex-row gap-6 justify-between items-center">
-            <div class="relative w-full md:max-w-md">
-                <i
-                    class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm"></i>
-                <input type="text" placeholder="Search commands (e.g. nmap, openssl)..."
-                    class="w-full bg-slate-950 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-sm font-mono focus:border-accent-cyan/50 focus:outline-none transition-all">
-            </div>
-            <div class="flex gap-3 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
-                <button
-                    class="px-4 py-2 rounded-lg bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan text-xs font-mono whitespace-nowrap">ALL</button>
-                <button
-                    class="px-4 py-2 rounded-lg bg-white/5 border border-white/5 text-slate-500 text-xs font-mono hover:bg-white/10 transition-all whitespace-nowrap">NETWORK</button>
-                <button
-                    class="px-4 py-2 rounded-lg bg-white/5 border border-white/5 text-slate-500 text-xs font-mono hover:bg-white/10 transition-all whitespace-nowrap">STORAGE</button>
-                <button
-                    class="px-4 py-2 rounded-lg bg-white/5 border border-white/5 text-slate-500 text-xs font-mono hover:bg-white/10 transition-all whitespace-nowrap">RECON</button>
-            </div>
-        </div>
-
-        <!-- Command Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Command Item 1 -->
-            <div class="glass p-6 rounded-2xl border border-white/5 cmd-card transition-all flex flex-col">
-                <div class="flex justify-between items-start mb-4">
-                    <span
-                        class="text-[10px] font-mono text-accent-cyan uppercase tracking-widest bg-accent-cyan/10 px-2 py-1 rounded">Networking</span>
-                    <button class="text-slate-600 hover:text-white transition-colors p-2"
-                        onclick="copyContent('nmap -sV -sC -Pn')">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
-                </div>
-                <h4 class="font-bold text-white mb-2">Aggressive Service Scan</h4>
-                <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Standard reconnaissance scan with
-                    script analysis and versioning.</p>
-                <code
-                    class="block bg-slate-950 p-4 rounded-xl text-accent-green font-mono text-[13px] border border-white/5">
-                    nmap -sV -sC -Pn [IP]
-                </code>
-            </div>
-
-            <!-- Command Item 2 -->
-            <div class="glass p-6 rounded-2xl border border-white/5 cmd-card transition-all flex flex-col">
-                <div class="flex justify-between items-start mb-4">
-                    <span
-                        class="text-[10px] font-mono text-accent-green uppercase tracking-widest bg-accent-green/10 px-2 py-1 rounded">System</span>
-                    <button class="text-slate-600 hover:text-white transition-colors p-2"
-                        onclick="copyContent('journalctl -u')">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
-                </div>
-                <h4 class="font-bold text-white mb-2">Service Log Monitoring</h4>
-                <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Tail specific unit logs with real-time
-                    output for debugging.</p>
-                <code
-                    class="block bg-slate-950 p-4 rounded-xl text-accent-green font-mono text-[13px] border border-white/5">
-                    journalctl -u [service] -f
-                </code>
-            </div>
-
-            <!-- Command Item 3 -->
-            <div class="glass p-6 rounded-2xl border border-white/5 cmd-card transition-all flex flex-col">
-                <div class="flex justify-between items-start mb-4">
-                    <span
-                        class="text-[10px] font-mono text-accent-purple uppercase tracking-widest bg-accent-purple/10 px-2 py-1 rounded">Forensics</span>
-                    <button class="text-slate-600 hover:text-white transition-colors p-2"
-                        onclick="copyContent('exiftool -all')">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
-                </div>
-                <h4 class="font-bold text-white mb-2">Metadata Extraction</h4>
-                <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Comprehensive dump of all hidden
-                    metadata fields within a target file.</p>
-                <code
-                    class="block bg-slate-950 p-4 rounded-xl text-accent-green font-mono text-[13px] border border-white/5">
-                    exiftool -all:all [file]
-                </code>
-            </div>
+    <main class="py-12 px-6 max-w-7xl mx-auto flex-grow">
+        <div id="devhub-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- AUTO_CARDS_START:commands -->
+            <!-- AUTO_CARDS_END:commands -->
         </div>
     </main>
 
@@ -164,12 +102,23 @@
         <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center">Powered by kalialucard</p>
     </footer>
 
+    <script src="js/main.js"></script>
     <script>
-        function copyContent(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Command copied to clipboard!');
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('command-search');
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                const cards = document.querySelectorAll('.devhub-card'); // Using devhub-card class as generic ref
+                cards.forEach(card => {
+                    const text = card.innerText.toLowerCase();
+                    if (text.includes(term)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
             });
-        }
+        });
     </script>
 </body>
 
