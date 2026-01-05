@@ -5,7 +5,11 @@ import yaml
 import re
 import shutil
 import google.generativeai as genai
+from dotenv import load_dotenv
 from datetime import datetime
+
+# Load environment variables
+load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
 
 # Configuration
 CONTENT_DIR = "content"
