@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>envizon | Technical Intelligence Labs</title>
+    <title>Assetfinder Command List | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,157 +106,36 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">commands</span>
                 <span>// 2026-01-05</span>
-                <span>// ID: REF-envizon</span>
+                <span>// ID: REF-Assetfinder Command List</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">envizon</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Assetfinder Command List</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- tryhackme -->
+                <!-- assetfinder, cybersecurity, command reference, beginner -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT     STATE SERVICE  VERSION
-22/tcp   open  ssh      OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   2048 cb:98:15:ed:13:41:b4:d5:53:72:53:54:c7:56:e6:6a (RSA)
-|   256 c8:f2:71:60:0d:aa:f9:a0:d1:01:e5:61:30:97:ba:f7 (ECDSA)
-|_  256 11:23:45:6f:40:7a:9c:e4:d4:f1:05:ac:45:d5:ff:1a (ED25519)
-3000/tcp open  ssl/ppp?
-|_ssl-date: TLS randomness does not represent time
-| fingerprint-strings: 
-|   DNSVersionBindReqTCP, GenericLines, RPCCheck, RTSPRequest: 
-|     HTTP/1.1 400 Bad Request
-|   GetRequest: 
-|     HTTP/1.0 301 Moved Permanently
-|     Location: https://localhost/scans
-|     Content-Type: text/html
-|     Cache-Control: no-cache
-|     X-Request-Id: 7ec9a70c-cfe6-4fe4-93b6-bbcafe662c7c
-|     X-Runtime: 0.002623
-|     Strict-Transport-Security: max-age=31536000; includeSubDomains
-|     Content-Length: 89
-|     &lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://localhost/scans&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;
-|   HTTPOptions: 
-|     HTTP/1.0 404 Not Found
-|     Content-Type: text/html; charset=UTF-8
-|     X-Request-Id: 9fddd09f-c402-4c82-bd63-1e8272638e45
-|     X-Runtime: 0.002201
-|     Strict-Transport-Security: max-age=31536000; includeSubDomains
-|     Content-Length: 1722
-|     &lt;!DOCTYPE html&gt;
-|     &lt;html&gt;
-|     &lt;head&gt;
-|     &lt;title&gt;The page you were looking for doesn't exist (404)&lt;/title&gt;
-|     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
-|     &lt;style&gt;
-|     .rails-default-error-page {
-|     background-color: #EFEFEF;
-|     color: #2E2F30;
-|     text-align: center;
-|     font-family: arial, sans-serif;
-|     margin: 0;
-|     .rails-default-error-page div.dialog {
-|     width: 95%;
-|     max-width: 33em;
-|     margin: 4em auto 0;
-|     .rails-default-error-page div.dialog &gt; div {
-|     border: 1px solid #CCC;
-|     border-right-color: #999;
-|     border-left-color: #999;
-|     border-bottom-color: #BBB;
-|     border-top: #B00100 solid 4px;
-|_    border-top-left-radius: 9p
-| ssl-cert: Subject: commonName=None/organizationName=evait/stateOrProvinceName=None/countryName=DE
-| Not valid before: 2020-09-30T22:19:49
-|_Not valid after:  2021-09-30T22:19:49
-1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
-SF-Port3000-TCP:V=7.95%T=SSL%I=7%D=1/2%Time=6957BF33%P=x86_64-pc-linux-gnu
-SF:%r(GenericLines,1C,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\n\r\n&quot;)%r(GetR
-SF:equest,16D,&quot;HTTP/1\.0\x20301\x20Moved\x20Permanently\r\nLocation:\x20ht
-SF:tps://localhost/scans\r\nContent-Type:\x20text/html\r\nCache-Control:\x
-SF:20no-cache\r\nX-Request-Id:\x207ec9a70c-cfe6-4fe4-93b6-bbcafe662c7c\r\n
-SF:X-Runtime:\x200\.002623\r\nStrict-Transport-Security:\x20max-age=315360
-SF:00;\x20includeSubDomains\r\nContent-Length:\x2089\r\n\r\n&lt;html&gt;&lt;body&gt;Yo
-SF:u\x20are\x20being\x20&lt;a\x20href=\&quot;https://localhost/scans\&quot;&gt;redirected&lt;
-SF:/a&gt;\.&lt;/body&gt;&lt;/html&gt;&quot;)%r(HTTPOptions,79B,&quot;HTTP/1\.0\x20404\x20Not\x20Fou
-SF:nd\r\nContent-Type:\x20text/html;\x20charset=UTF-8\r\nX-Request-Id:\x20
-SF:9fddd09f-c402-4c82-bd63-1e8272638e45\r\nX-Runtime:\x200\.002201\r\nStri
-SF:ct-Transport-Security:\x20max-age=31536000;\x20includeSubDomains\r\nCon
-SF:tent-Length:\x201722\r\n\r\n&lt;!DOCTYPE\x20html&gt;\n&lt;html&gt;\n&lt;head&gt;\n\x20\x2
-SF:0&lt;title&gt;The\x20page\x20you\x20were\x20looking\x20for\x20doesn't\x20exis
-SF:t\x20\(404\)&lt;/title&gt;\n\x20\x20&lt;meta\x20name=\&quot;viewport\&quot;\x20content=\&quot;w
-SF:idth=device-width,initial-scale=1\&quot;&gt;\n\x20\x20&lt;style&gt;\n\x20\x20\.rails-
-SF:default-error-page\x20{\n\x20\x20\x20\x20background-color:\x20#EFEFEF;\
-SF:n\x20\x20\x20\x20color:\x20#2E2F30;\n\x20\x20\x20\x20text-align:\x20cen
-SF:ter;\n\x20\x20\x20\x20font-family:\x20arial,\x20sans-serif;\n\x20\x20\x
-SF:20\x20margin:\x200;\n\x20\x20}\n\n\x20\x20\.rails-default-error-page\x2
-SF:0div\.dialog\x20{\n\x20\x20\x20\x20width:\x2095%;\n\x20\x20\x20\x20max-
-SF:width:\x2033em;\n\x20\x20\x20\x20margin:\x204em\x20auto\x200;\n\x20\x20
-SF:}\n\n\x20\x20\.rails-default-error-page\x20div\.dialog\x20&gt;\x20div\x20{
-SF:\n\x20\x20\x20\x20border:\x201px\x20solid\x20#CCC;\n\x20\x20\x20\x20bor
-SF:der-right-color:\x20#999;\n\x20\x20\x20\x20border-left-color:\x20#999;\
-SF:n\x20\x20\x20\x20border-bottom-color:\x20#BBB;\n\x20\x20\x20\x20border-
-SF:top:\x20#B00100\x20solid\x204px;\n\x20\x20\x20\x20border-top-left-radiu
-SF:s:\x209p&quot;)%r(RTSPRequest,1C,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\n\r\n
-SF:&quot;)%r(RPCCheck,1C,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\n\r\n&quot;)%r(DNSVer
-SF:sionBindReqTCP,1C,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\n\r\n&quot;);
-Device type: general purpose
-Running: Linux 4.X
-OS CPE: cpe:/o:linux:linux_kernel:4.15
-OS details: Linux 4.15
-Network Distance: 3 hops
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
-
-<pre class="codehilite"><code>└─$ gobuster dir -k -u https://10.66.188.149:3000 -w /usr/share/dirbuster/wordlists/directory-list-2.3-small.txt 2&gt;/dev/null
-
-===============================================================
-Gobuster v3.8
-by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
-===============================================================
-[+] Url:                     https://10.66.188.149:3000
-[+] Method:                  GET
-[+] Threads:                 10
-[+] Wordlist:                /usr/share/dirbuster/wordlists/directory-list-2.3-small.txt
-[+] Negative Status codes:   404
-[+] User Agent:              gobuster/3.8
-[+] Timeout:                 10s
-===============================================================
-Starting gobuster in directory enumeration mode
-===============================================================
-/images               (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
-/admin                (Status: 302) [Size: 104] [--&gt; https://10.66.188.149:3000/admin/login]
-/reports              (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
-/issues               (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
-/groups               (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
-/clients              (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
-/notes                (Status: 302) [Size: 106] [--&gt; https://10.66.188.149:3000/users/sign_in]
-/404                  (Status: 200) [Size: 1722]
-/500                  (Status: 200) [Size: 1635]
-/422                  (Status: 200) [Size: 1705]
-^C
-</code></pre>
-
-<pre class="codehilite"><code>https://10.66.188.149:3000/notes/1
-
-![](../images/posts/https://10.66.188.149:3000/assets/logo/envizon-wide-export-white-a650bc5b488e5de846dd2e4e58df9449bd7e3a4908f2511677d18a70581a9644.svg)
-
-](https://10.66.188.149:3000/)
-
-- [_account_circle_Please sign in](https://10.66.188.149:3000/)
-
-**Text:** Hi Paul, for security reasons I added hashids with a length of 30 characters to notes. I stored the password for this envizon instance in the note with id 380 and sent you the link by email. We may should consider to add more security layers to this gem (https://github.com/dtaniwaki/acts_as_hashids)
-</code></pre>
-
-<pre class="codehilite"><code>
-</code></pre>
+<h1>Assetfinder Command Guide</h1>
+<p>Please generate a detailed educational guide for the <strong>Assetfinder</strong> tool.<br />
+Follow this structure exactly:</p>
+<ol>
+<li><strong>Brief Explanation</strong>: Explain what Assetfinder is and why it's used in cybersecurity.</li>
+<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
+<li>For EACH command, provide the exact syntax in a code block.</li>
+<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
+<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
+</ul>
+</li>
+<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
+</ol>
+<p><strong>Tone</strong>: Educational, for a beginner student.</p>
         </div>
     </main>
 

