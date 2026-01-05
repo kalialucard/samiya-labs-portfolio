@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/commands/Gobuster.md",
+                "file": "content/commands/Dirbuster.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Gobuster"
+              "title": "Dirbuster"
             }
           }
         ]
@@ -193,10 +193,19 @@
   },
   "active": "43c65ab506ff5e28",
   "lastOpenFiles": [
+    "content/commands/Gobuster.md",
+    "content/commands/Dirbuster.md",
+    "content/commands/WordPress Command List.md",
+    "content/docs/sed3z3lLg",
+    "content/tools/sedN4YabM",
+    "content/projects/sedNCswh6",
+    "content/blogs/sed2wjIWr",
+    "content/cheatsheet/example-sheet.md",
+    "content/testing/example-test-log.md",
+    "content/docs/example-doc.md",
+    "content/tools/example-tool.md",
     "devhub.html",
     "content/writeups/tryhackme/Untitled.md",
-    "content/commands/Gobuster.md",
-    "content/commands/WordPress Command List.md",
     "conflict-files-obsidian-git.md",
     "content/templates/01-Writeup-Template.md",
     "content/templates/08-Testing-Template.md",
@@ -215,20 +224,11 @@
     "content/writeups/test-log.md",
     "content/writeups/tryhackme/Borderlands (done  not finish walkin).md",
     "content/writeups/tryhackme/Brooklyn Nine Nine.md",
-    "content/writeups/tryhackme/CCT2019.md",
-    "content/writeups/tryhackme/CherryBlossom.md",
-    "content/writeups/tryhackme/Crocc Crew.md",
-    "content/writeups/tryhackme/Cyborg.md",
     "posts/zero-trust-network-implementation.html",
     "posts/wordpress.html",
     "posts/whiterose.html",
     "posts/wekor.html",
     "posts/web-application-security-audit.html",
-    "posts/walkin.html",
-    "posts/vulnnet.html",
-    "posts/valley.html",
-    "posts/unstable-twin.html",
-    "posts/ultratech.html",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "content/writeups/Untitled.canvas",
