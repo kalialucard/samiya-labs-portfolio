@@ -115,27 +115,129 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- dirbuster, cybersecurity, command reference, beginner, web -->
+                <!-- dirbuster, web enumeration, directory brute-forcing, cybersecurity, beginner, penetration testing, recon -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>Dirbuster Command Guide</h1>
-<p>Please generate a detailed educational guide for the <strong>Dirbuster</strong> tool.<br />
-Follow this structure exactly:</p>
-<ol>
-<li><strong>Brief Explanation</strong>: Explain what Dirbuster is and why it's used in cybersecurity.</li>
-<li><strong>Top 10 Useful Commands</strong>: List the 10 most common/useful commands for this tool.<ul>
-<li>For EACH command, provide the exact syntax in a code block.</li>
-<li>Explain what each flag does (<code>-x</code>, <code>-u</code>, etc.).</li>
-<li>Explain the <em>output</em> and <em>why</em> you would use this specific command.</li>
+<p>Welcome, aspiring cybersecurity enthusiasts! Today, we're diving into a fundamental technique for uncovering hidden treasures on websites: <strong>Directory Busting</strong>. Think of it like being a detective, meticulously searching every room and closet in a building to find what's inside. Our primary tool for this mission is <strong>Dirbuster</strong>.</p>
+<h2>1. Brief Explanation: What is Dirbuster and Why Do We Use It?</h2>
+<p><strong>Dirbuster</strong> is a graphical Java application designed to brute-force web server directories and files. In simpler terms, it helps us discover hidden pages, sensitive configuration files, or administrative interfaces that might not be directly linked from a website's homepage.</p>
+<p>Why is this important in cybersecurity?<br />
+*   <strong>Finding Hidden Content</strong>: Websites often have administrative panels, backup files, or developer testing pages that aren't meant to be publicly accessible but are left exposed. Dirbuster helps us find these.<br />
+*   <strong>Identifying Vulnerabilities</strong>: Sometimes, these hidden directories contain outdated software, misconfigurations, or sensitive data that attackers can exploit.<br />
+*   <strong>Mapping the Attack Surface</strong>: By understanding what directories and files exist, we get a better picture of the web application's structure, which is crucial for planning further attacks.</p>
+<p>Dirbuster works by systematically trying a list of common directory and file names against a target web server. If the server responds with a success code (like 200 OK), it means that directory or file exists!</p>
+<h2>2. Top 10 Useful Dirbuster Commands</h2>
+<p>Dirbuster is a graphical tool, so "commands" here refer to the various options and configurations you'll use within its interface. We'll simulate these through common command-line arguments if Dirbuster were to be run from the terminal, or explain the GUI elements that correspond.</p>
+<p>Let's assume you've downloaded and are running Dirbuster. You'll typically see a GUI where you configure these options.</p>
+<hr />
+<p><strong>1. Setting the Target URL</strong></p>
+<ul>
+<li><strong>GUI Equivalent</strong>: The main input field where you enter the website's address.</li>
+<li><strong>Explanation</strong>: This is the most fundamental step. You need to tell Dirbuster <em>where</em> to start its search.</li>
+</ul>
+<hr />
+<p><strong>2. Selecting a Dictionary File</strong></p>
+<ul>
+<li><strong>GUI Equivalent</strong>: The "Dictionary" dropdown or file selection button.</li>
+<li><strong>Explanation</strong>: A dictionary file (or wordlist) is a text file containing a list of potential directory and file names. Dirbuster tries each one. The larger and more comprehensive the dictionary, the more likely you are to find something, but it will also take longer. Common dictionaries include <code>directory-list-2.3-medium.txt</code> or custom ones you create.</li>
+</ul>
+<hr />
+<p><strong>3. Choosing the Brute Force Mode</strong></p>
+<ul>
+<li><strong>GUI Equivalent</strong>: Often within the "Start" or "Options" menu, allowing you to select "Directory" or "File" mode, or a combination.</li>
+<li><strong>Explanation</strong>:<ul>
+<li><strong>Directory Mode</strong>: Dirbuster will try to find directories.</li>
+<li><strong>File Mode</strong>: Dirbuster will try to find specific files (e.g., <code>index.html</code>, <code>config.php</code>).</li>
+<li>You can often choose to search for both. For initial reconnaissance, focusing on directories is common.</li>
 </ul>
 </li>
-<li><strong>The Most Powerful Command</strong>: Highlight the single most powerful or "all-in-one" command for this tool and explain its power.</li>
-</ol>
-<p><strong>Tone</strong>: Educational, for a beginner student.</p>
+</ul>
+<hr />
+<p><strong>4. Specifying Port Number</strong></p>
+<ul>
+<li><strong>GUI Equivalent</strong>: A dedicated field for the port number, usually pre-filled with 80 or 443.</li>
+<li><strong>Explanation</strong>: This tells Dirbuster which port to connect to on the web server. The standard HTTP port is 80, and HTTPS is 443. If a website uses a non-standard port, you'll need to specify it.</li>
+</ul>
+<hr />
+<p><strong>5. Setting the HTTP Method</strong></p>
+<ul>
+<li><strong>GUI Equivalent</strong>: An option to select GET, POST, etc., usually in advanced settings.</li>
+<li><strong>Explanation</strong>:<ul>
+<li><code>GET</code>: This is the standard method used to retrieve data from a server. Dirbuster uses this by default.</li>
+<li><code>POST</code>: This method sends data to the server (e.g., submitting a form). While less common for basic directory busting, it can be useful if you suspect certain directories require POST requests to be accessed.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><strong>6. Excluding Specific Status Codes</strong></p>
+<ul>
+<li><strong>GUI Equivalent</strong>: An option to list "Non-existent" or "Excluded" status codes.</li>
+<li><strong>Explanation</strong>: Web servers return status codes to indicate the result of a request.<ul>
+<li><code>404 Not Found</code> is the most common code for something that doesn't exist.</li>
+<li>You might want Dirbuster to ignore <code>404</code> responses so it only reports on things that <em>do</em> exist. You might also exclude other error codes if they clutter your results.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><strong>7. Including Specific Status Codes</strong></p>
+<ul>
+<li><strong>GUI Equivalent</strong>: An option to list "Existent" or "Included" status codes.</li>
+<li><strong>Explanation</strong>: Conversely, you can tell Dirbuster to <em>only</em> report on specific status codes. For example, you might want to see only <code>200 OK</code> (successful) and <code>302 Found</code> (redirect) responses.</li>
+</ul>
+<hr />
+<p><strong>8. Setting the Number of Threads</strong></p>
+<ul>
+<li><strong>GUI Equivalent</strong>: A slider or input field labeled "Threads" or "Concurrent Jobs".</li>
+<li><strong>Explanation</strong>: Threads allow Dirbuster to perform multiple requests simultaneously. More threads mean faster scanning. However, too many threads can overload the target server, your own machine, or even get you blocked.</li>
+</ul>
+<hr />
+<p><strong>9. Saving the Results</strong></p>
+<ul>
+<li><strong>GUI Equivalent</strong>: A "Save" or "Export" button, often after a scan is complete.</li>
+<li><strong>Explanation</strong>: Once Dirbuster finds something interesting, you'll want to save the list of discovered directories and files for later analysis. This is crucial for documenting your findings.</li>
+</ul>
+<hr />
+<p><strong>10. Filtering Results</strong></p>
+<ul>
+<li><strong>GUI Equivalent</strong>: A search bar or filter option within the results pane.</li>
+<li><strong>Explanation</strong>: As Dirbuster finds more, the list can get long. Filtering allows you to quickly search for specific file types (e.g., <code>.php</code>, <code>.config</code>), names (e.g., <code>admin</code>), or status codes.</li>
+</ul>
+<hr />
+<h2>3. The Most Powerful Command (Conceptually)</h2>
+<p>While Dirbuster is graphical, the underlying power comes from combining several options. The "most powerful" approach isn't a single command, but a well-configured session. If we were to conceptualize a powerful, all-encompassing command-line equivalent, it would look something like this:</p>
+<pre class="codehilite"><code class="language-bash"># This is a conceptual representation as Dirbuster is GUI-based
+# but illustrates the powerful combination of settings.
+
+dirbuster \
+  --url http://target-website.com \
+  --port 80 \
+  --dictionary /path/to/large-wordlist.txt \
+  --mode directory \
+  --threads 50 \
+  --include-codes 200,301,302 \
+  --exclude-codes 404 \
+  --output results.txt
+</code></pre>
+
+<p><strong>Explanation of this Conceptual Command:</strong></p>
+<ul>
+<li><code>dirbuster</code>: Invokes the Dirbuster tool.</li>
+<li><code>--url http://target-website.com</code>: <strong>Sets the Target</strong>: Specifies the exact website you want to scan. This is the most crucial part – pointing Dirbuster in the right direction.</li>
+<li><code>--port 80</code>: <strong>Selects the Port</strong>: Targets the standard HTTP port. If it were HTTPS, you'd use <code>--port 443</code>.</li>
+<li><code>--dictionary /path/to/large-wordlist.txt</code>: <strong>Employs a Comprehensive Dictionary</strong>: Using a large, well-curated wordlist is key to finding more than just the obvious directories. This ensures a thorough search.</li>
+<li><code>--mode directory</code>: <strong>Focuses on Directories</strong>: This tells Dirbuster to prioritize finding directory structures, which often lead to more significant discoveries than individual files in an initial sweep.</li>
+<li><code>--threads 50</code>: <strong>Accelerates the Scan</strong>: Using a higher number of threads (e.g., 50) allows Dirbuster to make many requests at once, significantly speeding up the scan. <strong>Caution</strong>: This needs to be adjusted based on the target's server and your network to avoid overwhelming it or getting blocked.</li>
+<li><code>--include-codes 200,301,302</code>: <strong>Filters for Success</strong>: By only including codes 200 (OK), 301 (Moved Permanently), and 302 (Found/Redirect), we tell Dirbuster to report anything that exists or redirects, effectively ignoring "Not Found" errors.</li>
+<li><code>--exclude-codes 404</code>: <strong>Ignores Errors</strong>: Explicitly tells Dirbuster not to bother with <code>404 Not Found</code> responses, keeping the results cleaner.</li>
+<li><code>--output results.txt</code>: <strong>Saves Discoveries</strong>: This ensures that all found directories and files are logged to a file for later review and analysis.</li>
+</ul>
+<p><strong>Why is this combination powerful?</strong></p>
+<p>This conceptual command represents a <strong>thorough, efficient, and focused reconnaissance effort</strong>. It leverages a broad dictionary to maximize discovery, uses multiple threads for speed, precisely filters for relevant responses, and diligently saves the findings. This approach dramatically increases the chances of uncovering hidden web assets that could be entry points for further penetration testing.</p>
+<p>Keep practicing with Dirbuster on safe, authorized targets, and you'll quickly become proficient at finding those hidden web pathways!</p>
         </div>
     </main>
 

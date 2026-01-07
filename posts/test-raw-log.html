@@ -115,28 +115,99 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- writeups -->
+                <!-- ['nmap', 'samba', 'smbclient', 'enumeration', 'linux', 'networking', 'vulnerability assessment', 'beginner', 'cybersecurity'] -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<p>Nmap scan report for 10.10.10.27<br />
-Host is up (0.14s latency).<br />
-PORT    STATE SERVICE      VERSION<br />
-22/tcp  open  ssh          OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)<br />
-139/tcp open  netbios-ssn  Samba smbd 4.6.2<br />
-445/tcp open  microsoft-ds Samba smbd 4.6.2<br />
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</p>
-<p>Ran smbclient:<br />
-$ smbclient -L //10.10.10.27<br />
-Sharename       Type      Comment<br />
----------       ----      -------<br />
-print$          Disk      Printer Drivers<br />
-backups         Disk      System Backups<br />
-IPC$            IPC       IPC Service (Samba 4.6.2)<br />
-Anonymous login successful</p>
+<p>Welcome to this educational walkthrough! Today, we'll be breaking down the initial steps of assessing a target system, focusing on how to gather information using common cybersecurity tools. Our goal is to understand what services are running, how they are configured, and what potential vulnerabilities might exist. We'll start with network scanning and then move into enumerating specific services.</p>
+<h2>Reconnaissance</h2>
+<p>The very first step in any penetration test or security assessment is reconnaissance, where we gather as much information as possible about our target. We often begin with a network scanner to identify active hosts and open ports.</p>
+<p>Our target for today is <code>10.10.10.27</code>. We'll start by running an Nmap scan to discover what ports are open and what services are running on them.</p>
+<pre class="codehilite"><code class="language-bash">Nmap scan report for 10.10.10.27
+Host is up (0.14s latency).
+PORT    STATE SERVICE      VERSION
+22/tcp  open  ssh          OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+139/tcp open  netbios-ssn  Samba smbd 4.6.2
+445/tcp open  microsoft-ds Samba smbd 4.6.2
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+
+<p>🧠 <strong>Beginner Analysis</strong></p>
+<p>Let's break down this Nmap output line by line to understand what we've discovered:</p>
+<ul>
+<li><strong><code>Nmap scan report for 10.10.10.27</code></strong>: This simply confirms the target IP address that Nmap scanned.</li>
+<li><strong><code>Host is up (0.14s latency).</code></strong>: This tells us that the target machine is online and responsive. The latency indicates how long it took for our machine to receive a response, giving us an idea of network speed.</li>
+<li><strong><code>PORT STATE SERVICE VERSION</code></strong>: This is the core of Nmap's findings.<ul>
+<li><strong><code>PORT</code></strong>: The port number and protocol (e.g., <code>22/tcp</code> means port 22 using the TCP protocol).</li>
+<li><strong><code>STATE</code></strong>: The state of the port. <code>open</code> means the port is actively listening for connections, indicating a service is running.</li>
+<li><strong><code>SERVICE</code></strong>: Nmap's best guess for the service running on that port (e.g., <code>ssh</code>, <code>netbios-ssn</code>).</li>
+<li><strong><code>VERSION</code></strong>: A crucial piece of information! This is the specific software and its version detected on the open port. Knowing the version helps us research known vulnerabilities.</li>
+</ul>
+</li>
+<li><strong><code>22/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)</code></strong>:<ul>
+<li>Port 22 is commonly used for <strong>SSH (Secure Shell)</strong>. SSH allows secure remote login and command execution. An open SSH port means we <em>might</em> be able to log in if we have credentials or can exploit a vulnerability in the SSH service itself. The version <code>OpenSSH 8.2p1</code> tells us the specific software and its version, which is important for checking for known vulnerabilities later.</li>
+</ul>
+</li>
+<li><strong><code>139/tcp open netbios-ssn Samba smbd 4.6.2</code></strong>:<ul>
+<li>Port 139 is associated with <strong>NetBIOS Session Service</strong>, often used by <strong>Samba</strong> on Linux/Unix systems to provide <strong>SMB/CIFS</strong> services, which are protocols for file sharing and printer sharing over a network.</li>
+</ul>
+</li>
+<li><strong><code>445/tcp open microsoft-ds Samba smbd 4.6.2</code></strong>:<ul>
+<li>Port 445 is also used by <strong>SMB (Server Message Block)</strong> directly, without NetBIOS. This is the more modern way SMB operates. The fact that both 139 and 445 are open, and both are identified as <code>Samba smbd 4.6.2</code>, strongly indicates that the target machine is running a Samba file-sharing server. This is a very interesting finding, as SMB services are often misconfigured or have exploitable vulnerabilities.</li>
+</ul>
+</li>
+<li><strong><code>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</code></strong>:<ul>
+<li>This provides additional information about the target's operating system. Nmap has fingerprinted the OS as <strong>Linux</strong>. The <code>CPE</code> (Common Platform Enumeration) string is a standardized naming scheme for software, operating systems, and hardware.</li>
+</ul>
+</li>
+</ul>
+<p><strong>In summary from our Nmap scan, we know:</strong><br />
+1.  The target is a Linux machine.<br />
+2.  It has an SSH service running (<code>OpenSSH 8.2p1</code>).<br />
+3.  Most importantly, it has a <strong>Samba file-sharing service</strong> running (<code>Samba smbd 4.6.2</code>) accessible via both ports 139 and 445. This service provides a potential avenue for enumeration and exploitation.</p>
+<h2>Enumeration</h2>
+<p>Now that we know a Samba service is running, our next logical step is to enumerate it. Enumeration involves actively querying a service to extract more detailed information about its configuration, users, shares, and other potential weaknesses. For Samba, the <code>smbclient</code> tool is invaluable.</p>
+<p>We will use <code>smbclient</code> with the <code>-L</code> flag to list the available shares on the target IP address.</p>
+<pre class="codehilite"><code class="language-bash">$ smbclient -L //10.10.10.27
+Sharename       Type      Comment
+---------       ----      -------
+print$          Disk      Printer Drivers
+backups         Disk      System Backups
+IPC$            IPC       IPC Service (Samba 4.6.2)
+Anonymous login successful
+</code></pre>
+
+<p>🧠 <strong>Beginner Analysis</strong></p>
+<p>Let's dissect this <code>smbclient</code> command and its output:</p>
+<ul>
+<li><strong><code>$ smbclient -L //10.10.10.27</code></strong>:<ul>
+<li><code>smbclient</code>: This is a command-line utility used to access SMB/CIFS shares on network servers. It acts like a client for the Samba server.</li>
+<li><code>-L</code>: This flag tells <code>smbclient</code> to list the services (shares) available on the specified host.</li>
+<li><code>//10.10.10.27</code>: This is the standard UNC (Universal Naming Convention) path format for specifying a network host. The double slashes <code>//</code> indicate a network resource, followed by the IP address of the target server.</li>
+</ul>
+</li>
+<li><strong><code>Sharename Type Comment</code></strong>: These are the columns describing the discovered shares.<ul>
+<li><code>Sharename</code>: The name of the shared resource.</li>
+<li><code>Type</code>: The type of share, typically <code>Disk</code> for file shares or <code>IPC</code> for inter-process communication shares.</li>
+<li><code>Comment</code>: An optional description provided by the server administrator.</li>
+</ul>
+</li>
+<li><strong><code>print$ Disk Printer Drivers</code></strong>: This is a common share for printer drivers. The <code>$</code> at the end often signifies a hidden share, though it's still listed here. While it might contain sensitive information, it's typically less interesting than other shares for initial access.</li>
+<li><strong><code>backups Disk System Backups</code></strong>: This share is immediately very interesting! A share named <code>backups</code> that contains "System Backups" is a prime target for further investigation. Backup files often contain sensitive data, configuration files, or even user credentials. Gaining access to this share could lead to significant information disclosure.</li>
+<li><strong><code>IPC$ IPC IPC Service (Samba 4.6.2)</code></strong>: <code>IPC$</code> (Inter-Process Communication) is a default, special share used by SMB for network communication between client and server. It's not a file share in the traditional sense but is necessary for many SMB operations. It's generally not directly exploitable for data access.</li>
+<li><strong><code>Anonymous login successful</code></strong>: This is a <strong>critical finding</strong>! It means that we were able to connect to the Samba server and list its shares <em>without providing any username or password</em>. This is often referred to as "anonymous access" or "null session login."</li>
+</ul>
+<p><strong>Why is "Anonymous login successful" significant?</strong></p>
+<p>Anonymous access to SMB shares is a serious misconfiguration. It means anyone on the network can potentially:<br />
+1.  <strong>List shares</strong>: As we just did, revealing potentially sensitive share names.<br />
+2.  <strong>Access shares</strong>: If any of the listed shares (especially <code>backups</code> in our case) are also configured for anonymous read or write access, an attacker could browse, download, or even upload/modify files without any authentication. This could lead to:<br />
+    *   <strong>Information Disclosure</strong>: Accessing sensitive documents, configuration files, or user data.<br />
+    *   <strong>Code Execution</strong>: If an anonymous user can write to a share that's executed by the system (e.g., a web root, or a script directory), they might be able to upload malicious code.</p>
+<p><strong>Next Steps</strong></p>
+<p>Given the <code>backups</code> share and the successful anonymous login, our next steps would be to attempt to connect to the <code>backups</code> share using <code>smbclient</code> (without credentials) and explore its contents. We would look for sensitive files, configuration files, password hashes, or anything that could give us further access to the system or elevate our privileges.</p>
         </div>
     </main>
 

