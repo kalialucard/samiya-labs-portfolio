@@ -194,4 +194,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         updateFeed();
     }
+    // 8. Copy to Clipboard for Code Blocks
+    // Target both standard markdown content and injected content (e.g. from JS)
+    const codeBlocks = document.querySelectorAll('.markdown-content pre, #injected-content pre');
+
+    codeBlocks.forEach(pre => {
+        // Create button
+        const btn = document.createElement('button');
+        btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+        btn.className = 'absolute top-2 right-2 text-slate-400 hover:text-white transition-all duration-200 opacity-0 group-hover:opacity-100 p-2 rounded bg-slate-800/50 backdrop-blur-sm border border-slate-700/50';
+        btn.setAttribute('aria-label', 'Copy to clipboard');
+
+        // Make pre relative for positioning and group for hover
+        pre.classList.add('relative', 'group');
+        pre.appendChild(btn);
+
+        btn.addEventListener('click', () => {
+            const code = pre.querySelector('code');
+            // Remove the LAST newline character if it exists, as pre tags often have an extra one
+            let text = code ? code.innerText : pre.innerText;
+
+            navigator.clipboard.writeText(text).then(() => {
+                // Button Feedback
+                const originalIcon = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check text-green-400"></i>';
+
+                // Visual Highlight Feedback (Flash Green)
+                // Use !important to override any specific CSS rules
+                const originalTransition = pre.style.transition;
+                pre.style.transition = 'background-color 0.2s';
+                pre.style.setProperty('background-color', 'rgba(34, 197, 94, 0.15)', 'important');
+
+                setTimeout(() => {
+                    btn.innerHTML = originalIcon;
+                    pre.style.setProperty('background-color', '', ''); // Reset to default
+                    // Restore transition after cleanup to avoid getting stuck
+                    setTimeout(() => { pre.style.transition = originalTransition; }, 200);
+                }, 1000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                btn.innerHTML = '<i class="fa-solid fa-xmark text-red-500"></i>';
+            });
+        });
+    });
+
 });

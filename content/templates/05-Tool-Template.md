@@ -16,7 +16,9 @@ description: "Description of the tool."
 ## Installation
 ```bash
 apt install toolname
-# OR
+```
+OR
+```bash
 pip install toolname
 ```
 
