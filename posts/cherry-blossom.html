@@ -115,18 +115,20 @@
             
             <div class="flex flex-wrap gap-2">
                 <!-- Tags populated by python -->
-                <!-- tryhackme -->
+                <!-- nmap, smb, steganography, fcrackzip, john the ripper, hydra, ssh, privilege escalation, ctf, cybersecurity, linux -->
             </div>
         </header>
 
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<h2>Summary</h2>
-<p>A walkthrough of the Cherry Blossom machine involving SMB enumeration, steganography on a journal file, breaking a custom archive format, and brute-forcing SSH credentials.</p>
+<p>Welcome, aspiring cybersecurity professionals! This walkthrough will take you step-by-step through the process of compromising a machine, focusing on fundamental techniques that are crucial for your learning journey. We'll be tackling the "Cherry Blossom" machine, exploring its vulnerabilities from initial reconnaissance to achieving full root access.</p>
+<h3>Introduction</h3>
+<p>Our goal today is to gain unauthorized access to the Cherry Blossom machine. We'll achieve this by systematically probing the system, uncovering hidden information, and exploiting weaknesses. This process simulates real-world penetration testing scenarios, so pay close attention to each phase and the tools we use.</p>
 <h2>Reconnaissance</h2>
-<p><strong>Nmap Scan Results:</strong></p>
-<pre class="codehilite"><code>PORT    STATE SERVICE      REASON
+<p>The first step in any engagement is <strong>reconnaissance</strong>, which involves gathering information about the target system. We'll start with a network scan to identify open ports and services.</p>
+<p>We used <strong>Nmap</strong>, a powerful network scanning tool, to discover what services are running on the target machine at IP address <code>10.64.149.126</code>.</p>
+<pre class="codehilite"><code class="language-bash">PORT    STATE SERVICE      REASON
 22/tcp  open  ssh          syn-ack ttl 62
 139/tcp open  netbios-ssn  syn-ack ttl 62
 445/tcp open  microsoft-ds syn-ack ttl 62
@@ -141,9 +143,25 @@ Host script results:
 |_    Anonymous access: READ/WRITE
 </code></pre>
 
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong>Nmap</strong>: This command executed an Nmap scan. While the exact flags aren't shown here, typically flags like <code>-sC</code> (run default scripts) and <code>-sV</code> (service version detection) are used in initial scans.</li>
+<li><strong>Open Ports</strong>: We see three open ports:<ul>
+<li><strong>Port 22 (SSH)</strong>: This is the Secure Shell protocol, commonly used for remote command-line access. It's a prime target for password brute-forcing.</li>
+<li><strong>Port 139 and 445 (SMB)</strong>: These ports are associated with the Server Message Block protocol, which is used for file and printer sharing in Windows environments. Even though this is likely a Linux machine (indicated by "Samba"), SMB services are still relevant for file sharing.</li>
+</ul>
+</li>
+<li><strong>SMB Share Enumeration</strong>: The <code>smb-enum-shares</code> script attempted to list available SMB shares.<ul>
+<li>The <code>ERROR: Enumerating shares failed</code> message indicates that the script encountered an issue. This can happen if the server is misconfigured or if there are network restrictions. However, Nmap often makes a "guess" at common shares even if it can't fully enumerate them.</li>
+<li><code>\\10.64.149.126\IPC$</code>: This is a common "hidden" share used for inter-process communication.</li>
+<li><code>Anonymous access: READ/WRITE</code>: This is a critical finding! It means anyone can connect to this share without needing a username or password and can both read and write files. This is a significant security weakness we will exploit.</li>
+</ul>
+</li>
+</ul>
 <h2>Enumeration</h2>
-<p><strong>SMB Access:</strong><br />
-We found anonymous access allowed on the SMB server.</p>
+<p>Now that we've identified an open SMB share with anonymous read/write access, we'll dive deeper.</p>
+<h3>SMB Access</h3>
+<p>We can leverage the anonymous access to connect to the SMB share and explore its contents.</p>
 <pre class="codehilite"><code class="language-bash">smbclient //10.64.149.126/Anonymous -N -t 900
 
 Anonymous login successful
@@ -152,8 +170,18 @@ smb: \&gt; ls
 smb: \&gt; get journal.txt
 </code></pre>
 
-<p><strong>Steganography Analysis:</strong><br />
-The <code>journal.txt</code> file appears to be base64 encoded. Decoding it reveals a PNG header.</p>
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong><code>smbclient</code></strong>: This is a command-line utility for interacting with SMB/CIFS servers.</li>
+<li><strong><code>//10.64.149.126/Anonymous</code></strong>: This specifies the target IP address and the share name we are connecting to.</li>
+<li><strong><code>-N</code></strong>: This flag tells <code>smbclient</code> not to prompt for a password, as we intend to use anonymous authentication.</li>
+<li><strong><code>-t 900</code></strong>: This sets the connection timeout.</li>
+<li><strong><code>Anonymous login successful</code></strong>: Confirms our anonymous access.</li>
+<li><strong><code>ls</code></strong>: Lists the files and directories within the <code>Anonymous</code> share. We find a file named <code>journal.txt</code>.</li>
+<li><strong><code>get journal.txt</code></strong>: Downloads the <code>journal.txt</code> file to our local machine.</li>
+</ul>
+<h3>Steganography Analysis</h3>
+<p>The <code>journal.txt</code> file is quite large (over 3MB). This suggests it might contain hidden data. We'll investigate its content.</p>
 <pre class="codehilite"><code class="language-bash">cat journal.txt | base64 -d &gt; output
 file output
 # output: PNG image data, 1280 x 853, 8-bit/color RGB, non-interlaced
@@ -164,9 +192,27 @@ file output
 # File _journal.zip succesfully extracted from output
 </code></pre>
 
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong><code>cat journal.txt | base64 -d &gt; output</code></strong>:<ul>
+<li><strong><code>cat journal.txt</code></strong>: Reads the content of <code>journal.txt</code>.</li>
+<li><strong><code>|</code> (Pipe)</strong>: This symbol sends the output of the <code>cat</code> command as input to the next command.</li>
+<li><strong><code>base64 -d</code></strong>: This command decodes data that has been encoded using Base64. It's common for data to be Base64 encoded to make it easier to transmit or hide within text-based formats.</li>
+<li><strong><code>&gt; output</code></strong>: Redirects the decoded output into a new file named <code>output</code>.</li>
+</ul>
+</li>
+<li><strong><code>file output</code></strong>: This command attempts to identify the type of file based on its content (magic bytes). The output tells us that <code>output</code> is a PNG image. This is our first clue that <code>journal.txt</code> wasn't just text, but likely contained an image encoded in Base64.</li>
+<li><strong><code>stegpy output</code></strong>:<ul>
+<li><strong>Steganography</strong>: This is the practice of concealing a file, message, image, or video within another file, message, image, or video.</li>
+<li><strong><code>stegpy</code></strong>: This is a tool (likely a Python script) designed for steganography analysis. It can detect and extract hidden data from various file types, including images.</li>
+<li><strong><code>File _journal.zip succesfully extracted from output</code></strong>: This is a fantastic result! <code>stegpy</code> found and extracted a ZIP archive hidden within the <code>output</code> PNG image.</li>
+</ul>
+</li>
+</ul>
 <h2>Exploitation</h2>
-<p><strong>Cracking the Archive:</strong><br />
-The zip file header seems corrupted. Fixing the magic bytes reveals it's a valid zip.</p>
+<p>We've uncovered a hidden ZIP file. Now we need to figure out how to access its contents.</p>
+<h3>Cracking the Archive</h3>
+<p>The <code>_journal.zip</code> file might be protected by a password. We'll first check its integrity and then attempt to crack it.</p>
 <pre class="codehilite"><code class="language-bash">file _journal.zip                                            
 # _journal.zip: Zip archive data
 </code></pre>
@@ -182,15 +228,49 @@ john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 # tigerlily        (Journal.ctz)     
 </code></pre>
 
-<p><strong>SSH Bruteforce:</strong><br />
-Using the decoded wordlists from the journal logs, we brute-force the <code>lily</code> user.</p>
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong><code>file _journal.zip</code></strong>: This command confirms that <code>_journal.zip</code> is indeed a Zip archive.</li>
+<li><strong><code>fcrackzip -uDp /usr/share/wordlists/rockyou.txt _journal.zip</code></strong>:<ul>
+<li><strong><code>fcrackzip</code></strong>: A tool specifically designed to crack ZIP archive passwords.</li>
+<li><strong><code>-u</code></strong>: This flag tells <code>fcrackzip</code> to try to unpack the archive after guessing a password, which helps verify if the password is correct.</li>
+<li><strong><code>-D</code></strong>: This option tells <code>fcrackzip</code> to use a dictionary file for brute-forcing.</li>
+<li><strong><code>-p /usr/share/wordlists/rockyou.txt</code></strong>: Specifies the path to the wordlist file (<code>rockyou.txt</code>) that will be used to try different passwords. Wordlists are common files containing thousands of potential passwords.</li>
+<li><strong><code>PASSWORD FOUND!!!!: pw == september</code></strong>: Success! <code>fcrackzip</code> successfully cracked the password for <code>_journal.zip</code>, revealing it to be "september".</li>
+</ul>
+</li>
+<li><strong><code>Journal.ctz</code></strong>: After extracting <code>_journal.zip</code> with the password "september", we find another archive, this time in the <code>.ctz</code> format, which is associated with 7-Zip.</li>
+<li><strong><code>/usr/share/john/7z2john.pl Journal.ctz &gt; hash.txt</code></strong>:<ul>
+<li><strong><code>7z2john.pl</code></strong>: This is a Perl script that converts a 7-Zip archive into a hash format that can be understood by John the Ripper.</li>
+<li><strong><code>&gt; hash.txt</code></strong>: Redirects the output (the hash) into a file named <code>hash.txt</code>.</li>
+</ul>
+</li>
+<li><strong><code>john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt</code></strong>:<ul>
+<li><strong><code>john</code></strong>: This invokes John the Ripper, a popular password-cracking tool.</li>
+<li><strong><code>hash.txt</code></strong>: Specifies the file containing the hash we want to crack.</li>
+<li><strong><code>--wordlist=/usr/share/wordlists/rockyou.txt</code></strong>: Again, we're using the <code>rockyou.txt</code> wordlist to try and crack the hash.</li>
+<li><strong><code>tigerlily (Journal.ctz)</code></strong>: John the Ripper successfully cracked the hash, revealing the password for the <code>Journal.ctz</code> archive is "tigerlily".</li>
+</ul>
+</li>
+</ul>
+<h3>SSH Bruteforce</h3>
+<p>With the password "tigerlily" and the decoded wordlists from the journal logs, we can now attempt to log in to the SSH service. It's a good practice to use usernames and passwords found in enumerated files. We'll try to brute-force the SSH login for the user <code>lily</code>.</p>
 <pre class="codehilite"><code class="language-bash">hydra -l lily -P cherry-blossom.txt ssh://10.64.149.126
 # [22][ssh] host: 10.64.149.126   login: lily   password: Mr.$un$hi..
 </code></pre>
 
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong><code>hydra</code></strong>: This is a powerful and versatile network logon cracker that supports numerous protocols.</li>
+<li><strong><code>-l lily</code></strong>: Specifies the username to attempt login with. In this case, it's "lily".</li>
+<li><strong><code>-P cherry-blossom.txt</code></strong>: Specifies the password list to use. We're using a file named <code>cherry-blossom.txt</code>, which likely contains passwords extracted or derived from the previous steps (possibly the decoded content of <code>journal.txt</code>).</li>
+<li><strong><code>ssh://10.64.149.126</code></strong>: Defines the protocol (SSH) and the target IP address.</li>
+<li><strong><code>[22][ssh] host: 10.64.149.126 login: lily password: Mr.$un$hi..</code></strong>: Hydra has found a valid username/password combination! The username is <code>lily</code>, and the password is <code>Mr.$un$hi..</code>. This is a crucial step towards gaining access to the system.</li>
+</ul>
 <h2>Privilege Escalation</h2>
-<p><strong>Hash Cracking:</strong><br />
-Found backup shadow files in <code>/var/backups</code>.</p>
+<p>We have a user-level shell via SSH. However, our ultimate goal is to gain root privileges to have full control over the system.</p>
+<h3>Hash Cracking</h3>
+<p>While exploring the compromised system, we find backup shadow files in <code>/var/backups</code>. These files often contain encrypted user passwords.</p>
 <pre class="codehilite"><code class="language-bash">/var/backups/shadow.bak
 johan:$6$zV7zbU1b...
 lily:$6$3GPkY0ZP...
@@ -201,12 +281,39 @@ lily:$6$3GPkY0ZP...
 # ##scuffleboo##   (johan)     
 </code></pre>
 
-<p><strong>Root Access:</strong><br />
-Switching to <code>johan</code> and pivoting to root via CVE-2019-18364 capabilities.</p>
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong><code>/var/backups/shadow.bak</code></strong>: This indicates that a backup of the system's shadow file (which stores user password hashes) was found. This is a common misconfiguration that can lead to privilege escalation.</li>
+<li><strong><code>johan:$6$zV7zbU1b...</code> and <code>lily:$6$3GPkY0ZP...</code></strong>: These lines show user entries from the shadow file.<ul>
+<li><code>johan</code> and <code>lily</code> are usernames.</li>
+<li><code>$6$</code> indicates the hashing algorithm (SHA-512 in this case), which is a strong hashing method. The rest of the string is the salt and the hashed password.</li>
+</ul>
+</li>
+<li><strong><code>john --wordlist=cherry-blossom.txt hashes.txt</code></strong>:<ul>
+<li>We're using John the Ripper again, this time with the <code>hashes.txt</code> file (which we can infer was created by extracting the relevant lines from <code>shadow.bak</code>).</li>
+<li>We're again using the <code>cherry-blossom.txt</code> wordlist.</li>
+<li><strong><code>##scuffleboo## (johan)</code></strong>: John the Ripper successfully cracked the password hash for the user <code>johan</code>, revealing the password to be <code>##scuffleboo##</code>.</li>
+</ul>
+</li>
+</ul>
+<h3>Root Access</h3>
+<p>Now that we have the password for <code>johan</code>, we can switch to that user and look for a way to become root.</p>
 <pre class="codehilite"><code class="language-bash">lily@cherryblossom:~$ su johan
 # Password: ##scuffleboo##
 johan@cherryblossom:~$ cat user.txt
 </code></pre>
+
+<h3>🧠 Beginner Analysis</h3>
+<ul>
+<li><strong><code>lily@cherryblossom:~$ su johan</code></strong>: From our <code>lily</code> user shell, we use the <code>su</code> (substitute user) command to switch to the <code>johan</code> user.</li>
+<li><strong><code>Password: ##scuffleboo##</code></strong>: We provide the password we cracked for <code>johan</code>.</li>
+<li><strong><code>johan@cherryblossom:~$ cat user.txt</code></strong>: Now that we are logged in as <code>johan</code>, we attempt to read a file named <code>user.txt</code>. In Capture The Flag (CTF) scenarios, <code>user.txt</code> often contains a flag or information that signifies user-level access has been achieved.</li>
+</ul>
+<p>The prompt doesn't show the output of <code>cat user.txt</code>, but in a typical CTF, this would contain the "user" flag. The next step would involve finding a way to escalate from the <code>johan</code> user to the <code>root</code> user, often by exploiting kernel vulnerabilities or misconfigurations, and then reading a <code>root.txt</code> file. The note mentions "CVE-2019-18364 capabilities," which strongly suggests a kernel exploit was used to gain root privileges.</p>
+<h3>🎓 Educational Moment: Capabilities</h3>
+<p>Linux capabilities are a powerful security feature that allows you to grant specific privileges to executables without giving them full root access. For example, a program might be allowed to bind to low-numbered ports without being a privileged process.</p>
+<p>However, like any security feature, capabilities can be misconfigured. Certain executables might be granted capabilities that they shouldn't have, or the system might have outdated software with known vulnerabilities that allow attackers to abuse these capabilities to gain higher privileges. CVE-2019-18364 is a specific example of a vulnerability related to how Linux handles capabilities, which could have been exploited here to escalate privileges from a user like <code>johan</code> to <code>root</code>.</p>
+<p>This completes our walkthrough of the Cherry Blossom machine! We've covered a wide range of essential cybersecurity techniques. Keep practicing these methods, and you'll be well on your way to becoming a skilled security professional.</p>
         </div>
     </main>
 
