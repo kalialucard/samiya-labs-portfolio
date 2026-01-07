@@ -126,58 +126,58 @@
 <p><strong>Gowitness</strong> is a website screenshot utility written in Golang. Useful for visual reconnaissance of large lists of subdomains.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Single Site</h3>
-<pre class="codehilite"><code class="language-bash">gowitness single --url http://example.com
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gowitness<span class="w"> </span>single<span class="w"> </span>--url<span class="w"> </span>http://example.com
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Screenshots one URL.</p>
 <h3>2. File Input</h3>
-<pre class="codehilite"><code class="language-bash">gowitness file -f urls.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gowitness<span class="w"> </span>file<span class="w"> </span>-f<span class="w"> </span>urls.txt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Screenshots every URL in the list.</p>
 <h3>3. Nmap Input</h3>
-<pre class="codehilite"><code class="language-bash">gowitness nmap -f scan.xml
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gowitness<span class="w"> </span>nmap<span class="w"> </span>-f<span class="w"> </span>scan.xml
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Parses an Nmap XML result and screenshots open web ports.</p>
 <h3>4. Threads</h3>
-<pre class="codehilite"><code class="language-bash">gowitness file -f urls.txt --threads 10
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gowitness<span class="w"> </span>file<span class="w"> </span>-f<span class="w"> </span>urls.txt<span class="w"> </span>--threads<span class="w"> </span><span class="m">10</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Screenshots in parallel.</p>
 <h3>5. Server Mode</h3>
-<pre class="codehilite"><code class="language-bash">gowitness server
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gowitness<span class="w"> </span>server
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Starts a web server to view the report gallery.</p>
 <h3>6. Resolution</h3>
-<pre class="codehilite"><code class="language-bash">gowitness single -u http://example.com --resolution 1920x1080
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gowitness<span class="w"> </span>single<span class="w"> </span>-u<span class="w"> </span>http://example.com<span class="w"> </span>--resolution<span class="w"> </span>1920x1080
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Sets capture resolution.</p>
 <h3>7. Timeout</h3>
-<pre class="codehilite"><code class="language-bash">gowitness file -f urls.txt --timeout 10
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gowitness<span class="w"> </span>file<span class="w"> </span>-f<span class="w"> </span>urls.txt<span class="w"> </span>--timeout<span class="w"> </span><span class="m">10</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Sets timeout (seconds) per page.</p>
 <h3>8. Delay</h3>
-<pre class="codehilite"><code class="language-bash">gowitness file -f urls.txt --delay 5
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gowitness<span class="w"> </span>file<span class="w"> </span>-f<span class="w"> </span>urls.txt<span class="w"> </span>--delay<span class="w"> </span><span class="m">5</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Waits 5 seconds before taking screenshot (waiting for animations/loading).</p>
 <h3>9. Database Name</h3>
-<pre class="codehilite"><code class="language-bash">gowitness file -f urls.txt --db scan.db
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gowitness<span class="w"> </span>file<span class="w"> </span>-f<span class="w"> </span>urls.txt<span class="w"> </span>--db<span class="w"> </span>scan.db
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Specify SQlite db file name.</p>
 <h3>10. Full Page</h3>
-<pre class="codehilite"><code class="language-bash"># (Older versions supported full page, modern usage relies on resolution)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># (Older versions supported full page, modern usage relies on resolution)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Gowitness focuses on viewport, ensure resolution is high for "full" feel.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">gowitness file -f alive_subdomains.txt --threads 20 --resolution 1280x1024; gowitness server
-</code></pre>
+<div class="codehilite"><pre><span></span><code>gowitness<span class="w"> </span>file<span class="w"> </span>-f<span class="w"> </span>alive_subdomains.txt<span class="w"> </span>--threads<span class="w"> </span><span class="m">20</span><span class="w"> </span>--resolution<span class="w"> </span>1280x1024<span class="p">;</span><span class="w"> </span>gowitness<span class="w"> </span>server
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Rapidly screenshot hundreds of hosts and then immediately spin up a local gallery to "scroll" through the targets visually.</p>
         </div>

@@ -159,9 +159,9 @@ Implement exponential backoff.</p>
 <p>If we were performing a manual test, we might use a tool like Hydra or Burp Suite's Intruder to automate the process of trying different username and password combinations. We would simply configure the tool to send thousands or millions of requests to the login endpoint.</p>
 <p><strong>Hypothetical Exploitation Scenario:</strong></p>
 <p>Let's say an attacker knows a username (<code>admin</code>) and suspects a common password like <code>password123</code>. Without rate limiting, they could try this combination hundreds, thousands, or even millions of times in rapid succession.</p>
-<pre class="codehilite"><code># Hypothetical command using a tool like Hydra (this is for illustration)
-# hydra -l admin -P passwords.txt http-post-form &quot;/login&quot; &quot;username=^USER^&amp;password=^PASS^&amp;submit=Login&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Hypothetical command using a tool like Hydra (this is for illustration)</span>
+<span class="c1"># hydra -l admin -P passwords.txt http-post-form &quot;/login&quot; &quot;username=^USER^&amp;password=^PASS^&amp;submit=Login&quot;</span>
+</code></pre></div>
 
 <p><strong>🧠 Beginner Analysis:</strong></p>
 <ul>

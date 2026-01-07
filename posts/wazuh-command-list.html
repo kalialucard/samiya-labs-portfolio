@@ -126,58 +126,58 @@
 <p><strong>Wazuh</strong> is a SIEM/XDR platform. Steps generally involve the agent.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Start Agent</h3>
-<pre class="codehilite"><code class="language-bash">systemctl start wazuh-agent
-</code></pre>
+<div class="codehilite"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>wazuh-agent
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Start the service.</p>
 <h3>2. Status</h3>
-<pre class="codehilite"><code class="language-bash">systemctl status wazuh-agent
-</code></pre>
+<div class="codehilite"><pre><span></span><code>systemctl<span class="w"> </span>status<span class="w"> </span>wazuh-agent
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Check if connected to manager.</p>
 <h3>3. Log Test</h3>
-<pre class="codehilite"><code class="language-bash">/var/ossec/bin/wazuh-logtest
-</code></pre>
+<div class="codehilite"><pre><span></span><code>/var/ossec/bin/wazuh-logtest
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Test how logs are parsed/decoded.</p>
 <h3>4. Agent Control (Manager)</h3>
-<pre class="codehilite"><code class="language-bash">/var/ossec/bin/agent_control -l
-</code></pre>
+<div class="codehilite"><pre><span></span><code>/var/ossec/bin/agent_control<span class="w"> </span>-l
+</code></pre></div>
 
 <p><strong>Explanation:</strong> List connected agents (on Manager).</p>
 <h3>5. Restart Helper</h3>
-<pre class="codehilite"><code class="language-bash">/var/ossec/bin/ossec-control restart
-</code></pre>
+<div class="codehilite"><pre><span></span><code>/var/ossec/bin/ossec-control<span class="w"> </span>restart
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Restart local processes.</p>
 <h3>6. Edit Config</h3>
-<pre class="codehilite"><code class="language-bash">nano /var/ossec/etc/ossec.conf
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nano<span class="w"> </span>/var/ossec/etc/ossec.conf
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Main configuration file.</p>
 <h3>7. Active Response Log</h3>
-<pre class="codehilite"><code class="language-bash">tail -f /var/ossec/logs/active-responses.log
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tail<span class="w"> </span>-f<span class="w"> </span>/var/ossec/logs/active-responses.log
+</code></pre></div>
 
 <p><strong>Explanation:</strong> See if Wazuh blocked anything automatically.</p>
 <h3>8. Keys</h3>
-<pre class="codehilite"><code class="language-bash">/var/ossec/bin/manage_agents
-</code></pre>
+<div class="codehilite"><pre><span></span><code>/var/ossec/bin/manage_agents
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Add/Remove agent keys.</p>
 <h3>9. Upgrade Agent</h3>
-<pre class="codehilite"><code class="language-bash">/var/ossec/bin/agent_upgrade -a 001
-</code></pre>
+<div class="codehilite"><pre><span></span><code>/var/ossec/bin/agent_upgrade<span class="w"> </span>-a<span class="w"> </span><span class="m">001</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Upgrade remote agent.</p>
 <h3>10. Verify Config</h3>
-<pre class="codehilite"><code class="language-bash">/var/ossec/bin/verify-agent-conf
-</code></pre>
+<div class="codehilite"><pre><span></span><code>/var/ossec/bin/verify-agent-conf
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Check config syntax.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">/var/ossec/bin/wazuh-logtest
-</code></pre>
+<div class="codehilite"><pre><span></span><code>/var/ossec/bin/wazuh-logtest
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Interactively debug why your security rules aren't triggering on specific log lines.</p>
         </div>

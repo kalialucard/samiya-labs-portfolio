@@ -126,59 +126,59 @@
 <p><strong>Nikto</strong> is an Open Source (GPL) web server scanner which performs comprehensive tests against web servers for multiple items, including over 6700 potentially dangerous files/programs, outdated versions of over 1250 servers, and version specific problems on over 270 servers.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Scan</h3>
-<pre class="codehilite"><code class="language-bash">nikto -h http://example.com
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-h<span class="w"> </span>http://example.com
+</code></pre></div>
 
 <p><strong>Explanation:</strong> The most basic scan against a host (<code>-h</code>). Scans port 80 by default.</p>
 <h3>2. Scan SSL/HTTPS</h3>
-<pre class="codehilite"><code class="language-bash">nikto -h https://example.com
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-h<span class="w"> </span>https://example.com
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Nikto automatically detects SSL, but specifying the protocol ensures it connects correctly.</p>
 <h3>3. Scan Specific Port</h3>
-<pre class="codehilite"><code class="language-bash">nikto -h example.com -p 8080
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-h<span class="w"> </span>example.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Scans a non-standard port (<code>-p</code>) like 8080 or 8443.</p>
 <h3>4. Scan Multiple Ports</h3>
-<pre class="codehilite"><code class="language-bash">nikto -h example.com -p 80,443,8080
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-h<span class="w"> </span>example.com<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>,443,8080
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Scans multiple ports on the same host in one go.</p>
 <h3>5. Using a Proxy</h3>
-<pre class="codehilite"><code class="language-bash">nikto -h example.com -useproxy http://127.0.0.1:8080
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-h<span class="w"> </span>example.com<span class="w"> </span>-useproxy<span class="w"> </span>http://127.0.0.1:8080
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Routes traffic through a proxy (like Burp or Zap) to capture and analyze the requests Nikto sends.</p>
 <h3>6. Output to File</h3>
-<pre class="codehilite"><code class="language-bash">nikto -h example.com -o scan_result.html
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-h<span class="w"> </span>example.com<span class="w"> </span>-o<span class="w"> </span>scan_result.html
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Saves the results to a file. The format is guessed from the extension (HTML in this case).</p>
 <h3>7. Disable SSL Checking</h3>
-<pre class="codehilite"><code class="language-bash">nikto -h https://example.com -ssl
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-h<span class="w"> </span>https://example.com<span class="w"> </span>-ssl
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Forces SSL mode (<code>-ssl</code>), useful if auto-detection fails.</p>
 <h3>8. Tuning (Scan Types)</h3>
-<pre class="codehilite"><code class="language-bash">nikto -h example.com -Tuning 2
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-h<span class="w"> </span>example.com<span class="w"> </span>-Tuning<span class="w"> </span><span class="m">2</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Runs only specific categories of tests (e.g., <code>2</code> is Misconfiguration / Default Files). Saves massive amounts of time.</p>
 <h3>9. Update Database</h3>
-<pre class="codehilite"><code class="language-bash">nikto -update
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-update
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Updates the plugin and database definitions to find the latest vulnerabilities.</p>
 <h3>10. Scan within a Directory</h3>
-<pre class="codehilite"><code class="language-bash">nikto -h http://example.com/subdir/
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-h<span class="w"> </span>http://example.com/subdir/
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Starts the scan inside a specific directory, useful if the target app isn't at the root.</p>
 <h2>The Most Powerful Command</h2>
 <p>Comprehensive Scan with WAF Evasion and Logging:</p>
-<pre class="codehilite"><code class="language-bash">nikto -h http://example.com -C all -evasion 1 -o scan.html -F html
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nikto<span class="w"> </span>-h<span class="w"> </span>http://example.com<span class="w"> </span>-C<span class="w"> </span>all<span class="w"> </span>-evasion<span class="w"> </span><span class="m">1</span><span class="w"> </span>-o<span class="w"> </span>scan.html<span class="w"> </span>-F<span class="w"> </span>html
+</code></pre></div>
 
 <p><strong>Why it's powerful:</strong><br />
 *   <code>-C all</code>: Forces checking of <strong>all</strong> CGI directories.<br />

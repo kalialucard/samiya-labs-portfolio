@@ -137,31 +137,31 @@
 <h2>Installation</h2>
 <h3>Option 1: Kali Linux / Debian (Recommended)</h3>
 <p>Sqlmap is pre-installed on Kali Linux. To install or update it:</p>
-<pre class="codehilite"><code class="language-bash">sudo apt update
-sudo apt install sqlmap
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>sqlmap
+</code></pre></div>
 
 <h3>Option 2: Git Clone (Manual)</h3>
 <p>To get the latest version directly from the source:</p>
-<pre class="codehilite"><code class="language-bash">git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
-cd sqlmap-dev
-python3 sqlmap.py --help
-</code></pre>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>https://github.com/sqlmapproject/sqlmap.git<span class="w"> </span>sqlmap-dev
+<span class="nb">cd</span><span class="w"> </span>sqlmap-dev
+python3<span class="w"> </span>sqlmap.py<span class="w"> </span>--help
+</code></pre></div>
 
 <h3>Option 3: Python Pip</h3>
-<pre class="codehilite"><code class="language-bash">pip install sqlmap
-</code></pre>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>sqlmap
+</code></pre></div>
 
 <h2>Verification</h2>
 <p>Confirm installation by checking the version:</p>
-<pre class="codehilite"><code class="language-bash">sqlmap --version
-# Output: sqlmap/1.8.x#stable
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>--version
+<span class="c1"># Output: sqlmap/1.8.x#stable</span>
+</code></pre></div>
 
 <h2>Basic Usage</h2>
 <p>To scan a simple URL:</p>
-<pre class="codehilite"><code class="language-bash">sqlmap -u &quot;http://target.com/index.php?id=1&quot; --batch
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sqlmap<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;http://target.com/index.php?id=1&quot;</span><span class="w"> </span>--batch
+</code></pre></div>
         </div>
     </main>
 

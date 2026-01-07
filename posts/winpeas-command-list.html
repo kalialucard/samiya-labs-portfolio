@@ -126,57 +126,57 @@
 <p><strong>WinPEAS</strong> is the Windows counterpart. It enumerates registry, services, files, and updates to find privilege escalation vectors.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Run</h3>
-<pre class="codehilite"><code class="language-cmd">winpeas.exe
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.exe
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Run checks.</p>
 <h3>2. Fast Scan</h3>
-<pre class="codehilite"><code class="language-cmd">winpeas.exe fast
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.exe fast
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Skip heavy checks (like file analysis).</p>
 <h3>3. Search Passwords</h3>
-<pre class="codehilite"><code class="language-cmd">winpeas.exe searchfast
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.exe searchfast
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Look for stored credentials/autologon specifically.</p>
 <h3>4. Cmd Only (No Color/Binary)</h3>
-<pre class="codehilite"><code class="language-cmd">winpeas.bat
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.bat
+</code></pre></div>
 
 <p><strong>Explanation:</strong> If you can't drop an EXE, use the Batch script version.</p>
 <h3>5. Services Check</h3>
-<pre class="codehilite"><code class="language-cmd">winpeas.exe servicesinfo
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.exe servicesinfo
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Enumerate services, look for Unquoted Service Paths.</p>
 <h3>6. PowerShell Mode</h3>
-<pre class="codehilite"><code class="language-cmd">winpeas.ps1
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.ps1
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Powershell version. Runs in memory, better for AV evasion often.</p>
 <h3>7. System Info</h3>
-<pre class="codehilite"><code class="language-cmd">winpeas.exe systeminfo
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.exe systeminfo
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Check patch levels, OS version (Kernel exploits).</p>
 <h3>8. Process Info</h3>
-<pre class="codehilite"><code class="language-cmd">winpeas.exe processinfo
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.exe processinfo
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Check running processes.</p>
 <h3>9. User Info</h3>
-<pre class="codehilite"><code class="language-cmd">winpeas.exe userinfo
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.exe userinfo
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Check current user privileges (SeDebugPrivilege, etc).</p>
 <h3>10. Output</h3>
-<pre class="codehilite"><code class="language-cmd">winpeas.exe &gt; report.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.exe &gt; report.txt
+</code></pre></div>
 
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-cmd">winpeas.exe quiet
-</code></pre>
+<div class="codehilite"><pre><span></span><code>winpeas.exe quiet
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Like LinPEAS, running it and looking for <strong>RED</strong> text is the key. It highlights "AlwaysInstallElevated" or "Writable Service Exe" paths instantly.</p>
         </div>

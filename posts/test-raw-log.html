@@ -126,14 +126,14 @@
 <h2>Reconnaissance</h2>
 <p>The very first step in any penetration test or security assessment is reconnaissance, where we gather as much information as possible about our target. We often begin with a network scanner to identify active hosts and open ports.</p>
 <p>Our target for today is <code>10.10.10.27</code>. We'll start by running an Nmap scan to discover what ports are open and what services are running on them.</p>
-<pre class="codehilite"><code class="language-bash">Nmap scan report for 10.10.10.27
-Host is up (0.14s latency).
-PORT    STATE SERVICE      VERSION
-22/tcp  open  ssh          OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
-139/tcp open  netbios-ssn  Samba smbd 4.6.2
-445/tcp open  microsoft-ds Samba smbd 4.6.2
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
+<div class="codehilite"><pre><span></span><code>Nmap<span class="w"> </span>scan<span class="w"> </span>report<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">10</span>.10.10.27
+Host<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span><span class="o">(</span><span class="m">0</span>.14s<span class="w"> </span>latency<span class="o">)</span>.
+PORT<span class="w">    </span>STATE<span class="w"> </span>SERVICE<span class="w">      </span>VERSION
+<span class="m">22</span>/tcp<span class="w">  </span>open<span class="w">  </span>ssh<span class="w">          </span>OpenSSH<span class="w"> </span><span class="m">8</span>.2p1<span class="w"> </span>Ubuntu<span class="w"> </span>4ubuntu0.5<span class="w"> </span><span class="o">(</span>Ubuntu<span class="w"> </span>Linux<span class="p">;</span><span class="w"> </span>protocol<span class="w"> </span><span class="m">2</span>.0<span class="o">)</span>
+<span class="m">139</span>/tcp<span class="w"> </span>open<span class="w">  </span>netbios-ssn<span class="w">  </span>Samba<span class="w"> </span>smbd<span class="w"> </span><span class="m">4</span>.6.2
+<span class="m">445</span>/tcp<span class="w"> </span>open<span class="w">  </span>microsoft-ds<span class="w"> </span>Samba<span class="w"> </span>smbd<span class="w"> </span><span class="m">4</span>.6.2
+Service<span class="w"> </span>Info:<span class="w"> </span>OS:<span class="w"> </span>Linux<span class="p">;</span><span class="w"> </span>CPE:<span class="w"> </span>cpe:/o:linux:linux_kernel
+</code></pre></div>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <p>Let's break down this Nmap output line by line to understand what we've discovered:</p>
@@ -171,14 +171,14 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 <h2>Enumeration</h2>
 <p>Now that we know a Samba service is running, our next logical step is to enumerate it. Enumeration involves actively querying a service to extract more detailed information about its configuration, users, shares, and other potential weaknesses. For Samba, the <code>smbclient</code> tool is invaluable.</p>
 <p>We will use <code>smbclient</code> with the <code>-L</code> flag to list the available shares on the target IP address.</p>
-<pre class="codehilite"><code class="language-bash">$ smbclient -L //10.10.10.27
-Sharename       Type      Comment
----------       ----      -------
-print$          Disk      Printer Drivers
-backups         Disk      System Backups
-IPC$            IPC       IPC Service (Samba 4.6.2)
-Anonymous login successful
-</code></pre>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>smbclient<span class="w"> </span>-L<span class="w"> </span>//10.10.10.27
+Sharename<span class="w">       </span>Type<span class="w">      </span>Comment
+---------<span class="w">       </span>----<span class="w">      </span>-------
+print$<span class="w">          </span>Disk<span class="w">      </span>Printer<span class="w"> </span>Drivers
+backups<span class="w">         </span>Disk<span class="w">      </span>System<span class="w"> </span>Backups
+IPC$<span class="w">            </span>IPC<span class="w">       </span>IPC<span class="w"> </span>Service<span class="w"> </span><span class="o">(</span>Samba<span class="w"> </span><span class="m">4</span>.6.2<span class="o">)</span>
+Anonymous<span class="w"> </span>login<span class="w"> </span>successful
+</code></pre></div>
 
 <p>🧠 <strong>Beginner Analysis</strong></p>
 <p>Let's dissect this <code>smbclient</code> command and its output:</p>

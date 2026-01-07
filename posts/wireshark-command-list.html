@@ -126,58 +126,58 @@
 <p><strong>Wireshark</strong> is for analysis. <strong>TShark</strong> is the CLI version.</p>
 <h2>Top 10 Useful Commands</h2>
 <h3>1. Start Capture (GUI)</h3>
-<pre class="codehilite"><code class="language-bash">wireshark &amp;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>wireshark<span class="w"> </span><span class="p">&amp;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Launch GUI.</p>
 <h3>2. TShark Capture</h3>
-<pre class="codehilite"><code class="language-bash">tshark -i eth0
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tshark<span class="w"> </span>-i<span class="w"> </span>eth0
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Capture on interface cli.</p>
 <h3>3. Write to File</h3>
-<pre class="codehilite"><code class="language-bash">tshark -i eth0 -w capture.pcap
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tshark<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-w<span class="w"> </span>capture.pcap
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Save packets.</p>
 <h3>4. Read File</h3>
-<pre class="codehilite"><code class="language-bash">tshark -r capture.pcap
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tshark<span class="w"> </span>-r<span class="w"> </span>capture.pcap
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Analyze offline file.</p>
 <h3>5. Filter IP</h3>
-<pre class="codehilite"><code class="language-bash">ip.addr == 10.10.10.10
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ip.addr<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">10</span>.10.10.10
+</code></pre></div>
 
 <p><strong>Explanation:</strong> (Display Filter) Show only this IP.</p>
 <h3>6. Filter HTTP</h3>
-<pre class="codehilite"><code class="language-bash">http.request.method == &quot;POST&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>http.request.method<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Show POST requests.</p>
 <h3>7. Follow Stream (CLI)</h3>
-<pre class="codehilite"><code class="language-bash">tshark -r file.pcap -z follow,tcp,ascii,0
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tshark<span class="w"> </span>-r<span class="w"> </span>file.pcap<span class="w"> </span>-z<span class="w"> </span>follow,tcp,ascii,0
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Reconstruct TCP stream 0.</p>
 <h3>8. Stats</h3>
-<pre class="codehilite"><code class="language-bash">capinfos capture.pcap
-</code></pre>
+<div class="codehilite"><pre><span></span><code>capinfos<span class="w"> </span>capture.pcap
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Show duration/bitrate stats.</p>
 <h3>9. Extract Objects</h3>
-<pre class="codehilite"><code class="language-bash">tshark -r capture.pcap --export-objects http,destdir/
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tshark<span class="w"> </span>-r<span class="w"> </span>capture.pcap<span class="w"> </span>--export-objects<span class="w"> </span>http,destdir/
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Extract images/files from PCAP.</p>
 <h3>10. Credentials (Ngrep style)</h3>
-<pre class="codehilite"><code class="language-bash">tshark -r file.pcap -Y &quot;http contains password&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tshark<span class="w"> </span>-r<span class="w"> </span>file.pcap<span class="w"> </span>-Y<span class="w"> </span><span class="s2">&quot;http contains password&quot;</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Search payload for strings.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">ip.addr == 192.168.1.5 &amp;&amp; http
-</code></pre>
+<div class="codehilite"><pre><span></span><code>ip.addr<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">192</span>.168.1.5<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>http
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Simple filter to isolate all web traffic for a specific target.</p>
         </div>

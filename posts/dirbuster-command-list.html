@@ -209,19 +209,19 @@
 <hr />
 <h2>3. The Most Powerful Command (Conceptually)</h2>
 <p>While Dirbuster is graphical, the underlying power comes from combining several options. The "most powerful" approach isn't a single command, but a well-configured session. If we were to conceptualize a powerful, all-encompassing command-line equivalent, it would look something like this:</p>
-<pre class="codehilite"><code class="language-bash"># This is a conceptual representation as Dirbuster is GUI-based
-# but illustrates the powerful combination of settings.
+<div class="codehilite"><pre><span></span><code><span class="c1"># This is a conceptual representation as Dirbuster is GUI-based</span>
+<span class="c1"># but illustrates the powerful combination of settings.</span>
 
-dirbuster \
-  --url http://target-website.com \
-  --port 80 \
-  --dictionary /path/to/large-wordlist.txt \
-  --mode directory \
-  --threads 50 \
-  --include-codes 200,301,302 \
-  --exclude-codes 404 \
-  --output results.txt
-</code></pre>
+dirbuster<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--url<span class="w"> </span>http://target-website.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--dictionary<span class="w"> </span>/path/to/large-wordlist.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--mode<span class="w"> </span>directory<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--threads<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--include-codes<span class="w"> </span><span class="m">200</span>,301,302<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--exclude-codes<span class="w"> </span><span class="m">404</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>results.txt
+</code></pre></div>
 
 <p><strong>Explanation of this Conceptual Command:</strong></p>
 <ul>

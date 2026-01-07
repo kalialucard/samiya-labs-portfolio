@@ -126,58 +126,58 @@
 <p><strong>Tmux</strong> is a terminal multiplexer.</p>
 <h2>Top 10 Useful Commands (Prefix usually Ctrl+B)</h2>
 <h3>1. New Session</h3>
-<pre class="codehilite"><code class="language-bash">tmux new -s hacking
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>hacking
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Create named session.</p>
 <h3>2. Detach</h3>
-<pre class="codehilite"><code class="language-bash">(Ctrl+B then d)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">(</span>Ctrl+B<span class="w"> </span><span class="k">then</span><span class="w"> </span>d<span class="o">)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Leave session running in background.</p>
 <h3>3. Attach</h3>
-<pre class="codehilite"><code class="language-bash">tmux a -t hacking
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tmux<span class="w"> </span>a<span class="w"> </span>-t<span class="w"> </span>hacking
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Re-join session.</p>
 <h3>4. List Sessions</h3>
-<pre class="codehilite"><code class="language-bash">tmux ls
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tmux<span class="w"> </span>ls
+</code></pre></div>
 
 <p><strong>Explanation:</strong> See active sessions.</p>
 <h3>5. Split Vertical</h3>
-<pre class="codehilite"><code class="language-bash">(Ctrl+B then %)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">(</span>Ctrl+B<span class="w"> </span><span class="k">then</span><span class="w"> </span>%<span class="o">)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Split pane left/right.</p>
 <h3>6. Split Horizontal</h3>
-<pre class="codehilite"><code class="language-bash">(Ctrl+B then &quot;)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">(</span>Ctrl+B<span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">&quot;)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Split pane top/bottom.</p>
 <h3>7. New Window</h3>
-<pre class="codehilite"><code class="language-bash">(Ctrl+B then c)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">(</span>Ctrl+B<span class="w"> </span><span class="k">then</span><span class="w"> </span>c<span class="o">)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Create new tab/window.</p>
 <h3>8. Navigate Panes</h3>
-<pre class="codehilite"><code class="language-bash">(Ctrl+B then Arrows)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">(</span>Ctrl+B<span class="w"> </span><span class="k">then</span><span class="w"> </span>Arrows<span class="o">)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Move focus.</p>
 <h3>9. Kill Pane</h3>
-<pre class="codehilite"><code class="language-bash">(Ctrl+B then x)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">(</span>Ctrl+B<span class="w"> </span><span class="k">then</span><span class="w"> </span>x<span class="o">)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Close current pane.</p>
 <h3>10. Rename Window</h3>
-<pre class="codehilite"><code class="language-bash">(Ctrl+B then ,)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">(</span>Ctrl+B<span class="w"> </span><span class="k">then</span><span class="w"> </span>,<span class="o">)</span>
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Rename tab.</p>
 <h2>The Most Powerful Command</h2>
-<pre class="codehilite"><code class="language-bash">tmux a || tmux new -s main
-</code></pre>
+<div class="codehilite"><pre><span></span><code>tmux<span class="w"> </span>a<span class="w"> </span><span class="o">||</span><span class="w"> </span>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>main
+</code></pre></div>
 
 <p><strong>Explanation:</strong> Attach to existing session or create a new one (shell alias).</p>
         </div>

