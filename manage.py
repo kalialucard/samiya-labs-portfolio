@@ -655,7 +655,9 @@ class ContentManager:
             "security-policies-risk-management": "accent-green",
             "cloud-secure-development-operations": "accent-green",
             "ai-machine-learning": "rose-400",
+            "personal-projects": "amber-400",
             "networking-infrastructure": "accent-cyan",
+
             "software-engineering": "amber-400",
             "hardware-systems": "purple-500",
             "devsecops": "accent-green"

@@ -24,7 +24,9 @@ description: "WordPress vulnerability scanner."
 ### Primary Method
 ```bash
 sudo apt install wpscan
-# OR
+```
+OR
+```bash
 gem install wpscan
 ```
 

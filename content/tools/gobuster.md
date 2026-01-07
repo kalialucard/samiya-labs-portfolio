@@ -24,7 +24,9 @@ description: "Fast directory/file & DNS busting tool."
 ### Primary Method
 ```bash
 sudo apt install gobuster
-# OR
+```
+OR
+```bash
 go install github.com/OJ/gobuster/v3@latest
 ```
 

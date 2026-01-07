@@ -24,7 +24,9 @@ description: "In-depth Attack Surface Mapping and Asset Discovery."
 ### Primary Method
 ```bash
 sudo apt install amass
-# OR
+```
+OR
+```bash
 go install github.com/owasp-amass/amass/v3/...@master
 ```
 

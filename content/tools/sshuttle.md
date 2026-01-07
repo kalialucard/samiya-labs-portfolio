@@ -24,7 +24,9 @@ description: "Transparent proxy server that works as a poor man's VPN."
 ### Primary Method
 ```bash
 sudo apt install sshuttle
-# OR
+```
+OR
+```bash
 pip install sshuttle
 ```
 

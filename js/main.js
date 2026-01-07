@@ -194,15 +194,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         updateFeed();
     }
-    // 8. Copy to Clipboard for Code Blocks
-    // Target both standard markdown content and injected content (e.g. from JS)
-    const codeBlocks = document.querySelectorAll('.markdown-content pre, #injected-content pre');
+    // 8. Copy to Clipboard for Code Blocks (Universal Observer)
+    const addCopyButton = (pre) => {
+        // Prevent duplicate buttons
+        if (pre.querySelector('.copy-btn-injected')) return;
 
-    codeBlocks.forEach(pre => {
         // Create button
         const btn = document.createElement('button');
         btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
-        btn.className = 'absolute top-2 right-2 text-slate-400 hover:text-white transition-all duration-200 opacity-0 group-hover:opacity-100 p-2 rounded bg-slate-800/50 backdrop-blur-sm border border-slate-700/50';
+        btn.className = 'copy-btn-injected absolute top-2 right-2 text-slate-400 hover:text-white transition-all duration-200 opacity-0 group-hover:opacity-100 p-2 rounded bg-slate-800/50 backdrop-blur-sm border border-slate-700/50';
         btn.setAttribute('aria-label', 'Copy to clipboard');
 
         // Make pre relative for positioning and group for hover
@@ -236,6 +236,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.innerHTML = '<i class="fa-solid fa-xmark text-red-500"></i>';
             });
         });
+    };
+
+    // Initial Run
+    document.querySelectorAll('pre').forEach(addCopyButton);
+
+    // Watch for new content (MutationObserver)
+    const copyObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+                if (node.nodeType === 1) { // Element node
+                    if (node.tagName === 'PRE') {
+                        addCopyButton(node);
+                    } else if (node.querySelectorAll) {
+                        node.querySelectorAll('pre').forEach(addCopyButton);
+                    }
+                }
+            });
+        });
+    });
+
+    copyObserver.observe(document.body, {
+        childList: true,
+        subtree: true
     });
 
 });

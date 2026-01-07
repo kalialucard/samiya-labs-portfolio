@@ -24,7 +24,9 @@ description: "Fast web fuzzer written in Go."
 ### Primary Method
 ```bash
 go install github.com/ffuf/ffuf/v2@latest
-# OR
+```
+OR
+```bash
 sudo apt install ffuf
 ```
 

@@ -24,7 +24,9 @@ description: "Classic web server scanner."
 ### Primary Method
 ```bash
 sudo apt install nikto
-# OR
+```
+OR
+```bash
 git clone https://github.com/sullo/nikto.git
 ```
 

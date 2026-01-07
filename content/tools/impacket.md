@@ -24,7 +24,9 @@ description: "Collection of Python classes for working with network protocols."
 ### Primary Method
 ```bash
 pip install impacket
-# OR
+```
+OR
+```bash
 git clone https://github.com/fortra/impacket.git; cd impacket; pip install .
 ```
 

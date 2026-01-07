@@ -78,4 +78,4 @@ wpscan --url http://example.com --random-user-agent --throttle 500
 The "Full Audit" command:
 
 ```bash
-wpscan --url http://target.com --enumerate vp,vt,tt,cb,dbe,u,m --plugins-detection aggressive --
+wpscan --url http://target.com --enumerate vp,vt,tt,cb,dbe,u,m --plugins-detection aggressive

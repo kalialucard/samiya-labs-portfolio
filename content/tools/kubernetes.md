@@ -24,7 +24,9 @@ description: "Container orchestration system."
 ### Primary Method
 ```bash
 sudo apt install kubectl
-# OR (via snap)
+```
+OR (via snap)
+```bash
 sudo snap install kubectl --classic
 ```
 
